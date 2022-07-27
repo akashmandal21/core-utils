@@ -1,6 +1,6 @@
 package com.stanzaliving.core.commercialcode.dto;
-
 import com.stanzaliving.booking.enums.AMCAmountType;
+import com.stanzaliving.commercialcard.enums.CommercialCardStatus;
 import lombok.*;
 
 import java.util.List;
@@ -42,4 +42,6 @@ public class CodeListDto {
     private List<CommercialCardApplicabilityDto> applicabilityDtoList;
 
     private AMCAmountType maintenanceChargeAmountType;
+
+    private CommercialCardStatus cardStatus;
 }

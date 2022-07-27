@@ -21,6 +21,10 @@ import java.util.Objects;
 public class LeadRequestDto {
 
 	private Long leadId;
+	private String leadUuid;
+	
+	private String userIpAddress;
+	
 	private String firstName;
 	private String lastName;
 	private String email;
@@ -39,6 +43,8 @@ public class LeadRequestDto {
 	private String residenceNameUuid;
 
 	private String leadOwnerId;
+	
+	private String createdBy;
 
 	private Integer cityId;
 	private String cityName;
@@ -48,6 +54,10 @@ public class LeadRequestDto {
 	private String micromarketName;
 	private String micromarketNameUuid;
 
+	private String cityUuid;
+	private String micromarketUuid;
+	private String residenceUuid;
+	
 	private String micromarketAliasName;
 
 	private String otherMicromarketName;
@@ -55,6 +65,8 @@ public class LeadRequestDto {
 	private String referralCode;
 
 	private String durationOfStay;
+
+	private String preBookingDate;
 
 	private String durationTime;
 	private String college;
@@ -89,6 +101,9 @@ public class LeadRequestDto {
 	private String leadSubMode;
 	private String moveInDate;
 	private Double reserveAmount;
+
+	private Integer preBookingAmount;
+	private Integer unlockDiscountAmount;
 
 	private String category;
 	private String fbclId;
@@ -131,10 +146,31 @@ public class LeadRequestDto {
 
 	private String extendDurationMessage;
 
+	private boolean isLeadBooked;
+	
 	private Integer placeId;
 	private String placeName;
 	private String timeSlot;
 
 	private String budget;
+
+	private String platformOs;
+	private String preferredLanguage;
+
+	public String getEmail() {
+		return Objects.nonNull(this.email) ? this.email.trim(): null;
+	}
+
+	public void setEmail(String email) {
+		this.email = Objects.nonNull(email) ? email.trim(): null;
+	}
+
+	public String getPhone() {
+		return Objects.nonNull(this.phone) ? this.phone.trim(): null;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = Objects.nonNull(phone) ? phone.trim(): null;
+	}
 	private String leadTag;
 }

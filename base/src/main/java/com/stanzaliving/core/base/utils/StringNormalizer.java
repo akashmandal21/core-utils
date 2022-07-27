@@ -5,6 +5,7 @@ package com.stanzaliving.core.base.utils;
 
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.text.WordUtils;
 
 import lombok.experimental.UtilityClass;
 
@@ -47,6 +48,20 @@ public class StringNormalizer {
 			string = string.replaceAll(regex, replaceString).trim();
 		}
 
+		return string;
+	}
+	
+	/**
+	 * Method to convert a string to title case with following assumptions -
+	 * 1. Char just after comma will be capitalized
+	 * 2. Char just after space will be capitalized
+	 * 3. Leading and Trailing Spaces are removed (trimmed)
+	 */
+	public static String getTitleCaseString(String string) {
+
+		if (StringUtils.isNotEmpty(string)) {
+			string = WordUtils.capitalizeFully(string, ',', ' ').trim();
+		}
 		return string;
 	}
 }

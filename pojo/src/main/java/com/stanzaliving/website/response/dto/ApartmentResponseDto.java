@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
+import com.stanzaliving.core.enums.PropertyEntityType;
 import com.stanzaliving.website.enums.FomoTag;
 import com.stanzaliving.website.enums.Gender;
 
@@ -40,7 +41,11 @@ public class ApartmentResponseDto implements Serializable, Comparable<ApartmentR
 	
 	private String slug;
 	
+	private String roomId;
+	
 	private Gender gender;
+	
+	private String genderName;
 	
 	private int micromarketId;
 	
@@ -69,6 +74,8 @@ public class ApartmentResponseDto implements Serializable, Comparable<ApartmentR
 	private Integer secondSortOrder;
 	
 	private Integer preBookingAmount;
+
+	private Integer unlockDiscountAmount;
 	
 	private String preBookingMode;
 	
@@ -96,13 +103,29 @@ public class ApartmentResponseDto implements Serializable, Comparable<ApartmentR
 	
 	private Date created;
 	
-	private List<ApartmentResponseDto> similarApartments;
+	private Integer discountPercentage;
 	
+	private Integer discountedPrice;
+	
+	private PropertyEntityType propertyEntityType;
+	
+	private List<ApartmentResponseDto> similarApartments;
+
+	private AddressResponseDTO addressResponseDTO;
+
 	@Builder.Default
 	private Integer similarApartmentsCount = 0;
 	
+	private Boolean soldOut;
+	
+	private boolean isEntireFlatAvailable;
+	
 	@Builder.Default
 	private Set<FacilityResponseDTO> facilities = new HashSet<>();
+	
+	private List<Integer> featureIds;
+
+	private List<FeatureResponseDTO> features;
 	
 	@Builder.Default
 	private List<ApartmentRoomTypeResponseDTO> apartmentRoomTypes = Collections.emptyList();

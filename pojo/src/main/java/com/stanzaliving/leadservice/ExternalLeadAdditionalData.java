@@ -1,4 +1,4 @@
-package com.stanzaliving.leadservice;
+package com.stanzaliving.leadService;
 
 
 import java.util.Map;
