@@ -99,15 +99,21 @@ public enum SupplyChainEvents {
         parentSCEvents.put(VENDOR_ACCEPTED, Arrays.asList(PO_APPROVAL));
         parentSCEvents.put(VENDOR_REJECTED, Arrays.asList(PO_APPROVAL));
 
-        scDltTemplateMap.put(PO_APPROVAL, new SmsInfo("1707165702399427199","PARTNER", "Dear Partner, a new Purchase Order has been raised by Stanza Living. Please login here to accept the purchase order: www.partner.stanzaliving.com"));
-        scDltTemplateMap.put(VENDOR_ACCEPTED, new SmsInfo("1707165702407186517","SL", "Dear <createdBy> purchase order <poNumber> has been accepted by Partner <companyName>. Click here for the next steps: https://nucleus.stanzaliving.com/login"));
-        scDltTemplateMap.put(VENDOR_REJECTED, new SmsInfo("1707165702430365902","SL", "Dear <createdBy>. Purchase Order <poNumber> has been rejected by the <companyName>. Click here: https://nucleus.stanzaliving.com/login to know the details."));
-        scDltTemplateMap.put(PO_CANCELLED, new SmsInfo("1707165702414603261","PARTNER", "Dear Partner, purchase order <poNumber> has been canceled by <submittedBy>. For further information, please check here: www.partner.stanzaliving.com"));
-        scDltTemplateMap.put(PO_SHORTCLOSE_SUBMIT, new SmsInfo("1707165702495326775","SL", "Dear <createdBy>, <companyName> has requested to short close the purchase order <poNumber>. To know more, click here: https://nucleus.stanzaliving.com/login"));
-        scDltTemplateMap.put(GSRI_INSTALL, new SmsInfo("1707165702505158991","PARTNER", "Dear partner, <grnPercentage>% of GRN for purchase order <poNumber> has been received at Stanza Living. Kindly login to see the details. Click here to know more: www.partner.stanzaliving.com"));
-        scDltTemplateMap.put(REG_INV_SUBMITTED, new SmsInfo("1707165702516482670","SL", "Dear <createdBy> Invoice <invoiceNumber> has been submitted by <companyName>. Click here to know the details: https://nucleus.stanzaliving.com/login"));
-        scDltTemplateMap.put(REG_INV_REJECTED, new SmsInfo("1707165702524817239","PARTNER", "Dear partner, your invoice <invoiceNumber> has been rejected by Stanza Living. Kindly login to know the reason: www.partner.stanzaliving.com"));
-        scDltTemplateMap.put(REG_INV_PAYMENT, new SmsInfo("1707165702531440336","SL", "Dear partner, payment of <amountPaid> has been made against your invoice no. <invoiceNumber> by Stanza Living. To see the details, please click here: www.partner.stanzaliving.com"));
+        scDltTemplateMap.put(PO_APPROVAL, new SmsInfo("1707165813001183916","PARTNER", "A new Purchase Order has been raised by Stanza Living. Please login here to accept the purchase order: <url>"));
+        scDltTemplateMap.put(VENDOR_ACCEPTED, new SmsInfo("1707165820435842841","SL", "Purchase order <poNumber> has been accepted by Stanza Living Partner <companyName>. Click here for the next steps: <url>"));
+        scDltTemplateMap.put(VENDOR_REJECTED, new SmsInfo("1707165820437664749","SL", "Purchase Order <poNumber> has been rejected by Stanza Living partner <companyName>. Click here: <url> to know the details."));
+        scDltTemplateMap.put(PO_CANCELLED, new SmsInfo("1707165820440339977","PARTNER", "Purchase order <poNumber> has been canceled by Stanza Living. For further information, please check here: <url>"));
+        scDltTemplateMap.put(PO_SHORTCLOSE_SUBMIT, new SmsInfo("1707165820442446737","SL", "Stanza Living Partner<companyName> has requested to short close purchase order <poNumber>. To know more, click here: <url>"));
+        scDltTemplateMap.put(GSRI_COMPLETED, new SmsInfo("1707165813021585699","PARTNER", "<grnPercentage>% of GRN for purchase order <poNumber> has been received at Stanza Living. Kindly login to see the details. Click here to know more: <url>"));
+        scDltTemplateMap.put(REG_INV_SUBMITTED, new SmsInfo("1707165820444349249","SL", "Invoice <invoiceNumber> has been submitted by <companyName> for Stanza Living. Click here to know the details: <url>"));
+        scDltTemplateMap.put(REG_INV_REJECTED, new SmsInfo("1707165813030073866","PARTNER", "Your invoice <invoiceNumber> has been rejected by Stanza Living. Kindly login to know the reason: <url>"));
+        scDltTemplateMap.put(REG_INV_PAYMENT, new SmsInfo("1707165813033770944","SL", "Payment of Rs.<amountPaid> has been made against your invoice no. <invoiceNumber> by Stanza Living. To see the details, please click here: <url>"));
+        scDltTemplateMap.put(GSRI_INSTALL, new SmsInfo("1707165813021585699","PARTNER", "<grnPercentage>% of GRN for purchase order <poNumber> has been received at Stanza Living. Kindly login to see the details. Click here to know more: <url>"));
+        scDltTemplateMap.put(ADV_INV_SUBMITTED, new SmsInfo("1707165820444349249","SL", "Invoice <invoiceNumber> has been submitted by <companyName> for Stanza Living. Click here to know the details: <url>"));
+        scDltTemplateMap.put(ADV_INV_REJECTED, new SmsInfo("1707165813030073866","PARTNER", "Your invoice <invoiceNumber> has been rejected by Stanza Living. Kindly login to know the reason: <url>"));
+        scDltTemplateMap.put(ADV_PAYMENT, new SmsInfo("1707165813033770944","SL", "Payment of Rs.<amountPaid> has been made against your invoice no. <invoiceNumber> by Stanza Living. To see the details, please click here: <url>"));
+        scDltTemplateMap.put(REG_INV_PAYMENT_COMPLETE, new SmsInfo("1707165813033770944","SL", "Payment of Rs.<amountPaid> has been made against your invoice no. <invoiceNumber> by Stanza Living. To see the details, please click here: <url>"));
+        scDltTemplateMap.put(ADV_PAYMENT_COMPLETE, new SmsInfo("1707165813033770944","SL", "Payment of Rs.<amountPaid> has been made against your invoice no. <invoiceNumber> by Stanza Living. To see the details, please click here: <url>"));
 
     }
 
