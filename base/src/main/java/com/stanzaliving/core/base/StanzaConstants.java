@@ -15,6 +15,8 @@ import lombok.experimental.UtilityClass;
 @UtilityClass
 public class StanzaConstants {
 
+	public static final Integer ZER0 = 0;
+
 	public static final String DATE_SEPARATOR = "-";
 	public static final String IST_TIMEZONE = "Asia/Kolkata";
 	public static final String UTC_TIMEZONE = "UTC";

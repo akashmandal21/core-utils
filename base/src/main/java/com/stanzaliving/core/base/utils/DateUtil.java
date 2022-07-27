@@ -1080,6 +1080,7 @@ public class DateUtil {
         calendarInstance.set(Calendar.MINUTE, 00);
         calendarInstance.set(Calendar.HOUR_OF_DAY, 00);
         calendarInstance.set(Calendar.SECOND, 00);
+        calendarInstance.set(Calendar.MILLISECOND,0);
         Date currentDate = calendarInstance.getTime();
         return currentDate;
     }
