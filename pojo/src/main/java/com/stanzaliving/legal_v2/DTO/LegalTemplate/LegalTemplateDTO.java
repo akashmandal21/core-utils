@@ -29,7 +29,7 @@ public class LegalTemplateDTO extends AbstractMongoDto {
 
     private RegionType regionType;
 
-    private String regionValue;
+    private List<String> regionValue;
 
     @NotNull
     private TemplateStatus templateStatus;
