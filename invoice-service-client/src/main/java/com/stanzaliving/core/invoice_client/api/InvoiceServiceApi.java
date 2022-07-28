@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.util.UriComponentsBuilder;
+import com.stanzaliving.ventaInvoice.enums.ReferenceType;
+
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
