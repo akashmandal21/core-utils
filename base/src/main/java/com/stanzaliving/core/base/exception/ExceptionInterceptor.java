@@ -336,6 +336,16 @@ public class ExceptionInterceptor {
 
 		return ResponseDto.failure(e.getMessage(), exceptionId);
 	}
+	
+	@ExceptionHandler(UserValidationException.class)
+	@ResponseStatus(value = HttpStatus.UNAUTHORIZED)
+	public <T> ResponseDto<T> handleUserValidationException(UserValidationException e) {
+
+		String exceptionId = getExceptionId();
+		log.error("Got UserValidationException for exceptionId: {} With Message: {}", exceptionId, e.getMessage());
+
+		return ResponseDto.failure(e.getMessage(), exceptionId);
+	}
 
 	@ExceptionHandler(StanzaHttpException.class)
 	@ResponseStatus(value = HttpStatus.FAILED_DEPENDENCY)
