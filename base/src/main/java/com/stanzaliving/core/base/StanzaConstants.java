@@ -47,4 +47,11 @@ public class StanzaConstants {
 	public static final String REQ_UID = "reqUuid";
 	public static final String REQ_MOBILE = "reqUserMobile";
 
+	// DEVICE INFO
+	public static final String APP_NAME = "appName";
+	public static final String APP_VERSION = "appVersion";
+	public static final String DEVICE = "device";
+	public static final String PLATFORM = "platform";
+	public static final String PLATFORM_VERSION = "platformVersion";
+
 }
