@@ -29,6 +29,7 @@ public class ResidenceDetailsRequestDTO {
 	private String mobileNo;
 	private String phoneNo;
 	private Integer preBookingAmount;
+	private Integer unlockDiscountAmount;
 	private Integer sortOrder;
 	private boolean virtualTour;
 	private Integer cardCTAId;
