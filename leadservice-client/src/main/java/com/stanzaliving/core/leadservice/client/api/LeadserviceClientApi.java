@@ -675,7 +675,7 @@ public class LeadserviceClientApi {
     public ResponseDto<String> autoExpireReferralCode() {
         log.info("Expire referralCodes");
         Object postBody = null;
-        String path = UriComponentsBuilder.fromPath("/lead/referral/markExpire").toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/lead/referralCode/markExpire").toUriString();
 
         final HttpHeaders headerParams = new HttpHeaders();
 
