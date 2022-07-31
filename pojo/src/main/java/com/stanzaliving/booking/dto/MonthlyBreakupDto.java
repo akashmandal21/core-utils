@@ -73,6 +73,36 @@ public class MonthlyBreakupDto implements Serializable {
         return this.upsell;
     }
 
+    public ServicePriceDto getPackagedServicePriceDto() {
+        if (Objects.isNull(this.packagedServicePriceDto))
+            return new ServicePriceDto();
+        return this.packagedServicePriceDto;
+    }
+
+    public ServicePriceDto getFoodServicePriceDto() {
+        if (Objects.isNull(this.foodServicePriceDto))
+            return new ServicePriceDto();
+        return this.foodServicePriceDto;
+    }
+
+    public ServicePriceDto getAccommodationPriceDto() {
+        if (Objects.isNull(this.accommodationPriceDto))
+            return new ServicePriceDto();
+        return this.accommodationPriceDto;
+    }
+
+    public ServicePriceDto getUpsellPriceDto() {
+        if (Objects.isNull(this.upsellPriceDto))
+            return new ServicePriceDto();
+        return this.upsellPriceDto;
+    }
+
+    public ServicePriceDto getCityBufferPriceDto() {
+        if (Objects.isNull(this.cityBufferPriceDto))
+            return new ServicePriceDto();
+        return this.cityBufferPriceDto;
+    }
+
     public void setMonthlyFee(final Double monthlyFee) {
         this.monthlyFee = monthlyFee;
     }
@@ -87,5 +117,25 @@ public class MonthlyBreakupDto implements Serializable {
 
     public void setUpsell(final Double upsell) {
         this.upsell = upsell;
+    }
+
+    public void setPackagedServicePriceDto(final ServicePriceDto packagedServicePriceDto) {
+        this.packagedServicePriceDto = packagedServicePriceDto;
+    }
+
+    public void setFoodServicePriceDto(final ServicePriceDto foodServicePriceDto) {
+        this.foodServicePriceDto = foodServicePriceDto;
+    }
+
+    public void setAccommodationPriceDto(final ServicePriceDto accommodationPriceDto) {
+        this.accommodationPriceDto = accommodationPriceDto;
+    }
+
+    public void setUpsellPriceDto(final ServicePriceDto upsellPriceDto) {
+        this.upsellPriceDto = upsellPriceDto;
+    }
+
+    public void setCityBufferPriceDto(final ServicePriceDto cityBufferPriceDto) {
+        this.cityBufferPriceDto = cityBufferPriceDto;
     }
 }
