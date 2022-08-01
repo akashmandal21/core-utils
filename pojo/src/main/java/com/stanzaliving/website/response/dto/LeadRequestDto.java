@@ -49,6 +49,7 @@ public class LeadRequestDto {
 	private Integer cityId;
 	private String cityName;
 	private String cityNameUuid;
+	private String urlCity;
 
 	private Integer micromarketId;
 	private String micromarketName;
