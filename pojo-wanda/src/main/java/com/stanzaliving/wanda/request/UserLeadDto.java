@@ -20,4 +20,5 @@ public class UserLeadDto {
     @EnsureNumber(message = "Mobile must contain only numbers", fieldName = "phone")
     private String phone;
     private String leadSourceDesc;
+    private String leadEmail;
 }
