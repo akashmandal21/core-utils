@@ -22,5 +22,5 @@ public class LeadPaymentResponseDto {
     private double amount;
     private String uuid;
     private PaymentMode paymentMode;
-
+    private Date updatedAt;
 }

@@ -34,8 +34,10 @@ public class TicketDto {
     private String mergedBy;
     private Date closedAt;
     private Date slaTime;
+    private String designation;
     private Source source;
     private Date resolvedAt;
+    private Boolean removeSatisfied;
     private String resolvedByUuid;
     private String resolvedBy;
     private Date reopenedAt;
