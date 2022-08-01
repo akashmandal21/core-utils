@@ -74,6 +74,8 @@ public class ApartmentResponseDto implements Serializable, Comparable<ApartmentR
 	private Integer secondSortOrder;
 	
 	private Integer preBookingAmount;
+
+	private Integer unlockDiscountAmount;
 	
 	private String preBookingMode;
 	
