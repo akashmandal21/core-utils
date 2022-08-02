@@ -39,6 +39,8 @@ public enum SectionKey {
 	BEVERAGES("Beverages (tea + coffee + milk)","beverages", TemplateParentKey.OTHERS, Boolean.FALSE, Boolean.FALSE, Arrays.asList(SELECTED_OPTIONS,REMARKS,INPUT_VALUE,IMAGE)),
 	PANEER("Paneer","paneer", TemplateParentKey.OTHERS, Boolean.FALSE, Boolean.FALSE, Arrays.asList(SELECTED_OPTIONS,REMARKS,INPUT_VALUE,IMAGE)),
 	FRUITS("Fruits","fruits", TemplateParentKey.OTHERS, Boolean.FALSE, Boolean.FALSE, Arrays.asList(SELECTED_OPTIONS,REMARKS,INPUT_VALUE,IMAGE)),
+	KITCHEN_NAME("Kitchen Name","kitchenName", TemplateParentKey.OTHERS, Boolean.TRUE, Boolean.TRUE, Arrays.asList(SELECTED_OPTIONS,REMARKS,INPUT_VALUE,IMAGE)),
+	KITCHEN_MENU_CONFIG("Kitchen Menu Config","kitchenMenuConfig", TemplateParentKey.OTHERS, Boolean.TRUE, Boolean.TRUE, Arrays.asList(SELECTED_OPTIONS,REMARKS,INPUT_VALUE,IMAGE)),
 	BREAD_BUTTER_AND_JAM("Bread, Butter & Jam","breadButterAndJam", TemplateParentKey.OTHERS, Boolean.FALSE, Boolean.FALSE, Arrays.asList(SELECTED_OPTIONS,REMARKS,INPUT_VALUE,IMAGE)),
 	ROOMS_WITH_AC_REQUIREMENT("Rooms with AC requirement","roomsWithAcRequirement", TemplateParentKey.OTHERS, Boolean.FALSE, Boolean.FALSE, Arrays.asList(SELECTED_OPTIONS,REMARKS,INPUT_VALUE,IMAGE)),
 	ROOMS_WITH_TV_REQUIREMENT("Rooms with TV requirement","roomsWithTvRequirement", TemplateParentKey.OTHERS, Boolean.FALSE, Boolean.FALSE, Arrays.asList(SELECTED_OPTIONS,REMARKS,INPUT_VALUE,IMAGE)),
