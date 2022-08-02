@@ -8,12 +8,15 @@ import java.util.List;
 import java.util.Map;
 
 
+import com.stanzaliving.core.base.common.dto.ResponseDto;
+import com.stanzaliving.website.dto.WebsiteResidenceResponseDto;
 import com.stanzaliving.website.response.dto.ResidenceResponseDTO;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
+import org.springframework.stereotype.Service;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -88,7 +91,7 @@ public class WebsiteClientApi {
 
     }
 
-    public ResidenceResponseDTO getResidenceDetails(String residenceName) {
+    public WebsiteResidenceResponseDto getResidenceDetails(String residenceName) {
         try {
             Object postBody = null;
 
@@ -108,26 +111,25 @@ public class WebsiteClientApi {
             final String[] accepts = {"*/*"};
             final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-            ParameterizedTypeReference<ResidenceResponseDTO> returnType = new ParameterizedTypeReference<ResidenceResponseDTO>() {
+            ParameterizedTypeReference<WebsiteResidenceResponseDto> returnType = new ParameterizedTypeReference<WebsiteResidenceResponseDto>() {
             };
-
             return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+
         } catch (Exception e) {
             log.error("Error while fetching residence details of : " + residenceName, e);
             return null;
         }
 
-
     }
 
-    public String getResidenceGoogleLink(String residenceName) {
+    public ResponseDto<String> getResidenceGoogleLink(String residenceName) {
         try {
             Object postBody = null;
             log.info("Received request to get google ling of residenceName {}", residenceName);
             // create path and map variables
             final Map<String, Object> uriVariables = new HashMap<>();
 
-            String path = UriComponentsBuilder.fromPath("website/url/by").buildAndExpand(uriVariables)
+            String path = UriComponentsBuilder.fromPath("/website/url/by").buildAndExpand(uriVariables)
                     .toUriString();
 
             final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
@@ -138,7 +140,7 @@ public class WebsiteClientApi {
             final String[] accepts = {"*/*"};
             final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-            ParameterizedTypeReference<String> returnType = new ParameterizedTypeReference<String>() {
+            ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
             };
 
             return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
