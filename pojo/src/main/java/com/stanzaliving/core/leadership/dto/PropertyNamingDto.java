@@ -1,6 +1,6 @@
 package com.stanzaliving.core.leadership.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+
 import com.stanzaliving.core.enums.PropertyEntityType;
 import com.stanzaliving.transformations.enums.BrandName;
 import com.stanzaliving.transformations.enums.GenderAllowed;
