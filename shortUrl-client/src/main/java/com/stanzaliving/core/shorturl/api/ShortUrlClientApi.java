@@ -47,7 +47,7 @@ public class ShortUrlClientApi {
 
 	}
 
-	public String createShortUrl(UrlShortenerDto urlShortenerDto) {
+	public String createShortUrlIfNotExist(UrlShortenerDto urlShortenerDto) {
 
 		final Map<String, Object> uriVariables = new HashMap<>();
 
@@ -64,7 +64,14 @@ public class ShortUrlClientApi {
 		ParameterizedTypeReference<String> returnType = new ParameterizedTypeReference<String>() {
 		};
 
-		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, urlShortenerDto, headerParams, accept,
-				returnType);
+		String str = null;
+
+		try {
+			str = restClient.invokeAPI(path, HttpMethod.POST, queryParams, urlShortenerDto, headerParams, accept, returnType);
+		} catch (Exception e) {
+			return null;
+		}
+
+		return str;
 	}
 }
