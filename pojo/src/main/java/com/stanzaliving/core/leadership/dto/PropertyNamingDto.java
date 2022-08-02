@@ -18,7 +18,6 @@ public class PropertyNamingDto {
 
 	private String uuid;
 
-	@JsonProperty(value = "estateName", required=true)
 	private String estateName;
 
 	private String estateUuid;
@@ -27,16 +26,12 @@ public class PropertyNamingDto {
 	
 	private String estateCode;
 
-	@JsonProperty(value = "propertyName", required=true)
 	private String propertyName;
 
-	@JsonProperty(value = "brandName", required=true)
 	private BrandName brandName;
 
-	@JsonProperty(value = "subBrandName", required=true)
 	private SubBrandName subBrandName;
 
-	@JsonProperty(value = "gender", required=true)
 	private GenderAllowed gender;
 
 	private Double totalPremiseArea;
