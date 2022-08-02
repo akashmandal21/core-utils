@@ -49,29 +49,27 @@ public class ShortUrlClientApi {
 
 	public String createShortUrlIfNotExist(UrlShortenerDto urlShortenerDto) {
 
-		final Map<String, Object> uriVariables = new HashMap<>();
-
-		String path = UriComponentsBuilder.fromPath("/createShortUrlIfNotExist").buildAndExpand(uriVariables).toUriString();
-
-		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-
-		final HttpHeaders headerParams = new HttpHeaders();
-
-		final String[] accepts = { "*/*" };
-
-		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-
-		ParameterizedTypeReference<String> returnType = new ParameterizedTypeReference<String>() {
-		};
-
-		String str = null;
-
 		try {
-			str = restClient.invokeAPI(path, HttpMethod.POST, queryParams, urlShortenerDto, headerParams, accept, returnType);
+			final Map<String, Object> uriVariables = new HashMap<>();
+
+			String path = UriComponentsBuilder.fromPath("/createShortUrlIfNotExist").buildAndExpand(uriVariables).toUriString();
+
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+			final HttpHeaders headerParams = new HttpHeaders();
+
+			final String[] accepts = {"*/*"};
+
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+			ParameterizedTypeReference<String> returnType = new ParameterizedTypeReference<String>() {
+			};
+
+			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, urlShortenerDto, headerParams, accept, returnType);
+
 		} catch (Exception e) {
+			log.error("Error while creating shortUrl.", e);
 			return null;
 		}
-
-		return str;
 	}
 }
