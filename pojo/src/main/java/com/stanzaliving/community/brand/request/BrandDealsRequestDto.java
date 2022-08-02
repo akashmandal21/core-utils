@@ -7,6 +7,7 @@ import com.stanzaliving.community.enums.UserList;
 import com.stanzaliving.community.request.UserListDTO;
 import com.stanzaliving.core.base.common.dto.AbstractDto;
 
+import com.stanzaliving.genericdashboard.dto.AudienceLocationDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Builder.Default;
@@ -58,4 +59,6 @@ public class BrandDealsRequestDto extends AbstractDto {
 	private Date endDate;
 	
 	private String couponCodesCsvUrl;
+	
+	private AudienceLocationDto audienceLocation;
 }

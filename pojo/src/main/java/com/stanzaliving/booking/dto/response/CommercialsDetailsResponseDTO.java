@@ -1,6 +1,7 @@
 package com.stanzaliving.booking.dto.response;
 
 import com.stanzaliving.booking.dto.MonthlyBreakupDto;
+import com.stanzaliving.booking.enums.AMCAmountType;
 import com.stanzaliving.booking.enums.MaintenanceFeeCollectionType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -21,7 +22,15 @@ public class CommercialsDetailsResponseDTO implements Serializable {
 
     private MaintenanceFeeCollectionType maintenanceFeeCollectionType;
 
+    private AMCAmountType maintenanceChargeAmountType;
+
     private Double bookingAmount;
+
+    private Double onBoardingCharges;
+
+    private Double onBoardingChargesPercentage;
+
+    private Boolean onboardingChargesApplicableOnRetention;
 
     private Double totalAmount;
 
@@ -32,4 +41,6 @@ public class CommercialsDetailsResponseDTO implements Serializable {
     private AdvanceRentalDto startingAdvanceRental;
 
     private AdvanceRentalDto lastAdvanceRental;
+
 }
+

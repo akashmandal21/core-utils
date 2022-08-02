@@ -5,6 +5,9 @@ import com.stanzaliving.estate_v2.dto.questionTemplate.ApplicableStatusesDto;
 import com.stanzaliving.estate_v2.enumeration.Status;
 import lombok.*;
 
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import java.util.Date;
 import java.util.List;
 
 @Getter
@@ -22,6 +25,7 @@ public class ReviewTemplateResponseDto {
     private List<ApplicableStatusesDto> propertyStatuses;
     private BasicInformationResponse basicInformation;
     private List<OtherInformationResponse> otherInformation;
+    private List<String> mappedQuestionsUuid;
     private boolean atlDocumentVisible;
     private boolean bedCountDetailsVisible;
     private boolean salesReviewVisible;
@@ -29,9 +33,13 @@ public class ReviewTemplateResponseDto {
     private boolean l1CallBackVisible;
     private boolean l2CallBackVisible;
     private boolean bypassVisible;
+    private boolean questionnaireVisible;
     private boolean viewOnly;
     private BedCountInfoDto bedCountInformation;
     private List<LayoutResponse> layouts;
     private String propertyAction;
+    @Temporal(TemporalType.TIMESTAMP)
+    protected Date propertyApprovalTime;
+    private boolean isMigrated;
 
 }

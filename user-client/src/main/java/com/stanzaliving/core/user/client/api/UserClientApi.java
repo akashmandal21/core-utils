@@ -8,8 +8,14 @@ import java.util.*;
 import com.stanzaliving.core.base.enums.AccessLevel;
 import com.stanzaliving.core.base.exception.StanzaHttpException;
 import com.stanzaliving.core.user.acl.dto.RoleDto;
+import com.stanzaliving.core.user.request.dto.*;
 import com.stanzaliving.core.user.dto.*;
 import com.stanzaliving.core.user.request.dto.UpdateUserRequestDto;
+import com.stanzaliving.core.user.enums.UserType;
+import com.stanzaliving.core.user.dto.*;
+import com.stanzaliving.core.user.request.dto.UpdateUserRequestDto;
+
+import com.stanzaliving.core.user.request.dto.*;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
@@ -30,10 +36,7 @@ import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.user.acl.dto.UserDeptLevelRoleNameUrlExpandedDto;
 import com.stanzaliving.core.user.acl.request.dto.UserRoleSearchDto;
 import com.stanzaliving.core.user.dto.response.UserContactDetailsResponseDto;
-import com.stanzaliving.core.user.request.dto.ActiveUserRequestDto;
-import com.stanzaliving.core.user.request.dto.AddUserRequestDto;
 import com.stanzaliving.core.user.request.dto.UpdateUserRequestDto;
-import com.stanzaliving.core.user.request.dto.UserRequestDto;
 
 import lombok.extern.log4j.Log4j2;
 
@@ -110,6 +113,36 @@ public class UserClientApi {
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
 		ParameterizedTypeReference<ResponseDto<PageResponse<UserProfileDto>>> returnType = new ParameterizedTypeReference<ResponseDto<PageResponse<UserProfileDto>>>() {
+		};
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+	}
+
+	public ResponseDto<List<UserDto>> getUsersByRole(AccessLevelRoleRequestDto accessLevelRoleRequestDto) {
+
+		log.info("accessLevelRoleRequestDto: {} ", accessLevelRoleRequestDto);
+
+		if (Objects.isNull(accessLevelRoleRequestDto) || StringUtils.isEmpty(accessLevelRoleRequestDto.getRoleName())) {
+
+			throw new IllegalArgumentException("Please check all the provided params!!");
+		}
+
+		Object postBody = accessLevelRoleRequestDto;
+
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/internal/user/role").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<List<UserDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<UserDto>>>() {
 		};
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 	}
@@ -459,6 +492,8 @@ public class UserClientApi {
 
 		final HttpHeaders headerParams = new HttpHeaders();
 
+		queryParams.add("includeDeactivated", "true");
+
 		final String[] accepts = {
 				"*/*"
 		};
@@ -468,6 +503,39 @@ public class UserClientApi {
 		};
 		try {
 			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+		}
+		catch (Exception ex) {
+			log.error("Error occurred while fetching user details from UserId",ex);
+			return null;
+		}
+	}
+
+	public ResponseDto<List<UserProfileDto>> getUserProfileListByUuidsList(List<String> userUuidList) {
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		Object postBody = null;
+
+		String path = UriComponentsBuilder.fromPath("/internal/details/getUserProfileList").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		UserProfileRequestDto userProfileRequestDto = new UserProfileRequestDto();
+		userProfileRequestDto.setUserUuids(userUuidList);
+
+		postBody = userProfileRequestDto;
+
+		ParameterizedTypeReference<ResponseDto<List<UserProfileDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<UserProfileDto>>>() {
+		};
+		try {
+			return restClient.invokeAPI(path, HttpMethod.POST, null, userProfileRequestDto, headerParams, accept, returnType);
 		}
 		catch (Exception ex) {
 			log.error("Error occurred while fetching user details from UserId",ex);
@@ -831,6 +899,30 @@ public class UserClientApi {
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
 
+    public ResponseDto<Boolean> updateUserStatus(String phone, UserType userType, Boolean status) {
+
+        Object postBody = null;
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        uriVariables.put("mobileNo", phone);
+        uriVariables.put("userType", userType);
+        uriVariables.put("enabled", status);
+
+        String path = UriComponentsBuilder.fromPath("/internal/update/status/{mobileNo}/{userType}/{enabled}").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<Boolean>> returnType = new ParameterizedTypeReference<ResponseDto<Boolean>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+    }
+
 	public ResponseDto<Set<String>> getAccessLevelIds(Department department, String roleName){
 		Object postBody = null;
 
@@ -855,15 +947,63 @@ public class UserClientApi {
 		ParameterizedTypeReference<ResponseDto<Set<String>>> returnType = new ParameterizedTypeReference<ResponseDto<Set<String>>>() {
 		};
 
-		try{
+		try {
 
 			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 
 		} catch (Exception ex) {
-			log.error("Error occurred while fetching user access level ids ",ex);
+			log.error("Error occurred while fetching user access level ids ", ex);
 			return null;
 		}
 
 	}
 
+	public ResponseDto<String> saveUserDeptLevelForNewDept(Department newDepartment, Department refDepartment) {
+
+		log.info("HTTP Client call to save UserDeptLevelForNewDept details for new dept: {} refDept: {}", newDepartment, refDepartment);
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("newDepartment", newDepartment);
+		uriVariables.put("refDepartment", refDepartment);
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = { "*/*" };
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<String>> vddReturnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+		};
+
+		String path = UriComponentsBuilder.fromPath("/internal/save/userDeptLevel/{newDepartment}/{refDepartment}").buildAndExpand(uriVariables).toUriString();
+
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, null, headerParams, accept, vddReturnType);
+
+	}
+
+	public ResponseDto<String> rollBack(Department newDepartment) {
+
+		log.info("HTTP Client call to rollBack user UserDeptLevelForNewDept details for new dept: {} ", newDepartment);
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("newDepartment", newDepartment);
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = { "*/*" };
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<String>> vddReturnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+		};
+
+		String path = UriComponentsBuilder.fromPath("/internal/roll-back/userDeptLevel/{newDepartment}").buildAndExpand(uriVariables).toUriString();
+
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, null, headerParams, accept, vddReturnType);
+
+	}
 }

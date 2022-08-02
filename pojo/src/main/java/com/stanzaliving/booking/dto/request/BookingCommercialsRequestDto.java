@@ -19,6 +19,9 @@ public class BookingCommercialsRequestDto implements Serializable {
 	private Double licenseFee;
 
 	@Builder.Default
+	private Double conversionPrice = 0.0;
+
+	@Builder.Default
 	private Double cityHeadBuffer = 0.0;
 
 	@Builder.Default
@@ -26,6 +29,9 @@ public class BookingCommercialsRequestDto implements Serializable {
 
 	@Builder.Default
 	private Double priceBump = 0.0;
+
+	@Builder.Default
+	private Double pricingStrategyAmount = 0.0;
 
 	@Valid
 	private ServicePriceDto packagedServicePriceDto;
@@ -35,5 +41,14 @@ public class BookingCommercialsRequestDto implements Serializable {
 
 	@Valid
 	private ServicePriceDto vasPriceDto;
+
+	@Valid
+	private ServicePriceDto accommodationPriceDto;
+
+	@Valid
+	private ServicePriceDto upsellPriceDto;
+
+	@Valid
+	private ServicePriceDto cityBufferPriceDto;
 
 }

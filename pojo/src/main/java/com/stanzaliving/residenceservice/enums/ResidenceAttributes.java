@@ -40,10 +40,15 @@ public enum ResidenceAttributes {
 
     CONVENIENCE_FEE_ENABLED("Convenience Fee Enabled","Boolean"),
 
-    BOOKING_EXIT_DELTA_DAYS("Booking Exit Delta Days", "Integer"),
-    BOOKING_EXIT_NOTICE_PERIOD("Notice Period Days", "Integer"),
-    EMI_ENABLED("EMI Enabled","Boolean");
-	
+    BOOKING_EXIT_DELTA_DAYS("Buffer days for contract completion", "String"),
+    BOOKING_EXIT_NOTICE_PERIOD("Notice Period", "String"),
+    EMI_ENABLED("EMI Enabled","Boolean"),
+
+    BOOKING_START_DATE("Booking Start Date", "Date"),
+    PRE_BOOKING_START_DATE("Pre-Booking Start Date", "Date"),
+
+    UNDERWRITE_FINANCE("Underwrite Price", "Double");
+
     private String label;
     private String type;
 
@@ -72,6 +77,9 @@ public enum ResidenceAttributes {
         residenceAttributes.add(BOOKING_EXPIRY_TIME);
         residenceAttributes.add(NEW_CLOSURE_MIN_TOKEN_AMOUNT);
         residenceAttributes.add(NEEDS_ATTENTION_EXPIRY_TIME);
+        residenceAttributes.add(BOOKING_START_DATE);
+        residenceAttributes.add(PRE_BOOKING_START_DATE);
+        residenceAttributes.add(RETENTION_MIN_TOKEN_AMOUNT);
         return residenceAttributes;
     }
  }

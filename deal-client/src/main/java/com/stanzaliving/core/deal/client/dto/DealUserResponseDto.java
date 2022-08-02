@@ -29,4 +29,6 @@ public class DealUserResponseDto {
 	
 	private Date moveInDate;
 
+	private String userCode;
+
 }

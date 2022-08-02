@@ -50,7 +50,26 @@ public class DateUtil {
     public final String DD_MMM_YYYY_FORMAT = "dd-MMM-yyyy";
     public final String yyyy_MM_dd_HH_mm_ss = "yyyy-MM-dd HH:mm:ss";
     public final String yyyy_MM_dd_FORMAT = "yyyy-MM-dd";
-    
+
+    public static Date getNormalizedTodayDate() {
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.HOUR_OF_DAY, 0);
+        cal.set(Calendar.MINUTE, 0);
+        cal.set(Calendar.SECOND, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        return cal.getTime();
+    }
+
+    public static Date getNormalizedPrevDate() {
+        Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.DATE, -1);
+        cal.set(Calendar.HOUR_OF_DAY, 0);
+        cal.set(Calendar.MINUTE, 0);
+        cal.set(Calendar.SECOND, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        return cal.getTime();
+    }
+
     public String formatIst(Date date, String format) {
         return Instant.ofEpochMilli(date.getTime()).atZone(StanzaConstants.IST_TIMEZONEID).format(DateTimeFormatter.ofPattern(format));
     }
@@ -63,6 +82,13 @@ public class DateUtil {
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
         return cal.get(Calendar.DAY_OF_MONTH) <= 15;
+    }
+
+    public static Date max(Date d1, Date d2) {
+        if (d1 == null && d2 == null) return null;
+        if (d1 == null) return d2;
+        if (d2 == null) return d1;
+        return (d1.after(d2)) ? d1 : d2;
     }
 
     public String customDateFormatter(Date dateInput, DateFormat dateFormat) {
@@ -1044,6 +1070,7 @@ public class DateUtil {
         calendarInstance.set(Calendar.MINUTE, 00);
         calendarInstance.set(Calendar.HOUR_OF_DAY, 00);
         calendarInstance.set(Calendar.SECOND, 00);
+        calendarInstance.set(Calendar.MILLISECOND,0);
         Date currentDate = calendarInstance.getTime();
         return currentDate;
     }
