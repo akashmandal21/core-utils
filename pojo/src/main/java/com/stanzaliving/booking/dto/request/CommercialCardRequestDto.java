@@ -39,4 +39,7 @@ public class CommercialCardRequestDto implements Serializable {
 	private MaintenanceFeeCollectionType maintenanceFeeCollectionType = MaintenanceFeeCollectionType.MONTHLY;
 
 	private AMCAmountType maintenanceChargeAmountType;
+
+	public CommercialCardRequestDto(CommercialCardRequestDto commercialCardRequestDto) {
+	}
 }
