@@ -1,6 +1,5 @@
 package com.stanzaliving.core.leadership.dto;
 
-
 import com.stanzaliving.core.enums.PropertyEntityType;
 import com.stanzaliving.transformations.enums.BrandName;
 import com.stanzaliving.transformations.enums.GenderAllowed;
