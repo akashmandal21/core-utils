@@ -80,7 +80,7 @@ public class WeeklyMenuDto extends AbstractDto {
     private List<MenuCategoryResidenceRDto> residences;
     private List<SpecialEventDto> events;
     @Builder.Default
-    private boolean grammageRangeRuleApplied = false;
+    private boolean grammageRangeRuleApplied = true;
     private Double minimumBy;
     private Double maximumBy;
 }

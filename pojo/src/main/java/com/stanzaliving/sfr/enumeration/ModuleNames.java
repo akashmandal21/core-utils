@@ -16,7 +16,9 @@ public enum ModuleNames {
     SFR_SUBMISSION(false, "SFR Submission", "Site Feasibility Report"),
     ASIS(false, "As-Is Drawings", "As-Is Drawings"),
     ASIS_SUBMISSION(true, "AsIs Submission", "As-Is Drawings"),
-    BOQ(false, "BOQ", "Bill Of Quantities");
+    BOQ(false, "BOQ", "Bill Of Quantities"),
+    CONCEPT_DRAWINGS(false, "Concept Drawings", "Concept Drawings"),
+    CONCEPT_SUBMISSION(true, "Concept Drawings Submission", "Concept Drawings");
 
     private final boolean isQuestionTemplateIdRequired;
 
@@ -24,8 +26,8 @@ public enum ModuleNames {
 
     private final String displayName;
 
-    public static final List<ModuleNames> moduleNames = Arrays.asList(ASIS, BOQ);//add SFR also in this moduleNames list
+    public static final List<ModuleNames> moduleNames = Arrays.asList(ASIS, BOQ, SFR, CONCEPT_DRAWINGS);//add SFR also in this moduleNames list
 
-    public static final List<ModuleNames> moduleSubmissionNames = Arrays.asList(SFR_SUBMISSION, ASIS_SUBMISSION);
+    public static final List<ModuleNames> moduleSubmissionNames = Arrays.asList(SFR_SUBMISSION, ASIS_SUBMISSION, CONCEPT_SUBMISSION);
 
 }
