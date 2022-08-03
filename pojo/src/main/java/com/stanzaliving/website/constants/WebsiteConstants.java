@@ -18,8 +18,8 @@ public class WebsiteConstants {
 	
 	public static final String RUPEE_SYMBOL = "\u20B9";
 
-	public static final String URL_SHORTNER_SERVICE_WEBSITE_CLIENT_ID = "40817278-2514-4bdb-a712-8d327c598eee";
+	public static final String URL_SHORTENER_SERVICE_WEBSITE_CLIENT_ID = "40817278-2514-4bdb-a712-8d327c598eee";
 
-	public static final int URL_SHORTNER_SERVICE_INFINITE_EXPIRY_TIME = 9999999;
+	public static final int URL_SHORTENER_SERVICE_INFINITE_EXPIRY_TIME = 9999999;
 
 }
