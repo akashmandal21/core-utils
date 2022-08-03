@@ -17,6 +17,7 @@ public enum LeadSourceGroupEnum {
     DIGITAL_PAID("Digital Paid"),
     OTHERS("Others"),
     REFERRAL("Referral"),
+    RESIDENT_APP("Resident App"),
     SIGMA_APP("Sigma App");
 
     private String name;
