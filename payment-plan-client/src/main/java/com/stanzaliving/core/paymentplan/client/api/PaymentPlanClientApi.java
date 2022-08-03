@@ -888,4 +888,26 @@ public class PaymentPlanClientApi {
         }
 
     }
+
+
+    public ResponseDto<PaymentPlanResponseDto> adjustDiscount(PaymentPlanRequestDto paymentPlanRequestDto) {
+        Object postBody = null;
+        log.info("PaymentPlanRequestDto is {} ", paymentPlanRequestDto);
+        Map<String, Object> uriVariables = new HashMap();
+        String path = UriComponentsBuilder.fromPath("/internal/api/v1/adjustDiscount").buildAndExpand(uriVariables).toUriString();
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+        HttpHeaders headerParams = new HttpHeaders();
+        String[] accepts = new String[]{"*/*"};
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<PaymentPlanResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<PaymentPlanResponseDto>>() {
+        };
+        postBody = paymentPlanRequestDto;
+
+        try {
+            return (ResponseDto)this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+        } catch (Exception var11) {
+            log.error("error while adjusting the discount {}", var11);
+            return null;
+        }
+    }
 }
