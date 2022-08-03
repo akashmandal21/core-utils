@@ -48,14 +48,12 @@ public class ResidenceListingCardDto implements Serializable {
 
 	private int startingPrice;
 
-	//TODO
 	private String pricingPlan;
 
 	private Integer preBookingAmount;
 
 	private Integer unlockDiscountAmount;
 
-	//TODO
 	private String preBookingMode;
 
 	private String googleMapLink;
