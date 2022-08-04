@@ -1,28 +1,84 @@
 package com.stanzaliving.core.base.utils;
 
-import com.stanzaliving.core.base.StanzaConstants;
-import com.stanzaliving.core.base.enums.DateFormat;
-import com.stanzaliving.core.base.enums.DatePart;
-import lombok.experimental.UtilityClass;
-import lombok.extern.log4j.Log4j2;
-import org.apache.commons.text.CaseUtils;
+import static com.google.common.base.Preconditions.checkArgument;
 
 import java.sql.Time;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.*;
+import java.time.DayOfWeek;
+import java.time.Duration;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.Month;
+import java.time.Period;
+import java.time.YearMonth;
+import java.time.ZoneId;
+import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.time.format.FormatStyle;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalAdjusters;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import java.util.Objects;
 
-import static com.google.common.base.Preconditions.checkArgument;
+import org.apache.commons.text.CaseUtils;
+
+import com.stanzaliving.core.base.StanzaConstants;
+import com.stanzaliving.core.base.enums.DateFormat;
+import com.stanzaliving.core.base.enums.DatePart;
+
+import lombok.experimental.UtilityClass;
+import lombok.extern.log4j.Log4j2;
 
 @Log4j2
 @UtilityClass
 public class DateUtil {
+	
+    public final String DATETIME_WITH_AM_PM = "dd MMM, yyyy hh:mm:ss a";
+    public final String DD_MMM_YYYY_FORMAT = "dd-MMM-yyyy";
+    public final String yyyy_MM_dd_HH_mm_ss = "yyyy-MM-dd HH:mm:ss";
+    public final String yyyy_MM_dd_FORMAT = "yyyy-MM-dd";
+
+    public static Date getNormalizedTodayDate() {
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.HOUR_OF_DAY, 0);
+        cal.set(Calendar.MINUTE, 0);
+        cal.set(Calendar.SECOND, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        return cal.getTime();
+    }
+
+    public static Date normalizeDate(Date date) {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        cal.set(Calendar.HOUR_OF_DAY, 0);
+        cal.set(Calendar.MINUTE, 0);
+        cal.set(Calendar.SECOND, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        return cal.getTime();
+    }
+
+    public static Date getNormalizedPrevDate() {
+        Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.DATE, -1);
+        cal.set(Calendar.HOUR_OF_DAY, 0);
+        cal.set(Calendar.MINUTE, 0);
+        cal.set(Calendar.SECOND, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        return cal.getTime();
+    }
 
     public String formatIst(Date date, String format) {
         return Instant.ofEpochMilli(date.getTime()).atZone(StanzaConstants.IST_TIMEZONEID).format(DateTimeFormatter.ofPattern(format));
@@ -36,6 +92,13 @@ public class DateUtil {
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
         return cal.get(Calendar.DAY_OF_MONTH) <= 15;
+    }
+
+    public static Date max(Date d1, Date d2) {
+        if (d1 == null && d2 == null) return null;
+        if (d1 == null) return d2;
+        if (d2 == null) return d1;
+        return (d1.after(d2)) ? d1 : d2;
     }
 
     public String customDateFormatter(Date dateInput, DateFormat dateFormat) {
@@ -1013,6 +1076,7 @@ public class DateUtil {
         calendarInstance.set(Calendar.MINUTE, 00);
         calendarInstance.set(Calendar.HOUR_OF_DAY, 00);
         calendarInstance.set(Calendar.SECOND, 00);
+        calendarInstance.set(Calendar.MILLISECOND,0);
         Date currentDate = calendarInstance.getTime();
         return currentDate;
     }
@@ -1099,6 +1163,14 @@ public class DateUtil {
                 (day == 30 && evenMonth.contains(month))) return true;
         return false;
     }
+<<<<<<< HEAD
+=======
+
+    public static Boolean isDateInDateRange(Date date, LocalDate fromDate, LocalDate toDate) {
+        LocalDate localDate = getLocalDate(date);
+        return (fromDate.isBefore(localDate) || fromDate.equals(localDate)) && (toDate.isAfter(localDate) || toDate.equals(localDate));
+    }
+>>>>>>> 0c938447ff9f95aeb18f9c4446f18cead9373ef3
 
     public static List<LocalDate> getCalendarMonthOfYear(Integer month,Integer year) {
 
@@ -1118,4 +1190,11 @@ public class DateUtil {
     public static boolean isWeekDay(LocalDate date) {
         return date.getDayOfWeek()!=DayOfWeek.SATURDAY&&date.getDayOfWeek()!=DayOfWeek.SUNDAY;
     }
+<<<<<<< HEAD
+=======
+
+    public static Long convertToEpochInMiliSeconds(LocalDate localDate) {
+        return Objects.isNull(localDate) ? null : localDate.atStartOfDay().toInstant(ZoneOffset.of(StanzaConstants.ZONE_OFFSET)).toEpochMilli();
+    }
+>>>>>>> 0c938447ff9f95aeb18f9c4446f18cead9373ef3
 }

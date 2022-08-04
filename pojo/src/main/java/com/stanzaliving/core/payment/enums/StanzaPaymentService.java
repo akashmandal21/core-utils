@@ -21,7 +21,8 @@ public enum StanzaPaymentService {
 	WEBSITE("Website"),
 	ALFRED("Alfred"),
 	CAFE("Cafe"),
-	FOOD_SUBSCRIPTION("Food Subscription")
+	FOOD_SUBSCRIPTION("Food Subscription"),
+	PREPAID_METER("Prepaid Meter")
 	;
 
 	private String displayName;

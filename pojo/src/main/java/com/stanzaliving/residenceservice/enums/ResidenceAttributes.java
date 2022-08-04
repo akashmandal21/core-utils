@@ -38,7 +38,17 @@ public enum ResidenceAttributes {
 	FUTURE_BOOKING_ALLOWED_DAYS("Future Booking Allowed Duration","Integer"),
     NEEDS_ATTENTION_EXPIRY_TIME("Needs Attention Expiry Time","String"),
 
-    CONVENIENCE_FEE_ENABLED("Convenience Fee Enabled","Boolean");
+    CONVENIENCE_FEE_ENABLED("Convenience Fee Enabled","Boolean"),
+
+    BOOKING_EXIT_DELTA_DAYS("Buffer days for contract completion", "String"),
+    BOOKING_EXIT_NOTICE_PERIOD("Notice Period", "String"),
+    EMI_ENABLED("EMI Enabled","Boolean"),
+
+    BOOKING_START_DATE("Booking Start Date", "Date"),
+    PRE_BOOKING_START_DATE("Pre-Booking Start Date", "Date"),
+
+    UNDERWRITE_FINANCE("Underwrite Price", "Double"),
+    PRICE_ESCALATION_ENABLE("Price Escalation Enabled", "Boolean");
 
     private String label;
     private String type;
@@ -57,10 +67,10 @@ public enum ResidenceAttributes {
         }
     }
     public static String getLabel(ResidenceAttributes priority) {
-        return getType.get(priority);
+        return getLabel.get(priority);
     }
     public static String getType(ResidenceAttributes priority) {
-        return getLabel.get(priority);
+        return getType.get(priority);
     }
 
     public static List<ResidenceAttributes> residenceAttributesList() {
@@ -68,6 +78,9 @@ public enum ResidenceAttributes {
         residenceAttributes.add(BOOKING_EXPIRY_TIME);
         residenceAttributes.add(NEW_CLOSURE_MIN_TOKEN_AMOUNT);
         residenceAttributes.add(NEEDS_ATTENTION_EXPIRY_TIME);
+        residenceAttributes.add(BOOKING_START_DATE);
+        residenceAttributes.add(PRE_BOOKING_START_DATE);
+        residenceAttributes.add(RETENTION_MIN_TOKEN_AMOUNT);
         return residenceAttributes;
     }
  }

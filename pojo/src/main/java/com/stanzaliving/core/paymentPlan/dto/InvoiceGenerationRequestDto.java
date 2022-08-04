@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+
 @Builder
 @Data
 @AllArgsConstructor
@@ -15,4 +17,6 @@ public class InvoiceGenerationRequestDto {
     private String residentUuid;
     private String residenceUuid;
     private PaymentTerm paymentTerm;
+    private boolean completeInvoice;
+    private LocalDate executionDate;
 }

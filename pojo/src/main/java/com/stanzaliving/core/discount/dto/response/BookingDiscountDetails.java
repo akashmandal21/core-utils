@@ -3,13 +3,14 @@ package com.stanzaliving.core.discount.dto.response;
 
 import lombok.*;
 
+import java.io.Serializable;
 import java.util.List;
 
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class BookingDiscountDetails {
+public class BookingDiscountDetails implements Serializable {
 
     private double discountValueApplied;
 

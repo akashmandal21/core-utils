@@ -12,7 +12,6 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.shorturl.dto.UrlShortenerDto;
 
@@ -48,4 +47,29 @@ public class ShortUrlClientApi {
 
 	}
 
+	public String createShortUrlIfNotExist(UrlShortenerDto urlShortenerDto) {
+
+		try {
+			final Map<String, Object> uriVariables = new HashMap<>();
+
+			String path = UriComponentsBuilder.fromPath("/createShortUrlIfNotExist").buildAndExpand(uriVariables).toUriString();
+
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+			final HttpHeaders headerParams = new HttpHeaders();
+
+			final String[] accepts = {"*/*"};
+
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+			ParameterizedTypeReference<String> returnType = new ParameterizedTypeReference<String>() {
+			};
+
+			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, urlShortenerDto, headerParams, accept, returnType);
+
+		} catch (Exception e) {
+			log.error("Error while creating shortUrl.", e);
+			return null;
+		}
+	}
 }

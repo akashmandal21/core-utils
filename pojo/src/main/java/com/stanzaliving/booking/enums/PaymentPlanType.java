@@ -13,6 +13,7 @@ public enum PaymentPlanType {
 	SERVICE("Service"),
 	FOOD_SERVICE("Food Service"),
 	SECURITY_DEPOSIT("Security Deposit"),
+	ONBOARDING_CHARGE("OnBoarding Charge"),
 	MAINTENANCE_FEE("Maintenance Fee"),
 	ANNUAL_MAINTENANCE_FEE("Annual Maintenance Fee"),
 	VAS("VAS"),
@@ -21,6 +22,7 @@ public enum PaymentPlanType {
 	INSTALLMENT("Instalment"),
 	DISCOUNT("Discount Adjusted"),
 	DAMAGE("Damage"),
+	CANCELLATION_CHARGE("Cancellation Charge"),
 
 	PENALTY_WAIVE_OFF("Penalty Waive Off"),
 	CREDIT_NOTE_FOR_DISCOUNT("Credit Note For Discount"),
@@ -51,7 +53,11 @@ public enum PaymentPlanType {
 	BOOKING_CANCELLATION("Booking Cancellation"),
 	CREDIT_NOTE_FOR_MODIFY_CONTRACT("Credit Note For Modify Contract"),
 	ADDITIONAL_INVOICE("Additional Invoice - License Fee"),
-	ADDITIONAL_INVOICE_SERVICE_FEE("Additional Invoice - Service Fee");
+	ADDITIONAL_INVOICE_SERVICE_FEE("Additional Invoice - Service Fee"),
+	ADDITIONAL_SECURITY_DEPOSIT("Additional Security Deposit"),
+	ADDITIONAL_INVOICE_ROOM_CHANGE("Additional Invoice - Room Change"),
+	ACCOMMODATION_CHARGES("Accommodation Charges"),
+	GST_WAIVE_OFF("Gst Waive Off");
 
 	private String name;
 	

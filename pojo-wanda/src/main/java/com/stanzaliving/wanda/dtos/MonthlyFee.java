@@ -22,7 +22,8 @@ public class MonthlyFee {
 	private Double monthlyFee;
 
 	private Double packedServicesFee;
-	private Double foodServicesFee;
+	@Builder.Default
+	private Double foodServicesFee=0.0d;
 
 	private String total;
 	

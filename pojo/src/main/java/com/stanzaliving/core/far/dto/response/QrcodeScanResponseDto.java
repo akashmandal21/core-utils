@@ -29,5 +29,7 @@ public class QrcodeScanResponseDto {
     private String returnedBy;
     private String errorMsg;
     private String errorHeading;
+    private String successMsg;
+    private String successHeading;
     
 }

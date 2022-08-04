@@ -1,9 +1,16 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
+<<<<<<< HEAD
 		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 
+=======
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+>>>>>>> 0c938447ff9f95aeb18f9c4446f18cead9373ef3
 	<artifactId>support-client</artifactId>
 	<packaging>jar</packaging>
 
@@ -20,6 +27,7 @@
 			<artifactId>pojo</artifactId>
 			<version>${global.version}</version>
 		</dependency>
+<<<<<<< HEAD
 
 		<dependency>
 			<groupId>com.stanzaliving.core</groupId>
@@ -31,6 +39,22 @@
 		<maven.compiler.source>8</maven.compiler.source>
 		<maven.compiler.target>8</maven.compiler.target>
 	</properties>
+=======
+		
+		<dependency>
+			<groupId>com.stanzaliving.core</groupId>
+			<artifactId>pojo-ops</artifactId>
+			<version>${global.version}</version>
+		</dependency>
+        <dependency>
+            <groupId>com.stanzaliving.core</groupId>
+            <artifactId>base</artifactId>
+            <version>1.0.0</version>
+            <scope>compile</scope>
+        </dependency>
+
+    </dependencies>
+>>>>>>> 0c938447ff9f95aeb18f9c4446f18cead9373ef3
 
 	<parent>
 		<groupId>com.stanzaliving.core</groupId>
@@ -38,4 +62,8 @@
 		<version>1.0.0</version>
 		<relativePath>..</relativePath>
 	</parent>
+<<<<<<< HEAD
 </project>
+=======
+</project>
+>>>>>>> 0c938447ff9f95aeb18f9c4446f18cead9373ef3

@@ -7,6 +7,7 @@ package com.stanzaliving.core.far.dto.request;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.stanzaliving.core.far.enums.AssetType;
 
+import com.stanzaliving.core.far.enums.RoleAction;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -30,6 +31,7 @@ public class AssetTypeScanRequestDto {
 	private String qrCodeId;
 	private String allocationUuid;
 	private String sourceAddressUuid;
+	private RoleAction actionType;
 
 	@Builder.Default
 	private boolean assetCreation = Boolean.FALSE;
