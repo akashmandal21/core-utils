@@ -2093,4 +2093,33 @@ public class ResidenceDataControllerApi {
         }
         return null;
     }
+
+    public ResponseDto<String> getEscalationAlert() {
+
+        log.info("Residence-Data-Controller::for Escalation Alert");
+
+        Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/internal/residence-escalation/escalation-alert").buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        HttpHeaders headerParams = new HttpHeaders();
+
+        String[] accepts = new String[]{"*/*"};
+
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<String>> returnType =
+                new ParameterizedTypeReference<ResponseDto<String>>() {
+                };
+
+        try {
+            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+
+        } catch (Exception ex) {
+            log.error("Exception while Escalation Alert");
+        }
+        return null;
+    }
 }

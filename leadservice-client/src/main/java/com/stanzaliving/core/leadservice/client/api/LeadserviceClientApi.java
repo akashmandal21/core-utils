@@ -1,6 +1,4 @@
-/**
- *
- */
+
 package com.stanzaliving.core.leadservice.client.api;
 
 import com.stanzaliving.core.base.common.dto.PaginationRequest;
@@ -405,11 +403,13 @@ public class LeadserviceClientApi {
 
     public ResponseDto<LeadRequestDto> fetchPrebookedRefundEligibleLeads(String phone) {
 
+
         Object postBody = null;
 
         String path = UriComponentsBuilder.fromPath("internal/prebooking/refund/fetch/eligible/leads").toUriString();
 
         final HttpHeaders headerParams = new HttpHeaders();
+
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
@@ -419,6 +419,7 @@ public class LeadserviceClientApi {
         final String[] accepts = {"*/*"};
 
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
 
         ParameterizedTypeReference<ResponseDto<LeadRequestDto>> returnType = new ParameterizedTypeReference<ResponseDto<LeadRequestDto>>() {
         };
@@ -443,6 +444,7 @@ public class LeadserviceClientApi {
             final HttpHeaders headerParams = new HttpHeaders();
 
             final String[] accepts = {"*/*"};
+
 
             final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
@@ -516,6 +518,7 @@ public class LeadserviceClientApi {
 
         final HttpHeaders headerParams = new HttpHeaders();
 
+
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
         final String[] accepts = {"*/*"};
@@ -529,6 +532,49 @@ public class LeadserviceClientApi {
             return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
         } catch (Exception e) {
             log.error("Exception caused while updating lead source group for existing leads", e);
+            return null;
+        }
+    }
+
+    public ResponseDto<String> expireInactiveLead(AutoExpireLeadDto autoExpireLeadDto) {
+        log.info("Expire inactive Lead : {}", autoExpireLeadDto);
+        Object postBody = autoExpireLeadDto;
+
+        String path = UriComponentsBuilder.fromPath("/internal/lead/auto-expire/inactive").toUriString();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+        };
+
+        try {
+            return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception caused while checking for inactive lead or expiring an inactive lead", e);
+            return null;
+        }
+    }
+
+    public ResponseDto<Void> syncElasticData(LeadElasticDto leadElasticDto) {
+        log.debug("Lead client to lead elastic data");
+        Object postBody = leadElasticDto;
+        String path = UriComponentsBuilder.fromPath("/internal/lead/sync-elastic-data").toUriString();
+        final HttpHeaders headerParams = new HttpHeaders();
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        final String[] accepts = {"*/*"};
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<Void>> returnType = new ParameterizedTypeReference<ResponseDto<Void>>() {
+        };
+        try {
+            return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception caused while syncing lead elastic data", e);
             return null;
         }
     }
@@ -557,25 +603,6 @@ public class LeadserviceClientApi {
             log.error("Exception caused while getting leads to check for inactivity", e);
             return null;
         }
-    }
-
-    public ResponseDto<String> expireInactiveLead(AutoExpireLeadDto autoExpireLeadDto) {
-        log.info("Expire inactive Lead : {}", autoExpireLeadDto);
-        Object postBody = autoExpireLeadDto;
-
-        String path = UriComponentsBuilder.fromPath("/internal/lead/auto-expire/inactive").toUriString();
-
-        final HttpHeaders headerParams = new HttpHeaders();
-
-        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-
-        final String[] accepts = {"*/*"};
-
-        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-
-        ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
-        };
-        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
     }
 
     public ResponseDto<String> updateGuestLead(com.stanzaliving.leadService.LeadRequestDto leadRequestDto) {
@@ -620,6 +647,7 @@ public class LeadserviceClientApi {
         final String[] accepts = {"*/*"};
 
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
 
         ParameterizedTypeReference<ResponseDto<AutoExpireLeadConfigMapDto>> returnType = new ParameterizedTypeReference<ResponseDto<AutoExpireLeadConfigMapDto>>() {
         };
@@ -671,4 +699,29 @@ public class LeadserviceClientApi {
             return null;
         }
     }
+
+    public ResponseDto<String> autoExpireReferralCode() {
+        log.info("Expire referralCodes");
+        Object postBody = null;
+        String path = UriComponentsBuilder.fromPath("/internal/lead/referralCode/markExpire").toUriString();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final String[] accepts = { "*/*" };
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+        };
+
+        try {
+            return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception caused while auto expire referral codes", e);
+            return null;
+        }
+    }
+
 }
