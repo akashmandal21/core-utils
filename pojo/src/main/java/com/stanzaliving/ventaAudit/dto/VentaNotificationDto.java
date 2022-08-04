@@ -20,5 +20,8 @@ public class VentaNotificationDto {
     List<AttachmentDto> attachmentDtos;
     BookingEventEnum eventEnum;
     String message;
+    Date auditScheduledOn;
+    Date auditedOn;
 
 }
+
