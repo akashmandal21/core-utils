@@ -2118,7 +2118,7 @@ public class ResidenceDataControllerApi {
             return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
 
         } catch (Exception ex) {
-            log.error("Exception while Escalation Alert");
+            log.error("Exception while Escalation Alert", ex);
         }
         return null;
     }
