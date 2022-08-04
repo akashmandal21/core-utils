@@ -5,7 +5,7 @@ import java.util.List;
 
 public enum DocumentUploadType {
 
-	PASSPORT,PAN,REFERRAL_PAN,ADHAAR_CARD,DRIVING_LICENSE,OTHERS,POLICE_VERIFICATION,VISA,SELFIE;
+	PASSPORT,PAN,REFERRAL_PAN,ADHAAR_CARD,DRIVING_LICENSE,OTHERS,POLICE_VERIFICATION,POLICE_VERIFICATION_FORM,VISA,SELFIE,ID_CARD;
 	
 	private static List<DocumentUploadType> indianDocumentTypes = new ArrayList<DocumentUploadType>(4);
 
@@ -20,6 +20,7 @@ public enum DocumentUploadType {
 		indianDocumentTypes.add(ADHAAR_CARD);
 		indianDocumentTypes.add(PAN);
 		indianDocumentTypes.add(REFERRAL_PAN);
+		indianDocumentTypes.add(ID_CARD);
 	
 		foriegnDocumentTypes.add(PASSPORT);
 		foriegnDocumentTypes.add(VISA);

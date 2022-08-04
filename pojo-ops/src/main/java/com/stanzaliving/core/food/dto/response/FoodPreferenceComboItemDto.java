@@ -10,32 +10,26 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
+import java.io.Serializable;
+
 @Getter
 @Setter
 @ToString
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class FoodPreferenceComboItemDto {
+public class FoodPreferenceComboItemDto implements Serializable {
 
 	private String itemId;
-
 	private String categoryId;
-
 	private String subCategoryId;
-
 	private String itemName;
-
 	private Integer stdQty;
-
 	private Integer stdWeight;
-
 	private ListingDto units;
-
 	private FoodItemType itemType;
-	
 	private boolean quantifiable;
-
 	private boolean hideGrammage;
+	private boolean hybridBuffetItem;
 
 }

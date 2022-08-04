@@ -1,5 +1,6 @@
 package com.stanzaliving.core.inventory.dto;
 
+import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.core.base.utils.StanzaUtils;
 import com.stanzaliving.core.generic.dto.UIKeyValue;
 import com.stanzaliving.transformations.enums.UnitType;
@@ -41,4 +42,5 @@ public class InventoryItemDetailedDto {
     private BigDecimal availableQuantity;
     private BigDecimal maxQuantity;
     private BigDecimal boqRate;
+    private Department department;
 }

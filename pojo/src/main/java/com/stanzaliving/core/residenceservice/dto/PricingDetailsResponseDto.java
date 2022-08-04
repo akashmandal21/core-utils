@@ -11,6 +11,7 @@ import java.util.Date;
 @NoArgsConstructor
 @ToString
 public class PricingDetailsResponseDto {
+    private String serviceMixUuid;
     private Date fromDate;
     private Date toDate;
     private int occupancy;
@@ -21,4 +22,5 @@ public class PricingDetailsResponseDto {
     private double underWritten;
     private double cityBuffer;
     private double total;
+    private double underWrittenIncGst;
 }

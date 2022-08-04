@@ -10,8 +10,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class InstalmentPlanRequestDto {
-    private String instalmentTypeEnum;
-    private String bookingUuid;
-    private String discountCode;
-    private Double discountAmount;
+	private String instalmentTypeEnum;
+	private String bookingUuid;
+	private String discountCode;
+	private Double discountAmount;
 }

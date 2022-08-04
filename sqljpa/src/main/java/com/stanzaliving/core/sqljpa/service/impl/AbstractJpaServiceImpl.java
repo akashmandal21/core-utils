@@ -2,6 +2,7 @@ package com.stanzaliving.core.sqljpa.service.impl;
 
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,7 +22,7 @@ public abstract class AbstractJpaServiceImpl<T extends AbstractJpaEntity, I exte
 	protected abstract R getJpaRepository();
 
 	@Override
-	public T save(T entity) {
+	public T 	save(T entity) {
 		return getJpaRepository().save(entity);
 	}
 
@@ -157,7 +158,10 @@ public abstract class AbstractJpaServiceImpl<T extends AbstractJpaEntity, I exte
 		return getJpaRepository().findByUuidIn(uuids);
 	}
 
-
+	@Override
+	public Optional<T> findFirstByUuidAndStatus(String uuid, boolean status){
+		return 	getJpaRepository().findByUuidAndStatus(uuid,status);
+	}
 
 	@Override
 	public List<T> findByUuidInAndStatus(Collection<String> uuids, boolean status) {
@@ -175,8 +179,8 @@ public abstract class AbstractJpaServiceImpl<T extends AbstractJpaEntity, I exte
 	}
 
 	@Override
-	public Optional<T> findFirstByUuidAndStatus(String uuid, boolean status){
-	return 	getJpaRepository().findByUuidAndStatus(uuid,status);
+	public List<T> findByCreatedBy(String createdByUuid) {
+		return getJpaRepository().findByCreatedBy(createdByUuid);
 	}
 
 	@Override

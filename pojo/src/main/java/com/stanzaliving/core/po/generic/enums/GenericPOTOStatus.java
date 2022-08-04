@@ -83,6 +83,14 @@ public enum GenericPOTOStatus {
     private static Map<ApprovalCycle, Map<Integer, GenericPOTOStatus>> orderMap = new HashMap<>();
 
     @Getter
+    private static final Map<Integer,GenericPOTOStatus> firstApprovalOrderStatusMap = new HashMap<>();
+
+    @Getter
+    private static final Map<Integer,GenericPOTOStatus> cancelOrderStatusMap = new HashMap<>();
+
+    @Getter
+    private static final Map<Integer,GenericPOTOStatus> shortCloseOrderStatusMap  =  new HashMap<>();
+    @Getter
     private static Set<GenericPOTOStatus> viewRole = new HashSet<>();
 
     static {
@@ -107,11 +115,39 @@ public enum GenericPOTOStatus {
             map.put(f.getOrder(), f);
             orderMap.put(f.getCycle(), map);
         });
+
+        for (GenericPOTOStatus status : firstApprovalStatus) {
+            firstApprovalOrderStatusMap.put(status.getOrder(), status);
+        }
+
+        for(GenericPOTOStatus status : cancelStatus ){
+            cancelOrderStatusMap.put(status.getOrder(),status);
+
+        }
+
+        for(GenericPOTOStatus status : scStatus ){
+            shortCloseOrderStatusMap.put(status.getOrder(),status);
+
+        }
     }
 
     public static int getLevel(GenericPOTOStatus genericPOTOStatus) {
         return genericPOTOStatus.getOrder() >= 0 ? (genericPOTOStatus.getOrder()) + 1 : Math.abs(genericPOTOStatus.getOrder() - GenericConstants.rejectionStart);
     }
 
+    public static GenericPOTOStatus getStatusByOrder(int statusOrder){
 
+       return firstApprovalOrderStatusMap.get(statusOrder);
+    }
+
+    public static GenericPOTOStatus getCancelStatusByOrder(int statusOrder){
+
+        return cancelOrderStatusMap.get(statusOrder);
+    }
+
+    public static GenericPOTOStatus getShortClosedlStatusByOrder(int statusOrder){
+
+        return shortCloseOrderStatusMap.get(statusOrder);
+    }
 }
+

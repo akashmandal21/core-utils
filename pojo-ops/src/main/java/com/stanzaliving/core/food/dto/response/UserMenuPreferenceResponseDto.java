@@ -1,5 +1,6 @@
 package com.stanzaliving.core.food.dto.response;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Date;
@@ -20,7 +21,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserMenuPreferenceResponseDto {
+public class UserMenuPreferenceResponseDto implements Serializable {
 	private String userResidenceFoodMenuId;
 	private MealType meal;
 	private String mealName;
@@ -37,5 +38,6 @@ public class UserMenuPreferenceResponseDto {
 	private boolean mealSkipped;
 	private FoodPreferenceComboResponseDto selectedCombo;
 	private List<FoodPreferenceComboResponseDto> preferenceComboResponseDtos;
+	private boolean preferencesAllowed;
 
 }

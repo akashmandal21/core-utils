@@ -20,9 +20,9 @@ import lombok.ToString;
 public class FoodOrderTiming {
 
 	private LocalDate cutoffDate;
-
 	private LocalTime cutoffTime;
-	
+	private LocalTime startTime;
+	private LocalTime endTime;
 	private Date cutoffDateTime;		
 
 }

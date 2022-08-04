@@ -25,6 +25,8 @@ public class ResidenceFilterRequestDto {
 
     private Set<String> stanzaCluster;
 
+    private Set<String> residenceStatus;
+
     private Set<String> status;
 
     private Set<String> gender;
@@ -50,5 +52,8 @@ public class ResidenceFilterRequestDto {
     private String sortOrder;
 
     private String entity;
+
+    private String type;
+
 
 }

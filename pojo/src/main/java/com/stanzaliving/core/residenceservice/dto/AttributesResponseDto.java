@@ -1,11 +1,15 @@
 package com.stanzaliving.core.residenceservice.dto;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
+
+import java.io.Serializable;
 
 @Setter
 @Getter
-public class AttributesResponseDto {
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class AttributesResponseDto implements Serializable {
 
     private String label;
     private String value;

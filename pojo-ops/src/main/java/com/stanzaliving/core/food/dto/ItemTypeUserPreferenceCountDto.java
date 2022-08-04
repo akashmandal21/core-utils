@@ -23,5 +23,7 @@ public class ItemTypeUserPreferenceCountDto {
 
 	@Builder.Default
 	private Integer nonveg = 0;
+	
+	private String residenceFoodMenuId;
 
 }

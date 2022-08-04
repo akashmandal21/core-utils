@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class AllocationResponseDto {
-    private String addressUuid; // todo - Call transformation_master with addressUuid - It will return microMarketUuid & cityUuid
+    private String addressUuid; // Call transformation_master with addressUuid - It will return microMarketUuid & cityUuid
     private String microMarketUuid;
     private String cityUuid;
     private String locationType;

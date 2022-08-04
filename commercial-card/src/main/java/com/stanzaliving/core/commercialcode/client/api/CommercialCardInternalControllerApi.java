@@ -24,7 +24,7 @@ public class CommercialCardInternalControllerApi {
     public CommercialCardInternalControllerApi(StanzaRestClient stanzaRestClient) {
         this.restClient = stanzaRestClient;
     }
-    public ResponseDto<ExpiredBookingsDto> updateCommercialCardStatusWithActive() {
+    public ExpiredBookingsDto updateCommercialCardStatusWithActive() {
 
         log.info("Commercial-code-Data-Controller::Processing to retrieve commercial card that needs status ACTIVE updation ");
 
@@ -36,19 +36,18 @@ public class CommercialCardInternalControllerApi {
 
         HttpHeaders headerParams = new HttpHeaders();
 
-
         String[] accepts = new String[]{"*/*"};
 
         List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<ResponseDto<ExpiredBookingsDto>> returnType =
-                new ParameterizedTypeReference<ResponseDto<ExpiredBookingsDto>>() {};
+        ParameterizedTypeReference<ExpiredBookingsDto> returnType =
+                new ParameterizedTypeReference<ExpiredBookingsDto>() {};
 
         return this.restClient.invokeAPI(path, HttpMethod.GET
                 , queryParams, null, headerParams, accept, returnType);
     }
 
-    public ResponseDto<ExpiredBookingsDto> updateCommercialCardStatusWithExpired() {
+    public ExpiredBookingsDto updateCommercialCardStatusWithExpired() {
 
         log.info("Commercial-code-Data-Controller::Processing to retrieve commercial card that needs status EXPIRED updation ");
 
@@ -65,8 +64,8 @@ public class CommercialCardInternalControllerApi {
 
         List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<ResponseDto<ExpiredBookingsDto>> returnType =
-                new ParameterizedTypeReference<ResponseDto<ExpiredBookingsDto>>() {};
+        ParameterizedTypeReference<ExpiredBookingsDto> returnType =
+                new ParameterizedTypeReference<ExpiredBookingsDto>() {};
 
         return this.restClient.invokeAPI(path, HttpMethod.GET
                 , queryParams, null, headerParams, accept, returnType);

@@ -1,6 +1,6 @@
 package com.stanzaliving.core.residenceservice.dto;
 
-import com.stanzaliving.core.residenceservice.enums.ResidentType;
+import com.stanzaliving.booking.enums.BookingType;
 import lombok.*;
 
 import javax.persistence.EnumType;
@@ -14,7 +14,7 @@ import javax.validation.constraints.NotBlank;
 @NoArgsConstructor
 public class MoveInDateDto {
     @Enumerated(EnumType.STRING)
-    private ResidentType residentType;
+    private BookingType residentType;
     @NotBlank(message = "Move-in date cannot be empty")
     private String moveInDate;
 }

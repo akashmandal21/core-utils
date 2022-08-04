@@ -32,13 +32,14 @@ public enum CriteriaOperation {
 	LOCAL_TIME_LTE("<="),
 	LOCAL_TIME_GTE(">="),
 	IN("in"),
-	NOT_IN("in"),
+	NOT_IN("not in"),
 	REGEXP("regexp"),
 	FIND_IN_SET("find_in_set"),
 	ENUM_EQ("="),
 	ENUM_NOT_EQ("!="),
 	ENUM_IN("in"),
-	IS_NULL("is null");
+	IS_NULL("is null"),
+	IS_NOT_NULL("is not null");
 
 	private String operation;
 

@@ -1,17 +1,13 @@
 package com.stanzaliving.core.base.utils;
 
 import lombok.experimental.UtilityClass;
-import org.apache.commons.lang3.StringUtils;
-
-import java.awt.print.Pageable;
-import java.util.Objects;
 
 /**
  * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
  *
  * @date 19-Jan-2021
  *
- * migrated the code from sqljpa module to here to make these func independent
+ *       migrated the code from sqljpa module to here to make these func independent
  */
 
 @UtilityClass

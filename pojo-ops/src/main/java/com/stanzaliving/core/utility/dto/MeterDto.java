@@ -44,4 +44,8 @@ public class MeterDto extends AbstractDto {
 	private Double average;
 
 	private List<ReadingDto> readings;
+	
+	private String activatedBy;
+	
+	private String deactivatedBy;
 }

@@ -3,22 +3,20 @@
  */
 package com.stanzaliving.core.food.dto;
 
-import java.time.LocalDate;
-
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-
 import com.stanzaliving.core.operations.enums.MealType;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
+
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import java.time.LocalDate;
 
 /**
  * @author naveen.kumar
@@ -34,16 +32,16 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class ExtraFoodOrderRequestDto {
 
-	@NotBlank(message = "Residence Id is Mandatory")
+	@NotBlank(message = "Menu Id is mandatory")
+	private String residenceFoodMenuId;
+
 	private String residenceId;
 
 	@NotBlank(message = "Deal Id is Mandatory")
 	private String dealUuid;
 
-	@NotNull(message = "Meal Type is mandatory")
 	private MealType mealType;
 
-	@NotNull(message = "Menu Date is mandatory")
 	private LocalDate menuDate;
 
 	@NotNull(message = "Veg Pax is mandatory")

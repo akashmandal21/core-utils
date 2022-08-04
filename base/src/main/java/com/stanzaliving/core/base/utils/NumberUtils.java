@@ -141,4 +141,15 @@ public class NumberUtils {
 		}
 		return firstDouble + secondDouble;
 	}
+
+	public int getNonNullIntegerValue(Integer number) {
+		return number!=null?number:0;
+	}
+	
+	public int percentageDifferenceBetweenTwoNumbers(int min, int max) {
+		float result = 0;
+		result = ((max - min) * 100) / min;
+
+		return Math.abs((int) result);
+	}
 }

@@ -17,13 +17,9 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 public class InvoiceSearchIndexDto extends AbstractSearchIndexDto {
-
     private LocalDate issueDate;
-
     private String stanzaDocumentId;
-
     private String residentId;
-
     private String residenceMicromarketUuid;
     private String residenceCityUuid;
     private String residenceUuid;

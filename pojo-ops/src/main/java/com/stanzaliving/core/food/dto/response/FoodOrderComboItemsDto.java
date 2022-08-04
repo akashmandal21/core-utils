@@ -1,19 +1,18 @@
 package com.stanzaliving.core.food.dto.response;
 
-import java.time.LocalDate;
-
 import com.stanzaliving.core.enums.UnitOfMeasurement;
 import com.stanzaliving.core.food.enums.FoodItemBasePreference;
 import com.stanzaliving.core.food.enums.FoodItemType;
 import com.stanzaliving.core.food.enums.FoodRegion;
 import com.stanzaliving.core.operations.enums.MealType;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
+
+import java.time.LocalDate;
 
 /**
  * @author piyush srivastava "piyush.srivastava@stanzaliving.com"
@@ -28,6 +27,8 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 public class FoodOrderComboItemsDto {
+
+	private String menuId;
 
 	private String vendorId;
 

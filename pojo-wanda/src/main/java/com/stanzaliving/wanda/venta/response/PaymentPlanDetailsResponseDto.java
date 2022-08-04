@@ -29,7 +29,7 @@ public class PaymentPlanDetailsResponseDto {
 	private List<InstallmentDetailsResponseDto> paymentPlan;
 	private String installmentType;
     private Boolean isSelected;
-    private PaymentTerm paymentTerm;
+    private InstallmentTypeEnum installmentTypeEnum;
     private String couponCode;
     private double totalDiscount;
     private String discountDescription;

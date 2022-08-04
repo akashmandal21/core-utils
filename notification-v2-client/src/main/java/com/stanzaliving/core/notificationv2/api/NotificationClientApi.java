@@ -4,7 +4,13 @@ import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.genericdashboard.dto.AudienceLocationDto;
 import com.stanzaliving.genericdashboard.dto.CampaignAudienceDto;
-import com.stanzaliving.notification.dto.*;
+import com.stanzaliving.notification.dto.FcmTokenDto;
+import com.stanzaliving.notification.dto.NotificationDTO;
+import com.stanzaliving.notification.dto.NotificationRegistryDto;
+import com.stanzaliving.notification.dto.UserDataDto;
+
+import lombok.extern.log4j.Log4j2;
+
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -18,6 +24,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Log4j2
 public class NotificationClientApi {
 
     public static final String USER_ID = "userId";
@@ -59,6 +66,35 @@ public class NotificationClientApi {
                 path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
     }
 
+    public ResponseDto<NotificationDTO> saveGenericNotification(
+            NotificationDTO notificationRegistryDto) {
+
+        try {
+			Object postBody = null;
+
+			String path =
+			        UriComponentsBuilder.fromPath("/api/v1/generic-notification")
+			                .toUriString();
+
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+			final String[] accepts = {"*/*"};
+
+			final HttpHeaders headerParams = new HttpHeaders();
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+			ParameterizedTypeReference<ResponseDto<NotificationDTO>> returnType =
+			        new ParameterizedTypeReference<ResponseDto<NotificationDTO>>() {
+			        };
+			postBody = notificationRegistryDto;
+			return restClient.invokeAPI(
+			        path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error(e);
+			return ResponseDto.failure(e.getMessage());
+		}
+    }
+
     public ResponseDto<NotificationRegistryDto> saveNotification(
             NotificationRegistryDto notificationRegistryDto) {
 
@@ -86,31 +122,6 @@ public class NotificationClientApi {
         return restClient.invokeAPI(
                 path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
     }
-
-    public ResponseDto<NotificationDTO> saveGenericNotification(
-            NotificationDTO notificationDTO) {
-
-        Object postBody = null;
-
-        String path =
-                UriComponentsBuilder.fromPath("/api/v1/generic-notification")
-                        .toUriString();
-
-        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-
-        final String[] accepts = {"*/*"};
-
-        final HttpHeaders headerParams = new HttpHeaders();
-        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-
-        ParameterizedTypeReference<ResponseDto<NotificationDTO>> returnType =
-                new ParameterizedTypeReference<ResponseDto<NotificationDTO>>() {
-                };
-        postBody = notificationDTO;
-        return restClient.invokeAPI(
-                path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
-    }
-
 
     public List<String> getAllUsers(String applicationName) {
 
@@ -182,13 +193,13 @@ public class NotificationClientApi {
         return responseDto.getData();
     }
 
-    public void terminateNotification(String notificationId) {
+    public void terminateNotification(String uuid) {
 
         Object postBody = null;
 
         // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<>();
-        uriVariables.put("id", notificationId);
+        uriVariables.put("id", uuid);
         String path =
                 UriComponentsBuilder.fromPath("/api/v1/notification/{id}")
                         .buildAndExpand(uriVariables)
@@ -364,7 +375,7 @@ public class NotificationClientApi {
                 path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
         return response.getData();
     }
-
+    
     public Map<String,UserDataDto> getUserDataForUserList(List<String> userIds) {
 
         Object postBody = null;

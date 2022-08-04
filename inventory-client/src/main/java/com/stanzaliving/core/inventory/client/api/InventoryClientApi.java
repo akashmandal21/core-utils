@@ -4,6 +4,7 @@ import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.dto.AddressResponseDTO;
 import com.stanzaliving.core.dto.CityResponseDTO;
+import com.stanzaliving.core.dto.TransactionMigrationForDate;
 import com.stanzaliving.core.grsi.dto.GrsiEventUpdateDto;
 import com.stanzaliving.core.inventory.dto.InventoryActionRequestDto;
 import com.stanzaliving.core.inventory.dto.InventoryItemDetailedDto;
@@ -160,7 +161,7 @@ public class InventoryClientApi {
 	public LeadRequestDto createBrokerLead(LeadRequestDto leadRequestDto) {
 
 		try {
-			log.error("LeadRequestDto while creating the lead {}", leadRequestDto);
+			log.info("LeadRequestDto while creating the lead {}", leadRequestDto);
 			Object postBody = leadRequestDto;
 
 			String path = UriComponentsBuilder.fromPath("/lead/").toUriString();
@@ -240,7 +241,7 @@ public class InventoryClientApi {
 	public LeadRequestDto leadCreation(LeadRequestDto leadRequestDto) {
 
 		try {
-			log.error("LeadRequestDto while creating the lead {}", leadRequestDto);
+			log.info("LeadRequestDto while creating the lead {}", leadRequestDto);
 
 			Object postBody = leadRequestDto;
 
@@ -269,7 +270,7 @@ public class InventoryClientApi {
 	public LeadRequestDto leadMigration(LeadRequestDto leadRequestDto) {
 
 		try {
-			log.error("LeadRequestDto while creating the lead {}", leadRequestDto);
+			log.info("LeadRequestDto while creating the lead {}", leadRequestDto);
 
 			Object postBody = leadRequestDto;
 
@@ -497,4 +498,34 @@ public class InventoryClientApi {
         return restClient.invokeAPI(
                 path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
     }
+
+	public void migrateTransaction(TransactionMigrationForDate requestDto) {
+
+		try {
+			log.error("RequestDto is {}", requestDto);
+
+			Object postBody = requestDto;
+
+			String path = UriComponentsBuilder.fromPath("/migrate/transaction/date").toUriString();
+
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+			final HttpHeaders headerParams = new HttpHeaders();
+
+			final String[] accepts = { "*/*" };
+
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+			ParameterizedTypeReference<Void> returnType = new ParameterizedTypeReference<Void>() {
+			};
+
+			restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+
+		} catch (Exception e) {
+			log.info("TO migrate transactions request sent to IMS: " + requestDto);
+			log.error("Exception caught while schedule request in ims ", e);
+		}
+
+
+	}
 }

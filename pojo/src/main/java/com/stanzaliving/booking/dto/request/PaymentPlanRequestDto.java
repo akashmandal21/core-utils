@@ -1,5 +1,6 @@
 package com.stanzaliving.booking.dto.request;
 
+import com.stanzaliving.booking.enums.BookingType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,11 +15,14 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 public class PaymentPlanRequestDto implements Serializable {
-	
 	@NotNull(message = "commercialCardRequestDto cannot be null")
 	@Valid
 	private CommercialCardRequestDto commercialCardRequestDto;
-	
+
+//	@NotNull(message = "PricingStrategyRequestDto cannot be null")
+//	@Valid
+	private PricingStrategyRequestDto pricingStrategyRequestDto;
+
 	@NotNull(message = "bookingDetailsRequestDto cannot be null")
 	@Valid
 	private BookingDetailsRequestDto bookingDetailsRequestDto;
@@ -30,14 +34,12 @@ public class PaymentPlanRequestDto implements Serializable {
 	private DiscountRequestDto discount;
 
 	@Builder.Default
-	private boolean isWpBooking = false;
-	
-	@Builder.Default
-	private boolean savePaymentPlan = false;
+	private Boolean isWpBooking = false;
 
 	@Builder.Default
-	private boolean isModifyContract = false;
+	private Boolean savePaymentPlan = false;
 
-
+	@Builder.Default
+	private Boolean modifyContract = false;
 
 }
