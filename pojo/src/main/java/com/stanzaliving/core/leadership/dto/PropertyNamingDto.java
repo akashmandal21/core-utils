@@ -24,13 +24,13 @@ public class PropertyNamingDto {
 	private Long estateId;
 	
 	private String estateCode;
-	
+
 	private String propertyName;
-	
+
 	private BrandName brandName;
-	
+
 	private SubBrandName subBrandName;
-	
+
 	private GenderAllowed gender;
 
 	private Double totalPremiseArea;
