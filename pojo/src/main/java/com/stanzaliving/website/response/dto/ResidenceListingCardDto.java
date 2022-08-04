@@ -3,8 +3,6 @@ package com.stanzaliving.website.response.dto;
 import java.io.Serializable;
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.stanzaliving.core.enums.PropertyEntityType;
 import com.stanzaliving.website.enums.FomoTag;
 import com.stanzaliving.website.enums.Gender;
@@ -14,16 +12,18 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-public class WebsiteMapCardDto implements Serializable {
+@ToString
+public class ResidenceListingCardDto implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	private int residenceId;
 
 	private String name;
@@ -34,51 +34,67 @@ public class WebsiteMapCardDto implements Serializable {
 	
 	private String genderName;
 
-	private FomoTag fomoTag;
-	
 	private int micromarketId;
 
 	private String micromarketName;
 
-	@JsonInclude(value = Include.NON_NULL)
 	private String micromarketSlug;
 
 	private int cityId;
 
 	private String cityName;
 
-	@JsonInclude(value = Include.NON_NULL)
 	private String citySlug;
 
 	private int startingPrice;
 
 	private String pricingPlan;
-	
+
+	private Integer preBookingAmount;
+
+	private Integer unlockDiscountAmount;
+
+	private String preBookingMode;
+
 	private String googleMapLink;
 
 	private double latitude;
 
 	private double longitude;
+
+	private String virtualTourImage;
+
+	private String videoLink;
+
+	private Integer sortOrder;
+
+	private Integer secondSortOrder;
+
+	private FomoTag fomoTag;
+
+	private String fomoTagName;
+
+	private String fomoTagcolour;
+
+	private Double distanceFromPlace;
+
+	private String transformationUuid;
+
+	private String transformationId;
+
+	private Integer residenceAddressId;
+
+	private AddressResponseDTO addressResponseDTO;
 	
-	private String imageUrl;
-	
-	private Boolean soldOut;
+	private Integer residenceTypeId;
 	
 	private PropertyEntityType propertyEntityType;
-	
-	@JsonInclude(value = Include.NON_NULL)
-	private String apartmentListingName;
 
-	@JsonInclude(value = Include.NON_NULL)
-	private String apartmentDetailsName;
+	private List<FacilityResponseDTO> facilities;
 	
-	@JsonInclude(value = Include.NON_NULL)
-	private String apartmentMMSlug;
+	private List<FeatureResponseDTO> features;
 
-	@JsonInclude(value = Include.NON_NULL)
-	private String apartmentCitySlug;
+	private List<ResidenceOccupancyResponseDTO> residenceOccupancies;
 
-	private List<RoomMapCardDto> roomMapCardDtos;
-	
-	private Integer societyId;
+	private List<ImageResponseDTO> images;
 }
