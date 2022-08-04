@@ -49,6 +49,7 @@ public class LeadRequestDto {
 	private Integer cityId;
 	private String cityName;
 	private String cityNameUuid;
+	private String urlCity;
 
 	private Integer micromarketId;
 	private String micromarketName;
@@ -101,6 +102,9 @@ public class LeadRequestDto {
 	private String leadSubMode;
 	private String moveInDate;
 	private Double reserveAmount;
+
+	private Integer preBookingAmount;
+	private Integer unlockDiscountAmount;
 
 	private String category;
 	private String fbclId;

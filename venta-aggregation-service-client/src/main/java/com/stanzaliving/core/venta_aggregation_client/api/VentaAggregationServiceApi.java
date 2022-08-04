@@ -476,4 +476,27 @@ public class VentaAggregationServiceApi {
         };
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
     }
+
+	public ResponseDto<List<ResidenceAggregationEntityDto>> getAllActiveResidence(String residenceType) {
+		Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("residenceType", residenceType);
+		String path = UriComponentsBuilder.fromPath("/internal/residence/all-active-residence")
+				.buildAndExpand(uriVariables).toUriString();
+
+		MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		HttpHeaders headerParams = new HttpHeaders();
+		String[] accepts = new String[] { "*/*" };
+		List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<List<ResidenceAggregationEntityDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<ResidenceAggregationEntityDto>>>() {
+		};
+
+		try {
+			log.info("Executing Api for getting bookings Info with Url {}", path);
+			return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Exception while sending booking events integration notification on {}, Exception is {}", LocalDate.now(), e);
+		}
+		return null;
+	}
 }
