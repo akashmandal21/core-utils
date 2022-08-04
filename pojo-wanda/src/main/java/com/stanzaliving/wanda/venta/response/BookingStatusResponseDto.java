@@ -59,4 +59,5 @@ public class BookingStatusResponseDto implements Serializable {
     private String propertyCategory;
     private Date moveInDate;
     private String primaryOwnerName;
+    private String bookingType;
 }

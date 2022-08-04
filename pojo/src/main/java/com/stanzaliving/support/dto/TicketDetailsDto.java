@@ -1,5 +1,6 @@
 package com.stanzaliving.support.dto;
 
+import com.stanzaliving.core.base.enums.TicketRaisedForType;
 import com.stanzaliving.core.bookingservice.dto.response.BookingDurationResponseDto;
 import com.stanzaliving.core.bookingservice.dto.response.RoomDetailsDto;
 import com.stanzaliving.core.bookingservice.dto.response.UserDetailResponseDto;
@@ -33,12 +34,16 @@ public class TicketDetailsDto {
     private TeamDto teamDto;
 
     private UserDetailResponseDto userDetailResponseDto;
+    
+    private UserDto ticketCreatedByUserDetailDto;
 
     private BookingDurationResponseDto bookingDurationResponseDto;
 
     private RoomDetailsDto roomDetailsDto;
 
     private ResidentRelationDto residentRelationDto;
+    
+    private TicketRaisedForType raisedForType;
 
     @Builder.Default
     private boolean canEdit = false;
