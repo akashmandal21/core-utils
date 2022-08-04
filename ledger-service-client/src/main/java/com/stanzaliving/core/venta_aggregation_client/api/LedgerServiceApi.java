@@ -336,4 +336,31 @@ public class LedgerServiceApi {
             throw new ApiValidationException("Error while sending settle-ledger status mail. Exception is " + e.getMessage());
         }
     }
+
+    public ResponseDto<RefundDetailsResponseDto> getRefundDetails(String bookingUuid) {
+        Map<String, Object> uriVariables = new HashMap<>();
+        String path = UriComponentsBuilder.fromPath("/internal/api/v1/refundDetails")
+                .buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        queryParams.add("bookingUuid", bookingUuid);
+        
+        HttpHeaders headerParams = new HttpHeaders();
+        String[] accepts = new String[]{"*/*"};
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<RefundDetailsResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<RefundDetailsResponseDto>>() {
+        };
+
+        try {
+            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+
+        } catch (Exception e) {
+
+            log.error("Error while fetching refund details", e);
+
+            throw new ApiValidationException("Some error occurred. Please try again after some time.");
+        }
+
+    }
 }

@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.Date;
 import java.util.List;
 
 @Data
@@ -20,5 +22,5 @@ public class VentaNotificationDto {
     List<AttachmentDto> attachmentDtos;
     BookingEventEnum eventEnum;
     String message;
-
+    Date auditScheduledOn;
 }
