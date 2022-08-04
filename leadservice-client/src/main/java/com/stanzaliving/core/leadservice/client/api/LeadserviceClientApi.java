@@ -682,23 +682,7 @@ public class LeadserviceClientApi {
         }
     }
 
-    public ResponseDto<Void> syncElasticData(LeadElasticDto leadElasticDto) {
-        log.debug("Lead client to lead elastic data");
-        Object postBody = leadElasticDto;
-        String path = UriComponentsBuilder.fromPath("/internal/lead/sync-elastic-data").toUriString();
-        final HttpHeaders headerParams = new HttpHeaders();
-        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-        final String[] accepts = {"*/*"};
-        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-        ParameterizedTypeReference<ResponseDto<Void>> returnType = new ParameterizedTypeReference<ResponseDto<Void>>() {
-        };
-        try {
-            return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
-        } catch (Exception e) {
-            log.error("Exception caused while syncing lead elastic data", e);
-            return null;
-        }
-    }
+
 
     public ResponseDto<String> autoExpireReferralCode() {
         log.info("Expire referralCodes");
