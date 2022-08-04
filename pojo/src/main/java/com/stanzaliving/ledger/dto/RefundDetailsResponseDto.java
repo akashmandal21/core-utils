@@ -35,4 +35,6 @@ public class RefundDetailsResponseDto {
 
     private String utrNumber;
 
+    private Date transactionProcessedDate;
+
 }
