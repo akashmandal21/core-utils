@@ -1,6 +1,6 @@
 package client.api;
 
-import client.api.dto.AuditLogResponseDto;
+import com.stanzaliving.audit.AuditLogResponseDto;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.stanzaliving.core.base.exception.ApiValidationException;
