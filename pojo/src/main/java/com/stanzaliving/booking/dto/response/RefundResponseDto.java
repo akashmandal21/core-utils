@@ -22,5 +22,7 @@ public class RefundResponseDto {
     private String occupancyName;
     private String residentId;
     private String residenceName;
+    private String microMarketName;
+    private String cityName;
     private Map<String, SdRefundDetailsDto> bookingExitDetails;
 }

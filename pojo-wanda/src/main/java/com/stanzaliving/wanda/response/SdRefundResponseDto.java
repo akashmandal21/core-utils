@@ -27,6 +27,8 @@ public class SdRefundResponseDto {
     private String occupancyName;
     private String residentId;
     private String residenceName;
+    private String microMarketName;
+    private String cityName;
     private SdRefundStateDetails moveOutDate;
     private SdRefundStateDetails roomAudit;
     private SdRefundStateDetails refund;
