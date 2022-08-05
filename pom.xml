@@ -107,10 +107,11 @@
         <module>security-service</module>
         <module>mail-client</module>
         <module>support-client</module>
-	    	<module>backend-locator-client</module>
+	    <module>backend-locator-client</module>
         <module>phoenix-client</module>
         <module>qna-client</module>
-		    <module>analytic-logs</module>
+		<module>analytic-logs</module>
+		<module>estate-v2-client</module>
     </modules>
 
 	<build>
