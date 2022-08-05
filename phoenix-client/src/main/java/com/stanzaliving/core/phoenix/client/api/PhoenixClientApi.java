@@ -145,4 +145,33 @@ public class PhoenixClientApi {
     }
 
 
+    public ResponseDto<String> invalidateCache(Long moduleId, String variableName, List<String> updatedCount) {
+
+        Object postBody = null;
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("moduleId", moduleId);
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        queryParams.add("variableName", variableName);
+        queryParams.put("updatedCount", updatedCount);
+
+        String path = UriComponentsBuilder.fromPath("/internal/module/update/cache/{moduleId}")
+                .buildAndExpand(uriVariables).toUriString();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+        };
+
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+
+    }
+
+
 }
