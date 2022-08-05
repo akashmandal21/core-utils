@@ -10,6 +10,7 @@ import com.stanzaliving.leadService.dto.AutoExpireLeadDto;
 import com.stanzaliving.website.response.dto.LeadDetailEntity;
 import com.stanzaliving.website.response.dto.LeadRequestDto;
 import com.stanzaliving.website.response.dto.QualificationQuestionResponseDto;
+import lombok.extern.log4j.Log4j;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -24,7 +25,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-@Log4j2
+@Log4j
 public class LeadserviceClientApi {
 
     private StanzaRestClient restClient;
