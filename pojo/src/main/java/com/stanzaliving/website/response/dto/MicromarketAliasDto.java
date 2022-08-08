@@ -7,13 +7,17 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.io.Serializable;
+
 @Getter
 @Setter
 @Builder
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class MicromarketAliasDto {
+public class MicromarketAliasDto implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     private Integer micromarketAliasId;
     private String micromarketAliasName;
