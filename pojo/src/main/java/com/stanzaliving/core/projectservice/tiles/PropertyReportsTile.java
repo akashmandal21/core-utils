@@ -18,7 +18,7 @@ public enum PropertyReportsTile {
     AS_IS("As-Is Report", true, true, true, Department.PROJECTS, PropertyUpdateEnum.PROJECT_AS_IS_COMPLETED, "asisdrawings",
             null),
     SFR("SFR", true, true, false, Department.PROJECTS, PropertyUpdateEnum.PROJECT_SFR_COMPLETED, "sfr-report",
-            Arrays.asList(PropertyUpdateEnum.PROJECT_SITE_ENGINEER_ASSIGNED,PropertyUpdateEnum.PROJECT_SFR_COMPLETED)),
+            null),
     //OFR("OFR",true,true),
     GC_SCHEDULE("GC Schedule", true, true, true, Department.GC, PropertyUpdateEnum.PROJECT_SITE_ENGINEER_ASSIGNED, "gc",
             Arrays.asList(PropertyUpdateEnum.PROJECT_SITE_ENGINEER_ASSIGNED,PropertyUpdateEnum.GC_SCHDULE_CREATED)),
@@ -34,7 +34,9 @@ public enum PropertyReportsTile {
     SERVICE_MIX("Service Mix", true, false, false, Department.DESIGN, PropertyUpdateEnum.SERVICE_MIX_COMPLETED, "servicemix",
             Arrays.asList(PropertyUpdateEnum.DESIGN_BED_COUNT_FINALIZATION_COMPLETED,PropertyUpdateEnum.SERVICE_MIX_COMPLETED)),
     PRODUCT_MIX("Product Mix", true, true, false, Department.DESIGN, null, "productmix",
-            Collections.singletonList(PropertyUpdateEnum.DESIGN_BED_COUNT_FINALIZATION_COMPLETED));
+            Collections.singletonList(PropertyUpdateEnum.DESIGN_BED_COUNT_FINALIZATION_COMPLETED)),
+    CONCEPT_DRAWINGS("Concept Drawings", true, true, true, Department.DESIGN, null, "concept-drawings",
+            null);
 
     private String tileText;
 
