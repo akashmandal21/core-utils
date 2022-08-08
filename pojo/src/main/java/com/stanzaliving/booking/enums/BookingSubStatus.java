@@ -97,6 +97,7 @@ public enum BookingSubStatus {
         Set<String> bookingStatus = new HashSet<>();
         bookingStatus.add(EXIT_INITIATED.getBookingSubStatus());
         bookingStatus.add(KEY_HANDOVER_PENDING.getBookingSubStatus());
+        bookingStatus.add(PENDING_CH_APPROVAL.getBookingSubStatus());
         return bookingStatus;
     }
 
