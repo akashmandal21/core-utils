@@ -18,16 +18,16 @@ public enum ModuleNames {
     ASIS_SUBMISSION(true, "AsIs Submission", "As-Is Drawings"),
     BOQ(false, "BOQ", "Bill Of Quantities"),
     CONCEPT_DRAWINGS(false, "Concept Drawings", "Concept Drawings"),
-    CONCEPT_SUBMISSION(true, "Concept Drawings Submission", "Concept Drawings");
-
+    CONCEPT_SUBMISSION(true, "Concept Drawings Submission", "Concept Drawings"),
+    LL_HO(true, "Land Lord Hand Over", "Land Lord Hand Over");
     private final boolean isQuestionTemplateIdRequired;
 
     private final String name;
 
     private final String displayName;
 
-    public static final List<ModuleNames> moduleNames = Arrays.asList(ASIS, BOQ, SFR, CONCEPT_DRAWINGS);//add SFR also in this moduleNames list
+    public static final List<ModuleNames> moduleNames = Arrays.asList(ASIS, BOQ, SFR, CONCEPT_DRAWINGS, LL_HO);//add SFR also in this moduleNames list
 
-    public static final List<ModuleNames> moduleSubmissionNames = Arrays.asList(SFR_SUBMISSION, ASIS_SUBMISSION, CONCEPT_SUBMISSION);
+    public static final List<ModuleNames> moduleSubmissionNames = Arrays.asList(SFR_SUBMISSION, ASIS_SUBMISSION, CONCEPT_SUBMISSION, LL_HO);
 
 }
