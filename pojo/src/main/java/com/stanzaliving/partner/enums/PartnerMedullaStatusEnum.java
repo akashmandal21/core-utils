@@ -10,7 +10,7 @@ import java.util.Set;
 @Getter
 public enum PartnerMedullaStatusEnum {
     ACCEPTANCE_PENDING("Acceptance Pending", ImmutableSet.of("Vendor Acceptance Pending", "Cancel L1 Rejected", "Cancel L2 Rejected", "Cancel L3 Rejected"), "#FFB701", "#FFEAB6"),
-    ACCEPTED_BY_VENDOR("Accepted", ImmutableSet.of("Accepted By Vendor"), "#60C3AD", "#EDFFF5"),
+    ACCEPTED_BY_VENDOR("Accepted", ImmutableSet.of("Accepted By Vendor", "Approved"), "#60C3AD", "#EDFFF5"),
     REJECTED_BY_VENDOR("Rejected", ImmutableSet.of("Rejected By Vendor"), "#FF5238", "#FFE5E1"),
     L3_CANCELLED("Cancelled", ImmutableSet.of("Cancelled"), "#4E5253", "#CBCDCD"),
     SHORTCLOSE("Shortclosed", ImmutableSet.of("Shortclosed"), "#5F11D7", "#F4EEFF"),
