@@ -1,5 +1,6 @@
 package client.api;
 
+import com.stanzaliving.audit.AuditLogResponseDto;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.stanzaliving.core.base.exception.ApiValidationException;
@@ -155,6 +156,42 @@ public class AuditServiceClientApi {
             log.error("Error while searching from venta aggregation service.", e);
 
             throw new ApiValidationException("Some error occurred. Please try again after some time.");
+
+        }
+    }
+
+    public ResponseDto<List<AuditLogResponseDto>> getAuditData(String bookingUuid) {
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("bookingUuid",bookingUuid);
+
+        String path = UriComponentsBuilder.fromPath("/internal/api/v1/auditDetails/{bookingUuid}").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        queryParams.add("bookingUuid", bookingUuid);
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = stanzaRestClient.selectHeaderAccept(accepts);
+
+        TypeReference<ResponseDto<List<AuditLogResponseDto>>> returnType = new TypeReference<ResponseDto<List<AuditLogResponseDto>>>() {
+        };
+
+        ResponseDto<List<AuditLogResponseDto>> responseDto;
+
+        try {
+            responseDto = stanzaRestClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+            return responseDto;
+        } catch (Exception e) {
+
+            log.error("Error while fetching audit data.", e);
+
+            throw new ApiValidationException("Some error occurred while fetching audit data. Please try again after some time.");
 
         }
     }

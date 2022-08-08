@@ -2,6 +2,10 @@ package com.stanzaliving.website.constants;
 
 import lombok.experimental.UtilityClass;
 
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
 @UtilityClass
 public class WebsiteApartmentFilterConstants {
 
@@ -37,7 +41,9 @@ public class WebsiteApartmentFilterConstants {
 	public final String FILTER_ROOM_4_PLUS_BHK_NAME = "4+ BHK";
 	public final Integer FILTER_ROOM_4_PLUS_BHK_VALUE = 99;
 	public final String FILTER_SINGLE_ROOM= " Single Room";
-	
+
+	public final List<Integer> FILTER_ROOM_4_PLUS_BHK_VALUE_LIST = IntStream.rangeClosed(5, 999).boxed().collect(Collectors.toList());
+
 	public final Integer FILTER_ROOMS_SEQUENCE_ID = 7;
 	public final String FILTER_ROOMS_NAME = "ROOMS";
 	
