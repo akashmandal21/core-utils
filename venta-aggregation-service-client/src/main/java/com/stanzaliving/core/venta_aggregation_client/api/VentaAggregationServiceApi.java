@@ -4,6 +4,7 @@ import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.common.dto.RoommateFilterDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.bookingservice.dto.response.ResidenceQrCodeResponseDTO;
+import com.stanzaliving.core.dto.LeadElasticDto;
 import com.stanzaliving.core.venta_aggregation_client.config.RestResponsePage;
 import com.stanzaliving.core.ventaaggregationservice.dto.*;
 import lombok.extern.log4j.Log4j2;
@@ -475,5 +476,46 @@ public class VentaAggregationServiceApi {
         ParameterizedTypeReference<ResponseDto<List<String>>> returnType = new ParameterizedTypeReference<ResponseDto<List<String>>>() {
         };
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+    }
+
+	public ResponseDto<List<ResidenceAggregationEntityDto>> getAllActiveResidence(String residenceType) {
+		Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("residenceType", residenceType);
+		String path = UriComponentsBuilder.fromPath("/internal/residence/all-active-residence")
+				.buildAndExpand(uriVariables).toUriString();
+
+		MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		HttpHeaders headerParams = new HttpHeaders();
+		String[] accepts = new String[] { "*/*" };
+		List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<List<ResidenceAggregationEntityDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<ResidenceAggregationEntityDto>>>() {
+		};
+
+		try {
+			log.info("Executing Api for getting bookings Info with Url {}", path);
+			return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Exception while sending booking events integration notification on {}, Exception is {}", LocalDate.now(), e);
+		}
+		return null;
+	}
+
+    public ResponseDto<Void> syncElasticData(LeadElasticDto elasticDto) {
+        log.debug("venta aggregation client to booking aggregation elastic data");
+        Object postBody = elasticDto;
+        String path = UriComponentsBuilder.fromPath("/internal/residence/sync-elastic-data").toUriString();
+        final HttpHeaders headerParams = new HttpHeaders();
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        final String[] accepts = {"*/*"};
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<Void>> returnType = new ParameterizedTypeReference<ResponseDto<Void>>() {
+        };
+        try {
+            return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception caused while syncing elastic data", e);
+            return null;
+        }
     }
 }

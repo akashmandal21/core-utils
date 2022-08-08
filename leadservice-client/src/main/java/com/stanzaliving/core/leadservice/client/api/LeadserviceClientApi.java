@@ -681,4 +681,29 @@ public class LeadserviceClientApi {
             return null;
         }
     }
+
+    public ResponseDto<String> autoExpireReferralCode() {
+        log.info("Expire referralCodes");
+        Object postBody = null;
+        String path = UriComponentsBuilder.fromPath("/internal/lead/referralCode/markExpire").toUriString();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final String[] accepts = { "*/*" };
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+        };
+
+        try {
+            return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception caused while auto expire referral codes", e);
+            return null;
+        }
+    }
+
 }
