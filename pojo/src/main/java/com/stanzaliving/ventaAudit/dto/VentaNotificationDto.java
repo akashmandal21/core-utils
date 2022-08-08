@@ -23,4 +23,5 @@ public class VentaNotificationDto {
     BookingEventEnum eventEnum;
     String message;
     Date auditScheduledOn;
+    Date auditedOn;
 }

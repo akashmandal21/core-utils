@@ -344,7 +344,7 @@ public class LedgerServiceApi {
 
         MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
         queryParams.add("bookingUuid", bookingUuid);
-        
+
         HttpHeaders headerParams = new HttpHeaders();
         String[] accepts = new String[]{"*/*"};
         List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
@@ -356,11 +356,8 @@ public class LedgerServiceApi {
             return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
 
         } catch (Exception e) {
-
             log.error("Error while fetching refund details", e);
-
-            throw new ApiValidationException("Some error occurred. Please try again after some time.");
+           return null;
         }
-
     }
 }
