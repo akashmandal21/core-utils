@@ -116,6 +116,35 @@ public class PhoenixClientApi {
 
     }
 
+    public Boolean getIsPartialAllowed(Long moduleSubmissionId) {
+
+        Object postBody = null;
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("moduleSubmissionId", moduleSubmissionId);
+//        uriVariables.put("moduleName", moduleName);
+
+        String path = UriComponentsBuilder.fromPath("/internal/module/get/hoto/allowed/{moduleSubmissionId}")
+                .buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+//        headerParams.add(SecurityConstants.COOKIE_HEADER_NAME, token);
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<Boolean> returnType =
+                new ParameterizedTypeReference<Boolean>() {
+                };
+
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+
+    }
+
     public ResponseDto<String> submitModule(String propertyUuid, ModuleNames moduleName, String token) {
 
         Object postBody = null;
