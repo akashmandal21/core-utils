@@ -15,7 +15,7 @@ import java.io.Serializable;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class MicromarketAliasDto implements Serializable {
+public class MicromarketAliasResponseDto implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
