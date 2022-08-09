@@ -21,4 +21,6 @@ public class Log {
     private Double refundAmount;
 
     private Double dueAmount;
+
+    public String utr;
 }
