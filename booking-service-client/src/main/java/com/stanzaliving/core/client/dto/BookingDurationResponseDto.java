@@ -45,7 +45,7 @@ public class BookingDurationResponseDto implements Serializable {
 
     private Integer lockInPeriod;
 
-    private Integer tenurePeriod;
+    private String tenurePeriod;
 
     @JsonFormat(pattern = DateUtil.yyyy_MM_dd_FORMAT, timezone = StanzaConstants.IST_TIMEZONE)
     private Date moveInDate;
