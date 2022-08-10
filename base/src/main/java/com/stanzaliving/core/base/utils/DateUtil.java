@@ -94,6 +94,18 @@ public class DateUtil {
         return cal.get(Calendar.DAY_OF_MONTH) <= 15;
     }
 
+    public boolean isFirstDayOfMonth(Date date) {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        return cal.get(Calendar.DAY_OF_MONTH) == 1;
+    }
+
+    public boolean isLastDayOfMonth(Date date) {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        return cal.get(Calendar.DAY_OF_MONTH) == cal.getActualMaximum(Calendar.DAY_OF_MONTH);
+    }
+
     public static Date max(Date d1, Date d2) {
         if (d1 == null && d2 == null) return null;
         if (d1 == null) return d2;
