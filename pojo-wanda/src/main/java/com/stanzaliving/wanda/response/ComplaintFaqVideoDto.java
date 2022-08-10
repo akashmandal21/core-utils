@@ -20,6 +20,6 @@ public class ComplaintFaqVideoDto {
                 private String description;
                 private String imgUrl;
                 private List<ComplaintFAQDto> faqList;
-                private List<YoutubeVideoDetailDto> videoDataList;
+                private List<SubCategoryVideoDto> videoDataList;
         }
 }
