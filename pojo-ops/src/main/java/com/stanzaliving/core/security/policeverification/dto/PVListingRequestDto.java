@@ -3,6 +3,7 @@ package com.stanzaliving.core.security.policeverification.dto;
 
 import com.stanzaliving.core.dto.PageAndSortDto;
 import com.stanzaliving.core.operations.enums.ResidentStatus;
+import com.stanzaliving.core.security.policeverification.enums.PVApplicable;
 import com.stanzaliving.core.security.policeverification.enums.PVNationality;
 import com.stanzaliving.core.security.policeverification.enums.PoliceVerificationStatus;
 import com.stanzaliving.core.security.policeverification.enums.RegistrationType;
@@ -26,6 +27,8 @@ public class PVListingRequestDto {
 
     @NotNull(message = "Police Verification Status can not be null")
     private PoliceVerificationStatus policeVerificationStatus;
+
+    private PVApplicable pvApplicable;
 
     private String searchText;
 
