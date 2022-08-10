@@ -1,17 +1,21 @@
 package com.stanzaliving.wanda.response;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import lombok.experimental.SuperBuilder;
-
 import javax.validation.constraints.NotNull;
 
-@Data
-@AllArgsConstructor
+@Getter
+@Setter
+@ToString
 @NoArgsConstructor
+@AllArgsConstructor
 @SuperBuilder
-public class YoutubeVideoDetailDto {
+public class SubCategoryVideoDto {
+
     private String uuid;
 
     @NotNull(message = "title is mandatory")
