@@ -60,6 +60,16 @@ public class DateUtil {
         return cal.getTime();
     }
 
+    public static Date normalizeDate(Date date) {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        cal.set(Calendar.HOUR_OF_DAY, 0);
+        cal.set(Calendar.MINUTE, 0);
+        cal.set(Calendar.SECOND, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        return cal.getTime();
+    }
+
     public static Date getNormalizedPrevDate() {
         Calendar cal = Calendar.getInstance();
         cal.add(Calendar.DATE, -1);
@@ -82,6 +92,18 @@ public class DateUtil {
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
         return cal.get(Calendar.DAY_OF_MONTH) <= 15;
+    }
+
+    public boolean isFirstDayOfMonth(Date date) {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        return cal.get(Calendar.DAY_OF_MONTH) == 1;
+    }
+
+    public boolean isLastDayOfMonth(Date date) {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        return cal.get(Calendar.DAY_OF_MONTH) == cal.getActualMaximum(Calendar.DAY_OF_MONTH);
     }
 
     public static Date max(Date d1, Date d2) {
@@ -1070,6 +1092,7 @@ public class DateUtil {
         calendarInstance.set(Calendar.MINUTE, 00);
         calendarInstance.set(Calendar.HOUR_OF_DAY, 00);
         calendarInstance.set(Calendar.SECOND, 00);
+        calendarInstance.set(Calendar.MILLISECOND,0);
         Date currentDate = calendarInstance.getTime();
         return currentDate;
     }

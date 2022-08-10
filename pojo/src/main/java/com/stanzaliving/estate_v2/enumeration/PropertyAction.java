@@ -21,6 +21,7 @@ public enum PropertyAction {
     LEGAL_APPROVAL("Legal Approval", "03cd8e05-517f-46b2-949c-8998018edeeb", "SENT_FOR_APPROVAL_TO_LEGAL"),
     CH_APPROVAL("L1 CH ", "154a487a-8512-442c-9002-71068649729e", "SENT_FOR_L1_APPROVAL_TO_CH"),
     ZH_APPROVAL("L2 ZH", "f7aad7a6-0428-11ec-9a03-0242ac130003", "SENT_FOR_L2_APPROVAL_TO_ZH"),
+    SENT_TO_TITLE_DOCS("Pending Legal for Title Docs Approval","f7aad7a6-0428-11ec-9a03-0242ac130003","SENT_TO_TITLE_DOCS"),
 
     //Apartment Flow
     L1_ZH("L1 Zonal Head", "f7aad752-0428-11ec-9a03-0242ac130003", "L1_ZH"),
@@ -68,6 +69,7 @@ public enum PropertyAction {
         pgPropertyActions.add(new KeyValueDto(SENT_TO_LEGAL.getAlias(),SENT_TO_SANDEEP.uuid));
         pgPropertyActions.add(new KeyValueDto(CH_APPROVAL.getAlias(),SENT_TO_SANDEEP.uuid));
         pgPropertyActions.add(new KeyValueDto(ZH_APPROVAL.getAlias(),ZH_APPROVAL.uuid));
+        pgPropertyActions.add(new KeyValueDto(SENT_TO_TITLE_DOCS.getAlias(),SENT_TO_TITLE_DOCS.uuid));
         return pgPropertyActions;
     }
 

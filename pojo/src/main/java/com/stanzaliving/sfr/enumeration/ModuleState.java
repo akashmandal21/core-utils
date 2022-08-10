@@ -15,6 +15,10 @@ public enum ModuleState implements State<ModuleState> {
     ASIS_APPROVED("Approved","#60C3AD"),
     ASIS_CANCELLED("Cancelled","#e5e3e3"),
 
+    CONCEPT_IN_DRAFT("In Draft", "#e5e3e3"),
+    CONCEPT_ALIGNED("Aligned","#77baa6"),
+    CONCEPT_SUBMITTED("Submitted", "FFC300"),
+    CONCEPT_MISALIGNED("Misaligned", "F45F71"),
     SFR_IN_DRAFT("In Draft","#e5e3e3"),
     SFR_SUBMITTED("Pending Approval","#FFB700");
 
