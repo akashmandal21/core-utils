@@ -10,11 +10,13 @@ import java.io.Serializable;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class PartnerDepartmentResponseDTO implements Serializable {
+public class TeamResponseDTO implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private Integer partnerDepartmentId;
+    private Integer teamId;
+    private String teamName;
+    private String imgurl;
+    private Integer sequenceId;
 
-    private String department;
 }

@@ -4,6 +4,7 @@ import lombok.*;
 import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.Column;
+import java.io.Serializable;
 
 @Getter
 @Setter
@@ -11,7 +12,9 @@ import javax.persistence.Column;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class PartnerWithUsRequestDTO {
+public class PartnerWithUsRequestDTO implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     @NotBlank(message = "Full name is mandatory")
     private String fullName;
