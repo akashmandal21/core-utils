@@ -111,7 +111,8 @@
         <module>phoenix-client</module>
         <module>qna-client</module>
 		    <module>analytic-logs</module>
-    </modules>
+		<module>cloudinary-client</module>
+	</modules>
 
 	<build>
 		<plugins>
