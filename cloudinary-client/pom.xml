@@ -9,6 +9,13 @@
     </parent>
 
     <dependencies>
+
+        <dependency>
+            <groupId>com.stanzaliving.core</groupId>
+            <artifactId>base</artifactId>
+            <version>${global.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>com.cloudinary</groupId>
             <artifactId>cloudinary-http44</artifactId>
