@@ -24,7 +24,6 @@ public class CloudinaryClient {
         String cloudinaryPath = null;
 
         try {
-
             Map properties = new HashMap<>();
 
             if (StringUtils.isNotBlank(uploadFolderPath)) {
@@ -43,15 +42,22 @@ public class CloudinaryClient {
 
             Map result = cloudinary.uploader().upload(file.getBytes(), properties);
 
-            cloudinaryPath = (String) result.get("secure_url");
+            cloudinaryPath = (String) result.get(CloudinaryConstants.SECURE_URL);
 
-            cloudinaryPath = cloudinaryPath.replaceFirst( "image/upload", "image/upload/f_auto,q_auto");
+            log.info("Uploaded cloudinaryFilePath:", cloudinaryPath);
+
+            cloudinaryPath = getFautoQautoCloudinaryFilePath(cloudinaryPath);
         } catch (Exception e) {
             log.error("Exception while uploading file to cloudinary: {}", e);
         }
 
-        log.info("Returning  cloudinaryFilePath as:", cloudinaryPath);
+        log.info("Returning f_auto q_auto cloudinaryFilePath as:", cloudinaryPath);
 
         return cloudinaryPath;
+    }
+
+    private String getFautoQautoCloudinaryFilePath(String cloudinaryPath) {
+
+        return cloudinaryPath.replaceFirst(CloudinaryConstants.IMAGE_UPLOAD_URL, CloudinaryConstants.IMAGE_UPLOAD_F_AUTO_Q_AUTO_URL);
     }
 }
