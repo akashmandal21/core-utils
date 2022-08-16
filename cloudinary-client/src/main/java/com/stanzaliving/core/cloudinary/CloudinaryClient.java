@@ -41,7 +41,7 @@ public class CloudinaryClient {
                 properties.put(CloudinaryConstants.TRANSFORMATION, new Transformation<>().fetchFormat(CloudinaryConstants.AUTO));
             }
 
-            Map result = cloudinary.uploader().upload(file, properties);
+            Map result = cloudinary.uploader().upload(file.getBytes(), properties);
 
             cloudinaryPath = (String) result.get("secure_url");
 
