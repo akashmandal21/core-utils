@@ -12,7 +12,7 @@ public class CloudinaryClient {
 
     public String uploadImageAndGetUrl(){
 
-        
+
 
         return null;
     }
