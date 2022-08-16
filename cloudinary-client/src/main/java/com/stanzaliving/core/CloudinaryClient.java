@@ -1,6 +1,7 @@
 package com.stanzaliving.core;
 
 import com.cloudinary.Cloudinary;
+import org.springframework.web.multipart.MultipartFile;
 
 public class CloudinaryClient {
 
@@ -10,7 +11,7 @@ public class CloudinaryClient {
         this.cloudinary = cloudinary;
     }
 
-    public String uploadImageAndGetUrl(){
+    public String uploadImageAndGetUrl(MultipartFile file, int width, int height) {
 
 
 
