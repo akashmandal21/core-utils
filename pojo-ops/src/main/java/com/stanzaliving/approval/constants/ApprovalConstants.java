@@ -33,6 +33,8 @@ public class ApprovalConstants {
 		put(ApprovalEntityType.SUPPORT_TEMPLATE, Role.SUPPORT_TEMPLATE_APPROVAL_L1);
 		put(ApprovalEntityType.MONTHLY_BUDGET_MENU_PLANNING, Role.MONTHLY_BUDGET_MENU_PLANNING_L1_APPROVER);
 		put(ApprovalEntityType.ELECTRICITY_BILL_SPLITTER, Role.MICROMARKET_ELECTRICITY_SPLITTER_L1_APPROVER);
+		put(ApprovalEntityType.DISH_DEBAR, Role.DISH_DEBAR_CITY_L1_APPROVER);
+		put(ApprovalEntityType.DISH_REACTIVATION, Role.DISH_REACTIVATION_CITY_L1_APPROVER);
 
 
 	}};
@@ -48,6 +50,8 @@ public class ApprovalConstants {
 		put(ApprovalEntityType.SUPPORT_TEMPLATE, Role.SUPPORT_TEMPLATE_APPROVAL_L2);
 		put(ApprovalEntityType.MONTHLY_BUDGET_MENU_PLANNING, Role.MONTHLY_BUDGET_MENU_PLANNING_L2_APPROVER);
 		put(ApprovalEntityType.ELECTRICITY_BILL_SPLITTER, Role.CITY_ELECTRICITY_SPLITTER_L2_APPROVER);
+		put(ApprovalEntityType.DISH_DEBAR, Role.DISH_DEBAR_COUNTRY_L2_APPROVER);
+		put(ApprovalEntityType.DISH_REACTIVATION, Role.DISH_REACTIVATION_COUNTRY_L2_APPROVER);
 	}};
 	
 	public static final HashMap<ApprovalEntityType, Role> l3ApproverEntityTypeRoleMap = new HashMap<ApprovalEntityType, Role>() {{
@@ -60,6 +64,8 @@ public class ApprovalConstants {
 		put(ApprovalEntityType.SUPPORT_TEMPLATE, Role.SUPPORT_TEMPLATE_APPROVAL_L3);
 		put(ApprovalEntityType.MONTHLY_BUDGET_MENU_PLANNING, Role.MONTHLY_BUDGET_MENU_PLANNING_L3_APPROVER);
 		put(ApprovalEntityType.ELECTRICITY_BILL_SPLITTER, Role.COUNTRY_ELECTRICITY_SPLITTER_L3_APPROVER);
+		put(ApprovalEntityType.DISH_DEBAR, Role.DISH_DEBAR_COUNTRY_L3_APPROVER);
+		put(ApprovalEntityType.DISH_REACTIVATION, Role.DISH_REACTIVATION_COUNTRY_L3_APPROVER);
 	}};
 	
 	public static final HashMap<ApprovalEntityType, Role> l4ApproverEntityTypeRoleMap = new HashMap<ApprovalEntityType, Role>() {{
