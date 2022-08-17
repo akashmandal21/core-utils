@@ -2124,12 +2124,15 @@ public class ResidenceDataControllerApi {
         return null;
     }
 
-    public EscalationDto getEscalationDetails(String inventoryUuid, String residenceUuid, Date moveInDate){
+    public EscalationDto getEscalationDetails(String inventoryUuid, String residenceUuid, String moveInDate){
         log.info("getEscalationDetails::inventoryUuid {}, residenceUuid {}, moveInDate {}",inventoryUuid, residenceUuid, moveInDate);
 
         Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("inventoryUuid", inventoryUuid);
+        uriVariables.put("residenceUuid", residenceUuid);
+        uriVariables.put("moveInDate", moveInDate);
 
-        String path = UriComponentsBuilder.fromPath("/escalation-map-start-to-moveIn/{inventoryUuid}/{residenceUuid}/{moveInDate}").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/escalation-map-start-to-moveIn/{inventoryUuid}/{residenceUuid}/{moveInDate}").buildAndExpand(uriVariables).toUriString();
 
         MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
