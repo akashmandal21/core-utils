@@ -22,5 +22,6 @@ public class ActiveResidenceDetailsDto {
 	private String microMarketName;
 	private String residenceId;
 	private String residenceName;
+	private Long siteId;
 
 }
