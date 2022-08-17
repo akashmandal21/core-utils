@@ -16,6 +16,6 @@ public class FileStatusResponseDto {
     boolean isComplete;
     String fileStatus;
     String fileUrl;
-    String createdAt;
+    long createdAt;
     boolean isExpired;
 }
