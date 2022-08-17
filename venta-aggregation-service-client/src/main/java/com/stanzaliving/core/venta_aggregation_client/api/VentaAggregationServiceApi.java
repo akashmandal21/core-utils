@@ -4,6 +4,7 @@ import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.common.dto.RoommateFilterDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.bookingservice.dto.response.ResidenceQrCodeResponseDTO;
+import com.stanzaliving.core.dto.LeadElasticDto;
 import com.stanzaliving.core.venta_aggregation_client.config.RestResponsePage;
 import com.stanzaliving.core.ventaaggregationservice.dto.*;
 import lombok.extern.log4j.Log4j2;
@@ -499,4 +500,22 @@ public class VentaAggregationServiceApi {
 		}
 		return null;
 	}
+
+    public ResponseDto<Void> syncElasticData(LeadElasticDto elasticDto) {
+        log.debug("venta aggregation client to booking aggregation elastic data");
+        Object postBody = elasticDto;
+        String path = UriComponentsBuilder.fromPath("/internal/residence/sync-elastic-data").toUriString();
+        final HttpHeaders headerParams = new HttpHeaders();
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        final String[] accepts = {"*/*"};
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<Void>> returnType = new ParameterizedTypeReference<ResponseDto<Void>>() {
+        };
+        try {
+            return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception caused while syncing elastic data", e);
+            return null;
+        }
+    }
 }

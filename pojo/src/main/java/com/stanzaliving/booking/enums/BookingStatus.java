@@ -377,6 +377,7 @@ public enum BookingStatus {
         bookingStatus.add(BookingStatus.RENT_DEFAULTER_PAID);
         bookingStatus.add(BookingStatus.RENT_DEFAULTER_UNPAID);
         bookingStatus.add(BookingStatus.CONTRACT_TERMINATED);
+        bookingStatus.add(BookingStatus.TRESSPASSER);
         return bookingStatus;
     }
 }
