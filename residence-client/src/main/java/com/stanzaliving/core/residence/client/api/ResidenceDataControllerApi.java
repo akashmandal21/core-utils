@@ -12,6 +12,7 @@ import com.stanzaliving.core.residenceservice.dto.AttributesResponseDto;
 import com.stanzaliving.core.residenceservice.dto.ResidenceBlendedPriceDto;
 import com.stanzaliving.core.residenceservice.dto.*;
 import com.stanzaliving.core.security.helper.SecurityUtils;
+import com.stanzaliving.residence.dto.EscalationDto;
 import com.stanzaliving.residence.dto.ResidencePropertyCardDto;
 import com.stanzaliving.residenceservice.BookingAttributesDto;
 import com.stanzaliving.residenceservice.Dto.*;
@@ -2117,6 +2118,31 @@ public class ResidenceDataControllerApi {
         try {
             return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
 
+        } catch (Exception ex) {
+            log.error("Exception while Escalation Alert", ex);
+        }
+        return null;
+    }
+
+    public EscalationDto getEscalationDetails(String inventoryUuid, String residenceUuid, Date moveInDate){
+        log.info("getEscalationDetails::inventoryUuid {}, residenceUuid {}, moveInDate {}",inventoryUuid, residenceUuid, moveInDate);
+
+        Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/escalation-map-start-to-moveIn/{inventoryUuid}/{residenceUuid}/{moveInDate}").buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        HttpHeaders headerParams = new HttpHeaders();
+
+        String[] accepts = new String[]{"*/*"};
+
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<EscalationDto> returnType = new ParameterizedTypeReference<EscalationDto>() {};
+
+        try {
+            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
         } catch (Exception ex) {
             log.error("Exception while Escalation Alert", ex);
         }
