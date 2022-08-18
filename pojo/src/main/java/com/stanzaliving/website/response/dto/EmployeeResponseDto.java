@@ -13,7 +13,7 @@ import java.util.Set;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class EmployeeResponseDTO implements Serializable {
+public class EmployeeResponseDto implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -23,7 +23,10 @@ public class EmployeeResponseDTO implements Serializable {
     private String email;
     private Gender gender;
     private String designationName;
-    private Set<TeamResponseDTO> teams = new HashSet<TeamResponseDTO>();
+
+    @Builder.Default
+    private Set<TeamResponseDto> teams = new HashSet<TeamResponseDto>();
+
     private String imgurl;
     private String about;
     private Integer priority;

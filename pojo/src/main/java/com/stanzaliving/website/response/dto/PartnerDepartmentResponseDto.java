@@ -10,7 +10,7 @@ import java.io.Serializable;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class PartnerDepartmentResponseDTO implements Serializable {
+public class PartnerDepartmentResponseDto implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

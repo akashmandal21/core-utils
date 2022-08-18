@@ -18,12 +18,16 @@ public class PartnerWithUsRequestDTO implements Serializable {
 
     @NotBlank(message = "Full name is mandatory")
     private String fullName;
+
     @NotBlank(message = "Contact number is mandatory")
     private String contactNumber;
+
     @NotBlank(message = "Email is mandatory")
     private String email;
+
     @Column(name = "message", columnDefinition = "LONGTEXT")
     private String message;
+
     private Integer partnerDepartmentId;
 
 }

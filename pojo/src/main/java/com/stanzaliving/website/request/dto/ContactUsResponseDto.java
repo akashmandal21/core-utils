@@ -11,7 +11,7 @@ import java.io.Serializable;
 @Getter
 @Setter
 @ToString
-public class ContactUsResponseDTO implements Serializable {
+public class ContactUsResponseDto implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

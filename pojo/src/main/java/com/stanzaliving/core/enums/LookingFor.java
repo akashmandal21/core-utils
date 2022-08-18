@@ -22,4 +22,5 @@ public enum LookingFor {
     PRE_BOOKING_AND_CANCELLATIONS,
 
     NOTHING_THATS_LISTED_HERE_SORRY
+
 }
