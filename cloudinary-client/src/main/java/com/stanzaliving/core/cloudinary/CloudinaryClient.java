@@ -56,7 +56,7 @@ public class CloudinaryClient {
         return cloudinaryPath;
     }
 
-    private String getFautoQautoCloudinaryFilePath(String cloudinaryPath) {
+    public String getFautoQautoCloudinaryFilePath(String cloudinaryPath) {
 
         return cloudinaryPath.replaceFirst(CloudinaryConstants.IMAGE_UPLOAD_URL, CloudinaryConstants.IMAGE_UPLOAD_F_AUTO_Q_AUTO_URL);
     }
