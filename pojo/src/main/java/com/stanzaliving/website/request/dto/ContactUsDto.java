@@ -11,7 +11,7 @@ import java.io.Serializable;
 @Getter
 @Setter
 @ToString
-public class ContactUsResponseDto implements Serializable {
+public class ContactUsDto implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -28,4 +28,5 @@ public class ContactUsResponseDto implements Serializable {
     private String message;
 
     private LookingFor lookingFor;
+
 }
