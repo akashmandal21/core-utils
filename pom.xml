@@ -107,10 +107,10 @@
         <module>security-service</module>
         <module>mail-client</module>
         <module>support-client</module>
-	    	<module>backend-locator-client</module>
+		<module>backend-locator-client</module>
         <module>phoenix-client</module>
         <module>qna-client</module>
-		    <module>analytic-logs</module>
+		<module>analytic-logs</module>
 		<module>cloudinary-client</module>
 	</modules>
 
