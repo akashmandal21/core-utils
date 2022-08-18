@@ -15,4 +15,8 @@ public class WebsiteResidenceResponseDto {
     private String googleMapLink;
 
     private String virtualTourImage;
+
+    private String residenceUrlLink;
+
+
 }
