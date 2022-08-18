@@ -28,6 +28,8 @@ public class CloudinaryClient {
 
             if (StringUtils.isNotBlank(uploadFolderPath)) {
                 properties.put(CloudinaryConstants.FOLDER, uploadFolderPath);
+                properties.put(CloudinaryConstants.USE_FILENAME, Boolean.TRUE);
+                properties.put(CloudinaryConstants.FILENAME, file.getOriginalFilename());
             }
 
             if (width > 0 && height > 0) {

@@ -13,6 +13,10 @@ public class CloudinaryConstants {
 
     public final String FOLDER = "folder";
 
+    public final String USE_FILENAME = "use_filename";
+
+    public final String FILENAME = "filename";
+
     public final String TRANSFORMATION = "transformation";
 
     public final String SCALE = "scale";
