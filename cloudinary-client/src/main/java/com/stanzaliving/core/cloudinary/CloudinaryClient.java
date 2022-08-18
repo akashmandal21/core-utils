@@ -47,8 +47,6 @@ public class CloudinaryClient {
             cloudinaryPath = (String) result.get(CloudinaryConstants.SECURE_URL);
 
             log.info("Uploaded cloudinaryFilePath:", cloudinaryPath);
-
-            cloudinaryPath = getFautoQautoCloudinaryFilePath(cloudinaryPath);
         } catch (Exception e) {
             log.error("Exception while uploading file to cloudinary: {}", e);
         }
