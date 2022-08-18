@@ -49,4 +49,5 @@ public class DocumentResponseDto {
     private List<String> dealResidences;
     private String metaDataCallerService;
     private String generationSource;
+    private String issuedBy;
 }

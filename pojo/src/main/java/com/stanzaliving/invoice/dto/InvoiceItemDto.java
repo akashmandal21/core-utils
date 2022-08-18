@@ -1,5 +1,6 @@
 package com.stanzaliving.invoice.dto;
 
+import com.stanzaliving.boq_service.enums.BoqLabel;
 import com.stanzaliving.core.generic.dto.UIKeyValue;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -57,4 +58,6 @@ public class InvoiceItemDto {
     private BigDecimal otherFee;
     private BigDecimal wtdAvg;
     private BigDecimal totalOtherFee;
+    @Builder.Default
+    private BoqLabel boqLabel = BoqLabel.NA;
 }

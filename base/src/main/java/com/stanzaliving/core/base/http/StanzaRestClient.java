@@ -54,6 +54,8 @@ public class StanzaRestClient {
 
 	private HttpHeaders defaultHeaders = new HttpHeaders();
 
+	private HttpMessageConverter messageConverter;
+
 	public StanzaRestClient(String basePath) {
 		this.basePath = basePath;
 		this.restTemplate = buildRestTemplate();
@@ -64,6 +66,14 @@ public class StanzaRestClient {
 		this.basePath = basePath;
 		this.restTemplate = buildRestTemplate(connectTimeOut, readTimeOut);
 		objectMapper = BaseMapperConfig.getDefaultMapper();
+	}
+
+	public HttpMessageConverter getMessageConverter() {
+		return messageConverter;
+	}
+
+	public void setMessageConverter(HttpMessageConverter messageConverter) {
+		this.messageConverter = messageConverter;
 	}
 
 	public enum CollectionFormat {
@@ -212,6 +222,11 @@ public class StanzaRestClient {
 	private <T> T getResponse(RequestEntity<Object> requestEntity, ParameterizedTypeReference<T> returnType, final UriComponentsBuilder builder) {
 		ResponseEntity<T> responseEntity = null;
 		try {
+			if (null != messageConverter) {
+				List<HttpMessageConverter<?>> messageConverters = new ArrayList<>();
+				messageConverters.add(messageConverter);
+				restTemplate.setMessageConverters(messageConverters);
+			}
 			responseEntity = restTemplate.exchange(requestEntity, returnType);
 
 		} catch (RestClientException e) {

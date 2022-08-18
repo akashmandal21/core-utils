@@ -13,7 +13,6 @@ import javax.validation.constraints.NotEmpty;
 @AllArgsConstructor
 public class AttendanceSettingsDTO {
 
-    @NotEmpty(message = "Attendance opt out status cannot be empty")
     private boolean attendanceOptOut;
 
     private boolean hasBlanketApproval;

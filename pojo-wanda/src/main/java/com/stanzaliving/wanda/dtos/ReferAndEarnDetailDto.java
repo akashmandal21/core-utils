@@ -33,6 +33,8 @@ public class ReferAndEarnDetailDto extends ReferAndEarnBaseDto {
 	private int showTdsBox;
 	private HowItWorksDto howItWorks;
 	private UnlockLevelsAndEarnMoreDto unlockLevelsAndEarnMore;
+	private UnlockLevelsAndEarnMoreDto allReferralLevels;
+//	private UnlockLevelsAndEarnMoreDto currentReferralLevel;
 	private ReferralCodeDetailDto referralCode;
 	private YourReferralsDto yourReferrals;
 	private ReferralEarningResponseDto yourEarnings;

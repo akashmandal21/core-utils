@@ -1,14 +1,11 @@
 package com.stanzaliving.core.ventaaggregationservice.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import java.util.List;
 
+@Builder
 @Setter
 @Getter
 @AllArgsConstructor
@@ -31,14 +28,35 @@ public class BookingResidenceAggregationEntityDto {
 
     private String entity;
 
-    private Long totalBeds;
-
-    private Long totalRooms;
-
-    private Long totalApartments;
+    private String gender;
 
     private List<String> residenceUuids;
 
+    @Builder.Default
+    private Long totalBeds=0L;
+    @Builder.Default
+    private Long totalRooms=0L;
+    @Builder.Default
+    private Long totalApartments=0L;
+
+    @Builder.Default
+    private Integer liveRooms=0;
+    @Builder.Default
+    private Float liveBeds=0F;
+    @Builder.Default
+    private Integer deadRooms=0;
+    @Builder.Default
+    private Float deadBeds=0F;
+    @Builder.Default
+    private Integer occupiedRooms=0;
+    @Builder.Default
+    private Float occupiedBeds=0F;
+    @Builder.Default
+    private Integer blockedRoom=0;
+    @Builder.Default
+    private Float blockedBeds=0F;
+
+    private boolean testHouse;
 }
 
 

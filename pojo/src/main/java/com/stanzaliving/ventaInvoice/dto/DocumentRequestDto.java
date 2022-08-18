@@ -17,6 +17,7 @@ import java.util.Map;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@ToString
 public class DocumentRequestDto {
 
     @NotNull(message = "ServiceType is required")
@@ -41,6 +42,8 @@ public class DocumentRequestDto {
     private LocalDate fromDate;
 
     private LocalDate toDate;
+
+    private LocalDate executionDate;
 
     private PaymentPlanType callerServiceCategory;
 

@@ -3,9 +3,11 @@ package com.stanzaliving.core.cafe.dto;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import javax.validation.Valid;
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
@@ -36,6 +38,7 @@ public class CafeItemPricingUpdateRequestDto {
 
     private boolean residencePriceEnabled;
 
-    private List<ResidenceItemPricingUpdateRequestDto> residenceItemPricingList;
+    @NotEmpty(message = "residenceItemPricingList cannot be empty")
+    private List<@Valid ResidenceItemPricingUpdateRequestDto> residenceItemPricingList;
 
 }

@@ -5,7 +5,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
 
 @Builder
 @Data
@@ -13,11 +12,8 @@ import java.util.Date;
 @AllArgsConstructor
 public class UpcomingBookingsDto {
 
-    String bookingUuid;
+    String label;
 
-    String residentId;
+    String value;
 
-    Date contractStartDate;
-
-    Date contractEndDate;
 }

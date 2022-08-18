@@ -32,7 +32,11 @@ public class BookingDetailsRequestDto implements Serializable {
 	@NotNull(message = "contractEndDate cannot be null")
 	private Date contractEndDate;
 
+	private Date modifiedContractStartDate;
+
 	private Date stayLockInEndDate;
+
+	private double stayLockInMonths;
 
 	private Date subContract1EndDate;
 
@@ -41,5 +45,7 @@ public class BookingDetailsRequestDto implements Serializable {
 	@Builder.Default
 	@NotNull(message = "payment term cannot be null")
 	private PaymentTerm paymentTerm = PaymentTerm.MONTHLY;
+
+	private Date newStayLockInEndDate;
 
 }

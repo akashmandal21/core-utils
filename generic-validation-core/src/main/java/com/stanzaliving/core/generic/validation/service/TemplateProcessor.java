@@ -1,14 +1,42 @@
 package com.stanzaliving.core.generic.validation.service;
 
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Set;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+
+import com.stanzaliving.core.base.enums.Department;
+import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections.MapUtils;
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.util.Pair;
+
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.common.collect.Sets;
 import com.stanzaliving.core.base.exception.StanzaException;
-import com.stanzaliving.core.generic.dto.UIKeyValue;
 import com.stanzaliving.core.generic.constants.GenericConstants;
-import com.stanzaliving.core.generic.validation.dtos.*;
+import com.stanzaliving.core.generic.dto.UIKeyValue;
+import com.stanzaliving.core.generic.validation.dtos.ErrorInfo;
+import com.stanzaliving.core.generic.validation.dtos.MalFormedRecordException;
+import com.stanzaliving.core.generic.validation.dtos.TemplateField;
+import com.stanzaliving.core.generic.validation.dtos.UiField;
+import com.stanzaliving.core.generic.validation.dtos.UiParentField;
 import com.stanzaliving.core.generic.validation.entity.Templates;
-import com.stanzaliving.core.generic.validation.enums.*;
+import com.stanzaliving.core.generic.validation.enums.FieldOptionProvider;
+import com.stanzaliving.core.generic.validation.enums.FieldType;
+import com.stanzaliving.core.generic.validation.enums.TemplateType;
+import com.stanzaliving.core.generic.validation.enums.UIFieldType;
+import com.stanzaliving.core.generic.validation.enums.YesNoEnum;
 import com.stanzaliving.core.generic.validation.fieldProcessors.AdaptableProcessor;
 import com.stanzaliving.core.generic.validation.fieldProcessors.ApprovalProcessor;
 import com.stanzaliving.core.generic.validation.fieldProcessors.TemplateListSection;
@@ -17,18 +45,9 @@ import com.stanzaliving.core.generic.validation.filter.TemplateFilter;
 import com.stanzaliving.core.generic.validation.utility.FieldDecoder;
 import com.stanzaliving.core.generic.validation.utility.FieldValidator;
 import com.stanzaliving.core.generic.validation.utility.ValueAdapters;
+
 import lombok.extern.log4j.Log4j2;
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.collections.MapUtils;
-import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.util.Pair;
-
-
-import java.lang.reflect.Field;
-import java.util.*;
-import java.util.function.Function;
-import java.util.stream.Collectors;
+import net.bytebuddy.asm.Advice.This;
 
 @Log4j2
 public abstract class TemplateProcessor {
@@ -38,7 +57,13 @@ public abstract class TemplateProcessor {
 
     @Autowired
     private ObjectMapper objectMapper;
+    
+	public static Set<String> fieldsToBeSkippedForValidation = new HashSet<String>();
 
+	static {
+		fieldsToBeSkippedForValidation = Sets.newHashSet("consumableTag");
+	}
+    		
     public abstract Map<String,Templates> getTemplates(TemplateFilter templateFilter, String templateName);
 //    {
 //
@@ -270,6 +295,10 @@ public abstract class TemplateProcessor {
         Map<String, UiParentField> uiFieldMap = new LinkedHashMap<>();
         Templates template = templates.get(templateName);
 
+        if(additionalData.containsKey("partnerRequest") && additionalData.get("partnerRequest").equals(true)){
+            removePartnerUnrelatedFieds(template);
+        }
+
         boolean mainDataPresent = MapUtils.isNotEmpty(data);
 
         for (TemplateField templateField : template.getFields()) {
@@ -285,6 +314,32 @@ public abstract class TemplateProcessor {
                     throw new StanzaException("Internal Error Occurred");
             }
             boolean needed = templateField.isMandatory() && !isDraft;
+            if(FieldOptionProvider.poBOQLabelProvider == templateField.getOptionProvider() && additionalData.get("department") == Department.OPS) {
+                needed = true && !isDraft;
+            }
+            else if(FieldOptionProvider.poBOQLabelProvider == templateField.getOptionProvider()
+                    && ((additionalData.get("department") != Department.PROCUREMENT && additionalData.get("department") != Department.GC)
+                    || (Objects.nonNull(ValueAdapters.getValue(data.get("deliveryLocationType"), UiField.class,objectMapper).getValue()) && !(ValueAdapters.getValue(ValueAdapters.getValue(data.get("deliveryLocationType"), UiField.class,objectMapper).getValue(), UIKeyValue.class, objectMapper).getValue().equals("HOUSE"))))) {
+                needed = false;
+            }
+            else if(FieldOptionProvider.poBOQLabelProvider == templateField.getOptionProvider() &&
+                    (additionalData.get("department") == Department.PROCUREMENT || additionalData.get("department") == Department.GC) &&
+                    (Objects.nonNull(ValueAdapters.getValue(data.get("deliveryLocationType"), UiField.class,objectMapper).getValue()) && (ValueAdapters.getValue(ValueAdapters.getValue(data.get("deliveryLocationType"), UiField.class,objectMapper).getValue(), UIKeyValue.class, objectMapper).getValue().equals("HOUSE")))) {
+                needed = true && !isDraft;
+            }
+            if(FieldOptionProvider.toBOQLabelProvider == templateField.getOptionProvider() && additionalData.get("department") == Department.OPS) {
+                needed = true && !isDraft;
+            }
+            else if((FieldOptionProvider.toBOQLabelProvider == templateField.getOptionProvider() || FieldOptionProvider.toExpenseTypeProvider == templateField.getOptionProvider())
+                    && ((additionalData.get("department") != Department.PROCUREMENT && additionalData.get("department") != Department.GC)
+                    || (Objects.nonNull(ValueAdapters.getValue(data.get("destinationLocationType"), UiField.class,objectMapper).getValue()) && !(ValueAdapters.getValue(ValueAdapters.getValue(data.get("destinationLocationType"), UiField.class,objectMapper).getValue(), UIKeyValue.class, objectMapper).getValue().equals("HOUSE"))))) {
+                needed = false;
+            }
+            else if((FieldOptionProvider.toBOQLabelProvider == templateField.getOptionProvider() || FieldOptionProvider.toExpenseTypeProvider == templateField.getOptionProvider()) &&
+                    (additionalData.get("department") == Department.PROCUREMENT || additionalData.get("department") == Department.GC) &&
+                    (Objects.nonNull(ValueAdapters.getValue(data.get("destinationLocationType"), UiField.class,objectMapper).getValue()) && (ValueAdapters.getValue(ValueAdapters.getValue(data.get("destinationLocationType"), UiField.class,objectMapper).getValue(), UIKeyValue.class, objectMapper).getValue().equals("HOUSE")))) {
+                needed = true && !isDraft;
+            }
             boolean dataPresent = mainDataPresent && Objects.nonNull(data.get(templateField.getFieldName())) && (!data.get(templateField.getFieldName()).isNull());
             FieldType subFieldType = templateField.getFieldSubType();
 
@@ -317,6 +372,8 @@ public abstract class TemplateProcessor {
                         uiField.setErrorOccurred(false);
                         boolean decodeResult = FieldDecoder.decodeValue(uiField, templateField, needed, objectMapper, errorInfo,field,sourceClass,additionalData);
                         log.info("Decode status field-name:{} result:{}", templateField.getFieldName(), decodeResult);
+                        
+                        decodeResult = skipValidationForField(templateField, decodeResult, errorInfo);
 //                        if (decodeResult && Objects.nonNull(uiField.getValue()))
 //                            ValueAdapters.setFieldVal(templateName,templateField,field,sourceClass,uiField.getValue(),objectMapper);
                         fillOptions(templateField,additionalData,uiField);
@@ -356,7 +413,7 @@ public abstract class TemplateProcessor {
                             Map<String, Field> fieldMap = Arrays.stream(clazz.getDeclaredFields()).collect(Collectors.toMap(Field::getName, Function.identity()));
                             Map<String, JsonNode> nestedStruct = ValueAdapters.convertValue(uiBasicField.getData(), new TypeReference<Map<String, JsonNode>>() {},objectMapper);
                             Pair<Boolean, Map<String, UiParentField>> nestedData = verifyAndStoreData(nestedStruct, templateField.getFieldName(),
-                                    templates, isDraft, errorInfo, saveDraftOnError, additionalData, fieldMap, obj,allowSkipNewFields,baseObject);
+                                    templates, isDraft, errorInfo, saveDraftOnError, additionalData, fieldMap, obj, allowSkipNewFields, baseObject);
                             if(!isDraft)
                                 uiBasicField.setErrorOccurred(nestedData.getFirst());
                             uiBasicField.setData(objectMapper.valueToTree(nestedData.getSecond()));
@@ -376,7 +433,7 @@ public abstract class TemplateProcessor {
                                 for (Map<String, JsonNode> f : nestedStruct) {
                                     Object temp = ValueAdapters.instantiateClass(clazz,templateName,templateField,field);
                                     Pair<Boolean, Map<String, UiParentField>> derivedData = verifyAndStoreData(f, templateField.getFieldName(), templates, isDraft,
-                                            errorInfo, saveDraftOnError, additionalData, fieldMap, temp,allowSkipNewFields,baseObject);
+                                            errorInfo, saveDraftOnError, additionalData, fieldMap, temp, allowSkipNewFields, baseObject);
                                     nestedData.add(derivedData.getSecond());
                                     if(!isDraft)
                                         uiBasicField.setErrorOccurred(uiBasicField.isErrorOccurred() || derivedData.getFirst());
@@ -432,6 +489,26 @@ public abstract class TemplateProcessor {
         log.info("Finished Processing template {}",templateName);
         return Pair.of(currErrors < errorInfo.getNumErrors(),uiFieldMap);
     }
+
+    private void removePartnerUnrelatedFieds(Templates template){
+        template.getFields().removeIf(f -> f.getFieldName().equals("actionReason") || f.getFieldName().equals("actionDocUrl"));
+    }
+	/**
+	 * @param templateField
+	 * @see This is just to skip validations for a particular field. We are skipping consumableTag for now as it is department specific.
+	 */
+	private Boolean skipValidationForField(TemplateField templateField, Boolean decodeResult, ErrorInfo errorInfo) {
+		if (StringUtils.isNotBlank(templateField.getFieldName()) && fieldsToBeSkippedForValidation.contains(templateField.getFieldName())) {
+			log.info("Ignoring Validation for field name: {} ", templateField.getFieldName());
+			
+			decodeResult = Boolean.TRUE;
+			errorInfo.setErrorOccurred(Boolean.FALSE);
+			
+			log.info("Decode status field-name:{} result:{}", templateField.getFieldName(), decodeResult);
+		}
+
+		return decodeResult;
+	}
 
     //Todo: fit the new Adapt field type in below method and alos update the List<Section> with new structure.
     private void verifyEntityData(String templateName, Map<String,Templates> templates, List<String> errors,
@@ -618,6 +695,7 @@ public abstract class TemplateProcessor {
         boolean editable = checkIfEditable(templateField,additionalData);
 
         Object defaultValue = templateField.getDefaultValue();
+        Object minValue = templateField.getMinValue();
 
         UiField uiField = UiField.builder()
                 .fieldName(templateField.getFieldName())
@@ -631,6 +709,7 @@ public abstract class TemplateProcessor {
                 .validator(templateField.getValidator())
                 .regex(templateField.getRegex())
                 .options(templateField.getOptions())
+                .minValue(objectMapper.valueToTree(templateField.getMinValue()))
                 .build();
         if (editable && Objects.nonNull(templateField.getOptionProvider()) && (templateField.getUiType() == UIFieldType.OPTION_LIST ||
                 templateField.getUiType() == UIFieldType.OPTION_LIST_MS || templateField.getUiType() == UIFieldType.OPTION_LIST_ARR))

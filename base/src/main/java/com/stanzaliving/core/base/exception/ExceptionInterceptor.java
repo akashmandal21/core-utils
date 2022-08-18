@@ -67,7 +67,7 @@ public class ExceptionInterceptor {
 
 		return ResponseDto.failure(errorMessgae, exceptionId);
 	}
-	
+
 	@ExceptionHandler(StanzaSecurityException.class)
 	@ResponseStatus(value = HttpStatus.UNAUTHORIZED)
 	@SendExceptionToSlack
@@ -184,13 +184,13 @@ public class ExceptionInterceptor {
 
 		return ResponseDto.failure(e.getMessage(), exceptionId);
 	}
-	
+
 	@ExceptionHandler(MultipartException.class)
 	@ResponseStatus(HttpStatus.BAD_REQUEST)
 	public <T> ResponseDto<T> handleMultipartException(MultipartException e) {
 
 		String exceptionId = getExceptionId();
-		log.error("Got MultipartException for exceptionId: {} with Message: {}", exceptionId, e.getMessage());
+		log.error("Got MultipartException for exceptionId: {} with Message:", exceptionId, e);
 
 		return ResponseDto.failure(e.getMessage(), exceptionId);
 	}
@@ -219,7 +219,6 @@ public class ExceptionInterceptor {
 
 	@ExceptionHandler(RecordExistsException.class)
 	@ResponseStatus(code = HttpStatus.CONFLICT)
-	@SendExceptionToSlack
 	public <T> ResponseDto<T> handleRecordExistsException(RecordExistsException e) {
 
 		String exceptionId = getExceptionId();
@@ -334,6 +333,16 @@ public class ExceptionInterceptor {
 
 		String exceptionId = getExceptionId();
 		log.error("Got ApiValidationException for exceptionId: {} With Message: {}", exceptionId, e.getMessage());
+
+		return ResponseDto.failure(e.getMessage(), exceptionId);
+	}
+	
+	@ExceptionHandler(UserValidationException.class)
+	@ResponseStatus(value = HttpStatus.UNAUTHORIZED)
+	public <T> ResponseDto<T> handleUserValidationException(UserValidationException e) {
+
+		String exceptionId = getExceptionId();
+		log.error("Got UserValidationException for exceptionId: {} With Message: {}", exceptionId, e.getMessage());
 
 		return ResponseDto.failure(e.getMessage(), exceptionId);
 	}
