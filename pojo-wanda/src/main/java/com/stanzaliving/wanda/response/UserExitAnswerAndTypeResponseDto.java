@@ -13,4 +13,5 @@ public class UserExitAnswerAndTypeResponseDto {
 
     private String answer;
     private String type;
+    private String source;
 }
