@@ -145,6 +145,35 @@ public class PhoenixClientApi {
 
     }
 
+    public ResponseDto<Map<String, Long>> getBedAndRoomCountRemaining(String propertyId){
+
+        Object postBody = null;
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("propertyId", propertyId);
+//        uriVariables.put("moduleName", moduleName);
+
+        String path = UriComponentsBuilder.fromPath("/internal/hoto/remaining/count/{propertyId}")
+                .buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+//        headerParams.add(SecurityConstants.COOKIE_HEADER_NAME, token);
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<Map<String, Long>>> returnType =
+                new ParameterizedTypeReference<ResponseDto<Map<String, Long>>>() {
+                };
+
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+
+    }
+
     public ResponseDto<String> submitModule(String propertyUuid, ModuleNames moduleName, String token) {
 
         Object postBody = null;
