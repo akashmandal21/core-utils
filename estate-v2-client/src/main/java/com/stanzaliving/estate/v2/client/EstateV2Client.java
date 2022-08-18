@@ -58,7 +58,9 @@ public class EstateV2Client {
 
   public String getATLUrl(String propertyUuid) {
 
-    String path = UriComponentsBuilder.fromPath("/internal/legal/property/{propertyUuid}").build().toUriString();
+    final Map<String, Object> uriVariables = new HashMap<>();
+    uriVariables.put("propertyUuid", propertyUuid);
+    String path = UriComponentsBuilder.fromPath("/internal/legal/property/{propertyUuid}").buildAndExpand(uriVariables).toUriString();
 
     final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
