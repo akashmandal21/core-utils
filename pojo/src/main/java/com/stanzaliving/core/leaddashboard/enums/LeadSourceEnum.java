@@ -12,6 +12,7 @@ public enum LeadSourceEnum {
     ADITYA_REFERRAL("Aditya Referral", LeadSourceGroupEnum.REFERRAL),
     ABOUT_US("About us", LeadSourceGroupEnum.DIGITAL),
     AMC_BANNERGHATT("AMC Bannerghatt", LeadSourceGroupEnum.OTHERS),
+    ALFRED_TRUECALLER("Alfred-Truecaller", LeadSourceGroupEnum.RESIDENT_APP),
     APARTMENT_LEAD_LP_FORM("Apartment Lead LP Form", LeadSourceGroupEnum.DIGITAL),
     BETA_TEST_1("betatest1", LeadSourceGroupEnum.OTHERS),
     BLOG_PAGE("Blog Page", LeadSourceGroupEnum.DIGITAL),
