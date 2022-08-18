@@ -181,7 +181,7 @@ public class InvoiceServiceApi {
         final Map<String, Object> uriVariables = new HashMap<>();
         String path = UriComponentsBuilder.fromPath("/internal/invoice-complete-details").buildAndExpand(uriVariables).toUriString();
         MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-        queryParams.add("referenceUuid", referenceUuid);
+        queryParams.add("referenceId", referenceUuid);
         HttpHeaders headerParams = new HttpHeaders();
         String[] accepts = new String[]{"*/*"};
         List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
