@@ -1,4 +1,4 @@
-package com.stanzaliving.leadservice;
+package com.stanzaliving.leadService;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.stanzaliving.core.leaddashboard.enums.LeadSourceEnum;

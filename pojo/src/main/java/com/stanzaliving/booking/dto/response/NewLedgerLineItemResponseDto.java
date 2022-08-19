@@ -21,6 +21,8 @@ public class NewLedgerLineItemResponseDto implements Comparable {
 	@JsonIgnore
 	private Integer position = 0;
 
+	private String remarks;
+
 	private Date date;
 
 	private String formattedDate;
@@ -38,6 +40,17 @@ public class NewLedgerLineItemResponseDto implements Comparable {
 	private String type;
 
 	private Double invoiceAmount;
+
+	public Double getBalanceAmount() {
+		double scale = Math.pow(10, 2);
+		return Math.round(balanceAmount * scale) / scale;
+	}
+
+	public void setBalanceAmount(Double balanceAmount) {
+		double scale = Math.pow(10, 2);
+		balanceAmount = Math.round(balanceAmount * scale) / scale;
+		this.balanceAmount = balanceAmount;
+	}
 
 	private Double balanceAmount;
 

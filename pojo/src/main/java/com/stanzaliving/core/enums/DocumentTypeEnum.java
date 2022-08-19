@@ -12,5 +12,6 @@ public enum DocumentTypeEnum {
     POLICE_VERIFICATION,
     POLICE_VERIFICATION_FORM,
     FORM_C,
-    ID_CARD
+    MOVE_IN_DATE_CHANGE,
+    ID_CARD,SELFIE
 }
