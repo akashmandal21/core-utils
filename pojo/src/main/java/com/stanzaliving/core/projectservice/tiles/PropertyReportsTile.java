@@ -14,7 +14,7 @@ import java.util.List;
 public enum PropertyReportsTile {
 
     ATL("ATL", true, true, false, null, null, "",null),
-    LLHODOC("LL HO Doc",false,true,false,null,null,"", Arrays.asList(PropertyUpdateEnum.LLHODOC_UPLOADED)),
+    LLHODOC("LL HO Doc",true,true,false,null,null,"llho", null),
     AS_IS("As-Is Report", true, true, true, Department.PROJECTS, PropertyUpdateEnum.PROJECT_AS_IS_COMPLETED, "asisdrawings",
             null),
     SFR("SFR", true, true, false, Department.PROJECTS, PropertyUpdateEnum.PROJECT_SFR_COMPLETED, "sfr-report",
