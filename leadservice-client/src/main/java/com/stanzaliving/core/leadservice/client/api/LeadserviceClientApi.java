@@ -8,6 +8,7 @@ import com.stanzaliving.core.dto.LeadElasticDto;
 import com.stanzaliving.leadService.dto.AutoExpireLeadConfigMapDto;
 import com.stanzaliving.leadService.dto.AutoExpireLeadDto;
 import com.stanzaliving.website.response.dto.LeadDetailEntity;
+import com.stanzaliving.website.response.dto.LeadQrDto;
 import com.stanzaliving.website.response.dto.LeadRequestDto;
 import com.stanzaliving.website.response.dto.QualificationQuestionResponseDto;
 import lombok.extern.log4j.Log4j2;
@@ -702,6 +703,23 @@ public class LeadserviceClientApi {
             return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
         } catch (Exception e) {
             log.error("Exception caused while auto expire referral codes", e);
+            return null;
+        }
+    }
+
+    public ResponseDto<LeadQrDto> createOrUpdateLead(LeadQrDto leadQrDto) {
+        try {
+            Object postBody = leadQrDto;
+            String path = UriComponentsBuilder.fromPath("/lead/createOrUpdateLead/").toUriString();
+            final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+            final HttpHeaders headerParams = new HttpHeaders();
+            final String[] accepts = {"*/*"};
+            final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+            ParameterizedTypeReference<ResponseDto<LeadQrDto>> returnType = new ParameterizedTypeReference<ResponseDto<LeadQrDto>>() {
+            };
+            return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception caught while creating or updating lead", e);
             return null;
         }
     }
