@@ -48,4 +48,8 @@ public class BookingDetailsRequestDto implements Serializable {
 
 	private Date newStayLockInEndDate;
 
+	private Integer advanceRentalFirstMonths;
+
+	private Integer advanceRentalLastMonths;
+
 }

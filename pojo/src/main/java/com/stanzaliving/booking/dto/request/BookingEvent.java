@@ -54,4 +54,11 @@ public class BookingEvent implements Serializable {
     private String mobile;
     private Integer cityId;
     private String cityUuid;
+    private boolean agreementSent;
+    private Date expectedMoveInDate;
+    private Date expectedMoveOutDate;
+    private Date createdAt;
+    private Integer tokenAmount;
+    private Date moveInDate;
+
 }
