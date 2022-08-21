@@ -724,4 +724,24 @@ public class LeadserviceClientApi {
         }
     }
 
+    public ResponseDto<LeadQrDto> verifyRequest(String uuid, String sessionId) {
+        try {
+            Object postBody = null;
+            String path = UriComponentsBuilder.fromPath("/lead/verifyRequest?uuid=" + uuid + "&sessionId=" + sessionId).toUriString();
+            final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+            if (Objects.nonNull(uuid))
+                queryParams.add("uuid", uuid);
+            if (Objects.nonNull(sessionId))
+                queryParams.add("sessionId", sessionId);
+            final HttpHeaders headerParams = new HttpHeaders();
+            final String[] accepts = {"*/*"};
+            final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+            ParameterizedTypeReference<ResponseDto<LeadQrDto>> returnType = new ParameterizedTypeReference<ResponseDto<LeadQrDto>>() {
+            };
+            return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception caught while verifying otp sent to lead on IMS", e);
+            return null;
+        }
+    }
 }
