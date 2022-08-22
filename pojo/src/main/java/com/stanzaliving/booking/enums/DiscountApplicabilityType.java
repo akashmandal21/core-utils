@@ -8,7 +8,7 @@ import lombok.Getter;
 @Getter
 public enum DiscountApplicabilityType {
 	
-	LIFO("LIFO"), FIFO("FIFO"),FLM("First and Last Month");
+	LIFO("LIFO"), FIFO("FIFO"),FLM("First and Last Month"), LIFO_SKIPPED_AR("LIFO_SKIPPED_AR");
 
     String name;
 }

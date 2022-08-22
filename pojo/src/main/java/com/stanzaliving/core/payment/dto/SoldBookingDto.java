@@ -1,14 +1,13 @@
 package com.stanzaliving.core.payment.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.Date;
+import java.util.List;
 
 @Builder
 @Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class SoldBookingDto {
@@ -16,6 +15,8 @@ public class SoldBookingDto {
     String roomUuid;
     Date contractStartDate;
     Date lockInEndDate;
-    Integer lockInDuration;
+    Double lockInDuration;
     Double beds;
+
+    List<String> packageService;
 }

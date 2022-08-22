@@ -23,6 +23,8 @@ public enum PaymentPlanType {
 	DISCOUNT("Discount Adjusted"),
 	DAMAGE("Damage"),
 	ACCOMMODATION_CHARGES("Accommodation Charges"),
+	CANCELLATION_CHARGE("Cancellation Charge"),
+
 	PENALTY_WAIVE_OFF("Penalty Waive Off"),
 	CREDIT_NOTE_FOR_DISCOUNT("Credit Note For Discount"),
 	OTHERS_OPERATIONS("Other Operations"),
@@ -54,7 +56,8 @@ public enum PaymentPlanType {
 	ADDITIONAL_INVOICE("Additional Invoice - License Fee"),
 	ADDITIONAL_INVOICE_SERVICE_FEE("Additional Invoice - Service Fee"),
 	ADDITIONAL_SECURITY_DEPOSIT("Additional Security Deposit"),
-	ADDITIONAL_INVOICE_ROOM_CHANGE("Additional Invoice - Room Change");
+	ADDITIONAL_INVOICE_ROOM_CHANGE("Additional Invoice - Room Change"),
+	GST_WAIVE_OFF("Gst Waive Off");
 
 	private String name;
 	

@@ -3,6 +3,8 @@ package com.stanzaliving.wanda.response;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import java.util.Date;
+
 @Getter
 @Setter
 @ToString
@@ -42,4 +44,12 @@ public class ComplaintListingUIDtoV2 {
 	private String cmsId;
 
 	private Boolean satisfied;
+	
+	private String ticketStatus;
+	
+	private Boolean isResolved;
+
+	private Date resolvedAt;
+
+	private Boolean removeSatisfied;
 }

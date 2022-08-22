@@ -20,6 +20,8 @@ public enum PropertyAction {
     SENT_TO_SANDEEP("Sent To Sandeep ", "9262e77c-eb72-43df-a075-e4b33cf42777", "SENT_TO_SANDEEP"),
     LEGAL_APPROVAL("Legal Approval", "03cd8e05-517f-46b2-949c-8998018edeeb", "SENT_FOR_APPROVAL_TO_LEGAL"),
     CH_APPROVAL("L1 CH ", "154a487a-8512-442c-9002-71068649729e", "SENT_FOR_L1_APPROVAL_TO_CH"),
+    ZH_APPROVAL("L2 ZH", "f7aad7a6-0428-11ec-9a03-0242ac130003", "SENT_FOR_L2_APPROVAL_TO_ZH"),
+    SENT_TO_TITLE_DOCS("Pending Legal for Title Docs Approval","f7aad7a6-0428-11ec-9a03-0242ac130003","SENT_TO_TITLE_DOCS"),
 
     //Apartment Flow
     L1_ZH("L1 Zonal Head", "f7aad752-0428-11ec-9a03-0242ac130003", "L1_ZH"),
@@ -31,6 +33,7 @@ public enum PropertyAction {
     SENT_TO_PROPERTY_NAMING("Property Naming", "f7aadf22-0428-11ec-9a03-0242ac130003", "SENT_TO_PROPERTY_NAMING"),
     SENT_TO_LEGAL_FOR_APPROVAL("Sent To Legal For Approval", "f7aadf22-0428-11ec-9a03-0242ac130006", "SENT_TO_LEGAL_FOR_APPROVAL"),
     SENT_TO_SUNIL("Sent To Sunil", "f0cf6014-3205-4bb6-b706-bd38f8d46f59", "SENT_TO_SUNIL"),
+    SENT_TO_CH("L1 Sent To CH", "f7aae0a6-0428-11ec-9a03-0242ac130003", "SENT_TO_CH"),
 
     // Kitchen Flow
 
@@ -65,6 +68,8 @@ public enum PropertyAction {
         pgPropertyActions.add(new KeyValueDto(SENT_TO_SANDEEP.getAlias(),SENT_TO_SANDEEP.uuid));
         pgPropertyActions.add(new KeyValueDto(SENT_TO_LEGAL.getAlias(),SENT_TO_SANDEEP.uuid));
         pgPropertyActions.add(new KeyValueDto(CH_APPROVAL.getAlias(),SENT_TO_SANDEEP.uuid));
+        pgPropertyActions.add(new KeyValueDto(ZH_APPROVAL.getAlias(),ZH_APPROVAL.uuid));
+        pgPropertyActions.add(new KeyValueDto(SENT_TO_TITLE_DOCS.getAlias(),SENT_TO_TITLE_DOCS.uuid));
         return pgPropertyActions;
     }
 
@@ -79,12 +84,14 @@ public enum PropertyAction {
         apartmentPropertyActions.add(new KeyValueDto(SENT_TO_PROPERTY_NAMING.getAlias(),SENT_TO_PROPERTY_NAMING.uuid));
         apartmentPropertyActions.add(new KeyValueDto(SENT_TO_LEGAL_FOR_APPROVAL.getAlias(), SENT_TO_LEGAL_FOR_APPROVAL.uuid));
         apartmentPropertyActions.add(new KeyValueDto(SENT_TO_SUNIL.getAlias(), SENT_TO_SUNIL.uuid));
+        apartmentPropertyActions.add(new KeyValueDto(SENT_TO_CH.getAlias(), SENT_TO_CH.uuid));
         return apartmentPropertyActions;
     }
 
     public static List<KeyValueDto> getPropertyActionForSociety() {
         final List<KeyValueDto> societyPropertyActions=new ArrayList<>();
         societyPropertyActions.add(new KeyValueDto(L1_SL.getAlias(),L1_SL.uuid));
+        societyPropertyActions.add(new KeyValueDto(SENT_TO_CH.getAlias(),SENT_TO_CH.uuid));
         return societyPropertyActions;
     }
 
