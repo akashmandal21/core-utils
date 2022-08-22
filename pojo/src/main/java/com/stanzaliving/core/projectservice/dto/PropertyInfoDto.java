@@ -58,4 +58,5 @@ public class PropertyInfoDto {
     private double longitude;
     private int floorCount;
     private String propertyImages;
+    private String estateUuid;
 }
