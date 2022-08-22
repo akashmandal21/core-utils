@@ -4,6 +4,7 @@
 package com.stanzaliving.core.user.request.dto;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -91,5 +92,7 @@ public class AddUserRequestDto {
 	private BloodGroup bloodGroup;
 	
 	private boolean signupFlow;
+	
+	private List<String> roleNames;
 	
 }

@@ -85,5 +85,6 @@ public interface EmailPlaceHolders {
     String ITEM_DESCRIPTION = "itemDescription";
     String ITEM_GST = "itemGST";
     String ITEM_LINK = "itemLink";
-
+    String GRN_PERCENTAGE = "grnPercentage";
+    String SHORTCLOSE_MESSAGE = "SHORTCLOSE_MESSAGE";
 }
