@@ -1,9 +1,9 @@
 package com.stanzaliving.website.response.dto;
 
 import lombok.*;
-import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.Column;
+import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 
 @Getter
