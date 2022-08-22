@@ -564,4 +564,47 @@ public class InventoryClientApi {
 			return null;
 		}
 	}
+
+	public ResponseDto<LeadQrDto> verifyOtpAndGetLeadDetails(String phone, String otp) {
+		try {
+			Object postBody = null;
+			String path = UriComponentsBuilder.fromPath("/lead/verifyOtpAndGetLeadDetails?phone=" + phone + "&otp=" + otp).toUriString();
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+			if (Objects.nonNull(phone))
+				queryParams.add("phone", phone);
+			if (Objects.nonNull(otp))
+				queryParams.add("otp", otp);
+			final HttpHeaders headerParams = new HttpHeaders();
+			final String[] accepts = {"*/*"};
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+			ParameterizedTypeReference<ResponseDto<LeadQrDto>> returnType = new ParameterizedTypeReference<ResponseDto<LeadQrDto>>() {
+			};
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Exception caught while verifying otp sent to lead on IMS ", e);
+			return null;
+		}
+	}
+
+
+	public ResponseDto<String> sendOtpToLeadOnIms(String phone, String flow) {
+		try {
+			Object postBody = null;
+			String path = UriComponentsBuilder.fromPath("lead/otp/send?flow=" + flow + "&phone=" + phone).toUriString();
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+			if (Objects.nonNull(phone))
+				queryParams.add("phone", phone);
+			if (Objects.nonNull(flow))
+				queryParams.add("flow", flow);
+			final HttpHeaders headerParams = new HttpHeaders();
+			final String[] accepts = {"*/*"};
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+			ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+			};
+			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Exception caught while sending otp to lead on IMS ", e);
+			return null;
+		}
+	}
 }
