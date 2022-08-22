@@ -10,6 +10,7 @@ import com.stanzaliving.core.inventory.dto.InventoryActionRequestDto;
 import com.stanzaliving.core.inventory.dto.InventoryItemDetailedDto;
 import com.stanzaliving.core.inventory.dto.InventoryTOResponse;
 import com.stanzaliving.item_master.dtos.FilterDto;
+import com.stanzaliving.website.response.dto.LeadQrDto;
 import com.stanzaliving.website.response.dto.LeadRequestDto;
 import com.stanzaliving.website.response.dto.RazorPayRequestDto;
 import lombok.extern.log4j.Log4j2;
@@ -22,10 +23,7 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.math.BigDecimal;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Log4j2
 public class InventoryClientApi {
@@ -527,5 +525,43 @@ public class InventoryClientApi {
 		}
 
 
+	}
+
+	public ResponseDto<LeadQrDto> createOrUpdateLead(LeadQrDto leadQrDto) {
+		try {
+			Object postBody = leadQrDto;
+			String path = UriComponentsBuilder.fromPath("/lead/createOrUpdateLead/").toUriString();
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+			final HttpHeaders headerParams = new HttpHeaders();
+			final String[] accepts = {"*/*"};
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+			ParameterizedTypeReference<ResponseDto<LeadQrDto>> returnType = new ParameterizedTypeReference<ResponseDto<LeadQrDto>>() {
+			};
+			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Exception caught while creating or updating lead", e);
+			return null;
+		}
+	}
+
+	public ResponseDto<LeadQrDto> verifyRequest(String uuid, String sessionId) {
+		try {
+			Object postBody = null;
+			String path = UriComponentsBuilder.fromPath("/lead/verifyRequest?uuid=" + uuid + "&sessionId=" + sessionId).toUriString();
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+			if (Objects.nonNull(uuid))
+				queryParams.add("uuid", uuid);
+			if (Objects.nonNull(sessionId))
+				queryParams.add("sessionId", sessionId);
+			final HttpHeaders headerParams = new HttpHeaders();
+			final String[] accepts = {"*/*"};
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+			ParameterizedTypeReference<ResponseDto<LeadQrDto>> returnType = new ParameterizedTypeReference<ResponseDto<LeadQrDto>>() {
+			};
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Exception caught while verifying otp sent to lead on IMS", e);
+			return null;
+		}
 	}
 }
