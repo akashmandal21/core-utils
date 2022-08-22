@@ -53,6 +53,7 @@ public class MenuCategoryDetailDto extends MenuCategoryDTO {
 	private List<ListingDto> demographicTags;
 	private boolean costUpdated;
 	private boolean publishable;
+	private boolean customMapApplicable;
 
 	// derived information
 	private int totalMealInWeek;
@@ -87,4 +88,12 @@ public class MenuCategoryDetailDto extends MenuCategoryDTO {
 
 	@Builder.Default
 	private Double menuBudgetMultiplier = 1.0;
+
+	@Builder.Default
+	private boolean grammageRangeRuleApplied = true;
+
+	private Double minimumBy;
+
+	private Double maximumBy;
+
 }

@@ -23,4 +23,5 @@ public class RoomOccupancyDto {
     private Integer occupancy;
 
     private Boolean nonMgBed;
+
 }

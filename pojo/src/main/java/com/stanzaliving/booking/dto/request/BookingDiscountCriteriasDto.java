@@ -7,6 +7,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 @Data
 @Builder
 @AllArgsConstructor
@@ -23,5 +25,8 @@ public class BookingDiscountCriteriasDto {
     @Builder.Default
     private Boolean applicableOnRoomConversion = Boolean.FALSE;
     private String leadTag;
+    private Boolean entireFlatBooking;
+    private Date preBookFromDate;
+    private Date preBookToDate;
 
 }

@@ -36,6 +36,8 @@ public class BookingDetailsRequestDto implements Serializable {
 
 	private Date stayLockInEndDate;
 
+	private double stayLockInMonths;
+
 	private Date subContract1EndDate;
 
 	private BookingType bookingType;
@@ -43,5 +45,11 @@ public class BookingDetailsRequestDto implements Serializable {
 	@Builder.Default
 	@NotNull(message = "payment term cannot be null")
 	private PaymentTerm paymentTerm = PaymentTerm.MONTHLY;
+
+	private Date newStayLockInEndDate;
+
+	private Integer advanceRentalFirstMonths;
+
+	private Integer advanceRentalLastMonths;
 
 }

@@ -13,7 +13,8 @@ public enum QrCodeStatus {
 	RETURNING("Returning"),
 	UNPACKING("Unpacking"),
 	UNPACKED("Unpacked"),
-	LOCATION_MISMATCH("Location Mismatch");
+	LOCATION_MISMATCH("Location Mismatch"),
+	DEPARTMENT_MISMATCH("Department Mismatch");
 
 	private String label;
 

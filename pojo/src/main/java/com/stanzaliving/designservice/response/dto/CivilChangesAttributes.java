@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.Date;
+
 /**
  * @author raj.kumar
  *
@@ -18,4 +20,6 @@ public class CivilChangesAttributes {
 	private String remark;
 	private boolean civilStatus;
 	private boolean designTeamStatus;
+	private Date updatedAt;
+	private String updatedBy;
 }

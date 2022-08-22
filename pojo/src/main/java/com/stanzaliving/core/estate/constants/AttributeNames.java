@@ -18,7 +18,9 @@ public class AttributeNames {
 		public static final String POC_NAME = "pocName";
 
 		public static final String TYPE_OF_BRAND = "typeOfBrand";
-		
+
+		public static final String COMPETITOR_NAME = "competitorName";
+
 		public static final String ROOM_TYPE = "roomType";
 		public static final String ROOM_COUNT = "roomCount";
 
@@ -27,7 +29,7 @@ public class AttributeNames {
 		public static final String NUMBER_OF_FLOORS = "floorCount";
 
 		public static final String NUMBER_OF_STILT_ROOMS = "stiltNumberOfRooms";
-		
+
 		public static final String NUMBER_OF_AC_ROOMS = "acRoomsProposed";
 		
 		public static final String NUMBER_OF_TOWERS = "towerCount";

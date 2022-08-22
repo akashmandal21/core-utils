@@ -25,4 +25,8 @@ public class ResidentActivityDTO {
     private LocalDate activityDate;
 
     private LocalTime activityTime;
+
+    private String bookingId;
+
+    private String residentCode;
 }

@@ -24,6 +24,9 @@ public class VentaNotificationDto {
     String message;
     Date auditScheduledOn;
     Date auditedOn;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 136550f668988e4930c974d78657e22157b03b4b
 }
 
