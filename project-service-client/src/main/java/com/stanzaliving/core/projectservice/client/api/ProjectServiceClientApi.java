@@ -232,7 +232,40 @@ public class ProjectServiceClientApi {
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
     }
 
-    public void updateLatLongForProperty(String propertyUuid, double latitude, double longitude, MicroMarketDetailsDto microMarketDetailsDto) {
+    public void updateLatLongForProperty(String propertyUuid, double latitude, double longitude) {
+
+        if (Objects.isNull(propertyUuid)) {
+            return;
+        }
+
+        Object postBody = null;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        uriVariables.put("propertyUuid", propertyUuid);
+        uriVariables.put("latitude", latitude);
+        uriVariables.put("longitude", longitude);
+
+        String path = UriComponentsBuilder.fromPath("/internal/update/latlong/{propertyUuid}/{latitude}/{longitude}").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<Class<Void>> returnType = new ParameterizedTypeReference<Class<Void>>() {
+        };
+        restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+
+    }
+
+    public void updateMicroMarketForProperty(String propertyUuid, MicroMarketDetailsDto microMarketDetailsDto) {
 
         if (Objects.isNull(propertyUuid)) {
             return;
@@ -244,10 +277,8 @@ public class ProjectServiceClientApi {
         final Map<String, Object> uriVariables = new HashMap<>();
 
         uriVariables.put("propertyUuid", propertyUuid);
-        uriVariables.put("latitude", latitude);
-        uriVariables.put("longitude", longitude);
 
-        String path = UriComponentsBuilder.fromPath("/internal/update/latlong/{propertyUuid}/{latitude}/{longitude}").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/update/micromarket/{propertyUuid}").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
