@@ -11,6 +11,7 @@ import com.stanzaliving.core.projectservice.dto.BedCountDto;
 
 import com.stanzaliving.core.projectservice.dto.ProductMixTilesDto;
 import com.stanzaliving.core.projectservice.dto.PropertyInfoDto;
+import com.stanzaliving.transformations.pojo.MicroMarketDetailsDto;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -229,5 +230,38 @@ public class ProjectServiceClientApi {
         ParameterizedTypeReference<ResponseDto<ProductMixTilesDto>> returnType = new ParameterizedTypeReference<ResponseDto<ProductMixTilesDto>>() {
         };
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+    }
+
+    public void updateLatLongForProperty(String propertyUuid, double latitude, double longitude, MicroMarketDetailsDto microMarketDetailsDto) {
+
+        if (Objects.isNull(propertyUuid)) {
+            return;
+        }
+
+        Object postBody = microMarketDetailsDto;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        uriVariables.put("propertyUuid", propertyUuid);
+        uriVariables.put("latitude", latitude);
+        uriVariables.put("longitude", longitude);
+
+        String path = UriComponentsBuilder.fromPath("/internal/update/latlong/{propertyUuid}/{latitude}/{longitude}").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<Class<Void>> returnType = new ParameterizedTypeReference<Class<Void>>() {
+        };
+        restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+
     }
 }
