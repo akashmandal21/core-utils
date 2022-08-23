@@ -34,7 +34,8 @@ public enum BookingStatus {
     GUEST_AGREEMENT_PENDING("GUEST AGREEMENT PENDING"),
     GUEST_AGREEMENT_SENT("GUEST AGREEMENT SENT"),
     GUEST_ONBOARDING_PENDING("GUEST ONBOARDING PENDING"),
-    GUEST_ONBOARDING_COMPLETED("GUEST ONBOARDING COMPLETED");
+    GUEST_ONBOARDING_COMPLETED("GUEST ONBOARDING COMPLETED"),
+    BOOKING_AUTO_FORFEITURE("BOOKING AUTO FORFEITURE");
 
     private String bookingStatus;
 
@@ -369,4 +370,14 @@ public enum BookingStatus {
         bookingStatus.add(BookingStatus.ONBOARDING_IN_PROGRESS);
         return bookingStatus;
     }
+
+    public static List<BookingStatus> bookingStatusForBookingAmountRealisation() {
+        List<BookingStatus> bookingStatus = new ArrayList<>();
+        bookingStatus.add(BookingStatus.AGREEMENT_PENDING);
+        bookingStatus.add(BookingStatus.AGREEMENT_SENT);
+        bookingStatus.add(BookingStatus.ONBOARDING_PENDING);
+        bookingStatus.add(BookingStatus.ONBOARDING_IN_PROGRESS);
+        return bookingStatus;
+    }
+
 }
