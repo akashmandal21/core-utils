@@ -18,6 +18,20 @@ import java.util.Date;
 @AllArgsConstructor
 public class CampaignListDto {
 
+    public CampaignListDto(String uuid, String campaignName, CampaignDashboardType campaignType, CampaignGroup campaignGroup, Integer priorityOrder, SchedulingType schedulingType, CampaignStatus campaignStatus, String createdBy, Date createdAt, Date startDate, Date endDate) {
+        this.uuid = uuid;
+        this.campaignName = campaignName;
+        this.campaignType = campaignType;
+        this.campaignGroup = campaignGroup;
+        this.priorityOrder = priorityOrder;
+        this.schedulingType = schedulingType;
+        this.campaignStatus = campaignStatus;
+        this.createdBy = createdBy;
+        this.createdAt = createdAt;
+        this.startDate = startDate;
+        this.endDate = endDate;
+    }
+
     private String uuid;
 
     private String campaignName;
@@ -32,8 +46,6 @@ public class CampaignListDto {
 
     private CampaignStatus campaignStatus;
 
-    private FileStatusResponseDto fileStatusResponse;
-
     private String createdBy;
 
     private Date createdAt;
@@ -41,4 +53,6 @@ public class CampaignListDto {
     private Date startDate;
 
     private Date endDate;
+
+    private FileStatusResponseDto fileStatusResponse;
 }
