@@ -31,8 +31,7 @@ public class PropertyInfoDto {
 	@Builder.Default
 	private int occupancy = Constants.DEFUALT_OCCUPANCY_PERCENT;
 	
-	private int blendedPricePerBed;
+	private int price;
 	
 	private int margin;
-
 }

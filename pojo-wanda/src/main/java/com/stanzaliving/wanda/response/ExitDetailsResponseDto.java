@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 @Builder
 @Data
@@ -67,4 +68,14 @@ public class ExitDetailsResponseDto {
     private LocalDate auditDate;
 
     private Double securityDeposit;
+
+    private String exitSource;
+
+    private Double futureDues;
+
+    Map<String, UserExitAnswerAndTypeResponseDto> userExitReasons;
+
+    private Boolean isMoveOutDateExceeded;
+
+    private LocalDate lastScanDate;
 }
