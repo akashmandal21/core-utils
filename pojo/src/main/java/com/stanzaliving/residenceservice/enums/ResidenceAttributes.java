@@ -47,7 +47,8 @@ public enum ResidenceAttributes {
     BOOKING_START_DATE("Booking Start Date", "Date"),
     PRE_BOOKING_START_DATE("Pre-Booking Start Date", "Date"),
 
-    UNDERWRITE_FINANCE("Underwrite Price", "Double");
+    UNDERWRITE_FINANCE("Underwrite Price", "Double"),
+    PRICE_ESCALATION_ENABLE("Price Escalation Enabled", "Boolean");
 
     private String label;
     private String type;
