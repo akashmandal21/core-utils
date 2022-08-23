@@ -1,4 +1,4 @@
-package com.stanzaliving.core.client.dto;
+package com.stanzaliving.wanda.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
