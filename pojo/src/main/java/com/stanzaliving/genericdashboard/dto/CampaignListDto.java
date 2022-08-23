@@ -1,5 +1,6 @@
 package com.stanzaliving.genericdashboard.dto;
 
+import com.stanzaliving.campaign.dto.response.FileStatusResponseDto;
 import com.stanzaliving.genericdashboard.enums.CampaignDashboardType;
 import com.stanzaliving.genericdashboard.enums.CampaignGroup;
 import com.stanzaliving.genericdashboard.enums.CampaignStatus;
@@ -30,6 +31,8 @@ public class CampaignListDto {
     private SchedulingType schedulingType;
 
     private CampaignStatus campaignStatus;
+
+    private FileStatusResponseDto fileStatusResponse;
 
     private String createdBy;
 
