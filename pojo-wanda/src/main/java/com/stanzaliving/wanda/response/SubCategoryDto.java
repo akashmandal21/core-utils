@@ -28,7 +28,6 @@ public class SubCategoryDto {
     private List<FeedbackReasonDto> feedbackReasons = new ArrayList<>();
     private int templateCount;
     private List<SubCategoryVideoDto> subCategoryVideoDtos = new ArrayList<>();
-    private List<ComplaintFAQDto> complaintFAQDtos = new ArrayList<>();
 
 
     public SubCategoryDto(String name, String uuid) {
