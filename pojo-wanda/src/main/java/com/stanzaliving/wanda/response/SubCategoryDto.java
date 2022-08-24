@@ -1,5 +1,6 @@
 package com.stanzaliving.wanda.response;
 
+import com.stanzaliving.core.complaint.dto.ComplaintFAQDto;
 import com.stanzaliving.support.dto.FeedbackReasonDto;
 import com.stanzaliving.support.dto.SubTicketTaskDto;
 import com.stanzaliving.support.enums.Priority;
@@ -27,6 +28,8 @@ public class SubCategoryDto {
     private List<FeedbackReasonDto> feedbackReasons = new ArrayList<>();
     private int templateCount;
     private List<SubCategoryVideoDto> subCategoryVideoDtos = new ArrayList<>();
+    private List<ComplaintFAQDto> complaintFAQDtos = new ArrayList<>();
+
 
     public SubCategoryDto(String name, String uuid) {
         this.name = name;

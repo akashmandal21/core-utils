@@ -12,14 +12,10 @@ import java.util.List;
 @NoArgsConstructor
 @SuperBuilder
 public class ComplaintFaqVideoDto {
-        private List<ComplaintInfo> complaintDtos;
-        @Data
-        public static class ComplaintInfo{
-                private String uuid;
-                private String name;
-                private String description;
-                private String imgUrl;
-                private List<ComplaintFAQDto> faqList;
-                private List<SubCategoryVideoDto> videoDataList;
-        }
+        private String uuid;
+        private String name;
+        private String description;
+        private String imgUrl;
+        private List<ComplaintFAQDto> faqList;
+        private List<SubCategoryVideoDto> videoDataList;
 }
