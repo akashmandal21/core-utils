@@ -10,10 +10,12 @@ import com.stanzaliving.core.inventory.dto.InventoryActionRequestDto;
 import com.stanzaliving.core.inventory.dto.InventoryItemDetailedDto;
 import com.stanzaliving.core.inventory.dto.InventoryTOResponse;
 import com.stanzaliving.item_master.dtos.FilterDto;
+import com.stanzaliving.website.constants.WebsiteConstants;
 import com.stanzaliving.website.response.dto.LeadQrDto;
 import com.stanzaliving.website.response.dto.LeadRequestDto;
 import com.stanzaliving.website.response.dto.RazorPayRequestDto;
 import lombok.extern.log4j.Log4j2;
+import org.slf4j.MDC;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -32,6 +34,13 @@ public class InventoryClientApi {
 
 	public InventoryClientApi(StanzaRestClient stanzaRestClient) {
 		this.restClient = stanzaRestClient;
+	}
+
+	public HttpHeaders getHeadersForIMS() {
+		HttpHeaders headers = new HttpHeaders();
+		headers.add("Authorization", "Bearer " + WebsiteConstants.IMS_DEFAULT_BEARER_TOKEN);
+		headers.add("stanza_session", MDC.get(WebsiteConstants.STANZA_SESSION));
+		return headers;
 	}
 
 	public ResponseDto<Collection<InventoryItemDetailedDto>> getInventoryItems(String addressUuid,
@@ -527,12 +536,14 @@ public class InventoryClientApi {
 
 	}
 
-	public ResponseDto<LeadQrDto> createOrUpdateLead(LeadQrDto leadQrDto) {
+	public ResponseDto<LeadQrDto> createOrUpdateLead(LeadQrDto leadQrDto, String sessionId) {
 		try {
 			Object postBody = leadQrDto;
 			String path = UriComponentsBuilder.fromPath("/lead/createOrUpdateLead/").toUriString();
 			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-			final HttpHeaders headerParams = new HttpHeaders();
+			if (Objects.nonNull(sessionId))
+				queryParams.add("sessionId", sessionId);
+			final HttpHeaders headerParams = getHeadersForIMS();
 			final String[] accepts = {"*/*"};
 			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 			ParameterizedTypeReference<ResponseDto<LeadQrDto>> returnType = new ParameterizedTypeReference<ResponseDto<LeadQrDto>>() {
@@ -553,14 +564,14 @@ public class InventoryClientApi {
 				queryParams.add("uuid", uuid);
 			if (Objects.nonNull(sessionId))
 				queryParams.add("sessionId", sessionId);
-			final HttpHeaders headerParams = new HttpHeaders();
+			final HttpHeaders headerParams = getHeadersForIMS();
 			final String[] accepts = {"*/*"};
 			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 			ParameterizedTypeReference<ResponseDto<LeadQrDto>> returnType = new ParameterizedTypeReference<ResponseDto<LeadQrDto>>() {
 			};
 			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 		} catch (Exception e) {
-			log.error("Exception caught while verifying otp sent to lead on IMS", e);
+			log.error("Exception caught while getting lead details and verifying otp sent to lead on IMS ", e);
 			return null;
 		}
 	}
