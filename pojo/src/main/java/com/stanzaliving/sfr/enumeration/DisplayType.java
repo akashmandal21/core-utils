@@ -5,6 +5,7 @@ public enum DisplayType {
     PERCENTAGE_COMPLETED,
     QUESTION_GROUP,
     TAP_SELECT_AND_ICON,
-    ICON_SELECT_AND_INFO;
+    ICON_SELECT_AND_INFO,
+    TABLE;
 
 }
