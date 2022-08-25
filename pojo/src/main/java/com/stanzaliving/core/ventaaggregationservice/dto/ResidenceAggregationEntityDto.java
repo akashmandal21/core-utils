@@ -75,6 +75,9 @@ public class ResidenceAggregationEntityDto {
     private String bhkType;
 
     private ResidenceType residenceType;
+
+    private boolean testHouse;
+
 }
 
 
