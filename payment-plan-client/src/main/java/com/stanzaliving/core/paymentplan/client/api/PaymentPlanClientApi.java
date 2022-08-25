@@ -972,4 +972,74 @@ public class PaymentPlanClientApi {
         }
 
     }
+
+    public ResponseDto<String> updatePaymentPlanForRevokingContractTermination(String bookingUuid, Date contractTerminationDate) {
+
+        try {
+            Object postBody = null;
+
+            log.info("get paymentPlan by bookingUuid is {} ", bookingUuid);
+
+            final Map<String, Object> uriVariables = new HashMap<>();
+
+            uriVariables.put("bookingUuid", bookingUuid);
+            uriVariables.put("contractTerminationDate", contractTerminationDate);
+
+            String path = UriComponentsBuilder.fromPath("/internal/api/v1/update/contract-termination/revoke/{bookingUuid}/{contractTerminationDate}").buildAndExpand(uriVariables)
+                    .toUriString();
+
+            final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+            HttpHeaders headerParams = new HttpHeaders();
+
+            final String[] accepts = {"*/*"};
+
+            final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+            ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+            };
+
+            return restClient.invokeAPI(path, HttpMethod.POST, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Error while updating the paymentPlan while revoking contract termination", e);
+        }
+
+        return null;
+
+    }
+
+    public ResponseDto<String> updatePaymentPlanForContractTermination(String bookingUuid, Date contractTerminationDate) {
+
+        try {
+            Object postBody = null;
+
+            log.info("get paymentPlan by bookingUuid is {} ", bookingUuid);
+
+            final Map<String, Object> uriVariables = new HashMap<>();
+
+            uriVariables.put("bookingUuid", bookingUuid);
+            uriVariables.put("contractTerminationDate", contractTerminationDate);
+
+            String path = UriComponentsBuilder.fromPath("/internal/api/v1/update/contract-termination/{bookingUuid}/{contractTerminationDate}").buildAndExpand(uriVariables)
+                    .toUriString();
+
+            final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+            HttpHeaders headerParams = new HttpHeaders();
+
+            final String[] accepts = {"*/*"};
+
+            final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+            ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+            };
+
+            return restClient.invokeAPI(path, HttpMethod.POST, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Error while updating the paymentPlan while contract termination", e);
+        }
+
+        return null;
+
+    }
 }
