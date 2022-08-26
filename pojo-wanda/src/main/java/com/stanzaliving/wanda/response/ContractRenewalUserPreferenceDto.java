@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Builder
 @Data
 @AllArgsConstructor
@@ -20,4 +22,5 @@ public class ContractRenewalUserPreferenceDto extends UserPreferenceDto {
     private String roomUuid;
     private int occupancy;
     private String currentBookingUuid;
+    private List<String> contractPeriods;
 }
