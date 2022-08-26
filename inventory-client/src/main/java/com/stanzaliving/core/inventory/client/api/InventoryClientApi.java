@@ -15,8 +15,6 @@ import com.stanzaliving.website.response.dto.LeadQrDto;
 import com.stanzaliving.website.response.dto.LeadRequestDto;
 import com.stanzaliving.website.response.dto.RazorPayRequestDto;
 import lombok.extern.log4j.Log4j2;
-import org.apache.commons.lang3.StringUtils;
-import org.slf4j.MDC;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -566,16 +564,16 @@ public class InventoryClientApi {
 			Object postBody = null;
 			String path = UriComponentsBuilder.fromPath("lead/otp/send").toUriString();
 			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-			if (Objects.nonNull(phone))
-				queryParams.add("phone", phone);
 			if (Objects.nonNull(flow))
 				queryParams.add("flow", flow);
+			if (Objects.nonNull(phone))
+				queryParams.add("phone", phone);
 			final HttpHeaders headerParams = getHeadersForIMS(null);
 			final String[] accepts = {"*/*"};
 			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 			ParameterizedTypeReference<String> returnType = new ParameterizedTypeReference<String>() {
 			};
-			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 		} catch (Exception e) {
 			log.error("Exception caught while sending otp to lead on IMS ", e);
 			return null;
