@@ -17,6 +17,8 @@ public class ResidenceImageLibraryMappingDto extends AbstractDto {
 
     private Integer residenceId;
 
+    private String residenceName;
+
     private String roomNumber;
 
     private boolean featuredImage;
