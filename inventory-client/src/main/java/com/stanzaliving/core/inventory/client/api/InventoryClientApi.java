@@ -552,7 +552,7 @@ public class InventoryClientApi {
 			};
 			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 		} catch (Exception e) {
-			log.error("Exception caught while verifying otp sent to lead on IMS ", e);
+			log.error("Exception caught while verifying request generated from scanning a QR code ", e);
 			return null;
 		}
 	}
