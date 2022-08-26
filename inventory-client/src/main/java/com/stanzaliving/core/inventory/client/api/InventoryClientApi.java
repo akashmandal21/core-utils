@@ -536,29 +536,10 @@ public class InventoryClientApi {
 
 	}
 
-	public ResponseDto<LeadQrDto> createOrUpdateLead(LeadQrDto leadQrDto, String sessionId) {
-		try {
-			Object postBody = leadQrDto;
-			String path = UriComponentsBuilder.fromPath("/lead/createOrUpdateLead/").toUriString();
-			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-			if (Objects.nonNull(sessionId))
-				queryParams.add("sessionId", sessionId);
-			final HttpHeaders headerParams = getHeadersForIMS(sessionId);
-			final String[] accepts = {"*/*"};
-			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-			ParameterizedTypeReference<ResponseDto<LeadQrDto>> returnType = new ParameterizedTypeReference<ResponseDto<LeadQrDto>>() {
-			};
-			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
-		} catch (Exception e) {
-			log.error("Exception caught while creating or updating lead", e);
-			return null;
-		}
-	}
-
 	public LeadQrDto verifyRequest(String uuid, String sessionId) {
 		try {
 			Object postBody = null;
-			String path = UriComponentsBuilder.fromPath("//lead/verifyRequest").toUriString();
+			String path = UriComponentsBuilder.fromPath("/lead/verifyRequest").toUriString();
 			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 			if (Objects.nonNull(uuid))
 				queryParams.add("uuid", uuid);
@@ -571,46 +552,24 @@ public class InventoryClientApi {
 			};
 			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 		} catch (Exception e) {
-			log.error("Exception caught while getting lead details and verifying otp sent to lead on IMS ", e);
-			return null;
-		}
-	}
-
-	public ResponseDto<LeadQrDto> verifyOtpAndGetLeadDetails(String phone, String otp) {
-		try {
-			Object postBody = null;
-			String path = UriComponentsBuilder.fromPath("/lead/verifyOtpAndGetLeadDetails?phone=" + phone + "&otp=" + otp).toUriString();
-			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-			if (Objects.nonNull(phone))
-				queryParams.add("phone", phone);
-			if (Objects.nonNull(otp))
-				queryParams.add("otp", otp);
-			final HttpHeaders headerParams = new HttpHeaders();
-			final String[] accepts = {"*/*"};
-			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-			ParameterizedTypeReference<ResponseDto<LeadQrDto>> returnType = new ParameterizedTypeReference<ResponseDto<LeadQrDto>>() {
-			};
-			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
-		} catch (Exception e) {
 			log.error("Exception caught while verifying otp sent to lead on IMS ", e);
 			return null;
 		}
 	}
 
-
-	public ResponseDto<String> sendOtpToLeadOnIms(String phone, String flow) {
+	public String sendOtpToLeadOnIms(String phone, String flow) {
 		try {
 			Object postBody = null;
-			String path = UriComponentsBuilder.fromPath("lead/otp/send?flow=" + flow + "&phone=" + phone).toUriString();
+			String path = UriComponentsBuilder.fromPath("lead/otp/send").toUriString();
 			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 			if (Objects.nonNull(phone))
 				queryParams.add("phone", phone);
 			if (Objects.nonNull(flow))
 				queryParams.add("flow", flow);
-			final HttpHeaders headerParams = new HttpHeaders();
+			final HttpHeaders headerParams = getHeadersForIMS(null);
 			final String[] accepts = {"*/*"};
 			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-			ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+			ParameterizedTypeReference<String> returnType = new ParameterizedTypeReference<String>() {
 			};
 			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 		} catch (Exception e) {
@@ -618,4 +577,45 @@ public class InventoryClientApi {
 			return null;
 		}
 	}
+
+	public LeadQrDto verifyOtpAndGetLeadDetails(String phone, String otp) {
+		try {
+			Object postBody = null;
+			String path = UriComponentsBuilder.fromPath("/lead/verifyOtpAndGetLeadDetails").toUriString();
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+			if (Objects.nonNull(phone))
+				queryParams.add("phone", phone);
+			if (Objects.nonNull(otp))
+				queryParams.add("otp", otp);
+			final HttpHeaders headerParams = getHeadersForIMS(null);
+			final String[] accepts = {"*/*"};
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+			ParameterizedTypeReference<LeadQrDto> returnType = new ParameterizedTypeReference<LeadQrDto>() {
+			};
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Exception caught while getting lead details and verifying otp sent to lead on IMS ", e);
+			return null;
+		}
+	}
+
+	public LeadQrDto createOrUpdateLead(LeadQrDto leadQrDto, String sessionId) {
+		try {
+			Object postBody = leadQrDto;
+			String path = UriComponentsBuilder.fromPath("/lead/createOrUpdateLead/").toUriString();
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+			if (Objects.nonNull(sessionId))
+				queryParams.add("sessionId", sessionId);
+			final HttpHeaders headerParams = getHeadersForIMS(sessionId);
+			final String[] accepts = {"*/*"};
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+			ParameterizedTypeReference<LeadQrDto> returnType = new ParameterizedTypeReference<LeadQrDto>() {
+			};
+			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Exception caught while creating or updating lead", e);
+			return null;
+		}
+	}
+
 }
