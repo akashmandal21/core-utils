@@ -35,6 +35,7 @@ public class ReviewTemplateResponseDto {
     private boolean bypassVisible;
     private boolean dealScoreVisible;
     private boolean questionnaireVisible;
+    private boolean isNamedPropertyDetailsEditable;
     private boolean viewOnly;
     private BedCountInfoDto bedCountInformation;
     private List<LayoutResponse> layouts;

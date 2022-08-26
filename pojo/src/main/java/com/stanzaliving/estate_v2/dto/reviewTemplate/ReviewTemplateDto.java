@@ -32,6 +32,7 @@ public class ReviewTemplateDto {
     private boolean bypassVisible;
     private boolean dealScoreVisible;
     private boolean questionnaireVisible;
+    private boolean isNamedPropertyDetailsEditable;
     private List<OtherInformationDto> otherInformation;
     private List<LayoutDto> layouts;
     private String propertyAction;
