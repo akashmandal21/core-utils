@@ -10,8 +10,10 @@ import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.stanzaliving.core.base.common.dto.ResponseDto;
@@ -327,5 +329,35 @@ public class VentaAggregationServiceApi {
 			return Collections.emptyList();
 		}
 	}
+
+	public ResponseDto<Boolean> getActiveBookingDetailsByResidentMobile(String residentMobile) {
+		try {
+			Object postBody = null;
+
+			final Map<String, Object> uriVariables = new HashMap<>();
+			uriVariables.put("residentMobile",residentMobile);
+
+			String path = UriComponentsBuilder.fromPath("/internal/activeBooking/details/mobile/{residentMobile}").buildAndExpand(uriVariables).toUriString();
+
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+			final HttpHeaders headerParams = new HttpHeaders();
+
+			final String[] accepts = { "*/*" };
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+			ParameterizedTypeReference<ResponseDto<Boolean>> returnType = new ParameterizedTypeReference<ResponseDto<Boolean>>() {
+			};
+
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+
+		} catch (Exception e) {
+			log.error("Exception occurred while fetching sync properties data for cms website from venta", e);
+			return null;
+		}
+
+	}
+
+
 
 }
