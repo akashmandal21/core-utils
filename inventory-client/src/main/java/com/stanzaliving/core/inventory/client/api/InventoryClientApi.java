@@ -539,7 +539,7 @@ public class InventoryClientApi {
 	public LeadQrDto verifyRequest(String uuid, String sessionId) {
 		try {
 			Object postBody = null;
-			String path = UriComponentsBuilder.fromPath("//lead/verifyRequest").toUriString();
+			String path = "//lead/verifyRequest";
 			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 			if (Objects.nonNull(uuid))
 				queryParams.add("uuid", uuid);
