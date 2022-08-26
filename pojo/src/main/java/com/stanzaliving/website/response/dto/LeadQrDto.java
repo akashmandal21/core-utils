@@ -10,7 +10,9 @@ import java.io.Serializable;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class LeadQrDto {
+public class LeadQrDto implements Serializable{
+
+    private static final long serialVersionUID = 1L;
 
     private String phone;
 

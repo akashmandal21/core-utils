@@ -36,10 +36,10 @@ public class InventoryClientApi {
 		this.restClient = stanzaRestClient;
 	}
 
-	public HttpHeaders getHeadersForIMS() {
+	public HttpHeaders getHeadersForIMS(String sessionId) {
 		HttpHeaders headers = new HttpHeaders();
-		headers.add("Authorization", "Bearer " + WebsiteConstants.IMS_DEFAULT_BEARER_TOKEN);
-		headers.add("stanza_session", MDC.get(WebsiteConstants.STANZA_SESSION));
+		headers.add("Authorization", WebsiteConstants.IMS_DEFAULT_BEARER_TOKEN);
+		headers.add(WebsiteConstants.STANZA_SESSION, sessionId);
 		return headers;
 	}
 
@@ -543,7 +543,7 @@ public class InventoryClientApi {
 			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 			if (Objects.nonNull(sessionId))
 				queryParams.add("sessionId", sessionId);
-			final HttpHeaders headerParams = getHeadersForIMS();
+			final HttpHeaders headerParams = getHeadersForIMS(sessionId);
 			final String[] accepts = {"*/*"};
 			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 			ParameterizedTypeReference<ResponseDto<LeadQrDto>> returnType = new ParameterizedTypeReference<ResponseDto<LeadQrDto>>() {
@@ -555,19 +555,19 @@ public class InventoryClientApi {
 		}
 	}
 
-	public ResponseDto<LeadQrDto> verifyRequest(String uuid, String sessionId) {
+	public LeadQrDto verifyRequest(String uuid, String sessionId) {
 		try {
 			Object postBody = null;
-			String path = UriComponentsBuilder.fromPath("//lead/verifyRequest?uuid=" + uuid + "&sessionId=" + sessionId).toUriString();
+			String path = UriComponentsBuilder.fromPath("/lead/verifyRequest").toUriString();
 			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 			if (Objects.nonNull(uuid))
 				queryParams.add("uuid", uuid);
 			if (Objects.nonNull(sessionId))
 				queryParams.add("sessionId", sessionId);
-			final HttpHeaders headerParams = getHeadersForIMS();
+			final HttpHeaders headerParams = getHeadersForIMS(sessionId);
 			final String[] accepts = {"*/*"};
 			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-			ParameterizedTypeReference<ResponseDto<LeadQrDto>> returnType = new ParameterizedTypeReference<ResponseDto<LeadQrDto>>() {
+			ParameterizedTypeReference<LeadQrDto> returnType = new ParameterizedTypeReference<LeadQrDto>() {
 			};
 			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 		} catch (Exception e) {
