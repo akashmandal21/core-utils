@@ -96,4 +96,6 @@ public class MenuCategoryDetailDto extends MenuCategoryDTO {
 
 	private Double maximumBy;
 
+	private Boolean isDebarDishExist;
+
 }
