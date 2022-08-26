@@ -15,6 +15,7 @@ import com.stanzaliving.website.response.dto.LeadQrDto;
 import com.stanzaliving.website.response.dto.LeadRequestDto;
 import com.stanzaliving.website.response.dto.RazorPayRequestDto;
 import lombok.extern.log4j.Log4j2;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.MDC;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -539,12 +540,15 @@ public class InventoryClientApi {
 	public LeadQrDto verifyRequest(String uuid, String sessionId) {
 		try {
 			Object postBody = null;
-			String path = "//lead/verifyRequest";
+			String path = UriComponentsBuilder.fromPath("/lead/verifyRequest").toUriString();
 			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-			if (Objects.nonNull(uuid))
+			if (Objects.nonNull(uuid)) {
 				queryParams.add("uuid", uuid);
-			if (Objects.nonNull(sessionId))
-				queryParams.add("sessionId", sessionId);
+			}
+			/*if (StringUtils.isBlank(sessionId)){
+				sessionId = "";
+			}*/
+			queryParams.add("sessionId", sessionId);
 			final HttpHeaders headerParams = getHeadersForIMS(sessionId);
 			final String[] accepts = {"*/*"};
 			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
@@ -560,7 +564,7 @@ public class InventoryClientApi {
 	public String sendOtpToLeadOnIms(String phone, String flow) {
 		try {
 			Object postBody = null;
-			String path = UriComponentsBuilder.fromPath("/lead/otp/send").toUriString();
+			String path = UriComponentsBuilder.fromPath("lead/otp/send").toUriString();
 			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 			if (Objects.nonNull(phone))
 				queryParams.add("phone", phone);
@@ -581,7 +585,7 @@ public class InventoryClientApi {
 	public LeadQrDto verifyOtpAndGetLeadDetails(String phone, String otp) {
 		try {
 			Object postBody = null;
-			String path = UriComponentsBuilder.fromPath("//lead/verifyOtpAndGetLeadDetails").toUriString();
+			String path = UriComponentsBuilder.fromPath("/lead/verifyOtpAndGetLeadDetails").toUriString();
 			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 			if (Objects.nonNull(phone))
 				queryParams.add("phone", phone);
@@ -602,7 +606,7 @@ public class InventoryClientApi {
 	public LeadQrDto createOrUpdateLead(LeadQrDto leadQrDto, String sessionId) {
 		try {
 			Object postBody = leadQrDto;
-			String path = UriComponentsBuilder.fromPath("//lead/createOrUpdateLead/").toUriString();
+			String path = UriComponentsBuilder.fromPath("/lead/createOrUpdateLead/").toUriString();
 			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 			if (Objects.nonNull(sessionId))
 				queryParams.add("sessionId", sessionId);
