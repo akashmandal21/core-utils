@@ -6,13 +6,11 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum BookingSubType {
-
-	NEW("NEW"), RETENTION("RETENTION"), REPEAT("REPEAT");
+	NEW("NEW"), RETENTION("RETENTION"), REPEAT("REPEAT"), ALL("ALL");
 
 	private final String bookingStatus;
 
 	public String getDescription() {
 		return bookingStatus;
 	}
-
 }
