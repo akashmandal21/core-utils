@@ -26,6 +26,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.time.LocalDate;
@@ -2119,6 +2120,36 @@ public class ResidenceDataControllerApi {
 
         } catch (Exception ex) {
             log.error("Exception while Escalation Alert", ex);
+        }
+        return null;
+    }
+    public ResponseDto<Map<Double, List<Double>>> getEscalationTracker( String uuid, String roomUuid,  String moveIn) {
+
+        Map<String, Object> uriVariables = new HashMap<>();
+
+        uriVariables.put("uuid", uuid);
+        uriVariables.put("roomUuid", roomUuid);
+        uriVariables.put("moveIn", moveIn);
+
+        String path = UriComponentsBuilder.fromPath("/internal/residence-escalation/escalation-tracker/residence/{uuid}/room-uuid/{roomUuid}/move-in/{moveIn}").buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        HttpHeaders headerParams = new HttpHeaders();
+
+        String[] accepts = new String[]{"*/*"};
+
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<Map<Double, List<Double>>>> returnType =
+                new ParameterizedTypeReference<ResponseDto<Map<Double, List<Double>>>>() {
+                };
+
+        try {
+            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+
+        } catch (Exception ex) {
+            log.error("Exception while fetching Details", ex);
         }
         return null;
     }
