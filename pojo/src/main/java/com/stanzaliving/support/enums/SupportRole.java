@@ -35,7 +35,13 @@ public enum SupportRole {
     TRANSFORMATION_HEAD(1,"TRANSFORMATION_HEAD",AccessLevel.COUNTRY,Arrays.asList(SupportModule.TICKET_RESOLUTION,SupportModule.BLISS_DASHBOARD)),
     DESIGN_NATIONAL_HEAD(2,"DESIGN_NATIONAL_HEAD",AccessLevel.COUNTRY,Arrays.asList(SupportModule.TICKET_RESOLUTION,SupportModule.BLISS_DASHBOARD)),
     DESIGN_ZONAL_HEAD(3,"DESIGN_ZONAL_HEAD",AccessLevel.CITY,Arrays.asList(SupportModule.TICKET_RESOLUTION,SupportModule.BLISS_DASHBOARD)),
-    DESIGN_COORDINATOR(4,"DESIGN_COORDINATOR",AccessLevel.CITY,Arrays.asList(SupportModule.TICKET_RESOLUTION,SupportModule.BLISS_DASHBOARD));
+    DESIGN_COORDINATOR(4,"DESIGN_COORDINATOR",AccessLevel.CITY,Arrays.asList(SupportModule.TICKET_RESOLUTION,SupportModule.BLISS_DASHBOARD)),
+    GORDON_L1_POC(1,"GORDON_L1_POC",AccessLevel.COUNTRY,Arrays.asList(SupportModule.TICKET_RESOLUTION,SupportModule.BLISS_DASHBOARD)),
+    GORDON_L2_POC(1,"GORDON_L2_POC",AccessLevel.COUNTRY,Arrays.asList(SupportModule.TICKET_RESOLUTION,SupportModule.BLISS_DASHBOARD)),
+    GORDON_L3_POC(1,"GORDON_L3_POC",AccessLevel.COUNTRY,Arrays.asList(SupportModule.TICKET_RESOLUTION,SupportModule.BLISS_DASHBOARD)),
+    JARVIS_L1_POC(1,"JARVIS_L1_POC",AccessLevel.COUNTRY,Arrays.asList(SupportModule.TICKET_RESOLUTION,SupportModule.BLISS_DASHBOARD)),
+    JARVIS_L2_POC(1,"JARVIS_L2_POC",AccessLevel.COUNTRY,Arrays.asList(SupportModule.TICKET_RESOLUTION,SupportModule.BLISS_DASHBOARD)),
+    JARVIS_L3_POC(1,"JARVIS_L3_POC",AccessLevel.COUNTRY,Arrays.asList(SupportModule.TICKET_RESOLUTION,SupportModule.BLISS_DASHBOARD));
 
 
     private static final Map<String, SupportRole> map = new HashMap<>();
