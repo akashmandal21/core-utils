@@ -9,6 +9,7 @@ import com.stanzaliving.booking.dto.request.PaymentPlanCorrectionDto;
 import com.stanzaliving.booking.dto.request.PaymentPlanRequestDto;
 import com.stanzaliving.booking.dto.request.VasPaymentPlanRequestDTO;
 import com.stanzaliving.booking.dto.response.CommercialsDetailsResponseDTO;
+import com.stanzaliving.booking.dto.response.ContractTerminationResponseDto;
 import com.stanzaliving.booking.dto.response.PaymentPlanResponseDto;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.constants.SecurityConstants;
@@ -973,7 +974,7 @@ public class PaymentPlanClientApi {
 
     }
 
-    public ResponseDto<String> updatePaymentPlanForRevokingContractTermination(String bookingUuid, Date contractTerminationDate) {
+    public ResponseDto<String> updatePaymentPlanForRevokingContractTermination(String bookingUuid, Date contractTerminationDate, boolean savePaymentPlan) {
 
         try {
             Object postBody = null;
@@ -984,8 +985,9 @@ public class PaymentPlanClientApi {
 
             uriVariables.put("bookingUuid", bookingUuid);
             uriVariables.put("contractTerminationDate", contractTerminationDate);
+            uriVariables.put("savePaymentPlan", savePaymentPlan);
 
-            String path = UriComponentsBuilder.fromPath("/internal/api/v1/update/contract-termination/revoke/{bookingUuid}/{contractTerminationDate}").buildAndExpand(uriVariables)
+            String path = UriComponentsBuilder.fromPath("/internal/api/v1/update/contract-termination/revoke/{bookingUuid}/{contractTerminationDate}/{savePaymentPlan}").buildAndExpand(uriVariables)
                     .toUriString();
 
             final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
@@ -1008,7 +1010,7 @@ public class PaymentPlanClientApi {
 
     }
 
-    public ResponseDto<String> updatePaymentPlanForContractTermination(String bookingUuid, Date contractTerminationDate) {
+    public ResponseDto<ContractTerminationResponseDto> updatePaymentPlanForContractTermination(String bookingUuid, Date contractTerminationDate, boolean savePaymentPlan) {
 
         try {
             Object postBody = null;
@@ -1019,8 +1021,9 @@ public class PaymentPlanClientApi {
 
             uriVariables.put("bookingUuid", bookingUuid);
             uriVariables.put("contractTerminationDate", contractTerminationDate);
+            uriVariables.put("savePaymentPlan", savePaymentPlan);
 
-            String path = UriComponentsBuilder.fromPath("/internal/api/v1/update/contract-termination/{bookingUuid}/{contractTerminationDate}").buildAndExpand(uriVariables)
+            String path = UriComponentsBuilder.fromPath("/internal/api/v1/update/contract-termination/{bookingUuid}/{contractTerminationDate}/{savePaymentPlan}").buildAndExpand(uriVariables)
                     .toUriString();
 
             final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
@@ -1031,7 +1034,7 @@ public class PaymentPlanClientApi {
 
             final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-            ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+            ParameterizedTypeReference<ResponseDto<ContractTerminationResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<ContractTerminationResponseDto>>() {
             };
 
             return restClient.invokeAPI(path, HttpMethod.POST, queryParams, null, headerParams, accept, returnType);
