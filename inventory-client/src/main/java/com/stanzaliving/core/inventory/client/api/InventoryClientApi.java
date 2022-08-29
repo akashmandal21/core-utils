@@ -543,9 +543,6 @@ public class InventoryClientApi {
 			if (Objects.nonNull(uuid)) {
 				queryParams.add("uuid", uuid);
 			}
-			/*if (StringUtils.isBlank(sessionId)){
-				sessionId = "";
-			}*/
 			queryParams.add("sessionId", sessionId);
 			final HttpHeaders headerParams = getHeadersForIMS(sessionId);
 			final String[] accepts = {"*/*"};

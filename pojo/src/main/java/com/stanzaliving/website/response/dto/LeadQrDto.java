@@ -32,8 +32,10 @@ public class LeadQrDto implements Serializable{
 
     private String sessionId;
 
+    @Builder.Default
     private Boolean whatsappnotification = false;
 
+    @Builder.Default
     private Boolean optedInWhatsApp = false;
 
 }
