@@ -11,5 +11,5 @@ import lombok.*;
 public class ContractRenewalBannerDto {
     private RenewalBannerDynamicConfigurationDto renewalBannerDynamicConfiguration;
     private long contractEndDaysLeft;
-    boolean showBanner;
+    private boolean showBanner;
 }
