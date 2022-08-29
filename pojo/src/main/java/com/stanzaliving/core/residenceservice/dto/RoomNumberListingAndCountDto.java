@@ -11,7 +11,7 @@ import java.util.List;
 public class RoomNumberListingAndCountDto implements Serializable {
 
     private int count;
-    private Boolean isAllRoomsAvailable;
+    private boolean isAllRoomsAvailable;
     private Double bumpUpPricePercentage;
     private Integer recommendedRoomsCount;
     private List<RoomNumberListingResponseDto> roomNumberAttributes;
