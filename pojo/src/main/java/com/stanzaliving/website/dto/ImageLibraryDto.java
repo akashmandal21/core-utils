@@ -2,7 +2,6 @@ package com.stanzaliving.website.dto;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
 import lombok.*;
-import lombok.extern.jackson.Jacksonized;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -13,7 +12,6 @@ import java.util.List;
 @AllArgsConstructor
 @Getter
 @Setter
-@Jacksonized
 public class ImageLibraryDto extends AbstractDto {
 
     private String imageUrl;
