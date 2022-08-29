@@ -3,10 +3,6 @@ package com.stanzaliving.website.dto;
 import com.stanzaliving.core.base.common.dto.AbstractDto;
 import lombok.*;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
@@ -19,11 +15,5 @@ public class ImageLibraryDto extends AbstractDto {
     private boolean sampleImage;
 
     @Builder.Default
-    private boolean clickable = false;
-
-    @Builder.Default
-    private List<Integer> asasdf = new ArrayList<>();
-
-    @Builder.Default
-    private List<Integer> badf = Arrays.asList(1,2,3);
+    private boolean clickable = true;
 }
