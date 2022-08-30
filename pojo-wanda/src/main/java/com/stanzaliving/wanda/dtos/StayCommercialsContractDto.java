@@ -25,5 +25,5 @@ public class StayCommercialsContractDto {
 
 	private MonthlyFee monthlyFee;
 	private ContractDetailsDto contractDetails;
-	ContractRenewalBannerDto contractRenewalBannerDto;
+	private ContractRenewalBannerDto contractRenewalBannerDto;
 }
