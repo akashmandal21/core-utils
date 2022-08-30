@@ -67,4 +67,6 @@ public class MenuItemDto implements Serializable {
 	private List<ListingDto> tagsList;
 
 	private Action action;
+
+	private boolean isDebarred;
 }
