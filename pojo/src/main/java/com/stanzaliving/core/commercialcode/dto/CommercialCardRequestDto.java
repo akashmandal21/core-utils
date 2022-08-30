@@ -1,5 +1,6 @@
 package com.stanzaliving.core.commercialcode.dto;
 
+import com.stanzaliving.booking.enums.BookingSubType;
 import com.stanzaliving.commercialcard.enums.CommercialCardUserType;
 import lombok.*;
 
@@ -49,5 +50,7 @@ public class CommercialCardRequestDto {
 
     @Builder.Default
     private Integer roomCount = 1;
+
+    private BookingSubType bookingSubType;
 
 }
