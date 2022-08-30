@@ -974,7 +974,7 @@ public class PaymentPlanClientApi {
 
     }
 
-    public ResponseDto<String> updatePaymentPlanForRevokingContractTermination(String bookingUuid, Date contractTerminationDate, boolean savePaymentPlan) {
+    public ResponseDto<String> updatePaymentPlanForRevokingContractTermination(String bookingUuid, LocalDate contractTerminationDate, boolean savePaymentPlan) {
 
         try {
             Object postBody = null;
@@ -1010,7 +1010,7 @@ public class PaymentPlanClientApi {
 
     }
 
-    public ResponseDto<ContractTerminationResponseDto> updatePaymentPlanForContractTermination(String bookingUuid, Date contractTerminationDate, boolean savePaymentPlan) {
+    public ResponseDto<ContractTerminationResponseDto> updatePaymentPlanForContractTermination(String bookingUuid, LocalDate contractTerminationDate, boolean savePaymentPlan) {
 
         try {
             Object postBody = null;
