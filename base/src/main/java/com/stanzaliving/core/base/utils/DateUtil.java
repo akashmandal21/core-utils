@@ -1026,7 +1026,11 @@ public class DateUtil {
         for (String monthYear : monthYearList) {
             int daysToConsider = DateUtil.getDaysCountInMonthYear(fromDate, toDate, DateFormat.MMM_YY2, monthYear);
             int daysInMonth = YearMonth.parse(monthYear, DateFormat.MMM_YY2.getDateTimeFormatter()).lengthOfMonth();
-            monthCount += (double) daysToConsider / (double) daysInMonth;
+            if ((daysInMonth == 31 && daysToConsider == 16) || (daysInMonth == 29 && daysToConsider == 15)) {
+                monthCount += 0.5;
+            } else {
+                monthCount += (double) daysToConsider / (double) daysInMonth;
+            }
         }
         return Math.round(monthCount * 100.0) / 100.0;
     }
