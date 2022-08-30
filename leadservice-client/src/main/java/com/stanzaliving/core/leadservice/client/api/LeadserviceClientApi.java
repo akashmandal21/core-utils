@@ -681,7 +681,7 @@ public class LeadserviceClientApi {
             return null;
         }
     }
-
+    
     public ResponseDto<String> autoExpireReferralCode() {
         log.info("Expire referralCodes");
         Object postBody = null;
