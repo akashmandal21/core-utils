@@ -58,7 +58,7 @@ public enum PaymentPlanType {
 	ADDITIONAL_INVOICE_ROOM_CHANGE("Additional Invoice - Room Change"),
 	ACCOMMODATION_CHARGES("Accommodation Charges"),
 	GST_WAIVE_OFF("Gst Waive Off"),
-	TRESPASSER_ACCOMODATION_CHARGES("Adhoc : Trespasser Accommodation charges");
+	TRESPASSER_ACCOMODATION_CHARGES("Accommodation charges for trespassing");
 
 	private String name;
 	
