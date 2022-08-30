@@ -20,6 +20,8 @@ public class ContractRenewalUserPreferenceDto extends UserPreferenceDto {
     private String duration;
     private String bookingUuid;
     private String roomUuid;
+    private String inventoryUuid;
+    private String roomNumber;
     private int occupancy;
     private String currentBookingUuid;
     private List<String> contractPeriods;
