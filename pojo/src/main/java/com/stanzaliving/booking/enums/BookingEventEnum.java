@@ -11,6 +11,7 @@ public enum BookingEventEnum {
     BOOKING_DETAILS_UPDATED("Booking Details Updated"),
     INITIATE_BOOKING("Initiate Booking"),
     TOKEN_AMOUNT_PAID("Token Amount Paid"),
+    TOKEN_AMOUNT_REFUNDED("Token Amount Refunded"),
     COLLECT_PAYMENT_FROM_RESIDENT("Collect Payment From Resident"),
     CONFIRM_BOOKING("Confirm Booking"),
     BOOKING_EXPIRED("Booking Expired"),

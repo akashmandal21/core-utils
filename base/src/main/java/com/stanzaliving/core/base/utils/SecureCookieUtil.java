@@ -58,7 +58,6 @@ public class SecureCookieUtil {
 		} else {
 
 			if (!isApp.isPresent() || !isApp.get()) {
-				log.info("Setting cookie: Domain Name : {}", domainName);
 				cookie.setDomain(StringUtils.isNotBlank(domainName) ? domainName : SecurityConstants.STANZA_DOMAIN);
 			}
 
@@ -68,9 +67,7 @@ public class SecureCookieUtil {
 		}
 
 		cookie.setPath("/");
-
 		log.trace("Adding Cookie [Name: " + cookie.getName() + ", Value: " + cookie.getValue() + ", Domain: " + cookie.getDomain() + "]");
-
 		return cookie;
 	}
 
