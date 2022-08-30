@@ -1,5 +1,8 @@
 package com.stanzaliving.booking.dto.response;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.stanzaliving.core.base.StanzaConstants;
+import com.stanzaliving.core.base.utils.DateUtil;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -23,6 +26,6 @@ public class ContractTerminationResponseDto {
     private Double upcomingDues;
     private Double totalPendingDues;
     private Double totalRefundAmount;
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = DateUtil.yyyy_MM_dd_FORMAT, timezone = StanzaConstants.IST_TIMEZONE)
     private LocalDate auditDate;
 }
