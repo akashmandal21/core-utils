@@ -1,5 +1,6 @@
 package com.stanzaliving.core.commercialcode.dto;
 
+import com.stanzaliving.booking.enums.BookingStatus;
 import com.stanzaliving.commercialcard.enums.CommercialCardUserType;
 import lombok.*;
 
@@ -21,5 +22,5 @@ public class CommercialCardDto {
     private Boolean modifyContractFlow = Boolean.FALSE;
 
     private String appliedCommercialCard;
-
+    
 }
