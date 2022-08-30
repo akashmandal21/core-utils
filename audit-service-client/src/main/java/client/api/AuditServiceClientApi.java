@@ -163,7 +163,7 @@ public class AuditServiceClientApi {
 
         final Map<String, Object> uriVariables = new HashMap<>();
         uriVariables.put("bookingUuid", bookingUuid);
-        String path = UriComponentsBuilder.fromPath("/internal/api/v1/audit/booking/{bookingUuid}/cancel").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/api/v1/audit/cancel/{bookingUuid}").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
@@ -200,6 +200,4 @@ public class AuditServiceClientApi {
         }
         return responseDto;
     }
-
-
 }

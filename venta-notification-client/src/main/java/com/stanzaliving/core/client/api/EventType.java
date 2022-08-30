@@ -21,7 +21,8 @@ public enum EventType {
     INVITE_GUEST_EMAIL("Invite Guest Email"),
     CANCEL_INVITE_GUEST_SMS("Cancel Invite Guest Sms"),
     CANCEL_INVITE_GUEST_EMAIL("Cancel Invite Guest Email"),
-    PRICE_ESCALATION_ALERT("Price Escalation Alert");
+    PRICE_ESCALATION_ALERT("Price Escalation Alert"),
+    CONTRACT_TERMINATION("Contract Termination");
     private String commandText;
 
     EventType(String commandText)
