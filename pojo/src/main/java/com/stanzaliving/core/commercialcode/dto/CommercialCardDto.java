@@ -1,6 +1,6 @@
 package com.stanzaliving.core.commercialcode.dto;
-
 import com.stanzaliving.booking.enums.BookingSubType;
+import com.stanzaliving.booking.enums.BookingStatus;
 import com.stanzaliving.commercialcard.enums.CommercialCardUserType;
 import lombok.*;
 
@@ -24,5 +24,7 @@ public class CommercialCardDto {
     private String appliedCommercialCard;
 
     private BookingSubType bookingSubType;
+
+    private BookingStatus bookingStatus;
 
 }
