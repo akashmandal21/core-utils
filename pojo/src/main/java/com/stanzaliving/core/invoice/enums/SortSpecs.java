@@ -19,7 +19,7 @@ public enum SortSpecs {
     PAYMENT_DATE("paymentDate", "payment_date"),
     DUE_DATE("dueDate","inv.invoice_pay_due_date"),
     INVOICE_STATUS("invoiceStatus","inv.invoice_status"),
-    INVOICE_SUB_STATUS("invoice_sub_status","inv.sub_status"),
+    INVOICE_SUB_STATUS("invoice_sub_status","inv.invoice_sub_status"),
     PO_NUMBER("poNumber","po.po_num");
 
     private String sortSpec;
