@@ -603,8 +603,6 @@ public class InventoryClientApi {
 			Object postBody = leadQrDto;
 			String path = UriComponentsBuilder.fromPath("/lead/createOrUpdateLead/").toUriString();
 			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-			if (Objects.nonNull(sessionId))
-				queryParams.add("sessionId", sessionId);
 			final HttpHeaders headerParams = getHeadersForIMS(sessionId);
 			final String[] accepts = {"*/*"};
 			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
