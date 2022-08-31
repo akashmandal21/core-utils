@@ -696,7 +696,7 @@ public class DateUtil {
 
         return LocalDate.of(year, month, 1);
     }
-
+ 
     public LocalDate getMonthEndBeginningDate(Integer month, Integer year) {
         LocalDate date = LocalDate.of(year, month, 1);
         return date.withDayOfMonth(date.lengthOfMonth());
@@ -714,6 +714,18 @@ public class DateUtil {
         Date newdate = new Date(ltime);
         return newdate;
     }
+    
+    public Date addDaysToDateGreater(Date d1, long days,int minDurationBeforeCurrentDate) {
+        long ltime = d1.getTime() + days * 24 * 60 * 60 * 1000;
+        
+        
+        Date todayDate = DateUtil.getCurrentDate();
+        long ltime2 = todayDate.getTime()+minDurationBeforeCurrentDate * 24 * 60 * 60 * 1000;
+        Date newdate = new Date(Math.max(ltime,ltime2));
+        return newdate;
+    }
+    
+
 
     public Date addDayAndSetHour(Integer days, Integer hour) {
 
