@@ -119,6 +119,8 @@ public class NotificationClientApi {
                 new ParameterizedTypeReference<ResponseDto<NotificationRegistryDto>>() {
                 };
         postBody = notificationRegistryDto;
+        //log post body
+        log.info("Temp, log for post Body {}", postBody);
         return restClient.invokeAPI(
                 path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
     }
