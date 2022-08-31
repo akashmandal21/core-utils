@@ -9,7 +9,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ContractRenewalBannerDto {
-    public RenewalBannerDynamicConfigurationDto renewalBannerDynamicConfiguration;
-    public long contractEndDaysLeft;
-    boolean showBanner;
+    private RenewalBannerDynamicConfigurationDto renewalBannerDynamicConfiguration;
+    private long contractEndDaysLeft;
+    private boolean showBanner;
 }
