@@ -15,6 +15,7 @@ import com.stanzaliving.website.response.dto.LeadQrDto;
 import com.stanzaliving.website.response.dto.LeadRequestDto;
 import com.stanzaliving.website.response.dto.RazorPayRequestDto;
 import lombok.extern.log4j.Log4j2;
+import org.codehaus.plexus.util.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -537,6 +538,11 @@ public class InventoryClientApi {
 
 	public LeadQrDto verifyRequest(String uuid, String sessionId) {
 		try {
+
+			if (StringUtils.isBlank(sessionId)){
+				sessionId = "null";
+			}
+
 			Object postBody = null;
 			String path = UriComponentsBuilder.fromPath("/lead/verifyRequest").toUriString();
 			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
