@@ -5,6 +5,7 @@ package com.stanzaliving.core.paymentplan.client.api;
 
 import com.stanzaliving.booking.SoldBookingDto;
 import com.stanzaliving.booking.dto.request.ContractExtensionPaymentPlanRequestDTO;
+import com.stanzaliving.booking.dto.request.PaymentPlanCorrectionDto;
 import com.stanzaliving.booking.dto.request.PaymentPlanRequestDto;
 import com.stanzaliving.booking.dto.request.VasPaymentPlanRequestDTO;
 import com.stanzaliving.booking.dto.response.CommercialsDetailsResponseDTO;
@@ -938,5 +939,37 @@ public class PaymentPlanClientApi {
             log.error("error while adjusting the discount {}", var11);
             return null;
         }
+    }
+
+
+    public ResponseDto<PaymentPlanResponseDto> correctPaymentPlan(List<PaymentPlanCorrectionDto> paymentPlanCorrectionDtoList) {
+
+        Object postBody = null;
+
+        log.info("List of PaymentPlanCorrectionDto is {} ", paymentPlanCorrectionDtoList);
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/internal/api/v1/correct/payment-plan").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<PaymentPlanResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<PaymentPlanResponseDto>>() {
+        };
+        postBody = paymentPlanCorrectionDtoList;
+
+        try {
+            return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("error while correcting the paymentPlan {}", e);
+            return null;
+        }
+
     }
 }

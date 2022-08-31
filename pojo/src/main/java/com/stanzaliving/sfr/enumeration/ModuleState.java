@@ -20,7 +20,21 @@ public enum ModuleState implements State<ModuleState> {
     CONCEPT_SUBMITTED("Submitted", "FFC300"),
     CONCEPT_MISALIGNED("Misaligned", "F45F71"),
     SFR_IN_DRAFT("In Draft","#e5e3e3"),
-    SFR_SUBMITTED("Pending Approval","#FFB700");
+    SFR_SUBMITTED("Pending Approval","#FFB700"),
+
+    HOTO_IN_DRAFT("HOTO IN DRAFT","#e5e3e3"),
+    HOTO_APPROVED("HOTO APPROVED","#77baa6"),
+    HOTO_SUBMISSION_IN_DRAFT("HOTO SUBMISSION IN DRAFT","#e5e3e3"),
+    HOTO_SUBMISSION_SUBMITTED("HOTO SUBMISSION SUBMITTED","#FFC300"),
+    HOTO_SUBMISSION_APPROVED("HOTO SUBMISSION APPROVED","#77baa6"),
+    HOTO_SUBMISSION_SENT_BACK("HOTO SUBMISSION SENT BACK","#F45F71"),
+    LL_HO_NOT_STARTED("Not Started","#e5e3e3"),
+    LL_HO_IN_DRAFT("In Draft", "#e5e3e3"),
+    LL_HO_PENDING_L1_APPROVAL("Pending L1 Approval","#FFC300"),
+    LL_HO_PENDING_L2_APPROVAL("Pending L2 Approval","#FFC300"),
+    LL_HO_PENDING_L3_APPROVAL("Pending L3 Approval","#FFC300"),
+    LL_HO_LL_SIGN_PENDING("Landlord Sign Pending","#FFC300"),
+    LL_HO_APPROVED("Approved","#77baa6");
 
     private final String status;
     private final String color;
@@ -29,11 +43,5 @@ public enum ModuleState implements State<ModuleState> {
         this.status=status;
         this.color=color;
     }
-    
-    public static final List<ModuleState> asIsApplicableStatuses =
-            Arrays.asList(ASIS_IN_DRAFT, ASIS_SUBMITTED, ASIS_APPROVED, ASIS_SENT_BACK);
 
-    public static final List<ModuleState> sfrApplicableStatuses =
-            Arrays.asList(SFR_IN_DRAFT, SFR_SUBMITTED);
-    
 }
