@@ -1,6 +1,8 @@
 package com.stanzaliving.core.commercialcode.dto;
 import com.stanzaliving.booking.enums.AMCAmountType;
+import com.stanzaliving.booking.enums.BookingSubType;
 import com.stanzaliving.commercialcard.enums.CommercialCardStatus;
+import com.stanzaliving.core.enums.PlatformType;
 import lombok.*;
 
 import java.util.Date;
@@ -47,4 +49,7 @@ public class CodeListDto {
     private CommercialCardStatus cardStatus;
 
     private Date updatedAt;
+
+    private PlatformType platformType;
+    private BookingSubType bookingSubType;
 }
