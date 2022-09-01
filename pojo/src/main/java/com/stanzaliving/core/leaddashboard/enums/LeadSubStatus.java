@@ -19,7 +19,7 @@ public enum LeadSubStatus {
 	QUALIFIED("Qualified","#6236FF","#6BBFFF"),
 	PRE_QUALIFICATION_FOLLOW_UP("Pre Qualification Follow Up","#44D7B6","#FFB701"),
 	RNR("RNR","#32C5FF","#32C5FF"),
-	
+	MOVED_OUT("Moved Out","#E02020","#F55F71"),
 	BOOKED("Booked", "#6DD400","#60C3AD"),
 	DISQUALIFIED("Disqualified","#FA6400","#F55F71"),
 
