@@ -8,6 +8,7 @@ import com.stanzaliving.core.grsi.dto.GrsiItemDto;
 import com.stanzaliving.core.grsi.dto.GrsiUpdateDto;
 import com.stanzaliving.core.grsi.dto.ToFetchRequestDto;
 import com.stanzaliving.core.grsi.dto.response.ToResponseDto;
+import com.stanzaliving.core.inventory.dto.AwlItemStatusUpdateDto;
 import com.stanzaliving.core.invoice.dto.InvoiceItemFilter;
 import com.stanzaliving.core.po.generic.dtos.GenericPoUpdate;
 import com.stanzaliving.grn.GSRIEmailData;
@@ -315,6 +316,30 @@ public class GrnClientApi {
         };
 
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, swimGsriRequestDto, headerParams, accept, returnType);
+    }
+
+    public ResponseDto<String> updateItemStatus(AwlItemStatusUpdateDto awlItemStatusUpdateDto) {
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+        String path =
+                UriComponentsBuilder.fromPath("/internal/generic/perform-gsri/item-status-change")
+                        .buildAndExpand(uriVariables)
+                        .toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<String>> returnType =
+                new ParameterizedTypeReference<ResponseDto<String>>() {};
+
+        return restClient.invokeAPI(
+                path, HttpMethod.POST, queryParams, awlItemStatusUpdateDto, headerParams, accept, returnType);
     }
 
     public ResponseDto<Boolean> checkIfGrnEventDetailsExistsByAwlRefNo(String awlRefNo) {
