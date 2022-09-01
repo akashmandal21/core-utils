@@ -2,6 +2,7 @@ package com.stanzaliving.core.commercialcode.dto;
 
 import com.stanzaliving.booking.enums.BookingSubType;
 import com.stanzaliving.commercialcard.enums.CommercialCardUserType;
+import com.stanzaliving.core.enums.PlatformType;
 import lombok.*;
 
 import javax.validation.constraints.NotEmpty;
@@ -52,4 +53,7 @@ public class CommercialCardRequestDto {
     private Integer roomCount = 1;
 
     private BookingSubType bookingSubType;
+
+    private PlatformType platformType;
+
 }
