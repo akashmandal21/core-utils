@@ -25,4 +25,5 @@ public class ContractRenewalUserPreferenceDto extends UserPreferenceDto {
     private int occupancy;
     private String currentBookingUuid;
     private boolean roomOccupied = false;
+    private String minContractStartDate;
 }
