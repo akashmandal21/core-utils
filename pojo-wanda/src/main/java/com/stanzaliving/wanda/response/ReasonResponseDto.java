@@ -6,7 +6,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Builder
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -16,6 +15,10 @@ public class ReasonResponseDto {
     private String reason;
     private String reasonType;
 
-    @JsonProperty("isProofMandatory")
     private boolean isProofMandatory;
+
+    @JsonProperty("isProofMandatory")
+    public boolean getIsProofMandatory(){
+        return this.isProofMandatory;
+    }
 }
