@@ -6,7 +6,8 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum BookingEventEnum {
-	BOOKING_CREATED("Booking Created"),
+    BOOKING_CREATED("Booking Created"),
+    GUEST_BOOKING_CREATED("Guest Booking Created"),
     BOOKING_DETAILS_UPDATED("Booking Details Updated"),
     INITIATE_BOOKING("Initiate Booking"),
     TOKEN_AMOUNT_PAID("Token Amount Paid"),
@@ -53,9 +54,32 @@ public enum BookingEventEnum {
     AGREEMENT_PENDING("Agreement Pending"),
     SHARED_WITH_RESIDENT("Shared With Resident"),
     MARK_CONTRACT_TERMINATED("Mark Contract Terminated"),
+    VAS_OPT_IN_EMAIL("Vas Opt In Email"),
     VAS_OPT_OUT_EMAIL("Vas Opt Out Email"),
-	CONTRACT_END("Contract End"),
-	LOCK_IN_END("Lock-in period End");
+    CONTRACT_END("Contract"),
+    LOCK_IN_END("Lock-in period"),
+    MOVE_IN_DATE_CHANGE("Move-in Date Change"),
+    EXIT_INITIATED("Exit Initiated"),
+    EXIT_UPDATED("Exit Updated"),
+    INITIATE_ZH_APPROVAL("Initiate Zonal Head Approval"),
+    KEY_HANDED_OVER("Key Handed Over"),
+    MARK_RESIDENT_AS_MOVE_OUT("Mark resident as move out"),
+    BOOKING_AUDIT_CREATED("Booking Audit Created"),
+    AUDIT_APPROVAL_PENDING("Audit Approval Pending"),
+    BOOKING_MOVE_OUT_DATE_UPDATED("Booking move out date updated"),
+    BOOKING_ZONAL_HEAD_REJECTED("Booking zonal head rejected"),
+    BOOKING_ZONAL_HEAD_APPROVED("Booking zonal head approved"),
+    EXIT_CANCELLED("Exit Cancelled"),
+    USER_DEACTIVATED_AFTER_TRESPASSER("User Deactivated After trespasser"),
+    USER_AGREEMENT_SIGN_VALIDATION_FAILURE("User agreement sign Validation Failure"),
+    ROOM_HANDOVER_PENDING("Room handover pending"),
+    ACCESS_PROVIDED_FOR_RESIDENT("Biometric/Internet access provided for resident"),
+    BROKER_CREATED("Broker created"),
+    USER_DEACTIVATED_AFTER_CANCELLATION("User Deactivated After cancellation"),
+    ALFRED_MOVE_IN_DATE_CHANGE("Move in date is changed by Resident from Alfred App"),
+    ROOM_CHANGE_REQUESTED("Room change request created"),
+    CONTRACT_EXTENSION_REQUESTED("contract extension request created"),
+    CONTRACT_MODIFIED("Contract is modified successfully");
 	
 	String eventName;
 
