@@ -22,4 +22,8 @@ public class WebsiteConstants {
 
 	public static final int URL_SHORTENER_SERVICE_INFINITE_EXPIRY_TIME = 9999999;
 
+	public static final String TRUE = "true";
+
+	public static final String LEAD_VISIBLE = "leadVisible";
+
 }
