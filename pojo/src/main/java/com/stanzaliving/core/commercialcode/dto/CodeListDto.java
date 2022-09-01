@@ -3,6 +3,7 @@ import com.stanzaliving.booking.enums.AMCAmountType;
 import com.stanzaliving.commercialcard.enums.CommercialCardStatus;
 import lombok.*;
 
+import java.util.Date;
 import java.util.List;
 
 @Getter
@@ -44,4 +45,6 @@ public class CodeListDto {
     private AMCAmountType maintenanceChargeAmountType;
 
     private CommercialCardStatus cardStatus;
+
+    private Date updatedAt;
 }
