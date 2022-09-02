@@ -366,7 +366,7 @@ public class LedgerServiceApi {
         String path = UriComponentsBuilder.fromPath("/internal/api/v1/refundAccountDetails/{userUUid}")
                 .buildAndExpand(uriVariables).toUriString();
         uriVariables.put("userUuid", userUuid);
-        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();]
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
         HttpHeaders headerParams = new HttpHeaders();
         String[] accepts = new String[]{"*/*"};
