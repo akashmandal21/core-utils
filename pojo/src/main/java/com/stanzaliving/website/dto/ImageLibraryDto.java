@@ -14,6 +14,8 @@ public class ImageLibraryDto extends AbstractDto {
 
     private boolean sampleImage;
 
+    private boolean dummyImage;
+
     @Builder.Default
     private boolean clickable = true;
 }
