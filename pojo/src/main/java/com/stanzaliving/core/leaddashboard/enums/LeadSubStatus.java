@@ -22,7 +22,7 @@ public enum LeadSubStatus {
 	
 	BOOKED("Booked", "#6DD400","#60C3AD"),
 //	ToDo color code should be added
-	MOVED_OUT("Moved Out","#6DD400","#60C3AD"),
+	MOVED_OUT("Moved Out","#E02020","#F55F71"),
 	DISQUALIFIED("Disqualified","#FA6400","#F55F71"),
 
 	PRE_VISIT_FOLLOW_UP("Pre Visit Follow Up","#F45E58","#FFB701"),
