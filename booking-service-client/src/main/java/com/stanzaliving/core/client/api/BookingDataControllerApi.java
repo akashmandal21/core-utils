@@ -48,7 +48,9 @@ public class BookingDataControllerApi {
 
         HttpHeaders headerParams = new HttpHeaders();
 
-        final String[] accepts = {"*/*"};
+        final String[] accepts = {
+                "*/*"
+        };
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
         ParameterizedTypeReference<ResponseDto<Map<String, List<InventoryResponseOccupancyDto>>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<String, List<InventoryResponseOccupancyDto>>>>() {
@@ -69,7 +71,9 @@ public class BookingDataControllerApi {
 
         final HttpHeaders headerParams = new HttpHeaders();
 
-        final String[] accepts = {"*/*"};
+        final String[] accepts = {
+                "*/*"
+        };
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
         ParameterizedTypeReference<ResponseDto<List<BookingResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<BookingResponseDto>>>() {
@@ -90,7 +94,9 @@ public class BookingDataControllerApi {
 
         HttpHeaders headerParams = new HttpHeaders();
 
-        final String[] accepts = {"*/*"};
+        final String[] accepts = {
+                "*/*"
+        };
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
         ParameterizedTypeReference<ResponseDto<ExpiredBookingsResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<ExpiredBookingsResponseDto>>() {
@@ -1000,6 +1006,29 @@ public class BookingDataControllerApi {
         };
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, null, headerParams, accept, returnType);
     }
+
+    public ResponseDto<List<BookingResponseDto>> getBookingEntities(List<String> bookingUuids) {
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+        Object requestBody = bookingUuids;
+
+        String path = UriComponentsBuilder.fromPath("/internal/v1/booking/bookings-info").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<List<BookingResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<BookingResponseDto>>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, requestBody, headerParams, accept, returnType);
+    }
+
+}
 
     public ResponseDto<List<GstDto>> getGstDetails(String amount) {
         final Map<String, Object> uriVariables = new HashMap<>();
