@@ -26,7 +26,6 @@ public enum TimelineStatusEnum {
     POST_VISIT_SCHEDULED_DROP("Post Visit Scheduled Drop"),
 
     POST_VISIT_SCHEDULED_FOLLOW_UP_COMPLETED("Post Visit Scheduled Follow-Up Completed"),
-    MOVED_OUT("Moved Out"),
     BOOKED("Booked"),
     DROPPED("Dropped"),
 
