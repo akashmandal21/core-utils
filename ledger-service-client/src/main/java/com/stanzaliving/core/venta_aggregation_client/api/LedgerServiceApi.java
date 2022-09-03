@@ -363,7 +363,8 @@ public class LedgerServiceApi {
 
     public ResponseDto<Boolean> getBankDetails(String userUuid) {
         Map<String, Object> uriVariables = new HashMap<>();
-        String path = UriComponentsBuilder.fromPath("/internal/api/v1/refundAccountDetails/{userUUid}")
+        //https://erp.stanzaliving.com/ledger_service/internal/api/v1/refundAccountDetails/b12529a8-8213-4bf4-aaf3-a8e336d0d7e6
+        String path = UriComponentsBuilder.fromPath("/internal/api/v1/refundAccountDetails/{userUuid}")
                 .buildAndExpand(uriVariables).toUriString();
         uriVariables.put("userUuid", userUuid);
         MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
