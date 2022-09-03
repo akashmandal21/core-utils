@@ -362,11 +362,14 @@ public class LedgerServiceApi {
     }
 
     public ResponseDto<Boolean> getBankDetails(String userUuid) {
+        log.info("In getBankDetails for user {}", userUuid);
         Map<String, Object> uriVariables = new HashMap<>();
+        ///internal/api/v1/refundAccountDetails/{userUUid}
+        //https://erp.stanzaliving.com/ledger_service/internal/api/v1/refundAccountDetails/b12529a8-8213-4bf4-aaf3-a8e336d0d7e6
+        uriVariables.put("userUUid", userUuid);
         String path = UriComponentsBuilder.fromPath("/internal/api/v1/refundAccountDetails/{userUUid}")
                 .buildAndExpand(uriVariables).toUriString();
-        uriVariables.put("userUuid", userUuid);
-        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();]
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
         HttpHeaders headerParams = new HttpHeaders();
         String[] accepts = new String[]{"*/*"};
@@ -377,7 +380,6 @@ public class LedgerServiceApi {
 
         try {
             return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
-
         } catch (Exception e) {
             log.error("Error while fetching refund details", e);
             return null;
