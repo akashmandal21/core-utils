@@ -381,7 +381,6 @@ public class LedgerServiceApi {
         try {
             return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
         } catch (Exception e) {
-            e.printStackTrace();
             log.error("Error while fetching refund details", e);
             return null;
         }
