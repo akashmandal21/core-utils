@@ -135,5 +135,4 @@ public class RazorPayXControllerApi {
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
     }
 
-
 }
