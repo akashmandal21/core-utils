@@ -21,7 +21,7 @@ public enum LeadSubStatus {
 	RNR("RNR","#32C5FF","#32C5FF"),
 	BOOKED("Booked", "#6DD400","#60C3AD"),
 
-	MOVED_OUT("Moved Out","#E02020","#F55F71");
+	MOVED_OUT("Moved Out","#E02020","#F55F71"),
 
 	DISQUALIFIED("Disqualified","#FA6400","#F55F71"),
 
