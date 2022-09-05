@@ -39,5 +39,4 @@ public class ResidenceDetailsRequestDTO {
 	private FomoTag fomoTag;
 	private String virtualTourImage;
 	private String videoLink;
-	private String videoLink2;
 }
