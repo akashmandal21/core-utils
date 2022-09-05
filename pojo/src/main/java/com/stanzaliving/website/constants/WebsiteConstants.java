@@ -26,4 +26,8 @@ public class WebsiteConstants {
 
 	public static final String LEAD_VISIBLE = "leadVisible";
 
+	public static final String PG_LP_DROPDOWN_VISIBLE = "pgLpDropdownVisible";
+	public static final String APARTMENT_LP_DROPDOWN_VISIBLE = "apartmentLpDropdownVisible";
+	public static final String PG_WEBSITE_DROPDOWN_VISIBLE = "pgWebsiteDropdownVisible";
+	public static final String APARTMENT_WEBSITE_DROPDOWN_VISIBLE = "apartmentWebsiteDropdownVisible";
 }
