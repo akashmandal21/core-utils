@@ -1,13 +1,10 @@
 package com.stanzaliving.website.response.dto;
 
 import java.io.Serializable;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 import com.stanzaliving.core.enums.PropertyEntityType;
+import com.stanzaliving.website.dto.WebsiteImageLibraryDto;
 import com.stanzaliving.website.elasticsearch.index.dto.WebsitePlaceIndexDto;
 import com.stanzaliving.website.enums.FomoTag;
 import com.stanzaliving.website.enums.Gender;
@@ -137,7 +134,7 @@ public class ApartmentDetailedResponseDto implements Serializable {
 	private List<String> ventaRoomNumbers;
 	
 	@Builder.Default
-	private Collection<ImageResponseDTO> images = new HashSet<>();
+	private List<WebsiteImageLibraryDto> images = new ArrayList<>();
 	
 	@Builder.Default
 	private Set<ResidenceNearbyLocationResponseDTO> residenceNearbyLocations = new HashSet<>(0);
