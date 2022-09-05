@@ -47,6 +47,30 @@ public class SecureCookieUtil {
 		return cookie;
 	}
 
+	public static Cookie create(String key, String value, Optional<Boolean> isLocalFrontEnd, Optional<Boolean> isApp, String domainName) {
+		Cookie cookie = new Cookie(key, value);
+
+		if (isLocalFrontEnd.isPresent() && isLocalFrontEnd.get()) {
+			// Setting this externally because secure cookies are not accessible in local/Cross Site JavaScript
+			cookie.setSecure(false);
+			cookie.setHttpOnly(false);
+
+		} else {
+
+			if (!isApp.isPresent() || !isApp.get()) {
+				cookie.setDomain(StringUtils.isNotBlank(domainName) ? domainName : SecurityConstants.STANZA_DOMAIN);
+			}
+
+			cookie.setMaxAge(-1);
+			cookie.setSecure(true);
+			cookie.setHttpOnly(true);
+		}
+
+		cookie.setPath("/");
+		log.trace("Adding Cookie [Name: " + cookie.getName() + ", Value: " + cookie.getValue() + ", Domain: " + cookie.getDomain() + "]");
+		return cookie;
+	}
+
 	public static Cookie expire(Cookie cookie, boolean isLocalFrontEnd) {
 		cookie.setMaxAge(0);
 		cookie.setValue(null);

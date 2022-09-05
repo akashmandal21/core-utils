@@ -69,6 +69,8 @@ public class WebsiteResidenceDetailedResponseDTO implements Serializable {
 	private Integer fomoBedCount;
 	
 	private Integer preBookingAmount;
+
+	private Integer unlockDiscountAmount;
 	
 	private String preBookingMode;
 	
@@ -87,6 +89,8 @@ public class WebsiteResidenceDetailedResponseDTO implements Serializable {
 	private String googleMapLink;
 	
 	private String videoLink;
+
+	private String videoLink2;
 	
 	private String virtualTourImage;
 	

@@ -34,7 +34,9 @@ public enum AlfredStep {
 	GUEST_KYC(18, Arrays.asList("GUEST_KYC")),
 	GUEST_SELFIE(19, Arrays.asList("GUEST_SELFIE")),
 	GUEST_ONBOARDING_PENDING(20, Arrays.asList("HOMESCREEN")),
-	MOVE_IN_DATE_CHANGE(21, Arrays.asList("MOVE IN DATE CHANGE"));
+	MOVE_IN_DATE_CHANGE(21, Arrays.asList("MOVE IN DATE CHANGE")),
+	SD_REFUND(22, new ArrayList<>())
+	;
 
 	private Integer sequenceId;
 	private List<String> bookingStatuses;
@@ -70,7 +72,7 @@ public enum AlfredStep {
 
 	static {
 		retentionNonBlockerStatus.addAll(Arrays.asList("EXPIRED","CANCELLED","DRAFT","IN PROGRESS","REFUND INITIATED","ONBOARDING COMPLETED",
-				"VERIFICATION PENDING","ONBOARDING PENDING", "ONBOARDING IN PROGRESS"));
+				"VERIFICATION PENDING","ONBOARDING PENDING", "ONBOARDING IN PROGRESS", "TRESPASSER", "DEFAULTER PAID", "DEFAULTER UNPAID", "CONTRACT TERMINATED", "CONTRACT COMPLETED", "STAY FORFEITURE", "BOOKING FORFEITURE"));
 	}
 
 	public static AlfredStep getByBookingStatus(String bookingStatus) {
