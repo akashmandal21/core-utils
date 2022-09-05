@@ -17,8 +17,7 @@ public enum LeadStatus {
 	VISIT_SCHEDULED("Visit Scheduled"),
 	VISIT_STARTED("Visit Started"),
 	VISIT_COMPLETED("Visit Completed"),
-	BOOKED("Booked"),
-	MOVED_OUT("Moved Out");
+	BOOKED("Booked");
 	
 	private String statusDescription;
 	

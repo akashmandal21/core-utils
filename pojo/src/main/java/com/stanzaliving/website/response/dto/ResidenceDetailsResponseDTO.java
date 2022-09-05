@@ -55,7 +55,6 @@ public class ResidenceDetailsResponseDTO implements Serializable {
 	private String googleMapLink;
 	private String virtualTourImage;
 	private String videoLink;
-	private String videoLink2;
 	private String cardCTAName;
 	private Integer cardCTAId;
 	private String leadFormModeName;
