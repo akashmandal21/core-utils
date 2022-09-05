@@ -90,8 +90,8 @@ public class UtilitiesElectricityCategoryV2Dto extends CategoryV2Dto {
 	public double unitInAcRoomPerDaySuggestedValue;
 	public double unitInNonAcRoomPerDaySuggestedValue;
 	
-	public double unitInAcRoomPerDaySuggestedValueReason;
-	public double unitInNonAcRoomPerDaySuggestedValueReason;
+	public String unitInAcRoomPerDaySuggestedValueReason;
+	public String unitInNonAcRoomPerDaySuggestedValueReason;
 	
 	
 	public double unitInCommonAreaPerDay;
