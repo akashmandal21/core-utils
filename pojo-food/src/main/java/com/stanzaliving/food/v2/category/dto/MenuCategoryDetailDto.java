@@ -3,6 +3,7 @@ package com.stanzaliving.food.v2.category.dto;
 import com.stanzaliving.approval.enums.ApprovalStatus;
 import com.stanzaliving.core.base.common.dto.ListingDto;
 import com.stanzaliving.core.food.dto.FoodMenuBudgetDto;
+import com.stanzaliving.core.food.enums.BrmUpdationType;
 import com.stanzaliving.core.food.enums.FoodServeType;
 import com.stanzaliving.core.food.enums.MenuType;
 import com.stanzaliving.core.user.dto.response.UserContactDetailsResponseDto;
@@ -98,4 +99,5 @@ public class MenuCategoryDetailDto extends MenuCategoryDTO {
 
 	private Boolean isDebarDishExist;
 
+	private BrmUpdationType brmUpdationType;
 }
