@@ -133,8 +133,7 @@ public class ApartmentDetailedResponseDto implements Serializable {
 
 	private List<String> ventaRoomNumbers;
 	
-	@Builder.Default
-	private List<WebsiteImageLibraryDto> images = new ArrayList<>();
+	private List<WebsiteImageLibraryDto> images;
 	
 	@Builder.Default
 	private Set<ResidenceNearbyLocationResponseDTO> residenceNearbyLocations = new HashSet<>(0);
