@@ -28,7 +28,7 @@ public class UtilitiesWaterCategoryV2Dto extends CategoryV2Dto {
 	
 	private int waterRequirementPerPersonPerDay;
 	private int waterRequirementPerPersonPerDaySuggestedValue;
-	private int waterRequirementPerPersonPerDaySuggestedValueReason;
+	private String waterRequirementPerPersonPerDaySuggestedValueReason;
 	private int tankerRequirementPercent;
 	private double tankerCostPerLtr;
 	private double landlordReceivablePercent;
@@ -36,6 +36,5 @@ public class UtilitiesWaterCategoryV2Dto extends CategoryV2Dto {
 	private double waterCostPerAvailableBed;
 	private double jalBoardWaterCostPerMonth;
 	private double jalBoardWaterCostPerAvailableBed;
-	
 
 }
