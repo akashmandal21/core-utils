@@ -965,7 +965,7 @@ public class DateUtil {
 
     public static List<String> getListOfMonthYear(LocalDate fromDate, LocalDate toDate, DateFormat dateFormat) {
         LinkedHashSet<String> monthYear = new LinkedHashSet<>();
-        if (!toDate.isAfter(fromDate)) {// TODO add additional validation
+        if (toDate.isBefore(fromDate)) {// TODO add additional validation
             return new ArrayList<>(monthYear);
         }
         for (LocalDate date = fromDate; !date.isAfter(toDate); date = date.plusDays(1)) {
@@ -976,7 +976,7 @@ public class DateUtil {
 
     public static int getDaysCountInMonthYear(LocalDate fromDate, LocalDate toDate, DateFormat dateFormat, String monthYear) {
         int count = 0;
-        if (!toDate.isAfter(fromDate)) {// TODO add additional validation
+        if (toDate.isBefore(fromDate)) {// TODO add additional validation
             return count;
         }
         for (LocalDate date = fromDate; !date.isAfter(toDate); date = date.plusDays(1)) {
