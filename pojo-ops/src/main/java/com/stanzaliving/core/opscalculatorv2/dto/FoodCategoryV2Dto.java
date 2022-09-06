@@ -71,11 +71,14 @@ public class FoodCategoryV2Dto extends CategoryV2Dto {
 	
 	@Builder.Default
 	private BigDecimal overallUtilization = new BigDecimal(0);
-	
+
 	@Builder.Default
-	private BigDecimal overallUtilizationSuggested = new BigDecimal(0);
+	private BigDecimal utilizationNonLeaveDays = new BigDecimal(0);
+
+	@Builder.Default
+	private BigDecimal utilizationNonLeaveDaysSuggested = new BigDecimal(0);
 	
-	private String overallUtilizationSuggestedReason;
+	private String utilizationNonLeaveDaysSuggestedReason;
 
 	List<SMLevelFoodCategoryDto> smLevelFoodCategoryDtoList;
 
