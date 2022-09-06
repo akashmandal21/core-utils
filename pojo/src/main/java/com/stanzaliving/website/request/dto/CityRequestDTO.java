@@ -25,4 +25,5 @@ public class CityRequestDTO {
 	private int websiteDisplayOrder;
 	private String cityImgUrl;
 	private List<AttributeDto> attributeDto;
+	private String campaignSlug;
 }

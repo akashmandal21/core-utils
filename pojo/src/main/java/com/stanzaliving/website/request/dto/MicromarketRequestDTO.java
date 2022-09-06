@@ -30,5 +30,5 @@ public class MicromarketRequestDTO {
 	
 	private List<AttributeDto> attributeDto;
 
-	private String campaign_slug;
+	private String campaignSlug;
 }
