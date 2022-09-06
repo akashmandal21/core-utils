@@ -41,8 +41,9 @@ public enum SupportRole {
     GORDON_L3_POC(1,"GORDON_L3_POC",AccessLevel.COUNTRY,Arrays.asList(SupportModule.TICKET_RESOLUTION,SupportModule.BLISS_DASHBOARD)),
     JARVIS_L1_POC(1,"JARVIS_L1_POC",AccessLevel.COUNTRY,Arrays.asList(SupportModule.TICKET_RESOLUTION,SupportModule.BLISS_DASHBOARD)),
     JARVIS_L2_POC(1,"JARVIS_L2_POC",AccessLevel.COUNTRY,Arrays.asList(SupportModule.TICKET_RESOLUTION,SupportModule.BLISS_DASHBOARD)),
-    JARVIS_L3_POC(1,"JARVIS_L3_POC",AccessLevel.COUNTRY,Arrays.asList(SupportModule.TICKET_RESOLUTION,SupportModule.BLISS_DASHBOARD));
-
+    JARVIS_L3_POC(1,"JARVIS_L3_POC",AccessLevel.COUNTRY,Arrays.asList(SupportModule.TICKET_RESOLUTION,SupportModule.BLISS_DASHBOARD)),
+    SUPPORT_RM_HEAD(1,"SUPPORT_RM_HEAD",AccessLevel.COUNTRY,Arrays.asList(SupportModule.TICKET_RESOLUTION,SupportModule.BLISS_DASHBOARD)),
+    SUPPORT_IT_MANAGER(1,"SUPPORT_IT_MANAGER",AccessLevel.COUNTRY,Arrays.asList(SupportModule.TICKET_RESOLUTION,SupportModule.BLISS_DASHBOARD));
 
     private static final Map<String, SupportRole> map = new HashMap<>();
 
