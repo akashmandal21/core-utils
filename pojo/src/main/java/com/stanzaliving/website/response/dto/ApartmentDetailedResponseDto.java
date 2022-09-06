@@ -41,6 +41,8 @@ public class ApartmentDetailedResponseDto implements Serializable {
 	private String slug;
 	
 	private String roomId;
+
+	private String roomNumber;
 	
 	private Gender gender;
 	
