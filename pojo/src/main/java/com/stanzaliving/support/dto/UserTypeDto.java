@@ -18,4 +18,6 @@ public class UserTypeDto {
     private List<String> updatedBy;
 
     private List<String> resolvedBy;
+
+    private List<String> createdBy;
 }
