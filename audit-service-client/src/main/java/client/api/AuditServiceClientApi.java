@@ -5,6 +5,8 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.stanzaliving.core.base.exception.ApiValidationException;
 import com.stanzaliving.core.base.exception.PreconditionFailedException;
 import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.core.dto.AuditElasticDto;
+import com.stanzaliving.core.dto.LeadElasticDto;
 import com.stanzaliving.ventaAudit.dto.InventoryResponseDto;
 import com.stanzaliving.ventaAudit.dto.RoomHandoverStatusResponseDto;
 import com.stanzaliving.ventaAudit.dto.VentaNotificationDto;
@@ -153,13 +155,28 @@ public class AuditServiceClientApi {
         } catch (Exception e) {
 
             log.error("Error while searching from venta aggregation service.", e);
+            return null;
 
-            throw new ApiValidationException("Some error occurred. Please try again after some time.");
 
         }
     }
 
-
-
+    public ResponseDto<Void> syncElasticData(AuditElasticDto elasticDto) {
+        log.debug("audit service client to audit elastic data");
+        Object postBody = elasticDto;
+        String path = UriComponentsBuilder.fromPath("/internal/api/v1/sync-elastic-data").toUriString();
+        final HttpHeaders headerParams = new HttpHeaders();
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        final String[] accepts = {"*/*"};
+        final List<MediaType> accept = stanzaRestClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<Void>> returnType = new ParameterizedTypeReference<ResponseDto<Void>>() {
+        };
+        try {
+            return stanzaRestClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception caused while syncing elastic data", e);
+            return null;
+        }
+    }
 
 }
