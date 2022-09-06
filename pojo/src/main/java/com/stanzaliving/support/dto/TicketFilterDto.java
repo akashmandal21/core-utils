@@ -41,6 +41,8 @@ public class TicketFilterDto extends PageAndSortDto {
 
     private Boolean assignedToSelected;
 
+    private Boolean createdBySelected;
+
     private Boolean resolvedBySelected;
 
     private Boolean updatedBySelected;
