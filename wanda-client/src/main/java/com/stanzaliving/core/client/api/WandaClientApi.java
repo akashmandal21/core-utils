@@ -179,12 +179,12 @@ public class WandaClientApi {
 		return null;
 	}
 
-	public List<FeaturephoneUserDto> getFeaturePhoneUsersV2(String hostel) {
+	public List<FeaturephoneUserDto> getFeaturePhoneUsersV2(String residenceId) {
 
       try {
           Object postBody = null;
 
-          log.info("Received request to get Feature phone user dto of residenceId: {}", hostel);
+          log.info("Received request to get Feature phone user dto of residenceId: {}", residenceId);
 
           final Map<String, Object> uriVariables = new HashMap<>();
 
@@ -192,7 +192,7 @@ public class WandaClientApi {
                   .toUriString();
 
           final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-          queryParams.add("hostel", hostel);
+          queryParams.add("hostel", residenceId);
           queryParams.add("featurePhone", Boolean.TRUE.toString());
 
           final HttpHeaders headerParams = new HttpHeaders();
@@ -205,7 +205,7 @@ public class WandaClientApi {
 
           return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
       } catch (Exception e) {
-          log.error(BaseMarker.WANDA_API_ERROR,"Error while fetching feature phone users for hostel: " + hostel, e);
+          log.error(BaseMarker.WANDA_API_ERROR,"Error while fetching feature phone users for hostel: " + residenceId, e);
       }
 
       return null;
