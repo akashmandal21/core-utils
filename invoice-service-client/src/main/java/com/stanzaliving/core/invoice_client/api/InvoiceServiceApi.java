@@ -187,4 +187,29 @@ public class InvoiceServiceApi {
             return null;
         }
     }
+
+    public ResponseDto<String> updateInvoiceStatus(List<String> invoiceIds) {
+
+        log.info(" updateInvoiceStatus for invoiceIds [" + invoiceIds + "]");
+
+        Object postBody = invoiceIds;
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+        String path = UriComponentsBuilder.fromPath("/internal/update/status")
+                .buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+
+    }
 }
