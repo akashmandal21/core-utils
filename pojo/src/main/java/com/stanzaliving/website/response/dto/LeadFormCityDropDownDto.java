@@ -24,8 +24,13 @@ public class LeadFormCityDropDownDto implements Serializable {
     private boolean comingSoonPg;
     private boolean comingSoonApartment;
     private String transformationUuid;
-    private boolean pgLpDropdownVisible;
-    private boolean apartmentLpDropdownVisible;
-    private boolean pgWebsiteDropdownVisible;
-    private boolean apartmentWebsiteDropdownVisible;
+
+    @Builder.Default
+    private boolean pgLpDropdownVisible = false;
+    @Builder.Default
+    private boolean apartmentLpDropdownVisible = false;
+    @Builder.Default
+    private boolean pgWebsiteDropdownVisible = false;
+    @Builder.Default
+    private boolean apartmentWebsiteDropdownVisible = false;
 }
