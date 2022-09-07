@@ -29,5 +29,5 @@ public class ContractTerminationResponseDto {
     private Double totalRefundAmount;
     @JsonFormat(pattern = DateUtil.yyyy_MM_dd_FORMAT, timezone = StanzaConstants.IST_TIMEZONE)
     private LocalDate auditDate;
-    private PaymentPlanAndLineItems disabledPaymentPlan;
+    private Double coinsToBeAdded;
 }
