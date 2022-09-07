@@ -21,12 +21,12 @@ import java.util.List;
 public class ContractTerminationResponseDto {
 
     private List<CNForContractTerminationResponseDto> creditNoteList;
-    private Double securityDepositAvailable;
-    private Double advanceRentalAvailable;
-    private Double ledgerBalance;
-    private Double upcomingDues;
-    private Double totalPendingDues;
-    private Double totalRefundAmount;
+    private String securityDepositAvailable;
+    private String advanceRentalAvailable;
+    private String ledgerBalance;
+    private String upcomingDues;
+    private String totalPendingDues;
+    private String totalRefundAmount;
     @JsonFormat(pattern = DateUtil.yyyy_MM_dd_FORMAT, timezone = StanzaConstants.IST_TIMEZONE)
     private LocalDate auditDate;
     private Double coinsToBeAdded;

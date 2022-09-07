@@ -20,6 +20,6 @@ public class CNForContractTerminationResponseDto {
     @JsonFormat(pattern = DateUtil.yyyy_MM_dd_FORMAT, timezone = StanzaConstants.IST_TIMEZONE)
     private LocalDate toDate;
     private String invoiceType;
-    private Double invoiceAmount;
-    private Double creditNoteAmount;
+    private String invoiceAmount;
+    private String creditNoteAmount;
 }
