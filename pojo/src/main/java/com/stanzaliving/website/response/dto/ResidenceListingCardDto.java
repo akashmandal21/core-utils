@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import com.stanzaliving.core.enums.PropertyEntityType;
+import com.stanzaliving.website.dto.WebsiteImageLibraryDto;
 import com.stanzaliving.website.enums.FomoTag;
 import com.stanzaliving.website.enums.Gender;
 
@@ -96,5 +97,5 @@ public class ResidenceListingCardDto implements Serializable {
 
 	private List<ResidenceOccupancyResponseDTO> residenceOccupancies;
 
-	private List<ImageResponseDTO> images;
+	private List<WebsiteImageLibraryDto> images;
 }
