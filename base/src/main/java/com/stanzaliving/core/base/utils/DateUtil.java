@@ -87,7 +87,12 @@ public class DateUtil {
     public long getDaysBetweenDates(Date fromDate, Date toDate) {
         return ChronoUnit.DAYS.between(fromDate.toInstant(), toDate.toInstant());
     }
-
+    public long getHoursBetweenDates(Date fromDate, Date toDate) {
+        return ChronoUnit.HOURS.between(fromDate.toInstant(), toDate.toInstant());
+    }
+    public long getMinutesBetweenDates(Date fromDate, Date toDate) {
+        return ChronoUnit.MINUTES.between(fromDate.toInstant(), toDate.toInstant());
+    }
     public boolean isMidMonth(Date date) {
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);

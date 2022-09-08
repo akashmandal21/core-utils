@@ -1,5 +1,6 @@
 package com.stanzaliving.genericdashboard.dto;
 
+import com.stanzaliving.campaign.dto.response.FileStatusResponseDto;
 import com.stanzaliving.genericdashboard.enums.CampaignDashboardType;
 import com.stanzaliving.genericdashboard.enums.CampaignGroup;
 import com.stanzaliving.genericdashboard.enums.CampaignStatus;
@@ -16,6 +17,20 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CampaignListDto {
+
+    public CampaignListDto(String uuid, String campaignName, CampaignDashboardType campaignType, CampaignGroup campaignGroup, Integer priorityOrder, SchedulingType schedulingType, CampaignStatus campaignStatus, String createdBy, Date createdAt, Date startDate, Date endDate) {
+        this.uuid = uuid;
+        this.campaignName = campaignName;
+        this.campaignType = campaignType;
+        this.campaignGroup = campaignGroup;
+        this.priorityOrder = priorityOrder;
+        this.schedulingType = schedulingType;
+        this.campaignStatus = campaignStatus;
+        this.createdBy = createdBy;
+        this.createdAt = createdAt;
+        this.startDate = startDate;
+        this.endDate = endDate;
+    }
 
     private String uuid;
 
@@ -38,4 +53,6 @@ public class CampaignListDto {
     private Date startDate;
 
     private Date endDate;
+
+    private FileStatusResponseDto fileStatusResponse;
 }
