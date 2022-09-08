@@ -201,6 +201,41 @@ public class ResidenceDataControllerApi {
         }
     }
 
+    public ResponseDto<PricingDetailsResponseDto> getPricingDetailsV2(String roomUuid, String serviceMixUuid, String moveInDate, boolean isNonRecommendedRoom) {
+
+        log.info("Residence-Data-Controller::Processing to get pricing detail based on move in-in date {} , serviceMixUuid {}, roomUuid {}", moveInDate, serviceMixUuid, roomUuid);
+
+        Map<String, Object> uriVariables = new HashMap<>();
+
+        uriVariables.put("roomUUID", roomUuid);
+
+        uriVariables.put("serviceMixUUID", serviceMixUuid);
+
+        uriVariables.put("moveInDate", moveInDate);
+
+        String path = UriComponentsBuilder.fromPath("/internal/room-pricing/{roomUUID}/{serviceMixUUID}/{moveInDate}").buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        queryParams.add("isNonRecommendedRoom", String.valueOf(isNonRecommendedRoom));
+
+        HttpHeaders headerParams = new HttpHeaders();
+
+        String[] accepts = new String[]{"*/*"};
+
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<PricingDetailsResponseDto>> returnType =
+                new ParameterizedTypeReference<ResponseDto<PricingDetailsResponseDto>>() {
+                };
+
+        try {
+            return (ResponseDto) this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, (Object) null, headerParams, accept, returnType);
+        } catch (Exception var12) {
+            log.error("Exception while get pricing detail based on movein-in date {} , serviceMixUuid {}, roomUuid {}", moveInDate, serviceMixUuid, roomUuid);
+            return null;
+        }
+    }
+
     public ResponseDto<PricingDetailsResponseDto> getPricingDetailsIncludingDeprecated(String roomUuid, String serviceMixUuid, String moveInDate) {
 
         log.info("Residence-Data-Controller::Processing to get pricing detail based on movein-in date {} , serviceMixUuid {}, roomUuid {}", moveInDate, serviceMixUuid, roomUuid);
