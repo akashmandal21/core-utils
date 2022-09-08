@@ -49,5 +49,4 @@ public class CommercialCardRequestDto {
 
     @Builder.Default
     private Integer roomCount = 1;
-
 }
