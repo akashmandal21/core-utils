@@ -108,4 +108,6 @@ public class BookingAggregationDto {
     private String createdByName;
     private boolean guestBooking;
     private String primaryOwnerName;
+    private Date expectedMoveOutDate;
+    private String residenceAddress;
 }
