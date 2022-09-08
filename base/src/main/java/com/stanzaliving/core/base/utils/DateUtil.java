@@ -970,7 +970,7 @@ public class DateUtil {
 
     public static List<String> getListOfMonthYear(LocalDate fromDate, LocalDate toDate, DateFormat dateFormat) {
         LinkedHashSet<String> monthYear = new LinkedHashSet<>();
-        if (!toDate.isAfter(fromDate)) {// TODO add additional validation
+        if (toDate.isBefore(fromDate)) {// TODO add additional validation
             return new ArrayList<>(monthYear);
         }
         for (LocalDate date = fromDate; !date.isAfter(toDate); date = date.plusDays(1)) {
@@ -981,7 +981,7 @@ public class DateUtil {
 
     public static int getDaysCountInMonthYear(LocalDate fromDate, LocalDate toDate, DateFormat dateFormat, String monthYear) {
         int count = 0;
-        if (!toDate.isAfter(fromDate)) {// TODO add additional validation
+        if (toDate.isBefore(fromDate)) {// TODO add additional validation
             return count;
         }
         for (LocalDate date = fromDate; !date.isAfter(toDate); date = date.plusDays(1)) {
@@ -1031,7 +1031,11 @@ public class DateUtil {
         for (String monthYear : monthYearList) {
             int daysToConsider = DateUtil.getDaysCountInMonthYear(fromDate, toDate, DateFormat.MMM_YY2, monthYear);
             int daysInMonth = YearMonth.parse(monthYear, DateFormat.MMM_YY2.getDateTimeFormatter()).lengthOfMonth();
-            monthCount += (double) daysToConsider / (double) daysInMonth;
+            if ((daysInMonth == 31 && daysToConsider == 16) || (daysInMonth == 29 && daysToConsider == 15)) {
+                monthCount += 0.5;
+            } else {
+                monthCount += (double) daysToConsider / (double) daysInMonth;
+            }
         }
         return Math.round(monthCount * 100.0) / 100.0;
     }
