@@ -15,4 +15,6 @@ import java.io.IOException;
 
 public interface GenerateQrService {
 	GenerateQrResponseDto generateQrCode(String s3Bucket, String filePath, String fileName, AmazonS3 s3Client) throws IOException;
+
+	GenerateQrResponseDto generateQrCode(String s3Bucket, String filePath, String fileName, AmazonS3 s3Client, String qrContent) throws IOException;
 }
