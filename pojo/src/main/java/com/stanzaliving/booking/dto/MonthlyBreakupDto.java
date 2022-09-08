@@ -10,6 +10,7 @@ import javax.validation.Valid;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 @Data
 @Builder
@@ -29,6 +30,8 @@ public class MonthlyBreakupDto implements Serializable {
     private Double cityHeadBuffer;
 
     private Double upsell;
+
+    private Double bumpUpPrice;
 
     private Double pricingStrategyAmount;
 
@@ -71,6 +74,10 @@ public class MonthlyBreakupDto implements Serializable {
         if(Objects.isNull(this.upsell))
             return 0D;
         return this.upsell;
+    }
+
+    public Double getBumpUpPrice() {
+        return Optional.ofNullable(this.bumpUpPrice).orElse(0D);
     }
 
     public ServicePriceDto getPackagedServicePriceDto() {
