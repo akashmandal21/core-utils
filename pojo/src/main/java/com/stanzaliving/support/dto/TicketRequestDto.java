@@ -60,5 +60,6 @@ public class TicketRequestDto {
 
     private String email;
     private String parentTicketUuid;
+    private String serviceProvider;
 
 }
