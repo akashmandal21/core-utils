@@ -18,5 +18,4 @@ public class FileStatusResponseDto {
     String fileUrl;
     long createdAt;
     boolean isExpired;
-    boolean isGenerated;
 }
