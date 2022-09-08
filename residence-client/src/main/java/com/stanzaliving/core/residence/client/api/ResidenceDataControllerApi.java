@@ -2124,15 +2124,15 @@ public class ResidenceDataControllerApi {
         return null;
     }
 
-    public EscalationDto getEscalationDetails(String inventoryUuid, String residenceUuid, String moveInDate){
-        log.info("getEscalationDetails::inventoryUuid {}, residenceUuid {}, moveInDate {}",inventoryUuid, residenceUuid, moveInDate);
+    public ResponseDto<Map<Double, List<Double>>> getEscalationTracker( String uuid, String roomUuid,  String moveIn) {
 
         Map<String, Object> uriVariables = new HashMap<>();
-        uriVariables.put("inventoryUuid", inventoryUuid);
-        uriVariables.put("residenceUuid", residenceUuid);
-        uriVariables.put("moveInDate", moveInDate);
 
-        String path = UriComponentsBuilder.fromPath("/internal/escalation-map-start-to-moveIn/{inventoryUuid}/{residenceUuid}/{moveInDate}").buildAndExpand(uriVariables).toUriString();
+        uriVariables.put("uuid", uuid);
+        uriVariables.put("roomUuid", roomUuid);
+        uriVariables.put("moveIn", moveIn);
+
+        String path = UriComponentsBuilder.fromPath("/internal/residence-escalation/escalation-tracker/residence/{uuid}/room-uuid/{roomUuid}/move-in/{moveIn}").buildAndExpand(uriVariables).toUriString();
 
         MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
@@ -2142,12 +2142,15 @@ public class ResidenceDataControllerApi {
 
         List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<EscalationDto> returnType = new ParameterizedTypeReference<EscalationDto>() {};
+        ParameterizedTypeReference<ResponseDto<Map<Double, List<Double>>>> returnType =
+                new ParameterizedTypeReference<ResponseDto<Map<Double, List<Double>>>>() {
+                };
 
         try {
             return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+
         } catch (Exception ex) {
-            log.error("Exception while Escalation Alert", ex);
+            log.error("Exception while fetching Details", ex);
         }
         return null;
     }
