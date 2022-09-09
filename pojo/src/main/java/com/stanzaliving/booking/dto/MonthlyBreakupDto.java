@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 @Data
 @Builder
@@ -29,6 +30,8 @@ public class MonthlyBreakupDto implements Serializable {
 
     private Double upsell;
 
+    private Double bumpUpPrice;
+
     private Double priceBump;
 
     private ServicePriceDto packagedServicePriceDto;
@@ -40,6 +43,8 @@ public class MonthlyBreakupDto implements Serializable {
     private ServicePriceDto accommodationPriceDto;
 
     private ServicePriceDto upsellPriceDto;
+
+    private ServicePriceDto bumpUpPriceDto;
 
     private ServicePriceDto cityBufferPriceDto;
 
@@ -67,6 +72,10 @@ public class MonthlyBreakupDto implements Serializable {
         return this.upsell;
     }
 
+    public Double getBumpUpPrice() {
+        return Optional.ofNullable(this.bumpUpPrice).orElse(0D);
+    }
+
     public ServicePriceDto getPackagedServicePriceDto() {
         if (Objects.isNull(this.packagedServicePriceDto))
             return new ServicePriceDto();
@@ -89,6 +98,12 @@ public class MonthlyBreakupDto implements Serializable {
         if (Objects.isNull(this.upsellPriceDto))
             return new ServicePriceDto();
         return this.upsellPriceDto;
+    }
+
+    public ServicePriceDto getBumpUpPriceDto() {
+        if (Objects.isNull(this.bumpUpPriceDto))
+            return new ServicePriceDto();
+        return this.bumpUpPriceDto;
     }
 
     public ServicePriceDto getCityBufferPriceDto() {
