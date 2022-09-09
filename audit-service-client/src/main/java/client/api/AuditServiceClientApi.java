@@ -153,13 +153,51 @@ public class AuditServiceClientApi {
         } catch (Exception e) {
 
             log.error("Error while searching from venta aggregation service.", e);
+            return null;
 
-            throw new ApiValidationException("Some error occurred. Please try again after some time.");
 
         }
     }
 
+    public ResponseDto<String> cancelAudit(String bookingUuid) {
 
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("bookingUuid", bookingUuid);
+        String path = UriComponentsBuilder.fromPath("/internal/api/v1/audit/cancel/{bookingUuid}").buildAndExpand(uriVariables).toUriString();
 
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+
+        final java.util.List<MediaType> accept = stanzaRestClient.selectHeaderAccept(accepts);
+
+        TypeReference<ResponseDto<String>> returnType =
+                new TypeReference<ResponseDto<String>>() {};
+        ResponseDto<String> responseDto;
+        try {
+            responseDto =
+                    stanzaRestClient.invokeAPI(
+                            path,
+                            HttpMethod.POST,
+                            queryParams,
+                            null,
+                            headerParams,
+                            accept,
+                            returnType,
+                            MediaType.APPLICATION_JSON);
+
+        } catch (Exception e) {
+
+            log.error("Error while calling audit service ", e);
+
+            throw new ApiValidationException("Some error occurred. Please try again after some time.");
+        }
+        if (!responseDto.isStatus()) {
+
+            throw new PreconditionFailedException(responseDto.getMessage());
+        }
+        return responseDto;
+    }
 }
