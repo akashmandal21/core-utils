@@ -144,6 +144,10 @@ public class MonthlyBreakupDto implements Serializable {
         this.upsellPriceDto = upsellPriceDto;
     }
 
+    public void setBumpUpPriceDto(final ServicePriceDto bumpUpPriceDto) {
+        this.bumpUpPriceDto = bumpUpPriceDto;
+    }
+
     public void setCityBufferPriceDto(final ServicePriceDto cityBufferPriceDto) {
         this.cityBufferPriceDto = cityBufferPriceDto;
     }
