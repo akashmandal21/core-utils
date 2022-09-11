@@ -108,9 +108,7 @@ public class MonthlyBreakupDto implements Serializable {
     }
 
     public ServicePriceDto getBumpUpPriceDto() {
-        if (Objects.isNull(this.bumpUpPriceDto))
-            return new ServicePriceDto();
-        return this.bumpUpPriceDto;
+        return Optional.ofNullable(this.bumpUpPriceDto).orElse(new ServicePriceDto());
     }
 
     public ServicePriceDto getCityBufferPriceDto() {
@@ -133,6 +131,10 @@ public class MonthlyBreakupDto implements Serializable {
 
     public void setUpsell(final Double upsell) {
         this.upsell = upsell;
+    }
+
+    public void setBumpUpPrice(final Double bumpUpPrice) {
+        this.bumpUpPrice = bumpUpPrice;
     }
 
     public void setPackagedServicePriceDto(final ServicePriceDto packagedServicePriceDto) {
