@@ -49,6 +49,9 @@ public class MonthlyBreakupDto implements Serializable {
 //    @Valid
     private ServicePriceDto upsellPriceDto;
 
+    //    @Valid
+    private ServicePriceDto bumpUpPriceDto;
+
 //    @Valid
     private ServicePriceDto cityBufferPriceDto;
 
@@ -104,6 +107,12 @@ public class MonthlyBreakupDto implements Serializable {
         return this.upsellPriceDto;
     }
 
+    public ServicePriceDto getBumpUpPriceDto() {
+        if (Objects.isNull(this.bumpUpPriceDto))
+            return new ServicePriceDto();
+        return this.bumpUpPriceDto;
+    }
+
     public ServicePriceDto getCityBufferPriceDto() {
         if (Objects.isNull(this.cityBufferPriceDto))
             return new ServicePriceDto();
@@ -140,6 +149,10 @@ public class MonthlyBreakupDto implements Serializable {
 
     public void setUpsellPriceDto(final ServicePriceDto upsellPriceDto) {
         this.upsellPriceDto = upsellPriceDto;
+    }
+
+    public void setBumpUpPriceDto(final ServicePriceDto bumpUpPriceDto) {
+        this.bumpUpPriceDto = bumpUpPriceDto;
     }
 
     public void setCityBufferPriceDto(final ServicePriceDto cityBufferPriceDto) {
