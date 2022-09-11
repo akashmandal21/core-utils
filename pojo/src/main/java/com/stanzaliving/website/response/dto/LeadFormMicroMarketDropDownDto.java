@@ -16,11 +16,8 @@ public class LeadFormMicroMarketDropDownDto implements Serializable {
     private int micromarketId;
     private String name;
     private int cityId;
-    private String cityName;
     private String slug;
-    private String citySlug;
     private boolean enabled;
-    private boolean comingSoonApartment;
     private Integer micromarketAliasId;
     private String displayName;
 }
