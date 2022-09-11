@@ -22,7 +22,10 @@ public enum EventType {
     CANCEL_INVITE_GUEST_SMS("Cancel Invite Guest Sms"),
     CANCEL_INVITE_GUEST_EMAIL("Cancel Invite Guest Email"),
     PRICE_ESCALATION_ALERT("Price Escalation Alert"),
-    CONTRACT_TERMINATION("Contract Termination");
+    CONTRACT_TERMINATION("Contract Termination"),
+    CAPTURE_BANK_DETAILS("capture bank details"),
+    INELIGIBLE_REFUNDS_DUE_GREATER_THAN_SD("ineligible refunds due greater than SD");
+
     private String commandText;
 
     EventType(String commandText)

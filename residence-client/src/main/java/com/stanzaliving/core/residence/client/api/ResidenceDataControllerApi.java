@@ -2123,6 +2123,7 @@ public class ResidenceDataControllerApi {
         }
         return null;
     }
+
     public ResponseDto<Map<Double, List<Double>>> getEscalationTracker( String uuid, String roomUuid,  String moveIn) {
 
         Map<String, Object> uriVariables = new HashMap<>();
