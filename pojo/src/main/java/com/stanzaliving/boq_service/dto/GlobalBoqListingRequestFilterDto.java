@@ -51,6 +51,10 @@ public class GlobalBoqListingRequestFilterDto {
 
     private DateRangeDto approvedDateRange;
 
+    private String itemNameOrCodeLike;
+
+    private List<String> itemUuids;
+
     private String propertyNameLike;
 
     private String uuid;
