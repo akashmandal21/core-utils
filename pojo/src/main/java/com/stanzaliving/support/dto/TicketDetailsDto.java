@@ -56,4 +56,6 @@ public class TicketDetailsDto {
     private boolean isAllChecklistClosed;
 
     private TicketSource ticketSource;
+
+    private String linkedTo;
 }
