@@ -58,7 +58,9 @@ public enum PaymentPlanType {
 	ACCOMMODATION_CHARGES("Accommodation Charges"),
 	CITY_HEAD_BUFFER("City Head Buffer"),
 	UPSELL("Upsell"),
-	GST_WAIVE_OFF("Gst Waive Off");
+	GST_WAIVE_OFF("Gst Waive Off"),
+	NO_SHOW_PENALTY("No Show Penalty");
+
 
 	private String name;
 	

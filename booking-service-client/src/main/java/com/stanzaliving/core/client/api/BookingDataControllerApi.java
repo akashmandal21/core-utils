@@ -8,6 +8,7 @@ import java.util.Map;
 import java.util.Objects;
 
 import com.stanzaliving.booking.dto.*;
+import com.stanzaliving.booking.dto.response.BookingWaiveOffDetailsResponseDto;
 import com.stanzaliving.core.bookingservice.dto.request.ResidentRequestDto;
 import com.stanzaliving.core.client.dto.*;
 import com.stanzaliving.wanda.venta.response.BookingStatusResponseDto;
@@ -910,6 +911,50 @@ public class BookingDataControllerApi {
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
         ParameterizedTypeReference<ResponseDto<Float>> returnType = new ParameterizedTypeReference<ResponseDto<Float>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+    }
+
+    public ResponseDto<BookingWaiveOffDetailsResponseDto> getBookingWaiveOffAmount(String bookingUuid) {
+
+        Object postBody = null;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("bookingUuid", bookingUuid);
+
+        String path = UriComponentsBuilder.fromPath("/internal/v1/booking/waive-off-amount/{bookingUuid}").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<BookingWaiveOffDetailsResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<BookingWaiveOffDetailsResponseDto>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+    }
+
+    public ResponseDto<BookingAmountRealisationResponseDto> getBookingAmountRealisationDetails(String bookingUuid) {
+
+        Object postBody = null;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("bookingUuid", bookingUuid);
+
+        String path = UriComponentsBuilder.fromPath("/internal/v1/booking/booking-amount-realisation/{bookingUuid}").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<BookingAmountRealisationResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<BookingAmountRealisationResponseDto>>() {
         };
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
     }
