@@ -60,7 +60,5 @@ public class BookingEvent implements Serializable {
     private Date createdAt;
     private Integer tokenAmount;
     private Date moveInDate;
-    private Date exitCreatedAt;
-    private Date selectedMoveOutDate;
 
 }
