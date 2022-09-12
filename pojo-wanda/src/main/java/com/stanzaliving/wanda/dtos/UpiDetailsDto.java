@@ -39,7 +39,7 @@ public class UpiDetailsDto {
 
 	private String vpaId;
 
-	private boolean isActive = false;
+	private Boolean isActive = false;
 
 
 }
