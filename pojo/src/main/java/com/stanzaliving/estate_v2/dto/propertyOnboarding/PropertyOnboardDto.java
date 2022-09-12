@@ -42,6 +42,5 @@ public class PropertyOnboardDto extends AbstractMongoDto {
     private String color;
     private List<PropertyTypeValueDto> propertyTypeValue;
     private String parentName;
-    private Boolean uiFlow;
 
 }
