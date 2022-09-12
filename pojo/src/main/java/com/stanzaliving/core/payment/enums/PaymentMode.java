@@ -35,7 +35,10 @@ public enum PaymentMode {
 	BULK_PAYMENT("Bulk Payment", 20),
 	I_SUREPAY("I SurePay", 21),
 	EMI_RAZORPAY("Emi Razorpay", 22),
-	RAZORPAY_PAYMENT_LINK("RAZORPAY_PAYMENT_LINK", 23);
+	RAZORPAY_PAYMENT_LINK("RAZORPAY_PAYMENT_LINK", 23),
+	BOOKING_AMOUNT_CARRY_FORWARD("Booking Amount Carry Forward", 24);
+
+
 
 	private String paymentModeDesc;
 	private int paymentModeId;
