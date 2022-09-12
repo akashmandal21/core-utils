@@ -25,6 +25,4 @@ public class GlobalBoqListingTempDto {
     private BigDecimal capex;
 
     private BoqStatus boqStatus;
-
-    private String itemUuid;
 }
