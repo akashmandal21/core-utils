@@ -4,6 +4,8 @@
  */
 package com.stanzaliving.core.opscalculator.constants;
 
+import java.math.BigDecimal;
+
 /**
  * @author nipunaggarwal
  *
@@ -78,10 +80,18 @@ public class Constants {
 	public static final double HUNDRED_VALUE_IN_DOUBLE = 100.0;
 	public static final double THIRTY_VALUE_IN_DOUBLE = 30.0;
 	public static final int TWO_VALUE_IN_INTEGER = 2;
+	public static final int ONE_VALUE_IN_INTEGER = 1;
 	public static final int FIVE_VALUE_IN_INTEGER = 5;
 	public static final double DAYS_IN_YEAR_IN_DOUBLE = 365.0;
 	public static final double DAYS_IN_MONTH_IN_DOUBLE = 30.0;
+	public static final int DAYS_IN_MONTH_IN_INT = 30;
+	public static final int MONTH_IN_YEAR_IN_INT = 12;
 	public static final double MONTH_IN_YEAR_IN_DOUBLE = 12.0;
 	public static final double FORECAST_DEFAULT_ALLOWED_DEVIATION_PERCENT = 5d;
+	
+	public static final BigDecimal HUNDRED_VALUE_IN_BIGDECIMAL = new BigDecimal(100);
+	public static final BigDecimal MONTHS_BIGDECIMAL =  new BigDecimal(12);
+	public static final BigDecimal DAYS_IN_MONTH_IN_BIGDECIMAL = new BigDecimal(30);
+	public static final BigDecimal DAYS_IN_YEAR_IN_BIGDECIMAL = new BigDecimal(365);
 
 }

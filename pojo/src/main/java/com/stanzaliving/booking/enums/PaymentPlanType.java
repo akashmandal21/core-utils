@@ -22,6 +22,7 @@ public enum PaymentPlanType {
 	INSTALLMENT("Instalment"),
 	DISCOUNT("Discount Adjusted"),
 	DAMAGE("Damage"),
+	CANCELLATION_CHARGE("Cancellation Charge"),
 
 	PENALTY_WAIVE_OFF("Penalty Waive Off"),
 	CREDIT_NOTE_FOR_DISCOUNT("Credit Note For Discount"),
@@ -59,7 +60,8 @@ public enum PaymentPlanType {
 	CITY_HEAD_BUFFER("City Head Buffer"),
 	UPSELL("Upsell"),
 	BUMP_UP_PRICE("Bump Up Price"),
-	GST_WAIVE_OFF("Gst Waive Off");
+	GST_WAIVE_OFF("Gst Waive Off"),
+	TRESPASSER_ACCOMMODATION_CHARGES("Accommodation charges for trespassing");
 
 	private String name;
 	

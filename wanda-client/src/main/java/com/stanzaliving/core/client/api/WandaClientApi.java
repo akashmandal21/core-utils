@@ -9,6 +9,8 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
+import com.stanzaliving.core.base.exception.BaseMarker;
+import com.stanzaliving.wanda.venta.response.BookingStatusResponseDto;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -73,7 +75,7 @@ public class WandaClientApi {
 
 			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 		} catch (Exception e) {
-			log.error("Error while fetching user details for userUuid: {}", userUuid, e);
+			log.error(BaseMarker.WANDA_API_ERROR,"Error while fetching user details for userUuid: " + userUuid, e);
 		}
 
 		return null;
@@ -104,7 +106,7 @@ public class WandaClientApi {
 
 			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 		} catch (Exception e) {
-			log.error("Error while fetching user details for user code: {}", userCode, e);
+			log.error(BaseMarker.WANDA_API_ERROR,"Error while fetching user details for user code: " + userCode, e);
 		}
 
 		return null;
@@ -139,7 +141,7 @@ public class WandaClientApi {
 					returnType);
 
 		} catch (Exception e) {
-			log.error("Exception while getting user code map from wanda: ", e);
+			log.error(BaseMarker.WANDA_API_ERROR,"Exception while getting user code map from wanda: ", e);
 		}
 
 		return response;
@@ -171,11 +173,43 @@ public class WandaClientApi {
 
 			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 		} catch (Exception e) {
-			log.error("Error while fetching feature phone users for hostel: {}", hostel, e);
+			log.error(BaseMarker.WANDA_API_ERROR,"Error while fetching feature phone users for hostel: " + hostel, e);
 		}
 
 		return null;
 	}
+
+	public List<FeaturephoneUserDto> getFeaturePhoneUsersV2(String residenceId) {
+
+      try {
+          Object postBody = null;
+
+          log.info("Received request to get Feature phone user dto of residenceId: {}", residenceId);
+
+          final Map<String, Object> uriVariables = new HashMap<>();
+
+          String path = UriComponentsBuilder.fromPath("/coreApi/user/list/feature/phone/v2").buildAndExpand(uriVariables)
+                  .toUriString();
+
+          final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+          queryParams.add("hostel", residenceId);
+          queryParams.add("featurePhone", Boolean.TRUE.toString());
+
+          final HttpHeaders headerParams = new HttpHeaders();
+
+          final String[] accepts = { "*/*" };
+          final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+          ParameterizedTypeReference<List<FeaturephoneUserDto>> returnType = new ParameterizedTypeReference<List<FeaturephoneUserDto>>() {
+          };
+
+          return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+      } catch (Exception e) {
+          log.error(BaseMarker.WANDA_API_ERROR,"Error while fetching feature phone users for hostel: " + residenceId, e);
+      }
+
+      return null;
+  }
 
 	public List<UserHostelDetailsDto> getUserHostelDetails(String hostelId) {
 		return getUserHostelDetails(hostelId, false);
@@ -207,7 +241,7 @@ public class WandaClientApi {
 
 			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 		} catch (Exception e) {
-			log.error("Error while fetching users for hostel: {}", hostelId, e);
+			log.error(BaseMarker.WANDA_API_ERROR,"Error while fetching users for hostel: " + hostelId, e);
 		}
 
 		return null;
@@ -224,10 +258,10 @@ public class WandaClientApi {
 		String path = UriComponentsBuilder.fromPath("/coreApi/user/hostel/details/list").buildAndExpand(uriVariables).toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-		
+
 		ParameterizedTypeReference<List<UserHostelDetailsDto>> returnType = new ParameterizedTypeReference<List<UserHostelDetailsDto>>() {
 		};
-		
+
 		final HttpHeaders headerParams = new HttpHeaders();
 
 		final String[] accepts = { "*/*" };
@@ -238,14 +272,14 @@ public class WandaClientApi {
 		try {
 			responseDto = restClient.invokeAPI(path, HttpMethod.POST, queryParams, hostelIds, headerParams, accept, returnType);
 		} catch (Exception e) {
-			log.error("Error while getting userhostel details ", e);
+			log.error(BaseMarker.WANDA_API_ERROR,"Error while getting userhostel details ", e);
 		}
 
 		return Objects.nonNull(responseDto) ? responseDto : new ArrayList<>();
 
 	}
 
-	
+
 	public List<UserHostelDto> getUserHostelList() {
 
 		Object postBody = null;
@@ -301,7 +335,7 @@ public class WandaClientApi {
 			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 
 		} catch (Exception e) {
-			log.error("Exception while update hostel for user: {} to {}", userId, hostelId, e);
+			log.error(BaseMarker.WANDA_API_ERROR,"Exception while update hostel for user: " + userId +" to " + hostelId, e);
 		}
 
 		return false;
@@ -330,7 +364,7 @@ public class WandaClientApi {
 			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept,
 					UserDetailDto.class);
 		} catch (Exception e) {
-			log.error("Error while getting user Details from Core by mobile: {}", mobile, e);
+			log.error(BaseMarker.WANDA_API_ERROR,"Error while getting user Details from Core by mobile: " + mobile, e);
 		}
 		return null;
 	}
@@ -414,7 +448,7 @@ public class WandaClientApi {
 
 			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 		} catch (Exception e) {
-			log.error("Error fetching user uuid for userCode: {}", userCode, e);
+			log.error(BaseMarker.WANDA_API_ERROR,"Error fetching user uuid for userCode: " + userCode, e);
 		}
 
 		return null;
@@ -479,7 +513,7 @@ public class WandaClientApi {
 
 			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 		} catch (Exception e) {
-			log.error("Error while fetching User ID's By City Micromarket Residence Uuids: {}", locationDetailsListDto, e);
+			log.error(BaseMarker.WANDA_API_ERROR,"Error while fetching User ID's By City Micromarket Residence Uuids: " + locationDetailsListDto, e);
 		}
 
 		return null;
@@ -509,7 +543,7 @@ public class WandaClientApi {
 
 			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 		} catch (Exception e) {
-			log.error("Error while fetching User City Micromarket Residence Uuids By UserCode: {}", usercode, e);
+			log.error(BaseMarker.WANDA_API_ERROR,"Error while fetching User City Micromarket Residence Uuids By UserCode: " + usercode, e);
 		}
 
 		return null;
@@ -567,7 +601,7 @@ public class WandaClientApi {
 
 			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 		} catch (Exception e) {
-			log.error("Error while fetching get ProfessionalDetails By userUuid: {}", userUuid, e);
+			log.error(BaseMarker.WANDA_API_ERROR,"Error while fetching get ProfessionalDetails By userUuid: " + userUuid, e);
 		}
 
 		return null;
@@ -603,7 +637,7 @@ public class WandaClientApi {
 			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 
 		} catch (Exception e) {
-			log.error("Exception while update hostel for user: {} to {}", userId, hostelId, e);
+			log.error(BaseMarker.WANDA_API_ERROR,"Exception while update hostel for user: " + userId + " to " + hostelId, e);
 		}
 
 		return false;
@@ -636,7 +670,7 @@ public class WandaClientApi {
 		try {
 			occupiedRoomDtoList = restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 		} catch (Exception e) {
-			log.error("Error while getting room count for residence: {}", residenceUuid);
+			log.error(BaseMarker.WANDA_API_ERROR,"Error while getting room count for residence: " + residenceUuid);
 		}
 		return occupiedRoomDtoList;
 	}
@@ -694,7 +728,7 @@ public class WandaClientApi {
 		try {
 			response = restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType).getData();
 		} catch (Exception e) {
-			log.error("Exception while getting user code map from wanda: ", e);
+			log.error(BaseMarker.WANDA_API_ERROR,"Exception while getting user code map from wanda: ", e);
 		}
 
 		return response;
@@ -727,7 +761,7 @@ public class WandaClientApi {
 
 			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 		} catch (Exception e) {
-			log.error("error while fetching the user details " + e);
+			log.error(BaseMarker.WANDA_API_ERROR,"error while fetching the user details " + e);
 			return null;
 		}
 	}
@@ -759,8 +793,8 @@ public class WandaClientApi {
 
 			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 		} catch (Exception e) {
-			log.error("error while fetching the user details " + e);
-			}
+			log.error(BaseMarker.WANDA_API_ERROR, "error while fetching the user details ", e);
+		}
 
 		return null;
 
@@ -793,7 +827,7 @@ public class WandaClientApi {
 
 		} catch (Exception e) {
 
-			log.error(e);
+			log.error(BaseMarker.WANDA_API_ERROR, "Error while fetching usercode by email ", e);
 		}
 
 		return null;
@@ -818,7 +852,7 @@ public class WandaClientApi {
 			log.info("Executing Api for getting bank account details with Url {}", path);
 			return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
 		} catch (Exception e) {
-			log.error("Exception while fetching bank account details based on userId {}, Exception is {}", userId, e);
+			log.error(BaseMarker.WANDA_API_ERROR,"Exception while fetching bank account details based on userId " + userId, e);
 		}
 		return null;
 	}
@@ -852,7 +886,7 @@ public class WandaClientApi {
 			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 
 		} catch (Exception e) {
-			log.error("Exception while update hostel for user: {} to {}", userCode, hostelId, e);
+			log.error(BaseMarker.WANDA_API_ERROR, "Exception while update hostel for user: " + userCode + " to " + hostelId, e);
 		}
 
 		return false;
@@ -888,11 +922,42 @@ public class WandaClientApi {
 			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 
 		} catch (Exception e) {
-			log.error("Exception while update hostel for user: {} to {}", userCode, hostelId, e);
+			log.error(BaseMarker.WANDA_API_ERROR, "Exception while update hostel for user: " + userCode + " to " + hostelId, e);
 		}
 
 		return false;
 
+	}
+
+	public ResponseDto<BookingStatusResponseDto> getBookingStatusByUserUuid(String userUuid) {
+		try {
+			Object postBody = null;
+
+			log.info("Received request to get BookingStatusResponseDto of userUuid {}", userUuid);
+
+			final Map<String, Object> uriVariables = new HashMap<>();
+
+			uriVariables.put("userUuid", userUuid);
+
+			String path = UriComponentsBuilder.fromPath("/internal/booking-status/id/{userUuid}")
+					.buildAndExpand(uriVariables).toUriString();
+
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+			final HttpHeaders headerParams = new HttpHeaders();
+
+			final String[] accepts = { "*/*" };
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+			ParameterizedTypeReference<ResponseDto<BookingStatusResponseDto>> returnType =
+					new ParameterizedTypeReference<ResponseDto<BookingStatusResponseDto>>() {
+			};
+ 			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Error while fetching booking status for userUuid: {}", userUuid, e);
+		}
+
+		return null;
 	}
 
 }

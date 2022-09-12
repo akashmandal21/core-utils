@@ -1,6 +1,7 @@
 package com.stanzaliving.core.user.acl.enums;
 
 import com.stanzaliving.core.base.enums.AccessLevel;
+import com.stanzaliving.core.base.enums.AccessModule;
 import com.stanzaliving.core.base.enums.Department;
 
 import lombok.AllArgsConstructor;
@@ -18,18 +19,18 @@ public enum Role {
     SALES_CLUSTER_MANAGER("SALES_CLUSTER_MANAGER", AccessLevel.MICROMARKET, Department.SALES),
 
     /* lead-service */
-    RESIDENCE_LEAD_MANAGER("RESIDENCE_LEAD_MANAGER", AccessLevel.RESIDENCE, Department.SALES),
-    MICROMARKET_LEAD_MANAGER("MICROMARKET_LEAD_MANAGER", AccessLevel.MICROMARKET, Department.SALES),
-    CITY_LEAD_MANAGER("CITY_LEAD_MANAGER", AccessLevel.CITY, Department.SALES),
+    RESIDENCE_LEAD_MANAGER("RESIDENCE_LEAD_MANAGER", AccessLevel.RESIDENCE, Department.SALES, AccessModule.PG_LEAD_EDIT),
+    MICROMARKET_LEAD_MANAGER("MICROMARKET_LEAD_MANAGER", AccessLevel.MICROMARKET, Department.SALES, AccessModule.PG_LEAD_EDIT),
+    CITY_LEAD_MANAGER("CITY_LEAD_MANAGER", AccessLevel.CITY, Department.SALES, AccessModule.PG_LEAD_EDIT),
     ZONAL_LEAD_MANAGER("ZONAL_LEAD_MANAGER", AccessLevel.CITY, Department.SALES),
-    COUNTRY_LEAD_MANAGER("COUNTRY_LEAD_MANAGER", AccessLevel.COUNTRY, Department.SALES),
+    COUNTRY_LEAD_MANAGER("COUNTRY_LEAD_MANAGER", AccessLevel.COUNTRY, Department.SALES, AccessModule.PG_LEAD_EDIT),
     
     /* lead-service apartment role*/
-    RESIDENCE_APARTMENT_LEAD_MANAGER("RESIDENCE_APARTMENT_LEAD_MANAGER", AccessLevel.RESIDENCE, Department.SALES),
-	MICROMARKET_APARTMENT_LEAD_MANAGER("MICROMARKET_APARTMENT_LEAD_MANAGER", AccessLevel.MICROMARKET, Department.SALES),
-	CITY_APARTMENT_LEAD_MANAGER("CITY_APARTMENT_LEAD_MANAGER", AccessLevel.CITY, Department.SALES),
+    RESIDENCE_APARTMENT_LEAD_MANAGER("RESIDENCE_APARTMENT_LEAD_MANAGER", AccessLevel.RESIDENCE, Department.SALES, AccessModule.APARTMENTS_LEAD_EDIT),
+	MICROMARKET_APARTMENT_LEAD_MANAGER("MICROMARKET_APARTMENT_LEAD_MANAGER", AccessLevel.MICROMARKET, Department.SALES, AccessModule.APARTMENTS_LEAD_EDIT),
+	CITY_APARTMENT_LEAD_MANAGER("CITY_APARTMENT_LEAD_MANAGER", AccessLevel.CITY, Department.SALES, AccessModule.APARTMENTS_LEAD_EDIT),
 	ZONAL_APARTMENT_LEAD_MANAGER("ZONAL_APARTMENT_LEAD_MANAGER", AccessLevel.CITY, Department.SALES),
-	COUNTRY_APARTMENT_LEAD_MANAGER("COUNTRY_APARTMENT_LEAD_MANAGER", AccessLevel.COUNTRY, Department.SALES),
+	COUNTRY_APARTMENT_LEAD_MANAGER("COUNTRY_APARTMENT_LEAD_MANAGER", AccessLevel.COUNTRY, Department.SALES, AccessModule.APARTMENTS_LEAD_EDIT),
 
     /*******************************Support service - Template Management*******************************/
     SUPPORT_TEMPLATE_APPROVAL_L1("SUPPORT_TEMPLATE_APPROVAL_L1", AccessLevel.COUNTRY, Department.CX),
@@ -93,6 +94,16 @@ public enum Role {
 	CITY_ELECTRICITY_SPLITTER_L2_APPROVER("CITY_ELECTRICITY_SPLITTER_L2_APPROVER", AccessLevel.CITY, Department.OPS),
 	COUNTRY_ELECTRICITY_SPLITTER_L3_APPROVER("COUNTRY_ELECTRICITY_SPLITTER_L3_APPROVER", AccessLevel.COUNTRY, Department.OPS),
 
+    /************************************ DISH DEBAR ************************************/
+    DISH_DEBAR_CITY_L1_APPROVER("City - Debar Approval L1", AccessLevel.CITY, Department.FOOD_OPS),
+    DISH_DEBAR_COUNTRY_L2_APPROVER("Country - Debar Approval L2", AccessLevel.COUNTRY, Department.FOOD_OPS),
+    DISH_DEBAR_COUNTRY_L3_APPROVER("Country - Debar Approval L3", AccessLevel.COUNTRY, Department.FOOD_OPS),
+
+    /************************************ DISH REACTIVATION ************************************/
+    DISH_REACTIVATION_CITY_L1_APPROVER("City - Reactivate Dish Approval L1", AccessLevel.CITY, Department.FOOD_OPS),
+    DISH_REACTIVATION_COUNTRY_L2_APPROVER("Country - Reactivate Dish Approval L2", AccessLevel.COUNTRY, Department.FOOD_OPS),
+    DISH_REACTIVATION_COUNTRY_L3_APPROVER("Country - Reactivate Dish Approval L3", AccessLevel.COUNTRY, Department.FOOD_OPS),
+
 
     /********************************* GENERIC-APPROVAL-DASHBOARD *************************************/
 
@@ -115,5 +126,11 @@ public enum Role {
     private String roleName;
     private AccessLevel accessLevel;
     private Department department;
+    private AccessModule accessModule;
 
+    Role(String roleName, AccessLevel accessLevel, Department department) {
+        this.roleName = roleName;
+        this.accessLevel = accessLevel;
+        this.department = department;
+    }
 }

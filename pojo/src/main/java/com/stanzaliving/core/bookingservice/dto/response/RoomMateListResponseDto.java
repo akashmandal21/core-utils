@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -16,4 +18,7 @@ public class RoomMateListResponseDto {
 	private String lastName;
 	private String profilePic;
 	private String userUuid;
+	private Date contractStartDate;
+	private Date contractEndDate;
+	private String contractDuration;
 }
