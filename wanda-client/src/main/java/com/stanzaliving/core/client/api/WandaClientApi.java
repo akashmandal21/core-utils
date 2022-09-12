@@ -909,7 +909,7 @@ public class WandaClientApi {
 		return null;
 	}
 
-	public ResponseDto<UpiDetailsDto> saveUpiDetails(UpiDetailsDto upiDetailsDto) {
+	public ResponseDto<Boolean> saveUpiDetails(UpiDetailsDto upiDetailsDto) {
 		Object postBody = upiDetailsDto;
 
 		final Map<String, Object> uriVariables = new HashMap<>();
@@ -922,7 +922,7 @@ public class WandaClientApi {
 		String[] accepts = new String[]{"*/*"};
 		List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
 
-		ParameterizedTypeReference<ResponseDto<UpiDetailsDto>> returnType = new ParameterizedTypeReference<ResponseDto<UpiDetailsDto>>() {
+		ParameterizedTypeReference<ResponseDto<Boolean>> returnType = new ParameterizedTypeReference<ResponseDto<Boolean>>() {
 		};
 		try {
 			log.info("Executing Api for saving upi account details with Url {} on upiDetailsDto {} ", path,upiDetailsDto);
