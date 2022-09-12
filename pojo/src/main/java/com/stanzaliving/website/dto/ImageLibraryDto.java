@@ -12,7 +12,7 @@ public class ImageLibraryDto extends AbstractDto {
 
     private String imageUrl;
 
-    private boolean sampleImage;
+    private boolean genericImage;
 
     private boolean dummyImage;
 
