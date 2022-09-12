@@ -925,10 +925,10 @@ public class WandaClientApi {
 		ParameterizedTypeReference<ResponseDto<UpiDetailsDto>> returnType = new ParameterizedTypeReference<ResponseDto<UpiDetailsDto>>() {
 		};
 		try {
-			log.info("Executing Api for getting upi account details with Url {}", path);
-			return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+			log.info("Executing Api for saving upi account details with Url {} on upiDetailsDto {} ", path,upiDetailsDto);
+			return this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 		} catch (Exception e) {
-			log.error("Exception while fetching upi account details based on userId {}, Exception is {}", userId, e);
+			log.error("Exception while saving upi account details based on upiDetailsDto {}, Exception is {}", upiDetailsDto, e);
 		}
 		return null;
 	}
