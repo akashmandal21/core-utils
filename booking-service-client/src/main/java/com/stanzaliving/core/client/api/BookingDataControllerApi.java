@@ -78,7 +78,7 @@ public class BookingDataControllerApi {
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
     }
 
-    public ResponseDto<List<RefundResponseDto>> findRefundDetailsForUser(String bookingUuid) {
+    public ResponseDto<List<RefundResponseDto>> findRefundDetailsForUser(String userUuid) {
 
         Object postBody = null;
 
@@ -89,7 +89,7 @@ public class BookingDataControllerApi {
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-        queryParams.add("userUuid", bookingUuid);
+        queryParams.add("userUuid", userUuid);
 
         final HttpHeaders headerParams = new HttpHeaders();
 
