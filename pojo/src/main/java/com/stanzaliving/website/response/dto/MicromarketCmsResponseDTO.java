@@ -35,7 +35,7 @@ public class MicromarketCmsResponseDTO {
 	private String seoTitle;
 	private String seoDescription;
 	private String phone;
-	private String campaign_slug;
+	private String campaignSlug;
 	private String description;
 	EnumListing<Status> status;
 	private Long reviewCount;
