@@ -61,7 +61,8 @@ public enum PaymentPlanType {
 	UPSELL("Upsell"),
 	BUMP_UP_PRICE("Bump Up Price"),
 	GST_WAIVE_OFF("Gst Waive Off"),
-	TRESPASSER_ACCOMMODATION_CHARGES("Accommodation charges for trespassing");
+	TRESPASSER_ACCOMMODATION_CHARGES("Accommodation charges for trespassing"),
+	NO_SHOW_PENALTY("No Show Penalty");
 
 	private String name;
 	
