@@ -10,6 +10,7 @@ import javax.validation.Valid;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 @Data
 @Builder
@@ -30,6 +31,8 @@ public class MonthlyBreakupDto implements Serializable {
 
     private Double upsell;
 
+    private Double bumpUpPrice;
+
     private Double pricingStrategyAmount;
 
     private Double priceBump;
@@ -45,6 +48,9 @@ public class MonthlyBreakupDto implements Serializable {
 
 //    @Valid
     private ServicePriceDto upsellPriceDto;
+
+    //    @Valid
+    private ServicePriceDto bumpUpPriceDto;
 
 //    @Valid
     private ServicePriceDto cityBufferPriceDto;
@@ -73,6 +79,10 @@ public class MonthlyBreakupDto implements Serializable {
         return this.upsell;
     }
 
+    public Double getBumpUpPrice() {
+        return Optional.ofNullable(this.bumpUpPrice).orElse(0D);
+    }
+
     public ServicePriceDto getPackagedServicePriceDto() {
         if (Objects.isNull(this.packagedServicePriceDto))
             return new ServicePriceDto();
@@ -97,6 +107,10 @@ public class MonthlyBreakupDto implements Serializable {
         return this.upsellPriceDto;
     }
 
+    public ServicePriceDto getBumpUpPriceDto() {
+        return Optional.ofNullable(this.bumpUpPriceDto).orElse(new ServicePriceDto());
+    }
+
     public ServicePriceDto getCityBufferPriceDto() {
         if (Objects.isNull(this.cityBufferPriceDto))
             return new ServicePriceDto();
@@ -119,6 +133,10 @@ public class MonthlyBreakupDto implements Serializable {
         this.upsell = upsell;
     }
 
+    public void setBumpUpPrice(final Double bumpUpPrice) {
+        this.bumpUpPrice = bumpUpPrice;
+    }
+
     public void setPackagedServicePriceDto(final ServicePriceDto packagedServicePriceDto) {
         this.packagedServicePriceDto = packagedServicePriceDto;
     }
@@ -133,6 +151,10 @@ public class MonthlyBreakupDto implements Serializable {
 
     public void setUpsellPriceDto(final ServicePriceDto upsellPriceDto) {
         this.upsellPriceDto = upsellPriceDto;
+    }
+
+    public void setBumpUpPriceDto(final ServicePriceDto bumpUpPriceDto) {
+        this.bumpUpPriceDto = bumpUpPriceDto;
     }
 
     public void setCityBufferPriceDto(final ServicePriceDto cityBufferPriceDto) {
