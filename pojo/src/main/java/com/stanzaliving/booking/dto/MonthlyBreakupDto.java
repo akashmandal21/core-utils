@@ -93,6 +93,10 @@ public class MonthlyBreakupDto implements Serializable {
         return Optional.ofNullable(this.bumpUpPrice).orElse(0D);
     }
 
+    public void setBumpUpPrice(final Double bumpUpPrice) {
+        this.bumpUpPrice = bumpUpPrice;
+    }
+
     public ServicePriceDto getPackagedServicePriceDto() {
         if (Objects.isNull(this.packagedServicePriceDto))
             return new ServicePriceDto();
