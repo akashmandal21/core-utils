@@ -1,14 +1,12 @@
 package com.stanzaliving.analytics_service.request;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Builder
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class CleverTapEventIdentity {
     private String identity;
     private Long ts;

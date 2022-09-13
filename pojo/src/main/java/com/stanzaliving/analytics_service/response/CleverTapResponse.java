@@ -1,14 +1,12 @@
 package com.stanzaliving.analytics_service.response;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Builder
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class CleverTapResponse {
 
     private String status;
