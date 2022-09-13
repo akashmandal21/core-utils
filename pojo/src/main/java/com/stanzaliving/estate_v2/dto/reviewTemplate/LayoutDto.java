@@ -13,4 +13,6 @@ public class LayoutDto {
     private String commentType;
     private String approvalType;
     private Object layoutData;
+    private Integer displayOrder;
+
 }

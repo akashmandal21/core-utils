@@ -18,7 +18,9 @@ public enum BookingType {
     B2B("B2B" , 1), //B2B (3)
     B2C_NEW_CLOSURES("B2C-new closures" , 2),
     B2C_RETENTION("B2C-Retention" , 3),
-    MANAGED_APARTMENT("Managed Apartment",6);
+    MANAGED_APARTMENT("Managed Apartment",6),
+    SUITS("Suits", 7),
+    EMPTY("Empty", 8);
 
     private String type;
     int value;
@@ -57,6 +59,7 @@ public enum BookingType {
         Set<String> types = new HashSet<>();
         types.add(BookingType.SCHOLAR.name());
         types.add(BookingType.PROFESSIONAL.name());
+        types.add(BookingType.MANAGED_APARTMENT.name());
         return types;
     }
 
