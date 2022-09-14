@@ -16,8 +16,10 @@ import com.stanzaliving.core.bookingservice.dto.response.BookedPackageServiceDto
 import com.stanzaliving.core.bookingservice.dto.response.GstDto;
 import com.stanzaliving.core.bookingservice.dto.response.PackagedServiceResponseDto;
 import com.stanzaliving.core.client.dto.*;
+import com.stanzaliving.core.client.dto.InventoryResponseOccupancyDto;
 import com.stanzaliving.ledger.dto.UpcomingBookingsDto;
 import com.stanzaliving.wanda.venta.response.BookingStatusResponseDto;
+import com.stanzaliving.wanda.venta.response.PendingDuesDetailsResponseDtoV2;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -1038,4 +1040,28 @@ public class BookingDataControllerApi {
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
     }
 
+    public void validateBooking() {
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+        String path = UriComponentsBuilder.fromPath("/internal/utility/validate-bookings").buildAndExpand(uriVariables).toUriString();
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        final HttpHeaders headerParams = new HttpHeaders();
+        final String[] accepts = {"*/*"};
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<Void> returnType = new ParameterizedTypeReference<Void>() {
+        };
+        restClient.invokeAPI(path, HttpMethod.POST, queryParams, null, headerParams, accept, returnType);
+    }
+    public ResponseDto<PendingDuesDetailsResponseDtoV2> getPendingDuesForBooking(String bookingUuid){
+        final Map<String, Object> uriVariables = new HashMap<>();
+        String path = UriComponentsBuilder.fromPath("/internal/get/pendingDues").buildAndExpand(uriVariables).toUriString();
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        uriVariables.put("bookingUuid", bookingUuid);
+        final HttpHeaders headerParams = new HttpHeaders();
+        final String[] accepts = {"*/*"};
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<PendingDuesDetailsResponseDtoV2>> returnType = new ParameterizedTypeReference<ResponseDto<PendingDuesDetailsResponseDtoV2>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+    }
 }
