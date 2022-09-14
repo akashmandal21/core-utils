@@ -1075,7 +1075,7 @@ public class BookingDataControllerApi {
         restClient.invokeAPI(path, HttpMethod.POST, queryParams, null, headerParams, accept, returnType);
     }
     public ResponseDto<PendingDuesDetailsResponseDtoV2> getPendingDuesForBooking(String bookingUuid){
-        final Map<String, Object> uriVariables = new HashMap<>();
+        final Map<String, Object> uriVariables = new HashMap<String, Object>();
         String path = UriComponentsBuilder.fromPath("/internal/get/pendingDues/{bookingUuid}").buildAndExpand(uriVariables).toUriString();
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
         uriVariables.put("bookingUuid", bookingUuid);
