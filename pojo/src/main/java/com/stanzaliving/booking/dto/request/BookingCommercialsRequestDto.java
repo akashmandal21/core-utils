@@ -16,7 +16,7 @@ import java.io.Serializable;
 public class BookingCommercialsRequestDto implements Serializable {
 
 	@Builder.Default
-	private Double licenseFee = 0.0;
+	private Double licenseFee =0.0;
 
 	@Builder.Default
 	private Double conversionPrice = 0.0;
@@ -56,5 +56,8 @@ public class BookingCommercialsRequestDto implements Serializable {
 
 	@Valid
 	private ServicePriceDto cityBufferPriceDto;
+
+	private double withoutEscalationPrice;
+	private double escalatedPrice;
 
 }
