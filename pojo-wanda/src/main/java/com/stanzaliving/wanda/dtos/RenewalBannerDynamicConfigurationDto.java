@@ -11,7 +11,7 @@ import lombok.*;
 public class RenewalBannerDynamicConfigurationDto {
     private int thresholdDays;
     private int showBannerDays;
-    private int amount;
+    private String amount;
     private int discountPercent;
     private String couponCode;
     private int users;
