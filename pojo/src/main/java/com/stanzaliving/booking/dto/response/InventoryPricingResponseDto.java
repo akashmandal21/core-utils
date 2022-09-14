@@ -25,10 +25,12 @@ public class InventoryPricingResponseDto {
     private double vasServiceCSGT;
     private double vasServiceISGT;
     private double vasServiceSSGT;
-
-    private double licenseFee;
-    private double cityBuffer;
     private double bumpUpPrice;
-    private double conversionPrice;
+
+	private double licenseFee;
+	private double cityBuffer;
+	private double conversionPrice;
+	private double withoutEscalationPrice;
+	private double escalatedPrice;
 
 }
