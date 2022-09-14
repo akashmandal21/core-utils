@@ -97,6 +97,7 @@ public class VentaAggregationServiceApi {
         String path = UriComponentsBuilder.fromPath("/booking/listing").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+            queryParams.add("isListing", "true");
 
         final HttpHeaders headerParams = new HttpHeaders();
 
