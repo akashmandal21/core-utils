@@ -30,7 +30,9 @@ public enum BookingSubStatus {
     AUDIT_REJECTED("AUDIT REJECTED"),
     PENDING_CH_APPROVAL("PENDING CH APPROVAL"),
     AUDIT_APPROVAL_PENDING("AUDIT APPROVAL PENDING"),
-    PENDING_ZH_APPROVAL("PENDING ZH APPROVAL");
+    PENDING_ZH_APPROVAL("PENDING ZH APPROVAL"),
+    PAYMENT_PENDING("PAYMENT PENDING");
+
 
     private String bookingSubStatus;
 
@@ -92,6 +94,17 @@ public enum BookingSubStatus {
         bookingStatus.add(EXIT_INITIATED.getBookingSubStatus());
         bookingStatus.add(KEY_HANDOVER_PENDING.getBookingSubStatus());
         return bookingStatus;
+    }
+
+    public static Set<BookingSubStatus> cleverTapBookingSubStatus() {
+        Set<BookingSubStatus> bookingSubStatus = new HashSet<>();
+        bookingSubStatus.add(BookingSubStatus.EXIT_INITIATED);
+        bookingSubStatus.add(BookingSubStatus.PERSONAL_DETAILS_PENDING);
+        bookingSubStatus.add(BookingSubStatus.BOOKING_AMOUNT_PENDING);
+        bookingSubStatus.add(BookingSubStatus.PAYMENT_PENDING);
+
+
+        return bookingSubStatus;
     }
 
 
