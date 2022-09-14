@@ -52,4 +52,5 @@ public class CodeListDto {
 
     private PlatformType platformType;
     private BookingSubType bookingSubType;
+    private Date commercialCodeCreatedAt;
 }
