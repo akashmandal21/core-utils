@@ -1078,7 +1078,7 @@ public class BookingDataControllerApi {
         final Map<String, Object> uriVariables = new HashMap<>();
         String path = UriComponentsBuilder.fromPath("/internal/get/pendingDues").buildAndExpand(uriVariables).toUriString();
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-        queryParams.add("bookingUuid", bookingUuid);
+        uriVariables.put("bookingUuid", bookingUuid);
         final HttpHeaders headerParams = new HttpHeaders();
         final String[] accepts = {"*/*"};
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
