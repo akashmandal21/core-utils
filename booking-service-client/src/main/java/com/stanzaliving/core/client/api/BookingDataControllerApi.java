@@ -1076,7 +1076,7 @@ public class BookingDataControllerApi {
     }
     public ResponseDto<PendingDuesDetailsResponseDtoV2> getPendingDuesForBooking(String bookingUuid){
         final Map<String, Object> uriVariables = new HashMap<>();
-        String path = UriComponentsBuilder.fromPath("/internal/get/pendingDues").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/get/pendingDues/{bookingUuid}").buildAndExpand(uriVariables).toUriString();
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
         uriVariables.put("bookingUuid", bookingUuid);
         final HttpHeaders headerParams = new HttpHeaders();
