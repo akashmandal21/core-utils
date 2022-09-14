@@ -1939,5 +1939,4 @@ public class ResidenceDataControllerApi {
         };
         return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
     }
-
 }
