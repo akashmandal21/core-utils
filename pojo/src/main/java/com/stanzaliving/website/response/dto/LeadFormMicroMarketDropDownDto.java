@@ -22,6 +22,7 @@ public class LeadFormMicroMarketDropDownDto implements Serializable {
     private boolean comingSoonPg;
     private boolean comingSoonApartment;
     private Integer micromarketAliasId;
+    private String micromarketAliasName;
     private String displayName;
 
     private boolean pgLpDropdownVisible;
