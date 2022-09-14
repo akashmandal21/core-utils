@@ -1084,6 +1084,11 @@ public class BookingDataControllerApi {
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
         ParameterizedTypeReference<ResponseDto<PendingDuesDetailsResponseDtoV2>> returnType = new ParameterizedTypeReference<ResponseDto<PendingDuesDetailsResponseDtoV2>>() {
         };
-        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        try{
+            return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        }
+        catch(Exception e){
+            log.error("Exception occured while getting dues for bookingUuid: {}", bookingUuid);
+        }
     }
 }
