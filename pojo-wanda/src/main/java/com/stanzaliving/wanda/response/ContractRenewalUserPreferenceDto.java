@@ -17,6 +17,9 @@ public class ContractRenewalUserPreferenceDto extends UserPreferenceDto {
     private String moveInDate;
     private String contractStartDate;
     private String contractEndDate;
+    private String lockInStartDate;
+    private String lockInEndDate;
+    private String lockInDuration;
     private String duration;
     private String bookingUuid;
     private String roomUuid;
