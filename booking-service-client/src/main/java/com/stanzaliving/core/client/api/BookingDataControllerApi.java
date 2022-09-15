@@ -1090,5 +1090,6 @@ public class BookingDataControllerApi {
         catch(Exception e){
             log.error("Exception occured while getting dues for bookingUuid: {}", bookingUuid);
         }
+        return null;
     }
 }
