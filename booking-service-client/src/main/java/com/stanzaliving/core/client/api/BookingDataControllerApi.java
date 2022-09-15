@@ -1102,8 +1102,8 @@ public class BookingDataControllerApi {
 
         String path = UriComponentsBuilder.fromPath("/internal/v1/booking/booking-amount-realisation/{bookingUuid}").buildAndExpand(uriVariables).toUriString();
 
-        final MultiValueMap<String, Boolean> queryParams = new LinkedMultiValueMap<>();
-        queryParams.add("notificationRequest", notificationRequest);
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        queryParams.add("notificationRequest", String.valueOf(notificationRequest));
 
         final HttpHeaders headerParams = new HttpHeaders();
 
