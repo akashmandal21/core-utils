@@ -1053,15 +1053,21 @@ public class BookingDataControllerApi {
         restClient.invokeAPI(path, HttpMethod.POST, queryParams, null, headerParams, accept, returnType);
     }
     public ResponseDto<PendingDuesDetailsResponseDtoV2> getPendingDuesForBooking(String bookingUuid){
-        final Map<String, Object> uriVariables = new HashMap<>();
-        String path = UriComponentsBuilder.fromPath("/internal/get/pendingDues").buildAndExpand(uriVariables).toUriString();
-        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        final Map<String, Object> uriVariables = new HashMap<String, Object>();
         uriVariables.put("bookingUuid", bookingUuid);
+        String path = UriComponentsBuilder.fromPath("/internal/get/pendingDues/{bookingUuid}").buildAndExpand(uriVariables).toUriString();
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
         final HttpHeaders headerParams = new HttpHeaders();
         final String[] accepts = {"*/*"};
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
         ParameterizedTypeReference<ResponseDto<PendingDuesDetailsResponseDtoV2>> returnType = new ParameterizedTypeReference<ResponseDto<PendingDuesDetailsResponseDtoV2>>() {
         };
-        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        try{
+            return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        }
+        catch(Exception e){
+            log.error("Exception occured while getting dues for bookingUuid: {}", bookingUuid, e);
+        }
+        return null;
     }
 }
