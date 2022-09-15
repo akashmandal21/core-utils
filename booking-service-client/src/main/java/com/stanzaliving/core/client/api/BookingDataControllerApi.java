@@ -1074,7 +1074,7 @@ public class BookingDataControllerApi {
         };
         restClient.invokeAPI(path, HttpMethod.POST, queryParams, null, headerParams, accept, returnType);
     }
-    public ResponseDto<PendingDuesDetailsResponseDtoV2> getPendingDuesForBooking(String bookingUuid){
+    public PendingDuesDetailsResponseDtoV2 getPendingDuesForBooking(String bookingUuid){
         final Map<String, Object> uriVariables = new HashMap<String, Object>();
         uriVariables.put("bookingUuid", bookingUuid);
         String path = UriComponentsBuilder.fromPath("/internal/get/pendingDues/{bookingUuid}").buildAndExpand(uriVariables).toUriString();
@@ -1082,7 +1082,7 @@ public class BookingDataControllerApi {
         final HttpHeaders headerParams = new HttpHeaders();
         final String[] accepts = {"*/*"};
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-        ParameterizedTypeReference<ResponseDto<PendingDuesDetailsResponseDtoV2>> returnType = new ParameterizedTypeReference<ResponseDto<PendingDuesDetailsResponseDtoV2>>() {
+        ParameterizedTypeReference<PendingDuesDetailsResponseDtoV2> returnType = new ParameterizedTypeReference<PendingDuesDetailsResponseDtoV2>() {
         };
         try{
             return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
