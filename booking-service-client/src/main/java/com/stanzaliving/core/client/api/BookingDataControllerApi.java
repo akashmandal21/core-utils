@@ -1088,7 +1088,7 @@ public class BookingDataControllerApi {
             return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
         }
         catch(Exception e){
-            log.error("Exception occured while getting dues for bookingUuid: {}", bookingUuid, e);
+            log.error("Exception occurred while getting dues for bookingUuid: {}", bookingUuid, e);
         }
         return null;
     }
