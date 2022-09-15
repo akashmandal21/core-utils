@@ -1092,7 +1092,7 @@ public class BookingDataControllerApi {
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, null, headerParams, accept, returnType);
     }
 
-    public ResponseDto<BookingAmountRealisationResponseDto> getBookingAmountRealisationDetails(String bookingUuid) {
+    public ResponseDto<BookingAmountRealisationResponseDto> getBookingAmountRealisationDetails(String bookingUuid, boolean notificationRequest) {
 
         Object postBody = null;
 
@@ -1102,7 +1102,8 @@ public class BookingDataControllerApi {
 
         String path = UriComponentsBuilder.fromPath("/internal/v1/booking/booking-amount-realisation/{bookingUuid}").buildAndExpand(uriVariables).toUriString();
 
-        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        final MultiValueMap<String, Boolean> queryParams = new LinkedMultiValueMap<>();
+        queryParams.add("notificationRequest", notificationRequest);
 
         final HttpHeaders headerParams = new HttpHeaders();
 
