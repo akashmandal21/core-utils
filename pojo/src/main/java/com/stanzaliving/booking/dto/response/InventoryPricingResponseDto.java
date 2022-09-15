@@ -30,5 +30,7 @@ public class InventoryPricingResponseDto {
     private double cityBuffer;
     private double bumpUpPrice;
     private double conversionPrice;
+    private double withoutEscalationPrice;
+    private double escalatedPrice;
 
 }
