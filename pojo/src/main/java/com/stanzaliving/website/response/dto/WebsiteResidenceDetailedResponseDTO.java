@@ -89,6 +89,8 @@ public class WebsiteResidenceDetailedResponseDTO implements Serializable {
 	private String googleMapLink;
 	
 	private String videoLink;
+
+	private String videoLink2;
 	
 	private String virtualTourImage;
 	
