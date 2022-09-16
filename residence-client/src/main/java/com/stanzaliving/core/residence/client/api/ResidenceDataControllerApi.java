@@ -2182,7 +2182,7 @@ public class ResidenceDataControllerApi {
         return null;
     }
 
-    public ResponseDto<Map<Double, List<Double>>> getEscalationTracker( String uuid, String roomUuid,  String moveIn) {
+    public ResponseDto<Map<Double, List<Double>>> getEscalationTracker(String uuid, String roomUuid, String moveIn) {
 
         Map<String, Object> uriVariables = new HashMap<>();
 
@@ -2212,4 +2212,24 @@ public class ResidenceDataControllerApi {
         }
         return null;
     }
+
+    public ResponseDto<Double> getAccessLevelConfigValue(String residenceUuid, String configKey) {
+        Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("residenceUuid", residenceUuid);
+        uriVariables.put("configKey", configKey);
+        String path = UriComponentsBuilder.fromPath("/internal/residence/{residenceUuid}/config-key/{configKey}").buildAndExpand(uriVariables).toUriString();
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        HttpHeaders headerParams = new HttpHeaders();
+        String[] accepts = new String[]{"*/*"};
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<Double>> returnType = new ParameterizedTypeReference<ResponseDto<Double>>() {
+        };
+        try {
+            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception ex) {
+            log.error("Exception while fetching Details", ex);
+        }
+        return null;
+    }
+
 }
