@@ -8,9 +8,6 @@ import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.core.user.enums.UserType;
 import lombok.Getter;
 
-import java.util.HashMap;
-import java.util.Map;
-
 /**
  * @author raj.kumar
  *
@@ -57,14 +54,5 @@ public enum BoqStatus {
 		this.approvalState=approvalState;
 		this.textColor=textColor;
 		this.bgColor=bgColor;
-	}
-
-
-	public static Map<Integer, BoqStatus> boqStatusAndOrderMap = new HashMap<>();
-
-	static{
-		for(BoqStatus boqStatus: BoqStatus.values()) {
-			boqStatusAndOrderMap.put(boqStatus.getOrder(), boqStatus);
-		}
 	}
 }
