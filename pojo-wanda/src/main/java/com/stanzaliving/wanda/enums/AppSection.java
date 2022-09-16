@@ -25,7 +25,7 @@ public enum AppSection {
 	COMMUNITY("Community", AppPage.HOME_PAGE), 
 	FEED_HOME_PAGE("Feed", AppPage.HOME_PAGE),
 	COMMUNITYCARD("Community", AppPage.HOME_PAGE),
-	
+	CONTRACT_RENEWAL("Contract Renewal", AppPage.HOME_PAGE),
 	//FOOD_PAGE Enums
 	
 	FOOD_MEAL_PREFERENCES("Food Meal Preferences", AppPage.FOOD_PAGE),
