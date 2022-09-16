@@ -47,7 +47,10 @@ public enum SupportRole {
     SBR_IMS_L1(1,"SBR_IMS_L1",AccessLevel.COUNTRY,Arrays.asList(SupportModule.TICKET_RESOLUTION,SupportModule.BLISS_DASHBOARD)),
     SBR_IMS_L2(1,"SBR_IMS_L2",AccessLevel.COUNTRY,Arrays.asList(SupportModule.TICKET_RESOLUTION,SupportModule.BLISS_DASHBOARD)),
     SUPPORT_RM_HEAD(1,"SUPPORT_RM_HEAD",AccessLevel.COUNTRY,Arrays.asList(SupportModule.TICKET_RESOLUTION,SupportModule.BLISS_DASHBOARD)),
-    SUPPORT_IT_MANAGER(1,"SUPPORT_IT_MANAGER",AccessLevel.COUNTRY,Arrays.asList(SupportModule.TICKET_RESOLUTION,SupportModule.BLISS_DASHBOARD));
+    SUPPORT_IT_MANAGER(1,"SUPPORT_IT_MANAGER",AccessLevel.COUNTRY,Arrays.asList(SupportModule.TICKET_RESOLUTION,SupportModule.BLISS_DASHBOARD)),
+    CX_TEAM_LEAD(1,"CX_TEAM_LEAD",AccessLevel.COUNTRY,Arrays.asList(SupportModule.TICKET_RESOLUTION,SupportModule.BLISS_DASHBOARD)),
+    CX_SPECIALIST(1,"CX_SPECIALIST",AccessLevel.COUNTRY,Arrays.asList(SupportModule.TICKET_RESOLUTION,SupportModule.BLISS_DASHBOARD)),
+    CX_AGENT(1,"CX_AGENT",AccessLevel.COUNTRY,Arrays.asList(SupportModule.TICKET_RESOLUTION,SupportModule.BLISS_DASHBOARD));
 
     private static final Map<String, SupportRole> map = new HashMap<>();
 
