@@ -97,7 +97,7 @@ public class VentaAggregationServiceApi {
         String path = UriComponentsBuilder.fromPath("/booking/listing").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-            queryParams.add("isListing", "true");
+        queryParams.add("isListing", "true");
 
         final HttpHeaders headerParams = new HttpHeaders();
 
@@ -479,28 +479,28 @@ public class VentaAggregationServiceApi {
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
     }
 
-	public ResponseDto<List<ResidenceAggregationEntityDto>> getAllActiveResidence(String residenceType) {
-		Map<String, Object> uriVariables = new HashMap<>();
-		uriVariables.put("residenceType", residenceType);
-		String path = UriComponentsBuilder.fromPath("/internal/residence/all-active-residence")
-				.buildAndExpand(uriVariables).toUriString();
+    public ResponseDto<List<ResidenceAggregationEntityDto>> getAllActiveResidence(String residenceType) {
+        Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("residenceType", residenceType);
+        String path = UriComponentsBuilder.fromPath("/internal/residence/all-active-residence")
+                .buildAndExpand(uriVariables).toUriString();
 
-		MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-		HttpHeaders headerParams = new HttpHeaders();
-		String[] accepts = new String[] { "*/*" };
-		List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        HttpHeaders headerParams = new HttpHeaders();
+        String[] accepts = new String[]{"*/*"};
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
 
-		ParameterizedTypeReference<ResponseDto<List<ResidenceAggregationEntityDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<ResidenceAggregationEntityDto>>>() {
-		};
+        ParameterizedTypeReference<ResponseDto<List<ResidenceAggregationEntityDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<ResidenceAggregationEntityDto>>>() {
+        };
 
-		try {
-			log.info("Executing Api for getting bookings Info with Url {}", path);
-			return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
-		} catch (Exception e) {
-			log.error("Exception while sending booking events integration notification on {}, Exception is {}", LocalDate.now(), e);
-		}
-		return null;
-	}
+        try {
+            log.info("Executing Api for getting bookings Info with Url {}", path);
+            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception while sending booking events integration notification on {}, Exception is {}", LocalDate.now(), e);
+        }
+        return null;
+    }
 
     public ResponseDto<Void> syncElasticData(LeadElasticDto elasticDto) {
         log.debug("venta aggregation client to booking aggregation elastic data");
