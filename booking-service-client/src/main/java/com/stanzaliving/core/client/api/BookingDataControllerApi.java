@@ -1039,6 +1039,7 @@ public class BookingDataControllerApi {
         };
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
     }
+
     public ResponseDto<Boolean> expireDeal(String dealUuid) {
 
         Object postBody = null;
@@ -1074,7 +1075,8 @@ public class BookingDataControllerApi {
         };
         restClient.invokeAPI(path, HttpMethod.POST, queryParams, null, headerParams, accept, returnType);
     }
-    public PendingDuesDetailsResponseDtoV2 getPendingDuesForBooking(String bookingUuid){
+
+    public PendingDuesDetailsResponseDtoV2 getPendingDuesForBooking(String bookingUuid) {
         final Map<String, Object> uriVariables = new HashMap<String, Object>();
         uriVariables.put("bookingUuid", bookingUuid);
         String path = UriComponentsBuilder.fromPath("/internal/get/pendingDues/{bookingUuid}").buildAndExpand(uriVariables).toUriString();
@@ -1084,10 +1086,9 @@ public class BookingDataControllerApi {
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
         ParameterizedTypeReference<PendingDuesDetailsResponseDtoV2> returnType = new ParameterizedTypeReference<PendingDuesDetailsResponseDtoV2>() {
         };
-        try{
+        try {
             return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             log.error("Exception occurred while getting dues for bookingUuid: {}", bookingUuid, e);
         }
         return null;
