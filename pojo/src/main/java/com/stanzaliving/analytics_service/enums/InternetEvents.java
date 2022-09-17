@@ -10,7 +10,9 @@ public enum InternetEvents {
     DATA_CONSUMED("Internet data consumed"),
     CURRENT_PLAN("internet current plan"),
     BOOSTER_PACK_PURCHASED("Booster pack purchased"),
-    BOOSTER_PACK_VALUE("Booster pack purchased value");
+    BOOSTER_PACK_VALUE("Booster pack purchased value"),
+    ENABLED("Enabled"),
+    DISABLED("Disabled");
 
     private String internet_event;
 }
