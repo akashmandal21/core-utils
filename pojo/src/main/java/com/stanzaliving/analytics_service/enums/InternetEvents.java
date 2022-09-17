@@ -6,11 +6,11 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum InternetEvents {
-    STATUS("Internet status"),
-    DATA_CONSUMED("Internet data consumed"),
-    CURRENT_PLAN("internet current plan"),
-    BOOSTER_PACK_PURCHASED("Booster pack purchased"),
-    BOOSTER_PACK_VALUE("Booster pack purchased value"),
+    STATUS("Internet Status"),
+    DATA_CONSUMED("Internet Data Consumed"),
+    CURRENT_PLAN("internet Current Plan"),
+    BOOSTER_PACK_PURCHASED("Booster Pack Purchased"),
+    BOOSTER_PACK_VALUE("Booster Pack Purchased Value"),
     ENABLED("Enabled"),
     DISABLED("Disabled");
 
