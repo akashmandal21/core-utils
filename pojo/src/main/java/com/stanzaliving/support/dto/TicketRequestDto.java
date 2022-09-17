@@ -59,5 +59,7 @@ public class TicketRequestDto {
     private String mailChainSubject = StringUtils.EMPTY;
 
     private String email;
+    private String parentTicketUuid;
+    private String serviceProvider;
 
 }
