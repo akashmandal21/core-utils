@@ -237,10 +237,14 @@ public class ResidenceDataControllerApi {
     }
 
     public ResponseDto<PricingDetailsResponseDto> getPricingDetailsIncludingDeprecated(String roomUuid, String serviceMixUuid, String moveInDate) {
+        return this.getPricingDetailsIncludingDeprecated(roomUuid, serviceMixUuid, moveInDate, false);
+    }
+
+    public ResponseDto<PricingDetailsResponseDto> getPricingDetailsIncludingDeprecated(String roomUuid, String serviceMixUuid, String moveInDate, boolean isNonRecommendedRoom) {
 
         log.info("Residence-Data-Controller::Processing to get pricing detail based on movein-in date {} , serviceMixUuid {}, roomUuid {}", moveInDate, serviceMixUuid, roomUuid);
 
-        Map<String, Object> uriVariables = new HashMap();
+        Map<String, Object> uriVariables = new HashMap<>();
 
         uriVariables.put("roomUUID", roomUuid);
 
@@ -250,7 +254,8 @@ public class ResidenceDataControllerApi {
 
         String path = UriComponentsBuilder.fromPath("/internal/room-pricing/all/{roomUUID}/{serviceMixUUID}/{moveInDate}").buildAndExpand(uriVariables).toUriString();
 
-        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        queryParams.add("isNonRecommendedRoom", String.valueOf(isNonRecommendedRoom));
 
         HttpHeaders headerParams = new HttpHeaders();
 
@@ -265,7 +270,7 @@ public class ResidenceDataControllerApi {
         try {
             return (ResponseDto) this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, (Object) null, headerParams, accept, returnType);
         } catch (Exception var12) {
-            log.error("Exception while get pricing detail based on movein-in date {} , serviceMixUuid {}, roomUuid {}", moveInDate, serviceMixUuid, roomUuid);
+            log.error("Exception while get pricing detail based on move in date {} , serviceMixUuid {}, roomUuid {}", moveInDate, serviceMixUuid, roomUuid);
             return null;
         }
     }
