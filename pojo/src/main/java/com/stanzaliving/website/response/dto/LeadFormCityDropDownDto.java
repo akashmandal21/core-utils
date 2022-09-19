@@ -19,6 +19,7 @@ public class LeadFormCityDropDownDto implements Serializable {
     private String slug;
     private String campaignSlug;
     private String iconImageUrl;
+    private String iconImageUrlAltTag;
     private int websiteDisplayOrder;
     private boolean enabled;
     private boolean comingSoonPg;
