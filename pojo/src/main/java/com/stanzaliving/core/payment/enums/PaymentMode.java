@@ -36,8 +36,8 @@ public enum PaymentMode {
 	I_SUREPAY("I SurePay", 21),
 	EMI_RAZORPAY("Emi Razorpay", 22),
 	RAZORPAY_PAYMENT_LINK("RAZORPAY_PAYMENT_LINK", 23),
-	BOOKING_AMOUNT_CARRY_FORWARD("Booking Amount Carry Forward", 24),
-	CASHFREE_SDK("CASHFREE SDK", 25);
+	BOOKING_AMOUNT_CARRY_FORWARD("Booking Amount Carry Forward", 24);
+
 
 
 	private String paymentModeDesc;
@@ -89,7 +89,6 @@ public enum PaymentMode {
     	paymentMode.add(CASH);
     	paymentMode.add(PAYTM_SDK);
     	paymentMode.add(RAZORPAY);
-    	paymentMode.add(CASHFREE_SDK);
     	return paymentMode;
     }
 }
