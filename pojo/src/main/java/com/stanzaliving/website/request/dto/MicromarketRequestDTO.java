@@ -29,6 +29,4 @@ public class MicromarketRequestDTO {
 	private List<MicromarketAliasDTO> micromarketAlias;
 	
 	private List<AttributeDto> attributeDto;
-
-	private String campaignSlug;
 }
