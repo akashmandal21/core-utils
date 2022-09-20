@@ -8,10 +8,10 @@ import lombok.NoArgsConstructor;
 import javax.validation.Valid;
 import java.io.Serializable;
 
-@Builder
 @Data
-@AllArgsConstructor
+@Builder
 @NoArgsConstructor
+@AllArgsConstructor
 public class BookingCommercialsRequestDto implements Serializable {
 
     @Builder.Default
