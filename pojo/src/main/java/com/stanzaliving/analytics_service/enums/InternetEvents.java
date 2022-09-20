@@ -14,5 +14,5 @@ public enum InternetEvents {
     ENABLED("Enabled"),
     DISABLED("Disabled");
 
-    private String internet_event;
+    private String internetEvent;
 }
