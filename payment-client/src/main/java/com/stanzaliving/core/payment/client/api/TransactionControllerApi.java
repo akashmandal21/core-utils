@@ -22,6 +22,8 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.HashMap;
@@ -463,5 +465,20 @@ public class TransactionControllerApi {
             log.error("Exception while fetch auto refund eligible prebookings. Error is {}", e);
         }
         return null;
+    }
+
+    public boolean unmapLeadTransaction(LeadPaymentRequestDto leadPaymentRequestDto) {
+        Object postBody = null;
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+        String path = UriComponentsBuilder.fromPath("/internal/unmap-lead-transaction").buildAndExpand(uriVariables).toUriString();
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        final HttpHeaders headerParams = new HttpHeaders();
+        final String[] accepts = {"*/*"};
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        postBody = leadPaymentRequestDto;
+        ParameterizedTypeReference<Boolean> returnType = new ParameterizedTypeReference<Boolean>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
     }
 }

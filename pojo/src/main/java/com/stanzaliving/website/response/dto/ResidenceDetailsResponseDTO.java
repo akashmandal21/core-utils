@@ -46,6 +46,7 @@ public class ResidenceDetailsResponseDTO implements Serializable {
 	private boolean enabled;
 	private String slug;
 	private Integer preBookingAmount;
+	private Integer unlockDiscountAmount;
 	private FomoTag fomoTag;
 	private String fomoTagName;
 	private String fomoTagcolour;
@@ -54,6 +55,7 @@ public class ResidenceDetailsResponseDTO implements Serializable {
 	private String googleMapLink;
 	private String virtualTourImage;
 	private String videoLink;
+	private String videoLink2;
 	private String cardCTAName;
 	private Integer cardCTAId;
 	private String leadFormModeName;

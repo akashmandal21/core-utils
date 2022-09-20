@@ -72,6 +72,8 @@ public class ApartmentDetailedResponseDto implements Serializable {
 	private Integer startingPrice;
 	
 	private Integer preBookingAmount;
+
+	private Integer unlockDiscountAmount;
 	
 	private String preBookingMode;
 	
@@ -86,6 +88,8 @@ public class ApartmentDetailedResponseDto implements Serializable {
 	private double longitude;
 	
 	private String videoLink;
+
+	private String videoLink2;
 	
 	private String virtualTourImage;
 	
