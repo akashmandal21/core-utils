@@ -116,6 +116,64 @@ public class PhoenixClientApi {
 
     }
 
+    public Boolean getIsPartialAllowed(Long moduleSubmissionId) {
+
+        Object postBody = null;
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("moduleSubmissionId", moduleSubmissionId);
+//        uriVariables.put("moduleName", moduleName);
+
+        String path = UriComponentsBuilder.fromPath("/internal/module/get/hoto/allowed/{moduleSubmissionId}")
+                .buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+//        headerParams.add(SecurityConstants.COOKIE_HEADER_NAME, token);
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<Boolean> returnType =
+                new ParameterizedTypeReference<Boolean>() {
+                };
+
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+
+    }
+
+    public ResponseDto<Map<String, Long>> getBedAndRoomCountRemaining(String propertyId){
+
+        Object postBody = null;
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("propertyId", propertyId);
+//        uriVariables.put("moduleName", moduleName);
+
+        String path = UriComponentsBuilder.fromPath("/internal/hoto/remaining/count/{propertyId}")
+                .buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+//        headerParams.add(SecurityConstants.COOKIE_HEADER_NAME, token);
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<Map<String, Long>>> returnType =
+                new ParameterizedTypeReference<ResponseDto<Map<String, Long>>>() {
+                };
+
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+
+    }
+
     public ResponseDto<String> submitModule(String propertyUuid, ModuleNames moduleName, String token) {
 
         Object postBody = null;
@@ -131,6 +189,35 @@ public class PhoenixClientApi {
 
         final HttpHeaders headerParams = new HttpHeaders();
         headerParams.add(SecurityConstants.COOKIE_HEADER_NAME, token);
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+        };
+
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+
+    }
+
+
+    public ResponseDto<String> invalidateCache(Long moduleId, String variableName, List<String> updatedCount) {
+
+        Object postBody = null;
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("moduleId", moduleId);
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        queryParams.add("variableName", variableName);
+        queryParams.put("updatedCount", updatedCount);
+
+        String path = UriComponentsBuilder.fromPath("/internal/module/update/cache/{moduleId}")
+                .buildAndExpand(uriVariables).toUriString();
+
+        final HttpHeaders headerParams = new HttpHeaders();
 
         final String[] accepts = {
                 "*/*"

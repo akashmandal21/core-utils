@@ -8,6 +8,7 @@ import com.stanzaliving.core.dto.LeadElasticDto;
 import com.stanzaliving.leadService.dto.AutoExpireLeadConfigMapDto;
 import com.stanzaliving.leadService.dto.AutoExpireLeadDto;
 import com.stanzaliving.website.response.dto.LeadDetailEntity;
+import com.stanzaliving.website.response.dto.LeadQrDto;
 import com.stanzaliving.website.response.dto.LeadRequestDto;
 import com.stanzaliving.website.response.dto.QualificationQuestionResponseDto;
 import lombok.extern.log4j.Log4j2;
@@ -681,8 +682,6 @@ public class LeadserviceClientApi {
             return null;
         }
     }
-
-
 
     public ResponseDto<String> autoExpireReferralCode() {
         log.info("Expire referralCodes");

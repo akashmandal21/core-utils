@@ -23,10 +23,3 @@ public class LeadElasticDto extends PaginationRequest {
     private long finalDate;
     private boolean completeSync;
 }
-
-
-
-
-
-
-
