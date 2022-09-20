@@ -1119,24 +1119,6 @@ public class BookingDataControllerApi {
         return null;
     }
 
-    public PendingDuesDetailsResponseDtoV2 getPendingDuesForBooking(String bookingUuid) {
-        final Map<String, Object> uriVariables = new HashMap<String, Object>();
-        uriVariables.put("bookingUuid", bookingUuid);
-        String path = UriComponentsBuilder.fromPath("/internal/get/pendingDues/{bookingUuid}").buildAndExpand(uriVariables).toUriString();
-        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-        final HttpHeaders headerParams = new HttpHeaders();
-        final String[] accepts = {"*/*"};
-        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-        ParameterizedTypeReference<PendingDuesDetailsResponseDtoV2> returnType = new ParameterizedTypeReference<PendingDuesDetailsResponseDtoV2>() {
-        };
-        try {
-            return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
-        } catch (Exception e) {
-            log.error("Exception occurred while getting dues for bookingUuid: {}", bookingUuid, e);
-        }
-        return null;
-    }
-
     public ResponseDto<List<BookingResponseDto>> getBookingsForBookingAmountRealisation() {
 
         Object postBody = null;

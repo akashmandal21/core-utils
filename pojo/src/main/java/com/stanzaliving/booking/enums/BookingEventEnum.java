@@ -83,8 +83,6 @@ public enum BookingEventEnum {
     CONTRACT_EXTENSION_REQUESTED("contract extension request created"),
     CONTRACT_MODIFIED("Contract is modified successfully"),
     CONTRACT_START_DATE_CROSSED("Contract Start Date Crossed"),
-    BOOKING_AUTO_FORFEITURE("Booking Auto Forfeiture"),
-    MOVE_IN_DATE_CHANGE("Move-in Date Change"),
     BOOKING_AUTO_FORFEITURE("Booking Auto Forfeiture");
 
     String eventName;
