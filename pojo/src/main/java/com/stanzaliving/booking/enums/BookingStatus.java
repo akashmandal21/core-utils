@@ -369,4 +369,14 @@ public enum BookingStatus {
         bookingStatus.add(BookingStatus.ONBOARDING_IN_PROGRESS);
         return bookingStatus;
     }
+
+    public static List<BookingStatus> bookingStatusForBookingAmountRealisation() {
+        List<BookingStatus> bookingStatus = new ArrayList<>();
+        bookingStatus.add(BookingStatus.AGREEMENT_PENDING);
+        bookingStatus.add(BookingStatus.AGREEMENT_SENT);
+        bookingStatus.add(BookingStatus.ONBOARDING_PENDING);
+        bookingStatus.add(BookingStatus.ONBOARDING_IN_PROGRESS);
+        return bookingStatus;
+    }
+
 }

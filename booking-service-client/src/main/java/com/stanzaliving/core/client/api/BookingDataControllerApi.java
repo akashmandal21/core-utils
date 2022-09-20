@@ -2,16 +2,7 @@ package com.stanzaliving.core.client.api;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.stanzaliving.booking.SoldBookingDto;
-import com.stanzaliving.booking.dto.BookingNeedsAttentionUpdationDto;
-import com.stanzaliving.booking.dto.BookingResponseDto;
-import com.stanzaliving.booking.dto.ContractApprovalDto;
-import com.stanzaliving.booking.dto.ExpiredBookingsDto;
-import com.stanzaliving.booking.dto.ExpiredBookingsResponseDto;
-import com.stanzaliving.booking.dto.PaymentPendingBookingDto;
-import com.stanzaliving.booking.dto.PaymentPendingBookingResponseDto;
-import com.stanzaliving.booking.dto.PaymentPendingBookingStatusChangeDto;
-import com.stanzaliving.booking.dto.UpdateDealAndInventoryDto;
-import com.stanzaliving.booking.dto.VasEmailDto;
+import com.stanzaliving.booking.dto.*;
 import com.stanzaliving.booking.dto.response.BookingCommercialsCardResponseDto;
 import com.stanzaliving.booking.dto.response.LedgerResponseDto;
 import com.stanzaliving.booking.dto.response.NeedsAttentionBookingResponseDto;
@@ -23,15 +14,7 @@ import com.stanzaliving.core.bookingservice.dto.request.ResidentRequestDto;
 import com.stanzaliving.core.bookingservice.dto.response.BookedPackageServiceDto;
 import com.stanzaliving.core.bookingservice.dto.response.GstDto;
 import com.stanzaliving.core.bookingservice.dto.response.PackagedServiceResponseDto;
-import com.stanzaliving.core.client.dto.BookingDetailDto;
-import com.stanzaliving.core.client.dto.BookingInventoryDto;
-import com.stanzaliving.core.client.dto.BookingInventoryResponseDto;
-import com.stanzaliving.core.client.dto.CancelBookingDto;
-import com.stanzaliving.core.client.dto.ContractModificationDetailsDto;
-import com.stanzaliving.core.client.dto.ExceptionOnboardingDetailsDto;
-import com.stanzaliving.core.client.dto.InventoryResponseOccupancyDto;
-import com.stanzaliving.core.client.dto.PackageServicesResponseDto;
-import com.stanzaliving.core.client.dto.RequestDto;
+import com.stanzaliving.core.client.dto.*;
 import com.stanzaliving.ledger.dto.UpcomingBookingsDto;
 import com.stanzaliving.wanda.venta.response.BookingStatusResponseDto;
 import com.stanzaliving.wanda.venta.response.PendingDuesDetailsResponseDtoV2;
@@ -44,13 +27,7 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 @Log4j2
 public class BookingDataControllerApi {
@@ -1069,5 +1046,63 @@ public class BookingDataControllerApi {
             log.error("Exception occurred while getting dues for bookingUuid: {}", bookingUuid, e);
         }
         return null;
+    }
+
+    public ResponseDto<List<BookingResponseDto>> getBookingsForBookingAmountRealisation() {
+
+        Object postBody = null;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/internal/v1/booking/booking-amount-realisation").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<List<BookingResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<BookingResponseDto>>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+    }
+
+    public ResponseDto<String> bookingAutoForfeiture(List<String> bookingUuids) {
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/booking/v1/auto-forfeiture").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, bookingUuids, headerParams, accept, returnType);
+    }
+
+    public ResponseDto<String> markBookingAutoForfeitureAndRealiseBookingAmount(List<String> bookingUuids) {
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/internal/v1/booking/auto-forfeiture").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, bookingUuids, headerParams, accept, returnType);
     }
 }
