@@ -28,4 +28,8 @@ public class ResidenceImageLibraryMappingDto extends AbstractDto {
     private String imageUrlAltTag;
 
     private ImageTags imageTag;
+
+    private boolean genericImage;
+
+    private boolean dummyImage;
 }
