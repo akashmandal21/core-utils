@@ -14,8 +14,8 @@ import lombok.Getter;
 public enum ResidenceAttributes {
 
     BOOKING_FLOW("Booking Flow", "String"),
-   
-    
+
+
     CITY_HEAD_BUFFER_CONTRIBUTION("City Head Buffer Contribution", "String"),
     AUTO_BOOKING_CANCELLATION_TIME("Auto Booking Cancellation Time", "String"),
     MODIFY_CONTRACT_CUT_OFF_DAYS("Modify Contract Cut off Days", "String"),
@@ -31,11 +31,11 @@ public enum ResidenceAttributes {
     ROOM_CONVERSION_CHARGES("Room Conversion Charges", "String"),
     RETENTION_CREATION_BUFFER_DAYS("Retention Creation Buffer Days", "Integer"),
     NO_LOCK_IN_SUITS_BOOKING("No Lock In Suits Booking", "Boolean"),
-	
+
     MONTHLY_MULTIPLIER("Monthly Multiplier","Double"),
 	SD_MULTIPLIER("SD Multiplier","Double"),
 	AMC_MULTIPLIER("AMC Multiplier","Double"),
-	
+
 	FUTURE_BOOKING_ALLOWED_DAYS("Future Booking Allowed Duration","Integer"),
     NEEDS_ATTENTION_EXPIRY_TIME("Needs Attention Expiry Time","String"),
 
@@ -55,8 +55,11 @@ public enum ResidenceAttributes {
     MAX_DURATION_TO_PUSH_CONTRACT("Max Duration To Push Contract", "String"),
     MIN_DURATION_BEFORE_MOVE_IN_DATE_CHANGE("Min Duration Before Move In Date change", "String"),
     MIN_DURATION_BEFORE_CURRENT_DATE("Min Duration Before Current Date", "String");
- 
-	
+    BOOKING_AUTO_FORFEITURE_DURATION_IN_DAYS("Booking Auto Forfeiture Duration in Days", "Integer"),
+    MAXIMUM_ALLOWED_DAYS_AFTER_BOOKING_AUTO_FORFEITURE("Maximum Allowed Days After Booking Auto Forfeiture", "Integer"),
+    MAXIMUM_WAIVE_OFF_PERCENTAGE("Maximum Waive off Percentage", "Double");
+
+
 
     private String label;
     private String type;
