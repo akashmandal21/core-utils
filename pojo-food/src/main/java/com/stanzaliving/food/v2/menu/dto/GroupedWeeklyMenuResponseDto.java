@@ -79,5 +79,6 @@ public class GroupedWeeklyMenuResponseDto extends AbstractDto {
     private Boolean canSubmit;
     private Date approvedAt;
     private String approvedBy;
+    private Boolean isDebarDishExist;
 
 }

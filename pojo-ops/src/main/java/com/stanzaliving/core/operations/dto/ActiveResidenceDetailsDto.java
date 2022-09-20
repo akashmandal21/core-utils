@@ -20,7 +20,7 @@ public class ActiveResidenceDetailsDto {
 	private String cityName;
 	private String microMarketId;
 	private String microMarketName;
-	private String residenceId;
 	private String residenceName;
+	private Long siteId;
 
 }

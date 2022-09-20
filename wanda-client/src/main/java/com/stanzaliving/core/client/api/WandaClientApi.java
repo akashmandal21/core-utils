@@ -179,6 +179,38 @@ public class WandaClientApi {
 		return null;
 	}
 
+	public List<FeaturephoneUserDto> getFeaturePhoneUsersV2(String residenceId) {
+
+      try {
+          Object postBody = null;
+
+          log.info("Received request to get Feature phone user dto of residenceId: {}", residenceId);
+
+          final Map<String, Object> uriVariables = new HashMap<>();
+
+          String path = UriComponentsBuilder.fromPath("/coreApi/user/list/feature/phone/v2").buildAndExpand(uriVariables)
+                  .toUriString();
+
+          final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+          queryParams.add("hostel", residenceId);
+          queryParams.add("featurePhone", Boolean.TRUE.toString());
+
+          final HttpHeaders headerParams = new HttpHeaders();
+
+          final String[] accepts = { "*/*" };
+          final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+          ParameterizedTypeReference<List<FeaturephoneUserDto>> returnType = new ParameterizedTypeReference<List<FeaturephoneUserDto>>() {
+          };
+
+          return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+      } catch (Exception e) {
+          log.error(BaseMarker.WANDA_API_ERROR,"Error while fetching feature phone users for hostel: " + residenceId, e);
+      }
+
+      return null;
+  }
+
 	public List<UserHostelDetailsDto> getUserHostelDetails(String hostelId) {
 		return getUserHostelDetails(hostelId, false);
 	}
