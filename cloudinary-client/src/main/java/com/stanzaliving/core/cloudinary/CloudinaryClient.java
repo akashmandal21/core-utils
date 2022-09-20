@@ -45,13 +45,11 @@ public class CloudinaryClient {
             Map result = cloudinary.uploader().upload(file.getBytes(), properties);
 
             cloudinaryPath = (String) result.get(CloudinaryConstants.SECURE_URL);
-
-            log.info("Uploaded cloudinaryFilePath:", cloudinaryPath);
         } catch (Exception e) {
             log.error("Exception while uploading file to cloudinary: {}", e);
         }
 
-        log.info("Returning f_auto q_auto cloudinaryFilePath as:", cloudinaryPath);
+        log.info("Returning uploaded cloudinaryFilePath as:", cloudinaryPath);
 
         return cloudinaryPath;
     }
