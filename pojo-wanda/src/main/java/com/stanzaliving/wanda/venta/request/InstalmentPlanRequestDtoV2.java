@@ -18,4 +18,6 @@ public class InstalmentPlanRequestDtoV2 {
     private DiscountRequestDto discount;
     @Builder.Default
     private Double upsell=0d;
+    @Builder.Default
+    private Double bumpUpPrice=0d;
 }
