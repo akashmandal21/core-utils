@@ -36,6 +36,7 @@ public enum BookingStatus {
     GUEST_ONBOARDING_PENDING("GUEST ONBOARDING PENDING"),
     GUEST_ONBOARDING_COMPLETED("GUEST ONBOARDING COMPLETED");
 
+
     private String bookingStatus;
 
     public String getDescription() {
@@ -325,6 +326,18 @@ public enum BookingStatus {
         return bookingStatus;
     }
 
+    public static Set<String> ledgerBookingStatuses(){
+        Set<String> bookingStatus = new HashSet<>();
+        bookingStatus.add(CONTRACT_COMPLETED.getBookingStatus());
+        bookingStatus.add(STAY_FORFEITURE.getBookingStatus());
+        bookingStatus.add(TRESSPASSER.getBookingStatus()); //remove tresspasser
+        bookingStatus.add(RENT_DEFAULTER_PAID.getBookingStatus());
+        bookingStatus.add(RENT_DEFAULTER_UNPAID.getBookingStatus());
+        bookingStatus.add(CONTRACT_TERMINATED.getBookingStatus());
+        bookingStatus.add(CANCELLED.getBookingStatus());
+        return bookingStatus;
+    }
+
     public static List<String> afterOnBoardingCompleteStatus(){
         List<String> bookingStatus = new ArrayList<>();
         bookingStatus.add(EXPIRED.getBookingStatus());
@@ -380,4 +393,14 @@ public enum BookingStatus {
         bookingStatus.add(BookingStatus.TRESSPASSER);
         return bookingStatus;
     }
+
+    public static List<BookingStatus> bookingStatusForBookingAmountRealisation() {
+        List<BookingStatus> bookingStatus = new ArrayList<>();
+        bookingStatus.add(BookingStatus.AGREEMENT_PENDING);
+        bookingStatus.add(BookingStatus.AGREEMENT_SENT);
+        bookingStatus.add(BookingStatus.ONBOARDING_PENDING);
+        bookingStatus.add(BookingStatus.ONBOARDING_IN_PROGRESS);
+        return bookingStatus;
+    }
+
 }
