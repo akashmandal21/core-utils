@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+import com.stanzaliving.core.po.generic.dtos.PoDataMigrationDto;
 import com.stanzaliving.vendor.model.VendorPocDetailsDto;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -36,7 +37,6 @@ import com.stanzaliving.po.generic.dto.TOTemplateDto;
 import com.stanzaliving.po.model.PoAggregationDto;
 import com.stanzaliving.po.model.PoResponse;
 import com.stanzaliving.po.model.PropertyPoStatusSummaryDto;
-
 import lombok.extern.log4j.Log4j2;
 
 @Log4j2
@@ -688,7 +688,7 @@ public class POClientApi {
         
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 	}
-	
+
     public ResponseDto<String> getPoPdfAndSendEmail(String poUuid, EmailDto emailDto) {
 
         log.info("HTTP Client call to get PO Pdf{} ", poUuid);
@@ -923,5 +923,33 @@ public class POClientApi {
         String path = UriComponentsBuilder.fromPath("/internal/generic/po/get/shortclosedItems/{poUuid}").buildAndExpand(uriVariables).toUriString();
 
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, map, headerParams, accept, vddReturnType);
+    }
+
+
+    public ResponseDto<List<PoDataMigrationDto>> getPoMigrationData(List<String> poUuids) {
+
+        log.info("HTTP Client call to get PO details {}",poUuids);
+
+        Object postBody = poUuids;
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/internal/generic/po/get/getPoDataMigration/data")
+                .buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams= new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<List<PoDataMigrationDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<PoDataMigrationDto>>>() {
+        };
+
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
     }
 }
