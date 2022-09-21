@@ -24,7 +24,10 @@ public enum EventType {
     PRICE_ESCALATION_ALERT("Price Escalation Alert"),
     CONTRACT_TERMINATION("Contract Termination"),
     CAPTURE_BANK_DETAILS("capture bank details"),
-    INELIGIBLE_REFUNDS_DUE_GREATER_THAN_SD("ineligible refunds due greater than SD");
+    INELIGIBLE_REFUNDS_DUE_GREATER_THAN_SD("ineligible refunds due greater than SD"),
+    BOOKING_IN_PROGRESS("booking in progress"),
+    AUDIT_APPROVED("AUDIT APPROVED"),
+    EXIT_INITIATED("EXIT INITIATED");
 
     private String commandText;
 
