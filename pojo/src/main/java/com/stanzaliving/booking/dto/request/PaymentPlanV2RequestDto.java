@@ -16,6 +16,7 @@ import lombok.NoArgsConstructor;
 public class PaymentPlanV2RequestDto {
 
 	private Double upsell;
+	private Double bumpUpPrice;
 	private String bookingUuid;
 	private DiscountRequestDto discount;
 	
