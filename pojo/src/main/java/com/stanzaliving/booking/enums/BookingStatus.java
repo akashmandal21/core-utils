@@ -36,6 +36,7 @@ public enum BookingStatus {
     GUEST_ONBOARDING_PENDING("GUEST ONBOARDING PENDING"),
     GUEST_ONBOARDING_COMPLETED("GUEST ONBOARDING COMPLETED");
 
+
     private String bookingStatus;
 
     public String getDescription() {
@@ -392,4 +393,14 @@ public enum BookingStatus {
         bookingStatus.add(BookingStatus.TRESSPASSER);
         return bookingStatus;
     }
+
+    public static List<BookingStatus> bookingStatusForBookingAmountRealisation() {
+        List<BookingStatus> bookingStatus = new ArrayList<>();
+        bookingStatus.add(BookingStatus.AGREEMENT_PENDING);
+        bookingStatus.add(BookingStatus.AGREEMENT_SENT);
+        bookingStatus.add(BookingStatus.ONBOARDING_PENDING);
+        bookingStatus.add(BookingStatus.ONBOARDING_IN_PROGRESS);
+        return bookingStatus;
+    }
+
 }
