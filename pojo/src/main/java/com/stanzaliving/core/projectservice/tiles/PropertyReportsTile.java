@@ -30,7 +30,9 @@ public enum PropertyReportsTile {
     BOQ("Master BOQ Formation", true, true, true, Department.DESIGN, PropertyUpdateEnum.DESIGN_BOQ_COMPLETED, "boq",
             null),
     PO("POs", true, true, true, Department.GC, PropertyUpdateEnum.CHECK_COMPLETED_FROM_SOURCE_SERVICE, "screen/po",null),
-    LLHODOC("LL HO",false,true,false,null,null,"", Arrays.asList(PropertyUpdateEnum.LLHODOC_UPLOADED)),
+
+    LLHODOC("LL HO Doc",true,true,false,null,null,"llho", null),
+
     GRN("GRN", true, true, true, Department.GC, PropertyUpdateEnum.CHECK_COMPLETED_FROM_SOURCE_SERVICE, "grn",null),
     HOTO("HOTO", true, true, false, Department.PROJECTS, PropertyUpdateEnum.PROJECTS_HOTO_GENERATED, "hoto",null),
     SERVICE_MIX("Service Mix", true, false, false, Department.DESIGN, PropertyUpdateEnum.SERVICE_MIX_COMPLETED, "servicemix",
