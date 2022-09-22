@@ -16,7 +16,8 @@ public enum EventType {
     TRESSPASSER_BOOKINGS("Tresspasser Bookings"),
     VISIT_SCHEDULED_TODAY("Visit Scheduled Today"),
     VISIT_SCHEDULED_TODAY_1("One Visit Scheduled Today"),
-    VISIT_SCHEDULED("Visit Scheduled");
+    VISIT_SCHEDULED("Visit Scheduled"),
+    PRE_BOOKING_COMPLETED("Pre Booking completed");
     private String commandText;
 
     EventType(String commandText)
