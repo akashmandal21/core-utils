@@ -94,6 +94,6 @@ public class DishMasterSearchIndexDto extends AbstractSearchIndexDto {
 
 	private Set<String> feedbackOptions;
 
-	private Boolean isValidDishDetails;
+	private boolean isValidDishDetails;
 
 }
