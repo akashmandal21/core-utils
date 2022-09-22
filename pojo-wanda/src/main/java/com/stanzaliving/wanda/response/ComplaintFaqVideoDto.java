@@ -17,5 +17,5 @@ public class ComplaintFaqVideoDto {
         private String description;
         private String imgUrl;
         private List<ComplaintFAQDto> faqList;
-        private List<SubCategoryVideoDto> videoDataList;
+        private List<SupportVideoDto> videoDataList;
 }

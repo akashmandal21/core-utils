@@ -14,7 +14,7 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-public class SubCategoryVideoDto {
+public class SupportVideoDto {
 
     private String uuid;
 
