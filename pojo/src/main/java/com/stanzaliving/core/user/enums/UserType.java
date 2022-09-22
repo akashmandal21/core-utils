@@ -37,7 +37,9 @@ public enum UserType {
 	CENTRAL_TEAM("Central Team"),
 	EXTERNAL("External"),
 	GUEST("Guest"),
-	FOOD_DELIVERY_AGENT("Food Delivery Agent");
+	INVITED_GUEST("Invited Guest"),
+	FOOD_DELIVERY_AGENT("Food Delivery Agent"),
+	VENDOR("Vendor");
 
 	public String typeName;
 

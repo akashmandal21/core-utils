@@ -6,14 +6,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
-/**
- * @author jai.jain
- * @package_name com.stanzaliving.core.dto
- * @date 09/05/22
- * @time 02:09
- * @project_name lead-management
- **/
-
 @Getter
 @SuperBuilder
 @NoArgsConstructor

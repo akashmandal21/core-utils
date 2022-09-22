@@ -30,5 +30,8 @@ public class PropertyInfoDto {
 
 	@Builder.Default
 	private int occupancy = Constants.DEFUALT_OCCUPANCY_PERCENT;
-
+	
+	private int price;
+	
+	private int margin;
 }

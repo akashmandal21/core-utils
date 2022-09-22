@@ -1,8 +1,10 @@
 package com.stanzaliving.core.security.policeverification.dto;
 
 
+import com.stanzaliving.core.dto.PageAndSortDto;
 import com.stanzaliving.core.operations.enums.ResidentStatus;
-import com.stanzaliving.core.security.policeverification.enums.Nationality;
+import com.stanzaliving.core.security.policeverification.enums.PVApplicable;
+import com.stanzaliving.core.security.policeverification.enums.PVNationality;
 import com.stanzaliving.core.security.policeverification.enums.PoliceVerificationStatus;
 import com.stanzaliving.core.security.policeverification.enums.RegistrationType;
 import lombok.Getter;
@@ -26,16 +28,22 @@ public class PVListingRequestDto {
     @NotNull(message = "Police Verification Status can not be null")
     private PoliceVerificationStatus policeVerificationStatus;
 
-    private List<String> cityUuids;
+    private PVApplicable pvApplicable;
 
-    private List<String> micromarketUuids;
+    private String searchText;
 
-    private List<String> residentUuids;
+    private List<String> cityNames;
 
-    private List<Nationality> nationality;
+    private List<String> micromarketNames;
+
+    private List<String> residenceNames;
+
+    private List<PVNationality> nationality;
 
     private List<ResidentStatus> residentStatus;
 
     private List<RegistrationType> registrationType;
+
+    private PageAndSortDto pageDto;
 
 }
