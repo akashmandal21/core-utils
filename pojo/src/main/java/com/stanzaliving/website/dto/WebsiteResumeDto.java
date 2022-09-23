@@ -22,13 +22,13 @@ public class WebsiteResumeDto extends AbstractDto {
 
 	private String email;
 
-	private String description;
-
 	private String profileLinks;
 
 	private String resumeLink;
 
 	private String source;
+
+	private String description;
 
 	private String requestReceivedOn;
 }
