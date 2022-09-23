@@ -149,10 +149,12 @@ public enum LeadSourceEnum {
     WHATSAPP("Whatsapp", LeadSourceGroupEnum.DIGITAL),
     WHATSAPP_WEBSITE("Whatsapp-Website", LeadSourceGroupEnum.DIGITAL),
     WISHLIST_PAGE("Wishlist Page", LeadSourceGroupEnum.DIGITAL),
+
     WISHLIST_WEB_CHATBOT("Wishlist Web Chatbot", LeadSourceGroupEnum.DIGITAL),
     ZOHO("zoho", LeadSourceGroupEnum.OTHERS),
 
-    UNLOCK_DISCOUNT_FORM("Website - Discount", LeadSourceGroupEnum.DIGITAL);
+    UNLOCK_DISCOUNT_FORM("Website-Discount", LeadSourceGroupEnum.DIGITAL);
+
 
     private static Map<LeadSourceEnum, String> leadSourceDescMap = new HashMap<>();
     private static Map<String, LeadSourceEnum> leadNameSourceMap = new HashMap<>();

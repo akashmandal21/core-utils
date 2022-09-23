@@ -122,28 +122,6 @@ public class VentaClientApi {
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
 
-	public Boolean verifyReferralCode(String referralCode) {
-
-		Object postBody = null;
-
-		final Map<String, Object> uriVariables = new HashMap<>();
-		// uriVariables.put("userUuid", userUuid);
-
-		String path = UriComponentsBuilder.fromPath("/referral/verify").buildAndExpand(uriVariables).toUriString();
-
-		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-		queryParams.add("referralCode", referralCode);
-
-		final HttpHeaders headerParams = new HttpHeaders();
-
-		final String[] accepts = { "*/*" };
-		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-
-		ParameterizedTypeReference<Boolean> returnType = new ParameterizedTypeReference<Boolean>() {
-		};
-		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
-	}
-
 	public String getPdfUrlByType(String type, String typeId, String typeName) {
 
 		Object postBody = null;
@@ -539,6 +517,29 @@ public class VentaClientApi {
 			log.error("Error while fetching referral details: {}", e);
 			return null;
 		}
+	}
+
+
+	public Boolean verifyReferralCode(String referralCode) {
+
+		Object postBody = null;
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+		// uriVariables.put("userUuid", userUuid);
+
+		String path = UriComponentsBuilder.fromPath("/referral/verify").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		queryParams.add("referralCode", referralCode);
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = { "*/*" };
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<Boolean> returnType = new ParameterizedTypeReference<Boolean>() {
+		};
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
 
 }
