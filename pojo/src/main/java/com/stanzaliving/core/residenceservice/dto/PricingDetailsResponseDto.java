@@ -22,4 +22,5 @@ public class PricingDetailsResponseDto {
     private double underWritten;
     private double cityBuffer;
     private double total;
+    private double underWrittenIncGst;
 }

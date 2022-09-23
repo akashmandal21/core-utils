@@ -11,6 +11,8 @@ public enum BookingEventEnum {
     BOOKING_DETAILS_UPDATED("Booking Details Updated"),
     INITIATE_BOOKING("Initiate Booking"),
     TOKEN_AMOUNT_PAID("Token Amount Paid"),
+    TOKEN_AMOUNT_REFUNDED("Token Amount Refunded"),
+    COLLECT_PAYMENT_FROM_RESIDENT("Collect Payment From Resident"),
     CONFIRM_BOOKING("Confirm Booking"),
     BOOKING_EXPIRED("Booking Expired"),
     PAYMENT_MODE_OFFLINE("Payment Mode Offline"),
@@ -82,7 +84,7 @@ public enum BookingEventEnum {
     CONTRACT_MODIFIED("Contract is modified successfully"),
     CONTRACT_START_DATE_CROSSED("Contract Start Date Crossed"),
     BOOKING_AUTO_FORFEITURE("Booking Auto Forfeiture");
-	
-	String eventName;
+
+    private final String eventName;
 
 }

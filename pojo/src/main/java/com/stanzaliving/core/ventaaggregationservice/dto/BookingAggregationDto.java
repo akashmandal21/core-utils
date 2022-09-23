@@ -105,5 +105,8 @@ public class BookingAggregationDto {
     private String movedInStatusBackgroundColour;
     private String movedInStatus;
     private Double securityDeposit;
-
+    private String createdByName;
+    private boolean guestBooking;
+    private String primaryOwnerName;
+    private Date expectedMoveOutDate;
 }

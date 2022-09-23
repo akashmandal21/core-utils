@@ -111,6 +111,16 @@ public enum Role {
 	CITY_ELECTRICITY_SPLITTER_L2_APPROVER("CITY_ELECTRICITY_SPLITTER_L2_APPROVER", AccessLevel.CITY, Department.OPS),
 	COUNTRY_ELECTRICITY_SPLITTER_L3_APPROVER("COUNTRY_ELECTRICITY_SPLITTER_L3_APPROVER", AccessLevel.COUNTRY, Department.OPS),
 
+    /************************************ DISH DEBAR ************************************/
+    DISH_DEBAR_CITY_L1_APPROVER("City - Debar Approval L1", AccessLevel.CITY, Department.FOOD_OPS),
+    DISH_DEBAR_COUNTRY_L2_APPROVER("Country - Debar Approval L2", AccessLevel.COUNTRY, Department.FOOD_OPS),
+    DISH_DEBAR_COUNTRY_L3_APPROVER("Country - Debar Approval L3", AccessLevel.COUNTRY, Department.FOOD_OPS),
+
+    /************************************ DISH REACTIVATION ************************************/
+    DISH_REACTIVATION_CITY_L1_APPROVER("City - Reactivate Dish Approval L1", AccessLevel.CITY, Department.FOOD_OPS),
+    DISH_REACTIVATION_COUNTRY_L2_APPROVER("Country - Reactivate Dish Approval L2", AccessLevel.COUNTRY, Department.FOOD_OPS),
+    DISH_REACTIVATION_COUNTRY_L3_APPROVER("Country - Reactivate Dish Approval L3", AccessLevel.COUNTRY, Department.FOOD_OPS),
+
 
     /********************************* GENERIC-APPROVAL-DASHBOARD *************************************/
 

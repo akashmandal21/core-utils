@@ -10,7 +10,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.CompletableFuture;
+import java.util.stream.Collectors;
 
+import com.stanzaliving.core.base.exception.StanzaHttpException;
+import com.sun.org.apache.bcel.internal.generic.ArrayInstruction;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -601,6 +604,40 @@ public class InternalDataControllerApi {
 
     }
 
+
+    public List<String> getCityIdFromCityUUid(List<String> cityUuids) {
+        Object postBody = cityUuids;
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+        String path = UriComponentsBuilder.fromPath("/city/get/cityByUuids").buildAndExpand(uriVariables).toUriString();
+        log.info("Path for get all cities is for commercial code is {}", path);
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        final HttpHeaders headerParams = new HttpHeaders();
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<List<CityUIDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<CityUIDto>>>() {
+        };
+        ResponseDto<List<CityUIDto>> response = restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+        List<String> cityIdList = new ArrayList<>();
+        if(Objects.nonNull(response) && Objects.nonNull(response.getData())){
+            try {
+                cityIdList =  response.getData().stream().map(CityUIDto::getId).map(String::valueOf).collect(Collectors.toList());
+                if(!cityIdList.isEmpty()){
+                    return cityIdList;
+                } else return null;
+            } catch(Exception e){
+                for(CityUIDto city : response.getData()){
+                    cityIdList.add(String.valueOf(city.getId()));
+                }
+                return cityIdList;
+            }
+        }
+        log.info("Response for get all cities is for commercial code is {}", cityIdList);
+        return null;
+    }
+
     public ResponseDto<CityUIDto> getCityDtoUsingId(Long cityId) {
 
         Object postBody = null;
@@ -765,7 +802,17 @@ public class InternalDataControllerApi {
 
         ParameterizedTypeReference<ResponseDto<List<ResidenceUIDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<ResidenceUIDto>>>() {
         };
-        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+        try {
+            ResponseDto<List<ResidenceUIDto>> responseDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+            if (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) {
+                return responseDto;
+            }
+        } catch(Exception exception){
+            log.error("Error while fetching residence ",exception);
+            throw new StanzaHttpException("Transformation is down: " + exception.getMessage(), exception);
+        }
+        log.error("Error while fetching residence");
+        throw new StanzaHttpException("Error while fetching Residence List");
     }
 
     public ResponseDto<List<ResidenceDto>> getResidenceDetailsByResidenceUuids(List<String> residenceUuids) {
@@ -1277,4 +1324,78 @@ public class InternalDataControllerApi {
         }
         return null;
     }
+
+    public ResponseDto<MicroMarketUIDto> getMicroMarketUIDtoByNameAndCityId(String name, String cityId) {
+
+        Object postBody = null;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("name", name);
+        uriVariables.put("cityId",cityId);
+
+        String path = UriComponentsBuilder.fromPath("/internal/micromarket/get/name/{name}/cityId/{cityId}").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<MicroMarketUIDto>> returnType = new ParameterizedTypeReference<ResponseDto<MicroMarketUIDto>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+    }
+
+    public ResponseDto<List<AddressBookMetaDto>> getAllAddressBook() {
+
+        Object postBody = null;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/internal/get/addresses/all").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<List<AddressBookMetaDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<AddressBookMetaDto>>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+    }
+
+
+    public ResponseDto<List<AddressBookMetaDto>> getAllAddressBookData() {
+
+        Object postBody = null;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/internal/get/all/addresses").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<List<AddressBookMetaDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<AddressBookMetaDto>>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+    }
+
+
 }

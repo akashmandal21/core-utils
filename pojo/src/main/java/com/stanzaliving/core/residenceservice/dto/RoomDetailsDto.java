@@ -6,12 +6,14 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class RoomDetailsDto {
+public class RoomDetailsDto implements Serializable {
     String uuid;
     String roomStatus;
     private float availableBeds = 0.0F;

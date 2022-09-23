@@ -36,6 +36,7 @@ public class ComplaintListingDto {
 	private String complaintStatus;
 	private Date created;
 	private Date closedAt;
+	private Date resolvedAt;
 	@Builder.Default
 	private Boolean satisfied = Boolean.FALSE;
 	private String complaintTypeName;
