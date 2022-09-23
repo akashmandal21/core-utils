@@ -28,5 +28,7 @@ public class WebsiteResumeDto extends AbstractDto {
 
 	private String resumeLink;
 
+	private String source;
+
 	private String requestReceivedOn;
 }
