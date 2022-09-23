@@ -24,7 +24,20 @@ public enum EventType {
     PRICE_ESCALATION_ALERT("Price Escalation Alert"),
     CONTRACT_TERMINATION("Contract Termination"),
     CAPTURE_BANK_DETAILS("capture bank details"),
-    INELIGIBLE_REFUNDS_DUE_GREATER_THAN_SD("ineligible refunds due greater than SD");
+    INELIGIBLE_REFUNDS_DUE_GREATER_THAN_SD("ineligible refunds due greater than SD"),
+    BOOKING_IN_PROGRESS("booking in progress"),
+    AUDIT_APPROVED("AUDIT APPROVED"),
+    EXIT_INITIATED("EXIT INITIATED"),
+    COMPLETED_COURSE("Completed my course or changed my job"),
+    FACING_ISSUES("facing issues"),
+    FOUND_CHEAPER("Found another cheaper option"),
+    HEALTH_ISSUE("Health issues"),
+    RELOCATING("Relocating to another city"),
+    RIGID_GUEST("Rigid guest policy"),
+    CLOSED_PROPERTY("Stanza has closed property"),
+    TOO_FAR("Too far from my office"),
+    PROMISED_DIFFERENT_RENT("promised different rent"),
+    LACK_OF_PRIVACY("Lack of privacy in hostel");
 
     private String commandText;
 
