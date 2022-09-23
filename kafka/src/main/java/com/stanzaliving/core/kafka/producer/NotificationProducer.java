@@ -28,11 +28,20 @@ import lombok.extern.log4j.Log4j2;
 @Service
 public class NotificationProducer {
 
-	@Autowired
-	private ObjectMapper objectMapper;
+
+	private static ObjectMapper objectMapper;
+
+	private static KafkaTemplate<String, String> kafkaTemplate;
 
 	@Autowired
-	private KafkaTemplate<String, String> kafkaTemplate;
+	public void setObjectMapper(ObjectMapper objectMapper){
+		NotificationProducer.objectMapper = objectMapper;
+	}
+	@Autowired
+	public void setKafkaTemplate(KafkaTemplate<String, String> kafkaTemplate){
+		NotificationProducer.kafkaTemplate = kafkaTemplate;
+	}
+
 
 	public void publish(String topic, String className, Object value) {
 
