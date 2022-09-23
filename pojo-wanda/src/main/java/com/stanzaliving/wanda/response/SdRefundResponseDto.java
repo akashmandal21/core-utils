@@ -29,7 +29,6 @@ public class SdRefundResponseDto {
     private String residenceName;
     private String microMarketName;
     private String cityName;
-    private boolean bankDetailsAvailable;
     private SdRefundStateDetails moveOutDate;
     private SdRefundStateDetails roomAudit;
     private SdRefundStateDetails refund;
