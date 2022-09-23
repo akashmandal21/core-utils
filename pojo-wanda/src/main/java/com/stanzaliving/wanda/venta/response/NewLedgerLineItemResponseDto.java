@@ -34,6 +34,7 @@ public class NewLedgerLineItemResponseDto implements Comparable {
 	private List<String> transactionIds;
 	private String amountString;
 	private String balanceString;
+	private Boolean isLastTransaction;
 
 	@Override
 	public int compareTo(Object o) {

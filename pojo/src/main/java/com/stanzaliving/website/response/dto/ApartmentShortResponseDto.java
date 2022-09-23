@@ -2,6 +2,7 @@ package com.stanzaliving.website.response.dto;
 
 import java.io.Serializable;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import com.stanzaliving.website.enums.FomoTag;
@@ -67,6 +68,16 @@ public class ApartmentShortResponseDto implements Serializable {
 	private String transformationUuid;
 	
 	private String transformationId;
+	
+	private Double latitude;
+	
+	private Double longitude;
+	
+	private Double distanceFromPlace;
+	
+	private List<FeatureResponseDTO> features;
+
+	private AddressResponseDTO addressResponseDTO;
 	
 	@Builder.Default
 	private Set<ImageResponseDTO> images = new HashSet<>();

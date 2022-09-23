@@ -14,6 +14,7 @@ public enum EventType {
     AGREEMENT_PENDING("Agreement Pending"),
     MODIFY_CONTRACT_REQUEST("Modify Contract Request"),
     TRESSPASSER_BOOKINGS("Tresspasser Bookings"),
+<<<<<<< HEAD
     PRICE_ESCALATION_ALERT("Price Escalation Alert"),
     AUDIT_REJECTED("Audit Rejected"),
     AUDIT_APPROVED_EMAIL("Audit Approved Email"),
@@ -27,6 +28,16 @@ public enum EventType {
     INVITE_GUEST_EMAIL("Invite Guest Email"),
     CANCEL_INVITE_GUEST_SMS("Cancel Invite Guest Sms"),
     CANCEL_INVITE_GUEST_EMAIL("Cancel Invite Guest Email");
+=======
+    VISIT_SCHEDULED_TODAY("Visit Scheduled Today"),
+    VISIT_SCHEDULED_TODAY_1("One Visit Scheduled Today"),
+    VISIT_SCHEDULED("Visit Scheduled"),
+    INVITE_GUEST_SMS("Invite Guest Sms"),
+    INVITE_GUEST_EMAIL("Invite Guest Email"),
+    CANCEL_INVITE_GUEST_SMS("Cancel Invite Guest Sms"),
+    CANCEL_INVITE_GUEST_EMAIL("Cancel Invite Guest Email"),
+    PRICE_ESCALATION_ALERT("Price Escalation Alert");
+>>>>>>> e8e765ccb1b5a15ab2bb9ac56ec9cab09c4b0ed8
     private String commandText;
 
     EventType(String commandText)

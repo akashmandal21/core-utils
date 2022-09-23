@@ -7,6 +7,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum BookingEventEnum {
 	BOOKING_CREATED("Booking Created"),
+    GUEST_BOOKING_CREATED("Guest Booking Created"),
     BOOKING_DETAILS_UPDATED("Booking Details Updated"),
     INITIATE_BOOKING("Initiate Booking"),
     TOKEN_AMOUNT_PAID("Token Amount Paid"),
@@ -56,7 +57,10 @@ public enum BookingEventEnum {
     VAS_OPT_IN_EMAIL("Vas Opt In Email"),
     VAS_OPT_OUT_EMAIL("Vas Opt Out Email"),
     CONTRACT_END("Contract"),
-    LOCK_IN_END("Lock-in period");
+    LOCK_IN_END("Lock-in period"),
+    AUDIT_APPROVAL_PENDING("Audit Approval Pending"),
+    CONTRACT_START_DATE_CROSSED("Contract Start Date Crossed"),
+    BOOKING_AUTO_FORFEITURE("Booking Auto Forfeiture");
 
 	String eventName;
 
