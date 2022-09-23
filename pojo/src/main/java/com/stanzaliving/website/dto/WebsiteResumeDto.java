@@ -4,6 +4,7 @@ import com.stanzaliving.core.base.common.dto.AbstractDto;
 import lombok.*;
 
 import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
 
 @Builder
 @NoArgsConstructor
@@ -26,4 +27,6 @@ public class WebsiteResumeDto extends AbstractDto {
 	private String profileLinks;
 
 	private String resumeLink;
+
+	private String requestReceivedOn;
 }

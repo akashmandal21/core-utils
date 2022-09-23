@@ -44,5 +44,5 @@ public interface AbstractJpaRepository<T extends AbstractJpaEntity, I extends Se
 
     List<T> findByCreatedBy(String createdByUuid);
 
-	List<T> findByCreatedByAfter(Date dateLastNDays);
+	List<T> findByCreatedAtAfter(Date dateLastNDays);
 }
