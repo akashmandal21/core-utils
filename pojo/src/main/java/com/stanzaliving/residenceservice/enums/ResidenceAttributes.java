@@ -49,7 +49,6 @@ public enum ResidenceAttributes {
 
     UNDERWRITE_FINANCE("Underwrite Price", "Double"),
     PRICE_ESCALATION_ENABLE("Price Escalation Enabled", "Boolean"),
-
     BOOKING_AUTO_FORFEITURE_DURATION_IN_DAYS("Booking Auto Forfeiture Duration in Days", "Integer"),
     MAXIMUM_ALLOWED_DAYS_AFTER_BOOKING_AUTO_FORFEITURE("Maximum Allowed Days After Booking Auto Forfeiture", "Integer"),
     MAXIMUM_WAIVE_OFF_PERCENTAGE("Maximum Waive off Percentage", "Double");

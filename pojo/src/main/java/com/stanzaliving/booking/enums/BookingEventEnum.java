@@ -85,6 +85,15 @@ public enum BookingEventEnum {
     CONTRACT_START_DATE_CROSSED("Contract Start Date Crossed"),
     BOOKING_AUTO_FORFEITURE("Booking Auto Forfeiture");
 
+
+
+
+
+
+
+
+
+    
     String eventName;
 
 }
