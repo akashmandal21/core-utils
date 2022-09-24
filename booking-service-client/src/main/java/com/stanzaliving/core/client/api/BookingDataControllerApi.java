@@ -89,7 +89,6 @@ public class BookingDataControllerApi {
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-//        queryParams.add
 
         final HttpHeaders headerParams = new HttpHeaders();
 
@@ -966,7 +965,7 @@ public class BookingDataControllerApi {
         };
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
     }
-    
+
     public ResponseDto<BookingWaiveOffDetailsResponseDto> getBookingWaiveOffAmount(String bookingUuid) {
         Object postBody = null;
 
@@ -1072,8 +1071,6 @@ public class BookingDataControllerApi {
         };
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
     }
-
-
 
     public ResponseDto<Boolean> expireDeal(String dealUuid) {
         Object postBody = null;
