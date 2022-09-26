@@ -22,7 +22,7 @@ import java.util.List;
 public class PropertyOnboardDto extends AbstractMongoDto {
     @JsonProperty("name")
     @EmptyOrNull(message = "Property name cannot be empty or null")
-    @Size(max = 30, message = "Property name should be less than 30 characters")
+    @Size(max = 50, message = "Property name should be less than 50 characters")
     private String name;
 
     @JsonProperty("propertyTypeUuid")
