@@ -78,6 +78,8 @@ public class ResidenceAggregationEntityDto {
 
     private boolean testHouse;
 
+    private Double managementFeePercentage;
+
 }
 
 
