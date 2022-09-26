@@ -1,12 +1,10 @@
 package com.stanzaliving.core.ventaaggregationservice.dto;
 
+import com.stanzaliving.booking.enums.ResidenceAgreementType;
 import com.stanzaliving.core.enums.ResidenceType;
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.Transient;
+import javax.persistence.*;
 import java.util.HashMap;
 import java.util.List;
 
@@ -77,6 +75,12 @@ public class ResidenceAggregationEntityDto {
     private ResidenceType residenceType;
 
     private boolean testHouse;
+
+    private Double residenceFixedRent;
+
+    private Double residenceManagementFeePercentage;
+
+    private ResidenceAgreementType residenceAgreementType;
 
 }
 
