@@ -1086,8 +1086,6 @@ public class BookingDataControllerApi {
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, requestBody, headerParams, accept, returnType);
     }
 
-}
-
     public ResponseDto<List<GstDto>> getGstDetails(String amount) {
         final Map<String, Object> uriVariables = new HashMap<>();
         String path = UriComponentsBuilder.fromPath("/applicable-gst-details").buildAndExpand(uriVariables).toUriString();
