@@ -78,7 +78,11 @@ public class ResidenceAggregationEntityDto {
 
     private boolean testHouse;
 
-    private Double managementFeePercentage;
+    private Double residenceFixedRent;
+
+    private Double residenceManagementFeePercentage;
+
+    private ResidenceAgreementType residenceAgreementType;
 
 }
 
