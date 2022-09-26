@@ -934,7 +934,7 @@ public class POClientApi {
 
         final Map<String, Object> uriVariables = new HashMap<>();
 
-        String path = UriComponentsBuilder.fromPath("/internal/generic/po/get/getPoDataMigration/data")
+        String path = UriComponentsBuilder.fromPath("/internal/generic/po/getPoDetails")
                 .buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams= new LinkedMultiValueMap<>();
