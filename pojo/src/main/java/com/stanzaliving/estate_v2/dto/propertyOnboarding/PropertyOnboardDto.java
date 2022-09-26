@@ -18,7 +18,7 @@ import java.util.List;
 @AllArgsConstructor
 public class PropertyOnboardDto extends AbstractMongoDto {
     @EmptyOrNull(message = "Property name cannot be empty or null")
-    @Size(max = 30, message = "Property name should be less than 30 characters")
+    @Size(max = 50, message = "Property name should be less than 50 characters")
     private String name;
     @EmptyOrNull(message = " Property type Uuid cannot be empty or null")
     private String propertyTypeUuid;
