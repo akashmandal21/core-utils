@@ -1,5 +1,6 @@
 package com.stanzaliving.core.ventaaggregationservice.dto;
 
+import com.stanzaliving.booking.enums.ResidenceAgreementType;
 import com.stanzaliving.core.enums.ResidenceType;
 import lombok.*;
 
