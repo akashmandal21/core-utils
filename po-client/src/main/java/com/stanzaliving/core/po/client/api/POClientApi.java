@@ -924,31 +924,4 @@ public class POClientApi {
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, map, headerParams, accept, vddReturnType);
     }
 
-
-    public ResponseDto<List<PoDataMigrationDto>> getPoMigrationData(List<String> poUuids) {
-
-        log.info("HTTP Client call to get PO details {}",poUuids);
-
-        Object postBody = poUuids;
-
-        final Map<String, Object> uriVariables = new HashMap<>();
-
-        String path = UriComponentsBuilder.fromPath("/internal/generic/po/getPoDetails")
-                .buildAndExpand(uriVariables).toUriString();
-
-        final MultiValueMap<String, String> queryParams= new LinkedMultiValueMap<>();
-
-        final HttpHeaders headerParams = new HttpHeaders();
-
-        final String[] accepts = {
-                "*/*"
-        };
-
-        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-
-        ParameterizedTypeReference<ResponseDto<List<PoDataMigrationDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<PoDataMigrationDto>>>() {
-        };
-
-        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
-    }
 }
