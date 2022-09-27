@@ -21,7 +21,9 @@ public enum SettleLedgerActionStatus {
     RAISED_TO_NODAL("Raised To Nodal"),
     PENDING_ON_FINANCE_APPROVAL("Pending On Finance Approval"),
     PENDING_ON_RAZORPAYX("Pending On RazorpayX"),
-    STATUS_CHECK("Status Check");
+    STATUS_CHECK("Status Check"),
+    CANCELLED("Cancelled By RazorpayX"),
+    REVERSED("Reversed By RazorpayX");
 
 
     private String name;
