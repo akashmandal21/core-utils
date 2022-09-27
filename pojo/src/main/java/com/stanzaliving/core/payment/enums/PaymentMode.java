@@ -38,7 +38,7 @@ public enum PaymentMode {
 	RAZORPAY_PAYMENT_LINK("RAZORPAY_PAYMENT_LINK", 23),
 	BOOKING_AMOUNT_CARRY_FORWARD("Booking Amount Carry Forward", 24),
 	CASHFREE("CASHFREE", 25),
-	CASHFREE_SDK("CashFree Sdk",26);
+	CASHFREE_SDK("CASHFREE SDK",26);
 
 	private String paymentModeDesc;
 	private int paymentModeId;
