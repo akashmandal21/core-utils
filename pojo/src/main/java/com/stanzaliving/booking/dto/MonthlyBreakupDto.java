@@ -6,7 +6,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.validation.Valid;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
@@ -16,14 +15,13 @@ import java.util.Optional;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-	
 public class MonthlyBreakupDto implements Serializable {
 
     private Double subContract1MonthlyRent;
 
     private Double subContract2MonthlyRent;
-    
-	private Double monthlyFee;
+
+    private Double monthlyFee;
 
     private Double licenseFee;
 
@@ -43,40 +41,50 @@ public class MonthlyBreakupDto implements Serializable {
 
     private List<ServicePriceDto> vasPriceDto;
 
-//    @Valid
     private ServicePriceDto accommodationPriceDto;
 
-//    @Valid
     private ServicePriceDto upsellPriceDto;
-
-    //    @Valid
     private ServicePriceDto bumpUpPriceDto;
-
-//    @Valid
     private ServicePriceDto cityBufferPriceDto;
 
     public Double getMonthlyFee() {
-        if(Objects.isNull(this.monthlyFee))
+        if (Objects.isNull(this.monthlyFee))
             return 0D;
         return this.monthlyFee;
     }
 
+    public void setMonthlyFee(final Double monthlyFee) {
+        this.monthlyFee = monthlyFee;
+    }
+
     public Double getLicenseFee() {
-        if(Objects.isNull(this.licenseFee))
+        if (Objects.isNull(this.licenseFee))
             return 0D;
         return this.licenseFee;
     }
 
+    public void setLicenseFee(final Double licenseFee) {
+        this.licenseFee = licenseFee;
+    }
+
     public Double getCityHeadBuffer() {
-        if(Objects.isNull(this.cityHeadBuffer))
+        if (Objects.isNull(this.cityHeadBuffer))
             return 0D;
         return this.cityHeadBuffer;
     }
 
+    public void setCityHeadBuffer(final Double cityHeadBuffer) {
+        this.cityHeadBuffer = cityHeadBuffer;
+    }
+
     public Double getUpsell() {
-        if(Objects.isNull(this.upsell))
+        if (Objects.isNull(this.upsell))
             return 0D;
         return this.upsell;
+    }
+
+    public void setUpsell(final Double upsell) {
+        this.upsell = upsell;
     }
 
     public Double getBumpUpPrice() {
@@ -89,10 +97,18 @@ public class MonthlyBreakupDto implements Serializable {
         return this.packagedServicePriceDto;
     }
 
+    public void setPackagedServicePriceDto(final ServicePriceDto packagedServicePriceDto) {
+        this.packagedServicePriceDto = packagedServicePriceDto;
+    }
+
     public ServicePriceDto getFoodServicePriceDto() {
         if (Objects.isNull(this.foodServicePriceDto))
             return new ServicePriceDto();
         return this.foodServicePriceDto;
+    }
+
+    public void setFoodServicePriceDto(final ServicePriceDto foodServicePriceDto) {
+        this.foodServicePriceDto = foodServicePriceDto;
     }
 
     public ServicePriceDto getAccommodationPriceDto() {
@@ -101,14 +117,26 @@ public class MonthlyBreakupDto implements Serializable {
         return this.accommodationPriceDto;
     }
 
+    public void setAccommodationPriceDto(final ServicePriceDto accommodationPriceDto) {
+        this.accommodationPriceDto = accommodationPriceDto;
+    }
+
     public ServicePriceDto getUpsellPriceDto() {
         if (Objects.isNull(this.upsellPriceDto))
             return new ServicePriceDto();
         return this.upsellPriceDto;
     }
 
+    public void setUpsellPriceDto(final ServicePriceDto upsellPriceDto) {
+        this.upsellPriceDto = upsellPriceDto;
+    }
+
     public ServicePriceDto getBumpUpPriceDto() {
         return Optional.ofNullable(this.bumpUpPriceDto).orElse(new ServicePriceDto());
+    }
+
+    public void setBumpUpPriceDto(final ServicePriceDto bumpUpPriceDto) {
+        this.bumpUpPriceDto = bumpUpPriceDto;
     }
 
     public ServicePriceDto getCityBufferPriceDto() {
@@ -117,47 +145,14 @@ public class MonthlyBreakupDto implements Serializable {
         return this.cityBufferPriceDto;
     }
 
-    public void setMonthlyFee(final Double monthlyFee) {
-        this.monthlyFee = monthlyFee;
-    }
 
-    public void setLicenseFee(final Double licenseFee) {
-        this.licenseFee = licenseFee;
-    }
-
-    public void setCityHeadBuffer(final Double cityHeadBuffer) {
-        this.cityHeadBuffer = cityHeadBuffer;
-    }
-
-    public void setUpsell(final Double upsell) {
-        this.upsell = upsell;
-    }
 
     public void setBumpUpPrice(final Double bumpUpPrice) {
         this.bumpUpPrice = bumpUpPrice;
     }
 
-    public void setPackagedServicePriceDto(final ServicePriceDto packagedServicePriceDto) {
-        this.packagedServicePriceDto = packagedServicePriceDto;
-    }
-
-    public void setFoodServicePriceDto(final ServicePriceDto foodServicePriceDto) {
-        this.foodServicePriceDto = foodServicePriceDto;
-    }
-
-    public void setAccommodationPriceDto(final ServicePriceDto accommodationPriceDto) {
-        this.accommodationPriceDto = accommodationPriceDto;
-    }
-
-    public void setUpsellPriceDto(final ServicePriceDto upsellPriceDto) {
-        this.upsellPriceDto = upsellPriceDto;
-    }
-
-    public void setBumpUpPriceDto(final ServicePriceDto bumpUpPriceDto) {
-        this.bumpUpPriceDto = bumpUpPriceDto;
-    }
-
     public void setCityBufferPriceDto(final ServicePriceDto cityBufferPriceDto) {
         this.cityBufferPriceDto = cityBufferPriceDto;
     }
+
 }

@@ -14,8 +14,7 @@ import lombok.Getter;
 public enum ResidenceAttributes {
 
     BOOKING_FLOW("Booking Flow", "String"),
-   
-    
+
     CITY_HEAD_BUFFER_CONTRIBUTION("City Head Buffer Contribution", "String"),
     AUTO_BOOKING_CANCELLATION_TIME("Auto Booking Cancellation Time", "String"),
     MODIFY_CONTRACT_CUT_OFF_DAYS("Modify Contract Cut off Days", "String"),
@@ -59,8 +58,6 @@ public enum ResidenceAttributes {
     MAX_DURATION_TO_PUSH_CONTRACT("Max Duration To Push Contract", "String"),
     MIN_DURATION_BEFORE_MOVE_IN_DATE_CHANGE("Min Duration Before Move In Date change", "String"),
     MIN_DURATION_BEFORE_CURRENT_DATE("Min Duration Before Current Date", "String");
-
-
     private String label;
     private String type;
 

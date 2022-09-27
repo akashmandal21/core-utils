@@ -27,6 +27,7 @@ public enum BoqLabel {
     B2B_DEAL_EXPENSE("B2B DEAL EXPENSE"),
     PILOT_COST("PILOT COST"),
     REFURB_MISPLACED_ITEMS("Refurb - Misplaced Items"),
+    REFURB_R_AND_M("Refurb - R&M"),
     NA("NA"); // not to be used while labeling. (only used to tag legacy boqs)
 
     private final String boqLabelText;
