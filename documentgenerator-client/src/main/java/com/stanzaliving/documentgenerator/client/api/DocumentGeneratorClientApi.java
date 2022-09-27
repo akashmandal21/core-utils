@@ -2,6 +2,7 @@ package com.stanzaliving.documentgenerator.client.api;
 
 import java.util.List;
 
+import com.stanzaliving.documentgenerator.dto.PdfDocumentDto;
 import com.stanzaliving.documentgenerator.dto.PdfStampingDto;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -104,6 +105,27 @@ public class DocumentGeneratorClientApi {
 		};
 
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, pdfStampingDto, headerParams, accept,
+				returnType);
+	}
+
+	public byte[] generateIsBrochurePdf(PdfDocumentDto pdfDocumentDto) {
+
+		log.info("DocumentGeneratorClientApi - generateIsBrochurePdf " + pdfDocumentDto);
+
+		String path = UriComponentsBuilder.fromPath("/generate/isbrochure/pdf").toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = { "*/*" };
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<byte[]> returnType = new ParameterizedTypeReference<byte[]>() {
+		};
+
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, pdfDocumentDto, headerParams, accept,
 				returnType);
 	}
 
