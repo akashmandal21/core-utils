@@ -21,7 +21,9 @@ public enum EventType {
     INVITE_GUEST_EMAIL("Invite Guest Email"),
     CANCEL_INVITE_GUEST_SMS("Cancel Invite Guest Sms"),
     CANCEL_INVITE_GUEST_EMAIL("Cancel Invite Guest Email"),
-    REFUND_SUCCESSFULLY_PROCESSED("Refund successfully processed");
+    REFUND_SUCCESSFULLY_PROCESSED("Refund successfully processed"),
+    INELIGIBLE_REFUNDS_DUE_GREATER_THAN_SD("ineligible refunds due greater than SD"),
+    INELIGIBLE_REFUNDS_LEFT_WITHIN_LOCKIN("ineligible refunds within lockin");
     private String commandText;
 
     EventType(String commandText)
