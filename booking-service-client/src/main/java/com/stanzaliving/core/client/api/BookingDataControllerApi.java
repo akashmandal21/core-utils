@@ -89,7 +89,6 @@ public class BookingDataControllerApi {
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-//        queryParams.add
 
         final HttpHeaders headerParams = new HttpHeaders();
 
