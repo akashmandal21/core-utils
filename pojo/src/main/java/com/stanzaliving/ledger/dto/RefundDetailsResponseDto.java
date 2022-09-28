@@ -27,4 +27,6 @@ public class RefundDetailsResponseDto {
 
     private String rejectedReason;
 
+    private String utrNumber;
+
 }
