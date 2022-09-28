@@ -4,6 +4,7 @@ package com.stanzaliving.ventaInvoice.dto;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.stanzaliving.ventaInvoice.enums.InvoiceType;
 import com.stanzaliving.ventaInvoice.enums.ReferenceType;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -14,6 +15,7 @@ import java.util.List;
 @Getter
 @Setter
 @ToString
+@Builder
 public class DocumentResponseDto {
     private String uuid;
     private Long id;
