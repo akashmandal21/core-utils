@@ -24,7 +24,13 @@ public enum EventType {
     REFUND_SUCCESSFULLY_PROCESSED("Refund successfully processed"),
     INELIGIBLE_REFUNDS_DUE_GREATER_THAN_SD("ineligible refunds due greater than SD"),
     INELIGIBLE_REFUNDS_LEFT_WITHIN_LOCKIN("ineligible refunds within lockin"),
-    PRICE_ESCALATION_ALERT("Price Escalation Alert");
+    PRICE_ESCALATION_ALERT("Price Escalation Alert"),
+    CONTRACT_TERMINATION("Contract Termination"),
+    CAPTURE_BANK_DETAILS("capture bank details");
+
+
+
+
     private String commandText;
 
     EventType(String commandText)
