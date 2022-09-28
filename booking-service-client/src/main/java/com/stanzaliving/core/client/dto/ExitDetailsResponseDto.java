@@ -82,4 +82,11 @@ public class ExitDetailsResponseDto {
 
     @JsonFormat(pattern="yyyy-MM-dd")
     private LocalDate maxMoveOutDate;
+
+
+    @JsonFormat(pattern="yyyy-MM-dd")
+    private LocalDate chargedTillDate;
+
+    @JsonFormat(pattern="yyyy-MM-dd")
+    private LocalDate noticePeriodStartDate;
 }
