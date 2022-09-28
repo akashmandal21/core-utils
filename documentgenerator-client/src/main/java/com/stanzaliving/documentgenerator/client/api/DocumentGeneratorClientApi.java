@@ -108,7 +108,7 @@ public class DocumentGeneratorClientApi {
 				returnType);
 	}
 
-	public byte[] generateIsBrochurePdf(PdfDocumentDto pdfDocumentDto) {
+	public ResponseDto<byte[]> generateIsBrochurePdf(PdfDocumentDto pdfDocumentDto) {
 
 		log.info("DocumentGeneratorClientApi - generateIsBrochurePdf " + pdfDocumentDto);
 
@@ -118,11 +118,13 @@ public class DocumentGeneratorClientApi {
 
 		final HttpHeaders headerParams = new HttpHeaders();
 
+		headerParams.setContentType(MediaType.APPLICATION_JSON);
+
 		final String[] accepts = { "*/*" };
 
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-		ParameterizedTypeReference<byte[]> returnType = new ParameterizedTypeReference<byte[]>() {
+		ParameterizedTypeReference<ResponseDto<byte[]>> returnType = new ParameterizedTypeReference<ResponseDto<byte[]>>() {
 		};
 
 		try {
