@@ -37,7 +37,7 @@ public class PdfDocumentDto implements Serializable{
 	/*Generated number of PDF pages*/
 	private Integer pageCount;	
 	
-//	private byte[] generatedPdfContentByte;
+	private byte[] generatedPdfContentByte;
 	
 	private boolean isPageNumberRequired;
 
