@@ -7,7 +7,8 @@ import lombok.Getter;
 @Getter
 public enum RefundMode {
     BANK_ACCOUNT("IMPS"),
-    UPI_ACCOUNT("UPI");
+    UPI_ACCOUNT("UPI"),
+    CARRY_FORWARD("CARRY_FORWARD");
     private final String values;
 
 }
