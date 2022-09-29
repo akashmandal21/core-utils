@@ -16,6 +16,7 @@ public class PricingDetailsResponseDto {
     private Date toDate;
     private int occupancy;
     private double basePrice;
+    private double onmServiceFee;
     private double packagedServiceFee;
     private double foodService;
     private double gst;
