@@ -1,5 +1,6 @@
 package com.stanzaliving.core.ventaaggregationservice.dto;
 
+import com.stanzaliving.booking.enums.ResidenceAgreementType;
 import com.stanzaliving.core.enums.ResidenceType;
 import lombok.*;
 
@@ -77,6 +78,12 @@ public class ResidenceAggregationEntityDto {
     private ResidenceType residenceType;
 
     private boolean testHouse;
+
+    private Double residenceFixedRent;
+
+    private Double residenceManagementFeePercentage;
+
+    private ResidenceAgreementType residenceAgreementType;
 
 }
 
