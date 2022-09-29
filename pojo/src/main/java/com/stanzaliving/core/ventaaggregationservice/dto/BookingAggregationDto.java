@@ -1,5 +1,6 @@
 package com.stanzaliving.core.ventaaggregationservice.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.stanzaliving.booking.dto.BookingTag;
 import com.stanzaliving.booking.dto.EligibleStatusMappingDto;
 import com.stanzaliving.booking.dto.response.InventoryResponseOccupancyDto;
@@ -19,6 +20,7 @@ import java.util.Set;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class BookingAggregationDto {
 
     private String bookingUuid;
