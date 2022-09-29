@@ -31,5 +31,4 @@ public class DocumentLineItemDto {
     private String hsnCode;
     private LocalDate fromDate;
     private LocalDate toDate;
-
 }

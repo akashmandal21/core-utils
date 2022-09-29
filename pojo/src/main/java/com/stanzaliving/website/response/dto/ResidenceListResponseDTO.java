@@ -36,6 +36,7 @@ public class ResidenceListResponseDTO implements Serializable {
 	private String genderName;
 	private String genderSlug;
 	private Integer preBookingAmount;
+	private Integer unlockDiscountAmount;
 	private int startingPrice;
 	private FomoTag fomoTag;
 	private String fomoTagName;

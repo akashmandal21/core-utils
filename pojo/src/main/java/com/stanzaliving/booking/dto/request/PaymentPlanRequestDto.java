@@ -1,6 +1,7 @@
 package com.stanzaliving.booking.dto.request;
 
 import com.stanzaliving.booking.enums.BookingType;
+import com.stanzaliving.booking.enums.ResidenceAgreementType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,7 +16,6 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 public class PaymentPlanRequestDto implements Serializable {
-	
 	@NotNull(message = "commercialCardRequestDto cannot be null")
 	@Valid
 	private CommercialCardRequestDto commercialCardRequestDto;
@@ -42,5 +42,10 @@ public class PaymentPlanRequestDto implements Serializable {
 
 	@Builder.Default
 	private Boolean modifyContract = false;
+
+	private ResidenceAgreementType residenceAgreementType;
+
+	@Builder.Default
+	private double managementFeePercentage = 0.0;
 
 }

@@ -1,5 +1,6 @@
 package com.stanzaliving.core.commercialcode.dto;
 
+
 import com.stanzaliving.commercialcard.enums.CommercialCardUserType;
 import lombok.*;
 
@@ -35,6 +36,10 @@ public class CommercialCardRequestDto {
     @NotEmpty(message = "Lock-In period required")
     private String lockInPeriod;
 
+    private String roomUuid;
+
+    private List<String> roomUuidList;
+
     private CommercialCardUserType commercialCardUserType;
 
     private String serviceMixUuid;
@@ -45,4 +50,5 @@ public class CommercialCardRequestDto {
 
     @Builder.Default
     private Integer roomCount = 1;
+
 }

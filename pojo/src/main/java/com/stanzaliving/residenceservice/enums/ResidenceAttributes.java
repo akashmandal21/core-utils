@@ -42,8 +42,17 @@ public enum ResidenceAttributes {
 
     BOOKING_EXIT_DELTA_DAYS("Buffer days for contract completion", "String"),
     BOOKING_EXIT_NOTICE_PERIOD("Notice Period", "String"),
-    EMI_ENABLED("EMI Enabled","Boolean");
-	
+    EMI_ENABLED("EMI Enabled","Boolean"),
+
+    BOOKING_START_DATE("Booking Start Date", "Date"),
+    PRE_BOOKING_START_DATE("Pre-Booking Start Date", "Date"),
+
+    UNDERWRITE_FINANCE("Underwrite Price", "Double"),
+    PRICE_ESCALATION_ENABLE("Price Escalation Enabled", "Boolean"),
+    BOOKING_AUTO_FORFEITURE_DURATION_IN_DAYS("Booking Auto Forfeiture Duration in Days", "Integer"),
+    MAXIMUM_ALLOWED_DAYS_AFTER_BOOKING_AUTO_FORFEITURE("Maximum Allowed Days After Booking Auto Forfeiture", "Integer"),
+    MAXIMUM_WAIVE_OFF_PERCENTAGE("Maximum Waive off Percentage", "Double");
+
     private String label;
     private String type;
 
@@ -72,6 +81,9 @@ public enum ResidenceAttributes {
         residenceAttributes.add(BOOKING_EXPIRY_TIME);
         residenceAttributes.add(NEW_CLOSURE_MIN_TOKEN_AMOUNT);
         residenceAttributes.add(NEEDS_ATTENTION_EXPIRY_TIME);
+        residenceAttributes.add(BOOKING_START_DATE);
+        residenceAttributes.add(PRE_BOOKING_START_DATE);
+        residenceAttributes.add(RETENTION_MIN_TOKEN_AMOUNT);
         return residenceAttributes;
     }
  }
