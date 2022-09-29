@@ -3,7 +3,11 @@ package com.stanzaliving.core.client.api;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.stanzaliving.booking.SoldBookingDto;
 import com.stanzaliving.booking.dto.*;
-import com.stanzaliving.booking.dto.response.*;
+import com.stanzaliving.booking.dto.response.BookingWaiveOffDetailsResponseDto;
+import com.stanzaliving.booking.dto.response.BookingCommercialsCardResponseDto;
+import com.stanzaliving.booking.dto.response.LedgerResponseDto;
+import com.stanzaliving.booking.dto.response.NeedsAttentionBookingResponseDto;
+import com.stanzaliving.booking.dto.response.RefundResponseDto;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.exception.ApiValidationException;
 import com.stanzaliving.core.base.http.StanzaRestClient;
@@ -1080,12 +1084,14 @@ public class BookingDataControllerApi {
         uriVariables.put("dealUuid", dealUuid);
 
         String path = UriComponentsBuilder.fromPath("/internal/dealExpire/{dealUuid}").buildAndExpand(uriVariables).toUriString();
+
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
         final HttpHeaders headerParams = new HttpHeaders();
 
         final String[] accepts = {"*/*"};
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
         ParameterizedTypeReference<ResponseDto<Boolean>> returnType = new ParameterizedTypeReference<ResponseDto<Boolean>>() {
         };
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);

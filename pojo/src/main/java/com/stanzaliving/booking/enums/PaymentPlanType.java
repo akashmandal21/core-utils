@@ -57,14 +57,14 @@ public enum PaymentPlanType {
 	ADDITIONAL_SECURITY_DEPOSIT("Additional Security Deposit"),
 	ADDITIONAL_INVOICE_ROOM_CHANGE("Additional Invoice - Room Change"),
 	ACCOMMODATION_CHARGES("Accommodation Charges"),
-	GST_WAIVE_OFF("Gst Waive Off"),
-	TRESPASSER_ACCOMMODATION_CHARGES("Accommodation Charges for Trespassing"),
 	CITY_HEAD_BUFFER("City Head Buffer"),
 	UPSELL("Upsell"),
 	BUMP_UP_PRICE("Bump Up Price"),
+	GST_WAIVE_OFF("Gst Waive Off"),
+	TRESPASSER_ACCOMMODATION_CHARGES("Accommodation charges for trespassing"),
 	NO_SHOW_PENALTY("No Show Penalty"),
     ONM_RENTAL("ONM Rental"),
-	ONM_SERVICE("ONM Service");
+    ONM_SERVICE("ONM Service");
 
 	private String name;
 	

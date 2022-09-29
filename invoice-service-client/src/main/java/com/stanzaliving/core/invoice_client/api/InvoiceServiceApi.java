@@ -192,6 +192,29 @@ public class InvoiceServiceApi {
         }
     }
 
+    public ResponseDto<String> updateInvoiceStatus(List<String> invoiceIds) {
+
+        log.info(" updateInvoiceStatus for invoiceIds [" + invoiceIds + "]");
+
+        Object postBody = invoiceIds;
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+        String path = UriComponentsBuilder.fromPath("/internal/update/status")
+                .buildAndExpand(uriVariables).toUriString();
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+
+    }
+
     public ResponseDto<String> saveDeptApprovalConfigForNewDept(Department newDepartment, Department refDepartment) {
 
         log.info("HTTP Client call to save DeptApprovalConfigForNewDept details for new dept: {} refDept: {}", newDepartment, refDepartment);
@@ -199,11 +222,9 @@ public class InvoiceServiceApi {
         final Map<String, Object> uriVariables = new HashMap<>();
         uriVariables.put("newDepartment", newDepartment);
         uriVariables.put("refDepartment", refDepartment);
+            final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-
-        final HttpHeaders headerParams = new HttpHeaders();
-
+            final HttpHeaders headerParams = new HttpHeaders();
         final String[] accepts = {"*/*"};
 
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
@@ -297,31 +318,5 @@ public class InvoiceServiceApi {
             log.error("Exception while deleting invoice information based on id {}, Exception is {}", id, e);
         }
         return null;
-    }
-
-
-    public ResponseDto<String> updateInvoiceStatus(List<String> invoiceIds) {
-
-        log.info(" updateInvoiceStatus for invoiceIds [" + invoiceIds + "]");
-
-        Object postBody = invoiceIds;
-
-        final Map<String, Object> uriVariables = new HashMap<>();
-        String path = UriComponentsBuilder.fromPath("/internal/update/status")
-                .buildAndExpand(uriVariables).toUriString();
-
-        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-
-        final HttpHeaders headerParams = new HttpHeaders();
-
-        final String[] accepts = {
-                "*/*"
-        };
-        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-
-        ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
-        };
-        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
-
     }
 }
