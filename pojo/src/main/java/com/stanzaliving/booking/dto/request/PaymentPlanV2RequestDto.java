@@ -4,6 +4,7 @@ import javax.validation.constraints.NotNull;
 
 import com.stanzaliving.booking.enums.PaymentTerm;
 
+import com.stanzaliving.booking.enums.ResidenceAgreementType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -19,6 +20,7 @@ public class PaymentPlanV2RequestDto {
 	private Double bumpUpPrice;
 	private String bookingUuid;
 	private DiscountRequestDto discount;
+	private ResidenceAgreementType residenceAgreementType;
 	
 	@Builder.Default
 	private boolean savePaymentPlan = false;

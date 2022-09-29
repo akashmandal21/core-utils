@@ -7,11 +7,9 @@ import lombok.NoArgsConstructor;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public enum AMCAmountType {
+public enum ResidenceAgreementType {
+    LEASE_DEED("Lease Deed"),
+    ONM("ONM");
 
-    MONTHLY("Monthly"),
-
-    FIXED("Fixed");
-
-    String Name;
+    private String propertyType;
 }
