@@ -45,4 +45,7 @@ public class PaymentPlanRequestDto implements Serializable {
 
 	private ResidenceAgreementType residenceAgreementType;
 
+	@Builder.Default
+	private double managementFeePercentage = 0.0;
+
 }
