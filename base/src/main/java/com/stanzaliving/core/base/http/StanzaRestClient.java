@@ -22,6 +22,7 @@ import org.springframework.http.RequestEntity.BodyBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.client.BufferingClientHttpRequestFactory;
 import org.springframework.http.client.SimpleClientHttpRequestFactory;
+import org.springframework.http.converter.ByteArrayHttpMessageConverter;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter;
 import org.springframework.util.LinkedMultiValueMap;
@@ -98,6 +99,14 @@ public class StanzaRestClient {
 	private RestTemplate buildRestTemplate() {
 		RestTemplate template = new RestTemplate();
 
+		ByteArrayHttpMessageConverter byteArrayHttpMessageConverter = new ByteArrayHttpMessageConverter();
+		List<MediaType> supportedApplicationTypes = new ArrayList<>();
+		MediaType pdfApplication = new MediaType("application","pdf");
+		supportedApplicationTypes.add(pdfApplication);
+		byteArrayHttpMessageConverter.setSupportedMediaTypes(supportedApplicationTypes);
+		List<HttpMessageConverter<?>> messageConverters = new ArrayList<>();
+		messageConverters.add(byteArrayHttpMessageConverter);
+		restTemplate.getMessageConverters().addAll(messageConverters);
 		configureRestTemplate(template);
 
 		// This allows us to read the response more than once - Necessary for debugging.
