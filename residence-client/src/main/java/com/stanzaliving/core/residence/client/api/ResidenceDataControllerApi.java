@@ -134,6 +134,38 @@ public class ResidenceDataControllerApi {
         }
     }
 
+    public ResponseDto<List<ServiceMixDto>> getActivePackagedServiceInInventoryPricing(String residenceUuid, String roomUuid, String moveInDate) {
+
+        log.info("Residence-Data-Controller::Processing to fetch packaged service names based on residenceUuid {}", residenceUuid);
+
+        Map<String, Object> uriVariables = new HashMap();
+
+        uriVariables.put("residenceUuid", residenceUuid);
+        uriVariables.put("roomUuid", roomUuid);
+        uriVariables.put("moveIn", moveInDate);
+
+        String path = UriComponentsBuilder.fromPath("/internal/api/v1/packaged-service/residenceUuid/{residenceUuid}/room/{roomUuid}/moveIn/{moveIn}").buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+
+        HttpHeaders headerParams = new HttpHeaders();
+
+        String[] accepts = new String[]{"*/*"};
+
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<List<ServiceMixDto>>> returnType =
+                new ParameterizedTypeReference<ResponseDto<List<ServiceMixDto>>>() {
+                };
+
+        try {
+            return (ResponseDto) this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, (Object) null, headerParams, accept, returnType);
+        } catch (Exception var11) {
+            log.error("Exception while fetching packaged service for residenceUuid from IP : {}", residenceUuid);
+            return null;
+        }
+    }
+
 
     public ResponseDto<Map<Object, Object>> fetchPackagedServiceData(String residenceUuid, String serviceMix) {
 
