@@ -20,7 +20,8 @@ public class PaymentPlanV2RequestDto {
 	private Double bumpUpPrice;
 	private String bookingUuid;
 	private DiscountRequestDto discount;
-	private ResidenceAgreementType residenceAgreementType;
+	@Builder.Default
+	private ResidenceAgreementType residenceAgreementType = ResidenceAgreementType.LEASE_DEED;
 	
 	@Builder.Default
 	private boolean savePaymentPlan = false;
