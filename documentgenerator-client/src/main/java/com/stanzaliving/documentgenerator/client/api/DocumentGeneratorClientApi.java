@@ -111,11 +111,11 @@ public class DocumentGeneratorClientApi {
 				returnType);
 	}
 
-	public ResponseEntity<HttpServletResponse> generateIsBrochurePdf(PdfDocumentDto pdfDocumentDto) {
+	public ResponseDto<byte[]> generateIsBrochurePdf(PdfDocumentDto pdfDocumentDto) {
 
 		log.info("DocumentGeneratorClientApi - generateIsBrochurePdf " + pdfDocumentDto);
 
-		String path = UriComponentsBuilder.fromPath("/internal/generate/pdf/test").toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/generate/pdf/bytearray").toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
@@ -127,7 +127,7 @@ public class DocumentGeneratorClientApi {
 
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-		ParameterizedTypeReference<ResponseEntity<HttpServletResponse>> returnType = new ParameterizedTypeReference<ResponseEntity<HttpServletResponse>>() {
+		ParameterizedTypeReference<ResponseDto<byte[]>> returnType = new ParameterizedTypeReference<ResponseDto<byte[]>>() {
 		};
 
 		try {
