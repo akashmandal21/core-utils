@@ -24,4 +24,6 @@ public class FoodVendorDTO implements Serializable {
     private Double fps;
     private String vendorCode;
     private boolean active;
+    private Double latitude;
+    private Double longitude;
 }
