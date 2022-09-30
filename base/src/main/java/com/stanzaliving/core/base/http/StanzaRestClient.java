@@ -104,9 +104,15 @@ public class StanzaRestClient {
 		MediaType pdfApplication = new MediaType("application","pdf");
 		supportedApplicationTypes.add(pdfApplication);
 		byteArrayHttpMessageConverter.setSupportedMediaTypes(supportedApplicationTypes);
+
 		List<HttpMessageConverter<?>> messageConverters = new ArrayList<>();
 		messageConverters.add(byteArrayHttpMessageConverter);
-		restTemplate.getMessageConverters().addAll(messageConverters);
+		messageConverters.addAll(template.getMessageConverters());
+
+		final List<HttpMessageConverter<?>> messageConvertersFinal = messageConverters;
+
+		template.setMessageConverters(messageConvertersFinal);
+
 		configureRestTemplate(template);
 
 		// This allows us to read the response more than once - Necessary for debugging.
