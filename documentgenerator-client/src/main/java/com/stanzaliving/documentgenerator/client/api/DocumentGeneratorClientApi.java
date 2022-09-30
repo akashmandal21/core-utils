@@ -115,7 +115,7 @@ public class DocumentGeneratorClientApi {
 
 		log.info("DocumentGeneratorClientApi - generateIsBrochurePdf " + pdfDocumentDto);
 
-		String path = UriComponentsBuilder.fromPath("/internal/generate/pdf/bytearray").toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/generate/pdf/here/only").toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
