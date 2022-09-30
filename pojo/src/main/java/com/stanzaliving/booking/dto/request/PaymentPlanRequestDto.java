@@ -43,7 +43,8 @@ public class PaymentPlanRequestDto implements Serializable {
 	@Builder.Default
 	private Boolean modifyContract = false;
 
-	private ResidenceAgreementType residenceAgreementType;
+	@Builder.Default
+	private ResidenceAgreementType residenceAgreementType = ResidenceAgreementType.LEASE_DEED;
 
 	@Builder.Default
 	private double managementFeePercentage = 0.0;
