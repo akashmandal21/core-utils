@@ -60,7 +60,8 @@ public class BookingResidenceAggregationEntityDto {
     private boolean testHouse;
     private Double residenceFixedRent;
     private Double residenceManagementFeePercentage;
-    private ResidenceAgreementType residenceAgreementType;
+    @Builder.Default
+    private ResidenceAgreementType residenceAgreementType = ResidenceAgreementType.LEASE_DEED;
 }
 
 

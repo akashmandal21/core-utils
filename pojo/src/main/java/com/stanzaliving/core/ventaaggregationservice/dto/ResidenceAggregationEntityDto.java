@@ -80,7 +80,8 @@ public class ResidenceAggregationEntityDto {
 
     private Double residenceManagementFeePercentage;
 
-    private ResidenceAgreementType residenceAgreementType;
+    @Builder.Default
+    private ResidenceAgreementType residenceAgreementType = ResidenceAgreementType.LEASE_DEED;
 
 }
 
