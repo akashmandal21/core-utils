@@ -8,7 +8,6 @@ import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -19,8 +18,6 @@ import com.stanzaliving.documentgenerator.dto.DocumentGeneratorTemplateRequestDt
 import com.stanzaliving.documentgenerator.dto.PdfRequestDto;
 
 import lombok.extern.log4j.Log4j2;
-
-import javax.servlet.http.HttpServletResponse;
 
 
 /**
@@ -111,11 +108,11 @@ public class DocumentGeneratorClientApi {
 				returnType);
 	}
 
-	public ResponseDto<byte[]> generateIsBrochurePdf(PdfDocumentDto pdfDocumentDto) {
+	public String generatePdfByteArray(PdfDocumentDto pdfDocumentDto) {
 
 		log.info("DocumentGeneratorClientApi - generateIsBrochurePdf " + pdfDocumentDto);
 
-		String path = UriComponentsBuilder.fromPath("/internal/generate/pdf/here/only").toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/generate/pdf/bytearray").toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
@@ -127,7 +124,7 @@ public class DocumentGeneratorClientApi {
 
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-		ParameterizedTypeReference<ResponseDto<byte[]>> returnType = new ParameterizedTypeReference<ResponseDto<byte[]>>() {
+		ParameterizedTypeReference<String> returnType = new ParameterizedTypeReference<String>() {
 		};
 
 		try {
