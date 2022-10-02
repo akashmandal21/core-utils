@@ -108,7 +108,7 @@ public class DocumentGeneratorClientApi {
 				returnType);
 	}
 
-	public String generatePdfByteArray(PdfDocumentDto pdfDocumentDto) {
+	public ResponseDto<String> generatePdfByteArray(PdfDocumentDto pdfDocumentDto) {
 
 		log.info("DocumentGeneratorClientApi - generateIsBrochurePdf " + pdfDocumentDto);
 
@@ -124,7 +124,7 @@ public class DocumentGeneratorClientApi {
 
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-		ParameterizedTypeReference<String> returnType = new ParameterizedTypeReference<String>() {
+		ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
 		};
 
 		try {
