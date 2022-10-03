@@ -34,6 +34,8 @@ public enum LeadStatus {
 		
 		return leadStatuses.contains(leadStatus);
 	}
+
+
 	
 	public static boolean isVisitScheduled(LeadStatus leadStatus) {
 		Set<LeadStatus> leadStatuses = new HashSet<>();
@@ -52,6 +54,14 @@ public enum LeadStatus {
 		leadStatuses.add(VISIT_COMPLETED);
 		leadStatuses.add(BOOKED);
 		
+		return leadStatuses.contains(leadStatus);
+	}
+	public static boolean isLeadRevivalAllowed(LeadStatus leadStatus) {
+		Set<LeadStatus> leadStatuses = new HashSet<>();
+		leadStatuses.add(DISQUALIFIED);
+		leadStatuses.add(DROPPED);
+		leadStatuses.add(MOVED_OUT);
+
 		return leadStatuses.contains(leadStatus);
 	}
 }

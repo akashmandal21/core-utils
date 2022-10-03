@@ -519,4 +519,33 @@ public class VentaAggregationServiceApi {
             return null;
         }
     }
+
+    public ResponseDto<Boolean> getActiveBookingDetailsByResidentMobile(String residentMobile) {
+        try {
+            Object postBody = null;
+
+            final Map<String, Object> uriVariables = new HashMap<>();
+            uriVariables.put("residentMobile", residentMobile);
+
+            String path = UriComponentsBuilder.fromPath("/internal/activeBooking/details/mobile/{residentMobile}").buildAndExpand(uriVariables).toUriString();
+
+            final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+            final HttpHeaders headerParams = new HttpHeaders();
+
+            final String[] accepts = {"*/*"};
+            final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+            ParameterizedTypeReference<ResponseDto<Boolean>> returnType = new ParameterizedTypeReference<ResponseDto<Boolean>>() {
+            };
+
+            return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+
+        } catch (Exception e) {
+            log.error("Exception occurred while fetching sync properties data for cms website from venta", e);
+            return null;
+        }
+
+    }
+
 }
