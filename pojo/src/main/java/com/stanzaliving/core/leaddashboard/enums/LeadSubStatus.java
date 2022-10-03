@@ -224,5 +224,3 @@ public enum LeadSubStatus {
 		return qualifiedVisitCompletedStatus.contains(leadSubStatus);
 	}
 }
-
-}

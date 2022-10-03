@@ -6,6 +6,8 @@ import java.util.Set;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+import static com.stanzaliving.core.leaddashboard.enums.TimelineStatusEnum.MOVED_OUT;
+
 @Getter
 @AllArgsConstructor
 public enum LeadStatus {
@@ -17,6 +19,8 @@ public enum LeadStatus {
 	VISIT_SCHEDULED("Visit Scheduled"),
 	VISIT_STARTED("Visit Started"),
 	VISIT_COMPLETED("Visit Completed"),
+
+	MOVED_OUT("Moved Out"),
 	BOOKED("Booked");
 	
 	private String statusDescription;
