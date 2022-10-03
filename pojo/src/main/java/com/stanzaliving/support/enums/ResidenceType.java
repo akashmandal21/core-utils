@@ -9,5 +9,5 @@ public enum ResidenceType {
     ALL_RESIDENCE("ALL_RESIDENCE"),
     ALL_MANAGED_APPARTMENTS("ALL_MANAGED_APPARTMENTS"),
     RESIDENCE("RESIDENCE");
-    private String residenceTypeName;
+    private String name;
 }
