@@ -1,7 +1,9 @@
 package com.stanzaliving.support.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.stanzaliving.booking.enums.BookingResidenceType;
 import com.stanzaliving.core.base.common.dto.AbstractDto;
+import com.stanzaliving.core.enums.ResidenceType;
 import com.stanzaliving.support.enums.ApprovalStatus;
 import com.stanzaliving.support.enums.FaqStatus;
 import lombok.*;
@@ -25,5 +27,5 @@ public class FaqDto extends AbstractDto {
     private List<FaqDetailDto> faqDetail;
     private String complaintGroupName;
     private String categoryName;
-
+    private BookingResidenceType residenceType;
 }
