@@ -108,7 +108,7 @@ public class DocumentGeneratorClientApi {
 				returnType);
 	}
 
-	public ResponseDto<String> generatePdfByteArray(PdfDocumentDto pdfDocumentDto) {
+	public ResponseDto<String> generateBase64EncodedPdfByteArray(PdfDocumentDto pdfDocumentDto) {
 
 		log.info("DocumentGeneratorClientApi - generateIsBrochurePdf " + pdfDocumentDto);
 
