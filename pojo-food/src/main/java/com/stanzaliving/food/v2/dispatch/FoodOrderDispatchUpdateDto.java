@@ -1,14 +1,22 @@
 package com.stanzaliving.food.v2.dispatch;
 
 
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 import java.time.LocalTime;
 import java.util.List;
 
-@Data
+@Getter
+@Setter
+@ToString
 @SuperBuilder
+@NoArgsConstructor
+@AllArgsConstructor
 public class FoodOrderDispatchUpdateDto {
 
     private String orderId;

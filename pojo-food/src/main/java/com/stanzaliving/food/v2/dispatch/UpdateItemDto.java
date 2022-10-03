@@ -1,13 +1,21 @@
 package com.stanzaliving.food.v2.dispatch;
 
 
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotBlank;
 
-@Data
+@Getter
+@Setter
+@ToString
 @SuperBuilder
+@NoArgsConstructor
+@AllArgsConstructor
 public class UpdateItemDto {
 
     @NotBlank(message = "itemIt can't be blank")
