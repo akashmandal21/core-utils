@@ -1,13 +1,9 @@
 package com.stanzaliving.core.leaddashboard.enums;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.Set;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+
+import java.util.*;
 
 @Getter
 @AllArgsConstructor
@@ -19,7 +15,7 @@ public enum LeadSubStatus {
 	QUALIFIED("Qualified","#6236FF","#6BBFFF"),
 	PRE_QUALIFICATION_FOLLOW_UP("Pre Qualification Follow Up","#44D7B6","#FFB701"),
 	RNR("RNR","#32C5FF","#32C5FF"),
-	
+
 	BOOKED("Booked", "#6DD400","#60C3AD"),
 
 	MOVED_OUT("Moved Out","#E02020","#F55F71"),
@@ -28,10 +24,10 @@ public enum LeadSubStatus {
 
 	PRE_VISIT_FOLLOW_UP("Pre Visit Follow Up","#F45E58","#FFB701"),
 	PRE_VISIT_SCHEDULED_FOLLOW_UP("Pre Visit 1 Scheduled Follow Up","#EEC583","#FFB701"),
-	
+
 	PRE_VISIT_SCHEDULED_DROP("Pre-Visit Scheduled Drop","#E02020","#F55F71"),
 	PRE_VISIT_DROP("Pre-Visit Drop", "#E02020","#F55F71"),
-	
+
 	VISIT_1_STARTED("Visit 1 Started","#EC9797","#7D6476"),
 	VISIT_1_SCHEDULED("Visit 1 Scheduled","#F7B500","#645A87"),
 	VISIT_1_COMPLETED("Visit 1 Completed","#EEC583","#B1D6A3"),
@@ -77,13 +73,13 @@ public enum LeadSubStatus {
 	
 	public static boolean postVisitFollowUpStatus(LeadSubStatus leadSubStatus) {
 		Set<LeadSubStatus> postVisitFollowUpStatus = new HashSet<>();
-		
+
 		postVisitFollowUpStatus.add(POST_VISIT_1_FOLLOW_UP);
 		postVisitFollowUpStatus.add(POST_VISIT_2_FOLLOW_UP);
 		postVisitFollowUpStatus.add(POST_VISIT_3_FOLLOW_UP);
 		postVisitFollowUpStatus.add(POST_VISIT_4_FOLLOW_UP);
 		postVisitFollowUpStatus.add(POST_VISIT_5_FOLLOW_UP);
-		
+
 		return postVisitFollowUpStatus.contains(leadSubStatus);
 
 	}
@@ -147,6 +143,7 @@ public enum LeadSubStatus {
 		pieChartStatus.put(LeadSubStatus.VISIT_2_SCHEDULED, "Follow Up Visit Scheduled");
 		pieChartStatus.put(LeadSubStatus.POST_VISIT_1_FOLLOW_UP, "Post Visit Follow Up Needed");
 		pieChartStatus.put(LeadSubStatus.BOOKED, "Booked");
+		pieChartStatus.put(LeadSubStatus.MOVED_OUT, "Move Out");
 		pieChartStatus.put(LeadSubStatus.POST_VISIT_1_DROP, "Dropped");
 
 		return pieChartStatus;
@@ -226,4 +223,6 @@ public enum LeadSubStatus {
 		
 		return qualifiedVisitCompletedStatus.contains(leadSubStatus);
 	}
+}
+
 }

@@ -539,6 +539,8 @@ public class InternalDataControllerApi {
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
+        queryParams.add("active", "true");
+
         final HttpHeaders headerParams = new HttpHeaders();
 
         final String[] accepts = {
