@@ -988,7 +988,7 @@ public class WandaClientApi {
 					};
 			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
 		} catch (Exception e) {
-			log.error("Error while fetching booking status for userUuid: {}", userId, e);
+			log.error("Error while fetching Internet Usage for userUuid: {}", userId, e);
 		}
 
 		return ResponseDto.failure("Failed to get internet usage");
@@ -1019,7 +1019,7 @@ public class WandaClientApi {
 					};
 			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
 		} catch (Exception e) {
-			log.error("Error while fetching booking status for userUuid: {}", userId, e);
+			log.error("Error while fetching Internet Plan for userUuid: {}", userId, e);
 		}
 
 		return ResponseDto.failure("Failed to get Plan details");
