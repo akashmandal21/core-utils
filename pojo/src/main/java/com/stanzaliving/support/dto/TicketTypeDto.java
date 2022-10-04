@@ -11,19 +11,14 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class TicketTypeDto {
 
-    @Builder.Default
-    private  boolean isExternal = false;
+    private  boolean isExternal;
 
-    @Builder.Default
-    private boolean isInternal = false;
+    private boolean isInternal;
 
-    @Builder.Default
-    private boolean isSubTicket = false;
+    private boolean isSubTicket;
 
-    @Builder.Default
-    private boolean isTicket = false;
+    private boolean isTicket;
 
-    @Builder.Default
-    private boolean isServiceTask = false;
+    private boolean isServiceTask;
 
 }
