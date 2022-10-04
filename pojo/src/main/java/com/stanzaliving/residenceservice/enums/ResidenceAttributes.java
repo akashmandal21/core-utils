@@ -56,8 +56,9 @@ public enum ResidenceAttributes {
     MIN_DURATION_BEFORE_MOVE_IN_DATE_CHANGE("Min Duration Before Move In Date change", "String"),
     MIN_DURATION_BEFORE_CURRENT_DATE("Min Duration Before Current Date", "String"),
     BOOKING_AUTO_FORFEITURE_DURATION_IN_DAYS("Booking Auto Forfeiture Duration in Days", "Integer"),
-    MAXIMUM_ALLOWED_DAYS_AFTER_BOOKING_AUTO_FORFEITURE("Maximum Allowed Days After Booking Auto Forfeiture", "Integer"),
-    MAXIMUM_WAIVE_OFF_PERCENTAGE("Maximum Waive off Percentage", "Double");
+    MAX_ALLOWED_DAYS_AFTER_BOOKING_FORFEITURE("Max Allowed Days After Booking Forfeiture", "Integer"),
+    MAXIMUM_WAIVE_OFF_PERCENTAGE("Maximum Waive off Percentage", "Double"),
+    BOOKING_AMOUNT_REALISATION_ENABLED("Booking Amount Realisation Enabled", "Boolean");
 
 
 
