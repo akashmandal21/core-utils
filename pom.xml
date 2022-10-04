@@ -112,7 +112,6 @@
         <module>qna-client</module>
         <module>analytic-logs</module>
         <module>estate-v2-client</module>
-        <module>backend-locator-client</module>
         <module>messagebird-client</module>
     </modules>
 
