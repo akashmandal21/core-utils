@@ -113,7 +113,6 @@
         <module>analytic-logs</module>
         <module>estate-v2-client</module>
         <module>cloudinary-client</module>
-        <module>RedisV2</module>
     </modules>
 
 	<build>
