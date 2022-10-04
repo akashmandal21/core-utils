@@ -12,4 +12,5 @@ public class SdRefundStateDetails {
     private String info;
     private String errorMessage;
     private boolean bankDetailsAvailable;
+    private String upiId;
 }
