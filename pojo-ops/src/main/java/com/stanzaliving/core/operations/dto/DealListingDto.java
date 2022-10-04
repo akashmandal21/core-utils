@@ -59,8 +59,8 @@ public class DealListingDto {
 	private boolean stabilizeUnderWrite;
 	private boolean annualOperatingPlan;
 	private boolean monthlyForecast;
-	@Builder.Default
-	private boolean isServiceMixV2Active = false;
+
+	private boolean isServiceMixV2Active;
 	
 	List<DealServiceMixListingDto> serviceMixDtoList;
 	List<DealServiceMixListingDto> serviceMixV2DtoList;
