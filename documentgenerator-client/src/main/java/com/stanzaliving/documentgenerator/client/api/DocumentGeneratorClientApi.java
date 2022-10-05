@@ -2,6 +2,7 @@ package com.stanzaliving.documentgenerator.client.api;
 
 import java.util.List;
 
+import com.stanzaliving.core.base.exception.StanzaException;
 import com.stanzaliving.documentgenerator.dto.PdfDocumentDto;
 import com.stanzaliving.documentgenerator.dto.PdfStampingDto;
 import org.springframework.core.ParameterizedTypeReference;
@@ -130,7 +131,7 @@ public class DocumentGeneratorClientApi {
 		try {
 			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, pdfDocumentDto, headerParams, accept, returnType);
 		} catch (Exception e) {
-			throw new RuntimeException(e);
+			throw new StanzaException("Some error occurred while generating Base64 Encoded Pdf ByteArray");
 		}
 	}
 
