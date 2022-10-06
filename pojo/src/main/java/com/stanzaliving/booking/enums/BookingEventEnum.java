@@ -6,7 +6,7 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum BookingEventEnum {
-	BOOKING_CREATED("Booking Created"),
+    BOOKING_CREATED("Booking Created"),
     GUEST_BOOKING_CREATED("Guest Booking Created"),
     BOOKING_DETAILS_UPDATED("Booking Details Updated"),
     INITIATE_BOOKING("Initiate Booking"),
@@ -81,17 +81,10 @@ public enum BookingEventEnum {
     ALFRED_MOVE_IN_DATE_CHANGE("Move in date is changed by Resident from Alfred App"),
     ROOM_CHANGE_REQUESTED("Room change request created"),
     CONTRACT_EXTENSION_REQUESTED("contract extension request created"),
-    CONTRACT_MODIFIED("Contract is modified successfully");
+    CONTRACT_MODIFIED("Contract is modified successfully"),
+    CONTRACT_START_DATE_CROSSED("Contract Start Date Crossed"),
+    BOOKING_AUTO_FORFEITURE("Booking Auto Forfeiture");
 
-
-
-
-
-
-
-
-
-
-    String eventName;
+    private final String eventName;
 
 }

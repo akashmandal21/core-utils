@@ -3,6 +3,7 @@ package com.stanzaliving.core.client.api;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -34,8 +35,10 @@ import com.stanzaliving.wanda.dtos.UserDetailDto;
 import com.stanzaliving.wanda.dtos.UserHostelDetailsDto;
 import com.stanzaliving.wanda.food.request.DemographicsRequestDto;
 import com.stanzaliving.wanda.food.response.FoodRegionPreferenceResponse;
+import com.stanzaliving.internet.response.UserCurrentPlanDetailDto;
 import com.stanzaliving.wanda.response.OnBoardingGetResponse;
 import com.stanzaliving.wanda.response.ResidentKYCDocumentResponseDtoV2;
+import com.stanzaliving.wanda.response.UserInternetStatusInfoDto;
 import com.stanzaliving.wanda.response.WandaFileResponseDto;
 import com.stanzaliving.wanda.response.WandaResponse;
 
@@ -958,6 +961,68 @@ public class WandaClientApi {
 		}
 
 		return null;
+	}
+
+	public ResponseDto<UserCurrentPlanDetailDto> getUserInternetUsage(String userId, String residenceUuid) {
+		try {
+
+			log.info("Received request to get UserInternetUsage of userUuid {}", userId);
+
+			final Map<String, Object> uriVariables = new HashMap<>();
+
+			String path = UriComponentsBuilder.fromPath("/internal/internet/usage")
+					.buildAndExpand(uriVariables).toUriString();
+
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+			queryParams.put("residenceId", Collections.singletonList(residenceUuid));
+			queryParams.put("userId", Collections.singletonList(userId));
+
+			final HttpHeaders headerParams = new HttpHeaders();
+
+			final String[] accepts = { "*/*" };
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+			ParameterizedTypeReference<ResponseDto<UserCurrentPlanDetailDto>> returnType =
+					new ParameterizedTypeReference<ResponseDto<UserCurrentPlanDetailDto>>() {
+					};
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Error while fetching Internet Usage for userUuid: {}", userId, e);
+		}
+
+		return ResponseDto.failure("Failed to get internet usage");
+	}
+
+	public ResponseDto<UserInternetStatusInfoDto> getUserInternetPlan(String userId, String residenceUuid) {
+		try {
+
+			log.info("Received request to get UserInternetPlan of userUuid {}", userId);
+
+			final Map<String, Object> uriVariables = new HashMap<>();
+
+			String path = UriComponentsBuilder.fromPath("/internal/internet/plan")
+					.buildAndExpand(uriVariables).toUriString();
+
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+			queryParams.put("residenceId", Collections.singletonList(residenceUuid));
+			queryParams.put("userId", Collections.singletonList(userId));
+
+			final HttpHeaders headerParams = new HttpHeaders();
+
+			final String[] accepts = { "*/*" };
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+			ParameterizedTypeReference<ResponseDto<UserInternetStatusInfoDto>> returnType =
+					new ParameterizedTypeReference<ResponseDto<UserInternetStatusInfoDto>>() {
+					};
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Error while fetching Internet Plan for userUuid: {}", userId, e);
+		}
+
+		return ResponseDto.failure("Failed to get Plan details");
 	}
 
 }

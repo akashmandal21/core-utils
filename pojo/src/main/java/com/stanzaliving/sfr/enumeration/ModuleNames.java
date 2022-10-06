@@ -29,9 +29,9 @@ public enum ModuleNames {
     private final String displayName;
 
 
-    public static final List<ModuleNames> moduleNames = Arrays.asList(ASIS, BOQ, SFR, CONCEPT_DRAWINGS,HOTO, LL_HO);//add SFR also in this moduleNames list
+    public static final List<ModuleNames> moduleNames = Arrays.asList(ASIS, BOQ, SFR, CONCEPT_DRAWINGS,HOTO);//add SFR also in this moduleNames list
 
-    public static final List<ModuleNames> moduleSubmissionNames = Arrays.asList(SFR_SUBMISSION, ASIS_SUBMISSION, CONCEPT_SUBMISSION, HOTO_SUBMISSION,LL_HO);
+    public static final List<ModuleNames> moduleSubmissionNames = Arrays.asList(SFR_SUBMISSION, ASIS_SUBMISSION, CONCEPT_SUBMISSION, HOTO_SUBMISSION);
 
 
 }

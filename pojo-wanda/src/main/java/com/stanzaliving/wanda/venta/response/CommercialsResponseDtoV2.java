@@ -34,6 +34,7 @@ public class CommercialsResponseDtoV2 {
     private Double advanceFee;
     private String maxDate;
     private double upsell;
+    private double bumpUpPrice;
     private MaintenanceFeeCollectionType maintenanceFeeCollectionType;
     private AMCAmountType maintenanceChargeAmountType;
     private List<Map<String, String>> adjustedAdvanceRentalMonths;
