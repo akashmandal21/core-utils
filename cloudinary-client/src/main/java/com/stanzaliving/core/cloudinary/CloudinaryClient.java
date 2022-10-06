@@ -49,7 +49,7 @@ public class CloudinaryClient {
             log.error("Exception while uploading file to cloudinary: {}", e);
         }
 
-        log.info("Returning uploaded cloudinaryFilePath as:", cloudinaryPath);
+        log.info("Returning uploaded cloudinaryFilePath as: {}", cloudinaryPath);
 
         return cloudinaryPath;
     }
