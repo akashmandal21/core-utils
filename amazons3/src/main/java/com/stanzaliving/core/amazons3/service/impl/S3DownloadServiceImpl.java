@@ -80,6 +80,7 @@ public class S3DownloadServiceImpl implements S3DownloadService {
 	@Override
 	public File downloadFile(String bucket, String filePath, AmazonS3 s3Client) {
 		S3Object s3Object = null;
+		File tmp = null;
 		try {
 
 			log.debug("Downloading File: " + filePath + " from Bucket: " + bucket);
@@ -91,7 +92,7 @@ public class S3DownloadServiceImpl implements S3DownloadService {
 			if (s3Object != null) {
 				S3ObjectInputStream inputStream = s3Object.getObjectContent();
 
-				File tmp = File.createTempFile(s3Object.getKey(), "");
+				tmp = File.createTempFile(s3Object.getKey(), "");
 				Files.copy(inputStream, tmp.toPath(), StandardCopyOption.REPLACE_EXISTING);
 
 				return tmp;
@@ -103,6 +104,7 @@ public class S3DownloadServiceImpl implements S3DownloadService {
 			if (s3Object != null) {
 				try {
 					s3Object.close();
+					tmp.delete();
 				} catch (IOException e) {
 					log.error("IOException while closing s3Object: ", e);
 				}
