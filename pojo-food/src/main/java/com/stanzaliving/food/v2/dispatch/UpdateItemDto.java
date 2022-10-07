@@ -18,7 +18,7 @@ import javax.validation.constraints.NotBlank;
 @AllArgsConstructor
 public class UpdateItemDto {
 
-    @NotBlank(message = "itemIt can't be blank")
+    @NotBlank(message = "itemId can't be blank")
     private String itemId;
     private Integer receivedQuantity;
     private Double receivedWeight;
