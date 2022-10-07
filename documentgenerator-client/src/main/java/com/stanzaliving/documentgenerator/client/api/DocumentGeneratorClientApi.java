@@ -109,11 +109,11 @@ public class DocumentGeneratorClientApi {
 				returnType);
 	}
 
-	public ResponseDto<String> generateBase64EncodedPdfByteArray(PdfDocumentDto pdfDocumentDto) {
+	public ResponseDto<String> generateBase64EncodedStringForPdf(PdfDocumentDto pdfDocumentDto) {
 
 		log.info("DocumentGeneratorClientApi - generateIsBrochurePdf " + pdfDocumentDto);
 
-		String path = UriComponentsBuilder.fromPath("/internal/generate/pdf/bytearray").toUriString();
+		String path = UriComponentsBuilder.fromPath("/internal/generate/pdf/base64encodedstring").toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
@@ -134,5 +134,4 @@ public class DocumentGeneratorClientApi {
 			throw new StanzaException("Some error occurred while generating Base64 Encoded Pdf ByteArray");
 		}
 	}
-
 }
