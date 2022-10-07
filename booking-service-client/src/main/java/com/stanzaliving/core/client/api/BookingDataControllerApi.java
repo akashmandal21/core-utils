@@ -89,12 +89,12 @@ public class BookingDataControllerApi {
 
         // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("userUuid", userUuid);
 
-        String path = UriComponentsBuilder.fromPath("/refundDetails/{userUuid}").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/refundDetails/{userUuid}").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-        queryParams.add("userUuid", userUuid);
 
         final HttpHeaders headerParams = new HttpHeaders();
 
