@@ -131,7 +131,7 @@ public class DocumentGeneratorClientApi {
 		try {
 			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, pdfDocumentDto, headerParams, accept, returnType);
 		} catch (Exception e) {
-			throw new StanzaException("Some error occurred while generating Base64 Encoded Pdf ByteArray");
+			throw new StanzaException("Some error occurred while generating Base64 Encoded String for PDF");
 		}
 	}
 }
