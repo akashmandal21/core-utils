@@ -2,7 +2,6 @@ package com.stanzaliving.documentgenerator.client.api;
 
 import java.util.List;
 
-import com.google.gson.Gson;
 import com.stanzaliving.core.base.exception.StanzaException;
 import com.stanzaliving.documentgenerator.dto.PdfDocumentDto;
 import com.stanzaliving.documentgenerator.dto.PdfStampingDto;
@@ -112,7 +111,7 @@ public class DocumentGeneratorClientApi {
 
 	public ResponseDto<String> generateBase64EncodedStringForPdf(PdfDocumentDto pdfDocumentDto) {
 
-		log.info("DocumentGeneratorClientApi - generateIsBrochurePdf " + new Gson().toJson(pdfDocumentDto));
+		log.info("DocumentGeneratorClientApi - generateIsBrochurePdf " + pdfDocumentDto);
 
 		String path = UriComponentsBuilder.fromPath("/internal/generate/pdf/base64encodedstring").toUriString();
 
@@ -132,7 +131,8 @@ public class DocumentGeneratorClientApi {
 		try {
 			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, pdfDocumentDto, headerParams, accept, returnType);
 		} catch (Exception e) {
-			throw new StanzaException("Some error occurred while generating Base64 Encoded String for PDF");
+			log.error(e);
+			throw new StanzaException("Error occurred while generating Base64 Encoded String for PDF");
 		}
 	}
 }
