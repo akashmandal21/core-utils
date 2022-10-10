@@ -1,6 +1,5 @@
 package com.stanzaliving.core.inventory.client.api;
 
-import com.stanzaliving.core.base.common.dto.InventoryMovementDto;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.dto.AddressResponseDTO;
@@ -16,6 +15,7 @@ import com.stanzaliving.website.response.dto.LeadQrDto;
 import com.stanzaliving.website.response.dto.LeadRequestDto;
 import com.stanzaliving.website.response.dto.RazorPayRequestDto;
 import lombok.extern.log4j.Log4j2;
+import org.apache.kafka.common.protocol.types.Field;
 import org.codehaus.plexus.util.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -624,7 +624,7 @@ public class InventoryClientApi {
 
 
 
-	public  List<InventoryMovementDto> getInventoryMovementTrackerDetails(String gsriId, String eventType) {
+	public  List<String> getInventoryMovementTrackerDetails(String gsriId, String eventType) {
 
 		Object postBody = null;
 		String path = UriComponentsBuilder.fromPath("/get/inventory/movement/" + gsriId + eventType).toUriString();
@@ -637,7 +637,7 @@ public class InventoryClientApi {
 
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-		ParameterizedTypeReference<List<InventoryMovementDto>> returnType = new ParameterizedTypeReference< List<InventoryMovementDto>>() {
+		ParameterizedTypeReference<List<String>> returnType = new ParameterizedTypeReference< List<String>>() {
 		};
 
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
