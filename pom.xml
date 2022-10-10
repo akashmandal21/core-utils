@@ -114,6 +114,7 @@
         <module>analytic-logs</module>
         <module>estate-v2-client</module>
         <module>messagebird-client</module>
+        <module>cloudinary-client</module>
     </modules>
 
 	<build>
