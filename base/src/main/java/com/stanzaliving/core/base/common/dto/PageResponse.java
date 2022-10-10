@@ -16,7 +16,7 @@ import java.util.Map;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class PageResponse<T>  implements Serializable{
+public class PageResponse<T> implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 

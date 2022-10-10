@@ -8,6 +8,7 @@ import lombok.experimental.UtilityClass;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.validator.routines.EmailValidator;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.math.BigDecimal;
 import java.math.MathContext;
@@ -386,5 +387,13 @@ public class StanzaUtils {
 		}
 
 		return avgRating;
+	}
+
+	public String getTimeStampConcatenatedFileName(String fileName) {
+		return new Date().getTime() + "-" + fileName.replace(" ", "_");
+	}
+
+	public String getTimeStampConcatenatedFileName(MultipartFile multipartFile) {
+		return getTimeStampConcatenatedFileName(multipartFile.getOriginalFilename());
 	}
 }
