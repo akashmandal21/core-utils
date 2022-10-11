@@ -531,6 +531,7 @@ public class VentaClientApi {
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 		queryParams.add("referralCode", referralCode);
+		queryParams.add("requestFromLead", Boolean.TRUE.toString());
 
 		final HttpHeaders headerParams = new HttpHeaders();
 
