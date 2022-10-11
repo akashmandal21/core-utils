@@ -7,9 +7,13 @@ import javax.validation.constraints.NotNull;
 
 import com.stanzaliving.core.base.enums.Department;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class UserAccessLevelIdsByRoleNameDto {
     
     @NotNull(message = "department can not be null")
