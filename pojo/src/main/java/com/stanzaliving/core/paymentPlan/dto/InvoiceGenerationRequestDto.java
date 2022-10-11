@@ -20,4 +20,5 @@ public class InvoiceGenerationRequestDto {
     private boolean completeInvoice;
     private LocalDate executionDate;
     private boolean realiseBookingAmount = Boolean.FALSE;
+    private LocalDate chargedTillDate;
 }
