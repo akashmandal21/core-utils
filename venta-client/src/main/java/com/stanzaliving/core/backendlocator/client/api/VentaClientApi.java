@@ -517,7 +517,7 @@ public class VentaClientApi {
 		String path = UriComponentsBuilder.fromPath("/referral/verify").buildAndExpand(uriVariables).toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-		queryParams.add("referralCode", referralCode);
+		queryParams.add("code", referralCode);
 		queryParams.add("requestFromLead", Boolean.TRUE.toString());
 
 		final HttpHeaders headerParams = new HttpHeaders();
