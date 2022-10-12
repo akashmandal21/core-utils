@@ -1,27 +1,10 @@
 package com.stanzaliving.core.client.api;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Set;
-
-import com.stanzaliving.core.base.exception.BaseMarker;
-import com.stanzaliving.wanda.venta.response.BookingStatusResponseDto;
-import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
-import org.springframework.web.util.UriComponentsBuilder;
-
 import com.stanzaliving.core.backend.dto.UserHostelDto;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
+import com.stanzaliving.core.base.exception.BaseMarker;
 import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.internet.response.UserCurrentPlanDetailDto;
 import com.stanzaliving.transformations.pojo.ResidenceUIDto;
 import com.stanzaliving.venta.OccupiedRoomDto;
 import com.stanzaliving.wanda.dtos.BankDetailsDto;
@@ -36,10 +19,28 @@ import com.stanzaliving.wanda.food.request.DemographicsRequestDto;
 import com.stanzaliving.wanda.food.response.FoodRegionPreferenceResponse;
 import com.stanzaliving.wanda.response.OnBoardingGetResponse;
 import com.stanzaliving.wanda.response.ResidentKYCDocumentResponseDtoV2;
+import com.stanzaliving.wanda.response.UserInternetStatusInfoDto;
 import com.stanzaliving.wanda.response.WandaFileResponseDto;
 import com.stanzaliving.wanda.response.WandaResponse;
-
+import com.stanzaliving.wanda.venta.response.BookingStatusResponseDto;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
+import org.springframework.web.util.UriComponentsBuilder;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Set;
 
 @Log4j2
 public class WandaClientApi {
@@ -277,6 +278,23 @@ public class WandaClientApi {
 
 		return Objects.nonNull(responseDto) ? responseDto : new ArrayList<>();
 
+	}
+
+	public List<UserHostelDto> getUserHostelByHostelId(String hostelId) {
+		log.info("Received request to get UserHostelDto by HostelId: {}", hostelId);
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("hostelId", hostelId);
+
+		String path = UriComponentsBuilder.fromPath("/coreApi/user/list/hostel/{hostelId}").buildAndExpand(uriVariables).toUriString();
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {"*/*"};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+		ParameterizedTypeReference<List<UserHostelDto>> returnType = new ParameterizedTypeReference<List<UserHostelDto>>() {
+		};
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
 	}
 
 
@@ -958,6 +976,68 @@ public class WandaClientApi {
 		}
 
 		return null;
+	}
+
+	public ResponseDto<UserCurrentPlanDetailDto> getUserInternetUsage(String userId, String residenceUuid) {
+		try {
+
+			log.info("Received request to get UserInternetUsage of userUuid {}", userId);
+
+			final Map<String, Object> uriVariables = new HashMap<>();
+
+			String path = UriComponentsBuilder.fromPath("/internal/internet/usage")
+					.buildAndExpand(uriVariables).toUriString();
+
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+			queryParams.put("residenceId", Collections.singletonList(residenceUuid));
+			queryParams.put("userId", Collections.singletonList(userId));
+
+			final HttpHeaders headerParams = new HttpHeaders();
+
+			final String[] accepts = { "*/*" };
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+			ParameterizedTypeReference<ResponseDto<UserCurrentPlanDetailDto>> returnType =
+					new ParameterizedTypeReference<ResponseDto<UserCurrentPlanDetailDto>>() {
+					};
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Error while fetching Internet Usage for userUuid: {}", userId, e);
+		}
+
+		return ResponseDto.failure("Failed to get internet usage");
+	}
+
+	public ResponseDto<UserInternetStatusInfoDto> getUserInternetPlan(String userId, String residenceUuid) {
+		try {
+
+			log.info("Received request to get UserInternetPlan of userUuid {}", userId);
+
+			final Map<String, Object> uriVariables = new HashMap<>();
+
+			String path = UriComponentsBuilder.fromPath("/internal/internet/plan")
+					.buildAndExpand(uriVariables).toUriString();
+
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+			queryParams.put("residenceId", Collections.singletonList(residenceUuid));
+			queryParams.put("userId", Collections.singletonList(userId));
+
+			final HttpHeaders headerParams = new HttpHeaders();
+
+			final String[] accepts = { "*/*" };
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+			ParameterizedTypeReference<ResponseDto<UserInternetStatusInfoDto>> returnType =
+					new ParameterizedTypeReference<ResponseDto<UserInternetStatusInfoDto>>() {
+					};
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Error while fetching Internet Plan for userUuid: {}", userId, e);
+		}
+
+		return ResponseDto.failure("Failed to get Plan details");
 	}
 
 }
