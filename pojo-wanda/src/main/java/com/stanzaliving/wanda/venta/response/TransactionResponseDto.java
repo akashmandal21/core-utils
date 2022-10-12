@@ -2,6 +2,7 @@ package com.stanzaliving.wanda.venta.response;
 
 import java.util.Date;
 
+import com.stanzaliving.core.payment.enums.PaymentStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,4 +21,5 @@ public class TransactionResponseDto {
 	private String merchantTransactionId;
 	private Date transactionDate;
     private Boolean isLastTransaction;
+    private String paymentStatus;
 }
