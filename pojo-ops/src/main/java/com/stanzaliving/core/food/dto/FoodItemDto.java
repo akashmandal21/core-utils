@@ -125,5 +125,5 @@ public class FoodItemDto extends AbstractDto {
 
 	private String linkedIngredientId;
 
-	private Boolean isValidDishDetails;
+	private boolean isValidDishDetails;
 }

@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Builder
@@ -13,9 +14,12 @@ import java.util.List;
 @AllArgsConstructor
 public class UserTypeDto {
 
-    private List<String> assignedTo;
+    @Builder.Default
+    private List<String> assignedTo = new ArrayList<>();
 
-    private List<String> updatedBy;
+    @Builder.Default
+    private List<String> updatedBy = new ArrayList<>();
 
-    private List<String> resolvedBy;
+    @Builder.Default
+    private List<String> resolvedBy = new ArrayList<>();
 }
