@@ -104,7 +104,8 @@ public class S3DownloadServiceImpl implements S3DownloadService {
 			if (s3Object != null) {
 				try {
 					s3Object.close();
-					tmp.delete();
+					//Dont call this
+//					tmp.delete();
 				} catch (IOException e) {
 					log.error("IOException while closing s3Object: ", e);
 				}
