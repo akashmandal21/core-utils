@@ -624,7 +624,7 @@ public class InventoryClientApi {
 
 
 
-	public  List<String> getInventoryMovementTrackerDetails(String gsriId, String eventType) {
+	public ResponseDto<List<String>> getInventoryMovementTrackerDetails(String gsriId, String eventType) {
 
 		Object postBody = null;
 		String path = UriComponentsBuilder.fromPath("/internal/get/inventory/movement/" + gsriId + "/" + eventType).toUriString();
@@ -637,7 +637,7 @@ public class InventoryClientApi {
 
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-		ParameterizedTypeReference<List<String>> returnType = new ParameterizedTypeReference< List<String>>() {
+		ParameterizedTypeReference<ResponseDto<List<String>>> returnType = new ParameterizedTypeReference< ResponseDto<List<String>>>() {
 		};
 
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
