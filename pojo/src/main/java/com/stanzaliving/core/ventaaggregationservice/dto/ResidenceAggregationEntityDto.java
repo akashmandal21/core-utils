@@ -80,7 +80,7 @@ public class ResidenceAggregationEntityDto {
     private boolean testHouse;
 
     @Builder.Default
-    private Double residenceFixedRent = 0.0;
+    private Double residenceFixedRent=0.0;
 
     @Builder.Default
     private Double residenceManagementFeePercentage=0.0;

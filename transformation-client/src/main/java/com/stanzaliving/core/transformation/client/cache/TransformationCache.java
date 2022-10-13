@@ -104,7 +104,7 @@ public class TransformationCache {
 	}
 
 	private LoadingCache<String, List<ResidenceMetadataDto>> allResidenceCache = CacheBuilder.newBuilder()
-			.expireAfterWrite(30, TimeUnit.MINUTES)
+			.expireAfterWrite(60, TimeUnit.MINUTES)
 			.build(
 					new CacheLoader<String, List<ResidenceMetadataDto>>() {
 
