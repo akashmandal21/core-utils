@@ -627,8 +627,6 @@ public class InventoryClientApi {
 	public ResponseDto<List<String>> getInventoryMovementTrackerDetails(String gsriId, String eventType) {
 
 		Object postBody = null;
-		String path = UriComponentsBuilder.fromPath("/internal/get/inventory/movement/" + gsriId + "/" + eventType).toUriString();
-
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
 		final HttpHeaders headerParams = new HttpHeaders();
@@ -640,6 +638,11 @@ public class InventoryClientApi {
 		ParameterizedTypeReference<ResponseDto<List<String>>> returnType = new ParameterizedTypeReference< ResponseDto<List<String>>>() {
 		};
 
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("gsriId", gsriId);
+		uriVariables.put("eventType", eventType);
+		String path = UriComponentsBuilder.fromUriString("/internal/get/inventory/movement/{gsriId}/{eventType}").buildAndExpand(uriVariables).toUriString();
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
 
