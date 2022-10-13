@@ -10,6 +10,7 @@ import lombok.experimental.SuperBuilder;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @SuperBuilder
 @Data
@@ -62,20 +63,28 @@ public class TicketFilterDto extends PageAndSortDto {
     @Builder.Default
     private Boolean updatedBySelected = false;
 
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date createdAtStartDate;
 
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date createdAtEndDate;
 
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date updatedAtStartDate;
 
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date updatedAtEndDate;
 
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date resolvedAtStartDate;
 
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date resolvedAtEndDate;
 
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date reopenedAtStartDate;
 
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date reopenedAtEndDate;
 
     @Builder.Default
