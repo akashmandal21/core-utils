@@ -301,6 +301,28 @@ public class TransactionControllerApi {
         return null;
     }
 
+    public ResponseDto<String> startCashfreePaymentReconciliation() {
+        Object postBody = null;
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("paymentMode", "CASHFREE");
+        //payment/reconciliation/virtual-account
+        String path = UriComponentsBuilder.fromPath("/internal/payment/reconciliation/virtual-account/{paymentMode}")
+                .buildAndExpand(uriVariables).toUriString();
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        final HttpHeaders headerParams = new HttpHeaders();
+        final String[] accepts = {"*/*"};
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+        };
+        try {
+            return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept,
+                    returnType);
+        } catch (Exception e) {
+            log.error("Exception while startCashfreePaymentReconciliation. Error is {}", e);
+        }
+        return null;
+    }
+
     public List<LeadPaymentResponseDto> updatePrebookingtransactionDetails(LeadPaymentRequestDto leadPaymentRequestDto) {
         Object postBody = null;
 
