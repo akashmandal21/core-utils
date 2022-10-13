@@ -1220,7 +1220,7 @@ public class ResidenceDataControllerApi {
         return null;
     }
 
-    public List<RoomAndInventoryDetailsDto> getRoomOccupancyChangeLog(String roomUuid, String moveIn) {
+    public ResponseDto<List<RoomAndInventoryDetailsDto>> getRoomOccupancyChangeLog(String roomUuid, String moveIn) {
 
         Map<String, Object> uriVariables = new HashMap();
 
@@ -1237,8 +1237,8 @@ public class ResidenceDataControllerApi {
 
         List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<List<RoomAndInventoryDetailsDto>> returnType =
-                new ParameterizedTypeReference<List<RoomAndInventoryDetailsDto>>() {
+        ParameterizedTypeReference<ResponseDto<List<RoomAndInventoryDetailsDto>>> returnType =
+                new ParameterizedTypeReference<ResponseDto<List<RoomAndInventoryDetailsDto>>>() {
                 };
 
         try {
