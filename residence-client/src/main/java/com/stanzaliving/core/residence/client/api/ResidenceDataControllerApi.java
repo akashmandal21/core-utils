@@ -1220,6 +1220,35 @@ public class ResidenceDataControllerApi {
         return null;
     }
 
+    public List<RoomAndInventoryDetailsDto> getRoomOccupancyChangeLog(String roomUuid, String moveIn) {
+
+        Map<String, Object> uriVariables = new HashMap();
+
+        uriVariables.put("roomUuid", roomUuid);
+        uriVariables.put("moveIn", moveIn);
+
+        String path = UriComponentsBuilder.fromPath("/internal/room/{roomUuid}/moveIn/{moveIn}").buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+
+        HttpHeaders headerParams = new HttpHeaders();
+
+        String[] accepts = new String[]{"*/*"};
+
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<List<RoomAndInventoryDetailsDto>> returnType =
+                new ParameterizedTypeReference<List<RoomAndInventoryDetailsDto>>() {
+                };
+
+        try {
+            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception var10) {
+            log.error("Exception while fetching ROCL list form room UUid {}  ", roomUuid);
+            return null;
+        }
+    }
+
     public List<ResidencePaymentPlanDto> getInstallmentList(String residenceUuid) {
 
         Map<String, Object> uriVariables = new HashMap();
