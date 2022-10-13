@@ -63,5 +63,6 @@ public class BookingEvent implements Serializable {
     private Date exitCreatedAt;
     private Date selectedMoveOutDate;
     private String exitReason;
+    private ResidenceAgreementType residenceAgreementType;
 
 }
