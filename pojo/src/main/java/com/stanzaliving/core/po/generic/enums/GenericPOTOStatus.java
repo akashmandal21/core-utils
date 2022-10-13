@@ -43,7 +43,7 @@ public enum GenericPOTOStatus {
     VENDOR_ACCEPTANCE_PENDING("Vendor Acceptance Pending", "#FFB701", "#FFEAB6", 2, false, false, null,false),
     VENDOR_ACCEPTED("Accepted By Vendor", "#60C3AD", "#EDFFF5", 3, false, false, null,true),
     VENDOR_REJECTED("Rejected By Vendor", "#FF5238", "#FFE5E1", 5, false, false, null,false),
-    SHORTCLOSE_REQUESTED("Shortclose Requested", "#5F11D7", "#F4EEFF", 4, false, false, null,false);
+    SHORTCLOSE_REQUESTED("Shortclose Requested", "#5F11D7", "#F4EEFF", 0, true, false, null,false);
 
 //    WORK_COMPLETED("Work Completed","#60C3AD","#60c3ad4d",7,false,false);
 
