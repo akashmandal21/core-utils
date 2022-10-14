@@ -19,4 +19,6 @@ public class MonthlyFeeDtoV2 {
     private Double totalAccommodationCharge;
     private Double accommodationCharge;
     private Double accommodationChargeGstValue;
+    private Double onmRentalCharges;
+    private Double totalOnmServiceCharges;
 }
