@@ -15,6 +15,7 @@ import com.stanzaliving.website.response.dto.LeadQrDto;
 import com.stanzaliving.website.response.dto.LeadRequestDto;
 import com.stanzaliving.website.response.dto.RazorPayRequestDto;
 import lombok.extern.log4j.Log4j2;
+import org.apache.kafka.common.protocol.types.Field;
 import org.codehaus.plexus.util.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -620,5 +621,33 @@ public class InventoryClientApi {
 			return null;
 		}
 	}
+
+
+
+	public ResponseDto<List<String>> getInventoryMovementTrackerDetails(String gsriId, String eventType) {
+
+		Object postBody = null;
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = { "*/*" };
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<List<String>>> returnType = new ParameterizedTypeReference< ResponseDto<List<String>>>() {
+		};
+
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("gsriId", gsriId);
+		uriVariables.put("eventType", eventType);
+		String path = UriComponentsBuilder.fromUriString("/internal/get/inventory/movement/{gsriId}/{eventType}").buildAndExpand(uriVariables).toUriString();
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+	}
+
+
+
+
 
 }
