@@ -24,4 +24,8 @@ public class PricingDetailsResponseDto {
     private double cityBuffer;
     private double total;
     private double underWrittenIncGst;
+
+    public double getOnmServiceFee() {
+        return this.packagedServiceFee + this.foodService;
+    }
 }
