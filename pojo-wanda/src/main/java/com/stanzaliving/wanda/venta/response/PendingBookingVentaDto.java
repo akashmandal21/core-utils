@@ -36,5 +36,7 @@ public class PendingBookingVentaDto {
     private String expiryDays;
     
     private BookingSubType bookingSubType;
+
+    private String roomUuid;
     
 }
