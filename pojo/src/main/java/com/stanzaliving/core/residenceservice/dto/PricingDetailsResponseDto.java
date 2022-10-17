@@ -25,7 +25,4 @@ public class PricingDetailsResponseDto {
     private double total;
     private double underWrittenIncGst;
 
-    public double getOnmServiceFee() {
-        return this.packagedServiceFee + this.foodService;
-    }
 }
