@@ -53,10 +53,13 @@ public class CommercialCardRequestDto {
     @Builder.Default
     private Integer roomCount = 1;
 
-    private BookingSubType bookingSubType;
+    @Builder.Default
+    private BookingSubType bookingSubType=BookingSubType.ALL;
 
-    private PlatformType platform;
+    @Builder.Default
+    private PlatformType platform=PlatformType.ALL;
 
-    private PaymentFrequency paymentFrequency;
+    @Builder.Default
+    private PaymentFrequency paymentFrequency=PaymentFrequency.ALL;
 
 }
