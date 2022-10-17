@@ -26,6 +26,8 @@ public class InventoryPricingResponseDto {
     private double vasServiceISGT;
     private double vasServiceSSGT;
 
+    private double onmServiceFee;
+
     private double licenseFee;
     private double cityBuffer;
     private double bumpUpPrice;

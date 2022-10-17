@@ -29,4 +29,7 @@ public class BillFromDto {
     private String footerCityName;
     private String footerZipcode;
     private String gstCode; //gst state code
+    private String landlordId;
+    @Builder.Default
+    private String landlordOwnershipPercentage = "100.0";
 }

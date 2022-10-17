@@ -47,7 +47,8 @@ public enum FoodRoleType {
 
 	HOSTEL_MENU_CHANGE_COST_APPROVER("Country - Hostel Menu Change Cost Approver", Department.FOOD_OPS, AccessLevel.COUNTRY),
 	HOSTEL_MENU_CHANGE_NON_COST_APPROVER("Country - Hostel Menu Change Non Cost Approver", Department.FOOD_OPS, AccessLevel.COUNTRY),
-	EMAIL_CC_HOSTEL_MENU_CHANGE_APPROVED("Email CC - Hostel Menu Change Approved", Department.FOOD_OPS, AccessLevel.COUNTRY);
+	EMAIL_CC_HOSTEL_MENU_CHANGE_APPROVED("Email CC - Hostel Menu Change Approved", Department.FOOD_OPS, AccessLevel.COUNTRY),
+    COUNTRY_DISH_DEBAR_SUMMARY("Country Dish Debar Summary", Department.FOOD_OPS, AccessLevel.COUNTRY);
 
 	private String roleType;
 
