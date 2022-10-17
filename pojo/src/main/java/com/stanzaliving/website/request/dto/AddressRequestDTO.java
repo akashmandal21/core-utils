@@ -30,6 +30,6 @@ public class AddressRequestDTO {
 	private String cityName;
 	private double latitude;
 	private double longitude;
-	private String displayAddressLine;
-	private String displayDemandCentre;
+	private String displayAddressLine1;
+	private String displayAddressLine2;
 }
