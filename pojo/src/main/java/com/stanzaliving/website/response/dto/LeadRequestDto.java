@@ -45,6 +45,7 @@ public class LeadRequestDto {
 	private String leadOwnerId;
 	
 	private String createdBy;
+	private String visitScheduledBy;
 
 	private Integer cityId;
 	private String cityName;

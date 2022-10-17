@@ -64,7 +64,12 @@ public enum PaymentPlanType {
 	BUMP_UP_PRICE("Bump Up Price"),
 	NO_SHOW_PENALTY("No Show Penalty"),
     ONM_RENTAL("ONM Rental"),
-	ONM_SERVICE("ONM Service");
+	ONM_SERVICE("ONM Service"),
+
+	ONM_MAINTENANCE_FEE("ONM Maintenance Fee"),
+
+	ONM_ONBOARDING_CHARGE("ONM OnBoarding Charge"),
+	MANAGEMENT_FEE("Management Fee");
 
 	private String name;
 	
