@@ -15,6 +15,6 @@ public class CommercialDataDto {
    private boolean autoApplicable;
    private List<String> applicabilityCriteria;
    private BookingSubType bookingSubType;
-   private  PlatformType platform;
+   private PlatformType platform;
    private PaymentFrequency paymentFrequency;
 }
