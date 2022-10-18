@@ -22,4 +22,6 @@ public class PaymentPlanResponseDtoV2 {
     private int upFrontPaymentMonth;
     @Builder.Default
     private Double upsell=0d;
+    @Builder.Default
+    private Double bumpUpPrice=0d;
 }

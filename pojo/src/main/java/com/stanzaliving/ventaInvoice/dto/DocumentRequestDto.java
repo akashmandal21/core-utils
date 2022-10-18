@@ -43,6 +43,8 @@ public class DocumentRequestDto {
 
     private LocalDate toDate;
 
+    private LocalDate executionDate;
+
     private PaymentPlanType callerServiceCategory;
 
     private String categoryUuid;

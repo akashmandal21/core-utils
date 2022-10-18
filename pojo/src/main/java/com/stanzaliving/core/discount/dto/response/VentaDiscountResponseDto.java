@@ -1,9 +1,12 @@
 package com.stanzaliving.core.discount.dto.response;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.stanzaliving.booking.dto.request.BookingDiscountCriteriasDto;
 import com.stanzaliving.booking.enums.DiscountApplicabilityType;
 import com.stanzaliving.booking.enums.DiscountValue;
 import com.stanzaliving.booking.enums.DiscountValueType;
+import com.stanzaliving.core.base.StanzaConstants;
+import com.stanzaliving.core.base.utils.DateUtil;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -33,6 +36,7 @@ public class VentaDiscountResponseDto {
 
     private Integer usedCount;
     private Integer availableCount;
+    @JsonFormat(pattern = DateUtil.yyyy_MM_dd_FORMAT, timezone = StanzaConstants.IST_TIMEZONE)
     private LocalDate endDate;
     private Integer totalCount;
 
