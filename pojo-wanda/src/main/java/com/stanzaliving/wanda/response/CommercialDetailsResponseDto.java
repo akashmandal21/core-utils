@@ -89,6 +89,7 @@ public class CommercialDetailsResponseDto {
 
 	private String onboardingChargesDescription;
 
-	private ResidenceAgreementType residenceAgreementType;
+	@Builder.Default
+	private ResidenceAgreementType residenceAgreementType = ResidenceAgreementType.LEASE_DEED;
 	
 }
