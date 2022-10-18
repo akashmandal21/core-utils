@@ -32,4 +32,12 @@ public class MonthlyFee {
 	private List<Pair<String, String>> vasFees;
 
 	private String maintenanceFee;
+
+	private Double onmRentalCharges;
+
+	private Double onmServiceCharges;
+
+	private Double onmGstValue;
+
+	private Double onmGstPercentage;
 }
