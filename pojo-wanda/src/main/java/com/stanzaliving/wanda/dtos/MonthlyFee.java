@@ -40,4 +40,6 @@ public class MonthlyFee {
 	private Double onmGstValue;
 
 	private Double onmGstPercentage;
+
+	private Double onmTotal;
 }
