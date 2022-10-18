@@ -18,9 +18,9 @@ public class MonthlyFeeDtoV2 {
     private Set<ResidenceServiceDtoV2> valueAddedServices;
     private Double totalAccommodationCharge;
     private Double accommodationCharge;
-    private Double accommodationChargeGstValue;
     private Double onmRentalCharges;
     private Double onmServiceCharges;
     private Double onmGstValue;
     private Double onmGstPercentage;
+    private Double totalOnmServiceCharges;
 }
