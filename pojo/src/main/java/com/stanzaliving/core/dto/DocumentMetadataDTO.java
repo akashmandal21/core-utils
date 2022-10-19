@@ -17,6 +17,8 @@ public class DocumentMetadataDTO {
     private String idName;
     private String idDob;
     private String idAddress;
+    private String panType;
+    private String idType;
     
    
 }
