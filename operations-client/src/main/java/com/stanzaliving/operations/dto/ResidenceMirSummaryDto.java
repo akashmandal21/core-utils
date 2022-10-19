@@ -1,7 +1,6 @@
 package com.stanzaliving.operations.dto;
 
 import java.util.List;
-import java.util.Map;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -18,7 +17,6 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 public class ResidenceMirSummaryDto {
 
-    private String residenceUuid;
-    private Map<String, List<ResidentMenuCategoryDetailsDto>> menuCategoryWiseResidentDetails;
+    private List<ResidentMenuCategoryDetailsDto> menuCategoryWiseResidentDetails;
 
 }

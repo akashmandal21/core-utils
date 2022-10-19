@@ -15,6 +15,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 public class ResidentMenuCategoryDetailsDto {
 
+    private String residenceUuid;
     private String menuCategoryId;
     private String residentCode;
     private String residentName;

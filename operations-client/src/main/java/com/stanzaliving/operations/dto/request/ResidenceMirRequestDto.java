@@ -16,8 +16,6 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @SuperBuilder
 public class ResidenceMirRequestDto {
-
     private String residenceId;
     private LocalDate date;
-
 }

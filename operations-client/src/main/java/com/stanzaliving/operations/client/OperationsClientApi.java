@@ -641,30 +641,55 @@ public class OperationsClientApi {
 		}
 	}
 
-	public ResidenceMirSummaryDto getResidenceMirSummary(ResidenceMirRequestDto residenceMirRequestDto) {
+    public ResidenceMirSummaryDto getResidenceMirSummary(ResidenceMirRequestDto residenceMirRequestDto) {
 
-	    final Map<String, Object> uriVariables = new HashMap<>();
+        final Map<String, Object> uriVariables = new HashMap<>();
 
-	    String path = UriComponentsBuilder.fromPath("/internal/v2/residence/mir").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/v2/residence/mir").buildAndExpand(uriVariables).toUriString();
 
-	    final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-	    TypeReference<ResponseDto<ResidenceMirSummaryDto>> returnType = new TypeReference<ResponseDto<ResidenceMirSummaryDto>>() {
-	    };
+        TypeReference<ResponseDto<ResidenceMirSummaryDto>> returnType = new TypeReference<ResponseDto<ResidenceMirSummaryDto>>() {
+        };
 
-	    ResponseDto<ResidenceMirSummaryDto> responseDto = null;
+        ResponseDto<ResidenceMirSummaryDto> responseDto = null;
 
-	    try {
+        try {
 
-	        responseDto = restClient.post(path, queryParams, residenceMirRequestDto, null, null, returnType, MediaType.APPLICATION_JSON);
+            responseDto = restClient.post(path, queryParams, residenceMirRequestDto, null, null, returnType, MediaType.APPLICATION_JSON);
 
-	    } catch (Exception e) {
+        } catch (Exception e) {
 
-	      log.error("Error while getting mir", e);
+            log.error("Error while getting mir", e);
 
-	    }
+        }
 
-	    return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : null;
+        return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : null;
 
-	  }
+    }
+
+    public ResidenceMirSummaryDto getAllActiveResidenceMirSummary(ResidenceMirRequestDto residenceMirRequestDto) {
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/internal/v2/residence/mir/all").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        TypeReference<ResponseDto<ResidenceMirSummaryDto>> returnType = new TypeReference<ResponseDto<ResidenceMirSummaryDto>>() {
+        };
+
+        ResponseDto<ResidenceMirSummaryDto> responseDto = null;
+
+        try {
+
+            responseDto = restClient.post(path, queryParams, residenceMirRequestDto, null, null, returnType, MediaType.APPLICATION_JSON);
+
+        } catch (Exception e) {
+
+            log.error("Error while getting mir", e);
+
+        }
+
+        return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : null;
+    }
 }
