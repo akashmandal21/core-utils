@@ -37,8 +37,7 @@ public enum PropertyReportsTile {
     HOTO("HOTO", true, true, false, Department.PROJECTS, PropertyUpdateEnum.PROJECTS_HOTO_GENERATED, "hoto",null),
     SERVICE_MIX("Service Mix", true, false, false, Department.DESIGN, PropertyUpdateEnum.SERVICE_MIX_COMPLETED, "servicemix",
             Arrays.asList(PropertyUpdateEnum.DESIGN_BED_COUNT_FINALIZATION_COMPLETED,PropertyUpdateEnum.SERVICE_MIX_COMPLETED)),
-    PRODUCT_MIX("Product Mix", true, true, false, Department.DESIGN, null, "productmix",
-            Collections.singletonList(PropertyUpdateEnum.DESIGN_BED_COUNT_FINALIZATION_COMPLETED));
+    PRODUCT_MIX("Product Mix", true, true, false, Department.DESIGN, null, "productmix", null);
 
     private String tileText;
 
