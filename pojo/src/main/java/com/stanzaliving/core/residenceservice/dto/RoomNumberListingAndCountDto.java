@@ -18,6 +18,5 @@ public class RoomNumberListingAndCountDto implements Serializable {
     private Integer recommendedRoomsCount;
     private List<RoomNumberListingResponseDto> roomNumberAttributes;
     private List<ManagedApartmentDetailDto> managedApartmentDetails;
-    @Builder.Default
-    private ResidenceAgreementType residenceAgreementType = ResidenceAgreementType.ONM;
+    private ResidenceAgreementType residenceAgreementType;
 }
