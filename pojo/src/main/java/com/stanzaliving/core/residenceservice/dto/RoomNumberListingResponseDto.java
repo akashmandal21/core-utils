@@ -45,6 +45,4 @@ public class RoomNumberListingResponseDto implements Serializable {
 
     private List<String> inventoryUuidList;
     private List<AttributesResponseDto> attributesResponseDto;
-    @Builder.Default
-    private ResidenceAgreementType residenceAgreementType = ResidenceAgreementType.LEASE_DEED;
 }
