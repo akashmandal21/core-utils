@@ -35,4 +35,8 @@ public class InventoryPricingResponseDto {
 	private double withoutEscalationPrice;
 	private double escalatedPrice;
 
+    public double getOnmServiceFee(){
+        return this.foodServiceFee + this.packagedServiceFee;
+    }
+
 }
