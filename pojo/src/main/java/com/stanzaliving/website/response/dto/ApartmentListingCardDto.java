@@ -1,17 +1,12 @@
 package com.stanzaliving.website.response.dto;
 
+import com.stanzaliving.core.enums.PropertyEntityType;
+import com.stanzaliving.website.dto.WebsiteImageLibraryDto;
+import com.stanzaliving.website.enums.Gender;
+import lombok.*;
+
 import java.io.Serializable;
 import java.util.List;
-
-import com.stanzaliving.core.enums.PropertyEntityType;
-import com.stanzaliving.website.enums.Gender;
-
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
 
 @Builder
 @AllArgsConstructor
@@ -38,6 +33,8 @@ public class ApartmentListingCardDto implements Serializable {
 	private Integer roomCount;
 	
 	private String roomId;
+
+	private String roomNumber;
 	
 	private String slug;
 
@@ -113,7 +110,7 @@ public class ApartmentListingCardDto implements Serializable {
 	
 	private List<FeatureResponseDTO> features;
 
-	private List<ImageResponseDTO> images;
+	private List<WebsiteImageLibraryDto> images;
 	
 	private int similarApartmentsCount;
 	
@@ -122,4 +119,6 @@ public class ApartmentListingCardDto implements Serializable {
 	private boolean isEntireFlatAvailable;
 	
 	private List<ApartmentRoomTypeResponseDTO> apartmentRoomTypes;
+
+	private List<String> ventaRoomNumbers;
 }
