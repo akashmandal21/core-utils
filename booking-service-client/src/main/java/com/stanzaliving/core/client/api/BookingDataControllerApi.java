@@ -948,7 +948,6 @@ public class BookingDataControllerApi {
     }
 
     public ResponseDto<Integer> getRoomBookingDetailsByUuid(String roomUuid) {
-
         Object postBody = null;
 
         // create path and map variables
@@ -962,7 +961,6 @@ public class BookingDataControllerApi {
 
         final String[] accepts = {"*/*"};
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-
         ParameterizedTypeReference<ResponseDto<Integer>> returnType = new ParameterizedTypeReference<ResponseDto<Integer>>() {
         };
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
@@ -1075,7 +1073,6 @@ public class BookingDataControllerApi {
     }
 
     public ResponseDto<Boolean> expireDeal(String dealUuid) {
-
         Object postBody = null;
 
         // create path and map variables

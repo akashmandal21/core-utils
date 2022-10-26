@@ -420,6 +420,4 @@ public enum BookingStatus {
         return bookingStatus;
     }
 
-
-
 }
