@@ -180,7 +180,7 @@ public class WandaClientApi {
 		return null;
 	}
 
-	public List<FeaturephoneUserDto> getFeaturePhoneUsersV2(String residenceId) {
+	public List<FeaturephoneUserDto> getFeaturePhoneUsersV2(String residenceId, Boolean featurePhone, String residentCode) {
 
       try {
           Object postBody = null;
@@ -194,7 +194,8 @@ public class WandaClientApi {
 
           final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
           queryParams.add("hostel", residenceId);
-          queryParams.add("featurePhone", Boolean.TRUE.toString());
+          queryParams.add("featurePhone", Objects.nonNull(featurePhone) ? featurePhone.toString() : null);
+          queryParams.add("residentCode", residentCode);
 
           final HttpHeaders headerParams = new HttpHeaders();
 
