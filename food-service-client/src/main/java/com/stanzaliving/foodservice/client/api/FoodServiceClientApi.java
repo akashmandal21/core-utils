@@ -910,26 +910,26 @@ public class FoodServiceClientApi {
 
 	}
 
-//	public ResponseDto<List<DateFoodMenuDto>> getFoodMenuByResidenceId(LocalDate endDate, Integer residenceId, LocalDate startDate){
-//		try {
-//			String path = UriComponentsBuilder.fromPath("/internal/residence/food/menu").build().toUriString();
-//			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-//			if (Objects.nonNull(residenceId))
-//				queryParams.add("residenceId", residenceId);
-//			if (Objects.nonNull(startDate))
-//				queryParams.add("startDate", startDate);
-//			if (Objects.nonNull(endDate))
-//				queryParams.add("endDate", endDate);
-//			final HttpHeaders headerParams = new HttpHeaders();
-//			final String[] accepts = { "*/*" };
-//			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-//			ParameterizedTypeReference<ResponseDto<List<DateFoodMenuDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<DateFoodMenuDto>>>() {
-//			};
-//			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
-//		} catch (Exception e) {
-//			log.error("Exception caught while fetching food menu by residenceId", e);
-//			return null;
-//		}
-//	}
+	public ResponseDto<List<DateFoodMenuDto>> getFoodMenuByTransformationUuid(LocalDate endDate, Integer transformationUuid, LocalDate startDate){
+		try {
+			String path = UriComponentsBuilder.fromPath("/residence/food/menu").build().toUriString();
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+			if (Objects.nonNull(transformationUuid))
+				queryParams.add("transformationUuid", transformationUuid);
+			if (Objects.nonNull(startDate))
+				queryParams.add("startDate", startDate);
+			if (Objects.nonNull(endDate))
+				queryParams.add("endDate", endDate);
+			final HttpHeaders headerParams = new HttpHeaders();
+			final String[] accepts = { "*/*" };
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+			ParameterizedTypeReference<ResponseDto<List<DateFoodMenuDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<DateFoodMenuDto>>>() {
+			};
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Exception caught while fetching food menu by residenceId", e);
+			return null;
+		}
+	}
 	
 }
