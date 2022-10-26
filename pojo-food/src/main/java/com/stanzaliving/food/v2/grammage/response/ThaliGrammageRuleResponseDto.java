@@ -1,5 +1,6 @@
 package com.stanzaliving.food.v2.grammage.response;
 
+import com.stanzaliving.food.v2.menu.dto.SelectedKitchenDto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -28,5 +29,7 @@ public class ThaliGrammageRuleResponseDto {
 	private List<GrammageMasterRuleFixedResponseDto> fixedRules;
 
 	private List<GrammageMasterRuleRatioResponseDto> ratioRules;
+
+	private SelectedKitchenDto selectedKitchen;
 
 }
