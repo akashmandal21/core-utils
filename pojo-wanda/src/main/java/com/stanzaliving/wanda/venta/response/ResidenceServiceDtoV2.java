@@ -9,6 +9,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.List;
+
 @ToString
 @Builder
 @Data
@@ -35,5 +37,5 @@ public class ResidenceServiceDtoV2 {
 	private String shortText;
 	private String bgColor;
 	private Double totalAmount;
-
+	private PackageServiceDto packagedServices;
 }
