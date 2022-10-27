@@ -41,4 +41,10 @@ public class Address implements Serializable {
 	
 	private String cityUuid;
 
+	private String micromarketName;
+
+	private String latitude;
+
+	private String longitude;
+
 }
