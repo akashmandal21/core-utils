@@ -20,7 +20,7 @@ import java.util.Date;
 @ToString(callSuper = true)
 @SuperBuilder
 @NoArgsConstructor
-public class UserDetailsDto {
+public class  UserDetailsDto {
 
     @NotNull(message = "User uuid is mandatory")
     private String userUuid;
