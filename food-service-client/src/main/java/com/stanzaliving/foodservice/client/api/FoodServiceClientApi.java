@@ -915,11 +915,11 @@ public class FoodServiceClientApi {
 			String path = UriComponentsBuilder.fromPath("/residence/food/menu").build().toUriString();
 			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 			if (Objects.nonNull(transformationUuid))
-				queryParams.add("transformationUuid", transformationUuid);
+				queryParams.add("transformationUuid", String.valueOf(transformationUuid));
 			if (Objects.nonNull(startDate))
-				queryParams.add("startDate", startDate);
+				queryParams.add("startDate", String.valueOf(startDate));
 			if (Objects.nonNull(endDate))
-				queryParams.add("endDate", endDate);
+				queryParams.add("endDate", String.valueOf(endDate));
 			final HttpHeaders headerParams = new HttpHeaders();
 			final String[] accepts = { "*/*" };
 			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
