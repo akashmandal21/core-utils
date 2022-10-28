@@ -910,12 +910,12 @@ public class FoodServiceClientApi {
 
 	}
 
-	public ResponseDto<List<DateFoodMenuDto>> getFoodMenuByTransformationUuid(LocalDate endDate, Integer transformationUuid, LocalDate startDate){
+	public ResponseDto<List<DateFoodMenuDto>> getFoodMenuByTransformationUuid(LocalDate endDate, String transformationUuid, LocalDate startDate){
 		try {
-			String path = UriComponentsBuilder.fromPath("/residence/food/menu").build().toUriString();
+			String path = UriComponentsBuilder.fromPath("/internal/residence/food/menu").build().toUriString();
 			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 			if (Objects.nonNull(transformationUuid))
-				queryParams.add("transformationUuid", String.valueOf(transformationUuid));
+				queryParams.add("residenceId", transformationUuid);
 			if (Objects.nonNull(startDate))
 				queryParams.add("startDate", String.valueOf(startDate));
 			if (Objects.nonNull(endDate))
