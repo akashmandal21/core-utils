@@ -6,7 +6,6 @@ import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.user.acl.dto.RoleDto;
 import com.stanzaliving.core.user.acl.dto.UserAccessLevelIdsByRoleNameWithFiltersDto;
-import com.stanzaliving.core.user.acl.dto.UsersByFiltersRequestDto;
 import com.stanzaliving.core.user.acl.dto.UserAccessLevelIdsByRoleNameDto;
 import com.stanzaliving.core.user.acl.dto.UserDeptLevelRoleNameUrlExpandedDto;
 import com.stanzaliving.core.user.acl.request.dto.AddUserDeptLevelRoleRequestDto;
@@ -238,6 +237,10 @@ public class AclUserClientApi {
 
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 
+	}
+
+	public ResponseDto<Map<String, List<String>>> getActiveUserIdAccessLevelIdByDepartmentRoleNameAccessLevelIdV2(Department department, String roleName, List<String> accessLevelId) {
+		return getActiveUseridAccessLevelIdByRoleName(new UserAccessLevelIdsByRoleNameDto(department, roleName, accessLevelId));
 	}
 
 	public ResponseDto<List<UserDeptLevelRoleNameUrlExpandedDto>> getUserInfoByEmailId(String email) {
