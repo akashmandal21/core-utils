@@ -12,8 +12,9 @@ import lombok.ToString;
 @Setter
 @ToString(callSuper = true)
 public class WashingService extends BooleanService implements Serializable {
-	private Integer cloths;
-	private Double weight;
-	private WashLimit unitType;
-	private int repetation;
+  private static final long serialVersionUID = 4712134052620448631L;
+  private Integer cloths;
+  private Double weight;
+  private WashLimit unitType;
+  private int repetation;
 }

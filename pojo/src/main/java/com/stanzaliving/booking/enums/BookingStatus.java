@@ -36,6 +36,7 @@ public enum BookingStatus {
     GUEST_ONBOARDING_PENDING("GUEST ONBOARDING PENDING"),
     GUEST_ONBOARDING_COMPLETED("GUEST ONBOARDING COMPLETED");
 
+
     private String bookingStatus;
 
     public String getDescription() {
@@ -344,6 +345,23 @@ public enum BookingStatus {
         return bookingStatus;
     }
 
+    public static Set<BookingStatus> cleverTapBookingStatus(){
+        Set<BookingStatus> bookingStatus = new HashSet<>();
+        bookingStatus.add(BookingStatus.IN_PROGRESS);
+        bookingStatus.add(BookingStatus.SHARED_WITH_RESIDENT);
+        bookingStatus.add(BookingStatus.AGREEMENT_PENDING);
+        bookingStatus.add(BookingStatus.AGREEMENT_SENT);
+        bookingStatus.add(BookingStatus.ONBOARDING_PENDING);
+        bookingStatus.add(BookingStatus.ONBOARDING_IN_PROGRESS);
+        bookingStatus.add(BookingStatus.ONBOARDING_COMPLETED);
+        bookingStatus.add(BookingStatus.RENT_DEFAULTER_PAID);
+        bookingStatus.add(BookingStatus.CONTRACT_COMPLETED);
+        bookingStatus.add(BookingStatus.CANCELLED);
+        bookingStatus.add(BookingStatus.RENT_DEFAULTER_UNPAID);
+        bookingStatus.add(BookingStatus.CONTRACT_TERMINATED);
+        return bookingStatus;
+    }
+
 
     public static List<String> RESIDENT_CONTRACT() {
         List<String> bookingStatus = new ArrayList<>();
@@ -380,4 +398,14 @@ public enum BookingStatus {
         bookingStatus.add(BookingStatus.TRESSPASSER);
         return bookingStatus;
     }
+
+    public static List<BookingStatus> bookingStatusForBookingAmountRealisation() {
+        List<BookingStatus> bookingStatus = new ArrayList<>();
+        bookingStatus.add(BookingStatus.AGREEMENT_PENDING);
+        bookingStatus.add(BookingStatus.AGREEMENT_SENT);
+        bookingStatus.add(BookingStatus.ONBOARDING_PENDING);
+        bookingStatus.add(BookingStatus.ONBOARDING_IN_PROGRESS);
+        return bookingStatus;
+    }
+
 }
