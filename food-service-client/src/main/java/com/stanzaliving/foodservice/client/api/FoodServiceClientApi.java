@@ -914,7 +914,7 @@ public class FoodServiceClientApi {
 		try {
 			String path = UriComponentsBuilder.fromPath("/internal/residence/food/menu").build().toUriString();
 			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-			if (Objects.nonNull(transformationUuid))
+			if (StringUtils.isNotBlank(transformationUuid))
 				queryParams.add("residenceId", transformationUuid);
 			if (Objects.nonNull(startDate))
 				queryParams.add("startDate", String.valueOf(startDate));
@@ -927,7 +927,7 @@ public class FoodServiceClientApi {
 			};
 			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
 		} catch (Exception e) {
-			log.error("Exception caught while fetching food menu by residenceId", e);
+			log.error("Exception caught while fetching food menu by transformationUuid", e);
 			return null;
 		}
 	}
