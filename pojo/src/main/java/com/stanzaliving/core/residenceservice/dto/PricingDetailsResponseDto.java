@@ -23,4 +23,5 @@ public class PricingDetailsResponseDto {
     private double cityBuffer;
     private double total;
     private double underWrittenIncGst;
+    private boolean isRoomConverted;
 }
