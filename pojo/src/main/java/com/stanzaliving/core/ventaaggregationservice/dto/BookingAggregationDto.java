@@ -3,14 +3,13 @@ package com.stanzaliving.core.ventaaggregationservice.dto;
 import com.stanzaliving.booking.dto.BookingTag;
 import com.stanzaliving.booking.dto.EligibleStatusMappingDto;
 import com.stanzaliving.booking.dto.response.InventoryResponseOccupancyDto;
-import com.stanzaliving.booking.enums.BookingResidenceType;
-import com.stanzaliving.booking.enums.PaymentTerm;
-import com.stanzaliving.booking.enums.ResidenceAgreementType;
+import com.stanzaliving.booking.enums.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -20,8 +19,9 @@ import java.util.Set;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class BookingAggregationDto {
+public class BookingAggregationDto implements Serializable{
 
+    private String uuid;
     private String bookingUuid;
     private String userUuid;
     private String referenceType;
@@ -54,7 +54,7 @@ public class BookingAggregationDto {
     private Double dues;
     private String riskProfile;
     private boolean duesStatus;
-    private boolean moveIn;
+    private Boolean moveIn;
     private boolean agreementSent;
     private Boolean agreementSigned;
     private Double licenseFee;
