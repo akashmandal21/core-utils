@@ -10,8 +10,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.CompletableFuture;
+import java.util.stream.Collectors;
 
 import com.stanzaliving.core.base.exception.StanzaHttpException;
+import com.sun.org.apache.bcel.internal.generic.ArrayInstruction;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -538,6 +540,8 @@ public class InternalDataControllerApi {
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
+        queryParams.add("active", "true");
+
         final HttpHeaders headerParams = new HttpHeaders();
 
         final String[] accepts = {
@@ -598,6 +602,40 @@ public class InternalDataControllerApi {
         };
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 
+    }
+
+
+    public List<String> getCityIdFromCityUUid(List<String> cityUuids) {
+        Object postBody = cityUuids;
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+        String path = UriComponentsBuilder.fromPath("/city/get/cityByUuids").buildAndExpand(uriVariables).toUriString();
+        log.info("Path for get all cities is for commercial code is {}", path);
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        final HttpHeaders headerParams = new HttpHeaders();
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<List<CityUIDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<CityUIDto>>>() {
+        };
+        ResponseDto<List<CityUIDto>> response = restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+        List<String> cityIdList = new ArrayList<>();
+        if(Objects.nonNull(response) && Objects.nonNull(response.getData())){
+            try {
+                cityIdList =  response.getData().stream().map(CityUIDto::getId).map(String::valueOf).collect(Collectors.toList());
+                if(!cityIdList.isEmpty()){
+                    return cityIdList;
+                } else return null;
+            } catch(Exception e){
+                for(CityUIDto city : response.getData()){
+                    cityIdList.add(String.valueOf(city.getId()));
+                }
+                return cityIdList;
+            }
+        }
+        log.info("Response for get all cities is for commercial code is {}", cityIdList);
+        return null;
     }
 
     public ResponseDto<CityUIDto> getCityDtoUsingId(Long cityId) {

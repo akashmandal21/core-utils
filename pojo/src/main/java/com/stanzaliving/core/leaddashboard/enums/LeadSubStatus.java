@@ -1,86 +1,80 @@
 package com.stanzaliving.core.leaddashboard.enums;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.Set;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+
+import java.util.*;
 
 @Getter
 @AllArgsConstructor
 public enum LeadSubStatus {
 
-	NEW_LEAD("New Lead","#6D7278","#5FD1D9"),
-	CALLED("Called","#F45E58","#F45E58"),
-	CONNECTED("Connected","#F45E58","#F45E58"),
-	QUALIFIED("Qualified","#6236FF","#6BBFFF"),
-	PRE_QUALIFICATION_FOLLOW_UP("Pre Qualification Follow Up","#44D7B6","#FFB701"),
-	RNR("RNR","#32C5FF","#32C5FF"),
-	
-	BOOKED("Booked", "#6DD400","#60C3AD"),
-	DISQUALIFIED("Disqualified","#FA6400","#F55F71"),
+	NEW_LEAD("New Lead", "#6D7278", "#5FD1D9"),
+	CALLED("Called", "#F45E58", "#F45E58"),
+	CONNECTED("Connected", "#F45E58", "#F45E58"),
+	QUALIFIED("Qualified", "#6236FF", "#6BBFFF"),
+	PRE_QUALIFICATION_FOLLOW_UP("Pre Qualification Follow Up", "#44D7B6", "#FFB701"),
+	RNR("RNR", "#32C5FF", "#32C5FF"),
+	BOOKED("Booked", "#6DD400", "#60C3AD"),
+	MOVED_OUT("Moved Out", "#E02020", "#F55F71"),
+	DISQUALIFIED("Disqualified", "#FA6400", "#F55F71"),
 
-	PRE_VISIT_FOLLOW_UP("Pre Visit Follow Up","#F45E58","#FFB701"),
-	PRE_VISIT_SCHEDULED_FOLLOW_UP("Pre Visit 1 Scheduled Follow Up","#EEC583","#FFB701"),
-	
-	PRE_VISIT_SCHEDULED_DROP("Pre-Visit Scheduled Drop","#E02020","#F55F71"),
-	PRE_VISIT_DROP("Pre-Visit Drop", "#E02020","#F55F71"),
-	
-	VISIT_1_STARTED("Visit 1 Started","#EC9797","#7D6476"),
-	VISIT_1_SCHEDULED("Visit 1 Scheduled","#F7B500","#645A87"),
-	VISIT_1_COMPLETED("Visit 1 Completed","#EEC583","#B1D6A3"),
-	POST_VISIT_1_DROP("Post Visit 1 Drop","#E02020","#F55F71"),
-	POST_VISIT_1_FOLLOW_UP("Post Visit 1 Follow Up","#0091FF","#FFB701"),
-	POST_VISIT_1_FOLLOW_UP_COMPLETED("Post Visit 1 Follow Up Completed","#EEC583","#FFB701"),
-	
-	VISIT_2_STARTED("Visit 2 Started","#EC9797","#7D6476"),
-	VISIT_2_SCHEDULED("Visit 2 Scheduled","#B620E0","#645A87"),
-	VISIT_2_COMPLETED("Visit 2 Completed","#EEC583","#B1D6A3"),
-	POST_VISIT_2_DROP("Post Visit 2 Drop","#E02020","#F55F71"),
-	POST_VISIT_2_FOLLOW_UP("Post Visit 2 Follow Up","#0091FF","#FFB701"),
-	POST_VISIT_2_FOLLOW_UP_COMPLETED("Post Visit 2 Follow Up Completed","#50514F","#FFB701"),
-	
-	VISIT_3_STARTED("Visit 3 Started","#EC9797","#7D6476"),
-	VISIT_3_SCHEDULED("Visit 3 Scheduled","#B620E0","#645A87"),
-	VISIT_3_COMPLETED("Visit 3 Completed","#EEC583","#B1D6A3"),
-	POST_VISIT_3_DROP("Post Visit 3 Drop","#E02020","#F55F71"),
-	POST_VISIT_3_FOLLOW_UP("Post Visit 3 Follow Up","#0091FF","#FFB701"),
-	POST_VISIT_3_FOLLOW_UP_COMPLETED("Post Visit 3 Follow Up Completed","#50514F","#FFB701"),
-	
-	VISIT_4_STARTED("Visit 4 Started","#EC9797","#7D6476"),
-	VISIT_4_SCHEDULED("Visit 4 Scheduled","#B620E0","#645A87"),
-	VISIT_4_COMPLETED("Visit 4 Completed","#EEC583","#B1D6A3"),
-	POST_VISIT_4_DROP("Post Visit 4 Drop","#E02020","#F55F71"),
-	POST_VISIT_4_FOLLOW_UP("Post Visit 4 Follow Up","#0091FF","#FFB701"),
-	POST_VISIT_4_FOLLOW_UP_COMPLETED("Post Visit 4 Follow Up Completed","#50514F","#FFB701"),
-	
-	VISIT_5_STARTED("Visit 5 Started","#EC9797","#7D6476"),
-	VISIT_5_SCHEDULED("Visit 5 Scheduled","#B620E0","#645A87"),
-	VISIT_5_COMPLETED("Visit 5 Completed","#EEC583","#B1D6A3"),
-	POST_VISIT_5_DROP("Post Visit 5 Drop","#E02020","#F55F71"),
-	POST_VISIT_5_FOLLOW_UP("Post Visit 5 Follow Up","#0091FF","#FFB701"),
-	POST_VISIT_5_FOLLOW_UP_COMPLETED("Post Visit 5 Follow Up Completed","#50514F","#FFB701"),
-	
-	VISIT_INTENT("Visit Intent Shown","#5FD1D9","#5FD1D9"),
-	
-	QUALIFIED_ATTEMPTED("qualification attempted","#5FD1D9","#5FD1D9");
-	
-	private String statusDescription;
-	private String colorCode;
-	private String newColorCode;
-	
+	PRE_VISIT_FOLLOW_UP("Pre Visit Follow Up", "#F45E58", "#FFB701"),
+	PRE_VISIT_SCHEDULED_FOLLOW_UP("Pre Visit 1 Scheduled Follow Up", "#EEC583", "#FFB701"),
+	PRE_VISIT_SCHEDULED_DROP("Pre-Visit Scheduled Drop", "#E02020", "#F55F71"),
+	PRE_VISIT_DROP("Pre-Visit Drop", "#E02020", "#F55F71"),
+	VISIT_1_STARTED("Visit 1 Started", "#EC9797", "#7D6476"),
+	VISIT_1_SCHEDULED("Visit 1 Scheduled", "#F7B500", "#645A87"),
+	VISIT_1_COMPLETED("Visit 1 Completed", "#EEC583", "#B1D6A3"),
+	POST_VISIT_1_DROP("Post Visit 1 Drop", "#E02020", "#F55F71"),
+	POST_VISIT_1_FOLLOW_UP("Post Visit 1 Follow Up", "#0091FF", "#FFB701"),
+	POST_VISIT_1_FOLLOW_UP_COMPLETED("Post Visit 1 Follow Up Completed", "#EEC583", "#FFB701"),
+
+	VISIT_2_STARTED("Visit 2 Started", "#EC9797", "#7D6476"),
+	VISIT_2_SCHEDULED("Visit 2 Scheduled", "#B620E0", "#645A87"),
+	VISIT_2_COMPLETED("Visit 2 Completed", "#EEC583", "#B1D6A3"),
+	POST_VISIT_2_DROP("Post Visit 2 Drop", "#E02020", "#F55F71"),
+	POST_VISIT_2_FOLLOW_UP("Post Visit 2 Follow Up", "#0091FF", "#FFB701"),
+	POST_VISIT_2_FOLLOW_UP_COMPLETED("Post Visit 2 Follow Up Completed", "#50514F", "#FFB701"),
+
+	VISIT_3_STARTED("Visit 3 Started", "#EC9797", "#7D6476"),
+	VISIT_3_SCHEDULED("Visit 3 Scheduled", "#B620E0", "#645A87"),
+	VISIT_3_COMPLETED("Visit 3 Completed", "#EEC583", "#B1D6A3"),
+	POST_VISIT_3_DROP("Post Visit 3 Drop", "#E02020", "#F55F71"),
+	POST_VISIT_3_FOLLOW_UP("Post Visit 3 Follow Up", "#0091FF", "#FFB701"),
+	POST_VISIT_3_FOLLOW_UP_COMPLETED("Post Visit 3 Follow Up Completed", "#50514F", "#FFB701"),
+
+	VISIT_4_STARTED("Visit 4 Started", "#EC9797", "#7D6476"),
+	VISIT_4_SCHEDULED("Visit 4 Scheduled", "#B620E0", "#645A87"),
+	VISIT_4_COMPLETED("Visit 4 Completed", "#EEC583", "#B1D6A3"),
+	POST_VISIT_4_DROP("Post Visit 4 Drop", "#E02020", "#F55F71"),
+	POST_VISIT_4_FOLLOW_UP("Post Visit 4 Follow Up", "#0091FF", "#FFB701"),
+	POST_VISIT_4_FOLLOW_UP_COMPLETED("Post Visit 4 Follow Up Completed", "#50514F", "#FFB701"),
+
+	VISIT_5_STARTED("Visit 5 Started", "#EC9797", "#7D6476"),
+	VISIT_5_SCHEDULED("Visit 5 Scheduled", "#B620E0", "#645A87"),
+	VISIT_5_COMPLETED("Visit 5 Completed", "#EEC583", "#B1D6A3"),
+	POST_VISIT_5_DROP("Post Visit 5 Drop", "#E02020", "#F55F71"),
+	POST_VISIT_5_FOLLOW_UP("Post Visit 5 Follow Up", "#0091FF", "#FFB701"),
+	POST_VISIT_5_FOLLOW_UP_COMPLETED("Post Visit 5 Follow Up Completed", "#50514F", "#FFB701"),
+
+	VISIT_INTENT("Visit Intent Shown", "#5FD1D9", "#5FD1D9"),
+
+	QUALIFIED_ATTEMPTED("qualification attempted", "#5FD1D9", "#5FD1D9");
+
+	private final String statusDescription;
+	private final String colorCode;
+	private final String newColorCode;
+
 	public static boolean postVisitFollowUpStatus(LeadSubStatus leadSubStatus) {
 		Set<LeadSubStatus> postVisitFollowUpStatus = new HashSet<>();
-		
+
 		postVisitFollowUpStatus.add(POST_VISIT_1_FOLLOW_UP);
 		postVisitFollowUpStatus.add(POST_VISIT_2_FOLLOW_UP);
 		postVisitFollowUpStatus.add(POST_VISIT_3_FOLLOW_UP);
 		postVisitFollowUpStatus.add(POST_VISIT_4_FOLLOW_UP);
 		postVisitFollowUpStatus.add(POST_VISIT_5_FOLLOW_UP);
-		
+
 		return postVisitFollowUpStatus.contains(leadSubStatus);
 
 	}
@@ -144,6 +138,7 @@ public enum LeadSubStatus {
 		pieChartStatus.put(LeadSubStatus.VISIT_2_SCHEDULED, "Follow Up Visit Scheduled");
 		pieChartStatus.put(LeadSubStatus.POST_VISIT_1_FOLLOW_UP, "Post Visit Follow Up Needed");
 		pieChartStatus.put(LeadSubStatus.BOOKED, "Booked");
+		pieChartStatus.put(LeadSubStatus.MOVED_OUT, "Move Out");
 		pieChartStatus.put(LeadSubStatus.POST_VISIT_1_DROP, "Dropped");
 
 		return pieChartStatus;
@@ -223,4 +218,5 @@ public enum LeadSubStatus {
 		
 		return qualifiedVisitCompletedStatus.contains(leadSubStatus);
 	}
+
 }
