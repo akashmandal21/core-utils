@@ -27,7 +27,7 @@ import lombok.experimental.SuperBuilder;
 public class UtilitiesDgCategoryV2Dto extends CategoryV2Dto{
 	
 	private int numberOfDG;
-	private double dGCostPerMonth;
+	private double dgCostPerMonth;
 
 }
 
