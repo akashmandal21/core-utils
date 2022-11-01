@@ -9,10 +9,16 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.util.UriComponentsBuilder;
+import com.stanzaliving.ventaInvoice.enums.ReferenceType;
+
 
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -299,4 +305,129 @@ public class InvoiceServiceApi {
         return null;
     }
 
+    public ResponseDto<String> saveDeptApprovalConfigForNewDept(Department newDepartment, Department refDepartment) {
+
+        log.info("HTTP Client call to save DeptApprovalConfigForNewDept details for new dept: {} refDept: {}", newDepartment, refDepartment);
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("newDepartment", newDepartment);
+        uriVariables.put("refDepartment", refDepartment);
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<String>> vddReturnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+        };
+
+        String path = UriComponentsBuilder.fromPath("/internal/save/deptApprovalConfig/{newDepartment}/{refDepartment}").buildAndExpand(uriVariables).toUriString();
+
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, null, headerParams, accept, vddReturnType);
+
+    }
+
+    public ResponseDto<String> rollBack(Department newDepartment) {
+
+        log.info("HTTP Client call to rollBack invoice details for new dept: {} ", newDepartment);
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("newDepartment", newDepartment);
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<String>> vddReturnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+        };
+
+        String path = UriComponentsBuilder.fromPath("/internal/roll-back/deptApprovalConfig/{newDepartment}").buildAndExpand(uriVariables).toUriString();
+
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, null, headerParams, accept, vddReturnType);
+
+    }
+
+    public ResponseDto<List<DocumentResponseDto>> getCompleteInvoiceDetails(String referenceUuid) {
+        final Map<String, Object> uriVariables = new HashMap<>();
+        String path = UriComponentsBuilder.fromPath("/internal/invoice-complete-details").buildAndExpand(uriVariables).toUriString();
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        queryParams.add("referenceId", referenceUuid);
+        HttpHeaders headerParams = new HttpHeaders();
+        String[] accepts = new String[]{"*/*"};
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<List<DocumentResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<DocumentResponseDto>>>() {
+        };
+        try {
+            log.info("Executing Api for getting invoice details with Url {}", path);
+            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception while fetching invoice information based on referenceId {}, Exception is {}", referenceUuid, e);
+        }
+        return null;
+    }
+
+    public ResponseDto<Long> getInvoiceDetails(double amount,
+                                               String remarks,
+                                               String referenceUuid,
+                                               String generationSource,
+                                               String invoiceType,
+                                               ReferenceType referenceType,
+                                               String creditNoteCategory) {
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/internal/invoices").buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        queryParams.add("referenceUuid", referenceUuid);
+        queryParams.add("generationSource", generationSource);
+        queryParams.add("invoiceType", invoiceType);
+        queryParams.add("remarks", remarks);
+        queryParams.add("amount", String.valueOf(amount));
+        queryParams.add("referenceType", String.valueOf(referenceType));
+        queryParams.add("creditNoteCategory", creditNoteCategory);
+
+
+        HttpHeaders headerParams = new HttpHeaders();
+        String[] accepts = new String[]{"*/*"};
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<Long>> returnType = new ParameterizedTypeReference<ResponseDto<Long>>() {
+        };
+        try {
+            log.info("Executing Api for getting invoice details with Url {}", path);
+            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception while fetching invoice information based on referenceId {}, Exception is {}", referenceUuid, e);
+        }
+        return null;
+    }
+
+    public ResponseDto<Boolean> deleteInvoiceByUuid(long id) {
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("id", id);
+        String path = UriComponentsBuilder.fromPath("/internal/invoice/{id}").buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+
+        HttpHeaders headerParams = new HttpHeaders();
+        String[] accepts = new String[]{"*/*"};
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<Boolean>> returnType = new ParameterizedTypeReference<ResponseDto<Boolean>>() {
+        };
+        try {
+            log.info("Executing Api for deleting invoice  with Url {}", path);
+            return this.restClient.invokeAPI(path, HttpMethod.DELETE, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception while deleting invoice information based on id {}, Exception is {}", id, e);
+        }
+        return null;
+    }
 }

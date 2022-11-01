@@ -4,6 +4,10 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.stanzaliving.booking.SoldBookingDto;
 import com.stanzaliving.booking.dto.*;
 import com.stanzaliving.booking.dto.response.*;
+import com.stanzaliving.booking.dto.response.BookingCommercialsCardResponseDto;
+import com.stanzaliving.booking.dto.response.InventoryOccupancyResponseDto;
+import com.stanzaliving.booking.dto.response.LedgerResponseDto;
+import com.stanzaliving.booking.dto.response.NeedsAttentionBookingResponseDto;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.exception.ApiValidationException;
 import com.stanzaliving.core.base.http.StanzaRestClient;
@@ -1162,6 +1166,44 @@ public class BookingDataControllerApi {
             log.error("Exception occurred while getting dues for bookingUuid: {}", bookingUuid, e);
         }
         return null;
+    }
+
+
+    public ResponseDto<InventoryOccupancyResponseDto> getLatestInventoryOccupancyDetailsForBookingUid(String bookingUuid) {
+        Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("bookingUuid", bookingUuid);
+
+        String path = UriComponentsBuilder.fromPath("/internal/v1/latest-inventory-occupancy-details/booking/{bookingUuid}")
+                .buildAndExpand(uriVariables).toUriString();
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        HttpHeaders headerParams = new HttpHeaders();
+        String[] accepts = new String[]{"*/*"};
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<InventoryOccupancyResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<InventoryOccupancyResponseDto>>() {
+        };
+        ResponseDto<InventoryOccupancyResponseDto> response  = null;
+        try {
+            log.info("Executing Api for getting booking inventory details with Url {}", path);
+            response = this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception while fetching booking inventory details for bookingUuid {}, Exception is ",bookingUuid , e);
+        }
+        return response;
+    }
+
+    public ResponseDto<String> createAuditForBooking(String bookingUuid) {
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("bookingUuid", bookingUuid);
+        String path = UriComponentsBuilder.fromPath("/internal/initate/audit/{bookingUuid}").buildAndExpand(uriVariables).toUriString();
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        final HttpHeaders headerParams = new HttpHeaders();
+        final String[] accepts = {"*/*"};
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, null, headerParams, accept, returnType);
     }
 
 }
