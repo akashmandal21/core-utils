@@ -33,13 +33,20 @@ public class ReviewTemplateResponseDto {
     private boolean l1CallBackVisible;
     private boolean l2CallBackVisible;
     private boolean bypassVisible;
+    private boolean dealScoreVisible;
     private boolean questionnaireVisible;
+    private boolean isNamedPropertyDetailsEditable;
     private boolean viewOnly;
     private BedCountInfoDto bedCountInformation;
     private List<LayoutResponse> layouts;
     private String propertyAction;
+    private boolean suggestedLanguageEditable;
+
     @Temporal(TemporalType.TIMESTAMP)
     protected Date propertyApprovalTime;
+    private Boolean cmNameVisible;
+    private String salesReviewSubmittedBy;
+    private Date salesReviewSubmittedOn;
     private boolean isMigrated;
 
 }
