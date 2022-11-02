@@ -1,7 +1,6 @@
 package com.stanzaliving.booking.dto;
 
 import com.stanzaliving.booking.enums.EventType;
-import com.stanzaliving.booking.dto.TaskSubCategory;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
