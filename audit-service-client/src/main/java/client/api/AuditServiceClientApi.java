@@ -222,7 +222,7 @@ public class AuditServiceClientApi {
             responseDto = stanzaRestClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
             return responseDto;
         } catch (Exception e) {
-            log.error("Error while searching from venta aggregation service.", e);
+            log.error("Error while searching from audit service.", e);
             return null;
         }
     }
