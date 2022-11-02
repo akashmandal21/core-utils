@@ -927,7 +927,7 @@ public class FoodServiceClientApi {
 			};
 			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
 		} catch (Exception e) {
-			log.error("Exception caught while fetching food menu by transformationUuid", e);
+			log.error("Exception caught while fetching food menu.", e);
 			return null;
 		}
 	}
