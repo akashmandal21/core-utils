@@ -24,5 +24,4 @@ public class MonthlyFeeDtoV2 {
     private Double onmGstValue;
     private Double onmGstPercentage;
     private Double totalOnmServiceCharges;
-    private Double accommodationChargeGstValue;
 }
