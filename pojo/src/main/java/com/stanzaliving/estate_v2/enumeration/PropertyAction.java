@@ -86,6 +86,7 @@ public enum PropertyAction {
         apartmentPropertyActions.add(new KeyValueDto(SENT_TO_LEGAL_FOR_APPROVAL.getAlias(), SENT_TO_LEGAL_FOR_APPROVAL.uuid));
         apartmentPropertyActions.add(new KeyValueDto(SENT_TO_SUNIL.getAlias(), SENT_TO_SUNIL.uuid));
         apartmentPropertyActions.add(new KeyValueDto(SENT_TO_CH.getAlias(), SENT_TO_CH.uuid));
+        apartmentPropertyActions.add(new KeyValueDto(SENT_TO_TITLE_DOCS.getAlias(), SENT_TO_TITLE_DOCS.uuid));
         return apartmentPropertyActions;
     }
 
