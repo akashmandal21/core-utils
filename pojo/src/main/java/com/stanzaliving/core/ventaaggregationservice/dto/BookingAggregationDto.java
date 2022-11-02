@@ -111,4 +111,5 @@ public class BookingAggregationDto implements Serializable{
     private String primaryOwnerName;
     private Date expectedMoveOutDate;
     private ResidenceAgreementType residenceAgreementType;
+    private String residenceAddress;
 }
