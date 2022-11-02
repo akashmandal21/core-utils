@@ -110,5 +110,6 @@ public class BookingAggregationDto {
     private boolean guestBooking;
     private String primaryOwnerName;
     private Date expectedMoveOutDate;
+    private String residenceAddress;
     private ResidenceAgreementType residenceAgreementType;
 }
