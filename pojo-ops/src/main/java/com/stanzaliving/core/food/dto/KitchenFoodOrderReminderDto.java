@@ -8,8 +8,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.util.List;
-
 @Getter
 @Setter
 @Builder
@@ -22,5 +20,5 @@ public class KitchenFoodOrderReminderDto {
 	private String lunchCutoffTime;
 	private String snacksCutoffTime;
 	private String dinnerCutoffTime;
-	private List<String> residenceList;
+	private String residenceList;
 }
