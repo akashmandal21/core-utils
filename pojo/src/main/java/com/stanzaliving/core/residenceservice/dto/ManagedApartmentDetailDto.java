@@ -4,12 +4,14 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 @Getter
 @Setter
 @ToString
-public class ManagedApartmentDetailDto {
+public class ManagedApartmentDetailDto implements Serializable {
     private String residenceUuid;
     private String residenceName;
     private String floor;
@@ -22,5 +24,7 @@ public class ManagedApartmentDetailDto {
     private float totalRooms = 0.0F;
     private float blockedRooms = 0.0F;
     private String residenceCode;
+    private Date availableFrom;
+
 
 }

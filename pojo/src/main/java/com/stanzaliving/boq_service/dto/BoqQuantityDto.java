@@ -17,4 +17,6 @@ public class BoqQuantityDto {
     private BigDecimal slQty;
 
     private BigDecimal llQty;
+
+    private BigDecimal gcQty;
 }

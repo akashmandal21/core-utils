@@ -1,18 +1,20 @@
 package com.stanzaliving.support.dto;
 
+import java.util.List;
+
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
+import org.apache.commons.lang3.StringUtils;
+
 import com.stanzaliving.core.base.enums.Department;
+import com.stanzaliving.core.base.enums.TicketRaisedForType;
 import com.stanzaliving.support.enums.Priority;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.apache.commons.lang3.StringUtils;
-
-import javax.validation.Valid;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import java.util.Date;
-import java.util.List;
 
 @Builder
 @Data
@@ -31,6 +33,8 @@ public class TicketRequestDto {
 
     @NotBlank(message = "Raised for user uuid cannot be blank/null")
     private String raisedFor;
+    
+    private TicketRaisedForType raisedForType;
 
     private String assignedToUuid;
 
@@ -55,5 +59,7 @@ public class TicketRequestDto {
     private String mailChainSubject = StringUtils.EMPTY;
 
     private String email;
+    private String parentTicketUuid;
+    private String serviceProvider;
 
 }

@@ -19,5 +19,6 @@ public class TransactionResponseDto {
 	private String internalTransactionId;
 	private String merchantTransactionId;
 	private Date transactionDate;
-
+    private Boolean isLastTransaction;
+    private String paymentStatus;
 }

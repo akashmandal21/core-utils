@@ -14,4 +14,5 @@ public class OtherInformationResponse {
     private List<String> answers;
     private List<AnswerDetailsDto> answerDetails;
     private String icon;
+    private String urlInfo;
 }

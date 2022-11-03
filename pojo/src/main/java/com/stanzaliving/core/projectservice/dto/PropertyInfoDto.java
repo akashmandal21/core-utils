@@ -51,7 +51,12 @@ public class PropertyInfoDto {
     private String siteEngineerMobile;
     private String projectManagerId;
     private String projectZonalHeadId;
+    private String gcZonalHeadId;
+    private String designZonalHeadId;
+    private String designCoordinatorId;
     private double latitude;
     private double longitude;
     private int floorCount;
+    private String propertyImages;
+    private String estateUuid;
 }

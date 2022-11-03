@@ -91,7 +91,38 @@ public class WebsiteClientApi {
 
     }
 
-    public WebsiteResidenceResponseDto getResidenceDetails(String residenceName) {
+    public ResidenceResponseDTO getResidenceDetails(String residenceName) {
+        try {
+            Object postBody = null;
+
+            log.info("Received request to get residence details of {}", residenceName);
+            // create path and map variables
+            final Map<String, Object> uriVariables = new HashMap<>();
+
+            uriVariables.put("name", residenceName);
+
+            String path = UriComponentsBuilder.fromPath("/internal/get/residence/{name}").buildAndExpand(uriVariables)
+                    .toUriString();
+
+            final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+            final HttpHeaders headerParams = new HttpHeaders();
+
+            final String[] accepts = {"*/*"};
+            final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+            ParameterizedTypeReference<ResidenceResponseDTO> returnType = new ParameterizedTypeReference<ResidenceResponseDTO>() {
+            };
+            return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+
+        } catch (Exception e) {
+            log.error("Error while fetching residence details of : " + residenceName, e);
+            return null;
+        }
+
+    }
+
+    public WebsiteResidenceResponseDto getResidenceDetailsV2(String residenceName) {
         try {
             Object postBody = null;
 

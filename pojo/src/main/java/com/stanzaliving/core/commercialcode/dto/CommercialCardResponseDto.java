@@ -1,5 +1,6 @@
 package com.stanzaliving.core.commercialcode.dto;
 
+import com.stanzaliving.booking.enums.AMCAmountType;
 import com.stanzaliving.booking.enums.MaintenanceFeeCollectionType;
 import com.stanzaliving.commercialcard.enums.CommercialCardStatus;
 import com.stanzaliving.commercialcard.enums.CommercialCardUserType;
@@ -47,6 +48,12 @@ public class CommercialCardResponseDto {
 
     private Double securityDeposit;
 
+    private Double onBoardingCharges;
+
+    private Double onBoardingChargesPercentage;
+
+    private Boolean onboardingChargesApplicableOnRetention;
+
     private Integer advanceRentalFirstMonths;
 
     private Integer advanceRentalLastMonths;
@@ -60,4 +67,6 @@ public class CommercialCardResponseDto {
     private Boolean isSecurityDepositManualInput;
 
     private Double monthlyFeesMultiplier;
+
+    private AMCAmountType maintenanceChargeAmountType;
 }

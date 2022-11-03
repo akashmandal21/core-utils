@@ -20,6 +20,8 @@ public interface S3DownloadService {
 
 	String downloadStringContent(String bucket, String filePath, AmazonS3 s3Client);
 
+	String downloadStringContentInBase64(String bucket, String filePath, AmazonS3 s3Client);
+
 	String downloadStringContent(String bucket, String prefix, String fileName, AmazonS3 s3Client);
 
 	File downloadFile(String bucket, String filePath, AmazonS3 s3Client);

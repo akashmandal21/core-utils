@@ -4,12 +4,15 @@ import javax.validation.constraints.NotBlank;
 
 import com.stanzaliving.wanda.enums.ResidentType;
 
+import com.stanzaliving.wanda.enums.SubResidentType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+
+import java.util.List;
 
 @Getter
 @Builder
@@ -24,6 +27,8 @@ public class ResidentProfessionalDetailsDto {
 	
 	@NotBlank(message = "Resident Type is Required")
 	private ResidentType residentType;
+	
+	private SubResidentType subResidentType;
 
 	private String educationalInstitute;
 	private String educationalInstituteName;
@@ -32,11 +37,15 @@ public class ResidentProfessionalDetailsDto {
 	private String degree;
 	private String degreeName;
 	private Integer yearOfStudy;
-	
+
+	private String companyCode;
 	private String companyName;
 	
 	private String designation;
 	
 	private String profilePic;
+	private String bookingUuid;
+
+	private List<String> idCardUrls;
 	
 }
