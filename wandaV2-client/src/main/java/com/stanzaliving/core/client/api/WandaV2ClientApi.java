@@ -36,7 +36,7 @@ public class WandaV2ClientApi {
 
             final Map<String, Object> uriVariables = new HashMap<>();
 
-            String path = UriComponentsBuilder.fromPath("onboarding/details").buildAndExpand(uriVariables)
+            String path = UriComponentsBuilder.fromPath("internal/onboarding/details").buildAndExpand(uriVariables)
                     .toUriString();
 
             final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
