@@ -1,4 +1,6 @@
-package com.stanzaliving.operations.dto.servicemix;
+package com.stanzaliving.operations.dto;
+
+import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,10 +11,12 @@ import lombok.experimental.SuperBuilder;
 
 @Getter
 @Setter
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString(callSuper = true)
 @SuperBuilder
-public class BooleanService {
-	private boolean active;
+public class ResidenceMirSummaryDto {
+
+    private List<ResidentMenuCategoryDetailsDto> menuCategoryWiseResidentDetails;
+
 }
