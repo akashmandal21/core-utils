@@ -14,10 +14,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CompleteExitInfoDto {
     private String taskMappingId;
-    private String department;
-    private String group;
-    private String category;
-    private TaskSubCategory taskSubCategory;
     private String resolvedByUuid;
     private LocalDateTime resolvedAt;
     private EventType eventType;
