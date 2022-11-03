@@ -82,6 +82,7 @@
         <module>generic-po-client</module>
         <module>approval-service-client</module>
         <module>wanda-client</module>
+        <module>wandaV2-client</module>
         <module>search-client</module>
         <module>leadservice-client</module>
         <module>far-client</module>
