@@ -50,7 +50,8 @@ public enum SupportRole {
     SUPPORT_IT_MANAGER(1,"SUPPORT_IT_MANAGER",AccessLevel.COUNTRY,Arrays.asList(SupportModule.TICKET_RESOLUTION,SupportModule.BLISS_DASHBOARD)),
     CX_TEAM_LEAD(1,"CX_TEAM_LEAD",AccessLevel.COUNTRY,Arrays.asList(SupportModule.TICKET_RESOLUTION,SupportModule.BLISS_DASHBOARD)),
     CX_SPECIALIST(1,"CX_SPECIALIST",AccessLevel.COUNTRY,Arrays.asList(SupportModule.TICKET_RESOLUTION,SupportModule.BLISS_DASHBOARD)),
-    CX_AGENT(1,"CX_AGENT",AccessLevel.COUNTRY,Arrays.asList(SupportModule.TICKET_RESOLUTION,SupportModule.BLISS_DASHBOARD));
+    CX_AGENT(1,"CX_AGENT",AccessLevel.COUNTRY,Arrays.asList(SupportModule.TICKET_RESOLUTION,SupportModule.BLISS_DASHBOARD)),
+    SUPPORT_IT_EXEC_MICROMARKET(3,"SUPPORT_IT_EXEC_MICROMARKET",AccessLevel.MICROMARKET,Arrays.asList(SupportModule.TICKET_RESOLUTION,SupportModule.BLISS_DASHBOARD));
 
     private static final Map<String, SupportRole> map = new HashMap<>();
 
