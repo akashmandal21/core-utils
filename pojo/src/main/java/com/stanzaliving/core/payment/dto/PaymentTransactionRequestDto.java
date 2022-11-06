@@ -6,7 +6,8 @@ import com.stanzaliving.core.payment.enums.PaymentSource;
 import com.stanzaliving.core.payment.enums.StanzaPaymentService;
 import lombok.*;
 
-import javax.validation.constraints.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Getter
 @Setter
@@ -40,4 +41,8 @@ public class PaymentTransactionRequestDto {
     private String chequeImageUrl;
 
     private String virtualAccountNumber;
+
+    private String userType;
+
+    private String createdBy;
 }

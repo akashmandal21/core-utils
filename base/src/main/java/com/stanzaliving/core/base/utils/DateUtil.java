@@ -1208,4 +1208,14 @@ public class DateUtil {
     public static Long convertToEpochInMiliSeconds(LocalDate localDate) {
         return Objects.isNull(localDate) ? null : localDate.atStartOfDay().toInstant(ZoneOffset.of(StanzaConstants.ZONE_OFFSET)).toEpochMilli();
     }
+
+    public static LocalDate getPrevOrSameDayOfTheWeek(LocalDate date, DayOfWeek day) {
+
+        return date.with(TemporalAdjusters.previousOrSame(day));
+    }
+
+    public static LocalDate getNextOrSameDayOfTheWeek(LocalDate date, DayOfWeek day) {
+
+        return date.with(TemporalAdjusters.nextOrSame(day));
+    }
 }
