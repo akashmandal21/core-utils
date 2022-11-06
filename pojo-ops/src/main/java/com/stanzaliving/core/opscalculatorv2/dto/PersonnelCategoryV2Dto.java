@@ -75,6 +75,7 @@ public class PersonnelCategoryV2Dto extends CategoryV2Dto {
 	public double hk12HrCostPerBed;
 	public double sgCostPerBed;
 	public double rcCostPerBed;
+	public double rmCostPerBed;
 	public double jrRcCostPerBed;
 	public double releiverCostPerBed;
 
@@ -85,5 +86,10 @@ public class PersonnelCategoryV2Dto extends CategoryV2Dto {
 	private double employeeRatePerMonth;
 	private double employeeRatePerMonthSuggested;
 	private String employeeRatePerMonthSuggestedReason;
+
+    private int rmCount;
+    private int rmCountSuggested;
+    private String rmCountSuggestedReason;
+    private double rmRate;
 
 }
