@@ -1,6 +1,7 @@
 package com.stanzaliving.wanda.venta.response;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 import com.stanzaliving.booking.enums.BookingSubType;
 
@@ -37,6 +38,6 @@ public class PendingBookingVentaDto {
     
     private BookingSubType bookingSubType;
 
-    private String roomUuid;
-    
+    private Date bookingExpirationTime;
+
 }
