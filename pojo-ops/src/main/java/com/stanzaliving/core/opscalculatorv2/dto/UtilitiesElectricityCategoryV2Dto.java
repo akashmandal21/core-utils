@@ -49,14 +49,15 @@ public class UtilitiesElectricityCategoryV2Dto extends CategoryV2Dto {
 	
 	
 	public double passThroughUnitRate;
-	public double acRunningMonthsPerYear;
+	@Builder.Default
+	public double acRunningMonthsPerYear = 5.0;
 	public double commonAreaAcCount;
 	public double commonAreaAcConsumptionPerDay;
 	public double boilerCount;
 	public double boilerConsumptionPerDay;
 	
-	public double otherEquipCount;
-	public double unitsConsumedByOthersEquipPerDay;
+	public double liftCount;
+	public double unitsConsumedByLiftPerDay;
 	
 	public double totalUnitsPerMonth;
 	public double totalPassThroughUnitsPerMonth;
@@ -65,6 +66,9 @@ public class UtilitiesElectricityCategoryV2Dto extends CategoryV2Dto {
 	public int landlordReceivablesInPercent;
 	
 	public double finalElectricityCost;
+
+	@Builder.Default
+	public double acRunningHoursPerDay = 8.0;
 	    	
 	public void setFixedCharges(double fixedCharges) {
 		this.fixedCharges = fixedCharges;

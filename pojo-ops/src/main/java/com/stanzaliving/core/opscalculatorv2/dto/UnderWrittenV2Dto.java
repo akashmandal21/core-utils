@@ -38,6 +38,7 @@ public class UnderWrittenV2Dto {
 	private IncentiveCategoryV2Dto incentiveCategoryV2Dto;
 	private CxCategoryV2Dto cxCategoryV2Dto;
 	private TransportCategoryV2Dto transportCategoryV2Dto;
+	private EquipmentRentalCategoryV2Dto equipRentalCategoryV2Dto;
 	protected UnderwrittenCostCategoryDto underwrittenCostCategoryDto;
 	private double underWrittenDurationAmount;
 	private double underWrittenDurationInDays;
