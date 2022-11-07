@@ -32,6 +32,7 @@ public class RepairCategoryV2Dto extends CategoryV2Dto {
 	private boolean dgAmcCostApplicable;
 	private boolean liftAmcCostApplicable;
 	private boolean roAmcCostApplicable;
+	private boolean othersAmcCostApplicable;
 
 	@Builder.Default
 	List<AmcCostSlotV2Dto> liftAmcCostSlotDtos = new ArrayList<>();
@@ -45,5 +46,8 @@ public class RepairCategoryV2Dto extends CategoryV2Dto {
 	@Builder.Default
 	List<AmcCostSlotV2Dto> acAmcCostSlotDtos = new ArrayList<>();
 	private int acAmcCost;
+	@Builder.Default
+    List<AmcCostSlotV2Dto> othersAmcCostSlotDtos = new ArrayList<>();
+    private int othersAmcCost;
 
 }
