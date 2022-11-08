@@ -9,10 +9,16 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.util.UriComponentsBuilder;
+import com.stanzaliving.ventaInvoice.enums.ReferenceType;
+
 
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -240,6 +246,25 @@ public class InvoiceServiceApi {
 
     }
 
+    public ResponseDto<List<DocumentResponseDto>> getCompleteInvoiceDetails(String referenceUuid) {
+        final Map<String, Object> uriVariables = new HashMap<>();
+        String path = UriComponentsBuilder.fromPath("/internal/invoice-complete-details").buildAndExpand(uriVariables).toUriString();
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        queryParams.add("referenceId", referenceUuid);
+        HttpHeaders headerParams = new HttpHeaders();
+        String[] accepts = new String[]{"*/*"};
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<List<DocumentResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<DocumentResponseDto>>>() {
+        };
+        try {
+            log.info("Executing Api for getting invoice details with Url {}", path);
+            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception while fetching invoice information based on referenceId {}, Exception is {}", referenceUuid, e);
+        }
+        return null;
+    }
+
     public ResponseDto<Long> getInvoiceDetails(double amount,
                                                String remarks,
                                                String referenceUuid,
@@ -276,6 +301,7 @@ public class InvoiceServiceApi {
         return null;
     }
 
+
     public ResponseDto<Boolean> deleteInvoiceByUuid(long id) {
         final Map<String, Object> uriVariables = new HashMap<>();
         uriVariables.put("id", id);
@@ -298,5 +324,4 @@ public class InvoiceServiceApi {
         }
         return null;
     }
-
 }

@@ -1,4 +1,4 @@
-    /**
+/**
  *
  */
 package com.stanzaliving.core.transformation.client.api;
@@ -248,7 +248,7 @@ public class InternalDataControllerApi {
         };
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
     }
-    
+
 	public ResponseDto<List<CityMetadataDto>> getMedullaEligibleCities() {
 
 		Object postBody = null;
@@ -540,7 +540,7 @@ public class InternalDataControllerApi {
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 
     }
-    
+
 	public List<ResidenceUIDto> getAllStudio21Residences() {
 
 		final Map<String, Object> uriVariables = new HashMap<>();
@@ -565,7 +565,7 @@ public class InternalDataControllerApi {
 
 		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : new ArrayList<>();
 	}
-    
+
     public ResponseDto<List<ResidenceMetadataDto>> getAllResidencesBoth() {
 
         Object postBody = null;

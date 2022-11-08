@@ -26,7 +26,6 @@ public enum EventType {
     CAPTURE_BANK_DETAILS("capture bank details"),
     INELIGIBLE_REFUNDS_DUE_GREATER_THAN_SD("ineligible refunds due greater than SD"),
     INELIGIBLE_REFUNDS_LEFT_WITHIN_LOCKIN("ineligible refunds within lockin"),
-    REFUND_SUCCESSFULLY_PROCESSED("Refund successfully processed"),
     PRE_BOOKING_COMPLETED("Pre Booking completed");
     private String commandText;
 
