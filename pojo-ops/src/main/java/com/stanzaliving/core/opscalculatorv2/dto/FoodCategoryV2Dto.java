@@ -71,6 +71,9 @@ public class FoodCategoryV2Dto extends CategoryV2Dto {
 
 	@Builder.Default
     private BigDecimal utilizationNonLeaveDays = new BigDecimal(0);
+	
+	@Builder.Default
+    private BigDecimal overallUtilization = new BigDecimal(0);
 
 	@Builder.Default
 	private BigDecimal utilizationNonLeaveDaysSuggested = new BigDecimal(0);
