@@ -19,10 +19,8 @@ import org.springframework.http.MediaType;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
-
 import com.stanzaliving.core.backend.dto.UserHostelDto;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
-import com.stanzaliving.core.base.exception.BaseMarker;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.internet.response.UserCurrentPlanDetailDto;
 import com.stanzaliving.transformations.pojo.ResidenceUIDto;
@@ -34,25 +32,9 @@ import com.stanzaliving.wanda.response.ResidentKYCDocumentResponseDtoV2;
 import com.stanzaliving.wanda.response.UserInternetStatusInfoDto;
 import com.stanzaliving.wanda.response.WandaFileResponseDto;
 import com.stanzaliving.wanda.response.WandaResponse;
-import com.stanzaliving.wanda.venta.response.BookingStatusResponseDto;
 import lombok.extern.log4j.Log4j2;
-import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
-import org.springframework.web.util.UriComponentsBuilder;
-
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Set;
+
 
 @Log4j2
 public class WandaClientApi {
