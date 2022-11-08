@@ -31,4 +31,6 @@ public class LandlordDetailsDto {
 
     private String landlordEmailId;
 
+    private String landlordAadhaar;
+
 }
