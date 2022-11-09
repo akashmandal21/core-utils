@@ -13,7 +13,6 @@ import javax.persistence.PrePersist;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import com.stanzaliving.ventaAudit.enums.AuditAction;
 import org.apache.commons.lang3.StringUtils;
 
 import com.stanzaliving.core.base.utils.StanzaUtils;

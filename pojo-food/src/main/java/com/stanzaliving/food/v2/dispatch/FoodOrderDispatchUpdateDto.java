@@ -1,6 +1,7 @@
 package com.stanzaliving.food.v2.dispatch;
 
 
+import com.stanzaliving.core.operations.enums.MealType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,7 +20,8 @@ import java.util.List;
 @AllArgsConstructor
 public class FoodOrderDispatchUpdateDto {
 
-    private String orderId;
+    private String residenceId;
+    private MealType mealType;
     private LocalTime receivingTime;
     private List<UpdateItemDto> updateItemDtoList;
 }
