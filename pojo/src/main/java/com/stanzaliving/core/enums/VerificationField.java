@@ -5,7 +5,9 @@ public enum VerificationField {
     ID_NUMBER("idNumber"),
 	ID_NAME("idName"),
 	ID_DOB("idDob"),
-	ID_ADDRESS("idAddress");
+	ID_ADDRESS("idAddress"),
+
+	ID_GENDER("idGender");
 
     public final String key;
 
