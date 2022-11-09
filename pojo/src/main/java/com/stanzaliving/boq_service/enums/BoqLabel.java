@@ -28,6 +28,7 @@ public enum BoqLabel {
     PILOT_COST("PILOT COST"),
     REFURB_MISPLACED_ITEMS("Refurb - Misplaced Items"),
     REFURB_R_AND_M("Refurb - R&M"),
+    TRANSFORMATION_LL_ITEMS("Transformation - LL items"),
     NA("NA"); // not to be used while labeling. (only used to tag legacy boqs)
 
     private final String boqLabelText;

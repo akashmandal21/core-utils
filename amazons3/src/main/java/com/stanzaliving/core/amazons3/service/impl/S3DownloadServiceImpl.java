@@ -5,15 +5,17 @@ package com.stanzaliving.core.amazons3.service.impl;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 
 import com.amazonaws.services.s3.model.*;
-import lombok.SneakyThrows;
+import com.amazonaws.util.IOUtils;
 import org.joda.time.DateTime;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StreamUtils;
@@ -51,7 +53,42 @@ public class S3DownloadServiceImpl implements S3DownloadService {
 			if (s3Object != null) {
 				S3ObjectInputStream inputStream = s3Object.getObjectContent();
 
+
 				fileContent = StreamUtils.copyToString(inputStream, StandardCharsets.UTF_8);
+			}
+
+		} catch (Exception e) {
+			log.error("Error while downloading object from S3: ", e);
+		} finally {
+			if (s3Object != null) {
+				try {
+					s3Object.close();
+				} catch (IOException e) {
+					log.error("IOException while closing s3Object: ", e);
+				}
+			}
+		}
+
+		return fileContent;
+	}
+
+	@Override
+	public String downloadStringContentInBase64(String bucket, String filePath, AmazonS3 s3Client) {
+
+		String fileContent = null;
+		S3Object s3Object = null;
+		try {
+
+			log.debug("Downloading File: " + filePath + " from Bucket: " + bucket);
+
+			GetObjectRequest getObjectRequest = new GetObjectRequest(bucket, filePath);
+
+			s3Object = S3Util.getAmazonS3Client(s3Client).getObject(getObjectRequest);
+
+			if (s3Object != null) {
+				S3ObjectInputStream inputStream = s3Object.getObjectContent();
+				byte[] bytes = IOUtils.toByteArray(inputStream);
+				fileContent = Base64.getEncoder().encodeToString(bytes);
 			}
 
 		} catch (Exception e) {

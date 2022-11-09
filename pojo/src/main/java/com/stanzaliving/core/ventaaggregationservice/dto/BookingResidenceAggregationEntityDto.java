@@ -1,6 +1,7 @@
 package com.stanzaliving.core.ventaaggregationservice.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.stanzaliving.booking.enums.ResidenceAgreementType;
 import lombok.*;
 
 import java.util.List;
@@ -57,6 +58,12 @@ public class BookingResidenceAggregationEntityDto {
     private Float blockedBeds=0F;
 
     private boolean testHouse;
+    @Builder.Default
+    private Double residenceFixedRent=0.0;
+    @Builder.Default
+    private Double residenceManagementFeePercentage=0.0;
+    @Builder.Default
+    private ResidenceAgreementType residenceAgreementType = ResidenceAgreementType.LEASE_DEED;
 }
 
 
