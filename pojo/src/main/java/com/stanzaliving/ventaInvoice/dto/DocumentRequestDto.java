@@ -1,6 +1,7 @@
 package com.stanzaliving.ventaInvoice.dto;
 
 import com.stanzaliving.booking.enums.PaymentPlanType;
+import com.stanzaliving.booking.enums.ResidenceAgreementType;
 import com.stanzaliving.ventaInvoice.enums.InvoiceType;
 import com.stanzaliving.ventaInvoice.enums.ReferenceType;
 
@@ -65,5 +66,8 @@ public class DocumentRequestDto {
     private DealBillToDto dealBillToDto;
 
     private Map<String, Object> callerServiceMetaData;
+
+    @Builder.Default
+    private ResidenceAgreementType residenceAgreementType = ResidenceAgreementType.LEASE_DEED;
 
 }
