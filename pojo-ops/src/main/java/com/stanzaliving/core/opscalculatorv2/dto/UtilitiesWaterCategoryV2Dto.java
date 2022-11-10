@@ -37,4 +37,10 @@ public class UtilitiesWaterCategoryV2Dto extends CategoryV2Dto {
 	private double jalBoardWaterCostPerMonth;
 	private double jalBoardWaterCostPerAvailableBed;
 
+    private int monthsWithTankerDependency;
+    private double tankerCapacity;
+    private double perTankerCost;
+    private double landlordSharingPercent;
+
+
 }

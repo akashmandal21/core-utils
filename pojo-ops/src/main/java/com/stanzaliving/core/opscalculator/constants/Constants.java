@@ -93,5 +93,8 @@ public class Constants {
 	public static final BigDecimal MONTHS_BIGDECIMAL =  new BigDecimal(12);
 	public static final BigDecimal DAYS_IN_MONTH_IN_BIGDECIMAL = new BigDecimal(30);
 	public static final BigDecimal DAYS_IN_YEAR_IN_BIGDECIMAL = new BigDecimal(365);
+	public static final BigDecimal DAYS_IN_WEEK_IN_BIGDECIMAL = new BigDecimal(7);
+	public static final int ZERO = 0;
+
 
 }
