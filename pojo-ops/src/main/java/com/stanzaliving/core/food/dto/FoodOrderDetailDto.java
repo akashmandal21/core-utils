@@ -10,6 +10,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -109,5 +110,7 @@ public class FoodOrderDetailDto {
 	private boolean cutOffTimeExpired = true;
 
 	private UserPreferenceCountDto userPreferenceCountDto;
+
+	private Set<String> slEmailIds;
 
 }
