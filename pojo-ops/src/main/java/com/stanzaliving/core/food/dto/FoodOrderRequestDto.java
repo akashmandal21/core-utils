@@ -1,7 +1,9 @@
 package com.stanzaliving.core.food.dto;
 
 import java.time.LocalDate;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
@@ -64,5 +66,8 @@ public class FoodOrderRequestDto {
 
 	@Builder.Default
 	private Boolean residenceFoodOrderTimeOut = true;
+
+	@Builder.Default
+	private Set<String> slExtraOrderEmails = new HashSet<>();
 
 }
