@@ -19,11 +19,20 @@ public enum Role {
     SALES_CLUSTER_MANAGER("SALES_CLUSTER_MANAGER", AccessLevel.MICROMARKET, Department.SALES),
 
     /* lead-service */
+    UBONA_CALLING("UBONA_CALLING", AccessLevel.RESIDENCE, Department.SALES),
     RESIDENCE_LEAD_MANAGER("RESIDENCE_LEAD_MANAGER", AccessLevel.RESIDENCE, Department.SALES, AccessModule.PG_LEAD_EDIT),
     MICROMARKET_LEAD_MANAGER("MICROMARKET_LEAD_MANAGER", AccessLevel.MICROMARKET, Department.SALES, AccessModule.PG_LEAD_EDIT),
     CITY_LEAD_MANAGER("CITY_LEAD_MANAGER", AccessLevel.CITY, Department.SALES, AccessModule.PG_LEAD_EDIT),
     ZONAL_LEAD_MANAGER("ZONAL_LEAD_MANAGER", AccessLevel.CITY, Department.SALES),
     COUNTRY_LEAD_MANAGER("COUNTRY_LEAD_MANAGER", AccessLevel.COUNTRY, Department.SALES, AccessModule.PG_LEAD_EDIT),
+
+    RESIDENCE_LEAD_VIEWER("RESIDENCE_LEAD_VIEWER", AccessLevel.RESIDENCE, Department.SALES),
+
+    MICROMARKET_LEAD_VIEWER("MICROMARKET_LEAD_VIEWER", AccessLevel.MICROMARKET, Department.SALES),
+
+    CITY_LEAD_VIEWER("CITY_LEAD_VIEWER", AccessLevel.CITY, Department.SALES),
+
+    COUNTRY_LEAD_VIEWER("COUNTRY_LEAD_VIEWER", AccessLevel.COUNTRY, Department.SALES),
     
     /* lead-service apartment role*/
     RESIDENCE_APARTMENT_LEAD_MANAGER("RESIDENCE_APARTMENT_LEAD_MANAGER", AccessLevel.RESIDENCE, Department.SALES, AccessModule.APARTMENTS_LEAD_EDIT),
@@ -31,6 +40,14 @@ public enum Role {
 	CITY_APARTMENT_LEAD_MANAGER("CITY_APARTMENT_LEAD_MANAGER", AccessLevel.CITY, Department.SALES, AccessModule.APARTMENTS_LEAD_EDIT),
 	ZONAL_APARTMENT_LEAD_MANAGER("ZONAL_APARTMENT_LEAD_MANAGER", AccessLevel.CITY, Department.SALES),
 	COUNTRY_APARTMENT_LEAD_MANAGER("COUNTRY_APARTMENT_LEAD_MANAGER", AccessLevel.COUNTRY, Department.SALES, AccessModule.APARTMENTS_LEAD_EDIT),
+
+    RESIDENCE_APARTMENT_LEAD_VIEWER("RESIDENCE_APARTMENT_LEAD_VIEWER", AccessLevel.RESIDENCE, Department.SALES),
+
+    MICROMARKET_APARTMENT_LEAD_VIEWER("MICROMARKET_APARTMENT_LEAD_VIEWER", AccessLevel.MICROMARKET, Department.SALES),
+
+    CITY_APARTMENT_LEAD_VIEWER("CITY_APARTMENT_LEAD_VIEWER", AccessLevel.CITY, Department.SALES),
+
+    COUNTRY_APARTMENT_LEAD_VIEWER("COUNTRY_APARTMENT_LEAD_VIEWER", AccessLevel.COUNTRY, Department.SALES),
 
     /*******************************Support service - Template Management*******************************/
     SUPPORT_TEMPLATE_APPROVAL_L1("SUPPORT_TEMPLATE_APPROVAL_L1", AccessLevel.COUNTRY, Department.CX),
@@ -93,6 +110,16 @@ public enum Role {
 	MICROMARKET_ELECTRICITY_SPLITTER_L1_APPROVER("MICROMARKET_ELECTRICITY_SPLITTER_L1_APPROVER", AccessLevel.MICROMARKET, Department.OPS),
 	CITY_ELECTRICITY_SPLITTER_L2_APPROVER("CITY_ELECTRICITY_SPLITTER_L2_APPROVER", AccessLevel.CITY, Department.OPS),
 	COUNTRY_ELECTRICITY_SPLITTER_L3_APPROVER("COUNTRY_ELECTRICITY_SPLITTER_L3_APPROVER", AccessLevel.COUNTRY, Department.OPS),
+
+    /************************************ DISH DEBAR ************************************/
+    DISH_DEBAR_CITY_L1_APPROVER("City - Debar Approval L1", AccessLevel.CITY, Department.FOOD_OPS),
+    DISH_DEBAR_COUNTRY_L2_APPROVER("Country - Debar Approval L2", AccessLevel.COUNTRY, Department.FOOD_OPS),
+    DISH_DEBAR_COUNTRY_L3_APPROVER("Country - Debar Approval L3", AccessLevel.COUNTRY, Department.FOOD_OPS),
+
+    /************************************ DISH REACTIVATION ************************************/
+    DISH_REACTIVATION_CITY_L1_APPROVER("City - Reactivate Dish Approval L1", AccessLevel.CITY, Department.FOOD_OPS),
+    DISH_REACTIVATION_COUNTRY_L2_APPROVER("Country - Reactivate Dish Approval L2", AccessLevel.COUNTRY, Department.FOOD_OPS),
+    DISH_REACTIVATION_COUNTRY_L3_APPROVER("Country - Reactivate Dish Approval L3", AccessLevel.COUNTRY, Department.FOOD_OPS),
 
 
     /********************************* GENERIC-APPROVAL-DASHBOARD *************************************/

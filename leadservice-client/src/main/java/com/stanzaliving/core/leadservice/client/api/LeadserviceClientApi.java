@@ -8,6 +8,7 @@ import com.stanzaliving.core.dto.LeadElasticDto;
 import com.stanzaliving.leadService.dto.AutoExpireLeadConfigMapDto;
 import com.stanzaliving.leadService.dto.AutoExpireLeadDto;
 import com.stanzaliving.website.response.dto.LeadDetailEntity;
+import com.stanzaliving.website.response.dto.LeadQrDto;
 import com.stanzaliving.website.response.dto.LeadRequestDto;
 import com.stanzaliving.website.response.dto.QualificationQuestionResponseDto;
 import lombok.extern.log4j.Log4j2;
@@ -403,23 +404,21 @@ public class LeadserviceClientApi {
 
     public ResponseDto<LeadRequestDto> fetchPrebookedRefundEligibleLeads(String phone) {
 
-
         Object postBody = null;
 
         String path = UriComponentsBuilder.fromPath("internal/prebooking/refund/fetch/eligible/leads").toUriString();
 
         final HttpHeaders headerParams = new HttpHeaders();
 
-
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-        if (Objects.nonNull(phone))
+        if (Objects.nonNull(phone)) {
             queryParams.add("phone", phone);
+        }
 
         final String[] accepts = {"*/*"};
 
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-
 
         ParameterizedTypeReference<ResponseDto<LeadRequestDto>> returnType = new ParameterizedTypeReference<ResponseDto<LeadRequestDto>>() {
         };

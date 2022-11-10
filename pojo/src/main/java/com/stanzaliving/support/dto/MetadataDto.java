@@ -7,12 +7,13 @@ import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
+import java.io.Serializable;
 
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class MetadataDto {
+public class MetadataDto implements Serializable {
     private String uuid;
     @NotBlank(message = "Name cannot be null")
     private String name;

@@ -19,7 +19,9 @@ public class BookingDiscountStrategyDto {
 	private Double contractMonths;
 	private Date contractStartDate;
 	private Date contractEndDate;
+	private Date stayLockInEndDate;
 	private boolean preBooking;
 	private String residenceUuid;
-
+	private Integer advanceRentalFirstMonths;
+	private Integer advanceRentalLastMonths;
 }
