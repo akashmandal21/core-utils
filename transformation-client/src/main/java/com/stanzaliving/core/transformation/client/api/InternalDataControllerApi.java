@@ -1,26 +1,7 @@
-    /**
+/**
  *
  */
 package com.stanzaliving.core.transformation.client.api;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import java.util.concurrent.CompletableFuture;
-import java.util.stream.Collectors;
-
-import com.stanzaliving.core.base.exception.StanzaHttpException;
-import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
-import org.springframework.util.CollectionUtils;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
-import org.springframework.web.util.UriComponentsBuilder;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.stanzaliving.boq_service.dto.BulkActionsModalFilterOptionsDto;
@@ -29,6 +10,9 @@ import com.stanzaliving.core.addressbook.AddressBookNameDto;
 import com.stanzaliving.core.base.common.dto.ListingDto;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.enums.AccessLevel;
+import com.stanzaliving.core.base.exception.ApiValidationException;
+import com.stanzaliving.core.base.exception.PreconditionFailedException;
+import com.stanzaliving.core.base.exception.StanzaHttpException;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.generic.dto.UIKeyValue;
 import com.stanzaliving.core.projectservice.tiles.TileDeciderDto;
@@ -44,6 +28,7 @@ import com.stanzaliving.transformations.pojo.MicroMarketDetailsDto;
 import com.stanzaliving.transformations.pojo.MicroMarketMetadataDto;
 import com.stanzaliving.transformations.pojo.MicroMarketUIDto;
 import com.stanzaliving.transformations.pojo.PropertyBoqStatusDto;
+import com.stanzaliving.transformations.pojo.PropertyInvoiceDetails;
 import com.stanzaliving.transformations.pojo.ResidenceDto;
 import com.stanzaliving.transformations.pojo.ResidenceMetadataDto;
 import com.stanzaliving.transformations.pojo.ResidenceUIDto;
@@ -53,8 +38,25 @@ import com.stanzaliving.transformations.pojo.ZoneMetadataDto;
 import com.stanzaliving.transformations.projections.StanzaGstView;
 import com.stanzaliving.transformations.ui.pojo.Country;
 import com.stanzaliving.ventaAudit.dto.GstInformationDto;
-
 import lombok.extern.log4j.Log4j2;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
+import org.springframework.util.CollectionUtils;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
+import org.springframework.web.util.UriComponentsBuilder;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.concurrent.CompletableFuture;
+import java.util.stream.Collectors;
 
 /**
  * @author naveen.kumar
@@ -261,7 +263,7 @@ public class InternalDataControllerApi {
         };
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
     }
-    
+
 	public ResponseDto<List<CityMetadataDto>> getMedullaEligibleCities() {
 
 		Object postBody = null;
@@ -553,7 +555,7 @@ public class InternalDataControllerApi {
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 
     }
-    
+
 	public List<ResidenceUIDto> getAllStudio21Residences() {
 
 		final Map<String, Object> uriVariables = new HashMap<>();
@@ -578,7 +580,7 @@ public class InternalDataControllerApi {
 
 		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : new ArrayList<>();
 	}
-    
+
     public ResponseDto<List<ResidenceMetadataDto>> getAllResidencesBoth() {
 
         Object postBody = null;
@@ -1394,6 +1396,40 @@ public class InternalDataControllerApi {
         ParameterizedTypeReference<ResponseDto<List<AddressBookMetaDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<AddressBookMetaDto>>>() {
         };
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+    }
+
+    public PropertyInvoiceDetails getGstDataByResidenceUuid(String residenceUuid) {
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("uuid", residenceUuid);
+
+        String path = UriComponentsBuilder.fromPath("/internal/residence/{uuid}/invoice-details")
+                .buildAndExpand(uriVariables)
+                .toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        final HttpHeaders headerParams = new HttpHeaders();
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        TypeReference<ResponseDto<PropertyInvoiceDetails>> returnType = new TypeReference<ResponseDto<PropertyInvoiceDetails>>() {
+        };
+
+        ResponseDto<PropertyInvoiceDetails> responseDto;
+        try {
+            responseDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Error while fetching Gst Information by residence UUID.", e);
+            throw new ApiValidationException("Some error occurred. Please try again after some time.");
+        }
+
+        if (!responseDto.isStatus()) {
+            throw new PreconditionFailedException(responseDto.getMessage());
+        }
+
+        PropertyInvoiceDetails gstInformationDto = responseDto.getData();
+
+        return gstInformationDto;
     }
 
 

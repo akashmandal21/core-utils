@@ -25,3 +25,4 @@ public class VentaNotificationDto {
     Date auditScheduledOn;
     Date auditedOn;
 }
+

@@ -594,6 +594,30 @@ public class UserClientApi {
 		}
 	}
 
+	public ResponseDto<UserProfileDto> getUserProfileByUuid(String userUuid, Boolean includeDeactivated) {
+
+		Object postBody = null;
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("userUuid", userUuid);
+
+		String path = UriComponentsBuilder.fromPath("/internal/details/{userUuid}").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		queryParams.add("includeDeactivated", includeDeactivated.toString());
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<UserProfileDto>> returnType = new ParameterizedTypeReference<ResponseDto<UserProfileDto>>() {
+		};
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+	}
+
 	public ResponseDto<List<UserProfileDto>> getAllUsers() {
 
 		Object postBody = null;
