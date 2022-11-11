@@ -1,6 +1,7 @@
 package com.stanzaliving.booking.enums;
 
 public enum PaymentFrequency {
+    ALL,
     MONTHLY,
     INSTALMENT_1,
     INSTALMENT_2,
