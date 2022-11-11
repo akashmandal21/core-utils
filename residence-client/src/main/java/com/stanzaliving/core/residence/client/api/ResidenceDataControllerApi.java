@@ -2279,7 +2279,7 @@ public class ResidenceDataControllerApi {
         return null;
     }
 
-    public ResponseDto<Double> getAccessLevelConfigValue(String residenceUuid, String configKey) {
+    public ResponseDto<String> getAccessLevelConfigValue(String residenceUuid, String configKey) {
         Map<String, Object> uriVariables = new HashMap<>();
         uriVariables.put("residenceUuid", residenceUuid);
         uriVariables.put("configKey", configKey);
@@ -2288,7 +2288,7 @@ public class ResidenceDataControllerApi {
         HttpHeaders headerParams = new HttpHeaders();
         String[] accepts = new String[]{"*/*"};
         List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
-        ParameterizedTypeReference<ResponseDto<Double>> returnType = new ParameterizedTypeReference<ResponseDto<Double>>() {
+        ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
         };
         try {
             return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
