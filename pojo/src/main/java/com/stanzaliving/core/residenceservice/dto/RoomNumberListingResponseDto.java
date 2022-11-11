@@ -1,5 +1,6 @@
 package com.stanzaliving.core.residenceservice.dto;
 
+import com.stanzaliving.booking.enums.ResidenceAgreementType;
 import com.stanzaliving.core.residenceservice.enums.RoomStatus;
 import lombok.*;
 
@@ -44,5 +45,6 @@ public class RoomNumberListingResponseDto implements Serializable {
 
     private List<String> inventoryUuidList;
     private List<AttributesResponseDto> attributesResponseDto;
-
+    @Builder.Default
+    private ResidenceAgreementType residenceAgreementType = ResidenceAgreementType.LEASE_DEED;
 }

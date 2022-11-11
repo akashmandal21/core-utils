@@ -111,4 +111,29 @@ public class RazorPayXControllerApi {
 
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
     }
+    public ResponseDto<HashMap<String, String>> initiateRazorpayXPayoutForAutoRefund(RefundRequest refundRequestDTO) {
+        log.info("Initiate RazorpayXPayout Controller");
+
+        Object postBody = refundRequestDTO;
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/payment/razorpayX/autoRefund/initiate").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<HashMap<String, String>>> returnType = new ParameterizedTypeReference<ResponseDto<HashMap<String, String>>>() {
+        };
+
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+    }
+
+
 }
