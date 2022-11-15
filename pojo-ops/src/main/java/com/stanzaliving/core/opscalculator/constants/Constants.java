@@ -95,6 +95,7 @@ public class Constants {
 	public static final BigDecimal DAYS_IN_YEAR_IN_BIGDECIMAL = new BigDecimal(365);
 	public static final BigDecimal DAYS_IN_WEEK_IN_BIGDECIMAL = new BigDecimal(7);
 	public static final int ZERO = 0;
+	public static final BigDecimal SIX_VALUE_IN_BIGDECIMAL = new BigDecimal(6);
 	public static final int DEFUALT_BUILDING_MAINTENANCE_CHARGES = 45;
 
 }
