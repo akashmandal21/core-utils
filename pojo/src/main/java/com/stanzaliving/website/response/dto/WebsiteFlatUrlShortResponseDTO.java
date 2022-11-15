@@ -7,13 +7,15 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.io.Serializable;
+
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
 @ToString
-public class WebsiteFlatUrlShortResponseDTO {
+public class WebsiteFlatUrlShortResponseDTO implements Serializable {
 	private int flatUrlId;
 	private String url;
 	private String name;

@@ -519,4 +519,28 @@ public class VentaClientApi {
 		}
 	}
 
+
+	public Boolean verifyReferralCode(String referralCode) {
+
+		Object postBody = null;
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+		// uriVariables.put("userUuid", userUuid);
+
+		String path = UriComponentsBuilder.fromPath("/referral/verify").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		queryParams.add("code", referralCode);
+		queryParams.add("requestFromLead", Boolean.TRUE.toString());
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = { "*/*" };
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<Boolean> returnType = new ParameterizedTypeReference<Boolean>() {
+		};
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+	}
+
 }
