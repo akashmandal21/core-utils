@@ -17,7 +17,8 @@ public enum EventType {
     MODIFY_CONTRACT_REQUEST("Modify Contract Email"),
     SETTLE_LEDGER_REJECTED_REFUNDS("Settle Ledger Rejected Refunds"),
     REFUND_SUCCESSFULLY_PROCESSED("Refund successfully processed"),
-    CHECK_FOR_BALANCE_IN_RAZORPAY_REFUND("CHECK_FOR_BALANCE_IN_RAZORPAY_REFUND");
+    CHECK_FOR_BALANCE_IN_RAZORPAY_REFUND("CHECK_FOR_BALANCE_IN_RAZORPAY_REFUND"),
+    DISCOUNT_DIGEST_EMAIL("DISCOUNT_DIGEST_EMAIL");
     private String commandText;
 
     EventType(String commandText)
