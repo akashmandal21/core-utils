@@ -1052,10 +1052,6 @@ public class DateUtil {
         return Duration.between(startDateTime, endDateTime);
     }
 
-    public Duration getDurationBetween(LocalDate startDate, LocalDate endDate) {
-        return Duration.between(startDate, endDate);
-    }
-
     public String getNextDate(String date) {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
