@@ -21,6 +21,7 @@ public enum PropertyAction {
     LEGAL_APPROVAL("Legal Approval", "03cd8e05-517f-46b2-949c-8998018edeeb", "SENT_FOR_APPROVAL_TO_LEGAL"),
     CH_APPROVAL("L1 CH ", "154a487a-8512-442c-9002-71068649729e", "SENT_FOR_L1_APPROVAL_TO_CH"),
     ZH_APPROVAL("L2 ZH", "f7aad7a6-0428-11ec-9a03-0242ac130003", "SENT_FOR_L2_APPROVAL_TO_ZH"),
+    SENT_TO_TITLE_DOCS("Pending Legal for Title Docs Approval","f7aad7a6-0428-11ec-9a03-0242ac130003","SENT_TO_TITLE_DOCS"),
 
     //Apartment Flow
     L1_ZH("L1 Zonal Head", "f7aad752-0428-11ec-9a03-0242ac130003", "L1_ZH"),
@@ -40,7 +41,8 @@ public enum PropertyAction {
     KITCHEN_L1("Kitchen L1", "3b0ff0ed-9d1e-4e65-b75d-40fcdb1178e1", "KITCHEN_L1"),
     KITCHEN_L2("Kitchen L2", "a18a5f58-5824-4c1f-932d-3722b8204dfa", "KITCHEN_L2"),
     KITCHEN_L3("Kitchen L3", "ada55ac5-e59a-421e-a28c-176f483d5c68", "KITCHEN_L3"),
-    KITCHEN_L4("Kitchen L4", "9436a69e-19ff-4245-abdc-8d1e59587963", "KITCHEN_L4");
+    KITCHEN_L4("Kitchen L4", "9436a69e-19ff-4245-abdc-8d1e59587963", "KITCHEN_L4"),
+    SENT_TO_KITCHEN_HEAD("Pending Kitchen Head Approval", "408abb8b-0380-4868-9eaa-0ed3ca082ded", "SENT_TO_KITCHEN_HEAD");
 
 
 
@@ -68,6 +70,7 @@ public enum PropertyAction {
         pgPropertyActions.add(new KeyValueDto(SENT_TO_LEGAL.getAlias(),SENT_TO_SANDEEP.uuid));
         pgPropertyActions.add(new KeyValueDto(CH_APPROVAL.getAlias(),SENT_TO_SANDEEP.uuid));
         pgPropertyActions.add(new KeyValueDto(ZH_APPROVAL.getAlias(),ZH_APPROVAL.uuid));
+        pgPropertyActions.add(new KeyValueDto(SENT_TO_TITLE_DOCS.getAlias(),SENT_TO_TITLE_DOCS.uuid));
         return pgPropertyActions;
     }
 
@@ -83,6 +86,7 @@ public enum PropertyAction {
         apartmentPropertyActions.add(new KeyValueDto(SENT_TO_LEGAL_FOR_APPROVAL.getAlias(), SENT_TO_LEGAL_FOR_APPROVAL.uuid));
         apartmentPropertyActions.add(new KeyValueDto(SENT_TO_SUNIL.getAlias(), SENT_TO_SUNIL.uuid));
         apartmentPropertyActions.add(new KeyValueDto(SENT_TO_CH.getAlias(), SENT_TO_CH.uuid));
+        apartmentPropertyActions.add(new KeyValueDto(SENT_TO_TITLE_DOCS.getAlias(), SENT_TO_TITLE_DOCS.uuid));
         return apartmentPropertyActions;
     }
 
@@ -101,6 +105,7 @@ public enum PropertyAction {
         kitchenPropertyActions.add(new KeyValueDto(KITCHEN_L2.getAlias(),KITCHEN_L2.uuid));
         kitchenPropertyActions.add(new KeyValueDto(KITCHEN_L3.getAlias(),KITCHEN_L3.uuid));
         kitchenPropertyActions.add(new KeyValueDto(KITCHEN_L4.getAlias(),KITCHEN_L4.uuid));
+        kitchenPropertyActions.add(new KeyValueDto(SENT_TO_KITCHEN_HEAD.getAlias(),SENT_TO_KITCHEN_HEAD.uuid));
         kitchenPropertyActions.add(new KeyValueDto(ESTATE_LEADERSHIP.getAlias(),ESTATE_LEADERSHIP.uuid));
         return kitchenPropertyActions;
 

@@ -15,7 +15,9 @@ public enum EventType {
     AUDIT_REJECTED("Audit Rejected"),
     AUDIT_APPROVED_EMAIL("Audit Approved Email"),
     MODIFY_CONTRACT_REQUEST("Modify Contract Email"),
-    SETTLE_LEDGER_REJECTED_REFUNDS("Settle Ledger Rejected Refunds");
+    SETTLE_LEDGER_REJECTED_REFUNDS("Settle Ledger Rejected Refunds"),
+    REFUND_SUCCESSFULLY_PROCESSED("Refund successfully processed"),
+    CHECK_FOR_BALANCE_IN_RAZORPAY_REFUND("CHECK_FOR_BALANCE_IN_RAZORPAY_REFUND");
     private String commandText;
 
     EventType(String commandText)

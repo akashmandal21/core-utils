@@ -44,6 +44,8 @@ public class EstateSalesReviewSectionFields {
 	public static final String LAYOUT_TYPE_OPTIONS = "layoutTypeOptions";
 	public static final String AMOUNT_TYPE_OPTIONS = "amountTypeOptions";
 	public static final String WASHROOM_OPTIONS = "washroomOptions";
+	public static final String GENDER = "propertyGenderOptions";
+	public static final String YesNo = "yesNoOptions";
 	public static final String KEY_POSITIVES = "keyPositives";
 	public static final String KEY_NEGATIVES = "keyNegatives";
 	public static final String SUBBRANDS = "availableSubBrands";

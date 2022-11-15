@@ -27,7 +27,4 @@ public class MealOptionDto extends OrderedListingDto {
 	private Double expectedGrammage;
 	private Boolean mealOfDay;
 	private FoodServeType foodServeType;
-	private Boolean isGrammageSatisfied;
-	private Double minAllowedGrammage;
-	private Double maxAllowedGrammage;
 }

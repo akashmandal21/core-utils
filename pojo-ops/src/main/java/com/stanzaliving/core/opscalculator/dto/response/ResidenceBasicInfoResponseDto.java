@@ -23,4 +23,8 @@ public class ResidenceBasicInfoResponseDto {
 
     private ResidenceBrand residenceBrand;
 
+    private String estateUuid;
+    
+    private String blendedPricePerBed;
+
 }

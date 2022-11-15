@@ -45,7 +45,7 @@ import lombok.extern.log4j.Log4j2;
 @Log4j2
 @UtilityClass
 public class DateUtil {
-	
+
     public final String DATETIME_WITH_AM_PM = "dd MMM, yyyy hh:mm:ss a";
     public final String DD_MMM_YYYY_FORMAT = "dd-MMM-yyyy";
     public final String yyyy_MM_dd_HH_mm_ss = "yyyy-MM-dd HH:mm:ss";
@@ -53,6 +53,16 @@ public class DateUtil {
 
     public static Date getNormalizedTodayDate() {
         Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.HOUR_OF_DAY, 0);
+        cal.set(Calendar.MINUTE, 0);
+        cal.set(Calendar.SECOND, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        return cal.getTime();
+    }
+
+    public static Date normalizeDate(Date date) {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
         cal.set(Calendar.HOUR_OF_DAY, 0);
         cal.set(Calendar.MINUTE, 0);
         cal.set(Calendar.SECOND, 0);
@@ -77,7 +87,12 @@ public class DateUtil {
     public long getDaysBetweenDates(Date fromDate, Date toDate) {
         return ChronoUnit.DAYS.between(fromDate.toInstant(), toDate.toInstant());
     }
-
+    public long getHoursBetweenDates(Date fromDate, Date toDate) {
+        return ChronoUnit.HOURS.between(fromDate.toInstant(), toDate.toInstant());
+    }
+    public long getMinutesBetweenDates(Date fromDate, Date toDate) {
+        return ChronoUnit.MINUTES.between(fromDate.toInstant(), toDate.toInstant());
+    }
     public boolean isMidMonth(Date date) {
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
@@ -955,7 +970,7 @@ public class DateUtil {
 
     public static List<String> getListOfMonthYear(LocalDate fromDate, LocalDate toDate, DateFormat dateFormat) {
         LinkedHashSet<String> monthYear = new LinkedHashSet<>();
-        if (!toDate.isAfter(fromDate)) {// TODO add additional validation
+        if (toDate.isBefore(fromDate)) {// TODO add additional validation
             return new ArrayList<>(monthYear);
         }
         for (LocalDate date = fromDate; !date.isAfter(toDate); date = date.plusDays(1)) {
@@ -966,7 +981,7 @@ public class DateUtil {
 
     public static int getDaysCountInMonthYear(LocalDate fromDate, LocalDate toDate, DateFormat dateFormat, String monthYear) {
         int count = 0;
-        if (!toDate.isAfter(fromDate)) {// TODO add additional validation
+        if (toDate.isBefore(fromDate)) {// TODO add additional validation
             return count;
         }
         for (LocalDate date = fromDate; !date.isAfter(toDate); date = date.plusDays(1)) {
@@ -1016,7 +1031,11 @@ public class DateUtil {
         for (String monthYear : monthYearList) {
             int daysToConsider = DateUtil.getDaysCountInMonthYear(fromDate, toDate, DateFormat.MMM_YY2, monthYear);
             int daysInMonth = YearMonth.parse(monthYear, DateFormat.MMM_YY2.getDateTimeFormatter()).lengthOfMonth();
-            monthCount += (double) daysToConsider / (double) daysInMonth;
+            if ((daysInMonth == 31 && daysToConsider == 16) || (daysInMonth == 29 && daysToConsider == 15)) {
+                monthCount += 0.5;
+            } else {
+                monthCount += (double) daysToConsider / (double) daysInMonth;
+            }
         }
         return Math.round(monthCount * 100.0) / 100.0;
     }
@@ -1070,6 +1089,7 @@ public class DateUtil {
         calendarInstance.set(Calendar.MINUTE, 00);
         calendarInstance.set(Calendar.HOUR_OF_DAY, 00);
         calendarInstance.set(Calendar.SECOND, 00);
+        calendarInstance.set(Calendar.MILLISECOND,0);
         Date currentDate = calendarInstance.getTime();
         return currentDate;
     }
@@ -1183,5 +1203,15 @@ public class DateUtil {
 
     public static Long convertToEpochInMiliSeconds(LocalDate localDate) {
         return Objects.isNull(localDate) ? null : localDate.atStartOfDay().toInstant(ZoneOffset.of(StanzaConstants.ZONE_OFFSET)).toEpochMilli();
+    }
+
+    public static LocalDate getPrevOrSameDayOfTheWeek(LocalDate date, DayOfWeek day) {
+
+        return date.with(TemporalAdjusters.previousOrSame(day));
+    }
+
+    public static LocalDate getNextOrSameDayOfTheWeek(LocalDate date, DayOfWeek day) {
+
+        return date.with(TemporalAdjusters.nextOrSame(day));
     }
 }

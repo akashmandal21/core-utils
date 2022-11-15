@@ -11,6 +11,8 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ResidenceMetadataDto {
+    
+    private long id;
 
     private long residenceId;
     private long allowedVisitDays;

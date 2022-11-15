@@ -25,4 +25,5 @@ public class PropertyAnswerDto extends AbstractMongoDto {
     private List<String> imageUrls;
     @NotNull(message = "Remarks cannot be null")
     private String remarks;
+    private String suggestedLanguage;
 }

@@ -34,4 +34,10 @@ public class UpiDetailsDto {
 	
 	@Builder.Default
 	private Boolean isPreferred = Boolean.FALSE;
+
+	private String razorpayId;
+
+	private String vpaId;
+
+	private Boolean isActive = false;
 }
