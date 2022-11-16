@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Set;
 
 import com.stanzaliving.core.enums.PropertyEntityType;
+import com.stanzaliving.website.dto.WebsiteImageLibraryDto;
 import com.stanzaliving.website.enums.FomoTag;
 import com.stanzaliving.website.enums.Gender;
 
@@ -101,6 +102,5 @@ public class ResidenceResponseShortDTO implements Serializable {
 	@Builder.Default
 	private List<ResidenceOccupancyResponseDTO> residenceOccupancies = Collections.emptyList();
 
-	@Builder.Default
-	private Set<ImageResponseDTO> images = new HashSet<>(0);
+	private List<WebsiteImageLibraryDto> images;
 }
