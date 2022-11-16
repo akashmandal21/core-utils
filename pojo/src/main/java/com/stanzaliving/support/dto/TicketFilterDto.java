@@ -2,12 +2,15 @@ package com.stanzaliving.support.dto;
 
 import com.stanzaliving.core.dto.PageAndSortDto;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @SuperBuilder
 @Data
@@ -15,56 +18,82 @@ import java.util.List;
 @AllArgsConstructor
 public class TicketFilterDto extends PageAndSortDto {
 
-    private List<String> status;
+    @Builder.Default
+    private List<String> status = new ArrayList<>();
 
-    private QuickCardFilterStatusDto quickCardFilterStatus;
+    @Builder.Default
+    private QuickCardFilterStatusDto quickCardFilterStatus = new QuickCardFilterStatusDto();
 
-    private List<String> city;
+    @Builder.Default
+    private List<String> city = new ArrayList<>();
 
-    private List<String> micromarket;
+    @Builder.Default
+    private List<String> micromarket = new ArrayList<>();
 
-    private List<String> residence;
+    @Builder.Default
+    private List<String> residence = new ArrayList<>();
 
-    private List<String> complaintGroup;
+    @Builder.Default
+    private List<String> complaintGroup = new ArrayList<>();
 
-    private List<String> category;
+    @Builder.Default
+    private List<String> category = new ArrayList<>();
 
-    private List<String> subCategory;
+    @Builder.Default
+    private List<String> subCategory = new ArrayList<>();
 
-    private List<String> priority;
+    @Builder.Default
+    private List<String> priority = new ArrayList<>();
 
-    private List<String> tags;
+    @Builder.Default
+    private List<String> tags = new ArrayList<>();
 
-    private List<String> team;
+    @Builder.Default
+    private List<String> team = new ArrayList<>();
 
-    private UserTypeDto user;
+    @Builder.Default
+    private UserTypeDto user = new UserTypeDto();
 
-    private Boolean assignedToSelected;
+    @Builder.Default
+    private Boolean assignedToSelected = false;
 
-    private Boolean resolvedBySelected;
+    @Builder.Default
+    private Boolean resolvedBySelected = false;
 
-    private Boolean updatedBySelected;
+    @Builder.Default
+    private Boolean updatedBySelected = false;
 
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date createdAtStartDate;
 
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date createdAtEndDate;
 
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date updatedAtStartDate;
 
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date updatedAtEndDate;
 
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date resolvedAtStartDate;
 
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date resolvedAtEndDate;
 
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date reopenedAtStartDate;
 
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date reopenedAtEndDate;
 
-    private TicketTypeDto ticketType;
+    @Builder.Default
+    private TicketTypeDto ticketType = new TicketTypeDto();
 
-    private List<String> ticketSource;
+    @Builder.Default
+    private List<String> ticketSource = new ArrayList<>();
 
-    private String search;
+    @Builder.Default
+    private String search = "";
 }
 

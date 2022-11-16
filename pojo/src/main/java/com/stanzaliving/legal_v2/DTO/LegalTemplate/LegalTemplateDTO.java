@@ -1,6 +1,8 @@
 package com.stanzaliving.legal_v2.DTO.LegalTemplate;
 
+import com.ibm.icu.util.Region;
 import com.stanzaliving.core.dto.AbstractMongoDto;
+import com.stanzaliving.legal_v2.enums.RegionType;
 import com.stanzaliving.legal_v2.enums.TemplateStatus;
 import lombok.*;
 
@@ -24,6 +26,10 @@ public class LegalTemplateDTO extends AbstractMongoDto {
     private String description;
 
     private String document;
+
+    private RegionType regionType;
+
+    private String regionValue;
 
     @NotNull
     private TemplateStatus templateStatus;
