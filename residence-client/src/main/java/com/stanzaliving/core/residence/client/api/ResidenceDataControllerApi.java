@@ -2362,7 +2362,7 @@ public class ResidenceDataControllerApi {
         } catch (Exception ex) {
             log.error("Exception while fetching vas Details from residenceUuid: {}", residenceUuid);
         }
-        return null;
+        return Collections.emptyList();
     }
 
 }
