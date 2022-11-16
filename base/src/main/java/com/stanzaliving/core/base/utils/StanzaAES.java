@@ -25,9 +25,9 @@ public class StanzaAES {
         return encryptedValue;
     }
 
-    public String decrypt(String textToDecrypt, String secret) {
+    public String decrypt(String textToDecrypt, String secretKeyEncodedInBase64) {
         try {
-            Key key = generateKey(secret);
+            Key key = generateKey(secretKeyEncodedInBase64);
             Cipher cipher = Cipher.getInstance(ALGO);
             cipher.init(Cipher.DECRYPT_MODE, key);
             return new String(cipher.doFinal(Base64.getDecoder().decode(textToDecrypt)));
