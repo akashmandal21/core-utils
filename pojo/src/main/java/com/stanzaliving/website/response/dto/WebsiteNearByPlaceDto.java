@@ -12,6 +12,8 @@ import java.util.List;
 @ToString
 public class WebsiteNearByPlaceDto {
 
+    private String placeId;
+
     private String name;
 
     private double latitude;
