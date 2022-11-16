@@ -31,5 +31,6 @@ public class BookingDiscountCriteriasDto {
     @Builder.Default
     private MathematicalSymbol tokenAmountSymbol=MathematicalSymbol.GREATER_THAN_EQUAL_TO;
     private Integer tokenAmount;
+    private Boolean remoteBooking;
 
 }
