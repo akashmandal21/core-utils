@@ -16,8 +16,8 @@ public class StanzaAES {
     private static String ALGO = "AES";
     // Default uses ECB PKCS5Padding
 
-    public String encrypt(String textToEncrypt, String secret) throws Exception {
-        Key key = generateKey(secret);
+    public String encrypt(String textToEncrypt, String secretKeyEncodedInBase64) throws Exception {
+        Key key = generateKey(secretKeyEncodedInBase64);
         Cipher cipher = Cipher.getInstance(ALGO);
         cipher.init(Cipher.ENCRYPT_MODE, key);
         byte[] encVal = cipher.doFinal(textToEncrypt.getBytes());
