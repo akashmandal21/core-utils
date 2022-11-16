@@ -5,6 +5,7 @@
 package com.stanzaliving.website.response.dto;
 
 import java.io.Serializable;
+import java.util.Comparator;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -21,7 +22,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class FacilityResponseDTO implements Serializable {
+public class FacilityResponseDTO implements Serializable, Comparator<FacilityResponseDTO> {
 	
 	private static final long serialVersionUID = 1L;
 
@@ -33,4 +34,11 @@ public class FacilityResponseDTO implements Serializable {
 	private Integer sequenceId;
 	private String iconImageUrlAltTag;
 
+	public int compare(FacilityResponseDTO object1, FacilityResponseDTO object2) {
+
+		if (object1.getSequenceId() > object2.getSequenceId())
+			return 1;
+		else
+			return 0;
+	}
 }
