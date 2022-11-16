@@ -2,16 +2,16 @@ package com.stanzaliving.estate_v2.dto.propertyOnboarding;
 
 import com.stanzaliving.core.dto.AbstractMongoDto;
 import com.stanzaliving.estate_v2.annotation.constraint.EmptyOrNull;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Getter
 @Setter
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class PropertyAnswerDto extends AbstractMongoDto {
@@ -26,4 +26,18 @@ public class PropertyAnswerDto extends AbstractMongoDto {
     @NotNull(message = "Remarks cannot be null")
     private String remarks;
     private String suggestedLanguage;
+
+    public static PropertyAnswerDto makePropertyAnswerDto(String propertyId, String variableName, String answer) {
+        return makePropertyAnswerDto(propertyId, variableName, Collections.singletonList(answer));
+    }
+
+    public static PropertyAnswerDto makePropertyAnswerDto(String propertyId, String variableName, List<String> answers) {
+        return PropertyAnswerDto.builder()
+                .questionUuid("")
+                .remarks("")
+                .propertyUuid(propertyId)
+                .variableName(variableName)
+                .answers(answers)
+                .build();
+    }
 }
