@@ -23,5 +23,5 @@ public class BillToDTO {
     private String cityName;
     private String microMarketId;
     private String microMarketName;
-    private String PostalCode;
+    private String postalCode;
 }
