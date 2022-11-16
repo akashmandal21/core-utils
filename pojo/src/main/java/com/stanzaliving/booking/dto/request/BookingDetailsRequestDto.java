@@ -3,9 +3,9 @@ package com.stanzaliving.booking.dto.request;
 import com.stanzaliving.booking.enums.BookingType;
 import com.stanzaliving.booking.enums.PaymentTerm;
 import com.stanzaliving.booking.enums.ReferenceType;
+import com.stanzaliving.booking.enums.ResidenceAgreementType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Builder.Default;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -51,5 +51,10 @@ public class BookingDetailsRequestDto implements Serializable {
 	private Integer advanceRentalFirstMonths;
 
 	private Integer advanceRentalLastMonths;
+
+	@Builder.Default
+	private ResidenceAgreementType residenceAgreementType = ResidenceAgreementType.LEASE_DEED;
+
+	private String residenceUuid;
 
 }
