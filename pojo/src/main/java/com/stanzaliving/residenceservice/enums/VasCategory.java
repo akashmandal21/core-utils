@@ -5,7 +5,7 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public enum VasCategories {
+public enum VasCategory {
 
     FOOD("Food"),
     ROOM("Room"),
