@@ -12,7 +12,7 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = false)
-public class EstateAttributeDetailsDto extends AbstractDto {
+public class EstateAttributeDetailsDto{
 
     private String estateUuid;
 
