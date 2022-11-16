@@ -9,7 +9,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public enum PaymentFrequency {
-    ALL,
+    ALL("ALL","All"),
     MONTHLY("MONTHLY","Monthly"),
     INSTALMENT_1("ONE INSTALMENT","1 Instalment"),
     INSTALMENT_2("TWO INSTALMENT","2 Instalments"),
