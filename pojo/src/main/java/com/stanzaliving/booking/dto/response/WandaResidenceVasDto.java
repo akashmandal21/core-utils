@@ -1,7 +1,7 @@
 package com.stanzaliving.booking.dto.response;
 
 import com.stanzaliving.core.residenceservice.enums.BillingFrequency;
-import com.stanzaliving.residenceservice.enums.VasCategories;
+import com.stanzaliving.residenceservice.enums.VasCategory;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -23,5 +23,5 @@ public class WandaResidenceVasDto {
     private Double totalAmount;
     private Date toDate;
     private Date fromDate;
-    private VasCategories vasCategory;
+    private VasCategory vasCategory;
 }

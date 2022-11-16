@@ -2,7 +2,7 @@ package com.stanzaliving.core.residenceservice.dto;
 
 import com.stanzaliving.core.residenceservice.enums.BillingFrequency;
 
-import com.stanzaliving.residenceservice.enums.VasCategories;
+import com.stanzaliving.residenceservice.enums.VasCategory;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -36,6 +36,6 @@ public class ResidenceVasDto {
 
 	private BigDecimal igstPercentage;
 
-	private VasCategories vasCategories;
+	private VasCategory vasCategory;
 
 }

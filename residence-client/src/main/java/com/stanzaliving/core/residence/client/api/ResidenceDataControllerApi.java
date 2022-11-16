@@ -16,7 +16,7 @@ import com.stanzaliving.residence.dto.ResidencePropertyCardDto;
 import com.stanzaliving.residenceservice.BookingAttributesDto;
 import com.stanzaliving.residenceservice.Dto.*;
 import com.stanzaliving.residenceservice.enums.ResidenceAttributes;
-import com.stanzaliving.residenceservice.enums.VasCategories;
+import com.stanzaliving.residenceservice.enums.VasCategory;
 import com.stanzaliving.venta.RoomInfoDto;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
@@ -2330,7 +2330,7 @@ public class ResidenceDataControllerApi {
         return null;
     }
 
-    public List<ResidenceVasDto> getResidenceVasDetailsByCategory(String residenceUuid, VasCategories category) {
+    public List<ResidenceVasDto> getResidenceVasDetailsByCategory(String residenceUuid, VasCategory category) {
 
         log.info("Residence-Data-Controller::Processing to get vas details based on residenceUuid {}", residenceUuid);
 
