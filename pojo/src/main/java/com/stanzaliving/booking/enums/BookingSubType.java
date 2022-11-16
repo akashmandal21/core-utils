@@ -7,7 +7,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum BookingSubType {
 
-	NEW("NEW"), RETENTION("RETENTION"), REPEAT("REPEAT");
+	NEW("NEW"), RETENTION("RETENTION"), REPEAT("REPEAT"), ALL("ALL");
 
 	private final String bookingStatus;
 
