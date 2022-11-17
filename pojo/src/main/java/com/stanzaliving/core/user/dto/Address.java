@@ -52,4 +52,7 @@ public class Address implements Serializable {
 	@JsonProperty("cityUuid")
 	private String cityUuid;
 
+	@JsonProperty("micromarket")
+	private String micromarketName;
+
 }
