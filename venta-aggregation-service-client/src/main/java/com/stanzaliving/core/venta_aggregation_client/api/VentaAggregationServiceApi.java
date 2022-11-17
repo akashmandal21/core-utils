@@ -18,10 +18,7 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.time.LocalDate;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Log4j2
 public class VentaAggregationServiceApi {
@@ -548,4 +545,30 @@ public class VentaAggregationServiceApi {
 
     }
 
+    public ResponseDto<List<BookingAggregationDto>> getActiveBookingsForDigest(Date date) {
+        try {
+            Object postBody = null;
+
+            final Map<String, Object> uriVariables = new HashMap<>();
+            uriVariables.put("digestDate", date);
+
+            String path = UriComponentsBuilder.fromPath("/internal/activeBooking/details/digest/{digestDate}").buildAndExpand(uriVariables).toUriString();
+
+            final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+            final HttpHeaders headerParams = new HttpHeaders();
+
+            final String[] accepts = {"*/*"};
+            final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+            ParameterizedTypeReference<ResponseDto<List<BookingAggregationDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<BookingAggregationDto>>>() {
+            };
+
+            return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+
+        } catch (Exception e) {
+            log.error("Exception occurred while fetching sync properties data for cms website from venta", e);
+            return null;
+        }
+    }
 }
