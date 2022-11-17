@@ -52,12 +52,16 @@ public class UtilitiesElectricityCategoryV2Dto extends CategoryV2Dto {
 	@Builder.Default
 	public double acRunningMonthsPerYear = 5.0;
 	public double commonAreaAcCount;
-	public double commonAreaAcConsumptionPerDay;
+	@Builder.Default
+	public double commonAreaAcConsumptionPerDay = 12;
 	public double boilerCount;
-	public double boilerConsumptionPerDay;
+
+	@Builder.Default
+	public double boilerConsumptionPerDay = 11;
 	
 	public double liftCount;
-	public double unitsConsumedByLiftPerDay;
+	@Builder.Default
+	public double unitsConsumedByLiftPerDay = 10;
 	
 	public double totalUnitsPerMonth;
 	public double totalPassThroughUnitsPerMonth;

@@ -31,13 +31,13 @@ public class FoodCategoryV2Dto extends CategoryV2Dto {
 	private BigDecimal menuPricePerDay = new BigDecimal(0);
 	
 	@Builder.Default
-	private BigDecimal weekDays = new BigDecimal(0);
+	private BigDecimal weekDays = new BigDecimal(5);
 	
 	@Builder.Default
 	private BigDecimal weekdayUtilization = new BigDecimal(0);
 	
 	@Builder.Default
-	private BigDecimal weekendDays = new BigDecimal(0);
+	private BigDecimal weekendDays = new BigDecimal(2);
 	
 	@Builder.Default
 	private BigDecimal weekendUtilization = new BigDecimal(0);
