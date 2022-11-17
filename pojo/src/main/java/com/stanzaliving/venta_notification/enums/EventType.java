@@ -18,7 +18,8 @@ public enum EventType {
     SETTLE_LEDGER_REJECTED_REFUNDS("Settle Ledger Rejected Refunds"),
     REFUND_SUCCESSFULLY_PROCESSED("Refund successfully processed"),
     CHECK_FOR_BALANCE_IN_RAZORPAY_REFUND("CHECK_FOR_BALANCE_IN_RAZORPAY_REFUND"),
-    IMS_DIGEST_EMAIL("IMS Digest Email");
+    IMS_DIGEST_EMAIL("IMS Digest Email"),
+    CHECK_FOR_BALANCE_IN_MSG_91("CHECK_FOR_BALANCE_IN_MSG_91");
     private String commandText;
 
     EventType(String commandText)
