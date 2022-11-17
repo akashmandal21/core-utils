@@ -120,7 +120,8 @@ public class ApartmentResponseDto implements Serializable, Comparable<ApartmentR
 	
 	private List<Integer> featureIds;
 
-	private List<FeatureResponseDTO> features;
+	@Builder.Default
+	private List<FeatureResponseDTO> features = new ArrayList<>();
 	
 	@Builder.Default
 	private List<ApartmentRoomTypeResponseDTO> apartmentRoomTypes = Collections.emptyList();
