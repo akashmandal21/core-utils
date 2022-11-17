@@ -5,7 +5,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -18,6 +17,7 @@ public class AuditInfoDto {
     private Date auditDate;
     private String entityName;
     private String roomNumber;
+    private String auditRejectionReason;
     private List<AuditInventoryInfoDto> auditInventoryInfoDtoList;
 
 }
