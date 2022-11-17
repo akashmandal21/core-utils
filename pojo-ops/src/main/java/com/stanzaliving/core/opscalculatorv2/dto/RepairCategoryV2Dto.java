@@ -21,7 +21,7 @@ import lombok.experimental.SuperBuilder;
 public class RepairCategoryV2Dto extends CategoryV2Dto {
 
 	private double manpowerCostPerBed;
-	private double materialCostBed;
+	private double materialCostPerBed;
 	private double amcCostPerBed;
 
 	private boolean amcCostApplicable;

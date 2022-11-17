@@ -2329,7 +2329,6 @@ public class ResidenceDataControllerApi {
         }
         return null;
     }
-
     public List<ResidenceVasDto> getResidenceVasDetailsByCategory(String residenceUuid, VasCategory category) {
 
         log.info("Residence-Data-Controller::Processing to get vas details based on residenceUuid {}", residenceUuid);
