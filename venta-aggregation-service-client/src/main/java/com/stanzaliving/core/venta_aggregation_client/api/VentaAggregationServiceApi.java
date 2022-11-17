@@ -550,11 +550,11 @@ public class VentaAggregationServiceApi {
             Object postBody = null;
 
             final Map<String, Object> uriVariables = new HashMap<>();
-            uriVariables.put("digestDate", date);
 
-            String path = UriComponentsBuilder.fromPath("/internal/activeBooking/details/digest/{digestDate}").buildAndExpand(uriVariables).toUriString();
+            String path = UriComponentsBuilder.fromPath("/internal/activeBooking/details/digest").buildAndExpand(uriVariables).toUriString();
 
             final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+            queryParams.add("digestDate", date);
 
             final HttpHeaders headerParams = new HttpHeaders();
 
