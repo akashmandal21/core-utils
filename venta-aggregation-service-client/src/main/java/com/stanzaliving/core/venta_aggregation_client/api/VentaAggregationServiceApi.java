@@ -545,12 +545,11 @@ public class VentaAggregationServiceApi {
 
     }
 
-    public ResponseDto<List<BookingAggregationDto>> getActiveBookingsForDigest(Date date) {
+    public ResponseDto<List<BookingAggregationDto>> getActiveBookingsForDigest() {
         try {
             Object postBody = null;
 
             final Map<String, Object> uriVariables = new HashMap<>();
-            uriVariables.put("digestDate", date);
 
             String path = UriComponentsBuilder.fromPath("/internal/activeBooking/details/digest/{digestDate}").buildAndExpand(uriVariables).toUriString();
 
