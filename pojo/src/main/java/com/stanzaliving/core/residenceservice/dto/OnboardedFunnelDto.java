@@ -9,7 +9,7 @@ import lombok.*;
 @NoArgsConstructor
 public class OnboardedFunnelDto {
     private String label;
-    private Double count;
+    private String count;
     private String description;
     private String displayType;
     private Boolean isClickable;
