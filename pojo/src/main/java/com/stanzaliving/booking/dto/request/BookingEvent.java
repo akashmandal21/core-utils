@@ -63,5 +63,7 @@ public class BookingEvent implements Serializable {
     private Date exitCreatedAt;
     private Date selectedMoveOutDate;
     private String exitReason;
+    @Builder.Default
+    private ResidenceAgreementType residenceAgreementType = ResidenceAgreementType.LEASE_DEED;
 
 }

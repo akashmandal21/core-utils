@@ -404,23 +404,21 @@ public class LeadserviceClientApi {
 
     public ResponseDto<LeadRequestDto> fetchPrebookedRefundEligibleLeads(String phone) {
 
-
         Object postBody = null;
 
         String path = UriComponentsBuilder.fromPath("internal/prebooking/refund/fetch/eligible/leads").toUriString();
 
         final HttpHeaders headerParams = new HttpHeaders();
 
-
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-        if (Objects.nonNull(phone))
+        if (Objects.nonNull(phone)) {
             queryParams.add("phone", phone);
+        }
 
         final String[] accepts = {"*/*"};
 
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-
 
         ParameterizedTypeReference<ResponseDto<LeadRequestDto>> returnType = new ParameterizedTypeReference<ResponseDto<LeadRequestDto>>() {
         };
@@ -703,6 +701,30 @@ public class LeadserviceClientApi {
             return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
         } catch (Exception e) {
             log.error("Exception caused while auto expire referral codes", e);
+            return null;
+        }
+    }
+
+    public ResponseDto<List<String>> fetchGroundAssociates() {
+        log.info("Fetching ground associates");
+        Object postBody = null;
+        String path = UriComponentsBuilder.fromPath("/internal/lead/ground-associates").toUriString();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final String[] accepts = { "*/*" };
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<List<String>>> returnType = new ParameterizedTypeReference<ResponseDto<List<String>>>() {
+        };
+
+        try {
+            return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception caused while fetching ground associates", e);
             return null;
         }
     }

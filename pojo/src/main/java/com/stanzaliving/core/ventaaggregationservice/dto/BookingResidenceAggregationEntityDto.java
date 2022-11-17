@@ -58,8 +58,10 @@ public class BookingResidenceAggregationEntityDto {
     private Float blockedBeds=0F;
 
     private boolean testHouse;
-    private Double residenceFixedRent;
-    private Double residenceManagementFeePercentage;
+    @Builder.Default
+    private Double residenceFixedRent=0.0;
+    @Builder.Default
+    private Double residenceManagementFeePercentage=0.0;
     @Builder.Default
     private ResidenceAgreementType residenceAgreementType = ResidenceAgreementType.LEASE_DEED;
 }

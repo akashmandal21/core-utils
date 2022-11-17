@@ -27,3 +27,4 @@ public class VentaNotificationDto {
     Date auditedOn;
     AuditStatus auditStatus;
 }
+

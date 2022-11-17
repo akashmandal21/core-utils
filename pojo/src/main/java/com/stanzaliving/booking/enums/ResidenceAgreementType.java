@@ -2,9 +2,11 @@ package com.stanzaliving.booking.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
-@AllArgsConstructor
 @Getter
+@AllArgsConstructor
+@NoArgsConstructor
 public enum ResidenceAgreementType {
     LEASE_DEED("Lease Deed"),
     ONM("ONM");
