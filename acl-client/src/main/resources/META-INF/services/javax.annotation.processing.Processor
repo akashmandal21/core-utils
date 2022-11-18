@@ -1,0 +1,5 @@
+com.stanzaliving.acl.client.annotationProcessors.LogProcessor
+com.stanzaliving.acl.client.annotationProcessors.BuilderProcessor
+#com.stanzaliving.acl.client.annotationProcessors.ResourceProcessorOld
+com.stanzaliving.acl.client.annotationProcessors.PermissionProcessor
+com.stanzaliving.acl.client.annotationProcessors.ResourceProcessor

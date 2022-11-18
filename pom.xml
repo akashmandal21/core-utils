@@ -114,6 +114,7 @@
         <module>estate-v2-client</module>
         <module>messagebird-client</module>
         <module>cloudinary-client</module>
+        <module>acl-client</module>
     </modules>
 
 	<build>
