@@ -5,6 +5,7 @@
 package com.stanzaliving.core.opscalculatorv2.dto;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -23,7 +24,8 @@ import lombok.experimental.SuperBuilder;
 @ToString(callSuper = true)
 public class LaundryCategoryV2Dto extends CategoryV2Dto {
 
-	private int clothesPerPersonPerMonth;
+    @Builder.Default
+    private int clothesPerPersonPerMonth = 40;
 	private int clothesPerPersonPerMonthSuggested;
 	private String clothesPerPersonPerMonthSuggestedReason;
 	private double weightPerCloth;
