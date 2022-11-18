@@ -3,9 +3,7 @@
  */
 package com.stanzaliving.designservice.request.dto;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 /**
  * @author raj.kumar
@@ -14,6 +12,9 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class EstateAttributeDto {
 
 	private String estateId;
