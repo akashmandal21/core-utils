@@ -11,7 +11,6 @@ import com.stanzaliving.core.inventory.dto.InventoryItemDetailedDto;
 import com.stanzaliving.core.inventory.dto.InventoryTOResponse;
 import com.stanzaliving.item_master.dtos.FilterDto;
 import com.stanzaliving.website.constants.WebsiteConstants;
-import com.stanzaliving.website.response.dto.LeadQrDto;
 import com.stanzaliving.website.response.dto.LeadRequestDto;
 import com.stanzaliving.website.response.dto.RazorPayRequestDto;
 import lombok.extern.log4j.Log4j2;
