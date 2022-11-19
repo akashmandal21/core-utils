@@ -2335,7 +2335,7 @@ public class ResidenceDataControllerApi {
 
         uriVariables.put("residenceUuid", residenceUuid);
 
-        String path = UriComponentsBuilder.fromPath("/api/v1/remote-booking-amount/{residenceUuid}").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/api/v1/remote-booking-amount/{residenceUuid}/get").buildAndExpand(uriVariables).toUriString();
 
         MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
