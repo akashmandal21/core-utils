@@ -2329,4 +2329,33 @@ public class ResidenceDataControllerApi {
         return null;
     }
 
+    public ResponseDto<List<Integer>> getRemoteBookingTokenAmountList(String residenceUuid) {
+
+        Map<String, Object> uriVariables = new HashMap<>();
+
+        uriVariables.put("residenceUuid", residenceUuid);
+
+        String path = UriComponentsBuilder.fromPath("/api/v1/remote-booking-amount/{residenceUuid}").buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        HttpHeaders headerParams = new HttpHeaders();
+
+        String[] accepts = new String[]{"*/*"};
+
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<List<Integer>>> returnType =
+                new ParameterizedTypeReference<ResponseDto<List<Integer>>>() {
+                };
+
+        try {
+            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+
+        } catch (Exception ex) {
+            log.error("Exception while fetching token amount list for remote booking", ex);
+        }
+        return null;
+    }
+
 }
