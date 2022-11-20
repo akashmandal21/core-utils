@@ -33,7 +33,7 @@ public class AttributesAndPermissionsSynchronizer {
         messageConverters.add(converter);
         restTemplate.setMessageConverters(messageConverters);
         try {
-            ResponseEntity<ResourceDto> response = restTemplate.exchange("http://localhost:8070/userv2/internal/resource/AttributesAndPermisions", HttpMethod.POST, request, ResourceDto.class);
+            ResponseEntity<ResourceDto> response = restTemplate.exchange("https://dev.stanzaliving.com/userv2/internal/resource/AttributesAndPermisions", HttpMethod.POST, request, ResourceDto.class);
         }
         catch (Exception e){
 
