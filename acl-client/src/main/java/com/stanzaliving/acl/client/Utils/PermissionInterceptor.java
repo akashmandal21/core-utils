@@ -30,7 +30,7 @@ public class PermissionInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws IOException {
-        if(((HandlerMethod) handler).getMethod().getAnnotation(CheckPermission.class)==null) {
+        if(((HandlerMethod) handler).getMethod().getAnnotation(CheckPermission.class)!=null) {
             Permissions[] permissions = ((HandlerMethod) handler).getMethod().getAnnotation(CheckPermission.class).permissions();
             String resource = ((HandlerMethod) handler).getMethod().getAnnotation(CheckPermission.class).resource();
             Class<? extends AttributeValueProvider> className = ((HandlerMethod) handler).getMethod().getAnnotation(CheckPermission.class).attributeValueProvider();
