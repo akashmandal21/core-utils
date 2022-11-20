@@ -15,6 +15,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum UserType {
 
+	EMPLOYEE("employee"),
 	STUDENT("Student"),
 	PARENT("Parent"),
 	LEGAL("Legal"),
