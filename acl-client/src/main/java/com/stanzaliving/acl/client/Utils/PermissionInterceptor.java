@@ -30,59 +30,56 @@ public class PermissionInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws IOException {
-        try {
+        if(((HandlerMethod) handler).getMethod().getAnnotation(CheckPermission.class)==null) {
             Permissions[] permissions = ((HandlerMethod) handler).getMethod().getAnnotation(CheckPermission.class).permissions();
             String resource = ((HandlerMethod) handler).getMethod().getAnnotation(CheckPermission.class).resource();
             Class<? extends AttributeValueProvider> className = ((HandlerMethod) handler).getMethod().getAnnotation(CheckPermission.class).attributeValueProvider();
 
-        }
-        catch (Exception e){
-            return true;
-        }
-        //get attribute value provider from abac resources.
+            //get attribute value provider from abac resources.
 
-        AttributeValueProvider attributeValueProvider= null;
-        try {
-            attributeValueProvider = className.getConstructor().newInstance();
-        } catch (Exception e){
-            e.printStackTrace();
-        }
-
-        String token=extractTokenFromRequest(request);
-
-        AttributeDto attributeDto=attributeValueProvider.fillAttributeValues(request);
-
-        ObjectMapper objectMapper=new ObjectMapper();
-        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-
-        HashMap<String,Object> attributes= (HashMap<String, Object>) objectMapper.convertValue(attributeDto,Map.class);
-
-        RestTemplate restTemplate = new RestTemplate();
-        MultiValueMap<String,String> conditionHeaders=new LinkedMultiValueMap<>();
-        conditionHeaders.put("Accept",Collections.singletonList(MediaType.ALL_VALUE));
-
-        HttpEntity<ConditionContextDto> conditionRequest = new HttpEntity<>(
-                new ConditionContextDto(resource, Arrays.asList(permissions),attributes,token),
-                conditionHeaders
-        );
-
-        List<HttpMessageConverter<?>> messageConverters = new ArrayList<>();
-        MappingJackson2HttpMessageConverter converter = new MappingJackson2HttpMessageConverter();
-        converter.setSupportedMediaTypes(Arrays.asList(MediaType.APPLICATION_JSON));
-        messageConverters.add(converter);
-        restTemplate.setMessageConverters(messageConverters);
-        try {
-            ResponseEntity<Boolean> conditionResponse = restTemplate.exchange("http://localhost:8070/userv2/internal/eval/permission",
-                    HttpMethod.POST, conditionRequest, Boolean.class);
-            if(!conditionResponse.getBody()){
-                throw new ApiValidationException("User doesn't have the relevant role or permissions");
+            AttributeValueProvider attributeValueProvider = null;
+            try {
+                attributeValueProvider = className.getConstructor().newInstance();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            return conditionResponse.getBody();
-        }
-        catch (Exception e){
-        }
 
-        return false;
+            String token = extractTokenFromRequest(request);
+
+            AttributeDto attributeDto = attributeValueProvider.fillAttributeValues(request);
+
+            ObjectMapper objectMapper = new ObjectMapper();
+            objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+
+            HashMap<String, Object> attributes = (HashMap<String, Object>) objectMapper.convertValue(attributeDto, Map.class);
+
+            RestTemplate restTemplate = new RestTemplate();
+            MultiValueMap<String, String> conditionHeaders = new LinkedMultiValueMap<>();
+            conditionHeaders.put("Accept", Collections.singletonList(MediaType.ALL_VALUE));
+
+            HttpEntity<ConditionContextDto> conditionRequest = new HttpEntity<>(
+                    new ConditionContextDto(resource, Arrays.asList(permissions), attributes, token),
+                    conditionHeaders
+            );
+
+            List<HttpMessageConverter<?>> messageConverters = new ArrayList<>();
+            MappingJackson2HttpMessageConverter converter = new MappingJackson2HttpMessageConverter();
+            converter.setSupportedMediaTypes(Arrays.asList(MediaType.APPLICATION_JSON));
+            messageConverters.add(converter);
+            restTemplate.setMessageConverters(messageConverters);
+            try {
+                ResponseEntity<Boolean> conditionResponse = restTemplate.exchange("http://localhost:8070/userv2/internal/eval/permission",
+                        HttpMethod.POST, conditionRequest, Boolean.class);
+                if (!conditionResponse.getBody()) {
+                    throw new ApiValidationException("User doesn't have the relevant role or permissions");
+                }
+                return conditionResponse.getBody();
+            } catch (Exception e) {
+            }
+
+            return false;
+        }
+        return true;
     }
 
     private String extractTokenFromRequest(HttpServletRequest request) {
