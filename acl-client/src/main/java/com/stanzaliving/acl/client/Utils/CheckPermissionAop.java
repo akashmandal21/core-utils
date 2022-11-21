@@ -47,7 +47,13 @@ public class CheckPermissionAop {
             e.printStackTrace();
         }
 
-        HttpServletRequest request=((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+        try {
+            HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+        }
+        catch (Exception e){
+            throw new Exception(RequestContextHolder.getRequestAttributes().toString());
+        }
+        HttpServletRequest request=null;
         String token=extractTokenFromRequest(request);
 
         AttributeDto attributeDto=attributeValueProvider.fillAttributeValues(request);
