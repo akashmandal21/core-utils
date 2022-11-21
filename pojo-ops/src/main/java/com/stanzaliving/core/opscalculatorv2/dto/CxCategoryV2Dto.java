@@ -1,5 +1,6 @@
 package com.stanzaliving.core.opscalculatorv2.dto;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -14,6 +15,7 @@ import lombok.experimental.SuperBuilder;
 public class CxCategoryV2Dto extends CategoryV2Dto {
 
 	public boolean cxApplicable;
-	public int costPerBed;
+	@Builder.Default
+	public int costPerBed = 60;
 
 }
