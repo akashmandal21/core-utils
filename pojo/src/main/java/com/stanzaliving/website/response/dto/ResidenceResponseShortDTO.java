@@ -91,9 +91,11 @@ public class ResidenceResponseShortDTO implements Serializable {
 	
 	private PropertyEntityType propertyEntityType;
 
-	private List<FacilityResponseDTO> facilities;
+	@Builder.Default
+	private List<FacilityResponseDTO> facilities = Collections.emptyList();;
 
-	private List<FeatureResponseDTO> features;
+	@Builder.Default
+	private List<FeatureResponseDTO> features = Collections.emptyList();;
 
 	@Builder.Default
 	private List<ResidenceOccupancyResponseDTO> residenceOccupancies = Collections.emptyList();
