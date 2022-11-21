@@ -20,7 +20,11 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import java.util.*;
 
 @Aspect
@@ -43,9 +47,10 @@ public class CheckPermissionAop {
             e.printStackTrace();
         }
 
-        String token=PermissionInterceptor.token;
+        HttpServletRequest request=((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+        String token=extractTokenFromRequest(request);
 
-        AttributeDto attributeDto=attributeValueProvider.fillAttributeValues(null);
+        AttributeDto attributeDto=attributeValueProvider.fillAttributeValues(request);
 
         ObjectMapper objectMapper=new ObjectMapper();
         objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
@@ -69,7 +74,7 @@ public class CheckPermissionAop {
         try {
             ResponseEntity<Boolean> conditionResponse = restTemplate.exchange("https://dev.stanzaliving.com/userv2/internal/eval/permission",
                     HttpMethod.POST, conditionRequest, Boolean.class);
-            if(conditionResponse.getBody()){
+            if(!conditionResponse.getBody()){
                 throw new ApiValidationException("User doesn't have the relevant role or permissions");
             }
             return joinPoint.proceed();
@@ -78,5 +83,30 @@ public class CheckPermissionAop {
         }
 
         return true;
+    }
+
+
+    private String extractTokenFromRequest(HttpServletRequest request) {
+        String token = null;
+
+        if (request.getCookies() != null) {
+            for (Cookie cookie : request.getCookies()) {
+                if (SecurityConstants.TOKEN_HEADER_NAME.equals(cookie.getName())) {
+                    token = cookie.getValue();
+                    break;
+                }
+            }
+        }
+
+        if (token == null) {
+
+            token = request.getHeader(SecurityConstants.AUTHORIZATION_HEADER);
+            if (token != null && token.startsWith(SecurityConstants.VENTA_TOKEN_PREFIX)) {		//only if it follows bearer schema, then we would consider valid token
+                token = token.replace(SecurityConstants.VENTA_TOKEN_PREFIX, "");
+            } else {
+                token = null;
+            }
+        }
+        return token;
     }
 }
