@@ -7,5 +7,4 @@ public enum Permissions {
     APPROVE_BOQ_L3_BOQ,
     APPROVE_BOQ_L4_BOQ,
     APPROVE_BOQ_L5_BOQ;
-
 }
