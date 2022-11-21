@@ -28,4 +28,6 @@ public class RoleDto extends AbstractDto {
 
 	private AccessLevel accessLevel;
 
+	private Boolean migrated;
+
 }
