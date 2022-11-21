@@ -21,6 +21,10 @@ public class StanzaAwsLambdaClient {
 
     private AWSLambda awsLambda;
 
+    public StanzaAwsLambdaClient(AWSLambda awsLambda) {
+        this.awsLambda = awsLambda;
+    }
+
     public String invokeLambdaHandler(String lambdaName, String eventJsonString) {
 
         InvokeRequest invokeRequest = new InvokeRequest()
