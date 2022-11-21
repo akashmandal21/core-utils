@@ -82,9 +82,9 @@ public class PersonnelCategoryV2Dto extends CategoryV2Dto {
 	private double noOfEmployees;
 	private String noOfEmployeesSuggestedReason;
 
-	private double employeeRatePerMonth;
-	private double employeeRatePerMonthSuggested;
-	private String employeeRatePerMonthSuggestedReason;
+    private double employeeRatePerMonth;
+    private double employeeRatePerMonthSuggested;
+    private String employeeRatePerMonthSuggestedReason;
 
     private double rmCount;
     private double rmCountSuggested;
