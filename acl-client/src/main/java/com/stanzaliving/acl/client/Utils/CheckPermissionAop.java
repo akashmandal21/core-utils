@@ -43,7 +43,7 @@ public class CheckPermissionAop {
             e.printStackTrace();
         }
 
-        String token="";
+        String token=PermissionInterceptor.token;
 
         AttributeDto attributeDto=attributeValueProvider.fillAttributeValues(null);
 

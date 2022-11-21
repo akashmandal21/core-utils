@@ -27,6 +27,7 @@ import java.util.*;
 
 @Component
 public class PermissionInterceptor implements HandlerInterceptor {
+    public static String token;
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws IOException {
@@ -44,7 +45,7 @@ public class PermissionInterceptor implements HandlerInterceptor {
                 e.printStackTrace();
             }
 
-            String token = extractTokenFromRequest(request);
+            PermissionInterceptor.token = extractTokenFromRequest(request);
 
             AttributeDto attributeDto = attributeValueProvider.fillAttributeValues(request);
 
