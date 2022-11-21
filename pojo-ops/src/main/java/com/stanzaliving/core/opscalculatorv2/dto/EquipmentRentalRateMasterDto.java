@@ -20,12 +20,16 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString(callSuper = true)
-public class EquipmentRentalRateMasterDto implements Serializable  {
+public class EquipmentRentalRateMasterDto implements Serializable {
 
-	private String cityUuid;
-	
-	private String microMarketUuid;
-
-	private String standardEquipRental;
+    private String cityUuid;
+    private String microMarketUuid;
+    private String standardEquipRental;
+    private String rentedAc;
+    private String smartMeters;
+    private String tvRent;
+    private String treadmill;
+    private String exerciseBike;
+    private String multiGym;
 
 }
