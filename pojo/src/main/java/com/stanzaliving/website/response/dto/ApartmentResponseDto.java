@@ -114,14 +114,12 @@ public class ApartmentResponseDto implements Serializable, Comparable<ApartmentR
 	private Boolean soldOut;
 	
 	private boolean isEntireFlatAvailable;
-	
-	@Builder.Default
-	private List<FacilityResponseDTO> facilities = new ArrayList<>();
+
+	private List<FacilityResponseDTO> facilities;
 	
 	private List<Integer> featureIds;
 
-	@Builder.Default
-	private List<FeatureResponseDTO> features = new ArrayList<>();
+	private List<FeatureResponseDTO> features;
 	
 	@Builder.Default
 	private List<ApartmentRoomTypeResponseDTO> apartmentRoomTypes = Collections.emptyList();
