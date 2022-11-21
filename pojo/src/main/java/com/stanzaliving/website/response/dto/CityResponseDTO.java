@@ -51,7 +51,6 @@ public class CityResponseDTO implements Serializable {
 	
 	private int livePgsCount;
 	private int liveApartmentsCount;
-	private int liveCoLivingCount;
 	
 	private List<AttributeDto> attributeDto;
     @Builder.Default
