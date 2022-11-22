@@ -46,7 +46,7 @@ public class RepairCategoryV2Dto extends CategoryV2Dto {
 	@Builder.Default
 	List<AmcCostSlotV2Dto> acAmcCostSlotDtos = new ArrayList<>();
 	private int acAmcCost;
-	@Builder.Default
+    @Builder.Default
     List<AmcCostSlotV2Dto> othersAmcCostSlotDtos = new ArrayList<>();
     private int othersAmcCost;
 

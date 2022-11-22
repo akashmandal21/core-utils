@@ -29,20 +29,19 @@ public class UtilitiesWaterCategoryV2Dto extends CategoryV2Dto {
 
     @Builder.Default
     private int waterRequirementPerPersonPerDay = 120;
-	private int waterRequirementPerPersonPerDaySuggestedValue;
-	private String waterRequirementPerPersonPerDaySuggestedValueReason;
-	private int tankerRequirementPercent;
-	private double tankerCostPerLtr;
-	private double landlordReceivablePercent;
-	private double waterCost;
-	private double waterCostPerAvailableBed;
-	private double jalBoardWaterCostPerMonth;
-	private double jalBoardWaterCostPerAvailableBed;
+    private int waterRequirementPerPersonPerDaySuggestedValue;
+    private String waterRequirementPerPersonPerDaySuggestedValueReason;
+    private int tankerRequirementPercent;
+    private double tankerCostPerLtr;
+    private double landlordReceivablePercent;
+    private double waterCost;
+    private double waterCostPerAvailableBed;
+    private double jalBoardWaterCostPerMonth;
+    private double jalBoardWaterCostPerAvailableBed;
 
     private int monthsWithTankerDependency;
     private double tankerCapacity;
     private double perTankerCost;
     private double landlordSharingPercent;
-
 
 }
