@@ -32,13 +32,11 @@ import lombok.experimental.SuperBuilder;
 @ToString(callSuper = true)
 public class UtilitiesElectricityCategoryV2Dto extends CategoryV2Dto {
 
-	public int unitForEquipmentsPerDay;
-	
 	public int totalCharges;
 	
 	public double fixedCharges;
-	public UnitRate unitRate;
-	public double unitRateValue;
+	public UnitRate unitRateType;
+	public double unitRate;
 	public double taxPercent;
 	
 	
