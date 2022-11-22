@@ -18,6 +18,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @Builder
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 public class PaymentPlan {

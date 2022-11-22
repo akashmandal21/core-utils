@@ -1,5 +1,6 @@
 package com.stanzaliving.core.residenceservice.dto;
 
+import com.stanzaliving.booking.enums.ResidenceAgreementType;
 import com.stanzaliving.core.residenceservice.enums.RoomStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -35,4 +36,16 @@ public class RoomInventoryDetailDto {
     private RoomStatus roomStatus;
 
     private String reason;
+
+    private Integer bhkType;
+
+    private String microMarketName;
+
+    private String microMarketUuid;
+
+    private int availableRoom;
+
+    private String residenceCode;
+
+    private ResidenceAgreementType residenceAgreementType;
 }

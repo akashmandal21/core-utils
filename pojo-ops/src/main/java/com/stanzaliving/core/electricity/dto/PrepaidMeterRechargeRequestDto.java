@@ -32,6 +32,9 @@ public class PrepaidMeterRechargeRequestDto {
 
 	@NotBlank(message = "userId is a required field")
 	private String userId;
+	
+	@NotBlank(message = "userCode is a required field")
+	private String userCode;
 
 	@NotBlank(message = "residenceId is a required field")
 	private String residenceId;

@@ -61,5 +61,9 @@ public class ElectricityMeterPrepaidDto extends AbstractDto {
 	private PrepaidMeterRechargeSummaryDto rechargeSummaryDto;
 	
 	private Map<String, String> tags;
+	
+	private Double blendedUnitRate;
+	
+	private Double avgUnitConsumedPerDay;
 
 }

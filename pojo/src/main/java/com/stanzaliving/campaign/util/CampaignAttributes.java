@@ -31,6 +31,6 @@ public class CampaignAttributes {
 	public final String MOVENIN ="moveIn";
 	public final String PAYMENT_MODE ="paymentMode";
 	public final String TRANSACTION_UUID ="TransactionUuid";
-	
 
+	public final String CATEGORY_NAME ="categoryName";
 }

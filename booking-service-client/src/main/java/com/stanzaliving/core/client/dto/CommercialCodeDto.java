@@ -1,5 +1,6 @@
 package com.stanzaliving.core.client.dto;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import com.stanzaliving.booking.dto.response.CommercialsDetailsResponseDTO;
@@ -14,7 +15,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class CommercialCodeDto {
+public class CommercialCodeDto implements Serializable {
 	
 	private CommercialCardStatus cardStatus;
 

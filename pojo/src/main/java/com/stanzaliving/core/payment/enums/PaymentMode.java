@@ -39,8 +39,6 @@ public enum PaymentMode {
 	BOOKING_AMOUNT_CARRY_FORWARD("Booking Amount Carry Forward", 24),
 	CASHFREE("CASHFREE", 25);
 
-
-
 	private String paymentModeDesc;
 	private int paymentModeId;
 
@@ -88,9 +86,11 @@ public enum PaymentMode {
     	List<PaymentMode> paymentMode = new ArrayList<>();
     	paymentMode.add(CHEQUE);
     	paymentMode.add(CASH);
-    	paymentMode.add(PAYTM_SDK);
+    	paymentMode.add(PAYTM);
     	paymentMode.add(RAZORPAY);
-	   	paymentMode.add(CASHFREE);
+    	paymentMode.add(VIRTUAL_ACCOUNT);
+    	paymentMode.add(CC);
+    	paymentMode.add(CASHFREE);
     	return paymentMode;
     }
 }

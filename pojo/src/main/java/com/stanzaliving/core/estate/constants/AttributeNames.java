@@ -24,12 +24,14 @@ public class AttributeNames {
 		public static final String ROOM_TYPE = "roomType";
 		public static final String ROOM_COUNT = "roomCount";
 
+		public static final String BUILDING_HANDOVER_DATE = "buildingHandoverDate";
+
 		public static final String TERRACE_ACCESSIBLE = "terraceAreaCoverage";
 
 		public static final String NUMBER_OF_FLOORS = "floorCount";
 
 		public static final String NUMBER_OF_STILT_ROOMS = "stiltNumberOfRooms";
-		
+
 		public static final String NUMBER_OF_AC_ROOMS = "acRoomsProposed";
 		
 		public static final String NUMBER_OF_TOWERS = "towerCount";

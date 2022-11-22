@@ -20,6 +20,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.stanzaliving.core.backend.dto.UserHostelDto;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
+import com.stanzaliving.core.base.exception.BaseMarker;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.operations.dto.ActiveResidenceDetailsDto;
 import com.stanzaliving.core.operations.dto.CurrentServiceMixRequestDto;
@@ -30,7 +31,11 @@ import com.stanzaliving.core.operations.enums.DealCategory;
 import com.stanzaliving.internet.dto.InternetDetails;
 import com.stanzaliving.internet.dto.InternetProviderDetails;
 import com.stanzaliving.operations.ServiceMixSeasonResponseDto;
+import com.stanzaliving.operations.dto.ResidenceMirSummaryDto;
+import com.stanzaliving.operations.dto.request.ResidenceMirRequestDto;
 import com.stanzaliving.operations.dto.servicemix.ServiceMixEntityDto;
+import com.stanzaliving.operations.dto.servicemix.ServiceNameRequestDto;
+import com.stanzaliving.operations.dto.servicemix.ServiceNameResponseDto;
 import com.stanzaliving.operations.enums.ServiceMixStatus;
 
 import lombok.extern.log4j.Log4j2;
@@ -577,6 +582,114 @@ public class OperationsClientApi {
 
 		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : new ArrayList<>();
 	}
-
 	
+	public ServiceNameResponseDto getServiceMixNamesByResidenceIds(List<String> residenceIds) {
+
+		try {
+			Object postBody = ServiceNameRequestDto.builder().residenceIds(residenceIds).build();
+
+			final Map<String, Object> uriVariables = new HashMap<>();
+
+			String path = UriComponentsBuilder.fromPath("/internal/servicemix/residence/servicename")
+					.buildAndExpand(uriVariables).toUriString();
+
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+			final HttpHeaders headerParams = new HttpHeaders();
+
+			final String[] accepts = { "*/*" };
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+			ParameterizedTypeReference<ResponseDto<ServiceNameResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<ServiceNameResponseDto>>() {
+			};
+
+			ResponseDto<ServiceNameResponseDto> responseDto = restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+
+			return responseDto.isStatus() && Objects.nonNull(responseDto.getData()) ? responseDto.getData() : null;
+		} catch (Exception e) {
+			log.error("Exception while fetching ServiceMixNames List from residenceIds: {}", residenceIds, e);
+			return null;
+		}
+	}
+
+	public List<String> getResidence(String internetVendor) {
+
+		try {
+			final Map<String, Object> uriVariables = new HashMap<>();
+
+			uriVariables.put("internetVendor",internetVendor);
+
+			String path = UriComponentsBuilder.fromPath("/internal/hostel/internetVendor/{internetVendor}")
+					.buildAndExpand(uriVariables).toUriString();
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+			final HttpHeaders headerParams = new HttpHeaders();
+
+			final String[] accepts = {
+					"*/*"
+			};
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+			ParameterizedTypeReference<ResponseDto<List<String>>> returnType = new ParameterizedTypeReference<ResponseDto<List<String>>>() {
+			};
+			ResponseDto<List<String>> residenceList =  restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+			return Objects.nonNull(residenceList) && residenceList.isStatus() && Objects.nonNull(residenceList.getData()) ? residenceList.getData() : null;
+
+		} catch (Exception e) {
+			log.error(BaseMarker.OPERATIONS_ERROR, "Exception while fetching Residence List from internetVendor: " + internetVendor, e);
+			return new ArrayList<>();
+		}
+	}
+
+    public ResidenceMirSummaryDto getResidenceMirSummary(ResidenceMirRequestDto residenceMirRequestDto) {
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/internal/v2/residence/mir").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        TypeReference<ResponseDto<ResidenceMirSummaryDto>> returnType = new TypeReference<ResponseDto<ResidenceMirSummaryDto>>() {
+        };
+
+        ResponseDto<ResidenceMirSummaryDto> responseDto = null;
+
+        try {
+
+            responseDto = restClient.post(path, queryParams, residenceMirRequestDto, null, null, returnType, MediaType.APPLICATION_JSON);
+
+        } catch (Exception e) {
+
+            log.error("Error while getting mir", e);
+
+        }
+
+        return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : null;
+
+    }
+
+    public ResidenceMirSummaryDto getAllActiveResidenceMirSummary(ResidenceMirRequestDto residenceMirRequestDto) {
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/internal/v2/residence/mir/all").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        TypeReference<ResponseDto<ResidenceMirSummaryDto>> returnType = new TypeReference<ResponseDto<ResidenceMirSummaryDto>>() {
+        };
+
+        ResponseDto<ResidenceMirSummaryDto> responseDto = null;
+
+        try {
+
+            responseDto = restClient.post(path, queryParams, residenceMirRequestDto, null, null, returnType, MediaType.APPLICATION_JSON);
+
+        } catch (Exception e) {
+
+            log.error("Error while getting mir", e);
+
+        }
+
+        return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : null;
+    }
 }

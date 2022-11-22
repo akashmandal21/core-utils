@@ -77,5 +77,9 @@ public class GroupedWeeklyMenuResponseDto extends AbstractDto {
     private List<SpecialDayMealDto> specialDayMealDtoList;
     private List<MenuCategoryMealDto> mealData;
     private Boolean canSubmit;
+    private Date approvedAt;
+    private String approvedBy;
+    private Boolean isDebarDishExist;
+    private SelectedKitchenDto selectedKitchen;
 
 }

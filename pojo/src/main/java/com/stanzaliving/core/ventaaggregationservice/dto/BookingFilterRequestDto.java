@@ -25,4 +25,5 @@ public class BookingFilterRequestDto {
     private Boolean moveIn;
     private String residentMobile;
     private String residentId;
+    private boolean ignoreMoveInFlag;
 }

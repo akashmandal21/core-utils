@@ -3,11 +3,7 @@
  */
 package com.stanzaliving.core.amazons3.service.impl;
 
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
+import java.io.*;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
@@ -62,6 +58,13 @@ public class S3UploadServiceImpl implements S3UploadService {
 
 			} catch (Exception e) {
 				log.error("Error uploading file on S3: ", e);
+			}finally {
+				try {
+					inputStream.close();
+				}catch (IOException e) {
+					log.error("Error uploading file on S3: ", e);
+					throw new RuntimeException(e);
+				}
 			}
 		} else {
 			log.warn("Content InputStream is null. Not Uploading on S3");

@@ -3,9 +3,9 @@ package com.stanzaliving.booking.dto.request;
 import com.stanzaliving.booking.enums.BookingType;
 import com.stanzaliving.booking.enums.PaymentTerm;
 import com.stanzaliving.booking.enums.ReferenceType;
+import com.stanzaliving.booking.enums.ResidenceAgreementType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Builder.Default;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -36,6 +36,8 @@ public class BookingDetailsRequestDto implements Serializable {
 
 	private Date stayLockInEndDate;
 
+	private double stayLockInMonths;
+
 	private Date subContract1EndDate;
 
 	private BookingType bookingType;
@@ -43,5 +45,16 @@ public class BookingDetailsRequestDto implements Serializable {
 	@Builder.Default
 	@NotNull(message = "payment term cannot be null")
 	private PaymentTerm paymentTerm = PaymentTerm.MONTHLY;
+
+	private Date newStayLockInEndDate;
+
+	private Integer advanceRentalFirstMonths;
+
+	private Integer advanceRentalLastMonths;
+
+	@Builder.Default
+	private ResidenceAgreementType residenceAgreementType = ResidenceAgreementType.LEASE_DEED;
+
+	private String residenceUuid;
 
 }

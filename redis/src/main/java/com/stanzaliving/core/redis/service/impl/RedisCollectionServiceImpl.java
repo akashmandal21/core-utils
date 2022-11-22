@@ -43,6 +43,22 @@ public class RedisCollectionServiceImpl implements RedisCollectionService {
 	}
 
 	@Override
+	public Map<String,String> getFromStringMap(String mapName, Set<String> keys) {
+
+		log.debug("Fetching map: {} from redis", mapName);
+
+		RMap<String,String> rMap = getRedisStringMap(mapName);
+
+		Map<String,String> map = rMap.getAll(keys);
+
+		if(map==null)
+			return new HashMap<>();
+
+		return map;
+
+	}
+
+	@Override
 	public String getFromStringMap(String mapName, String key) {
 		return getRedisStringMap(mapName).get(key);
 	}

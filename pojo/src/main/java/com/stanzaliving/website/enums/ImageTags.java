@@ -6,6 +6,7 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum ImageTags {
+	
 	COMMONAREA("Common Area"),
 	DININGAREA("Dining Area"),
 	KITCHEN("Kitchen"),

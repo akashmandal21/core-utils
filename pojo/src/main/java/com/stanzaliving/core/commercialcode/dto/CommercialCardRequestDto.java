@@ -1,14 +1,20 @@
 package com.stanzaliving.core.commercialcode.dto;
 
+
+import com.stanzaliving.booking.enums.BookingSubType;
+import com.stanzaliving.booking.enums.PaymentFrequency;
 import com.stanzaliving.commercialcard.enums.CommercialCardUserType;
-import lombok.Data;
-import lombok.ToString;
+import lombok.*;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Data
 @ToString
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class CommercialCardRequestDto {
 
     @NotNull(message = "City uuid cannot be null")
@@ -32,5 +38,25 @@ public class CommercialCardRequestDto {
     @NotEmpty(message = "Lock-In period required")
     private String lockInPeriod;
 
+    private String roomUuid;
+
+    private List<String> roomUuidList;
+
     private CommercialCardUserType commercialCardUserType;
+
+    private String serviceMixUuid;
+
+    private String bookingUuid;
+
+    private String moveInDate;
+
+    @Builder.Default
+    private Integer roomCount = 1;
+
+    private BookingSubType bookingSubType;
+
+    private PlatformType platform;
+
+    private PaymentFrequency paymentFrequency;
+
 }

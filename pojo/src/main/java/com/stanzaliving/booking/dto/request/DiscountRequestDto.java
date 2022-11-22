@@ -17,4 +17,10 @@ public class DiscountRequestDto {
     private String discountStrategyUuid;
 
     private Double discountValueApplied;
+
+    private Double discountRequested;
+
+    private Double oldDiscountBeforeModification;
+
+    private Double discountValueAppliedAfterStrategy;
 }

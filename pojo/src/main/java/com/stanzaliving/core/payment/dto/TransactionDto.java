@@ -31,6 +31,8 @@ public class TransactionDto extends AbstractDto {
 
 	private static final long serialVersionUID = -5460205171309799210L;
 
+	private String stanzaTransactionId;
+
 	private String merchantTransactionId;
 	
 	private String uuid;
@@ -60,4 +62,5 @@ public class TransactionDto extends AbstractDto {
 	private String bookingUuid;
 
 	private String userType;
+
 }
