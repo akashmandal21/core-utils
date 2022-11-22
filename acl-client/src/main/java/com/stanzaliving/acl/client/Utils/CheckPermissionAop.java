@@ -21,7 +21,9 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.RequestContextListener;
 import org.springframework.web.context.request.ServletRequestAttributes;
+import org.springframework.web.filter.RequestContextFilter;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -47,13 +49,14 @@ public class CheckPermissionAop {
             e.printStackTrace();
         }
 
+        HttpServletRequest request=null;
         try {
-            HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+            request = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes()).getRequest();
         }
         catch (Exception e){
             throw new ApiValidationException(RequestContextHolder.currentRequestAttributes().toString());
         }
-        HttpServletRequest request=null;
+
         String token=extractTokenFromRequest(request);
 
         AttributeDto attributeDto=attributeValueProvider.fillAttributeValues(request);
