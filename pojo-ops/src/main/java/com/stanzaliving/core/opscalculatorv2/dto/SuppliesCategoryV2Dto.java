@@ -25,6 +25,6 @@ public class SuppliesCategoryV2Dto extends CategoryV2Dto {
 
     @Builder.Default
     private boolean isSuppliesApplicable = true;
-
-    private int suppliesCostPerMonth;
+    @Builder.Default
+    private int suppliesCostPerMonth = 50;
 }
