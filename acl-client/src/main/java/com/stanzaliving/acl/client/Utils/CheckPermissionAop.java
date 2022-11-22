@@ -51,7 +51,7 @@ public class CheckPermissionAop {
             HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
         }
         catch (Exception e){
-            throw new ApiValidationException(RequestContextHolder.getRequestAttributes().toString());
+            throw new ApiValidationException(RequestContextHolder.currentRequestAttributes().toString());
         }
         HttpServletRequest request=null;
         String token=extractTokenFromRequest(request);
