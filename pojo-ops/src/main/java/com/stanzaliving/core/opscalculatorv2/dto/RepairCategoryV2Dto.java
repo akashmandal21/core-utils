@@ -24,15 +24,22 @@ public class RepairCategoryV2Dto extends CategoryV2Dto {
 	private double materialCostPerBed;
 	private double amcCostPerBed;
 
-	private boolean amcCostApplicable;
-	private boolean manPowerApplicable;
-	private boolean materialCostApplicable;
-
-	private boolean acAmcCostApplicable;
-	private boolean dgAmcCostApplicable;
-	private boolean liftAmcCostApplicable;
-	private boolean roAmcCostApplicable;
-	private boolean othersAmcCostApplicable;
+	@Builder.Default
+	private boolean amcCostApplicable = true;
+	@Builder.Default
+	private boolean manPowerApplicable = true;
+	@Builder.Default
+	private boolean materialCostApplicable = true;
+	@Builder.Default
+	private boolean acAmcCostApplicable = true;
+	@Builder.Default
+	private boolean dgAmcCostApplicable = true;
+	@Builder.Default
+	private boolean liftAmcCostApplicable = true;
+	@Builder.Default
+	private boolean roAmcCostApplicable = true;
+	@Builder.Default
+	private boolean othersAmcCostApplicable = true;
 
 	@Builder.Default
 	List<AmcCostSlotV2Dto> liftAmcCostSlotDtos = new ArrayList<>();
