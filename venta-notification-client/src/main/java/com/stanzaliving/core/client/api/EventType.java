@@ -28,7 +28,7 @@ public enum EventType {
     INELIGIBLE_REFUNDS_DUE_GREATER_THAN_SD("ineligible refunds due greater than SD"),
     INELIGIBLE_REFUNDS_LEFT_WITHIN_LOCKIN("ineligible refunds within lockin"),
     PRE_BOOKING_COMPLETED("Pre Booking completed");
-    private String commandText;
+    private final String commandText;
 
     EventType(String commandText)
     {
