@@ -34,4 +34,14 @@ public class FoodVendorRequestDto {
 
 	private boolean stanzaKitchen;
 
+	private String gstin;
+
+	private String fassai;
+
+	private String gstCompanyName;
+
+	private String gstCompanyAddress;
+
+	private String vendorMasterUuid;
+
 }

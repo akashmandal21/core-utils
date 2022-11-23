@@ -1,18 +1,9 @@
 /**
  * @author nipunaggarwal
- *
  */
 package com.stanzaliving.core.opscalculator.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.stanzaliving.core.opscalculator.constants.Constants;
-
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 /**
@@ -25,16 +16,16 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString(callSuper = true)
-@JsonIgnoreProperties({ "count", "rate", "utilization" })
 public class RepairAndMaintenanceCategoryDto extends CategoryDto {
 
-	private int buildingMaintenance;
-	private int repairAndMaintenance;
+    private BuildMaintenanceCategoryDto buildMaintenanceCategoryDto;
+    private RepairCategoryDto repairCategoryDto;
 
-	@Builder.Default
-	private int gst = Constants.GST_REPAIR_MAINTENANCE_PERCENT;
-
-	@Builder.Default
-	private int margin = Constants.MARGIN_REPAIR_MAINTENANCE_PERCENT;
+    public Object clone() {
+        RepairAndMaintenanceCategoryDto clone = (RepairAndMaintenanceCategoryDto) super.clone();
+        clone.buildMaintenanceCategoryDto = buildMaintenanceCategoryDto != null ? (BuildMaintenanceCategoryDto) buildMaintenanceCategoryDto.clone() : null;
+        clone.repairCategoryDto = repairCategoryDto != null ? (RepairCategoryDto) repairCategoryDto.clone() : null;
+        return clone;
+    }
 
 }

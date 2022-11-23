@@ -26,7 +26,7 @@ public class QRGeneratorUtility
     public static BufferedImage generateQRImage(String string) throws IOException
     {
         QrCode qrCode = QrCode.encodeText(string,QrCode.Ecc.MEDIUM);
-        return qrCode.toImage(4,2);
+        return qrCode.toImage(50,2);
 //        List<QrSegment> list = createSegments(string);
 //        return generateQRImage(list,DEFAULT_ECC_LEVEL,DEFAULT_PIXEL_SCALE,DEFAULT_NUM_BORDERS);
     }

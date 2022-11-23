@@ -3,6 +3,8 @@
  */
 package com.stanzaliving.core.base.common.dto;
 
+import java.io.Serializable;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -17,7 +19,12 @@ import lombok.ToString;
 @Setter
 @ToString
 @NoArgsConstructor
-public class ResponseDto<T> {
+public class ResponseDto<T> implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	private boolean status;
 
@@ -28,19 +35,19 @@ public class ResponseDto<T> {
 	private String errorCode;
 
 	private T data;
-	
+
 	private int httpStatusCode;
 
 	private ResponseDto(boolean status) {
 		this.status = status;
 	}
 
-	private ResponseDto(boolean status, String message) {
+	protected ResponseDto(boolean status, String message) {
 		this(status);
 		this.message = message;
 	}
 
-	private ResponseDto(boolean status, String message, T data) {
+	protected ResponseDto(boolean status, String message, T data) {
 		this(status, message);
 		this.data = data;
 	}
@@ -69,6 +76,10 @@ public class ResponseDto<T> {
 
 	public static <T> ResponseDto<T> success(String message, T data, String id) {
 		return new ResponseDto<>(true, message, data, id);
+	}
+
+	public static <T> ResponseDto<T> success(String message, T data, String id, String errorCode) {
+		return new ResponseDto<>(true, message, data, id, errorCode);
 	}
 
 	public static <T> ResponseDto<T> failure(String message) {

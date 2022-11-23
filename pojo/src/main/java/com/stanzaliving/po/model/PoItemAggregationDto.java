@@ -16,4 +16,5 @@ public class PoItemAggregationDto {
     private Double quantity;
     private Double amount;
     private String poType;
+    private boolean isPo;
 }

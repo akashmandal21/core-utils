@@ -2,47 +2,63 @@ package com.stanzaliving.core.base.utils;
 
 public class ImmutablePair<U, V> {
 
-    final U key;		//you may remove final if non-immutable needed
-    final V value;
+	final U key; // you may remove final if non-immutable needed
+	final V value;
 
-    public ImmutablePair(U key, V value) {
-        this.key = key;
-        this.value = value;
-    }
+	public ImmutablePair(U key, V value) {
+		this.key = key;
+		this.value = value;
+	}
 
-    public U getKey(){
-        return key;
-    }
+	public static <U, V> ImmutablePair<U, V> of(final U key, final V value) {
+		return new ImmutablePair<>(key, value);
+	}
 
-    public V getValue(){
-        return value;
-    }
+	public U getKey() {
+		return key;
+	}
 
-    @Override
-    public boolean equals(Object o)
-    {
-        if (this == o)
-            return true;
+	public V getValue() {
+		return value;
+	}
 
-        if (o == null || getClass() != o.getClass())
-            return false;
+	public U getLeft() {
+		return key;
+	}
 
-        ImmutablePair<?, ?> pair = (ImmutablePair<?, ?>) o;
-        if (!key.equals(pair.key))
-            return false;
-        return value.equals(pair.value);
-    }
+	public V getRight() {
+		return value;
+	}
 
-    @Override
-    public int hashCode()
-    {
-        return 31 * key.hashCode() + value.hashCode();
-    }
+	public U getFirst() {
+		return key;
+	}
 
-    @Override
-    public String toString()
-    {
-        return "(" + key + ", " + value + ")";
-    }
+	public V getSecond() {
+		return value;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o)
+			return true;
+
+		if (o == null || getClass() != o.getClass())
+			return false;
+
+		ImmutablePair<?, ?> pair = (ImmutablePair<?, ?>) o;
+		if (!key.equals(pair.key))
+			return false;
+		return value.equals(pair.value);
+	}
+
+	@Override
+	public int hashCode() {
+		return 31 * key.hashCode() + value.hashCode();
+	}
+
+	@Override
+	public String toString() {
+		return "(" + key + ", " + value + ")";
+	}
 }
-

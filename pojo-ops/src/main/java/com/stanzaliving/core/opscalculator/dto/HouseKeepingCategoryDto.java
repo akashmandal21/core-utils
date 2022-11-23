@@ -26,6 +26,20 @@ import lombok.experimental.SuperBuilder;
 @JsonIgnoreProperties({ "utilization" })
 public class HouseKeepingCategoryDto extends CategoryDto {
 
+	private boolean is8HourApplicable;
+	private boolean is12HourApplicable;
+	private boolean isContractApplicable;
+
+	private HouseKeepingInfoDto houseKeepingInfo8HourDto;
+	private HouseKeepingInfoDto houseKeepingInfo12HourDto;
+	private HouseKeepingInfoDto houseKeepingInfoContractDto;
+
+	private int houseKeeping8HourCharges;
+	private int houseKeeping12HourCharges;
+	private int houseKeepingContractHourCharges;
+
+
+
 	@Builder.Default
 	private int gst = Constants.GST_HK_PERCENT;
 

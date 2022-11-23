@@ -1,8 +1,10 @@
 package com.stanzaliving.qrcode.service;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
+import com.stanzaliving.qrcode.enums.FeaturePhoneQrValidation;
 import org.springframework.data.domain.Pageable;
 
 import com.stanzaliving.qrcode.entity.QRData;
@@ -17,7 +19,9 @@ public interface QRScanService {
 
 	QRScanHistory getScanHistoryPresentForQrUuidAndUserId(String qrUuid, String userId);
 
-	void updateScanHistory(QRData qrData, String userId);
+	void updateScanHistory(QRData qrData, String userId, boolean status);
+
+	QRScanHistory scanHistory(String contextId, String qrId, String userId, QRContextType qrContextType, boolean status, FeaturePhoneQrValidation validation, String imagePath);
 
 	Map<String, QRScanHistory> getQRScannedData(List<String> qrUuids, String userId);
 
@@ -35,4 +39,9 @@ public interface QRScanService {
 
 	List<QRScanHistory> getQrScanHistoryByQrContextTypeAndUserId(String userId, List<QRContextType> qrContextType,
 			Pageable pagination);
+
+	boolean existsByContextIdInAndQrContextTypeInAndUserIdAndStatus(Collection<String> contextIds, Collection<QRContextType> contextTypes, String userId, boolean status);
+
+	List<QRScanHistory> findByContextIdInAndQrContextTypeInAndUserIdAndStatus(Collection<String> contextIds, Collection<QRContextType> contextTypes, String userId, boolean status);
+
 }

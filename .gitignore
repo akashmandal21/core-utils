@@ -37,3 +37,7 @@ target
 *.DS_Store
 *.factorypath
 .sts4-cache
+
+
+# properties file 
+application-local.properties

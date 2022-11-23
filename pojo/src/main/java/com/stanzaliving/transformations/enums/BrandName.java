@@ -16,7 +16,8 @@ import lombok.Getter;
 public enum BrandName {
 
 	SUITS("Suits","#8C54FF"),
-	SCHOLAR("Scholar","#FD92AD");
+	SCHOLAR("Scholar","#FD92AD"),
+	NA("Not Applicable","#FD92AD");
 
 	private String brand;
 	private String color;
@@ -27,6 +28,14 @@ public enum BrandName {
 	}
 
 	private static Map<String, BrandName> brandNameMap = new HashMap<>();
+	
+	public static Map<BrandName,Integer > residenceType = new HashMap<>();
+	
+	static {
+		residenceType.put(BrandName.SUITS,2);
+		residenceType.put(BrandName.SCHOLAR,1);
+		
+	}
 
 	static {
 

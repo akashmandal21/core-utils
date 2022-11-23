@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.math.BigDecimal;
+
 @Setter
 @Getter
 @ToString
@@ -27,11 +29,17 @@ public class PoItemDetailsDto {
 
     private String itemUom;
 
-    private Double itemRate;
+    private BigDecimal itemRate;
 
-    private Float itemQuantity;
+    private BigDecimal itemQuantity;
+    private BigDecimal rentPeriod;
+    private BigDecimal rentPerMonth;
+    private String transferAvgRate;
+    private BigDecimal transferQuantity;
+    private String refundableType;
+    private String refundableValue;
 
-    private Double itemAmount;
+    private BigDecimal itemAmount;
 
     private String cgst;
 
@@ -39,10 +47,22 @@ public class PoItemDetailsDto {
 
     private String sgst;
 
-    private Double gstAmount;
+    private BigDecimal gstAmount;
 
-    private Float propertyItemQuantity;
+    private BigDecimal propertyItemQuantity;
 
-    private Float shortPoApprovedQuantity;
+    private BigDecimal shortPoApprovedQuantity;
+
+    private Integer grnItemQuantity;
+
+    private String hsnCode;
+    
+    private String totalGst;
+
+    private BigDecimal remainingItemQuantity;
+
+    private String itemRateStr;
+
+    private String itemAmountStr;
 
 }

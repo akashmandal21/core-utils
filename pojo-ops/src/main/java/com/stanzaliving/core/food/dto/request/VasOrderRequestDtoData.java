@@ -6,6 +6,7 @@ import javax.validation.constraints.NotNull;
 
 import com.stanzaliving.core.food.dto.VasItemOrder;
 
+import com.stanzaliving.core.operations.enums.MealType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,16 +16,15 @@ import lombok.experimental.SuperBuilder;
 
 @Getter
 @Setter
-@ToString(callSuper = true)
+@ToString
 @SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
 public class VasOrderRequestDtoData {
-	
-	@NotNull(message = "Please choose item and quantity.") 
-	private List<VasItemOrder> vasItemOrders;
-	
-	@NotNull(message = "Please specify residence.") 
-	private String residenceFoodMenuId;
 
+	@NotNull(message = "Please choose item and quantity.")
+	private List<VasItemOrder> vasItemOrders;
+
+	@NotNull(message = "Please specify meal type.")
+	private MealType mealType;
 }

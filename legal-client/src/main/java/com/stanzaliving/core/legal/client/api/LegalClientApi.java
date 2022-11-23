@@ -12,13 +12,10 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
-import com.stanzaliving.core.pojo.AttachmentDto;
 
 public class LegalClientApi {
 
@@ -224,7 +221,7 @@ public class LegalClientApi {
 
     }
     
-    public ResponseDto<Boolean> checkLanguageDeviationExist(String estateUuid) {
+    public ResponseDto<Boolean> checkLanguageDeviationExist(String estateUuid, String buildingType) {
 
         if (Objects.isNull(estateUuid)) {
             return null;
@@ -240,7 +237,7 @@ public class LegalClientApi {
         String path = UriComponentsBuilder.fromPath("/internal/legal/check/languagedeviation/{estateUuid}").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-
+        queryParams.add("buildingType",buildingType);
 
         final HttpHeaders headerParams = new HttpHeaders();
 

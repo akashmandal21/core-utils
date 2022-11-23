@@ -2,6 +2,7 @@ package com.stanzaliving.core.food.dto.request;
 
 import java.util.Set;
 
+import javax.persistence.Column;
 import javax.validation.constraints.NotNull;
 
 import com.stanzaliving.core.food.enums.FoodItemType;
@@ -43,4 +44,9 @@ public class FoodItemUpdateDto {
 	private FoodItemType foodItemType;
 
 	private Set<String> tagIds;
+	
+	private String subCategory;
+	
+	private boolean vasEnabled;
+
 }

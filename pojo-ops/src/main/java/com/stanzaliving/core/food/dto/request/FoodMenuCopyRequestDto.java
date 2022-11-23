@@ -17,10 +17,10 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class FoodMenuCopyRequestDto {
 
-	@NotBlank(message = "Source micro market is mandatory")
-	private String sourceMicroMarketId;
-
 	@NotBlank(message = "Menu Group id is mandatory")
 	private String menuGroupId;
+	
+	@NotBlank(message = "Source menu category is mandatory")
+	private String sourceMenuCategory;
 
 }

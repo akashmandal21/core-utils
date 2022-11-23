@@ -1,11 +1,8 @@
 package com.stanzaliving.core.service;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
+import com.stanzaliving.core.quartzjob.listner.UIDJobListener;
+import com.stanzaliving.core.quartzjob.utils.JobUtil;
+import lombok.extern.log4j.Log4j2;
 import org.quartz.JobDataMap;
 import org.quartz.JobDetail;
 import org.quartz.JobExecutionContext;
@@ -19,15 +16,19 @@ import org.quartz.Trigger.TriggerState;
 import org.quartz.TriggerKey;
 import org.quartz.impl.matchers.GroupMatcher;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.scheduling.quartz.QuartzJobBean;
 import org.springframework.scheduling.quartz.SchedulerFactoryBean;
 import org.springframework.stereotype.Service;
 
-import com.stanzaliving.core.quartzjob.utils.JobUtil;
-
-import lombok.extern.log4j.Log4j2;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Log4j2
 @Service
@@ -39,6 +40,26 @@ public class JobServiceImpl implements JobService {
 	@Lazy
 	@Autowired
 	private SchedulerFactoryBean schedulerFactoryBean;
+
+	@Autowired
+	@Qualifier("QuartzScheduler")
+	private Scheduler scheduler;
+
+	@Bean(name = "QuartzScheduler")
+	public Scheduler getSchedulerBean() throws SchedulerException {
+		Scheduler scheduler = schedulerFactoryBean.getScheduler();
+		scheduler.getListenerManager().addJobListener(new UIDJobListener());
+		scheduler.start();
+		log.info("Quartz Scheduler Started");
+		return scheduler;
+	}
+
+	private Scheduler getScheduler() throws SchedulerException {
+		Scheduler scheduler = schedulerFactoryBean.getScheduler();
+		scheduler.getListenerManager().addJobListener(new UIDJobListener());
+		scheduler.start();
+		return scheduler;
+	}
 
 	/**
 	 * Schedule a job by jobName at given date.
@@ -56,7 +77,30 @@ public class JobServiceImpl implements JobService {
 		Trigger cronTriggerBean = JobUtil.createSingleTrigger(triggerKey, date, SimpleTrigger.MISFIRE_INSTRUCTION_FIRE_NOW);
 
 		try {
-			Scheduler scheduler = schedulerFactoryBean.getScheduler();
+			Scheduler scheduler = getScheduler();
+			Date dt = scheduler.scheduleJob(jobDetail, cronTriggerBean);
+			log.info("Job with key jobKey: " + jobKey + " and group :" + groupKey + " scheduled successfully for date :" + dt);
+			return true;
+		} catch (SchedulerException e) {
+			log.error("SchedulerException while scheduling job with key: " + jobKey + " message: ", e);
+		}
+
+		return false;
+	}
+
+	@Override
+	public boolean scheduleOneTimeJobWithIgnoreMisfirePolicy(String jobName, String groupKey, Class<? extends QuartzJobBean> jobClass, Date date, JobDataMap jobDataMap, boolean isRecoverable, boolean isDurable, int priority) {
+		log.info("Request received to scheduleJob with Ignore Misfire Policy.");
+
+		String jobKey = jobName;
+		String triggerKey = jobName;
+
+		JobDetail jobDetail = JobUtil.createJob(jobClass, isDurable, context, jobKey, groupKey, jobDataMap, isRecoverable);
+
+		log.info("creating trigger for key: " + jobKey + " at date :" + date);
+		Trigger cronTriggerBean = JobUtil.createSingleTrigger(triggerKey, date, SimpleTrigger.MISFIRE_INSTRUCTION_FIRE_NOW, priority);
+
+		try {
 			Date dt = scheduler.scheduleJob(jobDetail, cronTriggerBean);
 			log.info("Job with key jobKey: " + jobKey + " and group :" + groupKey + " scheduled successfully for date :" + dt);
 			return true;
@@ -93,7 +137,7 @@ public class JobServiceImpl implements JobService {
 
 			} else {
 
-				Scheduler scheduler = schedulerFactoryBean.getScheduler();
+				Scheduler scheduler = getScheduler();
 				Date dt = scheduler.scheduleJob(jobDetail, cronTriggerBean);
 
 				jobScheduled = (dt != null);
@@ -125,8 +169,8 @@ public class JobServiceImpl implements JobService {
 		log.info("Parameters received for updating one time job - jobKey: " + jobKey + ", date: " + date);
 		try {
 			Trigger newTrigger = JobUtil.createSingleTrigger(jobKey, date, SimpleTrigger.MISFIRE_INSTRUCTION_FIRE_NOW);
-
-			Date dt = schedulerFactoryBean.getScheduler().rescheduleJob(TriggerKey.triggerKey(jobKey), newTrigger);
+			Scheduler scheduler = getScheduler();
+			Date dt = scheduler.rescheduleJob(TriggerKey.triggerKey(jobKey), newTrigger);
 			log.info("Trigger associated with jobKey: " + jobKey + " rescheduled successfully for date :" + dt);
 
 			return true;
@@ -150,7 +194,8 @@ public class JobServiceImpl implements JobService {
 		try {
 			Trigger newTrigger = JobUtil.createCronTrigger(jobKey, date, cronExpression, timezone, SimpleTrigger.MISFIRE_INSTRUCTION_FIRE_NOW);
 
-			Date dt = schedulerFactoryBean.getScheduler().rescheduleJob(TriggerKey.triggerKey(jobKey), newTrigger);
+			Scheduler scheduler = getScheduler();
+			Date dt = scheduler.rescheduleJob(TriggerKey.triggerKey(jobKey), newTrigger);
 			log.info("Trigger associated with jobKey: " + jobKey + " rescheduled successfully for date :" + dt);
 			return true;
 		} catch (Exception e) {
@@ -172,7 +217,8 @@ public class JobServiceImpl implements JobService {
 		TriggerKey tkey = new TriggerKey(jobKey);
 		log.info("Parameters received for unscheduling job : key: " + jobKey);
 		try {
-			boolean status = schedulerFactoryBean.getScheduler().unscheduleJob(tkey);
+			Scheduler scheduler = getScheduler();
+			boolean status = scheduler.unscheduleJob(tkey);
 			log.info("Trigger associated with jobKey: " + jobKey + " unscheduled with status :" + status);
 			return status;
 		} catch (SchedulerException e) {
@@ -215,7 +261,8 @@ public class JobServiceImpl implements JobService {
 		log.info("Parameters received for pausing job : jobKey: " + jobKey + ", groupKey :" + groupKey);
 
 		try {
-			schedulerFactoryBean.getScheduler().pauseJob(jkey);
+			Scheduler scheduler = getScheduler();
+			scheduler.pauseJob(jkey);
 			log.info("Job with jobKey: " + jobKey + " paused succesfully.");
 			return true;
 		} catch (SchedulerException e) {
@@ -236,7 +283,8 @@ public class JobServiceImpl implements JobService {
 		JobKey jKey = new JobKey(jobKey, groupKey);
 		log.info("Parameters received for resuming job : jobKey: " + jobKey);
 		try {
-			schedulerFactoryBean.getScheduler().resumeJob(jKey);
+			Scheduler scheduler = getScheduler();
+			scheduler.resumeJob(jKey);
 			log.info("Job with jobKey: " + jobKey + " resumed succesfully.");
 			return true;
 		} catch (SchedulerException e) {
@@ -257,7 +305,8 @@ public class JobServiceImpl implements JobService {
 		JobKey jKey = new JobKey(jobKey, groupKey);
 		log.info("Parameters received for starting job now : jobKey: " + jobKey);
 		try {
-			schedulerFactoryBean.getScheduler().triggerJob(jKey);
+			Scheduler scheduler = getScheduler();
+			scheduler.triggerJob(jKey);
 			log.info("Job with jobKey: " + jobKey + " started now succesfully.");
 			return true;
 		} catch (SchedulerException e) {

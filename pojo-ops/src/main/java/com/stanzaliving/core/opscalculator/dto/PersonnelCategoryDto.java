@@ -23,10 +23,16 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString(callSuper = true)
-@JsonIgnoreProperties({ "count", "rate", "utilization", "margin", "gst" })
 public class PersonnelCategoryDto extends CategoryDto {
 
-	private RcCategoryDto rcCategoryDto;
-	private OeCategoryDto oeCategoryDto;
+	private boolean rcStaffAvailable;
+	private double rcStaffCount;
+	private int rcRatePerMonth;
+	private boolean oeStaffAvailable;
+	private double oeStaffCount;
+	private int oeRatePerMonth;
+
+	private int personnelRcCharges;
+	private int personnelOeCharges;
 
 }

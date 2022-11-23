@@ -7,6 +7,7 @@ import java.io.File;
 import java.util.List;
 
 import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.services.s3.model.GeneratePresignedUrlRequest;
 import com.amazonaws.services.s3.model.S3ObjectSummary;
 
 /**
@@ -19,6 +20,8 @@ public interface S3DownloadService {
 
 	String downloadStringContent(String bucket, String filePath, AmazonS3 s3Client);
 
+	String downloadStringContentInBase64(String bucket, String filePath, AmazonS3 s3Client);
+
 	String downloadStringContent(String bucket, String prefix, String fileName, AmazonS3 s3Client);
 
 	File downloadFile(String bucket, String filePath, AmazonS3 s3Client);
@@ -26,6 +29,8 @@ public interface S3DownloadService {
 	File downloadFile(String bucket, String prefix, String fileName, AmazonS3 s3Client);
 
 	String getPreSignedUrl(String bucket, String filePath, int durationInSeconds, AmazonS3 s3Client);
+
+	String getPreSignedUrlWithContentSpec(AmazonS3 s3Client, GeneratePresignedUrlRequest presignedUrlRequest);
 
 	String getPreSignedUrl(String bucket, String prefix, String fileName, int durationInSeconds, AmazonS3 s3Client);
 

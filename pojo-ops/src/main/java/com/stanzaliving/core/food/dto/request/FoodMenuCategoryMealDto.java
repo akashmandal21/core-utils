@@ -1,5 +1,8 @@
 package com.stanzaliving.core.food.dto.request;
 
+import java.io.Serializable;
+import java.time.LocalTime;
+
 import com.stanzaliving.core.operations.enums.MealType;
 
 import lombok.AllArgsConstructor;
@@ -11,9 +14,7 @@ import lombok.experimental.SuperBuilder;
 
 /**
  * @author piyush srivastava "piyush.srivastava@stanzaliving.com"
- *
  * @date 08-May-2020
- *
  */
 
 @Getter
@@ -22,7 +23,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class FoodMenuCategoryMealDto {
+public class FoodMenuCategoryMealDto implements Serializable {
 
 	private String menuCategoryId;
 
@@ -44,8 +45,23 @@ public class FoodMenuCategoryMealDto {
 
 	private boolean sundayActive;
 
+	private Double packagingCost;
+
 	private Double expectedVegCost;
 
 	private Double expectedNonVegCost;
+
+	private Double nonStanzaStaffCost;
+
+	private LocalTime mealStartTime;
+
+	private LocalTime mealEndTime;
+
+	private LocalTime pickupStartTime;
+	private LocalTime pickupEndTime;
+
+	private LocalTime deliveryStartTime;
+	private LocalTime deliveryEndTime;
+	private int activeDays;
 
 }

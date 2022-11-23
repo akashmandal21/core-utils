@@ -56,6 +56,29 @@ public class JpaConfigUtil {
 
 	}
 
+	public static void configureDbConnection(
+			ComboPooledDataSource dataSource,
+			int maxStatements,
+			int maxIdleTime,
+			int maxIdleTimeExcessConnections,
+			int checkoutTimeout,
+			String preferredTestQuery,
+			boolean testConnectionOnCheckin,
+			int numHelperThreads,
+			int maxConnectionAge,
+			int statementCacheNumDeferredCloseThreads) {
+
+		dataSource.setMaxStatements(maxStatements);
+		dataSource.setMaxIdleTime(maxIdleTime);
+		dataSource.setMaxIdleTimeExcessConnections(maxIdleTimeExcessConnections);
+		dataSource.setCheckoutTimeout(checkoutTimeout);
+		dataSource.setPreferredTestQuery(preferredTestQuery);
+		dataSource.setTestConnectionOnCheckin(testConnectionOnCheckin);
+		dataSource.setNumHelperThreads(numHelperThreads);
+		dataSource.setMaxConnectionAge(maxConnectionAge);
+		dataSource.setStatementCacheNumDeferredCloseThreads(statementCacheNumDeferredCloseThreads);
+	}
+
 	public static Map<String, String> configureHibernateProperties(
 			String hibernateCacheProviderClass,
 			String hibernateDialect,
@@ -74,9 +97,28 @@ public class JpaConfigUtil {
 		properties.put("hibernate.hbm2ddl.auto", hibernateHbm2ddlAuto);
 		properties.put("hibernate.order_inserts", hibernateOrderInserts);
 		properties.put("hibernate.order_updates", hibernateOrderUpdates);
+		
+		//PhysicalNamingStrategyStandardImpl
+		//properties.put("org.hibernate.envers.audit_table_suffix", "_aud");
+		
 		properties.put("hibernate.implicit_naming_strategy", "org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy");
 		properties.put("hibernate.physical_naming_strategy", "org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy");
+		 
+		return properties;
+	}
 
+	public static Map<String, String> configureHibernateProperties(
+			String hibernateCacheProviderClass,
+			String hibernateDialect,
+			String hibernateShowSql,
+			String hibernateFormatSql,
+			String hibernateHbm2ddlAuto,
+			String hibernateOrderInserts,
+			String hibernateOrderUpdates,
+			String hibernatePhysicalNamingStrategy) {
+
+		Map<String, String> properties = JpaConfigUtil.configureHibernateProperties(hibernateCacheProviderClass, hibernateDialect, hibernateShowSql, hibernateFormatSql, hibernateHbm2ddlAuto, hibernateOrderInserts, hibernateOrderUpdates);
+		//properties.put("hibernate.physical_naming_strategy", hibernatePhysicalNamingStrategy);
 		return properties;
 	}
 }

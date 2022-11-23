@@ -23,8 +23,8 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class ItemCategoryDto {
 
-	private String torqusSku;
 	private String name;
+	private Integer sequence;
 	private boolean status;
 
 }

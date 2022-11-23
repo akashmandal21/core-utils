@@ -4,16 +4,14 @@
  */
 package com.stanzaliving.core.estate.db.service.impl;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.Map.Entry;
-import java.util.Set;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+import lombok.extern.log4j.Log4j2;
 import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections.ListUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
@@ -34,11 +32,19 @@ import com.stanzaliving.core.sqljpa.service.impl.AbstractJpaServiceImpl;
 import com.stanzaliving.core.sqljpa.specification.utils.CriteriaOperation;
 import com.stanzaliving.core.sqljpa.specification.utils.StanzaSpecificationBuilder;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+
 @Service
+@Log4j2
 public class EstateDbServiceImpl extends AbstractJpaServiceImpl<EstateEntity, Long, EstateRepository> implements EstateDbService {
 
 	@Autowired
 	private EstateRepository estateRepository;
+
+	@PersistenceContext
+	private EntityManager entityManager;
 
 	@Override
 	protected EstateRepository getJpaRepository() {
@@ -87,8 +93,11 @@ public class EstateDbServiceImpl extends AbstractJpaServiceImpl<EstateEntity, Lo
 		}
 		
 		Map<EstateStatus, Long> statusCount = estateEntities.stream().collect(Collectors.groupingBy(EstateEntity::getEstateStatus, Collectors.counting()));
-		
+
+//		estateEntities.forEach(f->log.info("Status {} BDDash {}",f.getEstateStatus(),BDDashboardStatus.statusMap.get(f.getEstateStatus())));
+
 		Map<BDDashboardStatus, Long> bdDashboardStatusMap = estateEntities.stream().map(EstateEntity::getEstateStatus)
+				.filter(status -> status!=EstateStatus.DROPPED)
 																					.map(status -> BDDashboardStatus.statusMap.get(status))
 																					.collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 		
@@ -119,5 +128,42 @@ public class EstateDbServiceImpl extends AbstractJpaServiceImpl<EstateEntity, Lo
 		return estateRepository.findByEstateName(estateName);
 	}
 
+	@Override
+	public List<String> getLandlordNames(String searchText, int page, int limit) {
+		String query = "SELECT attribute_value  FROM estate_attributes where attribute_name='landlordDetails' and JSON_SEARCH( lower(JSON_EXTRACT(attribute_value, '$[*].landlordName')),'one','%"+searchText+"%') is not null";
+		log.info("landlord query {}",query);
+		Query sql = entityManager.createNativeQuery(query);
+//		sql.setMaxResults(limit);
+//		sql.setFirstResult(getOffset(limit,page));
+		List<String> res = sql.getResultList();
+		log.info(res);
+		if(CollectionUtils.isNotEmpty(res)){
+			return res;
+		}
+
+		return ListUtils.EMPTY_LIST;
+	}
+
+    @Override
+    public EstateEntity findById(Long estateId) {
+        Optional<EstateEntity> estateEntity = getJpaRepository().findById(estateId);
+
+		if (estateEntity.isPresent()) {
+			return estateEntity.get();
+		}
+
+		log.error("No estate found for estate with id " + estateId);
+		return null;
+    }
+
+
+    private int getOffset(int limit, int page){
+		if(limit<=0 || page<0)
+			throw new StanzaException("Incorrect Limits");
+		if(page==0)
+			page=1;
+		int offset = (page-1)*limit;
+		return offset;
+	}
 
 }

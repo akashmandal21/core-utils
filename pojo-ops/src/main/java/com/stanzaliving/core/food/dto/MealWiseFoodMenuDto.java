@@ -3,6 +3,7 @@
  */
 package com.stanzaliving.core.food.dto;
 
+import java.io.Serializable;
 import java.util.List;
 
 import com.stanzaliving.core.operations.enums.MealType;
@@ -26,7 +27,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class MealWiseFoodMenuDto {
+public class MealWiseFoodMenuDto implements Serializable {
 
 	private MealType mealType;
 

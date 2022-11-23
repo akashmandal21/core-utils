@@ -22,16 +22,16 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class HolidayRequestDto {
 
-	@NotBlank(message = "residenceId Cannot be blank")
+	@NotBlank(message = "Residence Id Cannot be blank")
 	private String residenceId;
 
-	@NotNull(message = "date cannot be null")
+	@NotNull(message = "Holiday date cannot be null")
 	private LocalDate date;
-	
+
 	private HolidayType holidayType;
-	
-	@NotNull
-	Boolean holiday;
+
+	@NotNull(message = "Holiday flag is mandatory")
+	private Boolean holiday;
 
 	private String description;
 

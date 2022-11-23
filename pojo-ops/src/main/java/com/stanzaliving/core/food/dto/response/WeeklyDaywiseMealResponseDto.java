@@ -1,7 +1,6 @@
 package com.stanzaliving.core.food.dto.response;
 
 import java.time.DayOfWeek;
-import java.util.List;
 import java.util.Set;
 
 import com.stanzaliving.core.operations.enums.MealType;
@@ -12,7 +11,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
-
 
 /**
  * @author piyush srivastava
@@ -29,6 +27,7 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 
 public class WeeklyDaywiseMealResponseDto {
+
 	private DayOfWeek dayOfWeek;
 
 	private Set<MealType> meals;

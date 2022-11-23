@@ -22,7 +22,8 @@ public class VasItemCostDto {
 
 	private Double cost;
 	private Double gst;
+	private Double price;
 	private String itemId;
 	private int itemQuantity;
-	private double itemWeight;
+	private int itemWeight;
 }

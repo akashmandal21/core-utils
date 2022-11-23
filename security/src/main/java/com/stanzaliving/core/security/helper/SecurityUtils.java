@@ -3,6 +3,7 @@
  */
 package com.stanzaliving.core.security.helper;
 
+import com.stanzaliving.core.base.constants.SecurityConstants;
 import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.core.pojo.CurrentUser;
 import com.stanzaliving.core.security.context.SecurityContextHolder;
@@ -10,6 +11,9 @@ import com.stanzaliving.core.user.enums.UserType;
 
 import lombok.experimental.UtilityClass;
 import lombok.extern.log4j.Log4j2;
+
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author naveen.kumar
@@ -29,6 +33,19 @@ public class SecurityUtils {
 
 		if (currentUser != null) {
 			userName = currentUser.getFirstName() + " " + currentUser.getLastName();
+		}
+
+		return userName;
+	}
+
+	public static String getCurrentUserFirstName() {
+
+		CurrentUser currentUser = getCurrentUser();
+
+		String userName = "";
+
+		if (currentUser != null) {
+			userName = currentUser.getFirstName();
 		}
 
 		return userName;
@@ -104,4 +121,30 @@ public class SecurityUtils {
 		}
 		return currentUser;
 	}
+
+	public static String extractTokenFromRequest(HttpServletRequest request) {
+		String token = null;
+
+		if (request.getCookies() != null) {
+			for (Cookie cookie : request.getCookies()) {
+				if (SecurityConstants.TOKEN_HEADER_NAME.equals(cookie.getName())) {
+					token = cookie.getValue();
+					break;
+				}
+			}
+		}
+
+		if (token == null) {
+
+			token = request.getHeader(SecurityConstants.AUTHORIZATION_HEADER);
+			if (token != null && token.startsWith(SecurityConstants.VENTA_TOKEN_PREFIX)) {		//only if it follows bearer schema, then we would consider valid token
+				token = token.replace(SecurityConstants.VENTA_TOKEN_PREFIX, "");
+			} else {
+				token = null;
+			}
+		}
+		log.debug("token captured: {}",token);
+		return token;
+	}
+
 }

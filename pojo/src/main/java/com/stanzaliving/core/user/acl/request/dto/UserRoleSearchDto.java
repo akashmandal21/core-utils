@@ -18,6 +18,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserRoleSearchDto {
+
 	private String roleName;
 
 	private Department department;

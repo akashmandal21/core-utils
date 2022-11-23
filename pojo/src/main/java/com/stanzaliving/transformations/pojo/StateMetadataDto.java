@@ -3,6 +3,8 @@
  */
 package com.stanzaliving.transformations.pojo;
 
+import com.stanzaliving.core.food.enums.DemoGraphicsRegion;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -29,6 +31,8 @@ public class StateMetadataDto {
 	private String uuid;
 
 	private String stateName;
+	
+	private DemoGraphicsRegion defaultFoodRegion;
 
 	private long countryId;
 	

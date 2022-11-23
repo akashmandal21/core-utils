@@ -1,13 +1,10 @@
 package com.stanzaliving.core.location;
 
-import java.io.IOException;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.google.maps.GeoApiContext;
 import com.google.maps.GeocodingApi;
-import com.google.maps.errors.ApiException;
 import com.google.maps.model.GeocodingResult;
 import com.google.maps.model.LatLng;
 
@@ -33,9 +30,8 @@ public class LocationTracer {
 			if (results != null && results.length > 0) {
 				return results[0];
 			}
-		} catch (ApiException | InterruptedException | IOException e) {
-			log.error("Got Exception while getting lat long details");
-			e.printStackTrace();
+		} catch (Exception e) {
+			log.error("Got Exception while getting lat long details: ", e);
 		}
 
 		return null;

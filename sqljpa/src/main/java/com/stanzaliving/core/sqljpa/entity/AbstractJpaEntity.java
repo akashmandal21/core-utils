@@ -47,14 +47,14 @@ public abstract class AbstractJpaEntity implements Serializable {
 	@Column(name = "uuid", columnDefinition = "char(40)", unique = true, nullable = false)
 	protected String uuid;
 
-	@Column(name = "created_at")
+	@Column(name = "created_at", columnDefinition = "DATETIME DEFAULT CURRENT_TIMESTAMP")
 	@Temporal(TemporalType.TIMESTAMP)
 	protected Date createdAt;
 
 	@Column(name = "created_by", columnDefinition = "char(40)")
 	protected String createdBy;
 
-	@Column(name = "updated_at")
+	@Column(name = "updated_at", columnDefinition = "DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP")
 	@Temporal(TemporalType.TIMESTAMP)
 	protected Date updatedAt;
 

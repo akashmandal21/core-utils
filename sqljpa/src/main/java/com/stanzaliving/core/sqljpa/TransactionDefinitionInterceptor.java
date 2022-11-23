@@ -55,7 +55,10 @@ public class TransactionDefinitionInterceptor implements Ordered {
 			logger.trace("is transaction readonly-> {0}." , transactionDefintion.isReadOnly());
 		}
 
+		logger.info("is transaction readonly-> {0}." , transactionDefintion.isReadOnly());
+		
 		if (transactionDefintion.isReadOnly()) {
+			logger.info("I am here to go to replica");
 			// Store state to allow other components to determine if TX is read-only
 			DbContextHolder.setDbType(DbType.REPLICA);
 			restore = true;

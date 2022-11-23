@@ -1,10 +1,7 @@
 package com.stanzaliving.versioning.dto;
 
-import com.stanzaliving.versioning.enums.ContentType;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
-
-import java.util.Date;
 
 @Getter
 @Setter

@@ -1,7 +1,6 @@
 package com.stanzaliving.core.pushnotification.client.api;
 
 
-import com.stanzaliving.core.base.exception.StanzaException;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.base.utils.StanzaUtils;
 import com.stanzaliving.pushnotification.pojo.WebEngageTransactionNotificationRequestDto;

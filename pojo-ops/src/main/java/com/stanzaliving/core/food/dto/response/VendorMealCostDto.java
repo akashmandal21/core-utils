@@ -1,5 +1,6 @@
 package com.stanzaliving.core.food.dto.response;
 
+import com.stanzaliving.core.food.dto.VendorCostDto;
 import com.stanzaliving.core.operations.enums.MealType;
 
 import lombok.*;
@@ -26,12 +27,10 @@ public class VendorMealCostDto {
 
 	private boolean status;
 
-	private Double residenceVegCost;
+	private VendorCostDto currentCost;
 
-	private Double residenceNonVegCost;
+	private VendorCostDto budgetedCost;
 
-	private Double nonStanzaStaffVegCost;
-
-	private Double nonStanzaStaffNonVegCost;
+	private VendorCostDto approvalPendingCost;
 
 }

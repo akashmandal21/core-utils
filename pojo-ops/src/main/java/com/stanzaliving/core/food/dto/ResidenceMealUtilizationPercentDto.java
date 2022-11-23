@@ -1,7 +1,9 @@
 package com.stanzaliving.core.food.dto;
 
 import java.time.LocalDate;
+import java.util.List;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import com.stanzaliving.core.food.enums.FoodDayType;
@@ -17,24 +19,16 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 public class ResidenceMealUtilizationPercentDto {
 
-	@NotNull
+	@NotBlank(message = "Residence Id is mandatory")
 	private String residenceId;
+
+	@NotNull(message = "Day Type is mandatory")
+	private FoodDayType dayType;
+	
+	private String dayTypeName;
 
 	private LocalDate date;
 
-	private Double breakfast;
-
-	private Double lunch;
-
-	private Double eveningSnacks;
-
-	private Double dinner;
-
-	private Double brunch;
-
-	private Double lunchTiffin;
-
-	@NotNull
-	private FoodDayType dayType;
+	private List<MealUtilizationDto> mealUtilizationDtos;
 
 }
