@@ -5,13 +5,11 @@ import javax.persistence.Enumerated;
 
 
 import lombok.Getter;
-import lombok.Setter;
 import lombok.ToString;
 
 import org.apache.commons.lang3.StringUtils;
 
 import com.stanzaliving.qaservice.entity.QuestionEntity;
-import com.stanzaliving.qaservice.enums.FrontEndType;
 import com.stanzaliving.qaservice.enums.QuestionType;
 import com.stanzaliving.qaservice.enums.SubQuestionDisplay;
 

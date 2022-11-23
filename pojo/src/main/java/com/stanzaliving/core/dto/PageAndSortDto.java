@@ -21,4 +21,12 @@ public class PageAndSortDto extends PaginationRequest {
 
 	private String sortOrder;
 
+	public void of(SortDto sortDto) {
+
+		setSortBy(sortDto.getSortBy());
+
+		setSortOrder(sortDto.getSortOrder());
+
+	}
+
 }

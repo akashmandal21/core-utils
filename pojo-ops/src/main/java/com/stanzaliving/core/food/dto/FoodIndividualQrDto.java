@@ -1,7 +1,9 @@
 package com.stanzaliving.core.food.dto;
 
 import java.time.LocalDate;
+import java.util.List;
 
+import com.stanzaliving.core.food.dto.response.FoodItemTypeWiseMealCount;
 import com.stanzaliving.core.food.enums.DispatchSummaryItemType;
 
 import lombok.AllArgsConstructor;
@@ -29,7 +31,11 @@ public class FoodIndividualQrDto {
 	
 	private String subContextId;
 
+	private List<FoodItemTypeWiseMealCount> itemTypeWiseMealCounts;
+
 	private DispatchSummaryItemType contextType;
+
+	private String mealTypeName;
 	
 	private int itemQuantity;
 	

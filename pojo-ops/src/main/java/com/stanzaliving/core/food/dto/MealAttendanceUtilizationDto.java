@@ -1,5 +1,7 @@
 package com.stanzaliving.core.food.dto;
 
+import com.stanzaliving.core.operations.enums.MealType;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -12,6 +14,8 @@ import lombok.ToString;
 @ToString
 @Builder
 public class MealAttendanceUtilizationDto {
+
+	private MealType mealType;
 
 	private String mealName;
 

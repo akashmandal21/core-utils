@@ -1,10 +1,14 @@
 package com.stanzaliving.core.client.api;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
+import com.stanzaliving.core.backend.dto.UserHostelDto;
+import com.stanzaliving.core.base.common.dto.ResponseDto;
+import com.stanzaliving.core.base.constants.SecurityConstants;
+import com.stanzaliving.core.base.enums.DocumentStatus;
+import com.stanzaliving.core.base.enums.DocumentType;
+import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.core.dto.*;
+import com.stanzaliving.core.food.dto.request.HostelVasEnabledUpdateDto;
+import lombok.extern.log4j.Log4j2;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -14,18 +18,12 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.stanzaliving.core.base.common.dto.ResponseDto;
-import com.stanzaliving.core.base.constants.SecurityConstants;
-import com.stanzaliving.core.base.enums.DocumentStatus;
-import com.stanzaliving.core.base.enums.DocumentType;
-import com.stanzaliving.core.base.http.StanzaRestClient;
-import com.stanzaliving.core.dto.FullUserDto;
-import com.stanzaliving.core.dto.HostelDto;
-import com.stanzaliving.core.dto.RCDetailDto;
-import com.stanzaliving.core.dto.UserDetailDto;
-import com.stanzaliving.core.dto.UserRegistrationDto;
-
-import lombok.extern.log4j.Log4j2;
+import java.time.LocalDate;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Set;
 
 @Log4j2
 public class CoreClientApi {
@@ -65,7 +63,33 @@ public class CoreClientApi {
 		try {
 			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, UserDetailDto.class);
 		} catch (Exception e) {
-			log.error("Error while getting user Details from Core by userCode. " + path + queryParams.toString(), e);
+			log.error("Error while getting user Details from Core by userCode: {}", userCode, e);
+		}
+		return null;
+	}
+
+	public UserDetailDto getUserDetailsByMobile(String mobile) {
+		Object postBody = null;
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("mobileNumber", mobile);
+
+		String path = UriComponentsBuilder.fromPath("/user/userDetailDto/{mobileNumber}").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+		headerParams.add(SecurityConstants.BASIC_HEADER_NAME, token);
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		try {
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, UserDetailDto.class);
+		} catch (Exception e) {
+			log.error("Error while getting user Details from Core by mobile: {}", mobile, e);
 		}
 		return null;
 	}
@@ -91,11 +115,19 @@ public class CoreClientApi {
 		};
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-		FullUserDto fullUserDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, FullUserDto.class);
 		ResponseDto<FullUserDto> responseDto = new ResponseDto<>();
-		responseDto.setData(fullUserDto);
-		responseDto.setStatus(true);
-		responseDto.setHttpStatusCode(200);
+		try {
+
+			FullUserDto fullUserDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, FullUserDto.class);
+			responseDto.setData(fullUserDto);
+			responseDto.setStatus(true);
+			responseDto.setHttpStatusCode(200);
+
+			log.info("fullUserDto {}", fullUserDto);
+
+		} catch (Exception e) {
+			log.error("Exception while calling core api ", e);
+		}
 
 		return responseDto;
 	}
@@ -201,7 +233,7 @@ public class CoreClientApi {
 
 		return null;
 	}
-	
+
 	public List<HostelDto> getListOfAllHostelDto() {
 
 		Object postBody = null;
@@ -214,7 +246,7 @@ public class CoreClientApi {
 
 		final HttpHeaders headerParams = new HttpHeaders();
 		headerParams.add(SecurityConstants.BASIC_HEADER_NAME, token);
-		log.info("header {}",token);
+
 		final String[] accepts = {
 				"*/*"
 		};
@@ -246,18 +278,219 @@ public class CoreClientApi {
 
 		ParameterizedTypeReference<Map<String, Integer>> returnType = new ParameterizedTypeReference<Map<String, Integer>>() {
 		};
-		
+
 		Map<String, Integer> response = new HashMap<>();
-			
+
 		try {
-			
-		 response = restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
-		 
+
+			response = restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+
 		} catch (Exception e) {
 
-			log.error("exception while getting user code map from core", e);
-			
+			log.error("Exception while getting user code map from core", e);
+
 		}
 		return response;
 	}
+	
+	public Map<Integer, String> getUserIdCodeMap(Set<Integer> userIds) {
+
+		Object postBody = userIds;
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/user/userIdCode").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+		headerParams.add(SecurityConstants.BASIC_HEADER_NAME, token);
+		log.info("header {}", token);
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<Map<Integer, String>> returnType = new ParameterizedTypeReference<Map<Integer, String>>() {
+		};
+
+		Map<Integer, String> response = new HashMap<>();
+
+		try {
+
+			response = restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+
+		} catch (Exception e) {
+
+			log.error("Exception while getting user id map from core", e);
+
+		}
+		return response;
+	}
+
+	public List<FeaturephoneUserDto> getFeaturePhoneUsers(String hostel) {
+		Object postBody = null;
+
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/user/list/feature/phone").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		queryParams.add("hostel", hostel);
+		queryParams.add("featurePhone", Boolean.TRUE.toString());
+
+		final HttpHeaders headerParams = new HttpHeaders();
+		headerParams.add(SecurityConstants.BASIC_HEADER_NAME, token);
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<List<FeaturephoneUserDto>> returnType = new ParameterizedTypeReference<List<FeaturephoneUserDto>>() {
+		};
+
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+	}
+
+	public List<UserHostelDto> getUserHostelList() {
+		Object postBody = null;
+
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/user/list/hostel").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+		headerParams.add(SecurityConstants.BASIC_HEADER_NAME, token);
+
+		final String[] accepts = { "*/*" };
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<List<UserHostelDto>> returnType = new ParameterizedTypeReference<List<UserHostelDto>>() {
+		};
+
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+
+	}
+
+	public List<String> getStudentsOnLeave(Integer hostelId, LocalDate date) {
+		Object postBody = null;
+
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/studentCheckin/leaveRecords").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		if (Objects.nonNull(hostelId)) {
+			queryParams.add("hostelId", hostelId.toString());
+		}
+
+		queryParams.add("date", date.toString());
+
+		final HttpHeaders headerParams = new HttpHeaders();
+		headerParams.add(SecurityConstants.BASIC_HEADER_NAME, token);
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<List<String>> returnType = new ParameterizedTypeReference<List<String>>() {
+		};
+
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+	}
+
+	public List<UserHostelDetailsDto> getUserHostelDetails(Integer hostelId) {
+		Object postBody = null;
+
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/user/hostel/details").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		queryParams.add("hostelId", hostelId.toString());
+
+		final HttpHeaders headerParams = new HttpHeaders();
+		headerParams.add(SecurityConstants.BASIC_HEADER_NAME, token);
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<List<UserHostelDetailsDto>> returnType = new ParameterizedTypeReference<List<UserHostelDetailsDto>>() {
+		};
+
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+	}
+
+	public boolean updateHostelOfUser(Integer userId, Integer hostelId) {
+
+		Object postBody = null;
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		uriVariables.put("userId", userId);
+		uriVariables.put("hostelId", hostelId);
+
+		String path = UriComponentsBuilder.fromPath("/user/update/hostel/{userId}/{hostelId}").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+		headerParams.add(SecurityConstants.BASIC_HEADER_NAME, token);
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<String> returnType = new ParameterizedTypeReference<String>() {
+		};
+
+		try {
+			String response = restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+
+			log.info("Response of updating user: {} hostel to {} - {}", userId, hostelId, response);
+
+			return true;
+
+		} catch (Exception e) {
+			log.error("Exception while update hostel for user: {} to {}", userId, hostelId, e);
+		}
+
+		return false;
+	}
+
+	public void updateHostelVasEnabled(List<HostelVasEnabledUpdateDto> hostelVasEnabledUpdateDtos) {
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/hostel/update/vasEnabled").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+		headerParams.add(SecurityConstants.BASIC_HEADER_NAME, token);
+
+		final String[] accepts = {"*/*"};
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<String> returnType = new ParameterizedTypeReference<String>() {};
+
+		restClient.invokeAPI(path, HttpMethod.POST, queryParams, hostelVasEnabledUpdateDtos, headerParams, accept, returnType);
+
+	}
+
 }

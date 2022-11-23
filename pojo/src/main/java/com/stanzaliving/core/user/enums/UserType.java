@@ -32,7 +32,14 @@ public enum UserType {
 	NATIONAL_HEAD("National Head"),
 	DESIGN_COORDINATOR("Design Coordinator"),
 	CONSUMER("Consumer"),
-	SYSTEM("System");
+	SYSTEM("System"),
+	CITY_TEAM("City Team"),
+	CENTRAL_TEAM("Central Team"),
+	EXTERNAL("External"),
+	GUEST("Guest"),
+	INVITED_GUEST("Invited Guest"),
+	FOOD_DELIVERY_AGENT("Food Delivery Agent"),
+	VENDOR("Vendor");
 
 	public String typeName;
 

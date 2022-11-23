@@ -7,8 +7,6 @@ import java.util.Date;
 import java.util.List;
 
 import com.stanzaliving.core.commentsservice.dto.CommentsDto;
-import com.stanzaliving.core.estate.enums.EstateStatus;
-
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;

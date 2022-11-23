@@ -25,7 +25,7 @@ public class AnswerEntity extends AbstractJpaEntity {
 	@Column(name = "property_id", columnDefinition = "char(40)")
 	private String propertyId;
 	
-    @Column(name = "answerMap", columnDefinition = "text")
+    @Column(name = "answerMap", columnDefinition = "mediumtext")
     private String answer;
 
 }

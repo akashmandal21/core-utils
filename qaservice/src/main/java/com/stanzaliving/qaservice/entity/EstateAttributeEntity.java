@@ -43,7 +43,7 @@ public class EstateAttributeEntity extends AbstractJpaEntity {
 	@Column(name = "attribute_name", columnDefinition = "varchar(255) NOT NULL")
 	private String attributeName;
 
-	@Column(name = "attribute_value", columnDefinition = "TEXT")
+	@Column(name = "attribute_value", columnDefinition = "MEDIUMTEXT")
 	private String attributeValue;
 	
 }

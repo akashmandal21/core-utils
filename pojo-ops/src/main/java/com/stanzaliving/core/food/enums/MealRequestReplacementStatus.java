@@ -8,10 +8,10 @@ import lombok.Getter;
 public enum MealRequestReplacementStatus {
 
 	REPLACEMENT_REQUESTED("Replacement Requested", "Take Action", ""),
-	REPLACEMENT_APPROVED("Replacement Approved", "Approved", "To be picked by student"),
+	REPLACEMENT_APPROVED("Request Approved", "Approved", "To be picked by student"),
 	REPLACEMENT_PICKED("Replacement Picked", "Approved", "Picked by student"),
-	REPLACEMENT_REJECTED("Replacement Rejected", "Rejected", "Requested by mistake"),
-	REQUEST_Expired("Request Expired", "Expired", "Student didn't pick");
+	REPLACEMENT_REJECTED("Request Rejected", "Rejected", "Requested by mistake"),
+	REQUEST_EXPIRED("Request Expired", "Expired", "Student didn't pick");
 
 	private String statusDesc;
 	private String rcStatus;

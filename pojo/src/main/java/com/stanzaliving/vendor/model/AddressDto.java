@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import org.apache.commons.lang3.StringUtils;
 
 @Setter
 @Getter
@@ -35,4 +36,14 @@ public class AddressDto {
 
     private String updatedBy;
 
+
+    public String getAddress(){
+        return getEmptyIfNull(house)+getEmptyIfNull(street)+getEmptyIfNull(landmark)+getEmptyIfNull(city)+getEmptyIfNull(state)+getEmptyIfNull(country)+getEmptyIfNull(pincode);
+    }
+    public String getEmptyIfNull(String val){
+        if(StringUtils.isBlank(val))
+            return "";
+        else
+            return val+",";
+    }
 }

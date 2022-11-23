@@ -6,6 +6,8 @@ public interface RedisLockService {
 
 	RLock acquire(String lockName);
 
+	RLock acquireFair(String lockName);
+
 	void release(RLock rLock);
 
 }

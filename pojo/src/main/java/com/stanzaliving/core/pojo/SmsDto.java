@@ -33,4 +33,6 @@ public class SmsDto {
 
 	private String text;
 
+	private String templateId;
+
 }

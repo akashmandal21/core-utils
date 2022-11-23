@@ -2,7 +2,6 @@ package com.stanzaliving.core.food.dto.response;
 
 import java.util.List;
 
-import com.stanzaliving.core.operations.enums.MealType;
 import com.stanzaliving.core.rule.engine.dto.ConditionDto;
 
 import lombok.AllArgsConstructor;
@@ -19,6 +18,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 public class DailyDaywiseRuleMealResponseDto extends ConditionDto {
+
 	private Boolean passed;
 
 	private List<DailyDaywiseMealResponseDto> passedMeals;

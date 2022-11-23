@@ -3,20 +3,14 @@
  */
 package com.stanzaliving.core.redis.service.impl;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
-
-import org.redisson.api.RMap;
-import org.redisson.api.RSet;
-import org.redisson.api.RedissonClient;
+import com.stanzaliving.core.redis.service.RedisCollectionService;
+import lombok.extern.log4j.Log4j2;
+import org.redisson.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.stanzaliving.core.redis.service.RedisCollectionService;
-
-import lombok.extern.log4j.Log4j2;
+import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author naveen.kumar
@@ -46,6 +40,22 @@ public class RedisCollectionServiceImpl implements RedisCollectionService {
 
 	private RMap<String, String> getRedisStringMap(String mapName) {
 		return redissonClient.getMap(mapName);
+	}
+
+	@Override
+	public Map<String,String> getFromStringMap(String mapName, Set<String> keys) {
+
+		log.debug("Fetching map: {} from redis", mapName);
+
+		RMap<String,String> rMap = getRedisStringMap(mapName);
+
+		Map<String,String> map = rMap.getAll(keys);
+
+		if(map==null)
+			return new HashMap<>();
+
+		return map;
+
 	}
 
 	@Override
@@ -145,6 +155,89 @@ public class RedisCollectionServiceImpl implements RedisCollectionService {
 		log.debug("Adding key: {} in set: {} on redis", key, setName);
 
 		return getRedisObjectSet(setName).add(key);
+	}
+
+	@Override
+	public void clearMap(String mapName) {
+		redissonClient.getMap(mapName).clear();
+	}
+
+	@Override
+	public Map<String, String> getStringMapCache(String mapName) {
+
+		log.debug("Fetching map: {} from redis", mapName);
+
+		RMap<String, String> rMap = getRedisStringMapCache(mapName);
+
+		Map<String, String> map = new HashMap<>();
+		map.putAll(rMap);
+
+		return map;
+	}
+
+	private RMapCache<String, String> getRedisStringMapCache(String mapName) {
+		return redissonClient.getMapCache(mapName);
+	}
+
+	@Override
+	public String getFromStringMapCache(String mapName, String key) {
+		return getRedisStringMapCache(mapName).get(key);
+	}
+
+	@Override
+	public boolean existsInStringMapCache(String mapName, String key) {
+		return getRedisStringMapCache(mapName).containsKey(key);
+	}
+
+	@Override
+	public void removeFromStringMapCache(String mapName, String key) {
+		log.info("Removing key: {} from map: {} from redis",key,mapName);
+		redissonClient.getMapCache(mapName).remove(key);
+	}
+
+	@Override
+	public void removeFromStringMap(String mapName, String key) {
+		log.info("Removing key: {} from map: {} from redis",key,mapName);
+		redissonClient.getMap(mapName).remove(key);
+	}
+
+	@Override
+	public boolean addInStringList(String listName, String key) {
+		log.debug("Adding key: {} in list: {} on redis", key, listName);
+
+		return getRedisStringList(listName).add(key);
+	}
+
+	@Override
+	public boolean removeFromStringList(String listName, String key) {
+		log.info("Removing key: {} from list: {} from redis",key,listName);
+
+		return getRedisStringList(listName).remove(key);
+	}
+
+	@Override
+	public List<String> getStringList(String listName) {
+		log.info("Returning String List from redis for list name:{}",listName);
+		RList<String> redisStringList = getRedisStringList(listName);
+		return new ArrayList<>(redisStringList);
+	}
+
+	@Override
+	public boolean existsInStringList(String listName, String key) {
+		log.info("Checking for key:{} in list :{} in redis",key,listName);
+		return getRedisStringList(listName).contains(key);
+	}
+
+	private RList<String> getRedisStringList(String listName) {
+		return redissonClient.getList(listName);
+	}
+
+	@Override
+	public String addInStringMapCache(String mapName, String key, String value, long ttl, TimeUnit timeUnit) {
+
+		log.info("Adding key: {} with value: {} in map: {} on redis with TTL {} {}", key, value, mapName, ttl, timeUnit);
+
+		return getRedisStringMapCache(mapName).put(key, value, ttl, timeUnit);
 	}
 
 }

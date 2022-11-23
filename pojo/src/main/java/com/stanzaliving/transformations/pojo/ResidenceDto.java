@@ -1,13 +1,13 @@
 /**
- * 
+ *
  */
 package com.stanzaliving.transformations.pojo;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
+import com.stanzaliving.core.enums.PropertyEntityType;
 import com.stanzaliving.core.enums.ResidenceBrand;
 import com.stanzaliving.core.enums.ResidenceType;
 import com.stanzaliving.core.estate.enums.EstateGender;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -29,21 +29,52 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class ResidenceDto extends AbstractDto {
 
-	private String residenceName;
+    /**
+     *
+     */
+    private static final long serialVersionUID = -4483658093423365401L;
 
-	private String micromarketUuid;
+    private String residenceName;
 
-	private ResidenceType residenceType;
+    private String micromarketUuid;
 
-	private ResidenceBrand brandName;
+    private ResidenceType residenceType;
 
-	private int bedCount;
+    private ResidenceBrand brandName;
 
-	private int roomCount;
+    private int bedCount;
 
-	private EstateGender estateGender;
+    private int roomCount;
 
-	private Integer coreResidenceId;
+    private EstateGender estateGender;
 
-	private String coreResidenceName;
+    private Integer coreResidenceId;
+
+    private String coreResidenceName;
+
+    private String residenceSlug;
+
+    private String estateUuid;
+
+    private String phoenixPropertyUuid;
+
+    private String parentResidenceId;
+
+    private PropertyEntityType propertyEntityType;
+
+    private String code;
+
+    private String category;
+
+    private String company;
+
+    private String addressUuid;
+
+    private Boolean bookingStatus;
+
+    private Double latitude;
+
+    private Double longitude;
+
+    private String apartmentType;
 }

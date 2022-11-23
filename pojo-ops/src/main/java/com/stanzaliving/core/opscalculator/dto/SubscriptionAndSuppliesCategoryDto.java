@@ -25,21 +25,28 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString(callSuper = true)
-@JsonIgnoreProperties({ "count", "rate", "utilization" })
 public class SubscriptionAndSuppliesCategoryDto extends CategoryDto {
 
-	private int internet;
+	private boolean isSuppliesApplicable;
+	private boolean isDthApplicable;
 
-	@Builder.Default
-	private boolean internetEnabled = false;
+	private int tvsCount;
+	private int dthRechargeCostPerMonth;
+	private int dthCost;
+	private int dthCostPerBedPerMonth;
 
-	private int cleaningSupplies;
-	private int foodSupplies;
+	private int fixedGeneralSupplies;
+	private int variableGeneralSupplies;
+	private int totalGeneralSupplies;
 
-	@Builder.Default
-	private int gst = Constants.GST_SUBSCRIPTION_SUPPLIES_PERCENT;
+	private int fixedCleaningChemical;
+	private int variableCleaningChemical;
+	private int totalCleaningChemical;
 
-	@Builder.Default
-	private int margin = Constants.MARGIN_SUBSCRIPTION_SUPPLIES_PERCENT;
+	private int fixedCleaningEquipment;
+	private int variableCleaningEquipment;
+	private int totalCleaningEquipment;
 
+
+	private int totalCleaningCostPerMonth;
 }

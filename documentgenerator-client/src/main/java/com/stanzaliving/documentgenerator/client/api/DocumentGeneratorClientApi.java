@@ -2,6 +2,7 @@ package com.stanzaliving.documentgenerator.client.api;
 
 import java.util.List;
 
+import com.stanzaliving.documentgenerator.dto.PdfStampingDto;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -85,4 +86,25 @@ public class DocumentGeneratorClientApi {
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, pdfRequestDto, headerParams, accept,
 				returnType);
 	}
+
+	public ResponseDto<PdfStampingDto> pdfStamping(PdfStampingDto pdfStampingDto) {
+
+		log.info("DocumentGeneratorClientApi - pdfStamping " + pdfStampingDto);
+
+		String path = UriComponentsBuilder.fromPath("/internal/pdf/stamping").toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = { "*/*" };
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<PdfStampingDto>> returnType = new ParameterizedTypeReference<ResponseDto<PdfStampingDto>>() {
+		};
+
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, pdfStampingDto, headerParams, accept,
+				returnType);
+	}
+
 }

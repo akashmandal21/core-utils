@@ -1,17 +1,15 @@
 package com.stanzaliving.core.food.dto;
 
-import java.util.List;
-
 import com.stanzaliving.core.food.dto.request.AdditionalItemsRequestDto;
 import com.stanzaliving.core.operations.enums.MealType;
-
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
+
+import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
@@ -21,9 +19,11 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class FoodOrderDetailDto {
 
-	private String residenceFoodMenuId;
-
 	private MealType mealType;
+
+	private String mealId;
+
+	private String mealGroup;
 
 	private String mealName;
 
@@ -31,11 +31,13 @@ public class FoodOrderDetailDto {
 
 	private String vendorName;
 
-	@Builder.Default
-	private Integer vegPax = 0;
+	private Integer mir;
 
-	@Builder.Default
-	private Integer nonVegPax = 0;
+	@NotNull(message = "Veg Pax are mandatory")
+	private Integer vegPax;
+
+	@NotNull(message = "Non-Veg Pax are mandatory")
+	private Integer nonVegPax;
 
 	@Builder.Default
 	private Double vegCost = 0d;
@@ -43,8 +45,8 @@ public class FoodOrderDetailDto {
 	@Builder.Default
 	private Double nonVegCost = 0d;
 
-	@Builder.Default
-	private Integer stanzaStaffVegPax = 0;
+	@NotNull(message = "Stanza Staff Pax are mandatory")
+	private Integer stanzaStaffVegPax;
 
 	@Builder.Default
 	private Integer stanzaStaffNonVegPax = 0;
@@ -55,6 +57,7 @@ public class FoodOrderDetailDto {
 	@Builder.Default
 	private Double stanzaStaffNonVegCost = 0d;
 
+	@NotNull
 	private Integer nonStanzaStaffVegPax;
 
 	private Integer nonStanzaStaffNonVegPax;
@@ -75,10 +78,36 @@ public class FoodOrderDetailDto {
 
 	private List<AdditionalItemsRequestDto> additionalItemsDtos;
 
+	private List<FoodOrderBasePreferenceDto> foodOrderBasePreferenceDto;
+
 	@Builder.Default
 	private Double plannesUtilization = 0d;
 
 	@Builder.Default
 	private Double actualUtilization = 0d;
+
+	private boolean packaged;
+
+	private String comments;
+
+	@Builder.Default
+	private boolean extraFoodOrderWindowClosed = true;
+
+	private Date extraFoodOrderWindowCloseTime;
+	
+	private boolean foodOrderWindowClosed;
+
+	private LocalDate foodOrderWindowCloseDate;
+	
+	private LocalTime foodOrderWindowCloseTime;
+	
+	private LocalDate cutoffDate;
+	
+	private LocalTime cutoffTime;
+
+	@Builder.Default
+	private boolean cutOffTimeExpired = true;
+
+	private UserPreferenceCountDto userPreferenceCountDto;
 
 }

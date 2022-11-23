@@ -11,7 +11,6 @@ import com.google.i18n.phonenumbers.PhoneNumberUtil;
 import com.google.i18n.phonenumbers.PhoneNumberUtil.PhoneNumberType;
 import com.google.i18n.phonenumbers.Phonenumber.PhoneNumber;
 import com.stanzaliving.core.base.common.dto.CountryDto;
-import com.stanzaliving.core.base.utils.PhoneNumberUtils;
 
 public class PhoneNumberUtilsTest {
 
@@ -53,7 +52,7 @@ public class PhoneNumberUtilsTest {
 	@Test
 	public void testIsValidMobileByCountryCodeConditation6() {
 
-		boolean expected = PhoneNumberUtils.isValidMobileForCountry("7358623569", "IN");
+		boolean expected = PhoneNumberUtils.isValidMobileForCountry("8217312599", "IN");
 		assertThat(expected).isTrue();
 	}
 

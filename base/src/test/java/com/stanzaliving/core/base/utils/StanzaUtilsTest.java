@@ -44,7 +44,7 @@ public class StanzaUtilsTest {
 
 		System.out.println("4 digit default otp: " + otp);
 
-		assertTrue(otp == 1234);
+		assertTrue(otp == 4567);
 	}
 
 	@Test
@@ -54,6 +54,6 @@ public class StanzaUtilsTest {
 
 		System.out.println("6 digit default otp: " + otp);
 
-		assertTrue(otp == 123456);
+		assertTrue(otp == 456789);
 	}
 }

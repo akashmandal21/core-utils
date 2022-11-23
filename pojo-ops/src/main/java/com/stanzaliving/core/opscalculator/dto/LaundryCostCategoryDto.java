@@ -25,17 +25,13 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString(callSuper = true)
-@JsonIgnoreProperties({ "count", "rate" })
 public class LaundryCostCategoryDto extends CategoryDto {
 
 	private int clothesPerPersonPerMonth;
-	private int weightForClothes;
-	private int costPerKg;
-
-	@Builder.Default
-	private int gst = Constants.GST_LAUNDRY_PERCENT;
-
-	@Builder.Default
-	private int margin = Constants.MARGIN_LAUNDRY_PERCENT;
+	private double weightPerCloth;
+	private double costPerKg;
+	private int utilizationPercent;
+	private boolean leninLaundryInclude;
+	private double leninCost;
 
 }

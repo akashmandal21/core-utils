@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-import javax.validation.constraints.NotBlank;
+import java.math.BigDecimal;
 
 @Setter
 @Getter
@@ -27,15 +27,17 @@ public class PoFinanceDetailsDto {
 
     private String retentionPercent;
 
-    private Double subTotal;
+    private BigDecimal subTotal;
 
-    @NotBlank(message = "Fee can't be blank")
+//    @NotBlank(message = "Fee can't be blank")
     private String serviceFee;
 
-    private Double totalAmount;
+    private BigDecimal totalAmount;
 
-    private Double advanceInvoiceAmount;
+    private BigDecimal advanceInvoiceAmount;
 
-    private Double regularInvoiceAmount;
+    private BigDecimal regularInvoiceAmount;
+
+    private String poTerms;
 
 }

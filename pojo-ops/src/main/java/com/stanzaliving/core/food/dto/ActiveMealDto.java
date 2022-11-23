@@ -2,6 +2,7 @@ package com.stanzaliving.core.food.dto;
 
 import java.time.LocalTime;
 
+import com.stanzaliving.core.food.enums.FoodServeType;
 import com.stanzaliving.core.operations.enums.MealType;
 
 import lombok.AllArgsConstructor;
@@ -30,6 +31,8 @@ public class ActiveMealDto {
 
 	private LocalTime endTime;
 
+	private boolean mealEndTimeClosed;
+
 	@Builder.Default
 	private Boolean leftover = false;
 
@@ -46,4 +49,8 @@ public class ActiveMealDto {
 	
 	private String residenceFoodMenuId;
 
+	@Builder.Default
+	private FoodServeType serveType = FoodServeType.PACKAGED;
+	
+	private String serveTypeName;
 }

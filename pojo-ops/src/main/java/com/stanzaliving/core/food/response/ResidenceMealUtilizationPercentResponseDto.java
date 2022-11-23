@@ -1,47 +1,35 @@
 package com.stanzaliving.core.food.response;
 
 import java.time.LocalDate;
+import java.util.List;
 
+import com.stanzaliving.core.food.dto.MealUtilizationDto;
 import com.stanzaliving.core.food.enums.FoodDayType;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
-@Data
+@Getter
+@Setter
+@ToString
 @SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString(callSuper = true)
 public class ResidenceMealUtilizationPercentResponseDto {
 
 	private String residenceId;
 
-	@Builder.Default
-	private Double average = 0d;
+	private double average;
 
 	private LocalDate date;
 
-	@Builder.Default
-	private Double breakfast = 0d;
-
-	@Builder.Default
-	private Double lunch = 0d;
-
-	@Builder.Default
-	private Double eveningSnacks = 0d;
-
-	@Builder.Default
-	private Double dinner = 0d;
-
-	@Builder.Default
-	private Double brunch = 0d;
-
-	@Builder.Default
-	private Double lunchTiffin = 0d;
-
 	private FoodDayType dayType;
+
+	private String dayTypeName;
+
+	private List<MealUtilizationDto> mealUtilizationDtos;
 }

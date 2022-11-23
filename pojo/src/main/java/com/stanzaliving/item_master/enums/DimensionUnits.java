@@ -1,6 +1,5 @@
 package com.stanzaliving.item_master.enums;
 
-import com.stanzaliving.transformations.enums.AreaOfUse;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

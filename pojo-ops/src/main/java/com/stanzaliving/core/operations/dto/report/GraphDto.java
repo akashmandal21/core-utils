@@ -27,7 +27,9 @@ public class GraphDto {
 
 	private AccessLevel accessLevel;
 
+	@Builder.Default
 	private List<GraphLineXPoint> xAxis = new ArrayList<>();
 
+	@Builder.Default
 	private List<GraphLineDto> yAxis = new ArrayList<>();
 }

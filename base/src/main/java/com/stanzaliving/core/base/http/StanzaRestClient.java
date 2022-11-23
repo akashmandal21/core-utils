@@ -3,15 +3,15 @@
  */
 package com.stanzaliving.core.base.http;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map.Entry;
-
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.stanzaliving.core.base.StanzaConstants;
+import com.stanzaliving.core.base.exception.StanzaHttpException;
+import com.stanzaliving.core.base.exception.StanzaSecurityException;
+import lombok.extern.log4j.Log4j2;
+import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections.MapUtils;
+import org.slf4j.MDC;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -31,19 +31,12 @@ import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.MapperFeature;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
-import com.fasterxml.jackson.databind.module.SimpleModule;
-import com.stanzaliving.core.base.exception.StanzaHttpException;
-import com.stanzaliving.core.base.localdate.Java8LocalDateStdDeserializer;
-import com.stanzaliving.core.base.localdate.Java8LocalDateStdSerializer;
-import com.stanzaliving.core.base.localtime.Java8LocalTimeDeserializer;
-import com.stanzaliving.core.base.localtime.Java8LocalTimeSerializer;
-
-import lombok.extern.log4j.Log4j2;
-import org.slf4j.MDC;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map.Entry;
+import java.util.Objects;
 
 /**
  * @author naveen
@@ -55,22 +48,32 @@ public class StanzaRestClient {
 
 	private String basePath;
 
-	private HttpStatus statusCode;
-
 	private RestTemplate restTemplate;
 
-	private MultiValueMap<String, String> responseHeaders;
+	private ObjectMapper objectMapper;
 
 	private HttpHeaders defaultHeaders = new HttpHeaders();
+
+	private HttpMessageConverter messageConverter;
 
 	public StanzaRestClient(String basePath) {
 		this.basePath = basePath;
 		this.restTemplate = buildRestTemplate();
+		objectMapper = BaseMapperConfig.getDefaultMapper();
 	}
 
 	public StanzaRestClient(String basePath, int connectTimeOut, int readTimeOut) {
 		this.basePath = basePath;
 		this.restTemplate = buildRestTemplate(connectTimeOut, readTimeOut);
+		objectMapper = BaseMapperConfig.getDefaultMapper();
+	}
+
+	public HttpMessageConverter getMessageConverter() {
+		return messageConverter;
+	}
+
+	public void setMessageConverter(HttpMessageConverter messageConverter) {
+		this.messageConverter = messageConverter;
 	}
 
 	public enum CollectionFormat {
@@ -102,16 +105,6 @@ public class StanzaRestClient {
 		return template;
 	}
 
-	private SimpleClientHttpRequestFactory getClientHttpRequestFactory(int connectTimeOut, int readTimeOut) {
-		SimpleClientHttpRequestFactory clientHttpRequestFactory = new SimpleClientHttpRequestFactory();
-		// Connect timeout
-		clientHttpRequestFactory.setConnectTimeout(connectTimeOut);
-
-		// Read timeout
-		clientHttpRequestFactory.setReadTimeout(readTimeOut);
-		return clientHttpRequestFactory;
-	}
-
 	private RestTemplate buildRestTemplate(int connectTimeOut, int readTimeOut) {
 
 		RestTemplate template = new RestTemplate(getClientHttpRequestFactory(connectTimeOut, readTimeOut));
@@ -123,36 +116,25 @@ public class StanzaRestClient {
 		return template;
 	}
 
+	private SimpleClientHttpRequestFactory getClientHttpRequestFactory(int connectTimeOut, int readTimeOut) {
+		SimpleClientHttpRequestFactory clientHttpRequestFactory = new SimpleClientHttpRequestFactory();
+		// Connect timeout
+		clientHttpRequestFactory.setConnectTimeout(connectTimeOut);
+
+		// Read timeout
+		clientHttpRequestFactory.setReadTimeout(readTimeOut);
+		return clientHttpRequestFactory;
+	}
+
 	@SuppressWarnings("rawtypes")
 	public void configureRestTemplate(RestTemplate template) {
 		for (HttpMessageConverter converter : template.getMessageConverters()) {
 
 			if (converter instanceof AbstractJackson2HttpMessageConverter) {
 				ObjectMapper mapper = ((AbstractJackson2HttpMessageConverter) converter).getObjectMapper();
-
-				mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-				mapper.configure(MapperFeature.DEFAULT_VIEW_INCLUSION, true);
-				mapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, true);
-
-				SimpleModule module = new SimpleModule();
-				module.addSerializer(new Java8LocalDateStdSerializer());
-				module.addDeserializer(LocalDate.class, new Java8LocalDateStdDeserializer());
-
-				module.addSerializer(new Java8LocalTimeSerializer());
-				module.addDeserializer(LocalTime.class, new Java8LocalTimeDeserializer());
-
-				mapper.enable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
-				mapper.registerModule(module);
+				mapper = BaseMapperConfig.configureMapper(mapper);
 			}
 		}
-	}
-
-	public HttpStatus getStatusCode() {
-		return statusCode;
-	}
-
-	public MultiValueMap<String, String> getResponseHeaders() {
-		return responseHeaders;
 	}
 
 	public StanzaRestClient setUserAgent(String userAgent) {
@@ -225,23 +207,43 @@ public class StanzaRestClient {
 
 		requestBuilder.contentType(mediaType);
 
-		addHeadersToRequest(headerParams, requestBuilder);
+		if(Objects.nonNull(headerParams)) {
+			
+			addHeadersToRequest(headerParams, requestBuilder);
+		}
 
-		log.info("Accessing API: " + builder.toUriString());
+		log.info("Accessing API: {}", builder.toUriString());
 
 		RequestEntity<Object> requestEntity = requestBuilder.body(body);
 
+		return getResponse(requestEntity, returnType, builder);
+	}
+
+	private <T> T getResponse(RequestEntity<Object> requestEntity, ParameterizedTypeReference<T> returnType, final UriComponentsBuilder builder) {
 		ResponseEntity<T> responseEntity = null;
 		try {
+			if (null != messageConverter) {
+				List<HttpMessageConverter<?>> messageConverters = new ArrayList<>();
+				messageConverters.add(messageConverter);
+				restTemplate.setMessageConverters(messageConverters);
+			}
 			responseEntity = restTemplate.exchange(requestEntity, returnType);
 
 		} catch (RestClientException e) {
-			log.info("Exception caught while making rest call: ", e);
-			throw new StanzaHttpException("Exception caught while making rest call: " + e.getCause());
+			if (!StringUtils.isEmpty(e.getMessage()) && e.getMessage().contains("401")) {
+				responseEntity = new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+			} else if (!StringUtils.isEmpty(e.getMessage()) && e.getMessage().contains("403")) {
+				responseEntity = new ResponseEntity<>(HttpStatus.FORBIDDEN);
+			} else {
+
+				log.error("Exception caught while making rest call: ", e.getMessage());
+				throw new StanzaHttpException(e.getMessage(), e);
+			}
 		}
 
-		statusCode = responseEntity.getStatusCode();
-		responseHeaders = responseEntity.getHeaders();
+		HttpStatus statusCode = responseEntity.getStatusCode();
+
+		log.info("API: {}, Response: {}", builder.toUriString(), statusCode);
 
 		if (responseEntity.getStatusCode() == HttpStatus.NO_CONTENT) {
 			return null;
@@ -281,20 +283,33 @@ public class StanzaRestClient {
 
 		addHeadersToRequest(headerParams, requestBuilder);
 
-		log.info("Accessing API: " + builder.toUriString());
+		log.info("Accessing API: {}", builder.toUriString());
 
 		RequestEntity<Object> requestEntity = requestBuilder.body(body);
+
+		return getResponse(requestEntity, returnType, builder);
+	}
+
+	private <T> T getResponse(RequestEntity<Object> requestEntity, Class<T> returnType, final UriComponentsBuilder builder) {
 
 		ResponseEntity<T> responseEntity = null;
 		try {
 			responseEntity = restTemplate.exchange(requestEntity, returnType);
 		} catch (RestClientException e) {
-			log.info("Exception caught while making rest call: ", e);
-			throw new StanzaHttpException("Exception caught while making rest call: " + e.getCause());
+			if (!StringUtils.isEmpty(e.getMessage()) && e.getMessage().contains("401")) {
+				responseEntity = new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+			} else if (!StringUtils.isEmpty(e.getMessage()) && e.getMessage().contains("403")) {
+				responseEntity = new ResponseEntity<>(HttpStatus.FORBIDDEN);
+			} else {
+
+				log.error("Exception caught while making rest call: ", e);
+				throw new StanzaHttpException(e.getMessage(), e);
+			}
 		}
 
-		statusCode = responseEntity.getStatusCode();
-		responseHeaders = responseEntity.getHeaders();
+		HttpStatus statusCode = responseEntity.getStatusCode();
+
+		log.info("API: {}, Response: {}", builder.toUriString(), statusCode);
 
 		if (responseEntity.getStatusCode() == HttpStatus.NO_CONTENT) {
 			return null;
@@ -311,6 +326,169 @@ public class StanzaRestClient {
 			// The error handler built into the RestTemplate should handle 400 and 500 series errors.
 			throw new StanzaHttpException("API returned " + statusCode + " and it wasn't handled by the RestTemplate error handler", statusCode.value());
 		}
+	}
+
+	public <T> T invokeAPI(
+			String path,
+			HttpMethod method,
+			MultiValueMap<String, String> queryParams,
+			Object body,
+			HttpHeaders headerParams,
+			List<MediaType> accept,
+			TypeReference<T> returnType) {
+
+		return invokeAPI(path, method, queryParams, body, headerParams, accept, returnType, MediaType.APPLICATION_JSON);
+	}
+
+	public <T> T request(
+			String path,
+			HttpMethod method,
+			MultiValueMap<String, String> queryParams,
+			Object body,
+			HttpHeaders headerParams,
+			List<MediaType> accept,
+			TypeReference<T> returnType,
+			MediaType contentType) {
+
+		final UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(basePath).path(path);
+
+		if (MapUtils.isNotEmpty(queryParams)) {
+			builder.queryParams(queryParams);
+		}
+
+		if (Objects.isNull(headerParams)) {
+			headerParams = new HttpHeaders();
+		}
+
+		if (CollectionUtils.isEmpty(accept)) {
+			accept = new ArrayList<>();
+			accept.add(MediaType.ALL);
+		}
+
+		final BodyBuilder requestBuilder = RequestEntity.method(method, builder.build().toUri());
+
+
+		if (CollectionUtils.isNotEmpty(accept)) {
+			requestBuilder.accept(accept.toArray(new MediaType[0]));
+		}
+
+		requestBuilder.contentType(contentType);
+
+		addHeadersToRequest(headerParams, requestBuilder);
+
+		log.info("Accessing API: {}", builder.toUriString());
+
+		RequestEntity<Object> requestEntity = requestBuilder.body(body);
+
+		ResponseEntity<String> responseEntity = getResponse(requestEntity);
+
+		if (returnType == null) {
+			return null;
+		}
+
+		try {
+			return objectMapper.readValue(responseEntity.getBody(), returnType);
+		} catch (Exception e) {
+			HttpStatus statusCode = responseEntity.getStatusCode();
+			log.error("Error reading response: ", e);
+			throw new StanzaHttpException("Error while reading response", statusCode.value(), e);
+		}
+	}
+
+	public <T> T invokeAPI(
+			String path,
+			HttpMethod method,
+			MultiValueMap<String, String> queryParams,
+			Object body,
+			HttpHeaders headerParams,
+			List<MediaType> accept,
+			TypeReference<T> returnType,
+			MediaType mediaType) {
+
+		final UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(basePath).path(path);
+
+		if (queryParams != null) {
+			builder.queryParams(queryParams);
+		}
+
+		final BodyBuilder requestBuilder = RequestEntity.method(method, builder.build().toUri());
+
+		if (accept != null) {
+			requestBuilder.accept(accept.toArray(new MediaType[accept.size()]));
+		}
+
+		requestBuilder.contentType(mediaType);
+
+		addHeadersToRequest(headerParams, requestBuilder);
+
+		log.info("Accessing API: {}", builder.toUriString());
+
+		RequestEntity<Object> requestEntity = requestBuilder.body(body);
+
+		ResponseEntity<String> responseEntity = getResponse(requestEntity);
+
+		return processResponse(returnType, builder, responseEntity);
+	}
+
+	private ResponseEntity<String> getResponse(RequestEntity<Object> requestEntity) {
+
+		ResponseEntity<String> responseEntity = null;
+		try {
+			responseEntity = restTemplate.exchange(requestEntity, String.class);
+
+		} catch (RestClientException e) {
+
+			if (!StringUtils.isEmpty(e.getMessage()) && e.getMessage().contains("401")) {
+				responseEntity = new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+			} else if (!StringUtils.isEmpty(e.getMessage()) && e.getMessage().contains("403")) {
+				responseEntity = new ResponseEntity<>(HttpStatus.FORBIDDEN);
+			} else {
+
+				log.error("Exception caught while making rest call: ", e);
+				throw new StanzaHttpException(e.getMessage(), e);
+			}
+		}
+
+		return responseEntity;
+	}
+
+	private <T> T processResponse(TypeReference<T> returnType, UriComponentsBuilder builder, ResponseEntity<String> responseEntity) {
+
+		HttpStatus statusCode = responseEntity.getStatusCode();
+
+		log.info("API: {}, Response: {}", builder.toUriString(), statusCode);
+
+		if (isSuccessCode(statusCode)) {
+			if (returnType == null) {
+				return null;
+			}
+
+			try {
+				return objectMapper.readValue(responseEntity.getBody(), returnType);
+			} catch (Exception e) {
+				log.error("Error reading response: ", e);
+				throw new StanzaHttpException("Error while reading response", statusCode.value(), e);
+			}
+		}
+
+		if (HttpStatus.NO_CONTENT == responseEntity.getStatusCode()) {
+			return null;
+		}
+
+		if (isAccessDenied(statusCode)) {
+			throw new StanzaSecurityException("Access Denied for User", statusCode.value());
+		} else {
+			// The error handler built into the RestTemplate should handle 400 and 500 series errors.
+			throw new StanzaHttpException("API returned " + statusCode + " and it wasn't handled by the RestTemplate error handler", statusCode.value());
+		}
+	}
+
+	private boolean isSuccessCode(HttpStatus httpStatus) {
+		return HttpStatus.OK == httpStatus || HttpStatus.CREATED == httpStatus || HttpStatus.ACCEPTED == httpStatus;
+	}
+
+	private boolean isAccessDenied(HttpStatus httpStatus) {
+		return HttpStatus.UNAUTHORIZED == httpStatus || HttpStatus.FORBIDDEN == httpStatus;
 	}
 
 	private void addHeadersToRequest(HttpHeaders headers, BodyBuilder requestBuilder) {
@@ -383,6 +561,87 @@ public class StanzaRestClient {
 		} else {
 			return String.valueOf(param);
 		}
+	}
+
+	// This method is called to add GUID header in internal API calls
+	public StanzaRestClient addGUIDHeader() {////////////////////////////
+
+		if (defaultHeaders.containsKey(StanzaConstants.GUID)) {
+			defaultHeaders.remove(StanzaConstants.GUID);
+		}
+
+		defaultHeaders.add(StanzaConstants.GUID, MDC.get(StanzaConstants.GUID));
+
+		return this;
+	}
+
+	public <T> T get(String path,
+			MultiValueMap<String, String> queryParams,
+			HttpHeaders headerParams,
+			List<MediaType> accept,
+			TypeReference<T> returnType,
+			MediaType mediaType){
+		return request(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType, mediaType);
+	}
+
+	public <T> T post(String path,
+			MultiValueMap<String, String> queryParams,
+			Object body,
+			HttpHeaders headerParams,
+			List<MediaType> accept,
+			TypeReference<T> returnType,
+			MediaType mediaType){
+		return request(path, HttpMethod.POST, queryParams, body, headerParams, accept, returnType, mediaType);
+	}
+
+	public <T> T put(String path,
+			MultiValueMap<String, String> queryParams,
+			Object body,
+			HttpHeaders headerParams,
+			List<MediaType> accept,
+			TypeReference<T> returnType,
+			MediaType mediaType){
+		return request(path, HttpMethod.PUT, queryParams, body, headerParams, accept, returnType, mediaType);
+	}
+
+	public <T> T head(String path,
+			MultiValueMap<String, String> queryParams,
+			Object body,
+			HttpHeaders headerParams,
+			List<MediaType> accept,
+			TypeReference<T> returnType,
+			MediaType mediaType){
+		return request(path, HttpMethod.HEAD, queryParams, body, headerParams, accept, returnType, mediaType);
+	}
+
+	public <T> T patch(String path,
+			MultiValueMap<String, String> queryParams,
+			Object body,
+			HttpHeaders headerParams,
+			List<MediaType> accept,
+			TypeReference<T> returnType,
+			MediaType mediaType){
+		return request(path, HttpMethod.PATCH, queryParams, body, headerParams, accept, returnType, mediaType);
+	}
+
+	public <T> T delete(String path,
+			MultiValueMap<String, String> queryParams,
+			Object body,
+			HttpHeaders headerParams,
+			List<MediaType> accept,
+			TypeReference<T> returnType,
+			MediaType mediaType){
+		return request(path, HttpMethod.DELETE, queryParams, body, headerParams, accept, returnType, mediaType);
+	}
+
+	public <T> T options(String path,
+			MultiValueMap<String, String> queryParams,
+			Object body,
+			HttpHeaders headerParams,
+			List<MediaType> accept,
+			TypeReference<T> returnType,
+			MediaType mediaType){
+		return request(path, HttpMethod.OPTIONS, queryParams, body, headerParams, accept, returnType, mediaType);
 	}
 
 }

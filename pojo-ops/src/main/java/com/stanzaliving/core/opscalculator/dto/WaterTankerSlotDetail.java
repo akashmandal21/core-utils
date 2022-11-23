@@ -4,12 +4,10 @@
  */
 package com.stanzaliving.core.opscalculator.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
+
+import java.time.LocalDate;
 
 /**
  * @author nipunaggarwal
@@ -23,9 +21,10 @@ import lombok.experimental.SuperBuilder;
 @ToString(callSuper = true)
 public class WaterTankerSlotDetail {
 
-	private String startDate;
-	private String endDate;
+	private LocalDate startDate;
+	private LocalDate endDate;
 	private int cost;
 	private int capacity;
+	private int dependency;
 
 }

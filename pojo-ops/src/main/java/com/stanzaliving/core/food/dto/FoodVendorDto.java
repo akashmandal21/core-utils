@@ -31,4 +31,12 @@ public class FoodVendorDto extends AbstractDto {
 
 	private boolean stanzaKitchen;
 
+	private String gstin;
+
+	private String fassai;
+
+	private String gstCompanyName;
+
+	private String gstCompanyAddress;
+
 }

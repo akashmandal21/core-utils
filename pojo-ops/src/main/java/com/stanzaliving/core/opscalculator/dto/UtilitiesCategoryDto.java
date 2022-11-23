@@ -26,8 +26,8 @@ import lombok.experimental.SuperBuilder;
 @JsonIgnoreProperties({ "count", "rate", "utilization", "margin", "gst" })
 public class UtilitiesCategoryDto extends CategoryDto {
 
+	private UtilitiesElectricityCategoryDto utilitiesElectricityCategoryDto;
 	private UtilitiesWaterCategoryDto utilitiesWaterCategoryDto;
 	private UtilitiesDgCategoryDto utilitiesDgCategoryDto;
-	private UtilitiesElectricityCategoryDto utilitiesElectricityCategoryDto;
 
 }

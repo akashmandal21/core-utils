@@ -1,10 +1,12 @@
 package com.stanzaliving.core.estate.client.api;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+import com.stanzaliving.core.estate.constants.AttributeNames;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -71,6 +73,41 @@ public class EstateClientApi {
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
         ParameterizedTypeReference<ResponseDto<List<EstateAttributeDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<EstateAttributeDto>>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+
+    }
+
+    public ResponseDto<EstateAttributeDto> getSpecificEstateAttributeByEstateUuidOrEstateId(String estateUuid, String estateId, String attributeName) {
+
+        if (StringUtils.isEmpty(estateUuid) && StringUtils.isEmpty(estateId)) {
+            return null;
+        }
+
+        Object postBody = null;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/attributes/fetchattribute/"+attributeName).buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        if (StringUtils.isNotEmpty(estateUuid)) {
+            queryParams.putAll(restClient.parameterToMultiValueMap(null, "estateUuid", estateUuid));
+        }
+        if (StringUtils.isNotEmpty(estateId)) {
+            queryParams.putAll(restClient.parameterToMultiValueMap(null, "estateId", estateId));
+        }
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<EstateAttributeDto>> returnType = new ParameterizedTypeReference<ResponseDto<EstateAttributeDto>>() {
         };
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 
@@ -341,7 +378,7 @@ public class EstateClientApi {
         ParameterizedTypeReference<ResponseDto<List<QuestionDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<QuestionDto>>>() {
         };
         
-        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
     }
 
     public ResponseDto<List<Long>> getAllEstateIdsByAttributeNameAndValue(String attributeName, String attributeValue) {
@@ -378,5 +415,44 @@ public class EstateClientApi {
         
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 
+    }
+
+    public ResponseDto<Map<String,Boolean>> getEstateSalesMapping(Collection<String> estateIds) {
+
+        Object postBody = estateIds;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/internal/estate/sales/mapping").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+
+        ParameterizedTypeReference<ResponseDto<Map<String,Boolean>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<String,Boolean>>>() {
+        };
+
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+
+    }
+
+    public String getAttributeValueEmptyStringIfUnavailable(String estateUuid, String estateId, String attributeName) {
+        String competitionName = "";
+        try {
+            ResponseDto<EstateAttributeDto> estateAttributeDtoResponseDto = getSpecificEstateAttributeByEstateUuidOrEstateId(estateUuid, estateId, attributeName);
+            EstateAttributeDto estateAttributeDto = estateAttributeDtoResponseDto.getData();
+            competitionName = null == estateAttributeDto || StringUtils.isBlank(estateAttributeDto.getAttributeValue()) ? "" : estateAttributeDto.getAttributeValue();
+        } catch (Exception e) {
+            log.error("Unable to getAttributevalue for estateUuid {}, estateId {}, attributeName {}", estateUuid, estateId, attributeName, e);
+        }
+        return competitionName;
     }
 }

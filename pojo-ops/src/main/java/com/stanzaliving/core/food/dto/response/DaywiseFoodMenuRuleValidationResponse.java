@@ -17,6 +17,8 @@ public class DaywiseFoodMenuRuleValidationResponse {
 
 	private boolean compositionRulesSatisfied;
 
+	private Collection<DaywiseWeeklyRuleMealResponseDto> defaultRules;
+	
 	private Collection<DaywiseWeeklyRuleMealResponseDto> weeklyRules;
 
 	private Collection<DailyDaywiseRuleMealResponseDto> dailyRules;

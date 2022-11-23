@@ -1,12 +1,14 @@
 package com.stanzaliving.core.asis.dto;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 import com.stanzaliving.core.asis.enums.POStatus;
 import com.stanzaliving.core.asis.enums.SiteVisitStatus;
 import com.stanzaliving.core.base.common.dto.AbstractDto;
 
+import com.stanzaliving.core.commentsservice.dto.CommentsDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -55,5 +57,13 @@ public class AsIsDataDto extends AbstractDto implements Serializable {
 	
 	private boolean asIsMarkedComplted;
 	private List<AsIsDrawingsDto> asIsDrawings;
+	private List<CommentsDto> commentsDtos;
+	
+	private boolean canByPassAsis;
 
+	private boolean asisByPassDone;
+
+	private Date asisByPassDoneAt;
+
+	private String asisByPassDoneBy;
 }

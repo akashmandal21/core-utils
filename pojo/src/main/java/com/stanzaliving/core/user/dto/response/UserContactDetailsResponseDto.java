@@ -1,8 +1,14 @@
 package com.stanzaliving.core.user.dto.response;
 
-import com.stanzaliving.core.base.enums.Department;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import lombok.experimental.SuperBuilder;
+
+import java.io.Serializable;
 
 /**
  *
@@ -18,7 +24,8 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserContactDetailsResponseDto {
+@EqualsAndHashCode(of = { "userId" })
+public class UserContactDetailsResponseDto implements Serializable {
 
 	private String userId;
 

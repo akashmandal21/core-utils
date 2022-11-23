@@ -5,6 +5,7 @@ package com.stanzaliving.core.base.utils;
 
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.text.WordUtils;
 
 import lombok.experimental.UtilityClass;
 
@@ -48,5 +49,45 @@ public class StringNormalizer {
 		}
 
 		return string;
+	}
+	
+	/**
+	 * Method to convert a string to title case with following assumptions -
+	 * 1. Char just after comma will be capitalized
+	 * 2. Char just after space will be capitalized
+	 * 3. Leading and Trailing Spaces are removed (trimmed)
+	 */
+	public static String getTitleCaseString(String string) {
+
+		if (StringUtils.isNotEmpty(string)) {
+			string = WordUtils.capitalizeFully(string, ',', ' ').trim();
+		}
+		return string;
+	}
+
+	/**
+	 * Method to convert a string to trimmed string -
+	 * 1. Blank strings will be returned as null
+	 * 2. Leading and Trailing Spaces are removed (trimmed)
+	 */
+	public static String getNullOrTrimmedString(String string) {
+		if (StringUtils.isBlank(string)) {
+			return null;
+		} else {
+			return string.trim();
+		}
+	}
+
+	/**
+	 * Method to check equals on two strings by normalizing them-
+	 * 1. blank strings will be converted to null
+	 * 2. Leading and Trailing Spaces are removed (trimmed)
+	 * 3. Then equals method will return true if their char seq matches
+	 */
+	public static boolean normalizeAndCheckEqualsOnStrings(String value1, String value2) {
+		value1 = getNullOrTrimmedString(value1);
+		value2 = getNullOrTrimmedString(value2);
+
+		return StringUtils.equals(value1, value2);
 	}
 }

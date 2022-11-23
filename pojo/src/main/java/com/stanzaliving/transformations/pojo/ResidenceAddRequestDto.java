@@ -7,6 +7,7 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import com.stanzaliving.core.enums.PropertyEntityType;
 import com.stanzaliving.core.enums.ResidenceBrand;
 import com.stanzaliving.core.enums.ResidenceType;
 import com.stanzaliving.core.estate.enums.EstateGender;
@@ -56,4 +57,24 @@ public class ResidenceAddRequestDto {
 	private Integer coreResidenceId;
 
 	private String coreResidenceName;
+
+	private String residenceSlug;
+
+	private String estateUuid;
+
+	private String phoenixPropertyUuid;
+
+	private String parentResidenceId;
+	
+	private PropertyEntityType propertyEntityType;
+
+	private String code;
+
+	private String category;
+
+	private String company;
+
+	private String addressUuid;
+
+
 }

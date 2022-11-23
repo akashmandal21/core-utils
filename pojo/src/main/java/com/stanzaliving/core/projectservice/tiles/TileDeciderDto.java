@@ -17,6 +17,7 @@ import java.util.List;
 public class TileDeciderDto {
     private String propertyUuid;
     private UserType userType;
+    private String userUuid;
     private Department department;
     private List<PropertyUpdateEnum> propertyUpdateEnums;
 }

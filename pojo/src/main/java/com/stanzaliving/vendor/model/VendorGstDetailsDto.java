@@ -30,4 +30,7 @@ public class VendorGstDetailsDto {
     private String createdBy;
 
     private String updatedBy;
+
+    private Boolean isDefault;
+
 }
