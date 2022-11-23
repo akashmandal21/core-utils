@@ -11,6 +11,7 @@ public enum CashReceiver {
     CLUSTER_MANAGER("CM"),
     NODAL_OFFICER("Nodal"),
     BANK("Bank"),
+
     RESIDENT("Resident"),
     CITY_HEAD("City Head");
     private final String values;

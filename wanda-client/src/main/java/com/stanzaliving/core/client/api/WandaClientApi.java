@@ -10,8 +10,8 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-import com.stanzaliving.core.base.exception.BaseMarker;
 import com.stanzaliving.wanda.dtos.*;
+import com.stanzaliving.core.base.exception.BaseMarker;
 import com.stanzaliving.wanda.venta.response.BookingStatusResponseDto;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -998,6 +998,30 @@ public class WandaClientApi {
 		return null;
 	}
 
+	public ResponseDto<Boolean> saveUpiDetails(UpiDetailsDto upiDetailsDto) {
+		Object postBody = upiDetailsDto;
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/internal/upi").buildAndExpand(uriVariables).toUriString();
+
+		MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		HttpHeaders headerParams = new HttpHeaders();
+		String[] accepts = new String[]{"*/*"};
+		List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<Boolean>> returnType = new ParameterizedTypeReference<ResponseDto<Boolean>>() {
+		};
+		try {
+			log.info("Executing Api for saving upi account details with Url {} on upiDetailsDto {} ", path,upiDetailsDto);
+			return this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Exception while saving upi account details based on upiDetailsDto {}, Exception is {}", upiDetailsDto, e);
+		}
+		return null;
+	}
+
 	public ResponseDto<UserCurrentPlanDetailDto> getUserInternetUsage(String userId, String residenceUuid) {
 		try {
 
@@ -1059,5 +1083,4 @@ public class WandaClientApi {
 
 		return ResponseDto.failure("Failed to get Plan details");
 	}
-
 }
