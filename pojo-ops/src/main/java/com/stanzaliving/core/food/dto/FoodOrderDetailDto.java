@@ -2,15 +2,20 @@ package com.stanzaliving.core.food.dto;
 
 import com.stanzaliving.core.food.dto.request.AdditionalItemsRequestDto;
 import com.stanzaliving.core.operations.enums.MealType;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Set;
 
 @Getter
 @Setter
@@ -95,15 +100,15 @@ public class FoodOrderDetailDto {
 	private boolean extraFoodOrderWindowClosed = true;
 
 	private Date extraFoodOrderWindowCloseTime;
-	
+
 	private boolean foodOrderWindowClosed;
 
 	private LocalDate foodOrderWindowCloseDate;
-	
+
 	private LocalTime foodOrderWindowCloseTime;
-	
+
 	private LocalDate cutoffDate;
-	
+
 	private LocalTime cutoffTime;
 
 	@Builder.Default
@@ -111,6 +116,7 @@ public class FoodOrderDetailDto {
 
 	private UserPreferenceCountDto userPreferenceCountDto;
 
-	private Set<String> slEmailIds;
+	@Builder.Default
+	private List<ExtraFoodOrderDetail> slStaffDetails = new ArrayList<>();
 
 }
