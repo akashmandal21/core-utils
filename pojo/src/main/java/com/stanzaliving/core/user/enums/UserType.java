@@ -39,8 +39,7 @@ public enum UserType {
 	GUEST("Guest"),
 	INVITED_GUEST("Invited Guest"),
 	FOOD_DELIVERY_AGENT("Food Delivery Agent"),
-	VENDOR("Vendor"),
-	EMPLOYEE("Employee");
+	VENDOR("Vendor");
 
 	public String typeName;
 
