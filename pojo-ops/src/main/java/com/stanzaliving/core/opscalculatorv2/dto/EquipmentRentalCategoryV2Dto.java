@@ -16,7 +16,8 @@ import lombok.experimental.SuperBuilder;
 @ToString(callSuper = true)
 public class EquipmentRentalCategoryV2Dto extends CategoryV2Dto {
 
-    private boolean equipmentRentalApplicable;
+    @Builder.Default
+    private boolean equipmentRentalApplicable = true;
 
     @Builder.Default
     private BigDecimal standardEquipRental = new BigDecimal(0);
