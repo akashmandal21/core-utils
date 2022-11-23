@@ -36,4 +36,17 @@ public class EstateAttributeDetailsDto{
     
     private String buildingHandoverDate;
 
+    private String monthlyRent;
+
+    private String securityDepositMonthsOfRent;
+
+    private String advanceRentMonthCount;
+
+    private String leaseLockInPeriodInYears;
+
+    private String leaseDurationInYears;
+
+    private String rentalInflationInYears;
+
+
 }
