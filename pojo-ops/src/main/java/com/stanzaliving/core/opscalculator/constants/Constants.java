@@ -100,6 +100,7 @@ public class Constants {
 	public static final int INTERNET_DEFUALT_MG_OCCUPANCY_PERCENT = 90;
 	public static final int INTERNET_DEFAULT_PLAN_RATE = 225;
 	public static final int INTERNET_DEFUALT_INFRA_CHARGES = 20;
+	public static final BigDecimal UNIFORM_DEFUALT_RATE_RM = new BigDecimal(18000);
 
 
 }
