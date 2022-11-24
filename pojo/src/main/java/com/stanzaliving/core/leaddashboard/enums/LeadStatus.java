@@ -22,7 +22,7 @@ public enum LeadStatus {
 	MOVED_OUT("Moved Out"),
 	BOOKED("Booked");
 	
-	private String statusDescription;
+	private final String statusDescription;
 	
 	public static boolean isLeadQualified(LeadStatus leadStatus) {
 		Set<LeadStatus> leadStatuses = new HashSet<>();

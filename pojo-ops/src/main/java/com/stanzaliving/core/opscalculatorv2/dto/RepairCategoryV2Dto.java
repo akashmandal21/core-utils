@@ -20,8 +20,10 @@ import lombok.experimental.SuperBuilder;
 @JsonIgnoreProperties({ "count", "rate", "utilization", "margin", "gst" })
 public class RepairCategoryV2Dto extends CategoryV2Dto {
 
-	private double manpowerCostPerBed;
-	private double materialCostPerBed;
+    @Builder.Default
+	private double manpowerCostPerBed = 35;
+    @Builder.Default
+	private double materialCostPerBed = 61;
 	private double amcCostPerBed;
 
 	@Builder.Default
