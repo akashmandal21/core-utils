@@ -37,6 +37,5 @@ public class LaundryCategoryV2Dto extends CategoryV2Dto {
     private String utilizationPercentSuggestedReason;
     private boolean leninLaundryInclude;
     private double leninCost;
-    private double laundryRatePerKg;
 
 }
