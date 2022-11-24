@@ -61,7 +61,7 @@ public class UtilitiesElectricityCategoryV2Dto extends CategoryV2Dto {
 	
 	public double liftCount;
 	@Builder.Default
-	public double unitsConsumedByLiftPerDay = 11;
+	public double liftConsumptionPerDay = 11;
 	
 	public double totalUnitsPerMonth;
 	public double totalPassThroughUnitsPerMonth;
