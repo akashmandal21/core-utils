@@ -15,6 +15,8 @@ import lombok.NoArgsConstructor;
 public class MonthlyRentDto {
     private String taskMappingId;
     private TaskSubCategory taskSubCategory;
+    private String taskSubCategoryName;
+    private String isFromRentDueJob;
     private String resolvedByUuid;
     private LocalDateTime resolvedAt;
     private EventType eventType;
