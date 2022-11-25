@@ -6,16 +6,13 @@ package com.stanzaliving.wanda.dtos;
 
 import javax.validation.constraints.NotEmpty;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 /**
  * @author nipunaggarwal
  *
  */
-@Getter
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
@@ -40,6 +37,4 @@ public class UpiDetailsDto {
 	private String vpaId;
 
 	private Boolean isActive = false;
-
-
 }

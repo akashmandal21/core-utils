@@ -1,6 +1,3 @@
-/**
- *
- */
 package com.stanzaliving.core.payment.client.api;
 
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -22,8 +19,6 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.HashMap;
@@ -481,4 +476,41 @@ public class TransactionControllerApi {
         };
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
     }
+
+    public Long getRefundBalanceResponseFromRazorpayX() {
+        Map<String, Object> uriVariables = new HashMap<>();
+        String path = UriComponentsBuilder.fromPath("/payment/razorpayX/available-amount-for-refund")
+                .buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        HttpHeaders headerParams = new HttpHeaders();
+        String[] accepts = {"*/*"};
+        List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<Long> returnType = new ParameterizedTypeReference<Long>() {
+        };
+        try {
+            return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept,
+                    returnType);
+        } catch (Exception e) {
+            log.error("Exception while fetching razorPayX details  {} ", e.getMessage());
+        }
+        return null;
+    }
+
+    public ResponseDto<Boolean> validatePrebookedLead(String leadPhone, String leadUuid) {
+        final Map<String, Object> uriVariables = new HashMap<>();
+        String path = UriComponentsBuilder.fromPath("/internal/validate/prebooked/lead").buildAndExpand(uriVariables).toUriString();
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        queryParams.add("leadPhone", leadPhone);
+        queryParams.add("leadUuid", leadUuid);
+        final HttpHeaders headerParams = new HttpHeaders();
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        TypeReference<ResponseDto<Boolean>> returnType = new TypeReference<ResponseDto<Boolean>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+    }
+
 }

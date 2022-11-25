@@ -1,12 +1,7 @@
 package com.stanzaliving.website.response.dto;
 
 import java.io.Serializable;
-import java.util.Collections;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 import com.stanzaliving.core.enums.PropertyEntityType;
 import com.stanzaliving.website.enums.FomoTag;
@@ -119,9 +114,8 @@ public class ApartmentResponseDto implements Serializable, Comparable<ApartmentR
 	private Boolean soldOut;
 	
 	private boolean isEntireFlatAvailable;
-	
-	@Builder.Default
-	private Set<FacilityResponseDTO> facilities = new HashSet<>();
+
+	private List<FacilityResponseDTO> facilities;
 	
 	private List<Integer> featureIds;
 
