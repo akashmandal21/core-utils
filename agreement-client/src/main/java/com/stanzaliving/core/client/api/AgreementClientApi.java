@@ -205,7 +205,7 @@ public class AgreementClientApi {
 
 			uriVariables.put("referenceId", referenceId);
 
-			String path = UriComponentsBuilder.fromPath("/agreement-booking/api/v1/expire-old-document/{referenceId}").buildAndExpand(uriVariables)
+			String path = UriComponentsBuilder.fromPath("/api/v1/expire-old-document/{referenceId}").buildAndExpand(uriVariables)
 					.toUriString();
 
 			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
