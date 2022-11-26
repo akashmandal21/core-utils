@@ -205,7 +205,7 @@ public class AgreementClientApi {
 
 			uriVariables.put("referenceId", referenceId);
 
-			String path = UriComponentsBuilder.fromPath("/agreement-booking/api/v1/expire-old-document/{referenceId}").buildAndExpand(uriVariables)
+			String path = UriComponentsBuilder.fromPath("/api/v1/expire-old-document/{referenceId}").buildAndExpand(uriVariables)
 					.toUriString();
 
 			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
@@ -219,7 +219,7 @@ public class AgreementClientApi {
 			ParameterizedTypeReference<ResponseDto<Void>> returnType = new ParameterizedTypeReference<ResponseDto<Void>>() {
 			};
 
-			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, null, headerParams, accept, returnType);
 		} catch (Exception e) {
 			log.error("error while fetching the user details " + e);
 		}
