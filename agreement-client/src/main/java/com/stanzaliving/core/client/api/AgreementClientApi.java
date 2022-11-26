@@ -221,7 +221,7 @@ public class AgreementClientApi {
 
 			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 		} catch (Exception e) {
-			log.error("error while fetching the user details " + e);
+			log.error("Error while expiring old documents " + e);
 		}
 
 		return null;
