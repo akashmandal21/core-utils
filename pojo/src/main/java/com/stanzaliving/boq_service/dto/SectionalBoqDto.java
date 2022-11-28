@@ -16,6 +16,20 @@ public class SectionalBoqDto {
     
     private String sectionName;
     
-    private List<SectionalBoqItemDetailsDto> items;
+    private List<SectionalBoqItemDetailsDto> sectionBoqItems;
+
+    private List<SectionalItemDetailsQcDto> items;
+
+    private Integer roomCount;
+
+    private Integer bedCount;
+
+    private BigDecimal boiCapex;
+
+    private BigDecimal gcCapex;
+
+    private BigDecimal totalCapex;
+
+    private BigDecimal qcPercent;
     
 }

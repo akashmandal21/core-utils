@@ -17,6 +17,10 @@ public class BoqInfoDto {
     
     private List<BoqItemsDto> boqItemsDto;
     
-    private BigDecimal capex;
+    private BigDecimal totalCapex;
+
+    private BigDecimal boiCapex;
+
+    private BigDecimal gcCapex;
     
 }

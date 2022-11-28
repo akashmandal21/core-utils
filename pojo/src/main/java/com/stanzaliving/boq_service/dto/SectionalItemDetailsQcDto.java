@@ -8,21 +8,28 @@ import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 
-@Data
 @Builder
-@NoArgsConstructor
+@Data
 @AllArgsConstructor
-public class SectionalBoqItemDetailsDto {
-    
+@NoArgsConstructor
+public class SectionalItemDetailsQcDto {
+
     private String itemCode;
-    
+
     private String itemName;
-    
+
     private BigDecimal itemQuantity;
 
     private BigDecimal itemCost;
 
-    private ItemType itemType;
+    private BigDecimal grnQuantity;
 
     private BigDecimal qcQuantity;
+
+    private BigDecimal totalItemQuantity;
+
+    private BigDecimal totalItemCost;
+
+    private ItemType itemType;
+
 }
