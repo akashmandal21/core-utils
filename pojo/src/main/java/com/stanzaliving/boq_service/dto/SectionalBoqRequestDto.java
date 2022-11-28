@@ -5,31 +5,30 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class SectionalBoqDto {
+public class SectionalBoqRequestDto {
     
     private String sectionName;
     
-    //private List<SectionalBoqItemDetailsDto> sectionBoqItems;
+    private List<SectionalBoqItemDetailsDto> sectionBoqItems;
 
-    private List<SectionalItemDetailsQcDto> items;
+    //private List<SectionalItemDetailsQcDto> items;
 
     private Integer roomCount;
 
     private Integer bedCount;
 
-    private BigDecimal boiCapex;
+    //private BigDecimal boiCapex;
 
-    private BigDecimal gcCapex;
+    //private BigDecimal gcCapex;
 
-    private BigDecimal totalCapex;
+    //private BigDecimal totalCapex;
 
-    private BigDecimal qcPercent;
+    //private BigDecimal qcPercent;
     
 }
