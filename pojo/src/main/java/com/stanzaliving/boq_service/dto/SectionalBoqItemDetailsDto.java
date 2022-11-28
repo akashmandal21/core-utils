@@ -20,9 +20,9 @@ public class SectionalBoqItemDetailsDto {
     
     private BigDecimal itemQuantity;
 
-    private BigDecimal itemCost;
-
     private ItemType itemType;
 
     private BigDecimal qcQuantity;
+
+    private BigDecimal masterRate;
 }

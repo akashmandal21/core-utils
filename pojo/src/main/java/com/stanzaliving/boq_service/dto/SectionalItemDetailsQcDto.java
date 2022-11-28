@@ -28,8 +28,7 @@ public class SectionalItemDetailsQcDto {
 
     private BigDecimal totalItemQuantity;
 
-    private BigDecimal totalItemCost;
-
     private ItemType itemType;
 
+    private BigDecimal masterRate;
 }

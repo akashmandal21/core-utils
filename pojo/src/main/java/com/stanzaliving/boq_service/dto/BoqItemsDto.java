@@ -25,5 +25,7 @@ public class BoqItemsDto {
     private BigDecimal totalItemCost;
 
     private ItemType itemType;
+
+    private BigDecimal masterRate;
     
 }
