@@ -28,5 +28,9 @@ public class BookingDiscountCriteriasDto {
     private Boolean entireFlatBooking;
     private Date preBookFromDate;
     private Date preBookToDate;
+    @Builder.Default
+    private MathematicalSymbol tokenAmountSymbol=MathematicalSymbol.GREATER_THAN_EQUAL_TO;
+    private Integer tokenAmount;
+    private Boolean remoteBooking;
 
 }
