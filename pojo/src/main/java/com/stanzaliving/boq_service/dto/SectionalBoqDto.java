@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 
 @Data
@@ -31,5 +32,7 @@ public class SectionalBoqDto {
     private BigDecimal totalCapex;
 
     private BigDecimal qcPercent;
+
+    private Date updatedOn;
     
 }
