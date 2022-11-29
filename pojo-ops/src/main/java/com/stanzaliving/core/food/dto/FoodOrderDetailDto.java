@@ -1,5 +1,6 @@
 package com.stanzaliving.core.food.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.stanzaliving.core.food.dto.request.AdditionalItemsRequestDto;
 import com.stanzaliving.core.operations.enums.MealType;
 import lombok.AllArgsConstructor;
@@ -117,6 +118,7 @@ public class FoodOrderDetailDto {
 	private UserPreferenceCountDto userPreferenceCountDto;
 
 	@Builder.Default
+	@JsonInclude(JsonInclude.Include.NON_EMPTY)
 	private List<ExtraFoodOrderDetail> slStaffDetails = new ArrayList<>();
 
 }
