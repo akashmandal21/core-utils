@@ -121,5 +121,4 @@ public class FoodOrderDetailDto {
 	@JsonInclude(JsonInclude.Include.NON_EMPTY)
 	private List<ExtraFoodOrderDetail> slStaffDetails = new ArrayList<>();
 
-
 }
