@@ -21,9 +21,11 @@ public class SectionalBoqDto {
 
     private List<SectionalItemDetailsQcDto> items;
 
-    private Integer roomCount;
+    @Builder.Default
+    private Integer roomCount = 0;
 
-    private Integer bedCount;
+    @Builder.Default
+    private Integer bedCount = 0;
 
     private BigDecimal boiCapex;
 
