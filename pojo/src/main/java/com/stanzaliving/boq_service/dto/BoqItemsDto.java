@@ -1,6 +1,7 @@
 package com.stanzaliving.boq_service.dto;
 
 import com.stanzaliving.item_master.enums.ItemType;
+import com.stanzaliving.transformations.enums.AreaOfUse;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -27,5 +28,8 @@ public class BoqItemsDto {
     private ItemType itemType;
 
     private BigDecimal masterRate;
-    
+
+    private AreaOfUse areaOfUse;
+
+    private String subCategory;
 }

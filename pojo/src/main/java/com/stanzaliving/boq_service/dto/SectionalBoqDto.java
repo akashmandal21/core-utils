@@ -36,5 +36,7 @@ public class SectionalBoqDto {
     private BigDecimal qcPercent;
 
     private Date updatedOn;
+
+    private Integer totalFilteredItems;
     
 }
