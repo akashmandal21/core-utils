@@ -1,5 +1,9 @@
 package com.stanzaliving.core.client.api;
 
+import com.stanzaliving.core.base.common.dto.ResponseDto;
+import com.stanzaliving.core.base.exception.BaseMarker;
+import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.core.dto.KycDocumentsResponseDTO;
 import com.stanzaliving.core.base.exception.BaseMarker;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.wanda.response.OnBoardingGetResponse;
@@ -55,6 +59,37 @@ public class WandaV2ClientApi {
             return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
         } catch (Exception e) {
             log.error(BaseMarker.WANDA_API_ERROR, "error while fetching the user details " + e);
+            return null;
+        }
+    }
+
+    public ResponseDto<KycDocumentsResponseDTO> getKycDocuments(String bookingUuid){
+        try {
+            Object postBody = null;
+
+            log.info("get kyc documents by bookingUuid is {} ", bookingUuid);
+
+            final Map<String, Object> uriVariables = new HashMap<>();
+
+            String path = UriComponentsBuilder.fromPath("/internal/documents").buildAndExpand(uriVariables)
+                    .toUriString();
+
+            final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+            queryParams.put("bookingUuid", Collections.singletonList(bookingUuid));
+
+            HttpHeaders headerParams = new HttpHeaders();
+
+            final String[] accepts = {"*/*"};
+
+            final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+            ParameterizedTypeReference<ResponseDto<KycDocumentsResponseDTO>> returnType = new ParameterizedTypeReference<ResponseDto<KycDocumentsResponseDTO>>() {
+            };
+
+            return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error(BaseMarker.WANDA_API_ERROR, "error while fetching the kyc documents details " + e);
             return null;
         }
     }
