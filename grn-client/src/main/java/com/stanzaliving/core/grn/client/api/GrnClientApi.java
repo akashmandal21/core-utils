@@ -316,9 +316,9 @@ public class GrnClientApi {
     public ResponseDto<Map<String, BigDecimal>> getGSRIItemCodeAndQuantity(String propertyUuid) {
 
         final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("propertyUuid", propertyUuid);
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-        queryParams.set("propertyUuid", propertyUuid);
 
         final HttpHeaders headerParams = new HttpHeaders();
 
