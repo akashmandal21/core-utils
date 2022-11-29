@@ -41,5 +41,4 @@ public class RefundRequest {
 
     private RefundMode refundMode;
 
-
 }
