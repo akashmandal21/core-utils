@@ -20,6 +20,7 @@ import java.util.Objects;
 @AllArgsConstructor
 public class LeadRequestDto {
 
+	//private Integer leadId;
 	private Long leadId;
 	private String leadUuid;
 	
@@ -151,6 +152,7 @@ public class LeadRequestDto {
 	
 	private Integer placeId;
 	private String placeName;
+
 	private String timeSlot;
 
 	private String budget;
