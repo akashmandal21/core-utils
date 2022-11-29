@@ -17,25 +17,25 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 public class PendingBookingVentaDto {
-	
+
     private LocalDate moveInDate;
-    
+
     private String houseName;
-    
+
     private String bookingUuid;
-    
+
     private String ventaHouseUuid;
-    
+
     private String microMarketName;
-    
+
     private String cityName;
-    
+
     private Double price;
-    
+
     private String occupancy;
-    
+
     private String expiryDays;
-    
+
     private BookingSubType bookingSubType;
 
     private Date bookingExpirationTime;

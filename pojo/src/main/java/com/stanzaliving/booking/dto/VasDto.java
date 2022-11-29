@@ -22,5 +22,5 @@ public class VasDto {
     private Date optInDate;
 
     @JsonFormat(pattern = DateUtil.yyyy_MM_dd_FORMAT, timezone = StanzaConstants.IST_TIMEZONE)
-    private  Date optOutDate;
+    private Date optOutDate;
 }
