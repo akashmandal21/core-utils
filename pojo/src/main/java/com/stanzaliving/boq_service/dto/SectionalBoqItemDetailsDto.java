@@ -18,14 +18,17 @@ public class SectionalBoqItemDetailsDto {
     private String itemCode;
     
     private String itemName;
-    
-    private BigDecimal itemQuantity;
+
+    @Builder.Default
+    private BigDecimal itemQuantity = BigDecimal.ZERO;
 
     private ItemType itemType;
 
-    private BigDecimal qcQuantity;
+    @Builder.Default
+    private BigDecimal qcQuantity = BigDecimal.ZERO;
 
-    private BigDecimal masterRate;
+    @Builder.Default
+    private BigDecimal masterRate = BigDecimal.ZERO;
 
     private AreaOfUse areaOfUse;
 
