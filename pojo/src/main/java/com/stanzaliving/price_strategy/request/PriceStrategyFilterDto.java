@@ -4,6 +4,7 @@ import com.stanzaliving.commercialcard.enums.CommercialCardStatus;
 import com.stanzaliving.commercialcard.enums.CommercialCardUserType;
 import lombok.*;
 
+import java.util.Date;
 import java.util.List;
 
 @Getter
@@ -24,6 +25,10 @@ public class PriceStrategyFilterDto {
     private List<CommercialCardStatus> status;
 
     private List<CommercialCardUserType> bookingType;
+
+    private Date from;
+
+    private Date to;
 
     private Integer pageSize;
 
