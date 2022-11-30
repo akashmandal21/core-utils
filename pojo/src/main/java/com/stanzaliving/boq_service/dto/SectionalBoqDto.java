@@ -27,11 +27,14 @@ public class SectionalBoqDto {
     @Builder.Default
     private Integer bedCount = 0;
 
-    private BigDecimal boiCapex;
+    @Builder.Default
+    private BigDecimal boiCapex = BigDecimal.ZERO;
 
-    private BigDecimal gcCapex;
+    @Builder.Default
+    private BigDecimal gcCapex = BigDecimal.ZERO;
 
-    private BigDecimal totalCapex;
+    @Builder.Default
+    private BigDecimal totalCapex = BigDecimal.ZERO;
 
     private BigDecimal qcPercent;
 
