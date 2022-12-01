@@ -1431,25 +1431,4 @@ public class BookingDataControllerApi {
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, bookingUuids, headerParams, accept, returnType);
     }
 
-    public ResponseDto<List<BookingResponseDto>> findBookingsByUser(BookingsForUpsellRequestDto upsellRequestDto) {
-        Map<String, Object> uriVariables = new HashMap<>();
-
-        String path = UriComponentsBuilder.fromPath("/internal/v1/bookings")
-                .buildAndExpand(uriVariables).toUriString();
-        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-        HttpHeaders headerParams = new HttpHeaders();
-        String[] accepts = new String[]{"*/*"};
-        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
-        ParameterizedTypeReference<ResponseDto<List<BookingResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<BookingResponseDto>>>() {
-        };
-        ResponseDto<List<BookingResponseDto>> response  = null;
-        try {
-            log.info("Executing Api for getting bookings for upsellRequestDto {}", upsellRequestDto);
-            response = this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, upsellRequestDto, headerParams, accept, returnType);
-        } catch (Exception e) {
-            log.error("Exception while fetching bookings for upsellRequestDto {}, Exception is ", upsellRequestDto , e);
-        }
-        return response;
-    }
-
 }

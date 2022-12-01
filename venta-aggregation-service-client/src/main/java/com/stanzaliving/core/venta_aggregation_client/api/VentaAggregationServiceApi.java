@@ -6,6 +6,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.stanzaliving.booking.dto.BookingResponseDto;
+import com.stanzaliving.core.bookingservice.dto.request.BookingsForUpsellRequestDto;
 import com.stanzaliving.core.ventaaggregationservice.dto.*;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.common.dto.RoommateFilterDto;
@@ -627,4 +629,25 @@ public class VentaAggregationServiceApi {
 		};
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
+
+    public ResponseDto<List<BookingResponseDto>> findBookingsByUser(BookingsForUpsellRequestDto upsellRequestDto) {
+        Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/internal/v1/bookingUuid-by-user")
+                .buildAndExpand(uriVariables).toUriString();
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        HttpHeaders headerParams = new HttpHeaders();
+        String[] accepts = new String[]{"*/*"};
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<List<BookingResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<BookingResponseDto>>>() {
+        };
+        ResponseDto<List<BookingResponseDto>> response  = null;
+        try {
+            log.info("Executing Api for getting bookings for upsellRequestDto {}", upsellRequestDto);
+            response = this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, upsellRequestDto, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception while fetching bookings for upsellRequestDto {}, Exception is ", upsellRequestDto , e);
+        }
+        return response;
+    }
 }
