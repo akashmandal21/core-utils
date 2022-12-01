@@ -602,6 +602,32 @@ public class VentaAggregationServiceApi {
         }
 
     }
+    public ResponseDto<List<BookingAggregationDto>> getActiveBookingsForDigest(String date) {
+        try {
+            Object postBody = null;
+
+            final Map<String, Object> uriVariables = new HashMap<>();
+
+            String path = UriComponentsBuilder.fromPath("/internal/activeBooking/details/digest").buildAndExpand(uriVariables).toUriString();
+
+            final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+            queryParams.add("digestDate", date);
+
+            final HttpHeaders headerParams = new HttpHeaders();
+
+            final String[] accepts = {"*/*"};
+            final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+            ParameterizedTypeReference<ResponseDto<List<BookingAggregationDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<BookingAggregationDto>>>() {
+            };
+
+            return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+
+        } catch (Exception e) {
+            log.error("Exception occurred while fetching sync properties data for cms website from venta", e);
+            return null;
+        }
+    }
 
 	public List<String> getBookingUuidByResidentId(String residentId) {
 		log.info("Resident Details Controller::Processing to get booking uuids on basis of residentId {}", residentId);
