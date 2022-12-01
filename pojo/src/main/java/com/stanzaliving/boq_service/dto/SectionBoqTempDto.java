@@ -35,7 +35,7 @@ public class SectionBoqTempDto {
 
     private String subCategory;
 
-    private Map<String, Pair<String, BigDecimal>> itemCodeAndSectionNameAndItemQuantityMap;
+    private Map<Pair<String, String>, BigDecimal> itemCodeAndSectionNameAndItemQuantityMap;
 
-    private Map<String, SectionalBoqCapexDto> sectionBoqCapexMap;
+    //private Map<String, SectionalBoqCapexDto> sectionBoqCapexMap;
 }
