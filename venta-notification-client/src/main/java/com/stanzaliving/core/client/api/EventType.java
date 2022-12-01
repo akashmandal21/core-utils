@@ -27,8 +27,16 @@ public enum EventType {
     CAPTURE_BANK_DETAILS("capture bank details"),
     INELIGIBLE_REFUNDS_DUE_GREATER_THAN_SD("ineligible refunds due greater than SD"),
     INELIGIBLE_REFUNDS_LEFT_WITHIN_LOCKIN("ineligible refunds within lockin"),
-    PRE_BOOKING_COMPLETED("Pre Booking completed");
-    private final String commandText;
+    PRE_BOOKING_COMPLETED("Pre Booking completed"),
+    TOKEN_AMOUNT_PAID("Token Amount Paid"),
+    CONTRACT_START_DATE_CROSSED("Contract Start Date Crossed"),
+    BOOKING_AUTO_FORFEITURE("Booking Auto Forfeiture"),
+
+    THREE_DAYS_BEFORE_CSD("Three Days Before CSD"),
+
+    THREE_DAYS_BEFORE_BOOKING_FORFEITURE("Three Days Before CSD");
+
+    private String commandText;
 
     EventType(String commandText)
     {
