@@ -15,33 +15,34 @@ import java.util.Map;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class SectionBoqTempDto {
+public class ItemSectionDto {
 
     private String itemCode;
 
-    private String itemUuid;
-
     private String itemName;
+
+    @Builder.Default
+    private BigDecimal itemQuantity = BigDecimal.ZERO;
+
+    private BigDecimal itemCost;
+
+    private BigDecimal grnQuantity;
+
+    @Builder.Default
+    private BigDecimal qcQuantity = BigDecimal.ZERO;
 
     private BigDecimal totalItemQuantity;
 
-    private BigDecimal totalItemCost;
-
     private ItemType itemType;
 
-    private BigDecimal masterRate;
+    @Builder.Default
+    private BigDecimal masterRate = BigDecimal.ZERO;
 
     private AreaOfUse areaOfUse;
 
     private String subCategory;
 
-    //private Map<Pair<String, String>, BigDecimal> itemCodeAndSectionNameAndItemQuantityMap;
-
-    //private Map<Pair<String, String>, BigDecimal> itemCodeAndSectionNameAndQcQuantityMap;
-
     private Map<String, Pair<String, BigDecimal>> itemCodeAndSectionNameAndItemQuantityMap;
 
     private Map<String, Pair<String, BigDecimal>> itemCodeAndSectionNameAndQcQuantityMap;
-
-    //private Map<String, SectionalBoqCapexDto> sectionBoqCapexMap;
 }
