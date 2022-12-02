@@ -16,4 +16,5 @@ public class FilterPropertyDto {
     private List<String> propertyStatus;
     private Date startDate;
     private Date endDate;
+    private String searchText;
 }
