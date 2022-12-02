@@ -15,7 +15,7 @@ public class SectionalBoqRequestDto {
     
     private String sectionName;
     
-    private List<SectionalBoqItemDetailsDto> sectionBoqItems;
+    private List<SectionalBoqItemDetailsDto> items;
 
     //private List<SectionalItemDetailsQcDto> items;
 
