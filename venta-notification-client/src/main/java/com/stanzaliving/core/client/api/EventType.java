@@ -34,7 +34,15 @@ public enum EventType {
 
     THREE_DAYS_BEFORE_CSD("Three Days Before CSD"),
 
-    THREE_DAYS_BEFORE_BOOKING_FORFEITURE("Three Days Before CSD");
+    THREE_DAYS_BEFORE_BOOKING_FORFEITURE("Three Days Before CSD"),
+
+    AUDIT_REJECTED("Audit Rejected"),
+    AUDIT_APPROVED_EMAIL("Audit Approved Email"),
+    SETTLE_LEDGER_REJECTED_REFUNDS("Settle Ledger Rejected Refunds"),
+    VAS_OPT_IN_EMAIL("Vas Opt In Email"),
+    VAS_OPT_OUT_EMAIL("Vas Opt Out Email"),
+    CHECK_FOR_BALANCE_IN_RAZORPAY_REFUND("CHECK_FOR_BALANCE_IN_RAZORPAY_REFUND"),
+    COMPLETE_ONBOARDING("Complete Onboarding");
 
     private String commandText;
 
