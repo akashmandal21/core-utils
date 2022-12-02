@@ -23,7 +23,7 @@ public enum PropertyDealType {
 
     private String propertyDealTypeId;
 
-    public static Map<String, String> propertyDealTypeMap = new HashMap<>();
+    private static Map<String, String> propertyDealTypeMap = new HashMap<>();
 
     static {
 
@@ -31,6 +31,10 @@ public enum PropertyDealType {
             propertyDealTypeMap.put(propertyDealType.getPropertyDealTypeId(), propertyDealType.getPropertyDealTypeName());
         }
 
+    }
+
+    public static Map<String, String> getAll() {
+        return propertyDealTypeMap ;
     }
 
 
