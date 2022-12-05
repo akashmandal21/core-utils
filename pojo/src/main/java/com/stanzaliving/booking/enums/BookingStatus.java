@@ -427,6 +427,7 @@ public enum BookingStatus {
         bookingStatus.add(AGREEMENT_PENDING.getBookingStatus());
         bookingStatus.add(AGREEMENT_SENT.getBookingStatus());
         bookingStatus.add(ONBOARDING_PENDING.getBookingStatus());
+        bookingStatus.add(ONBOARDING_IN_PROGRESS.getBookingStatus());
         bookingStatus.add(ONBOARDING_COMPLETED.getBookingStatus());
         return bookingStatus;
     }
