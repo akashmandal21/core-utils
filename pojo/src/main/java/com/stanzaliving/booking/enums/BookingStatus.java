@@ -420,4 +420,14 @@ public enum BookingStatus {
         return bookingStatus;
     }
 
+    public static Set<String> activeStatusesBooking() {
+        Set<String> bookingStatus = new HashSet<>();
+        bookingStatus.add(BookingStatus.SHARED_WITH_RESIDENT.getBookingStatus());
+        bookingStatus.add(AGREEMENT_PENDING.getBookingStatus());
+        bookingStatus.add(AGREEMENT_SENT.getBookingStatus());
+        bookingStatus.add(ONBOARDING_PENDING.getBookingStatus());
+        bookingStatus.add(ONBOARDING_COMPLETED.getBookingStatus());
+        return bookingStatus;
+    }
+
 }
