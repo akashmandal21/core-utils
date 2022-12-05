@@ -12,6 +12,7 @@ import com.stanzaliving.booking.dto.response.NeedsAttentionBookingResponseDto;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.exception.ApiValidationException;
 import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.core.bookingservice.dto.request.BookingsForUpsellRequestDto;
 import com.stanzaliving.core.bookingservice.dto.request.GuestRequestPayloadDto;
 import com.stanzaliving.core.bookingservice.dto.request.ResidentRequestDto;
 import com.stanzaliving.core.bookingservice.dto.response.BookedPackageServiceDto;
