@@ -53,6 +53,7 @@ public class MicromarketResponseDTO {
 	private boolean leadQualificationForm=false;
 	
 	private String apartmentMMSlug;
+	private String apartmentCitySlug;
 	private Double apartmentRating;
 	private Long apartmentReviewCount;
 	private Long apartmentMinPriceValue;
