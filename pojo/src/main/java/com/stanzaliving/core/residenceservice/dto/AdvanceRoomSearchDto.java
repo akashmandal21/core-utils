@@ -68,4 +68,7 @@ public class AdvanceRoomSearchDto {
     @Builder.Default
     private Boolean remoteBookingFlag = false;
 
+    @Builder.Default
+    private Boolean showSoftBlockedBeds = false;
+
 }

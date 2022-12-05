@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.*;
 
 import com.stanzaliving.core.enums.PropertyEntityType;
+import com.stanzaliving.website.dto.WebsiteImageLibraryDto;
 import com.stanzaliving.website.enums.FomoTag;
 import com.stanzaliving.website.enums.Gender;
 
@@ -123,9 +124,8 @@ public class ApartmentResponseDto implements Serializable, Comparable<ApartmentR
 	
 	@Builder.Default
 	private List<ApartmentRoomTypeResponseDTO> apartmentRoomTypes = Collections.emptyList();
-	
-	@Builder.Default
-	private Set<ImageResponseDTO> images = new HashSet<>();
+
+	private List<WebsiteImageLibraryDto> images;
 
 	@Override
 	public int compareTo(ApartmentResponseDto dto2) {
