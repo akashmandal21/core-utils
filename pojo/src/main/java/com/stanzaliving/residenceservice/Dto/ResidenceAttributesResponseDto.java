@@ -9,6 +9,8 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.Date;
+
 /**
  * @author raj.kumar
  *
@@ -20,4 +22,5 @@ public class ResidenceAttributesResponseDto {
 
 	private ResidenceAttributes residenceAttributes;
 	private String value;
+	private Date createdAt;
 }
