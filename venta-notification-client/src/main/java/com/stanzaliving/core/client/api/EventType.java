@@ -42,8 +42,11 @@ public enum EventType {
     VAS_OPT_IN_EMAIL("Vas Opt In Email"),
     VAS_OPT_OUT_EMAIL("Vas Opt Out Email"),
     CHECK_FOR_BALANCE_IN_RAZORPAY_REFUND("CHECK_FOR_BALANCE_IN_RAZORPAY_REFUND"),
-    COMPLETE_ONBOARDING("Complete Onboarding");
-
+    COMPLETE_ONBOARDING("Complete Onboarding"),
+    DISCOUNT_DIGEST_EMAIL("DISCOUNT_DIGEST_EMAIL"),
+    IMS_DIGEST_EMAIL("IMS Digest Email"),
+    COMMERCIAL_CODE_EMAIL_DIGEST("COMMERCIAL_CODE_EMAIL_DIGEST"),
+    CHECK_FOR_BALANCE_IN_MSG_91("CHECK_FOR_BALANCE_IN_MSG_91");
     private String commandText;
 
     EventType(String commandText)
