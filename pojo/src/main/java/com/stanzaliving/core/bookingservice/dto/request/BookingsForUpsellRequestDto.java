@@ -23,7 +23,7 @@ public class BookingsForUpsellRequestDto {
     private Date toDate;
 
     @Builder.Default
-    private Set<BookingStatus> bookingStatusList = BookingStatus.activeStatusBooking();
+    private Set<String> bookingStatusList = BookingStatus.activeStatusesBooking();
 
     @NotEmpty(message = "residenceUuids cannot be empty")
     private List<String> residenceUuids;
