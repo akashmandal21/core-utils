@@ -26,4 +26,6 @@ public class CampaignAudienceDto {
     private Long numberOfUsers;
 
     private String uuid;
+
+    private Boolean displayOnHome;
 }
