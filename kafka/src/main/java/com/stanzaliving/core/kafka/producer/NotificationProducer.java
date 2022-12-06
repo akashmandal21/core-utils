@@ -35,10 +35,6 @@ public class NotificationProducer {
 	@Autowired
 	private ObjectMapper objectMapper;
 
-	@Value("${io.reflectoring.kafka.bootstrap-servers}")
-
-	private Object kafkaServers;
-
 	@Autowired
 	private KafkaTemplate<String, String> kafkaTemplate;
 
@@ -88,8 +84,7 @@ public class NotificationProducer {
 						log.debug("Sent Message=[topic: " + record.topic() + ", partition: " + record.partition() + ", messageId: " + messageId + "] with offset="
 								+ result.getRecordMetadata().offset() + " and timestamp= " + result.getRecordMetadata().timestamp());
 						try {
-							log.debug("kafka-server producer config 1 is  {}", objectMapper.writeValueAsString(ProducerConfig.configNames().toString()));
-							log.debug("kafka-server producer config 2 is  {}", objectMapper.writeValueAsString(kafkaServers));
+							log.debug("kafka-server producer config 1 is  {}", objectMapper.writeValueAsString(ProducerConfig.configNames()));
 						} catch (JsonProcessingException e) {
 							log.error("error to log server {}" , e.getMessage(), e );
 						}
