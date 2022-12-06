@@ -5,10 +5,12 @@ package com.stanzaliving.core.kafka.producer;
 
 import java.util.Objects;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.SendResult;
 import org.springframework.stereotype.Service;
@@ -32,6 +34,10 @@ public class NotificationProducer {
 
 	@Autowired
 	private ObjectMapper objectMapper;
+
+	@Value("${io.reflectoring.kafka.bootstrap-servers}")
+
+	private Object kafkaServers;
 
 	@Autowired
 	private KafkaTemplate<String, String> kafkaTemplate;
@@ -81,8 +87,13 @@ public class NotificationProducer {
 
 						log.debug("Sent Message=[topic: " + record.topic() + ", partition: " + record.partition() + ", messageId: " + messageId + "] with offset="
 								+ result.getRecordMetadata().offset() + " and timestamp= " + result.getRecordMetadata().timestamp());
-						log.debug("kafka-server producer config is  {}", ProducerConfig.BOOTSTRAP_SERVERS_CONFIG);
-						log.debug("kafka-server consumer config is  {}", ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG);
+						try {
+							log.debug("kafka-server producer config 1 is  {}", objectMapper.writeValueAsString(ProducerConfig.configNames().toString()));
+							log.debug("kafka-server producer config 2 is  {}", objectMapper.writeValueAsString(kafkaServers));
+						} catch (JsonProcessingException e) {
+							log.error("error to log server {}" , e.getMessage(), e );
+						}
+
 
 					}
 				}
