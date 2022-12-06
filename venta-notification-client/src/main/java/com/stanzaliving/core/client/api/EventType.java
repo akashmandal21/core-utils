@@ -27,8 +27,27 @@ public enum EventType {
     CAPTURE_BANK_DETAILS("capture bank details"),
     INELIGIBLE_REFUNDS_DUE_GREATER_THAN_SD("ineligible refunds due greater than SD"),
     INELIGIBLE_REFUNDS_LEFT_WITHIN_LOCKIN("ineligible refunds within lockin"),
-    PRE_BOOKING_COMPLETED("Pre Booking completed");
-    private final String commandText;
+    PRE_BOOKING_COMPLETED("Pre Booking completed"),
+    TOKEN_AMOUNT_PAID("Token Amount Paid"),
+    CONTRACT_START_DATE_CROSSED("Contract Start Date Crossed"),
+    BOOKING_AUTO_FORFEITURE("Booking Auto Forfeiture"),
+
+    THREE_DAYS_BEFORE_CSD("Three Days Before CSD"),
+
+    THREE_DAYS_BEFORE_BOOKING_FORFEITURE("Three Days Before CSD"),
+
+    AUDIT_REJECTED("Audit Rejected"),
+    AUDIT_APPROVED_EMAIL("Audit Approved Email"),
+    SETTLE_LEDGER_REJECTED_REFUNDS("Settle Ledger Rejected Refunds"),
+    VAS_OPT_IN_EMAIL("Vas Opt In Email"),
+    VAS_OPT_OUT_EMAIL("Vas Opt Out Email"),
+    CHECK_FOR_BALANCE_IN_RAZORPAY_REFUND("CHECK_FOR_BALANCE_IN_RAZORPAY_REFUND"),
+    COMPLETE_ONBOARDING("Complete Onboarding"),
+    DISCOUNT_DIGEST_EMAIL("DISCOUNT_DIGEST_EMAIL"),
+    IMS_DIGEST_EMAIL("IMS Digest Email"),
+    COMMERCIAL_CODE_EMAIL_DIGEST("COMMERCIAL_CODE_EMAIL_DIGEST"),
+    CHECK_FOR_BALANCE_IN_MSG_91("CHECK_FOR_BALANCE_IN_MSG_91");
+    private String commandText;
 
     EventType(String commandText)
     {
