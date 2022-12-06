@@ -19,6 +19,7 @@ public class ManagedApartmentDetailDto implements Serializable {
     private String bhkType;
     private Double startingPrice;
     private float availableRooms = 0.0F;
+    private float softBlockedRooms = 0.0F;
     private float occupiedRooms = 0.0F;
     private float deadRooms = 0.0F;
     private float totalRooms = 0.0F;
