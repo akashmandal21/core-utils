@@ -84,11 +84,10 @@ public class NotificationProducer {
 						log.debug("Sent Message=[topic: " + record.topic() + ", partition: " + record.partition() + ", messageId: " + messageId + "] with offset="
 								+ result.getRecordMetadata().offset() + " and timestamp= " + result.getRecordMetadata().timestamp());
 						try {
-							log.debug("kafka-server producer config 1 is  {}", objectMapper.writeValueAsString(ProducerConfig.configNames()));
-						} catch (JsonProcessingException e) {
-							log.error("error to log server {}" , e.getMessage(), e );
+							log.debug("kafka-server producer config 1 is  {}", objectMapper.writeValueAsString(result.getProducerRecord().headers()));
+						} catch (Exception e) {
+							log.error("Error kafka-server {}",e.getMessage(),e  );
 						}
-
 
 					}
 				}
