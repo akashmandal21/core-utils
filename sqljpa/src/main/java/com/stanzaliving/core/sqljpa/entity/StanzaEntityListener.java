@@ -5,6 +5,7 @@ import java.util.Date;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 
+import lombok.extern.log4j.Log4j2;
 import org.apache.commons.lang3.StringUtils;
 
 import com.stanzaliving.core.base.utils.StanzaUtils;
@@ -14,6 +15,8 @@ import com.stanzaliving.core.sqljpa.SQLSecurityUtil;
  * Entity listener for all Entities/Models
  *
  */
+
+@Log4j2
 public class StanzaEntityListener {
 
 	// This code will be executed before every insert into DB
@@ -31,10 +34,12 @@ public class StanzaEntityListener {
 		}
 
 		if (StringUtils.isBlank(abstractEntity.getCreatedBy())) {
+			log.info("Inside StanzaEntityListener: {}", SQLSecurityUtil.getCurrentUserId());
 			abstractEntity.setCreatedBy(SQLSecurityUtil.getCurrentUserId());
 		}
 
 		if (StringUtils.isBlank(abstractEntity.getUpdatedBy())) {
+			log.info("Inside StanzaEntityListener: {}", SQLSecurityUtil.getCurrentUserId());
 			abstractEntity.setUpdatedBy(SQLSecurityUtil.getCurrentUserId());
 		}
 	}
