@@ -74,7 +74,7 @@ public class ResourceProcessor extends AbstractProcessor {
                     String[] permissions=annotatedElement.getAnnotation(Resource.class).permissions();
 //                    Class<? extends AttributeValueProvider> className=annotatedElement.getAnnotation(Resource.class).attributeValueProvider();
                     for(int i=0;i<permissions.length;i++){
-                        permissions[i]=permissions[i]+" "+key;
+                        permissions[i]=permissions[i]+"_"+key;
 //                        permissionAttribiuteProviderMap.put(permissions[i],className);
                     }
                     resourcePermissionMap.get(key).addAll(Arrays.asList(permissions));
