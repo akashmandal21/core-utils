@@ -25,6 +25,8 @@
 
 package com.stanzaliving.acl.client.annotationProcessors;
 
+import com.google.auto.service.AutoService;
+
 import java.util.Set;
 import javax.annotation.processing.*;
 import javax.lang.model.element.*;
@@ -33,6 +35,7 @@ import javax.tools.Diagnostic;
 
 @SupportedAnnotationTypes("com.stanzaliving.acl.client.annotation.Log")
 @SupportedSourceVersion(SourceVersion.RELEASE_8)
+@AutoService(Processor.class)
 public class LogProcessor extends AbstractProcessor {
 
     @Override

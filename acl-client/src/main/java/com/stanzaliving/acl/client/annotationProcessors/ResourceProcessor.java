@@ -1,5 +1,6 @@
 package com.stanzaliving.acl.client.annotationProcessors;
 
+import com.google.auto.service.AutoService;
 import com.squareup.javapoet.*;
 import com.stanzaliving.acl.client.AttributeDto;
 import com.stanzaliving.acl.client.Utils.AttributeValueProvider;
@@ -27,6 +28,7 @@ import java.util.*;
 
 @SupportedAnnotationTypes("com.stanzaliving.acl.client.annotation.Resource")
 @SupportedSourceVersion(SourceVersion.RELEASE_8)
+@AutoService(Processor.class)
 public class ResourceProcessor extends AbstractProcessor {
 
     private Types typeUtils;

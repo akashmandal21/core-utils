@@ -1,5 +1,6 @@
 package com.stanzaliving.acl.client.annotationProcessors;
 
+import com.google.auto.service.AutoService;
 import com.squareup.javapoet.JavaFile;
 import com.squareup.javapoet.MethodSpec;
 import com.squareup.javapoet.TypeSpec;
@@ -23,6 +24,7 @@ import java.util.Set;
 
 @SupportedAnnotationTypes("com.stanzaliving.acl.client.annotation.Permission")
 @SupportedSourceVersion(SourceVersion.RELEASE_8)
+@AutoService(Processor.class)
 public class PermissionProcessor extends AbstractProcessor {
 
     private Types typeUtils;
