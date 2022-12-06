@@ -5,7 +5,6 @@ package com.stanzaliving.core.kafka.producer;
 
 import java.util.Objects;
 
-import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -76,9 +75,9 @@ public class NotificationProducer {
 				public void onSuccess(SendResult<String, String> result) {
 
 					if (log.isDebugEnabled()) {
+
 						log.debug("Sent Message=[topic: " + record.topic() + ", partition: " + record.partition() + ", messageId: " + messageId + "] with offset="
 								+ result.getRecordMetadata().offset() + " and timestamp= " + result.getRecordMetadata().timestamp());
-						log.debug("kafka-server is {}", ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG);
 
 					}
 				}
