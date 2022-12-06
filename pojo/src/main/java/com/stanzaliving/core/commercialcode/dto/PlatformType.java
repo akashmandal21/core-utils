@@ -1,6 +1,14 @@
 package com.stanzaliving.core.commercialcode.dto;
 
-public enum PlatformType {
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.ToString;
 
-    ALL, SIGMA, ALFRED
+@Getter
+@AllArgsConstructor
+@ToString
+public enum PlatformType {
+    ALL,
+    SIGMA,
+    ALFRED
 }

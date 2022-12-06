@@ -8,8 +8,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.Date;
 
 
 @Data
@@ -30,4 +28,6 @@ public class AuditDashboardListDto {
     private String bookingUuid;
     private String roomUuid;
     private String uuid;
+    private Double maxAuditDamageAmount;
+    private Double minAuditDamageAmount;
 }

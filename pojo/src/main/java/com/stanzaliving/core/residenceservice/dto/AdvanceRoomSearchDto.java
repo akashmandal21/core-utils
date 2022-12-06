@@ -62,4 +62,7 @@ public class AdvanceRoomSearchDto {
 
     private List<String> roomUuids;
 
+    @Builder.Default
+    private Boolean isSold = false;
+
 }
