@@ -5,6 +5,7 @@ import com.stanzaliving.core.residenceservice.enums.ResidenceSortBy;
 import com.stanzaliving.core.residenceservice.enums.RoomStatus;
 import com.stanzaliving.core.utilservice.annotations.DateFormat;
 
+import com.stanzaliving.website.request.dto.UserRoleDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -21,7 +22,7 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class AdvanceRoomSearchDto {
+public class AdvanceRoomSearchDto extends UserRoleDto {
 
     private String residenceUuid;
 
