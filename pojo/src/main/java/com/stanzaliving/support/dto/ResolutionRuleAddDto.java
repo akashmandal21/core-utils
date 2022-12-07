@@ -27,6 +27,7 @@ public class ResolutionRuleAddDto {
     private List<String> city;
     private List<String> micromarket;
     private List<String> residence;
+    private List<String> propertyDealType;
     @NotEmpty(message = "resolutionRole can't be left blank.")
     @Valid
     private List<ResolutionRoleDto> resolutionRole;
