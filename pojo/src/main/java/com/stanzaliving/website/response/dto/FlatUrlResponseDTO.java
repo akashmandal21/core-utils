@@ -36,4 +36,6 @@ public class FlatUrlResponseDTO {
 	private Long minPriceValue;
 	private Integer roomCount;
 	private EnumListing<PropertyEntityType> flatUrlType;
+	private String createdBy;
+	private String updatedBy;
 }
