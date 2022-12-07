@@ -21,9 +21,7 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.RequestContextListener;
 import org.springframework.web.context.request.ServletRequestAttributes;
-import org.springframework.web.filter.RequestContextFilter;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -36,7 +34,7 @@ public class CheckPermissionAop {
     @Around("@annotation(com.stanzaliving.acl.client.annotation.CheckPermission)")
     public Object pcp(ProceedingJoinPoint joinPoint) throws Exception {
         MethodSignature methodSignature=(MethodSignature) joinPoint.getSignature();
-        Permissions[] permissions=methodSignature.getMethod().getAnnotation(CheckPermission.class).permissions();
+        String[] permissions=methodSignature.getMethod().getAnnotation(CheckPermission.class).permissions();
         String resource=methodSignature.getMethod().getAnnotation(CheckPermission.class).resource();
         Class<? extends AttributeValueProvider> className=methodSignature.getMethod().getAnnotation(CheckPermission.class).attributeValueProvider();
 

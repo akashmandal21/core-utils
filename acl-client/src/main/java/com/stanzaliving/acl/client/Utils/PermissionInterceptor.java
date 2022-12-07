@@ -1,13 +1,10 @@
 package com.stanzaliving.acl.client.Utils;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.stanzaliving.acl.client.AttributeDto;
 import com.stanzaliving.acl.client.Permissions;
-import com.stanzaliving.acl.client.annotation.Attribute;
 import com.stanzaliving.acl.client.annotation.CheckPermission;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.*;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
@@ -32,7 +29,7 @@ public class PermissionInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws IOException {
         if(((HandlerMethod) handler).getMethod().getAnnotation(CheckPermission.class)!=null) {
-            Permissions[] permissions = ((HandlerMethod) handler).getMethod().getAnnotation(CheckPermission.class).permissions();
+            String[] permissions = ((HandlerMethod) handler).getMethod().getAnnotation(CheckPermission.class).permissions();
             String resource = ((HandlerMethod) handler).getMethod().getAnnotation(CheckPermission.class).resource();
             Class<? extends AttributeValueProvider> className = ((HandlerMethod) handler).getMethod().getAnnotation(CheckPermission.class).attributeValueProvider();
 

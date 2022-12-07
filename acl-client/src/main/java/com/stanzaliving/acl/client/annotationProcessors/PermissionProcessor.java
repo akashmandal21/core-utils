@@ -34,6 +34,8 @@ public class PermissionProcessor extends AbstractProcessor {
 
     @Override
     public synchronized void init(ProcessingEnvironment processingEnv) {
+        processingEnv.getMessager().printMessage(Diagnostic.Kind.NOTE,"inside permission processor");
+        System.out.println("inside permisison processor");
         super.init(processingEnv);
         typeUtils = processingEnv.getTypeUtils();
         elementUtils = processingEnv.getElementUtils();

@@ -1,7 +1,6 @@
 package com.stanzaliving.acl.client.Utils;
 
 
-import com.stanzaliving.acl.client.AttributeDto;
 import com.stanzaliving.acl.client.Permissions;
 
 import java.io.Serializable;
@@ -11,7 +10,7 @@ import java.util.List;
 
 public class ConditionContextDto implements Serializable {
     private String resource;
-    private List<Permissions> permissions;
+    private List<String> permissions;
     private HashMap<String,Object> attributeValues;
     private String userId;
 
@@ -20,7 +19,7 @@ public class ConditionContextDto implements Serializable {
     }
 
 
-    public ConditionContextDto(String resource,List<Permissions> permissions,HashMap<String,Object> attributeValues,String userId){
+    public ConditionContextDto(String resource, List<String> permissions, HashMap<String,Object> attributeValues, String userId){
         this.resource=resource;
         this.attributeValues=attributeValues;
         this.permissions=permissions;
@@ -31,7 +30,7 @@ public class ConditionContextDto implements Serializable {
         return resource;
     }
 
-    public List<Permissions> getPermissions() {
+    public List<String> getPermissions() {
         return permissions;
     }
 
@@ -47,7 +46,7 @@ public class ConditionContextDto implements Serializable {
         this.resource = resource;
     }
 
-    public void setPermissions(List<Permissions> permissions) {
+    public void setPermissions(List<String> permissions) {
         this.permissions = permissions;
     }
 

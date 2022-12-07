@@ -12,6 +12,6 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface CheckPermission {
     String resource();
-    Permissions[] permissions();
+    String[] permissions();
     Class<? extends AttributeValueProvider> attributeValueProvider();
 }

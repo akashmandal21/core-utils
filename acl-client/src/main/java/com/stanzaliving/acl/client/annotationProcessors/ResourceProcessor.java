@@ -3,6 +3,7 @@ package com.stanzaliving.acl.client.annotationProcessors;
 import com.google.auto.service.AutoService;
 import com.squareup.javapoet.*;
 import com.stanzaliving.acl.client.AttributeDto;
+import com.stanzaliving.acl.client.Permissions;
 import com.stanzaliving.acl.client.Utils.AttributeValueProvider;
 import com.stanzaliving.acl.client.annotation.Attribute;
 import com.stanzaliving.acl.client.annotation.Permission;
@@ -38,6 +39,8 @@ public class ResourceProcessor extends AbstractProcessor {
 
     @Override
     public synchronized void init(ProcessingEnvironment processingEnv) {
+        processingEnv.getMessager().printMessage(Diagnostic.Kind.NOTE,"inside resource processor init");
+        System.out.println("inside resource processor");
         super.init(processingEnv);
         typeUtils = processingEnv.getTypeUtils();
         elementUtils = processingEnv.getElementUtils();
@@ -47,71 +50,78 @@ public class ResourceProcessor extends AbstractProcessor {
 
     @Override
     public boolean process(Set<? extends TypeElement> annotations, RoundEnvironment roundEnv) {
-
-        for(TypeElement annotation:annotations){
-
-            processingEnv.getMessager().printMessage(Diagnostic.Kind.NOTE,annotation.getSimpleName());
-            if(annotation.getSimpleName().toString().equals("Resource")) {
-                Set<? extends Element> annotatedElements = roundEnv.getElementsAnnotatedWith(annotation);
-                HashMap<String, ArrayList<String>> resourceAttributeMap = new HashMap<>();
-                HashMap<String, ArrayList<String>> resourcePermissionMap = new HashMap<>();
-                HashMap<String,TypeSpec.Builder> resourceBuilderMap=new HashMap<>();
+        try {
+            for (TypeElement annotation : annotations) {
+                System.out.println("inside resource processor");
+                processingEnv.getMessager().printMessage(Diagnostic.Kind.NOTE, "Annotations is "+annotation.getSimpleName());
+                if (annotation.getSimpleName().toString().equals("Resource")) {
+                    Set<? extends Element> annotatedElements = roundEnv.getElementsAnnotatedWith(annotation);
+                    HashMap<String, ArrayList<String>> resourceAttributeMap = new HashMap<>();
+                    HashMap<String, ArrayList<String>> resourcePermissionMap = new HashMap<>();
+                    HashMap<String, TypeSpec.Builder> resourceBuilderMap = new HashMap<>();
 //                HashMap<String,Class<? extends AttributeValueProvider>> permissionAttribiuteProviderMap= new HashMap<>();
 
-                for (Element annotatedElement : annotatedElements) {
+                    for (Element annotatedElement : annotatedElements) {
 
-                    processingEnv.getMessager().printMessage(Diagnostic.Kind.NOTE,"line 56 "+annotatedElement.getSimpleName());
-                    String key = annotatedElement.getAnnotation(Resource.class).name();
-                    if(resourceBuilderMap.get(key)==null){
-                        resourceBuilderMap.put(key,TypeSpec.classBuilder(StringUtils.capitalize(key)+"AttributeDto")
-                                .addModifiers(Modifier.PUBLIC)
-                                .superclass(AttributeDto.class));
-                    }
+                        processingEnv.getMessager().printMessage(Diagnostic.Kind.NOTE, "line 56 " + annotatedElement.getSimpleName());
+                        String key = annotatedElement.getAnnotation(Resource.class).name();
+                        if (resourceBuilderMap.get(key) == null) {
+                            resourceBuilderMap.put(key, TypeSpec.classBuilder(StringUtils.capitalize(key) + "AttributeDto")
+                                    .addModifiers(Modifier.PUBLIC)
+                                    .superclass(AttributeDto.class));
+                        }
 
-                    if (resourceAttributeMap.get(key) == null) {
-                        resourceAttributeMap.put(key, new ArrayList<>());
-                        resourcePermissionMap.put(key,new ArrayList<>());
-                    }
+                        if (resourceAttributeMap.get(key) == null) {
+                            resourceAttributeMap.put(key, new ArrayList<>());
+                            resourcePermissionMap.put(key, new ArrayList<>());
+                        }
 
-                    String[] permissions=annotatedElement.getAnnotation(Resource.class).permissions();
+                        String[] permissions = annotatedElement.getAnnotation(Resource.class).permissions();
 //                    Class<? extends AttributeValueProvider> className=annotatedElement.getAnnotation(Resource.class).attributeValueProvider();
-                    for(int i=0;i<permissions.length;i++){
-                        permissions[i]=permissions[i]+"_"+key;
+                        for (int i = 0; i < permissions.length; i++) {
+                            permissions[i] =key+" "+permissions[i];
 //                        permissionAttribiuteProviderMap.put(permissions[i],className);
-                    }
-                    resourcePermissionMap.get(key).addAll(Arrays.asList(permissions));
+                        }
+                        resourcePermissionMap.get(key).addAll(Arrays.asList(permissions));
 
-                    List<? extends Element> enclosedElements = annotatedElement.getEnclosedElements();
+                        List<? extends Element> enclosedElements = annotatedElement.getEnclosedElements();
 
-                    for (Element enclosedElement : enclosedElements) {
-                        processingEnv.getMessager().printMessage(Diagnostic.Kind.NOTE,"The enclosed element is:"+enclosedElement.getSimpleName());
-                        if (enclosedElement.getAnnotation(Attribute.class) != null) {
+                        for (Element enclosedElement : enclosedElements) {
+                            processingEnv.getMessager().printMessage(Diagnostic.Kind.NOTE, "The enclosed element is:" + enclosedElement.getSimpleName());
+                            if (enclosedElement.getAnnotation(Attribute.class) != null) {
 //                            VariableElement variableElement= (VariableElement) enclosedElement;
-                            try {
-                                resourceBuilderMap.put(key,addFieldAndGetterAndSetter(resourceBuilderMap.get(key),enclosedElement.getSimpleName().toString(),enclosedElement.asType()));
-                            } catch (ClassNotFoundException e) {
-                                e.printStackTrace();
+                                try {
+                                    resourceBuilderMap.put(key, addFieldAndGetterAndSetter(resourceBuilderMap.get(key), enclosedElement.getSimpleName().toString(), enclosedElement.asType()));
+                                } catch (ClassNotFoundException e) {
+                                    messager.printMessage(Diagnostic.Kind.ERROR,e.getMessage());
+                                }
+                                resourceAttributeMap.get(key).add(enclosedElement.getSimpleName().toString() + "|" + enclosedElement.getAnnotation(Attribute.class).type().toString());
                             }
-                            resourceAttributeMap.get(key).add(enclosedElement.getSimpleName().toString()+"|"+enclosedElement.getAnnotation(Attribute.class).type().toString());
                         }
                     }
-                }
-                processPermission(resourcePermissionMap);
+                    processPermission(resourcePermissionMap);
 
-                try {
-                    generateClassForAttributes(resourceBuilderMap);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                    try {
+                        generateClassForAttributes(resourceBuilderMap);
+                    } catch (IOException e) {
+                        messager.printMessage(Diagnostic.Kind.ERROR,e.getMessage());
+                    }
 
 
-                processingEnv.getMessager().printMessage(Diagnostic.Kind.NOTE, "line 44 " + resourceAttributeMap.toString());
-                try {
-                    generateClassForResourceAttributeAndPermission(resourceAttributeMap,resourcePermissionMap);
-                } catch (IOException e) {
-                    e.printStackTrace();
+                    processingEnv.getMessager().printMessage(Diagnostic.Kind.NOTE, "line 44 " + resourceAttributeMap.toString());
+                    try {
+                        generateClassForResourceAttributeAndPermission(resourceAttributeMap, resourcePermissionMap);
+                    } catch (IOException e) {
+                        messager.printMessage(Diagnostic.Kind.ERROR,e.getMessage());
+                    }
                 }
             }
+            System.out.println("At the end of resource processor");
+            return false;
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+            messager.printMessage(Diagnostic.Kind.ERROR,e.getMessage());
         }
         return false;
     }
@@ -226,30 +236,47 @@ public class ResourceProcessor extends AbstractProcessor {
 
 
     public void processPermission(HashMap<String, ArrayList<String>> resourcePermissionMap){
-        TypeSpec.Builder typeSpecBuilder = createPermissionsEnum();
-        for(Map.Entry<String,ArrayList  <String>> entry:resourcePermissionMap.entrySet()) {
-            String[] permissions=entry.getValue().toArray(new String[entry.getValue().size()]);
-            int n = permissions.length;
-            for (int i = 0; i < n; i++) {
-                typeSpecBuilder.addEnumConstant(permissions[i]);
+        for(String resource:resourcePermissionMap.keySet()) {
+            TypeSpec.Builder typeSpecBuilder = createPermissionsEnum(resource);
+            TypeSpec.Builder typeSpecBuilder2=TypeSpec.classBuilder("constants").addModifiers(Modifier.PUBLIC);
+            for (Map.Entry<String, ArrayList<String>> entry : resourcePermissionMap.entrySet()) {
+                String[] permissions = entry.getValue().toArray(new String[entry.getValue().size()]);
+                int n = permissions.length;
+                for (int i = 0; i < n; i++) {
+                    typeSpecBuilder.addEnumConstant(permissions[i]);
+                    typeSpecBuilder2.addField(FieldSpec.builder(String.class,permissions[i])
+                                    .addModifiers(Modifier.STATIC,Modifier.PUBLIC,Modifier.FINAL)
+                                    .initializer("\""+permissions[i]+"\"")
+                            .build());
+                }
             }
-        }
-        try {
-            generatePermissionEnumFile(typeSpecBuilder);
-        } catch (IOException e) {
-            e.printStackTrace();
+            try {
+                generatePermissionEnumFile(typeSpecBuilder);
+                JavaFile javaFile = JavaFile.builder("com.stanzaliving.acl.client",
+                                typeSpecBuilder2.build())
+                        .indent("    ")
+                        .build();
+
+                Path path= Paths.get("/Users/kedimetla.pavan/Documents/ACL/part-1-maven/acl-client/src/main/java");
+//        javaFile.writeTo(filer);
+                javaFile.writeTo(filer);
+
+            } catch (IOException e) {
+                messager.printMessage(Diagnostic.Kind.ERROR, e.getMessage());
+            }
         }
     }
 
-    public TypeSpec.Builder createPermissionsEnum(){
+    public TypeSpec.Builder createPermissionsEnum(String resource){
 
-        TypeSpec.Builder typespecBuilder = TypeSpec.enumBuilder("Permissions")
+        TypeSpec.Builder typespecBuilder = TypeSpec.enumBuilder(resource+"_permissions")
                 .addModifiers(Modifier.PUBLIC);
         return typespecBuilder;
     }
 
     public void generatePermissionEnumFile(TypeSpec.Builder typespecBuilder) throws IOException {
 
+//        typespecBuilder.addSuperinterface(Permissions.class);
         JavaFile javaFile = JavaFile.builder("com.stanzaliving.acl.client",
                         typespecBuilder.build())
                 .indent("    ")
