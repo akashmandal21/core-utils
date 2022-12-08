@@ -2,6 +2,7 @@ package com.stanzaliving.core.food.dto.request;
 
 import com.stanzaliving.core.operations.enums.DealCategory;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -35,7 +36,12 @@ public class ResidenceFoodMenuCategoryApprovalRequestV2 {
 	@NotNull(message = "Start Date can not be null")
 	private LocalDate startDate;
 
+	private LocalDate endDate;
+
 	private boolean serviceMixUpdate;
+
+	@Builder.Default
+	private boolean foodDisabled = false;
 
 	private String changedBy;
 
