@@ -1,5 +1,6 @@
 package com.stanzaliving.website.response.dto;
 
+import java.util.Date;
 import java.util.List;
 
 import com.stanzaliving.core.enums.PropertyEntityType;
@@ -36,6 +37,8 @@ public class FlatUrlResponseDTO {
 	private Long minPriceValue;
 	private Integer roomCount;
 	private EnumListing<PropertyEntityType> flatUrlType;
+	private Date createdAt;
 	private String createdBy;
+	private Date updatedAt;
 	private String updatedBy;
 }
