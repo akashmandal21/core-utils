@@ -26,6 +26,8 @@ import java.lang.reflect.Type;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @SupportedAnnotationTypes("com.stanzaliving.acl.client.annotation.Resource")
 @SupportedSourceVersion(SourceVersion.RELEASE_8)
@@ -77,8 +79,19 @@ public class ResourceProcessor extends AbstractProcessor {
                         }
 
                         String[] permissions = annotatedElement.getAnnotation(Resource.class).permissions();
+                        Pattern p = Pattern.compile(
+                                "[^a-z0-9]", Pattern.CASE_INSENSITIVE);
+
 //                    Class<? extends AttributeValueProvider> className=annotatedElement.getAnnotation(Resource.class).attributeValueProvider();
                         for (int i = 0; i < permissions.length; i++) {
+                            Matcher m=p.matcher(permissions[i]);
+                            System.out.println(permissions[i]);
+                            if(m.find()){
+                                messager.printMessage(Diagnostic.Kind.ERROR,"Permission should not contain Special characters");
+                                System.out.println("The permission should not contain special characters");
+                                throw new IllegalArgumentException("The permission should not contain special characters");
+                            }
+//                            messager.printMessage("");
                             permissions[i] =key+" "+permissions[i];
 //                        permissionAttribiuteProviderMap.put(permissions[i],className);
                         }
@@ -121,9 +134,8 @@ public class ResourceProcessor extends AbstractProcessor {
         }
         catch (Exception e){
             System.out.println(e.getMessage());
-            messager.printMessage(Diagnostic.Kind.ERROR,e.getMessage());
+            throw new IllegalArgumentException(e.getMessage());
         }
-        return false;
     }
 
     private void generateClassForAttributes(HashMap<String,TypeSpec.Builder> resourceBuilderMap) throws IOException {
@@ -243,15 +255,15 @@ public class ResourceProcessor extends AbstractProcessor {
                 String[] permissions = entry.getValue().toArray(new String[entry.getValue().size()]);
                 int n = permissions.length;
                 for (int i = 0; i < n; i++) {
-                    typeSpecBuilder.addEnumConstant(permissions[i]);
-                    typeSpecBuilder2.addField(FieldSpec.builder(String.class,permissions[i])
+//                    typeSpecBuilder.addEnumConstant(permissions[i]);
+                    typeSpecBuilder2.addField(FieldSpec.builder(String.class,String.join("_",permissions[i].split(" ")))
                                     .addModifiers(Modifier.STATIC,Modifier.PUBLIC,Modifier.FINAL)
                                     .initializer("\""+permissions[i]+"\"")
                             .build());
                 }
             }
             try {
-                generatePermissionEnumFile(typeSpecBuilder);
+                //generatePermissionEnumFile(typeSpecBuilder);
                 JavaFile javaFile = JavaFile.builder("com.stanzaliving.acl.client",
                                 typeSpecBuilder2.build())
                         .indent("    ")
