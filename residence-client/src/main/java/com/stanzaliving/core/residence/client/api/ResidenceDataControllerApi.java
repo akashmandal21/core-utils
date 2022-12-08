@@ -16,6 +16,7 @@ import com.stanzaliving.residence.dto.ResidencePropertyCardDto;
 import com.stanzaliving.residenceservice.BookingAttributesDto;
 import com.stanzaliving.residenceservice.Dto.*;
 import com.stanzaliving.residenceservice.enums.ResidenceAttributes;
+import com.stanzaliving.residenceservice.enums.VasCategory;
 import com.stanzaliving.venta.RoomInfoDto;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
@@ -2354,6 +2355,41 @@ public class ResidenceDataControllerApi {
             log.error("Exception occurred while sending IMS Email Digest", e);
             return null;
         }
+    }
+
+    public List<ResidenceVasDto> getResidenceVasDetailsByCategory(String residenceUuid, VasCategory category) {
+
+        log.info("Residence-Data-Controller::Processing to get vas details based on residenceUuid {}", residenceUuid);
+
+        Map<String, Object> uriVariables = new HashMap<>();
+
+        uriVariables.put("residenceUuid", residenceUuid);
+
+        String path = UriComponentsBuilder.fromPath("/internal/residence-vas/{residenceUuid}/category").buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        String vasCategory = Objects.nonNull(category) ? category.toString(): null;
+
+        queryParams.put("vasCategory", Collections.singletonList(vasCategory));
+
+        HttpHeaders headerParams = new HttpHeaders();
+
+        String[] accepts = new String[]{"*/*"};
+
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<List<ResidenceVasDto>>> returnType =
+                new ParameterizedTypeReference<ResponseDto<List<ResidenceVasDto>>>() {
+                };
+
+        try {
+            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType).getData();
+
+        } catch (Exception ex) {
+            log.error("Exception while fetching vas Details from residenceUuid: {}", residenceUuid);
+        }
+        return Collections.emptyList();
     }
 
 }
