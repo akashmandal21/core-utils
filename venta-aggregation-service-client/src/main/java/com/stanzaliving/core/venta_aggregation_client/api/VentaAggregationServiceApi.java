@@ -676,4 +676,28 @@ public class VentaAggregationServiceApi {
         }
         return response;
     }
+
+    public ResponseDto<List<ResidenceAggregationEntityDto>> getResidenceData(List<String> residenceUuids) {
+        log.info("Aggregation Residence Controller::Processing to get residence data based on residence uuids {}", residenceUuids);
+
+        Object postBody = residenceUuids;
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+        String path = UriComponentsBuilder.fromPath("/internal/residence/residence-data").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<List<ResidenceAggregationEntityDto>>> returnType =
+                new ParameterizedTypeReference<ResponseDto<List<ResidenceAggregationEntityDto>>>() {
+                };
+
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+    }
 }
