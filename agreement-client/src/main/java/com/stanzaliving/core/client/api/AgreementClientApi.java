@@ -192,4 +192,39 @@ public class AgreementClientApi {
 		return null;
 
 	}
+
+
+	public ResponseDto<Void> expireOldDocuments(String referenceId) {
+
+		try {
+			Object postBody = null;
+
+			log.info("Expiring old documents with referenceId {} ", referenceId);
+
+			final Map<String, Object> uriVariables = new HashMap<>();
+
+			uriVariables.put("referenceId", referenceId);
+
+			String path = UriComponentsBuilder.fromPath("/api/v1/expire-old-document/{referenceId}").buildAndExpand(uriVariables)
+					.toUriString();
+
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+			HttpHeaders headerParams = new HttpHeaders();
+
+			final String[] accepts = { "*/*" };
+
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+			ParameterizedTypeReference<ResponseDto<Void>> returnType = new ParameterizedTypeReference<ResponseDto<Void>>() {
+			};
+
+			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Error while expiring old documents " + e);
+		}
+
+		return null;
+
+	}
 }

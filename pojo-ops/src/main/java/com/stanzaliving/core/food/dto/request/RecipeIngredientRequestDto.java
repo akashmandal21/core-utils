@@ -35,4 +35,7 @@ public class RecipeIngredientRequestDto {
 
 	private int index;
 
+	@Builder.Default
+	private Boolean isPrimary = false;
+
 }

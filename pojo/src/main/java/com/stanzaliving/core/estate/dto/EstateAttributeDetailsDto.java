@@ -48,4 +48,5 @@ public class EstateAttributeDetailsDto{
 
     private String rentalInflationInYears;
 
+
 }

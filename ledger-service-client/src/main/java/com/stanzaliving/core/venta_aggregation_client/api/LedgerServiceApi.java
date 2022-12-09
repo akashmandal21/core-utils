@@ -359,6 +359,7 @@ public class LedgerServiceApi {
         return null;
     }
 
+
     public ResponseDto<Boolean> getBankDetails(String userUuid) {
         log.info("In getBankDetails for user {}", userUuid);
         Map<String, Object> uriVariables = new HashMap<>();
