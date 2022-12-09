@@ -16,9 +16,11 @@ import java.util.Date;
 @AllArgsConstructor
 public class VasDto {
 
-    private  String vasUuid;
+    private String vasUuid;
+
     @JsonFormat(pattern = DateUtil.yyyy_MM_dd_FORMAT, timezone = StanzaConstants.IST_TIMEZONE)
     private Date optInDate;
+
     @JsonFormat(pattern = DateUtil.yyyy_MM_dd_FORMAT, timezone = StanzaConstants.IST_TIMEZONE)
-    private  Date optOutDate;
+    private Date optOutDate;
 }
