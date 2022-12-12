@@ -19,7 +19,7 @@ public enum VasCategory {
     SECURITY("Security"),
     FITNESS("Fitness"),
     TESTING("Testing"),
-    OTHERS("Others");
+    OTHER("Other");
 
     private final String value;
 
