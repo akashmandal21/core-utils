@@ -36,7 +36,7 @@ public class AttributesAndPermissionsSynchronizer {
             ResponseEntity<ResourceDto> response = restTemplate.exchange("https://dev.stanzaliving.com/userv2/internal/resource/AttributesAndPermisions", HttpMethod.POST, request, ResourceDto.class);
         }
         catch (Exception e){
-
+            throw new ApiValidationException("Not able to sync permissions and attributes");
         }
     }
 }
