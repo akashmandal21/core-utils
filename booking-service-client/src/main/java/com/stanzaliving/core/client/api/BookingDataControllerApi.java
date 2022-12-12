@@ -28,6 +28,7 @@ import com.stanzaliving.booking.dto.response.NeedsAttentionBookingResponseDto;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.exception.ApiValidationException;
 import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.core.bookingservice.dto.request.BookingsForUpsellRequestDto;
 import com.stanzaliving.core.bookingservice.dto.request.GuestRequestPayloadDto;
 import com.stanzaliving.core.bookingservice.dto.request.ResidentRequestDto;
 import com.stanzaliving.core.bookingservice.dto.response.BookedPackageServiceDto;
@@ -1141,6 +1142,24 @@ public class BookingDataControllerApi {
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
     }
 
+    public ResponseDto<Boolean> isResidenceHavingAnyActiveBooking(String residenceUuid) {
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("residenceUuid", residenceUuid);
+
+        String path = UriComponentsBuilder.fromPath("/internal/residence/{residenceUuid}/active-booking").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<Boolean>> returnType = new ParameterizedTypeReference<ResponseDto<Boolean>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+    }
+
     public ResponseDto<String> emailVerifiedUpdate(String phoneNumber) {
 
         // create path and map variables
@@ -1379,7 +1398,7 @@ public class BookingDataControllerApi {
         // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<>();
 
-        String path = UriComponentsBuilder.fromPath("/internal/v1/booking/booking-amount-realisation").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/v1/booking/booking-amount-realisation/all").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
