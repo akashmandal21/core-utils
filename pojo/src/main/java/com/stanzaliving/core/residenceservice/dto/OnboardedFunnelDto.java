@@ -13,5 +13,6 @@ public class OnboardedFunnelDto {
     private String description;
     private String displayType;
     private Boolean isClickable;
+    private String color;
 }
 
