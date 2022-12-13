@@ -22,15 +22,15 @@ public class FoodPreferenceComboItemDto implements Serializable {
 
     private static final long serialVersionUID = -1523221974565668717L;
     private String itemId;
-	private String categoryId;
-	private String subCategoryId;
-	private String itemName;
-	private Integer stdQty;
-	private Integer stdWeight;
-	private ListingDto units;
-	private FoodItemType itemType;
-	private boolean quantifiable;
-	private boolean hideGrammage;
-	private boolean hybridBuffetItem;
+    private String categoryId;
+    private String subCategoryId;
+    private String itemName;
+    private Integer stdQty;
+    private Integer stdWeight;
+    private ListingDto units;
+    private FoodItemType itemType;
+    private boolean quantifiable;
+    private boolean hideGrammage;
+    private boolean hybridBuffetItem;
     private CuisineTagsDto cuisineTagsDto;
 }
