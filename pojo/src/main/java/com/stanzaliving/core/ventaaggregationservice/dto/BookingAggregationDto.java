@@ -113,4 +113,5 @@ public class BookingAggregationDto {
     private String residenceAddress;
     private ResidenceAgreementType residenceAgreementType;
     private String bookingMode;
+    private boolean billToResident;
 }
