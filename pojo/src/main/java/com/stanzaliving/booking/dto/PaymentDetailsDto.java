@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @EqualsAndHashCode(callSuper = true)
@@ -15,4 +16,6 @@ import java.util.List;
 public class PaymentDetailsDto extends UIKeyValue {
 
     private List<UIKeyValue> lineItems;
+
+    private LocalDate startDate;
 }

@@ -15,4 +15,5 @@ public class PerformanceResponseDto {
     private String cityBestValue;
     private String mmBestValue;
     private String userPerformance;
+    private String colorCode;
 }
