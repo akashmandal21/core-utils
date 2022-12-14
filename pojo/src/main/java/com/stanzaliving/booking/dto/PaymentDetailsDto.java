@@ -17,5 +17,5 @@ public class PaymentDetailsDto extends UIKeyValue {
 
     private List<UIKeyValue> lineItems;
 
-    private LocalDate startDate;
+    private LocalDate installmentStartDate;
 }
