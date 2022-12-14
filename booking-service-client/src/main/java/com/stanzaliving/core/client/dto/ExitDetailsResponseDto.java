@@ -33,7 +33,7 @@ public class ExitDetailsResponseDto {
 
     private String actualEndDateNote;
 
-    private String confirmationNote;
+    private List<String> confirmationNotes;
 
     private String confirmationNotePS;
 
