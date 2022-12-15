@@ -248,34 +248,32 @@ public class ResourceProcessor extends AbstractProcessor {
 
 
     public void processPermission(HashMap<String, ArrayList<String>> resourcePermissionMap){
-        for(String resource:resourcePermissionMap.keySet()) {
-            TypeSpec.Builder typeSpecBuilder = createPermissionsEnum(resource);
-            TypeSpec.Builder typeSpecBuilder2=TypeSpec.classBuilder("constants").addModifiers(Modifier.PUBLIC);
-            for (Map.Entry<String, ArrayList<String>> entry : resourcePermissionMap.entrySet()) {
-                String[] permissions = entry.getValue().toArray(new String[entry.getValue().size()]);
-                int n = permissions.length;
-                for (int i = 0; i < n; i++) {
+
+        TypeSpec.Builder typeSpecBuilder2=TypeSpec.classBuilder("constants").addModifiers(Modifier.PUBLIC);
+        for (Map.Entry<String, ArrayList<String>> entry : resourcePermissionMap.entrySet()) {
+            String[] permissions = entry.getValue().toArray(new String[entry.getValue().size()]);
+            int n = permissions.length;
+            for (int i = 0; i < n; i++) {
 //                    typeSpecBuilder.addEnumConstant(permissions[i]);
-                    typeSpecBuilder2.addField(FieldSpec.builder(String.class,String.join("_",permissions[i].split(" ")))
-                                    .addModifiers(Modifier.STATIC,Modifier.PUBLIC,Modifier.FINAL)
-                                    .initializer("\""+permissions[i]+"\"")
-                            .build());
-                }
+                typeSpecBuilder2.addField(FieldSpec.builder(String.class,String.join("_",permissions[i].split(" ")))
+                                .addModifiers(Modifier.STATIC,Modifier.PUBLIC,Modifier.FINAL)
+                                .initializer("\""+permissions[i]+"\"")
+                        .build());
             }
-            try {
-                //generatePermissionEnumFile(typeSpecBuilder);
-                JavaFile javaFile = JavaFile.builder("com.stanzaliving.acl.client",
-                                typeSpecBuilder2.build())
-                        .indent("    ")
-                        .build();
+        }
+        try {
+            //generatePermissionEnumFile(typeSpecBuilder);
+            JavaFile javaFile = JavaFile.builder("com.stanzaliving.acl.client",
+                            typeSpecBuilder2.build())
+                    .indent("    ")
+                    .build();
 
-                Path path= Paths.get("/Users/kedimetla.pavan/Documents/ACL/part-1-maven/acl-client/src/main/java");
+            Path path= Paths.get("/Users/kedimetla.pavan/Documents/ACL/part-1-maven/acl-client/src/main/java");
 //        javaFile.writeTo(filer);
-                javaFile.writeTo(filer);
+            javaFile.writeTo(filer);
 
-            } catch (IOException e) {
-                messager.printMessage(Diagnostic.Kind.ERROR, e.getMessage());
-            }
+        } catch (IOException e) {
+            messager.printMessage(Diagnostic.Kind.ERROR, e.getMessage());
         }
     }
 
