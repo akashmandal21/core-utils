@@ -377,6 +377,22 @@ public class TransformationCache {
 		return residenceByUuidMap.get(uuid);
 	}
 
+	public List<ResidenceUIDto> getResidencesByUuids(List<String> residenceUuids){
+		List<ResidenceUIDto> residenceUIDtoList = new ArrayList<>();
+		try {
+			allResidenceWithCoreCache.getUnchecked("residenceWithCore");
+		}
+		catch (Exception exception){
+			log.info("getResidencesByUuids :: Transformation Cache Exception {}",exception.getMessage(), exception);
+			return null;
+		}
+		log.info("residenceUuids {}", residenceUuids);
+		for(String residenceUuid : residenceUuids) {
+			residenceUIDtoList.add(residenceByUuidMap.get(residenceUuid));
+		}
+		return residenceUIDtoList;
+	}
+
 	public ZoneMetadataDto getZoneByUuid(String uuid){
 		allZoneCache.getUnchecked("zone");
 		return zoneByUuidMap.get(uuid);

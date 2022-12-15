@@ -1246,4 +1246,8 @@ public class DateUtil {
         cal.add(Calendar.MONTH, months);
         return cal.getTime();
     }
+
+    public static boolean isSameDay(Date d1, Date d2){
+        return normalizeDate(d1).equals(normalizeDate(d2));
+    }
 }
