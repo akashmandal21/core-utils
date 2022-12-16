@@ -20,8 +20,6 @@ public enum DocumentUploadType {
 	FORM_C,
 	MOVE_IN_DATE_CHANGE;
 
-	PASSPORT,PAN,REFERRAL_PAN,ADHAAR_CARD,DRIVING_LICENSE,OTHERS,POLICE_VERIFICATION,POLICE_VERIFICATION_FORM,VISA,SELFIE,ID_CARD,VOTER_ID,FORM_C,MOVE_IN_DATE_CHANGE;
-
 	private static List<DocumentUploadType> indianDocumentTypes = new ArrayList<DocumentUploadType>(4);
 
 	private static List<DocumentUploadType> foriegnDocumentTypes = new ArrayList<DocumentUploadType>(4);
