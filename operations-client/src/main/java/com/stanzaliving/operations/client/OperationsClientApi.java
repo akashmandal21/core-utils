@@ -223,7 +223,7 @@ public class OperationsClientApi {
 
 	}
 	
-	public InternetProviderDetails getInternetVendorForB2B(String residenceId, LocalDate localDate) {
+	public InternetProviderDetails getInternetVendorForB2B(String residenceId, LocalDate localDate, String userCode) {
 
 		Object postBody = null;
 
@@ -233,6 +233,7 @@ public class OperationsClientApi {
 		uriVariables.put("key", "internet.internet");
 		uriVariables.put("residenceId", residenceId);
 		uriVariables.put("date", localDate.toString());
+		uriVariables.put("userCode", userCode);
 
 		String path =
 				UriComponentsBuilder.fromPath("/internal/servicemix/b2b/current/getValueForKey/{residenceId}/{key}/{date}").buildAndExpand(uriVariables).toUriString();
