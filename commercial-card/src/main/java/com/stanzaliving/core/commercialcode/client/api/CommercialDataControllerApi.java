@@ -52,6 +52,32 @@ public class CommercialDataControllerApi {
         return this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
     }
 
+    public ResponseDto<List<CodeListDto>> getAllPricingStrategy(String token, CommercialCardDto commercialCardDto) {
+
+        log.info("Commercial-code-Data-Controller::Processing to get residence list for filter {}", commercialCardDto.toString());
+
+        Object postBody = commercialCardDto;
+
+        Map<String, Object> uriVariables = new HashMap();
+
+        String path = UriComponentsBuilder.fromPath("/api/v1/price-strategy/commercial-codes").buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+
+        HttpHeaders headerParams = new HttpHeaders();
+
+        headerParams.add("Cookie", "token=" + token);
+
+        String[] accepts = new String[]{"*/*"};
+
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<List<CodeListDto>>> returnType =
+                new ParameterizedTypeReference<ResponseDto<List<CodeListDto>>>() {};
+
+        return this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+    }
+
     public ResponseDto<CommercialCardUsageDto> updateCommercialCardUsage(String token, CommercialCardBookingDto commercialCardBookingDto) {
 
         log.info("Commercial-code-Data-Controller::Processing to update commercial card usage", commercialCardBookingDto);
