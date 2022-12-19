@@ -14,5 +14,6 @@ import lombok.Data;
 public class UserRoleDto {
 
     private Role role;
+    private List<Role> roles;
     private List<String> micromarketUuids;
 }

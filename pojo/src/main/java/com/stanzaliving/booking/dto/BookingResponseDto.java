@@ -74,4 +74,8 @@ public class BookingResponseDto {
 
     private Date createdAt;
 
+    private String residenceUuid;
+
+    private String residenceName;
+
 }

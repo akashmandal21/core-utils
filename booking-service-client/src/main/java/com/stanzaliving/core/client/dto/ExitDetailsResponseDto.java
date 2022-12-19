@@ -35,6 +35,8 @@ public class ExitDetailsResponseDto {
 
     private String confirmationNote;
 
+    private List<String> confirmationNotesSplit;
+
     private String confirmationNotePS;
 
     private List<PaymentDetailsDto> paymentDetails;

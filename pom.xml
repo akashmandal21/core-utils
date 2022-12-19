@@ -82,6 +82,7 @@
         <module>generic-po-client</module>
         <module>approval-service-client</module>
         <module>wanda-client</module>
+        <module>wandaV2-client</module>
         <module>search-client</module>
         <module>leadservice-client</module>
         <module>far-client</module>
@@ -114,6 +115,7 @@
         <module>estate-v2-client</module>
         <module>messagebird-client</module>
         <module>cloudinary-client</module>
+        <module>aws-lambda-client</module>
     </modules>
 
 	<build>
