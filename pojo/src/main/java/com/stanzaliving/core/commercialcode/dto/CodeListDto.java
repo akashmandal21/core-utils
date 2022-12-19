@@ -52,4 +52,6 @@ public class CodeListDto {
     private PlatformType platform;
 
     private PaymentFrequency paymentFrequency;
+
+    private Double priceImpact;
 }
