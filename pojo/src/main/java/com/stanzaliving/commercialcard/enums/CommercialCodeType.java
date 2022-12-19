@@ -15,6 +15,7 @@ public enum CommercialCodeType {
     CITY( "City","CITY"),
     RESIDENCE("Residence","RESIDENCE"),
     MICROMARKET( "Micromarket","MICROMARKET"),
+    COUNTRY( "Country","COUNTRY"),
     CONTRACTTENURE("CONTRACT TENURE","CONTRACTTENURE"),
     LOCKIN( "LOCK IN","LOCKIN"),
     PAYMENT( "PAYMENT","PAYMENT"),

@@ -183,6 +183,29 @@ public class DiscountClientApi {
 		return null;
 	}
 
+	public ResponseDto<String> disableDiscount(String bookingUuid) {
+
+		try {
+			Object postBody = null;
+			log.info("Received request to disable discount for bookingUuid {}", bookingUuid);
+			final Map<String, Object> uriVariables = new HashMap<>();
+			uriVariables.put("bookingUuid", bookingUuid);
+			String path = UriComponentsBuilder.fromPath("/disable/{bookingUuid}").buildAndExpand(uriVariables)
+					.toUriString();
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+			final HttpHeaders headerParams = new HttpHeaders();
+			final String[] accepts = { "*/*" };
+
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+			ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+			};
+			return restClient.invokeAPI(path, HttpMethod.DELETE, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Exception while disabling discount : ", e);
+		}
+		return null;
+	}
+
 	public ResponseDto<String> confirmDiscountSplitter(BookingDiscountRequestDTO bookingDiscountRequestDTO) {
 
 		try {
@@ -203,6 +226,34 @@ public class DiscountClientApi {
 			log.error("Exception while confirming discount : ", e);
 		}
 		return null;
+	}
+
+	public ResponseDto<?> sendDiscountEmailDigest() {
+		log.info("Discount Email Digest ");
+		try {
+
+			Object postBody = null;
+
+			final Map<String, Object> uriVariables = new HashMap<>();
+
+			String path = UriComponentsBuilder.fromPath("/internal/digest").buildAndExpand(uriVariables).toUriString();
+
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+			final HttpHeaders headerParams = new HttpHeaders();
+
+			final String[] accepts = {"*/*"};
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+			ParameterizedTypeReference<ResponseDto<?>> returnType = new ParameterizedTypeReference<ResponseDto<?>>() {
+			};
+
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+
+		} catch (Exception e) {
+			log.error("Exception occurred while sending discount Email", e);
+			return null;
+		}
 	}
 
 }
