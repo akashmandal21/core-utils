@@ -42,20 +42,14 @@ public class CheckPermissionProcessor {
         Class<? extends AttributeValueProvider> className=methodSignature.getMethod().getAnnotation(CheckPermission.class).attributeValueProvider();
 
         AttributeValueProvider attributeValueProvider= null;
-        try {
-            attributeValueProvider = className.getConstructor().newInstance();
-        } catch (Exception e){
-            e.printStackTrace();
-        }
-
         HttpServletRequest request=null;
         try {
+            attributeValueProvider = className.getConstructor().newInstance();
             request = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes()).getRequest();
         }
         catch (Exception e){
-            throw new ApiValidationException(RequestContextHolder.currentRequestAttributes().toString());
+            e.printStackTrace();
         }
-
         String token=extractTokenFromRequest(request);
 
         AttributeDto attributeDto=attributeValueProvider.fillAttributeValues(request);
