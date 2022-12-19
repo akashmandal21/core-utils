@@ -113,4 +113,5 @@ public class BookingAggregationDto implements Serializable{
     private ResidenceAgreementType residenceAgreementType;
     private String residenceAddress;
     private String bookingMode;
+    private boolean billToResident;
 }

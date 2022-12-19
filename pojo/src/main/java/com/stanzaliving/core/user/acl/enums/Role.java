@@ -3,10 +3,12 @@ package com.stanzaliving.core.user.acl.enums;
 import com.stanzaliving.core.base.enums.AccessLevel;
 import com.stanzaliving.core.base.enums.AccessModule;
 import com.stanzaliving.core.base.enums.Department;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -157,5 +159,14 @@ public enum Role {
         this.roleName = roleName;
         this.accessLevel = accessLevel;
         this.department = department;
+    }
+
+    public static boolean internalSalesRole(Role role) {
+        Set<Role> internalSalesRoleSet = new HashSet<>();
+        internalSalesRoleSet.add(INTERNAL_SALES_RESIDENCE);
+        internalSalesRoleSet.add(INTERNAL_SALES_MICROMARKET);
+        internalSalesRoleSet.add(INTERNAL_SALES_CITY);
+        internalSalesRoleSet.add(INTERNAL_SALES_COUNTRY);
+        return internalSalesRoleSet.contains(role);
     }
 }
