@@ -1,11 +1,11 @@
 package com.stanzaliving.core.venta_aggregation_client.api;
 
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
+import com.stanzaliving.booking.dto.BookingResponseDto;
+import com.stanzaliving.core.bookingservice.dto.request.BookingsForUpsellRequestDto;
 import com.stanzaliving.core.ventaaggregationservice.dto.*;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.common.dto.RoommateFilterDto;
@@ -602,6 +602,32 @@ public class VentaAggregationServiceApi {
         }
 
     }
+    public ResponseDto<List<BookingAggregationDto>> getActiveBookingsForDigest(String date) {
+        try {
+            Object postBody = null;
+
+            final Map<String, Object> uriVariables = new HashMap<>();
+
+            String path = UriComponentsBuilder.fromPath("/internal/activeBooking/details/digest").buildAndExpand(uriVariables).toUriString();
+
+            final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+            queryParams.add("digestDate", date);
+
+            final HttpHeaders headerParams = new HttpHeaders();
+
+            final String[] accepts = {"*/*"};
+            final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+            ParameterizedTypeReference<ResponseDto<List<BookingAggregationDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<BookingAggregationDto>>>() {
+            };
+
+            return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+
+        } catch (Exception e) {
+            log.error("Exception occurred while fetching sync properties data for cms website from venta", e);
+            return null;
+        }
+    }
 
 	public List<String> getBookingUuidByResidentId(String residentId) {
 		log.info("Resident Details Controller::Processing to get booking uuids on basis of residentId {}", residentId);
@@ -627,4 +653,48 @@ public class VentaAggregationServiceApi {
 		};
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
+
+    public ResponseDto<List<BookingResponseDto>> findBookingsByUser(BookingsForUpsellRequestDto upsellRequestDto) {
+        Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/internal/v1/bookingUuid-by-user")
+                .buildAndExpand(uriVariables).toUriString();
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        HttpHeaders headerParams = new HttpHeaders();
+        String[] accepts = new String[]{"*/*"};
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<List<BookingResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<BookingResponseDto>>>() {
+        };
+        ResponseDto<List<BookingResponseDto>> response = null;
+        try {
+            log.info("Executing Api for getting bookings for upsellRequestDto {}", upsellRequestDto);
+            response = this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, upsellRequestDto, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception while fetching bookings for upsellRequestDto {}, Exception is ", upsellRequestDto, e);
+        }
+        return response;
+    }
+
+    public ResponseDto<List<String>> getActiveDealsForInvoicing(Date invoiceDate) {
+        final Map<String, Object> uriVariables = new HashMap<>();
+        String path = UriComponentsBuilder.fromPath("/internal/api/v1/eligible-for-invoice-b2b")
+                .buildAndExpand(uriVariables).toUriString();
+        SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd");
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        if (invoiceDate != null) {
+            queryParams.add("invoiceDate", date.format(invoiceDate));
+        }
+        HttpHeaders headerParams = new HttpHeaders();
+        final String[] accepts = {"*/*"};
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<List<String>>> returnType = new ParameterizedTypeReference<ResponseDto<List<String>>>() {
+        };
+        try {
+            return restClient.invokeAPI(path, HttpMethod.GET, queryParams,
+                    null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("error while fetching bookings for invoicing {}", e.getMessage());
+            return null;
+        }
+    }
 }

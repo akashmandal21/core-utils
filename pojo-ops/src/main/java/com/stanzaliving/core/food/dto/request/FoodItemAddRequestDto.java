@@ -95,4 +95,6 @@ public class FoodItemAddRequestDto {
 
 	private String linkedIngredientId;
 
+	private String foodItemCuisineTagId;
+
 }
