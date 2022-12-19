@@ -1,4 +1,4 @@
-package com.stanzaliving.acl.client.Utils;
+package com.stanzaliving.acl.client.exception;
 
 
 import org.apache.commons.lang3.StringUtils;

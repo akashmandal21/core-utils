@@ -1,6 +1,5 @@
 package com.stanzaliving.acl.client.annotation;
 
-import com.stanzaliving.acl.client.Permissions;
 import com.stanzaliving.acl.client.Utils.AttributeValueProvider;
 
 import java.lang.annotation.ElementType;

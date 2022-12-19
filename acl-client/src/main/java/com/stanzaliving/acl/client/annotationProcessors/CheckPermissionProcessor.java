@@ -1,10 +1,13 @@
-package com.stanzaliving.acl.client.Utils;
+package com.stanzaliving.acl.client.annotationProcessors;
 
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.stanzaliving.acl.client.AttributeDto;
-import com.stanzaliving.acl.client.Permissions;
+import com.stanzaliving.acl.client.exception.ApiValidationException;
+import com.stanzaliving.acl.client.Utils.AttributeValueProvider;
+import com.stanzaliving.acl.client.dto.ConditionContextDto;
+import com.stanzaliving.acl.client.Utils.SecurityConstants;
 import com.stanzaliving.acl.client.annotation.CheckPermission;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -29,16 +32,14 @@ import java.util.*;
 
 @Aspect
 @Component
-public class CheckPermissionAop {
+public class CheckPermissionProcessor {
 
     @Around("@annotation(com.stanzaliving.acl.client.annotation.CheckPermission)")
-    public Object pcp(ProceedingJoinPoint joinPoint) throws Exception {
+    public Object process(ProceedingJoinPoint joinPoint) throws Exception {
         MethodSignature methodSignature=(MethodSignature) joinPoint.getSignature();
         String[] permissions=methodSignature.getMethod().getAnnotation(CheckPermission.class).permissions();
         String resource=methodSignature.getMethod().getAnnotation(CheckPermission.class).resource();
         Class<? extends AttributeValueProvider> className=methodSignature.getMethod().getAnnotation(CheckPermission.class).attributeValueProvider();
-
-        //get attribute value provider from abac resources.
 
         AttributeValueProvider attributeValueProvider= null;
         try {
@@ -88,7 +89,6 @@ public class CheckPermissionAop {
         } catch (Throwable e) {
             e.printStackTrace();
         }
-
         return true;
     }
 

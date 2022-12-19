@@ -1,4 +1,4 @@
-package com.stanzaliving.acl.client.Utils;
+package com.stanzaliving.acl.client.dto;
 
 import java.util.HashMap;
 import java.util.List;
@@ -7,9 +7,7 @@ public class ResourceDto {
     HashMap<String,List<String>> resourceAttributeMap;
     HashMap<String,List<String>> resourcePermissionsMap;
 
-    public ResourceDto(){
-
-    }
+    public ResourceDto(){}
 
     public ResourceDto(HashMap<String, List<String>> resourceAttributeMap, HashMap<String, List<String>> resourcePermissionsMap) {
         this.resourceAttributeMap = resourceAttributeMap;
