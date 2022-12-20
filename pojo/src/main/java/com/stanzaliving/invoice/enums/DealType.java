@@ -7,8 +7,10 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum DealType {
 
-    B2C,
-    B2B_COCO,
-    B2B_POCO;
+    B2C("B2C"),
+    B2B_COCO("B2B_COCO"),
+    B2B_POCO("B2B_POCO");
+
+    private String name;
 
 }
