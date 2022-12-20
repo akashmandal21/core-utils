@@ -23,6 +23,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.util.UriComponentsBuilder;
 
 @Log4j2
@@ -696,5 +697,27 @@ public class VentaAggregationServiceApi {
             log.error("error while fetching bookings for invoicing {}", e.getMessage());
             return null;
         }
+    }
+
+    public ResponseDto<Map<String, Set<String>>> getMicroMarketAndCityByResidenceUuid(List<String> uuids) {
+
+        Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/internal/residence/get-micromarket-city-by-residenceuuid")
+                .buildAndExpand(uriVariables).toUriString();
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        HttpHeaders headerParams = new HttpHeaders();
+        String[] accepts = new String[]{"*/*"};
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<Map<String, Set<String>>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<String, Set<String>>>>() {
+        };
+        ResponseDto<Map<String, Set<String>>> response = null;
+        try {
+            log.info("Executing Api for getting residence uuids {}", uuids);
+            response = this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, uuids, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception while fetching bookings for upsellRequestDto {}, Exception is ", uuids, e);
+        }
+        return response;
     }
 }
