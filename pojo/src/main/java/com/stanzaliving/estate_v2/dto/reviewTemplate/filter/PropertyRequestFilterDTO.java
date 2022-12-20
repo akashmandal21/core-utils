@@ -5,6 +5,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import java.util.List;
+import java.util.Map;
 
 @Getter
 @Setter
@@ -16,4 +17,6 @@ public class PropertyRequestFilterDTO {
 
     private PropertyLocationFilterDTO propertyLocationFilter;
     private List<DynamicFilterSectionsDTO> dynamicFilterSections;
+    private Map<String,List<PropertyStatusDTO>> propertyTypeAndStatusMap;
+    private Map<String,DynamicFilterDTO> dynamicFilterSectionsMap;
 }
