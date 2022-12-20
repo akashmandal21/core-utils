@@ -18,6 +18,7 @@ public class DynamicSeoUrlResponseDto {
     private String dynamicSeoUrl;
     private String dynamicSeoTitle;
     private String dynamicSeoDescription;
+    private String pageDescription;
     private boolean status;
     private boolean locationCheck;
     private EnumListing<PropertyEntityType> dynamicSeoUrlType;
