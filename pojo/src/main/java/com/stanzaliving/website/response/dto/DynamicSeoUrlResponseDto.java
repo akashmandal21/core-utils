@@ -14,7 +14,7 @@ import java.util.Date;
 @ToString
 public class DynamicSeoUrlResponseDto {
 
-    private int dynamicSeoUrlId;
+    private long dynamicSeoUrlId;
     private String dynamicSeoUrl;
     private String dynamicSeoTitle;
     private String dynamicSeoDescription;
