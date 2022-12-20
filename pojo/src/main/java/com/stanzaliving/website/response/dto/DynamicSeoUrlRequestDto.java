@@ -13,7 +13,7 @@ import java.util.Date;
 @Getter
 @Setter
 @ToString
-public class DynamicSeoUrlResponseDto implements Serializable {
+public class DynamicSeoUrlRequestDto implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
