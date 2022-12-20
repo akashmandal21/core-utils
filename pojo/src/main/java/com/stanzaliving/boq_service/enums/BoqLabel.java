@@ -29,7 +29,6 @@ public enum BoqLabel {
     REFURB_MISPLACED_ITEMS("Refurb - Misplaced Items"),
     REFURB_R_AND_M("Refurb - R&M"),
     TRANSFORMATION_LL_ITEMS("Transformation - LL items"),
-    REFURB_R_AND_M("Refurb - R&M"),
     REFURB_EXIT("Refurb - Exit"),
     CONSUMER_DEBIT("Consumer Debit"),
     NA("NA"); // not to be used while labeling. (only used to tag legacy boqs)
