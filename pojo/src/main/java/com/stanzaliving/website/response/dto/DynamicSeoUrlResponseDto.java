@@ -2,9 +2,16 @@ package com.stanzaliving.website.response.dto;
 
 import com.stanzaliving.core.enums.PropertyEntityType;
 import com.stanzaliving.core.user.enums.EnumListing;
+import lombok.*;
 
 import java.util.Date;
 
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@ToString
 public class DynamicSeoUrlResponseDto {
 
     private int dynamicSeoUrlId;
