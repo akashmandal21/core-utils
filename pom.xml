@@ -116,6 +116,7 @@
         <module>messagebird-client</module>
         <module>cloudinary-client</module>
         <module>aws-lambda-client</module>
+        <module>acl-client</module>
     </modules>
 
 	<build>
