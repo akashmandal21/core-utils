@@ -6,6 +6,9 @@ package com.stanzaliving.core.user.enums;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * @author naveen
  *
@@ -41,6 +44,11 @@ public enum UserType {
 	INVITED_GUEST("Invited Guest"),
 	FOOD_DELIVERY_AGENT("Food Delivery Agent"),
 	VENDOR("Vendor");
+
+	public static List<UserType> getMigratedUserTypes(){
+		return Arrays.asList(UserType.MANAGER,UserType.DESIGN_COORDINATOR,
+				UserType.PROJECT_MANAGER,UserType.SITE_ENGINEER,UserType.ZONAL_HEAD,UserType.NATIONAL_HEAD);
+	}
 
 	public String typeName;
 
