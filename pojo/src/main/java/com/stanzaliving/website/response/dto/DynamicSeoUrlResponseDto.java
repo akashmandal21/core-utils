@@ -24,7 +24,6 @@ public class DynamicSeoUrlResponseDto implements Serializable {
     private String pageDescription;
     private boolean status;
     private boolean locationCheck;
-    private EnumListing<PropertyEntityType> dynamicSeoUrlType;
     private Date createdAt;
     private String createdBy;
     private Date updatedAt;
