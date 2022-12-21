@@ -1,6 +1,7 @@
 package com.stanzaliving.price_strategy.request;
 
 import com.stanzaliving.booking.enums.BookingSubType;
+import com.stanzaliving.commercialcard.enums.CommercialCardStatus;
 import com.stanzaliving.commercialcard.enums.CommercialCardUserType;
 import com.stanzaliving.commercialcard.enums.CommercialCodeType;
 import lombok.*;
@@ -21,6 +22,7 @@ public class CreationDto {
     private String applyToEntity;
     private Date applicabilityFrom;
     private Date applicabilityTo;
+    private CommercialCardStatus strategyCardStatus;
     private CommercialCardUserType bookingType;
     private List<ConditionsRule> conditionsRules;
     private CommercialActionDto commercialActionDto;

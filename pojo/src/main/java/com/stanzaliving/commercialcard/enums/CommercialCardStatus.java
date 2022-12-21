@@ -7,7 +7,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum CommercialCardStatus {
     DRAFT("Draft",4),
-    PENDING("Pending",6),
+    PENDING("Pending Approval",6),
     ACTIVE ("Active",1),
     USED("Used",7),
     EXPIRED("Expired",5),
