@@ -8,9 +8,9 @@ import lombok.Data;
 @Builder
 public class PaymentFrequencyDto {
     private PaymentTerm paymentTerm;
-    private Integer monthlyRent;
-    private Integer totalAmount;
-    private Integer discountAmount;
+    private Double monthlyRent;
+    private Double totalAmount;
+    private Double discountAmount;
     private Boolean isRecommended = false;
     private String waiveOffStrategy;
     private String discountStrategy;
