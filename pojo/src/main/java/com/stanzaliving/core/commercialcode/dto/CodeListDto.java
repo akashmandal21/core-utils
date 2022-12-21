@@ -59,7 +59,7 @@ public class CodeListDto {
 
     private PaymentFrequency paymentFrequency;
 
-    private Double priceImpact;
+    private String priceImpact;
 
     private CommercialCardUserType userType;
 }
