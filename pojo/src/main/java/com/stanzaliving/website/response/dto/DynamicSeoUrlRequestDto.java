@@ -5,7 +5,6 @@ import com.stanzaliving.core.user.enums.EnumListing;
 import lombok.*;
 
 import java.io.Serializable;
-import java.util.Date;
 
 @Builder
 @AllArgsConstructor
@@ -25,8 +24,4 @@ public class DynamicSeoUrlRequestDto implements Serializable {
     private boolean status;
     private boolean locationCheck;
     private EnumListing<PropertyEntityType> dynamicSeoUrlType;
-    private Date createdAt;
-    private String createdBy;
-    private Date updatedAt;
-    private String updatedBy;
 }
