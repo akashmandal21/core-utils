@@ -20,4 +20,6 @@ public class BookingCommercialCardDto {
     private String commercialCardUuid;
 
     private String bookingUuid;
+
+    private boolean isPriceStrategy;
 }

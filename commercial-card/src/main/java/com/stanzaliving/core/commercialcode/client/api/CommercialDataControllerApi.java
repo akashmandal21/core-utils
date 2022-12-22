@@ -7,6 +7,7 @@ import java.util.Map;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.commercialcode.dto.*;
+import com.stanzaliving.price_strategy.request.CreationDto;
 import com.stanzaliving.price_strategy.request.PaymentActionDto;
 import lombok.extern.log4j.Log4j2;
 
@@ -218,6 +219,32 @@ public class CommercialDataControllerApi {
 
         return this.restClient.invokeAPI(path, HttpMethod.GET
                 , queryParams, null, headerParams, accept, returnType);
+    }
+
+    public ResponseDto<CreationDto> getStrategyCardByUuid(String token, String StrategyUuid) {
+
+        log.info("PriceStrategy-Controller::Processing to retrieve commercial card information {}", StrategyUuid);
+
+        Map<String, Object> uriVariables = new HashMap();
+
+        uriVariables.put("uuid", StrategyUuid);
+
+        String path = UriComponentsBuilder.fromPath("/api/v1/price-strategy/get/{uuid}").buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+
+        HttpHeaders headerParams = new HttpHeaders();
+
+        headerParams.add("Cookie", "token=" + token);
+
+        String[] accepts = new String[]{"*/*"};
+
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<CreationDto>> returnType =
+                new ParameterizedTypeReference<ResponseDto<CreationDto>>() {};
+
+        return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
     }
 
 }
