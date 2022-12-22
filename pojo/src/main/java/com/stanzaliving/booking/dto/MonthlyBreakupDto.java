@@ -47,6 +47,9 @@ public class MonthlyBreakupDto implements Serializable {
     private ServicePriceDto bumpUpPriceDto;
     private ServicePriceDto cityBufferPriceDto;
 
+    private ServicePriceDto rentalONMPriceDto;
+    private ServicePriceDto serviceONMPriceDto;
+
     public Double getMonthlyFee() {
         if (Objects.isNull(this.monthlyFee))
             return 0D;

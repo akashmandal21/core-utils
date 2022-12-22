@@ -72,4 +72,10 @@ public class BookingResponseDto {
 
     private BookingSubType bookingSubType;
 
+    private Date createdAt;
+
+    private String residenceUuid;
+
+    private String residenceName;
+
 }

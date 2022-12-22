@@ -1,6 +1,7 @@
 package com.stanzaliving.booking.dto.request;
 
 import com.stanzaliving.booking.enums.BookingType;
+import com.stanzaliving.booking.enums.ResidenceAgreementType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -41,5 +42,11 @@ public class PaymentPlanRequestDto implements Serializable {
 
 	@Builder.Default
 	private Boolean modifyContract = false;
+
+	@Builder.Default
+	private ResidenceAgreementType residenceAgreementType = ResidenceAgreementType.LEASE_DEED;
+
+	@Builder.Default
+	private double managementFeePercentage = 0.0;
 
 }

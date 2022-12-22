@@ -1,5 +1,6 @@
 package com.stanzaliving.core.residenceservice.dto;
 
+import com.stanzaliving.booking.enums.ResidenceAgreementType;
 import com.stanzaliving.core.residenceservice.enums.RoomStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -46,4 +47,5 @@ public class RoomInventoryDetailDto {
 
     private String residenceCode;
 
+    private ResidenceAgreementType residenceAgreementType;
 }

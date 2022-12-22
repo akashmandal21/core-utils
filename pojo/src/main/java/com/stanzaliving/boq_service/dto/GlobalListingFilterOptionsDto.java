@@ -34,4 +34,6 @@ public class GlobalListingFilterOptionsDto {
     private List<LabelValueDto<String>> approvedBy;
 
     private List<LabelValueDto<String>> lastUpdatedBy;
+
+    private List<LabelValueDto<String>> items;
 }
