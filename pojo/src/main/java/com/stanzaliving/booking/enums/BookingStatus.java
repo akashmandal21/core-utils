@@ -408,15 +408,37 @@ public enum BookingStatus {
         bookingStatus.add(BookingStatus.RENT_DEFAULTER_UNPAID);
         bookingStatus.add(BookingStatus.CONTRACT_TERMINATED);
         bookingStatus.add(BookingStatus.TRESSPASSER);
+        bookingStatus.add(BookingStatus.CANCELLED);
         return bookingStatus;
     }
 
     public static List<BookingStatus> bookingStatusForBookingAmountRealisation() {
         List<BookingStatus> bookingStatus = new ArrayList<>();
+
         bookingStatus.add(BookingStatus.AGREEMENT_PENDING);
         bookingStatus.add(BookingStatus.AGREEMENT_SENT);
         bookingStatus.add(BookingStatus.ONBOARDING_PENDING);
         bookingStatus.add(BookingStatus.ONBOARDING_IN_PROGRESS);
+        return bookingStatus;
+    }
+
+    public static List<BookingStatus> remoteBookingStatusForBookingAmountRealisation() {
+        List<BookingStatus> bookingStatus = new ArrayList<>();
+
+        bookingStatus.add(BookingStatus.AGREEMENT_SENT);
+        bookingStatus.add(BookingStatus.ONBOARDING_PENDING);
+        bookingStatus.add(BookingStatus.ONBOARDING_IN_PROGRESS);
+        return bookingStatus;
+    }
+
+    public static Set<String> activeStatusesBooking() {
+        Set<String> bookingStatus = new HashSet<>();
+        bookingStatus.add(BookingStatus.SHARED_WITH_RESIDENT.getBookingStatus());
+        bookingStatus.add(AGREEMENT_PENDING.getBookingStatus());
+        bookingStatus.add(AGREEMENT_SENT.getBookingStatus());
+        bookingStatus.add(ONBOARDING_PENDING.getBookingStatus());
+        bookingStatus.add(ONBOARDING_IN_PROGRESS.getBookingStatus());
+        bookingStatus.add(ONBOARDING_COMPLETED.getBookingStatus());
         return bookingStatus;
     }
 

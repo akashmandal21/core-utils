@@ -12,7 +12,7 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = false)
-public class EstateAttributeDetailsDto extends AbstractDto {
+public class EstateAttributeDetailsDto{
 
     private String estateUuid;
 
@@ -35,5 +35,18 @@ public class EstateAttributeDetailsDto extends AbstractDto {
     private String roomCount;
     
     private String buildingHandoverDate;
+
+    private String monthlyRent;
+
+    private String securityDepositMonthsOfRent;
+
+    private String advanceRentMonthCount;
+
+    private String leaseLockInPeriodInYears;
+
+    private String leaseDurationInYears;
+
+    private String rentalInflationInYears;
+
 
 }

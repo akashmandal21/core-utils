@@ -12,7 +12,8 @@ public enum InternetEvents {
     BOOSTER_PACK_PURCHASED("Booster Pack Purchased"),
     BOOSTER_PACK_VALUE("Booster Pack Purchased Value"),
     ENABLED("Enabled"),
-    DISABLED("Disabled");
+    DISABLED("Disabled"),
+    DISABLED_MOVEOUT("Disabled Due To Move Out Or Booking Canceled");
 
     private String internetEvent;
 }

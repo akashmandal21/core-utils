@@ -5,6 +5,7 @@ import com.stanzaliving.core.base.common.dto.PaginationRequest;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.dto.LeadElasticDto;
+import com.stanzaliving.core.leaddashboard.enums.MetricEnum;
 import com.stanzaliving.leadService.dto.AutoExpireLeadConfigMapDto;
 import com.stanzaliving.leadService.dto.AutoExpireLeadDto;
 import com.stanzaliving.website.response.dto.LeadDetailEntity;
@@ -701,6 +702,49 @@ public class LeadserviceClientApi {
             return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
         } catch (Exception e) {
             log.error("Exception caused while auto expire referral codes", e);
+            return null;
+        }
+    }
+
+
+    public ResponseDto<List<String>> fetchMetricData(MetricEnum metricEnum) {
+        Object postBody = null;
+        String path = UriComponentsBuilder.fromPath("internal/lead/fetch-metric-data").toUriString();
+        final HttpHeaders headerParams = new HttpHeaders();
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        queryParams.add("metricEnum", metricEnum.name());
+        final String[] accepts = {"*/*"};
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<List<String>>> returnType = new ParameterizedTypeReference<ResponseDto<List<String>>>() {
+        };
+        try {
+            return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception caused while fetching metric data", e);
+            return null;
+        }
+    }
+
+    public ResponseDto<List<String>> fetchGroundAssociates() {
+        log.info("Fetching ground associates");
+        Object postBody = null;
+        String path = UriComponentsBuilder.fromPath("/internal/lead/ground-associates").toUriString();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final String[] accepts = { "*/*" };
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<List<String>>> returnType = new ParameterizedTypeReference<ResponseDto<List<String>>>() {
+        };
+
+        try {
+            return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception caused while fetching ground associates", e);
             return null;
         }
     }
