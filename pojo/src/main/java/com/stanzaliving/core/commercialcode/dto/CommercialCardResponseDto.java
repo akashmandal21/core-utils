@@ -17,6 +17,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 @ToString
 public class CommercialCardResponseDto {
 
@@ -57,6 +58,9 @@ public class CommercialCardResponseDto {
     private Integer advanceRentalFirstMonths;
 
     private Integer advanceRentalLastMonths;
+
+    //price strategy
+    private Double advanceLastMonths;
 
     @Min(value = 1, message = "Minimum Closure Applicable value must be 1")
     @Max(value = 1000000, message = "Maximum Closure Applicable value is 1000000")
