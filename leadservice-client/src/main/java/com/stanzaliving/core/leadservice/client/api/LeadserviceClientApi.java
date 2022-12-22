@@ -725,14 +725,14 @@ public class LeadserviceClientApi {
     }
 
 
-    public ResponseDto<List<String>> getSmartLeadReassignmentList() {
+    public ResponseDto<Void> getSmartLeadReassignmentList() {
         Object postBody = null;
-        String path = UriComponentsBuilder.fromPath("internal/lead/eligible-for-reassignments").toUriString();
+        String path = UriComponentsBuilder.fromPath("internal/lead/reassign-eligible-leads").toUriString();
         final HttpHeaders headerParams = new HttpHeaders();
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
         final String[] accepts = {"*/*"};
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-        ParameterizedTypeReference<ResponseDto<List<String>>> returnType = new ParameterizedTypeReference<ResponseDto<List<String>>>() {
+        ParameterizedTypeReference<ResponseDto<Void>> returnType = new ParameterizedTypeReference<ResponseDto<Void>>() {
         };
         try {
             return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
@@ -741,6 +741,7 @@ public class LeadserviceClientApi {
             return null;
         }
     }
+
     public ResponseDto<List<String>> fetchGroundAssociates() {
         log.info("Fetching ground associates");
         Object postBody = null;
