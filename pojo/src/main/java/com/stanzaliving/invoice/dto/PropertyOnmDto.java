@@ -17,7 +17,7 @@ import java.util.Date;
 @Builder
 public class PropertyOnmDto {
 
-    private Double fixedRent;
+    private String fixedRent;
 
     private Double managementFeePercentage;
 
