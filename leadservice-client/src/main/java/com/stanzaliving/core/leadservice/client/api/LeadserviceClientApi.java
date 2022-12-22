@@ -724,6 +724,24 @@ public class LeadserviceClientApi {
         }
     }
 
+
+    public ResponseDto<Void> getSmartLeadReassignmentList() {
+        Object postBody = null;
+        String path = UriComponentsBuilder.fromPath("internal/lead/reassign-eligible-leads").toUriString();
+        final HttpHeaders headerParams = new HttpHeaders();
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        final String[] accepts = {"*/*"};
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<Void>> returnType = new ParameterizedTypeReference<ResponseDto<Void>>() {
+        };
+        try {
+            return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception caused while fetching metric data", e);
+            return null;
+        }
+    }
+
     public ResponseDto<List<String>> fetchGroundAssociates() {
         log.info("Fetching ground associates");
         Object postBody = null;
@@ -747,5 +765,4 @@ public class LeadserviceClientApi {
             return null;
         }
     }
-
 }
