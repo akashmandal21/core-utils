@@ -60,7 +60,6 @@ public class NotificationProducer {
 	}
 
 	private void publishRecord(ProducerRecord<String, String> record) {
-
 		if (Objects.nonNull(record)) {
 
 			String messageId = StanzaUtils.generateUniqueId();
