@@ -33,4 +33,10 @@ public class QuestionsDto {
 
     @NotNull
     private String options;
+
+    private Boolean isSurveyConfigurable=Boolean.FALSE;
+
+    private Integer maxMultipleChoicesCount;
+
+    private Boolean isCommentOptional;
 }
