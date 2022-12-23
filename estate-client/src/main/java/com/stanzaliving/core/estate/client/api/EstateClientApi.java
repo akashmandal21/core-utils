@@ -464,7 +464,7 @@ public class EstateClientApi {
         final Map<String, Object> uriVariables = new HashMap<>();
         uriVariables.put("uuid", residenceUuid);
 
-        String path = UriComponentsBuilder.fromPath("/{uuid}/invoice-details")
+        String path = UriComponentsBuilder.fromPath("/internal/{uuid}/invoice-details")
                 .buildAndExpand(uriVariables)
                 .toUriString();
 
