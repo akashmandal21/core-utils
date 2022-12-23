@@ -28,8 +28,6 @@ public class CreationDto {
     private Date applicabilityTo;
     private CommercialCardStatus strategyCardStatus;
 
-    @NotNull(message = "UserType can't be null")
-    @NotBlank(message = "UserType cannot be empty")
     private CommercialCardUserType bookingType;
 
     @NotNull(message = "UserType can't be null")
