@@ -5,6 +5,7 @@ import javax.validation.constraints.NotNull;
 import com.stanzaliving.booking.enums.PaymentTerm;
 
 import com.stanzaliving.booking.enums.ResidenceAgreementType;
+import com.stanzaliving.price_strategy.request.PaymentActionDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -33,5 +34,7 @@ public class PaymentPlanV2RequestDto {
 
 	@Builder.Default
 	private boolean isPriceStrategy = false;
+
+	private PaymentActionDto paymentActionDto;
 	
 }
