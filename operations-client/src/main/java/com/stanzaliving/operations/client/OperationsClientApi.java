@@ -222,6 +222,43 @@ public class OperationsClientApi {
 		return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : null;
 
 	}
+	
+	public InternetProviderDetails getInternetVendorForB2B(String residenceId, LocalDate localDate, String userCode) {
+
+		Object postBody = null;
+
+		InternetDetails responseDto = null;
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("key", "internet.internet");
+		uriVariables.put("residenceId", residenceId);
+		uriVariables.put("date", localDate.toString());
+		uriVariables.put("userCode", userCode);
+
+		String path =
+				UriComponentsBuilder.fromPath("/internal/servicemix/b2b/current/getValueForKey/{residenceId}/{key}/{date}").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<InternetDetails> returnType = new ParameterizedTypeReference<InternetDetails>() {
+		};
+
+		try {
+			responseDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Exception while fetching Vendor Name from residenceId: {}", residenceId, e);
+		}
+
+		return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : null;
+
+	}
 
 	public ServiceMixEntityDto getServiceMixEntityByUuid(String uuid) {
 
