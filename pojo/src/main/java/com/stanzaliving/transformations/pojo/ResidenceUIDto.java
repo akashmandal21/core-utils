@@ -1,5 +1,6 @@
 package com.stanzaliving.transformations.pojo;
 
+import com.stanzaliving.core.enums.PropertyDealType;
 import com.stanzaliving.core.enums.PropertyEntityType;
 import com.stanzaliving.core.enums.ResidenceBrand;
 import com.stanzaliving.core.enums.ResidenceType;
@@ -104,5 +105,7 @@ public class ResidenceUIDto implements Serializable {
     private String apartmentType;
 
     private InternetVendor internetVendor;
+
+    private PropertyDealType propertyDealType;
 
 }

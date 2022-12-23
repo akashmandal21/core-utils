@@ -11,7 +11,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class PerformanceResponseDto {
     private String metric;
-    private String currentPercentage;
-    private String changePercentage;
-    private String metadata;
+    private String frequency;
+    private String cityBestValue;
+    private String mmBestValue;
+    private String userPerformance;
+    private String colorCode;
 }

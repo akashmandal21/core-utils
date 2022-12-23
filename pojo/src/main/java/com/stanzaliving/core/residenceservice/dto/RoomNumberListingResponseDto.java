@@ -21,6 +21,7 @@ public class RoomNumberListingResponseDto implements Serializable {
     private float blockedBeds = 0.0F;
     private float occupiedBeds = 0.0F;
     private float availableBeds = 0.0F;
+    private float softBlockedBeds = 0.0F;
 
     private boolean isConverted;
 

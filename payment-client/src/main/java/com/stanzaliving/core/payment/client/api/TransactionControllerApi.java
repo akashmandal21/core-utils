@@ -513,4 +513,33 @@ public class TransactionControllerApi {
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
     }
 
+
+
+    public ResponseDto<String> refundRemoteBookingAmount(String bookingUuid) {
+
+        log.info("Called api to refund remote booking amount for bookingUuid: {}", bookingUuid);
+        Object postBody = null;
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("bookingUuid", bookingUuid);
+        String path = UriComponentsBuilder.fromPath("/internal/remote-booking-refund/{bookingUuid}/bookingUuid").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+        final String[] accepts = {"*/*"};
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        TypeReference<ResponseDto<String>> returnType = new TypeReference<ResponseDto<String>>() {
+        };
+        ResponseDto<String> responseDto;
+        try {
+            responseDto = restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept,
+                    returnType);
+            return responseDto;
+
+        } catch (Exception e) {
+            log.error("Exception while refund of remote booking for bookingUuid : {}, error is {}", bookingUuid, e.getMessage(), e);
+        }
+        return null;
+    }
+
 }
