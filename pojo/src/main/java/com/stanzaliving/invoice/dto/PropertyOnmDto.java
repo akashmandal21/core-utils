@@ -17,6 +17,8 @@ import java.util.Date;
 @Builder
 public class PropertyOnmDto {
 
+    private String residenceUuid;
+
     private String fixedRent;
 
     private Double managementFeePercentage;
