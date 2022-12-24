@@ -30,7 +30,8 @@ public enum AccessLevel {
 
 	//keep level num 0 for locationAcl
 	FOOD_VENDOR(0),
-	CAFE(0);
+	CAFE(0),
+	USER(0);
 
 	public static final List<AccessLevel> locationAccessLevelList;
 
