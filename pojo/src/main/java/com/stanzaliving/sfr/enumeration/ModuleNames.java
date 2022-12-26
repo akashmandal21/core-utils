@@ -20,8 +20,8 @@ public enum ModuleNames {
     CONCEPT_DRAWINGS(false, "Concept Drawings", "Concept Drawings"),
     CONCEPT_SUBMISSION(true, "Concept Drawings Submission", "Concept Drawings"),
     HOTO(false, "Handover to Operations", "HOTO"),
-    HOTO_SUBMISSION(true, "HOTO Submission", "HOTO");
-    //LL_HO(true, "Land Lord Hand Over", "Land Lord Hand Over");
+    HOTO_SUBMISSION(true, "HOTO Submission", "HOTO"),
+    LL_HO(true, "Land Lord Hand Over", "Land Lord Hand Over");
     private final boolean isQuestionTemplateIdRequired;
 
     private final String name;

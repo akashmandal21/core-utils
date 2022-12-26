@@ -16,6 +16,7 @@ public class PricingDetailsResponseDto {
     private Date toDate;
     private int occupancy;
     private double basePrice;
+    private double onmServiceFee;
     private double packagedServiceFee;
     private double foodService;
     private double gst;
@@ -23,4 +24,5 @@ public class PricingDetailsResponseDto {
     private double cityBuffer;
     private double total;
     private double underWrittenIncGst;
+    private boolean isRoomConverted;
 }

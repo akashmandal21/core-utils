@@ -5,6 +5,7 @@ import com.stanzaliving.booking.dto.EligibleStatusMappingDto;
 import com.stanzaliving.booking.dto.response.InventoryResponseOccupancyDto;
 import com.stanzaliving.booking.enums.BookingResidenceType;
 import com.stanzaliving.booking.enums.PaymentTerm;
+import com.stanzaliving.booking.enums.ResidenceAgreementType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -109,4 +110,8 @@ public class BookingAggregationDto {
     private boolean guestBooking;
     private String primaryOwnerName;
     private Date expectedMoveOutDate;
+    private String residenceAddress;
+    private ResidenceAgreementType residenceAgreementType;
+    private String bookingMode;
+    private boolean billToResident;
 }

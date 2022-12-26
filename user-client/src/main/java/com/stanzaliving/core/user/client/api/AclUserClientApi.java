@@ -6,12 +6,12 @@ import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.user.acl.dto.RoleDto;
 import com.stanzaliving.core.user.acl.dto.UserAccessLevelIdsByRoleNameWithFiltersDto;
-import com.stanzaliving.core.user.acl.dto.UsersByFiltersRequestDto;
 import com.stanzaliving.core.user.acl.dto.UserAccessLevelIdsByRoleNameDto;
 import com.stanzaliving.core.user.acl.dto.UserDeptLevelRoleNameUrlExpandedDto;
 import com.stanzaliving.core.user.acl.request.dto.AddUserDeptLevelRoleRequestDto;
 import com.stanzaliving.core.user.acl.request.dto.CheckRoleNamesDto;
 import com.stanzaliving.core.user.acl.request.dto.RevokeUserDeptLevelRoleRequestDto;
+import com.stanzaliving.core.user.dto.UserManagerAndRoleDto;
 import com.stanzaliving.core.user.dto.response.UserContactDetailsResponseDto;
 import com.stanzaliving.core.user.enums.EnumListing;
 import com.stanzaliving.core.user.request.dto.UserStatusRequestDto;
@@ -24,10 +24,7 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 public class AclUserClientApi {
 
@@ -242,6 +239,10 @@ public class AclUserClientApi {
 
 	}
 
+	public ResponseDto<Map<String, List<String>>> getActiveUserIdAccessLevelIdByDepartmentRoleNameAccessLevelIdV2(Department department, String roleName, List<String> accessLevelId) {
+		return getActiveUseridAccessLevelIdByRoleName(new UserAccessLevelIdsByRoleNameDto(department, roleName, accessLevelId));
+	}
+
 	public ResponseDto<List<UserDeptLevelRoleNameUrlExpandedDto>> getUserInfoByEmailId(String email) {
 
 		Object postBody = null;
@@ -385,6 +386,35 @@ public class AclUserClientApi {
 		ParameterizedTypeReference<ResponseDto<Map<String, List<String>>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<String, List<String>>>>() {
 		};
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+
+	}
+
+	public ResponseDto<UserManagerAndRoleDto> getUserWithManagerAndRole(String userId, String token) {
+		Object postBody = null;
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+
+		String path = UriComponentsBuilder.fromPath("/details/manager/role").toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		queryParams.put("userId", Collections.singletonList(userId));
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		String tokenCookie = SecurityConstants.TOKEN_HEADER_NAME + "=" + token;
+		headerParams.add(SecurityConstants.COOKIE_HEADER_NAME, tokenCookie);
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<UserManagerAndRoleDto>> returnType = new ParameterizedTypeReference<ResponseDto<UserManagerAndRoleDto>>() {
+		};
+
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 
 	}
 

@@ -35,6 +35,8 @@ public class ExitDetailsResponseDto {
 
     private String confirmationNote;
 
+    private List<String> confirmationNotesSplit;
+
     private String confirmationNotePS;
 
     private List<PaymentDetailsDto> paymentDetails;
@@ -82,4 +84,11 @@ public class ExitDetailsResponseDto {
 
     @JsonFormat(pattern="yyyy-MM-dd")
     private LocalDate maxMoveOutDate;
+
+
+    @JsonFormat(pattern="yyyy-MM-dd")
+    private LocalDate chargedTillDate;
+
+    @JsonFormat(pattern="yyyy-MM-dd")
+    private LocalDate noticePeriodStartDate;
 }

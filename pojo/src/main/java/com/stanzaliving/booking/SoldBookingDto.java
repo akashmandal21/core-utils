@@ -1,5 +1,6 @@
 package com.stanzaliving.booking;
 
+import com.stanzaliving.booking.enums.BookingStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -20,4 +21,6 @@ public class SoldBookingDto {
     Double lockInDuration;
     Double beds;
     List<String> packageService;
+    BookingStatus bookingStatus;
+    Boolean isMoveIn;
 }

@@ -29,7 +29,8 @@ public enum DemoGraphicsRegion {
 	TAMIL("Tamil", 12),
 	TELEGU("Telegu", 13),
 	WAZWAN("Wazwan", 14),
-	WESTERN("Western", 15);
+	WESTERN("Western", 15),
+	SOUTH_INDIAN("South Indian", 16);
 
 	private String foodRegionName;
 	private Integer sequence;

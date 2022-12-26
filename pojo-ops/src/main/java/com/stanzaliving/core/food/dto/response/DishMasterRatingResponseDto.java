@@ -38,7 +38,10 @@ public class DishMasterRatingResponseDto extends DishMasterSearchResponseDto {
 	private Float avgRating;
 
 	private Double cost;
+
 	private Double countryCost;
+
+	private boolean isDebarred;
 
 	private List<ResidencePerformanceDto> residencePerformance;
 

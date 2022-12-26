@@ -7,6 +7,7 @@ import java.util.List;
 import com.stanzaliving.core.opscalculator.dto.DropDownDto;
 import com.stanzaliving.core.opscalculatorv2.enums.HouseKeepingType;
 import com.stanzaliving.core.opscalculatorv2.enums.SecurityGuardType;
+import com.stanzaliving.core.utilservice.annotations.ValidEnum;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -27,8 +28,10 @@ public class PersonnelCategoryV2Dto extends CategoryV2Dto {
 	private int hk12HrCount;
 	private int hk12HrCountSuggested;
 	private String hk12HrCountSuggestedReason;
-
+	
+	@ValidEnum(enumClass = HouseKeepingType.class, fieldName = "HouseKeepingType")
 	private HouseKeepingType hkType;
+	@ValidEnum(enumClass = HouseKeepingType.class, fieldName = "HouseKeepingType")
 	private HouseKeepingType hkTypeSuggested;
 	private String hkTypeSuggestedReason;
 
@@ -43,7 +46,9 @@ public class PersonnelCategoryV2Dto extends CategoryV2Dto {
 	private int sgCountSuggested;
 	private String sgCountSuggestedReason;
 
+	@ValidEnum(enumClass = SecurityGuardType.class, fieldName = "HouseKeepingType")
 	private SecurityGuardType sgType;
+	@ValidEnum(enumClass = SecurityGuardType.class, fieldName = "HouseKeepingType")
 	private SecurityGuardType sgTypeSuggested;
 	private String sgTypeSuggestedReason;
 

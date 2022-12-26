@@ -24,6 +24,8 @@ public class ApartmentRoomTypeResponseDTO implements Serializable {
 
 	private String roomId;
 
+	private String roomNumber;
+
 	private Integer apartmentId;
 
 	private List<Integer> featureIds;

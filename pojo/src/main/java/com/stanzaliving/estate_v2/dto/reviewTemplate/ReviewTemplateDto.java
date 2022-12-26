@@ -30,8 +30,11 @@ public class ReviewTemplateDto {
     private boolean l2CallBackVisible;
     private boolean viewOnly;
     private boolean bypassVisible;
+    private boolean dealScoreVisible;
     private boolean questionnaireVisible;
+    private boolean isNamedPropertyDetailsEditable;
     private List<OtherInformationDto> otherInformation;
     private List<LayoutDto> layouts;
     private String propertyAction;
+    private boolean suggestedLanguageEditable;
 }

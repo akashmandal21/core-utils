@@ -12,7 +12,7 @@ public enum SdRefundEvents {
     SD_REFUND_AUDIT_PROCESSED("SD_refund_audit_processed"),
     SD_REFUND_AUDIT_APPROVED("SD_refund_audit_approved"),
     SD_REFUND_TRANSFER_APPLICABLE("SD_refund_transfer_applicable"),
-    SD_REFUND_DETAILS_UPDATED("SD_refund_account_details_updated"),
+    SD_REFUND_ACCOUNT_DETAILS_UPDATED("SD_refund_account_details_updated"),
     SD_REFUND_TRANSFER_INITIATED("SD_refund_transfer_initiated"),
     SD_REFUND_TRANSFER_PROCESSED("SD_refund_transfer_processed"),
     SUCCESS("Success"),

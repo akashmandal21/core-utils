@@ -19,7 +19,9 @@ import java.util.List;
 @SuperBuilder
 @NoArgsConstructor
 public class MenuSearchPDto {
+
 	private String vendorId;
+
 	private String cityId;
 	
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -28,10 +30,17 @@ public class MenuSearchPDto {
 	private boolean residenceView;
 
 	private List<String> residenceIds;
+
 	private MenuStatus menuStatus;
+
 	private List<ApprovalStatus> approvalStatus;
+
 	private Boolean rulesViolated;
+
 	private Boolean approvalDashboard;
+
 	private Boolean approvalDataRequired;
+
+	private String name;
 
 }

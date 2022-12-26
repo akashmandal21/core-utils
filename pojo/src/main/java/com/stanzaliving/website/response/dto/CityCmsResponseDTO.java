@@ -31,6 +31,7 @@ public class CityCmsResponseDTO {
 	private boolean enabled;
 	private String slug;
 	private String phone;
+	private String campaignSlug;
 	private String description;
 	private String imageAltTag;
 	private String iconImageUrlAltTag;
