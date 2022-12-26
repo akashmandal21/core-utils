@@ -33,7 +33,7 @@ public class PaymentPlanV2RequestDto {
 	private PaymentTerm paymentTerm = PaymentTerm.MONTHLY;
 
 	@Builder.Default
-	private boolean isPriceStrategy = false;
+	private Boolean isPriceStrategy = false;
 
 	private PaymentActionDto paymentActionDto;
 	
