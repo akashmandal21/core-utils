@@ -44,8 +44,8 @@ public class CommercialCardRequestDto implements Serializable {
 	public CommercialCardRequestDto(CommercialCardRequestDto commercialCardRequestDto) {
 	}
 
-	public int getLastAdvanceRentalMonths(){
-		return lastAdvanceRentalMonths.intValue();
+	public double getLastAdvanceRentalMonths(){
+		return lastAdvanceRentalMonths.doubleValue();
 	}
 
 }
