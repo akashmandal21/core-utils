@@ -21,5 +21,8 @@ public class PaymentActionDto {
     private String splitUpfrontComponent;
     private String collectionUpfrontComponent;
     private Double processingFee;
+    private WaiveOffType waiveOffType;
+    private Double priceImpact;
+    private Double monthlyRent;
 
 }
