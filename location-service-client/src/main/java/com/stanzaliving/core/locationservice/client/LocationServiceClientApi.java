@@ -19,10 +19,13 @@ import java.util.List;
 import java.util.Map;
 
 @Log4j2
-@AllArgsConstructor
 public class LocationServiceClientApi {
 
     private StanzaRestClient restClient;
+
+    public LocationServiceClientApi(StanzaRestClient restClient) {
+        this.restClient = restClient;
+    }
 
     public ResponseDto<LocationDetailsDto> getStanzaMicromarketFromLatLong(double latitude, double longitude) {
 
