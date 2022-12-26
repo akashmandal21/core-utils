@@ -6,12 +6,16 @@ package com.stanzaliving.core.website.client.api;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 
 import com.stanzaliving.core.base.common.dto.ResponseDto;
+import com.stanzaliving.core.base.location.GeoPointDto;
+import com.stanzaliving.core.base.utils.ObjectMapperUtil;
 import com.stanzaliving.website.dto.WebsiteResidenceResponseDto;
-import com.stanzaliving.website.response.dto.ResidenceResponseDTO;
+import com.stanzaliving.website.response.dto.*;
 import lombok.extern.log4j.Log4j2;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -22,9 +26,6 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.stanzaliving.core.base.http.StanzaRestClient;
-import com.stanzaliving.website.response.dto.ElasticsearchRequestDTO;
-import com.stanzaliving.website.response.dto.LeadVisitResponseDTO;
-import com.stanzaliving.website.response.dto.ResidenceResponseShortDTO;
 
 /**
  * s
@@ -179,7 +180,61 @@ public class WebsiteClientApi {
             log.error("Error while fetching residence details of : " + residenceName, e);
             return null;
         }
-
     }
 
+    public ResponseDto<CityCmsResponseDTO> getCityDetailsByWebsiteIdOrTransformationUuid(Integer websiteCityId, String transformationUuid) {
+
+        try {
+            String path = UriComponentsBuilder.fromPath("/internal/city/get/details/by").toUriString();
+
+            final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+            if (Objects.nonNull(websiteCityId)) {
+                queryParams.add("websiteCityId", websiteCityId.toString());
+            }
+
+            if (StringUtils.isNotBlank(transformationUuid)) {
+                queryParams.add("transformationUuid", transformationUuid);
+            }
+
+            final HttpHeaders headerParams = new HttpHeaders();
+
+            final String[] accepts = {"*/*"};
+
+            final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+            ParameterizedTypeReference<ResponseDto<CityCmsResponseDTO>> returnType = new ParameterizedTypeReference<ResponseDto<CityCmsResponseDTO>>() {
+            };
+
+            return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Error while Fetching Stanza City details from website for cityId: {}, transformationUuid: {}", websiteCityId, transformationUuid, e);
+        }
+        return null;
+    }
+
+    public ResponseDto<List<MicromarketListingResponseDTO>> getMicromarketListingByCityId(Integer websiteCityId) {
+
+        try {
+            String path = UriComponentsBuilder.fromPath("/internal/micromarket/get/all/by/city").toUriString();
+
+            final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+            queryParams.add("cityId", websiteCityId.toString());
+
+            final HttpHeaders headerParams = new HttpHeaders();
+
+            final String[] accepts = {"*/*"};
+
+            final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+            ParameterizedTypeReference<ResponseDto<List<MicromarketListingResponseDTO>>> returnType = new ParameterizedTypeReference<ResponseDto<List<MicromarketListingResponseDTO>>>() {
+            };
+
+            return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Error while Fetching Stanza MM details from website for cityId: {}", websiteCityId, e);
+        }
+        return null;
+    }
 }
