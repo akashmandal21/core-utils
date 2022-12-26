@@ -14,7 +14,9 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Log4j2
 @AllArgsConstructor
@@ -44,6 +46,34 @@ public class LocationServiceClientApi {
 
         } catch (Exception e) {
             log.error("Error while Fetching Stanza Micro market details from lat, long, geoPointDto: {}", geoPointDto, e);
+        }
+        return null;
+    }
+
+    public ResponseDto<LocationDetailsDto> getLocationDetailsDtoForCity(String cityTransformationUuid) {
+
+        try {
+            final Map<String, Object> uriVariables = new HashMap<>();
+
+            uriVariables.put("cityTransformationUuid", cityTransformationUuid);
+
+            String path = UriComponentsBuilder.fromPath("internal/city/{cityTransformationUuid}").buildAndExpand(uriVariables).toUriString();
+
+            final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+            final HttpHeaders headerParams = new HttpHeaders();
+
+            final String[] accepts = {"*/*"};
+
+            final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+            ParameterizedTypeReference<ResponseDto<LocationDetailsDto>> returnType = new ParameterizedTypeReference<ResponseDto<LocationDetailsDto>>() {
+            };
+
+            return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+
+        } catch (Exception e) {
+            log.error("Error while Fetching Location Details Dto For cityTransformationUuid: {}", cityTransformationUuid, e);
         }
         return null;
     }
