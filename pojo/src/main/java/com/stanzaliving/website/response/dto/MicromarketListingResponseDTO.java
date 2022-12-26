@@ -11,6 +11,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import javax.persistence.Column;
+
 @Getter
 @Setter
 @ToString
@@ -31,4 +33,8 @@ public class MicromarketListingResponseDTO {
 	EnumListing<Status> status;
 	@Default
 	private boolean enabled = true;
+
+	private String transformationUuid;
+	private Long transformationId;
+
 }
