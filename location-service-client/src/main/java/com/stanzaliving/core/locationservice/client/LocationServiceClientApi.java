@@ -22,7 +22,9 @@ public class LocationServiceClientApi {
 
     private StanzaRestClient restClient;
 
-    public ResponseDto<LocationDetailsDto> getStanzaMicromarketFromLatLong(GeoPointDto geoPointDto) {
+    public ResponseDto<LocationDetailsDto> getStanzaMicromarketFromLatLong(double latitude, double longitude) {
+
+        GeoPointDto geoPointDto = GeoPointDto.builder().lat(latitude).lon(longitude).build();
 
         try {
             String path = UriComponentsBuilder.fromPath("internal/micro-market").toUriString();

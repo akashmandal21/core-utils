@@ -14,4 +14,6 @@ public class LocationDetailsDto {
 	private String locationName;
 
 	private String locationId;
+
+	private String transformationUuid;
 }
