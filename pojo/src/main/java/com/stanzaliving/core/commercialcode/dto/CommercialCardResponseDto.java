@@ -57,7 +57,7 @@ public class CommercialCardResponseDto {
 
     private Integer advanceRentalFirstMonths;
 
-    private Integer advanceRentalLastMonths;
+    private Double advanceRentalLastMonths;
 
     //price strategy
     private Double advanceLastMonths;

@@ -23,5 +23,5 @@ public class BookingDiscountStrategyDto {
 	private boolean preBooking;
 	private String residenceUuid;
 	private Integer advanceRentalFirstMonths;
-	private Integer advanceRentalLastMonths;
+	private Double advanceRentalLastMonths;
 }

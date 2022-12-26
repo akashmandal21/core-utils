@@ -1,26 +1,22 @@
-package com.stanzaliving.booking.dto.response;
-
-import java.io.Serializable;
-import java.time.LocalDate;
+package com.stanzaliving.booking.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class AdvanceRentalDto implements Serializable {
-
-
+public class AdvanceRentalFirstDto {
     private LocalDate startDate;
 
     private LocalDate endDate;
 
-    private Double advanceRentalMonths;
+    private int advanceRentalMonths;
 
     private Double advanceRentalMonthsAmount;
-
 }
