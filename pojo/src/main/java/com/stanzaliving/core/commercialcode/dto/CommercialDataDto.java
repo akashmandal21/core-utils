@@ -17,5 +17,8 @@ public class CommercialDataDto {
    private BookingSubType bookingSubType;
    private PlatformType platform;
    private PaymentFrequency paymentFrequency;
-   private String monthlyRent;
+   private Double monthlyRent;
+   private Double monthlyRentWithPriceImpact;
+   private Double priceImpact;
+
 }

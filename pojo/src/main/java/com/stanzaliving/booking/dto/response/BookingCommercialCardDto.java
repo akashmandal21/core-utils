@@ -21,5 +21,7 @@ public class BookingCommercialCardDto {
 
     private String bookingUuid;
 
-    private boolean isPriceStrategy;
+    private Boolean isPriceStrategy;
+
+    private Double monthlyRent;
 }

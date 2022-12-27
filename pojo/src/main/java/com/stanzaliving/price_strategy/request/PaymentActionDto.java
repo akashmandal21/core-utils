@@ -14,10 +14,15 @@ public class PaymentActionDto {
     private Boolean status;
     private Boolean byDefault;
     private String waiveOffStrategy;
+    // this discount is different from actual discount
+    // it is for installment purpose if someone chooses three installments instead of monthly
     private String discountStrategy;
     private Double discountPercentage;
     private String splitUpfrontComponent;
     private String collectionUpfrontComponent;
     private Double processingFee;
+    private WaiveOffType waiveOffType;
+    private Double priceImpact;
+    private Double monthlyRent;
 
 }
