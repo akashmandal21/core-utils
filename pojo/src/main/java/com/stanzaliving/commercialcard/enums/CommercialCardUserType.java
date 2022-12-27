@@ -11,6 +11,7 @@ import lombok.ToString;
 public enum CommercialCardUserType {
     SCHOLAR,
     SUITES,
+    SUITS,
     MANAGED_APARTMENT,
     MANAGED_APARTMENTS,
     ALL,

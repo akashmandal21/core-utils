@@ -25,6 +25,8 @@ public class CommercialCardRequestDto implements Serializable {
 	@Min(value = 0, message = "last advance rental months cannot be negative")
 	private Integer lastAdvanceRentalMonths = 0;
 
+	private Integer lastAdvanceRentalDays;
+
 	@Min(value = 0, message = "security deposit cannot be negative")
 	private Double securityDeposit;
 
@@ -43,4 +45,9 @@ public class CommercialCardRequestDto implements Serializable {
 
 	public CommercialCardRequestDto(CommercialCardRequestDto commercialCardRequestDto) {
 	}
+
+	public int getLastAdvanceRentalMonths() {
+		return lastAdvanceRentalMonths.intValue();
+	}
+
 }
