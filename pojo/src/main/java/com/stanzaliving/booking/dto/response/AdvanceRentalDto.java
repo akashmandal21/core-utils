@@ -19,7 +19,7 @@ public class AdvanceRentalDto implements Serializable {
 
     private LocalDate endDate;
 
-    private Double advanceRentalMonths;
+    private int advanceRentalMonths;
 
     private Double advanceRentalMonthsAmount;
 

@@ -39,7 +39,7 @@ public class CommercialsDetailsResponseDTO implements Serializable {
 
     private MonthlyBreakupDto monthlyBreakup;
 
-    private AdvanceRentalFirstDto startingAdvanceRental;
+    private AdvanceRentalDto startingAdvanceRental;
 
     private AdvanceRentalDto lastAdvanceRental;
 
