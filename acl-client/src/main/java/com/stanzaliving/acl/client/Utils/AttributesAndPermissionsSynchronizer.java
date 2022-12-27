@@ -2,6 +2,8 @@ package com.stanzaliving.acl.client.Utils;
 
 
 import com.stanzaliving.acl.client.AbacResources;
+import com.stanzaliving.acl.client.dto.ResourceDto;
+import com.stanzaliving.acl.client.exception.ApiValidationException;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
@@ -21,7 +23,7 @@ import java.util.List;
 public class AttributesAndPermissionsSynchronizer {
 
     @PostConstruct
-    public void appStartUp() {
+    public void updateAttributesAndPermissions() {
         RestTemplate restTemplate = new RestTemplate();
         ResourceDto resourceDto=new ResourceDto();
         resourceDto.setResourceAttributeMap((HashMap<String, List<String>>) AbacResources.resourceAttributeMap);
@@ -33,10 +35,10 @@ public class AttributesAndPermissionsSynchronizer {
         messageConverters.add(converter);
         restTemplate.setMessageConverters(messageConverters);
         try {
-            ResponseEntity<ResourceDto> response = restTemplate.exchange("https://dev.stanzaliving.com/userv2/internal/resource/AttributesAndPermisions", HttpMethod.POST, request, ResourceDto.class);
+            restTemplate.exchange("https://dev.stanzaliving.com/userv2/internal/resource/AttributesAndPermisions", HttpMethod.POST, request, ResourceDto.class);
         }
         catch (Exception e){
-            throw new ApiValidationException("Not able to sync permissions and attributes");
+            throw new ApiValidationException("Not able to push permissions and attributes");
         }
     }
 }

@@ -3,10 +3,7 @@ package com.stanzaliving.acl.client.annotationProcessors;
 import com.google.auto.service.AutoService;
 import com.squareup.javapoet.*;
 import com.stanzaliving.acl.client.AttributeDto;
-import com.stanzaliving.acl.client.Permissions;
-import com.stanzaliving.acl.client.Utils.AttributeValueProvider;
 import com.stanzaliving.acl.client.annotation.Attribute;
-import com.stanzaliving.acl.client.annotation.Permission;
 import com.stanzaliving.acl.client.annotation.Resource;
 import org.springframework.util.StringUtils;
 
@@ -15,16 +12,11 @@ import javax.lang.model.SourceVersion;
 import javax.lang.model.element.Element;
 import javax.lang.model.element.Modifier;
 import javax.lang.model.element.TypeElement;
-import javax.lang.model.element.VariableElement;
 import javax.lang.model.type.TypeMirror;
 import javax.lang.model.util.Elements;
 import javax.lang.model.util.Types;
 import javax.tools.Diagnostic;
 import java.io.IOException;
-import java.lang.reflect.Array;
-import java.lang.reflect.Type;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -41,8 +33,6 @@ public class ResourceProcessor extends AbstractProcessor {
 
     @Override
     public synchronized void init(ProcessingEnvironment processingEnv) {
-        processingEnv.getMessager().printMessage(Diagnostic.Kind.NOTE,"inside resource processor init");
-        System.out.println("inside resource processor");
         super.init(processingEnv);
         typeUtils = processingEnv.getTypeUtils();
         elementUtils = processingEnv.getElementUtils();
@@ -54,18 +44,14 @@ public class ResourceProcessor extends AbstractProcessor {
     public boolean process(Set<? extends TypeElement> annotations, RoundEnvironment roundEnv) {
         try {
             for (TypeElement annotation : annotations) {
-                System.out.println("inside resource processor");
-                processingEnv.getMessager().printMessage(Diagnostic.Kind.NOTE, "Annotations is "+annotation.getSimpleName());
                 if (annotation.getSimpleName().toString().equals("Resource")) {
                     Set<? extends Element> annotatedElements = roundEnv.getElementsAnnotatedWith(annotation);
                     HashMap<String, ArrayList<String>> resourceAttributeMap = new HashMap<>();
                     HashMap<String, ArrayList<String>> resourcePermissionMap = new HashMap<>();
                     HashMap<String, TypeSpec.Builder> resourceBuilderMap = new HashMap<>();
-//                HashMap<String,Class<? extends AttributeValueProvider>> permissionAttribiuteProviderMap= new HashMap<>();
 
                     for (Element annotatedElement : annotatedElements) {
 
-                        processingEnv.getMessager().printMessage(Diagnostic.Kind.NOTE, "line 56 " + annotatedElement.getSimpleName());
                         String key = annotatedElement.getAnnotation(Resource.class).name();
                         if (resourceBuilderMap.get(key) == null) {
                             resourceBuilderMap.put(key, TypeSpec.classBuilder(StringUtils.capitalize(key) + "AttributeDto")
@@ -82,27 +68,20 @@ public class ResourceProcessor extends AbstractProcessor {
                         Pattern p = Pattern.compile(
                                 "[^a-z0-9]", Pattern.CASE_INSENSITIVE);
 
-//                    Class<? extends AttributeValueProvider> className=annotatedElement.getAnnotation(Resource.class).attributeValueProvider();
                         for (int i = 0; i < permissions.length; i++) {
                             Matcher m=p.matcher(permissions[i]);
                             System.out.println(permissions[i]);
                             if(m.find()){
-                                messager.printMessage(Diagnostic.Kind.ERROR,"Permission should not contain Special characters");
-                                System.out.println("The permission should not contain special characters");
                                 throw new IllegalArgumentException("The permission should not contain special characters");
                             }
-//                            messager.printMessage("");
                             permissions[i] =key+" "+permissions[i];
-//                        permissionAttribiuteProviderMap.put(permissions[i],className);
                         }
                         resourcePermissionMap.get(key).addAll(Arrays.asList(permissions));
 
                         List<? extends Element> enclosedElements = annotatedElement.getEnclosedElements();
 
                         for (Element enclosedElement : enclosedElements) {
-                            processingEnv.getMessager().printMessage(Diagnostic.Kind.NOTE, "The enclosed element is:" + enclosedElement.getSimpleName());
                             if (enclosedElement.getAnnotation(Attribute.class) != null) {
-//                            VariableElement variableElement= (VariableElement) enclosedElement;
                                 try {
                                     resourceBuilderMap.put(key, addFieldAndGetterAndSetter(resourceBuilderMap.get(key), enclosedElement.getSimpleName().toString(), enclosedElement.asType()));
                                 } catch (ClassNotFoundException e) {
@@ -116,38 +95,23 @@ public class ResourceProcessor extends AbstractProcessor {
 
                     try {
                         generateClassForAttributes(resourceBuilderMap);
-                    } catch (IOException e) {
-                        messager.printMessage(Diagnostic.Kind.ERROR,e.getMessage());
-                    }
-
-
-                    processingEnv.getMessager().printMessage(Diagnostic.Kind.NOTE, "line 44 " + resourceAttributeMap.toString());
-                    try {
                         generateClassForResourceAttributeAndPermission(resourceAttributeMap, resourcePermissionMap);
                     } catch (IOException e) {
                         messager.printMessage(Diagnostic.Kind.ERROR,e.getMessage());
                     }
                 }
             }
-            System.out.println("At the end of resource processor");
-            return false;
+            return true;
         }
         catch (Exception e){
-            System.out.println(e.getMessage());
             throw new IllegalArgumentException(e.getMessage());
         }
     }
 
     private void generateClassForAttributes(HashMap<String,TypeSpec.Builder> resourceBuilderMap) throws IOException {
         for(TypeSpec.Builder attributeDtoBuilder: resourceBuilderMap.values()) {
-            JavaFile javaFile = JavaFile.builder("com.stanzaliving.acl.client",
-                            attributeDtoBuilder.build())
-                    .indent("    ")
-                    .build();
-            Path path = Paths.get("/Users/kedimetla.pavan/Documents/ACL/part-1-maven/acl-client/src/main/java");
-            javaFile.writeTo(filer);
+            generateFile(attributeDtoBuilder);
         }
-//        javaFile.writeTo(path);
     }
 
     public void generateClassForResourceAttributeAndPermission(HashMap<String,ArrayList<String>> resourceAttributeMap,
@@ -171,16 +135,7 @@ public class ResourceProcessor extends AbstractProcessor {
                 .addModifiers(Modifier.STATIC)
                 .build();
 
-//        String temp3="permissionAttribiuteProviderMap = java.util.stream.Stream.of(\n";
-//
-//        temp3=createMapField2(temp3,papm);
-//
-//        FieldSpec papmap=FieldSpec.builder(Map.class,"permissionAttribiuteProviderMap")
-//                .addModifiers(Modifier.PUBLIC)
-//                .addModifiers(Modifier.STATIC)
-//                .build();
-
-        TypeSpec person = TypeSpec
+        TypeSpec.Builder person = TypeSpec
                 .classBuilder("AbacResources")
                 .addModifiers(Modifier.PUBLIC)
                 .addField(rsmap)
@@ -188,19 +143,9 @@ public class ResourceProcessor extends AbstractProcessor {
                 .addStaticBlock(CodeBlock.builder()
                         .addStatement(temp1)
                         .addStatement(temp2)
-//                        .addStatement(temp3)
-                        .build())
-                .build();
+                        .build());
 
-
-        processingEnv.getMessager().printMessage(Diagnostic.Kind.NOTE,"came inside generate code only once");
-        JavaFile javaFile = JavaFile.builder("com.stanzaliving.acl.client",
-                        person)
-                .indent("    ")
-                .build();
-        Path path= Paths.get("/Users/kedimetla.pavan/Documents/ACL/part-1-maven/acl-client/src/main/java");
-        javaFile.writeTo(filer);
-//        javaFile.writeTo(path);
+        generateFile(person);
     }
 
     public String createMapField(String temp,HashMap<String,ArrayList<String>> resourceAttributeMap){
@@ -228,72 +173,33 @@ public class ResourceProcessor extends AbstractProcessor {
         return temp;
     }
 
-
-    public String createMapField2(String temp,HashMap<String,Class<? extends AttributeValueProvider>> permissionProviderMap){
-        Iterator<String> itr=permissionProviderMap.keySet().iterator();
-        while(itr.hasNext()){
-            String key= itr.next();
-            Class<? extends AttributeValueProvider> value=permissionProviderMap.get(key);
-
-            if(!itr.hasNext()){
-                temp=temp+"  new java.util.AbstractMap.SimpleEntry<String, Class<?>>(\""+key+"\","+value+")\n" +
-                        ").collect(java.util.stream.Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue))";
-            }
-            else{
-                temp=temp+"  new java.util.AbstractMap.SimpleEntry<String, Class<?>>(\""+key+"\","+value+"),\n";
-            }
-        }
-        return temp;
-    }
-
-
     public void processPermission(HashMap<String, ArrayList<String>> resourcePermissionMap){
 
-        TypeSpec.Builder typeSpecBuilder2=TypeSpec.classBuilder("constants").addModifiers(Modifier.PUBLIC);
+        TypeSpec.Builder typeSpecBuilder=TypeSpec.classBuilder("Permissions").addModifiers(Modifier.PUBLIC);
         for (Map.Entry<String, ArrayList<String>> entry : resourcePermissionMap.entrySet()) {
             String[] permissions = entry.getValue().toArray(new String[entry.getValue().size()]);
             int n = permissions.length;
             for (int i = 0; i < n; i++) {
-//                    typeSpecBuilder.addEnumConstant(permissions[i]);
-                typeSpecBuilder2.addField(FieldSpec.builder(String.class,String.join("_",permissions[i].split(" ")))
+                typeSpecBuilder.addField(FieldSpec.builder(String.class,String.join("_",permissions[i].split(" ")))
                                 .addModifiers(Modifier.STATIC,Modifier.PUBLIC,Modifier.FINAL)
                                 .initializer("\""+permissions[i]+"\"")
                         .build());
             }
         }
         try {
-            //generatePermissionEnumFile(typeSpecBuilder);
-            JavaFile javaFile = JavaFile.builder("com.stanzaliving.acl.client",
-                            typeSpecBuilder2.build())
-                    .indent("    ")
-                    .build();
-
-            Path path= Paths.get("/Users/kedimetla.pavan/Documents/ACL/part-1-maven/acl-client/src/main/java");
-//        javaFile.writeTo(filer);
-            javaFile.writeTo(filer);
-
+            generateFile(typeSpecBuilder);
         } catch (IOException e) {
             messager.printMessage(Diagnostic.Kind.ERROR, e.getMessage());
         }
     }
 
-    public TypeSpec.Builder createPermissionsEnum(String resource){
+    public void generateFile(TypeSpec.Builder typespecBuilder) throws IOException {
 
-        TypeSpec.Builder typespecBuilder = TypeSpec.enumBuilder(resource+"_permissions")
-                .addModifiers(Modifier.PUBLIC);
-        return typespecBuilder;
-    }
-
-    public void generatePermissionEnumFile(TypeSpec.Builder typespecBuilder) throws IOException {
-
-//        typespecBuilder.addSuperinterface(Permissions.class);
         JavaFile javaFile = JavaFile.builder("com.stanzaliving.acl.client",
                         typespecBuilder.build())
                 .indent("    ")
                 .build();
 
-        Path path= Paths.get("/Users/kedimetla.pavan/Documents/ACL/part-1-maven/acl-client/src/main/java");
-//        javaFile.writeTo(filer);
         javaFile.writeTo(filer);
     }
 

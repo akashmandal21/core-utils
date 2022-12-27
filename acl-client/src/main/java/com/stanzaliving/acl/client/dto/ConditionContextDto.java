@@ -1,7 +1,5 @@
-package com.stanzaliving.acl.client.Utils;
+package com.stanzaliving.acl.client.dto;
 
-
-import com.stanzaliving.acl.client.Permissions;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -14,10 +12,7 @@ public class ConditionContextDto implements Serializable {
     private HashMap<String,Object> attributeValues;
     private String userId;
 
-    public ConditionContextDto(){
-
-    }
-
+    public ConditionContextDto(){}
 
     public ConditionContextDto(String resource, List<String> permissions, HashMap<String,Object> attributeValues, String userId){
         this.resource=resource;
