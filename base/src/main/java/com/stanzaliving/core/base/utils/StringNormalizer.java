@@ -90,4 +90,33 @@ public class StringNormalizer {
 
 		return StringUtils.equals(value1, value2);
 	}
+
+	public String fastReplaceAllUtil(String str, String target, String replacement) {
+
+		int targetLength = target.length();
+
+		if (targetLength == 0) {
+			return str;
+		}
+
+		int idx2 = str.indexOf(target);
+		if (idx2 < 0) {
+			return str;
+		}
+
+		// discuss: size of string builder
+		StringBuilder buffer = new StringBuilder(targetLength > replacement.length() ? str.length() : str.length() * 2);
+
+		int idx1 = 0;
+		do {
+			buffer.append(str, idx1, idx2);
+			buffer.append(replacement);
+			idx1 = idx2 + targetLength;
+			idx2 = str.indexOf(target, idx1);
+		} while (idx2 > 0);
+
+		buffer.append(str, idx1, str.length());
+
+		return buffer.toString();
+	}
 }
