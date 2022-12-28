@@ -24,5 +24,5 @@ public class PaymentActionDto {
     private WaiveOffType waiveOffType;
     private Double priceImpact;
     private Double monthlyRent;
-
+    private Double discountAmount;
 }

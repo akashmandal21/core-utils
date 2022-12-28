@@ -59,8 +59,4 @@ public class BookingDetailsRequestDto implements Serializable {
 
 	private String residenceUuid;
 
-	public int getAdvanceRentalLastMonths(){
-		return advanceRentalLastMonths.intValue();
-	}
-
 }
