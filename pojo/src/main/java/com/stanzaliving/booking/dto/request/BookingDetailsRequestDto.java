@@ -52,7 +52,7 @@ public class BookingDetailsRequestDto implements Serializable {
 
 	private Integer advanceRentalLastMonths;
 
-	private Integer lastAdvanceRentalDays;
+	private Integer advanceRentalLastDays;
 
 	@Builder.Default
 	private ResidenceAgreementType residenceAgreementType = ResidenceAgreementType.LEASE_DEED;
