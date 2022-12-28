@@ -3,6 +3,7 @@ import com.stanzaliving.booking.enums.AMCAmountType;
 import com.stanzaliving.booking.enums.BookingSubType;
 import com.stanzaliving.booking.enums.PaymentFrequency;
 import com.stanzaliving.commercialcard.enums.CommercialCardStatus;
+import com.stanzaliving.commercialcard.enums.CommercialCardUserType;
 import lombok.*;
 
 import java.util.List;
@@ -22,7 +23,6 @@ public class CodeListDto {
     private Integer advanceRentalFirstMonths;
 
     private Integer advanceRentalLastMonths;
-
     private Double annualMaintenanceFee;
 
     private Double monthlyMaintenanceFee;
@@ -52,4 +52,8 @@ public class CodeListDto {
     private PlatformType platform;
 
     private PaymentFrequency paymentFrequency;
+
+    private String priceImpact;
+
+    private CommercialCardUserType userType;
 }
