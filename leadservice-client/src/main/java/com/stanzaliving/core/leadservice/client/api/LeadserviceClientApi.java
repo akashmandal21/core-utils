@@ -9,7 +9,6 @@ import com.stanzaliving.core.leaddashboard.enums.MetricEnum;
 import com.stanzaliving.leadService.dto.AutoExpireLeadConfigMapDto;
 import com.stanzaliving.leadService.dto.AutoExpireLeadDto;
 import com.stanzaliving.website.response.dto.LeadDetailEntity;
-import com.stanzaliving.website.response.dto.LeadQrDto;
 import com.stanzaliving.website.response.dto.LeadRequestDto;
 import com.stanzaliving.website.response.dto.QualificationQuestionResponseDto;
 import lombok.extern.log4j.Log4j2;
@@ -725,6 +724,24 @@ public class LeadserviceClientApi {
         }
     }
 
+
+    public ResponseDto<Void> getSmartLeadReassignmentList() {
+        Object postBody = null;
+        String path = UriComponentsBuilder.fromPath("internal/lead/reassign-eligible-leads").toUriString();
+        final HttpHeaders headerParams = new HttpHeaders();
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        final String[] accepts = {"*/*"};
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<Void>> returnType = new ParameterizedTypeReference<ResponseDto<Void>>() {
+        };
+        try {
+            return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception caused while fetching metric data", e);
+            return null;
+        }
+    }
+
     public ResponseDto<List<String>> fetchGroundAssociates() {
         log.info("Fetching ground associates");
         Object postBody = null;
@@ -748,5 +765,4 @@ public class LeadserviceClientApi {
             return null;
         }
     }
-
 }
