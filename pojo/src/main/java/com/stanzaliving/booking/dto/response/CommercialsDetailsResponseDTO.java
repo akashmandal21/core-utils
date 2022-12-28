@@ -1,6 +1,5 @@
 package com.stanzaliving.booking.dto.response;
 
-import com.stanzaliving.booking.dto.AdvanceRentalFirstDto;
 import com.stanzaliving.booking.dto.MonthlyBreakupDto;
 import com.stanzaliving.booking.enums.AMCAmountType;
 import com.stanzaliving.booking.enums.MaintenanceFeeCollectionType;
@@ -39,7 +38,7 @@ public class CommercialsDetailsResponseDTO implements Serializable {
 
     private MonthlyBreakupDto monthlyBreakup;
 
-    private AdvanceRentalFirstDto startingAdvanceRental;
+    private AdvanceRentalDto startingAdvanceRental;
 
     private AdvanceRentalDto lastAdvanceRental;
 
