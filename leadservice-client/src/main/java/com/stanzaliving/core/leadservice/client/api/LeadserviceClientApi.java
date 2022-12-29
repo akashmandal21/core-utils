@@ -39,7 +39,7 @@ public class LeadserviceClientApi {
 
         final Map<String, Object> uriVariables = new HashMap<>();
 
-        String path = UriComponentsBuilder.fromPath("lead/website/qualification/question").buildAndExpand(uriVariables)
+        String path = UriComponentsBuilder.fromPath("/lead/website/qualification/question").buildAndExpand(uriVariables)
                 .toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
@@ -61,7 +61,7 @@ public class LeadserviceClientApi {
 
         final Map<String, Object> uriVariables = new HashMap<>();
 
-        String path = UriComponentsBuilder.fromPath("lead/website/qualification/question").buildAndExpand(uriVariables)
+        String path = UriComponentsBuilder.fromPath("/lead/website/qualification/question").buildAndExpand(uriVariables)
                 .toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
@@ -406,7 +406,7 @@ public class LeadserviceClientApi {
 
         Object postBody = null;
 
-        String path = UriComponentsBuilder.fromPath("internal/prebooking/refund/fetch/eligible/leads").toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/prebooking/refund/fetch/eligible/leads").toUriString();
 
         final HttpHeaders headerParams = new HttpHeaders();
 
@@ -489,7 +489,7 @@ public class LeadserviceClientApi {
 
         final Map<String, Object> uriVariables = new HashMap<>();
 
-        String path = UriComponentsBuilder.fromPath("internal/lead/start-visit/otp")
+        String path = UriComponentsBuilder.fromPath("/internal/lead/start-visit/otp")
                 .buildAndExpand(uriVariables).toUriString();
         final HttpHeaders headerParams = new HttpHeaders();
 
@@ -708,7 +708,7 @@ public class LeadserviceClientApi {
 
     public ResponseDto<List<String>> fetchMetricData(MetricEnum metricEnum) {
         Object postBody = null;
-        String path = UriComponentsBuilder.fromPath("internal/lead/fetch-metric-data").toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/lead/fetch-metric-data").toUriString();
         final HttpHeaders headerParams = new HttpHeaders();
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
         queryParams.add("metricEnum", metricEnum.name());
@@ -725,9 +725,9 @@ public class LeadserviceClientApi {
     }
 
 
-    public ResponseDto<Void> getSmartLeadReassignmentList() {
+    public void getSmartLeadReassignmentList() {
         Object postBody = null;
-        String path = UriComponentsBuilder.fromPath("internal/lead/reassign-eligible-leads").toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/lead/reassign-eligible-leads").toUriString();
         final HttpHeaders headerParams = new HttpHeaders();
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
         final String[] accepts = {"*/*"};
@@ -735,10 +735,9 @@ public class LeadserviceClientApi {
         ParameterizedTypeReference<ResponseDto<Void>> returnType = new ParameterizedTypeReference<ResponseDto<Void>>() {
         };
         try {
-            return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+            restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
         } catch (Exception e) {
             log.error("Exception caused while fetching metric data", e);
-            return null;
         }
     }
 
