@@ -70,6 +70,6 @@ public class AdvanceRoomSearchDto extends UserRoleDto {
     private Boolean remoteBookingFlag = false;
 
     @Builder.Default
-    private Boolean showSoftBlockedBeds = false;
+    private Boolean insideSalesView = false;
 
 }
