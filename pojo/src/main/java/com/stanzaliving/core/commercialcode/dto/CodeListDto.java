@@ -23,6 +23,9 @@ public class CodeListDto {
     private Integer advanceRentalFirstMonths;
 
     private Integer advanceRentalLastMonths;
+
+    private Integer lastAdvanceRentalDays;
+
     private Double annualMaintenanceFee;
 
     private Double monthlyMaintenanceFee;
