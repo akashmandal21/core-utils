@@ -68,6 +68,4 @@ public class WebsitePlaceIndexDto extends AbstractSearchIndexDto implements Seri
 	private String apartmentCitySlug;
 	
 	private String apartmentMMSlug;
-
-	private boolean isOsmPlace;
 }
