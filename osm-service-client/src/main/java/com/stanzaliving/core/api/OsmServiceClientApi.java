@@ -12,7 +12,6 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.List;
-import java.util.Objects;
 
 @Log4j2
 public class OsmServiceClientApi {
@@ -23,14 +22,14 @@ public class OsmServiceClientApi {
         this.restClient = restClient;
     }
 
-    public ResponseDto<Object> getOsmPlaceEntitiesByCity(String cityTransformationUuid) {
+    public ResponseDto<Object> getOsmPlaceEntitiesByCity(String transformationCityUuid) {
 
         try {
-            String path = UriComponentsBuilder.fromPath("internal/get/example").toUriString();
+            String path = UriComponentsBuilder.fromPath("internal/website/osm/get/all/stanza/place/by").toUriString();
 
             final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-            queryParams.add("cityTransformationUuid", cityTransformationUuid);
+            queryParams.add("transformationCityUuid", transformationCityUuid);
 
             final HttpHeaders headerParams = new HttpHeaders();
 
@@ -41,10 +40,10 @@ public class OsmServiceClientApi {
             ParameterizedTypeReference<ResponseDto<Object>> returnType = new ParameterizedTypeReference<ResponseDto<Object>>() {
             };
 
-            return restClient.invokeAPI(path, HttpMethod.POST, queryParams, null, headerParams, accept, returnType);
+            return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
 
         } catch (Exception e) {
-            log.error("Error while Fetching Osm Place Entities By cityTransformationUuid: {}, {}", cityTransformationUuid, e);
+            log.error("Error while Fetching Osm Place Entities By cityTransformationUuid: {}, {}", transformationCityUuid, e);
         }
         return null;
     }
