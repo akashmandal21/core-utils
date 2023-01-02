@@ -502,4 +502,28 @@ public class VendorClientApi {
 
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, null, headerParams, accept, vddReturnType);
     }
+
+    public ResponseDto<GenericVendorDetailDto> getVendorPOCDetailsForNotification(String vendorUuid) {
+        log.info("HTTP Client call to get Vendor POC Details DTO for Notification UUID: " + vendorUuid);
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("vendorUuid",vendorUuid);
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+
+        ParameterizedTypeReference<ResponseDto<GenericVendorDetailDto>> vddReturnType = new ParameterizedTypeReference<ResponseDto<GenericVendorDetailDto>>() {
+        };
+
+        String path = UriComponentsBuilder.fromPath("/generic/internal/getVendorPocDetailsForNotification/{vendorUuid}").buildAndExpand(uriVariables).toUriString();
+
+
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, vddReturnType);
+    }
 }

@@ -15,7 +15,8 @@ import lombok.experimental.UtilityClass;
 @UtilityClass
 public class NumberUtils {
 
-	private NumberFormat india = null;
+	public static boolean parsableToInteger;
+    private NumberFormat india = null;
 	static {
 		Locale indiaLocale = new Locale("en", "IN");
 

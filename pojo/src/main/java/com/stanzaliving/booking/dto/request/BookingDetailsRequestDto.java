@@ -55,4 +55,6 @@ public class BookingDetailsRequestDto implements Serializable {
 	@Builder.Default
 	private ResidenceAgreementType residenceAgreementType = ResidenceAgreementType.LEASE_DEED;
 
+	private String residenceUuid;
+
 }

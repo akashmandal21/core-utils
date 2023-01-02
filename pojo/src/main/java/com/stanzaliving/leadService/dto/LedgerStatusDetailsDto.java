@@ -1,6 +1,5 @@
 package com.stanzaliving.leadService.dto;
 
-
 import com.stanzaliving.ledger.enums.SettleLedgerActionStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

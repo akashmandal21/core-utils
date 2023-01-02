@@ -8,8 +8,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-import com.stanzaliving.core.base.exception.BaseMarker;
-import com.stanzaliving.core.base.utils.ObjectMapperUtil;
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -22,6 +20,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.stanzaliving.core.backend.dto.UserHostelDto;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
+import com.stanzaliving.core.base.exception.BaseMarker;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.operations.dto.ActiveResidenceDetailsDto;
 import com.stanzaliving.core.operations.dto.CurrentServiceMixRequestDto;
@@ -32,6 +31,8 @@ import com.stanzaliving.core.operations.enums.DealCategory;
 import com.stanzaliving.internet.dto.InternetDetails;
 import com.stanzaliving.internet.dto.InternetProviderDetails;
 import com.stanzaliving.operations.ServiceMixSeasonResponseDto;
+import com.stanzaliving.operations.dto.ResidenceMirSummaryDto;
+import com.stanzaliving.operations.dto.request.ResidenceMirRequestDto;
 import com.stanzaliving.operations.dto.servicemix.ServiceMixEntityDto;
 import com.stanzaliving.operations.dto.servicemix.ServiceNameRequestDto;
 import com.stanzaliving.operations.dto.servicemix.ServiceNameResponseDto;
@@ -199,6 +200,43 @@ public class OperationsClientApi {
 
 		String path =
 				UriComponentsBuilder.fromPath("/internal/servicemix/current/getValueForKey/{residenceId}/{key}/{date}").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<InternetDetails> returnType = new ParameterizedTypeReference<InternetDetails>() {
+		};
+
+		try {
+			responseDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Exception while fetching Vendor Name from residenceId: {}", residenceId, e);
+		}
+
+		return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : null;
+
+	}
+	
+	public InternetProviderDetails getInternetVendorForB2B(String residenceId, LocalDate localDate, String userCode) {
+
+		Object postBody = null;
+
+		InternetDetails responseDto = null;
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("key", "internet.internet");
+		uriVariables.put("residenceId", residenceId);
+		uriVariables.put("date", localDate.toString());
+		uriVariables.put("userCode", userCode);
+
+		String path =
+				UriComponentsBuilder.fromPath("/internal/servicemix/b2b/current/getValueForKey/{residenceId}/{key}/{date}").buildAndExpand(uriVariables).toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
@@ -640,5 +678,55 @@ public class OperationsClientApi {
 		}
 	}
 
+    public ResidenceMirSummaryDto getResidenceMirSummary(ResidenceMirRequestDto residenceMirRequestDto) {
 
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/internal/v2/residence/mir").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        TypeReference<ResponseDto<ResidenceMirSummaryDto>> returnType = new TypeReference<ResponseDto<ResidenceMirSummaryDto>>() {
+        };
+
+        ResponseDto<ResidenceMirSummaryDto> responseDto = null;
+
+        try {
+
+            responseDto = restClient.post(path, queryParams, residenceMirRequestDto, null, null, returnType, MediaType.APPLICATION_JSON);
+
+        } catch (Exception e) {
+
+            log.error("Error while getting mir", e);
+
+        }
+
+        return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : null;
+
+    }
+
+    public ResidenceMirSummaryDto getAllActiveResidenceMirSummary(ResidenceMirRequestDto residenceMirRequestDto) {
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/internal/v2/residence/mir/all").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        TypeReference<ResponseDto<ResidenceMirSummaryDto>> returnType = new TypeReference<ResponseDto<ResidenceMirSummaryDto>>() {
+        };
+
+        ResponseDto<ResidenceMirSummaryDto> responseDto = null;
+
+        try {
+
+            responseDto = restClient.post(path, queryParams, residenceMirRequestDto, null, null, returnType, MediaType.APPLICATION_JSON);
+
+        } catch (Exception e) {
+
+            log.error("Error while getting mir", e);
+
+        }
+
+        return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : null;
+    }
 }

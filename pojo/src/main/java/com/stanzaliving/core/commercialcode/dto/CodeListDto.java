@@ -1,5 +1,7 @@
 package com.stanzaliving.core.commercialcode.dto;
 import com.stanzaliving.booking.enums.AMCAmountType;
+import com.stanzaliving.booking.enums.BookingSubType;
+import com.stanzaliving.booking.enums.PaymentFrequency;
 import com.stanzaliving.commercialcard.enums.CommercialCardStatus;
 import lombok.*;
 
@@ -44,4 +46,10 @@ public class CodeListDto {
     private AMCAmountType maintenanceChargeAmountType;
 
     private CommercialCardStatus cardStatus;
+
+    private BookingSubType bookingSubType;
+
+    private PlatformType platform;
+
+    private PaymentFrequency paymentFrequency;
 }

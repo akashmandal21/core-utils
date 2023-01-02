@@ -1,6 +1,7 @@
 package com.stanzaliving.ventaAudit.dto;
 
 
+import com.stanzaliving.booking.enums.BookingResidenceType;
 import com.stanzaliving.ventaAudit.enums.AuditStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -8,7 +9,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
@@ -18,6 +18,7 @@ import java.util.List;
 public class AuditDetailsResponseDto {
     private String residentName;
     private String residentId;
+    private BookingResidenceType propertyType;
     private String residentImageUrl;
     private StayLocationDto stayLocationDto;
     private String auditorName;
