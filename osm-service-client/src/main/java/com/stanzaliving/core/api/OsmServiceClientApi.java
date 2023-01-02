@@ -2,6 +2,7 @@ package com.stanzaliving.core.api;
 
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.osm.dto.StanzaOsmPlaceDto;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -22,7 +23,7 @@ public class OsmServiceClientApi {
         this.restClient = restClient;
     }
 
-    public ResponseDto<Object> getOsmPlaceEntitiesByCity(String transformationCityUuid) {
+    public ResponseDto<List<StanzaOsmPlaceDto>> getOsmPlaceEntitiesByCity(String transformationCityUuid) {
 
         try {
             String path = UriComponentsBuilder.fromPath("internal/website/osm/get/all/stanza/place/by").toUriString();
@@ -37,7 +38,7 @@ public class OsmServiceClientApi {
 
             final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-            ParameterizedTypeReference<ResponseDto<Object>> returnType = new ParameterizedTypeReference<ResponseDto<Object>>() {
+            ParameterizedTypeReference<ResponseDto<List<StanzaOsmPlaceDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<StanzaOsmPlaceDto>>>() {
             };
 
             return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
