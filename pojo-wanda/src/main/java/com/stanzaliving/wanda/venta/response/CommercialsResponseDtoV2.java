@@ -28,6 +28,7 @@ public class CommercialsResponseDtoV2 {
     private Double onBoardingCharges;
     private Double maintenanceFee;
     private Integer advanceMonths;
+    private Integer advanceDays;
     private Double advanceFee;
     private String maxDate;
     private double upsell;
