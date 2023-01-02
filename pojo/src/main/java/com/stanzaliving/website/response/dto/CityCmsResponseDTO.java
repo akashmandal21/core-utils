@@ -12,6 +12,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.persistence.Column;
+
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -50,4 +52,7 @@ public class CityCmsResponseDTO {
 	private String apartmentSeoTitle;
 	private String apartmentSeoDescription;
 	private String apartmentCityDescription;
+
+	private String transformationUuid;
+	private Long transformationId;
 }
