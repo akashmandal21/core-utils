@@ -24,6 +24,7 @@ public class MicromarketListingResponseDTO {
 	private int micromarketId;
 	private String name;
 	private String slug;
+	private String apartmentMMSlug;
 	private int cityId;
 	private String cityName;
 	private String citySlug;

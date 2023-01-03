@@ -18,6 +18,7 @@ public class CityListingResponseDTO {
 	private int cityId;
 	private String name;
 	private String slug;
+	private String apartmentCitySlug;
 	private String code;
 	private String iconImageUrl;
 	private int websiteDisplayOrder;
