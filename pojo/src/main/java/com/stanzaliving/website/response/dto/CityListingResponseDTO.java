@@ -26,4 +26,7 @@ public class CityListingResponseDTO {
 	private boolean enabled;
 	private String phone;
 	EnumListing<Status> status;
+
+	private String transformationUuid;
+	private Long transformationId;
 }
