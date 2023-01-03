@@ -5,6 +5,7 @@ import com.stanzaliving.booking.dto.request.BookingCommercialsRequestDto;
 import com.stanzaliving.booking.dto.request.BookingDetailsRequestDto;
 import com.stanzaliving.booking.dto.request.DiscountRequestDto;
 import com.stanzaliving.booking.enums.MaintenanceFeeCollectionType;
+import com.stanzaliving.price_strategy.request.PaymentActionDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -38,4 +39,9 @@ public class DiscountSplitterRequestDto {
     @Builder.Default
     @NotNull(message = "maintenance fee collection type cannot be null")
     private MaintenanceFeeCollectionType maintenanceFeeCollectionType = MaintenanceFeeCollectionType.MONTHLY;
+
+    @Builder.Default
+    private Boolean isPriceStrategy = false;
+
+    private PaymentActionDto paymentActionDto;
 }
