@@ -237,4 +237,26 @@ public class WebsiteClientApi {
         }
         return null;
     }
+
+    public ResponseDto<List<CityListingResponseDTO>> getAllCitiesDto() {
+
+        try {
+            String path = UriComponentsBuilder.fromPath("/internal/city/get/all").toUriString();
+
+            final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+            final HttpHeaders headerParams = new HttpHeaders();
+
+            final String[] accepts = {"*/*"};
+
+            final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+            ParameterizedTypeReference<ResponseDto<List<CityListingResponseDTO>>> returnType = new ParameterizedTypeReference<ResponseDto<List<CityListingResponseDTO>>>() {
+            };
+
+            return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Error while Fetching Stanza MM details from website for cityId: {}", e);
+        }
+        return null;
+    }
 }
