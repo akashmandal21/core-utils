@@ -3,6 +3,7 @@ package com.stanzaliving.core.residenceservice.dto;
 import com.stanzaliving.core.base.common.dto.RoommateFilterDto;
 import com.stanzaliving.core.residenceservice.enums.ResidenceSortBy;
 import com.stanzaliving.core.residenceservice.enums.RoomStatus;
+import com.stanzaliving.core.user.acl.enums.Role;
 import com.stanzaliving.core.utilservice.annotations.DateFormat;
 
 import com.stanzaliving.website.request.dto.UserRoleDto;
@@ -23,7 +24,11 @@ import java.util.List;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class AdvanceRoomSearchDto extends UserRoleDto {
+public class AdvanceRoomSearchDto {
+
+    private Role role;
+    private List<Role> roles;
+    private List<String> micromarketUuids;
 
     private String residenceUuid;
 
