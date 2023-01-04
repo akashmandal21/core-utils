@@ -8,13 +8,14 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
 /**
  * @author raj.kumar
  *
  */
 @Data
-@Builder
+@SuperBuilder  // all inherited class of this class needs to use @SuperBuilder rather than @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserRoleDto {
