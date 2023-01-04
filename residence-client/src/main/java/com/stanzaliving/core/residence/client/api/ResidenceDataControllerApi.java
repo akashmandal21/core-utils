@@ -242,7 +242,11 @@ public class ResidenceDataControllerApi {
 
         uriVariables.put("roomUUID", roomUuid);
 
-        uriVariables.put("serviceMixUUID", serviceMixUuid);
+        if(Objects.isNull(serviceMixUuid)){
+            uriVariables.put("serviceMixUUID", "null");
+        }else {
+            uriVariables.put("serviceMixUUID", serviceMixUuid);
+        }
 
         uriVariables.put("moveInDate", moveInDate);
 
