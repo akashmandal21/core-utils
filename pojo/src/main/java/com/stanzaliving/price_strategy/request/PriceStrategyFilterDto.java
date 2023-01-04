@@ -20,6 +20,8 @@ public class PriceStrategyFilterDto {
 
     private List<String> microMarketUuidList;
 
+    private List<String> countryList;
+
     private String name;
 
     private List<CommercialCardStatus> status;
