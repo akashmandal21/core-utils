@@ -15,9 +15,6 @@ import lombok.experimental.SuperBuilder;
  *
  */
 @Data
-@SuperBuilder  // all inherited class of this class needs to use @SuperBuilder rather than @Builder
-@NoArgsConstructor
-@AllArgsConstructor
 public class UserRoleDto {
 
     private Role role;

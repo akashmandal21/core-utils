@@ -21,7 +21,7 @@ import lombok.experimental.SuperBuilder;
  *
  */
 @Data
-@SuperBuilder
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString(callSuper = true)
