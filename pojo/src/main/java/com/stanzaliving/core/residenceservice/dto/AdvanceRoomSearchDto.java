@@ -12,6 +12,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotBlank;
 import java.util.List;
@@ -19,7 +20,7 @@ import java.util.List;
 @Getter
 @Setter
 @ToString
-@Builder
+@SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
 public class AdvanceRoomSearchDto extends UserRoleDto {
@@ -70,6 +71,6 @@ public class AdvanceRoomSearchDto extends UserRoleDto {
     private Boolean remoteBookingFlag = false;
 
     @Builder.Default
-    private Boolean showSoftBlockedBeds = false;
+    private Boolean insideSalesView = false;
 
 }
