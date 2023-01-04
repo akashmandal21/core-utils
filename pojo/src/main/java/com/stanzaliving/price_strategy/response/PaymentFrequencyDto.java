@@ -12,6 +12,9 @@ public class PaymentFrequencyDto {
     private PaymentTerm paymentTerm;
     private Double monthlyRent;
     private Double totalAmount;
+    private String showMonthlyRent;
+    private String showTotalAmount;
+    private String showDiscountAmount;
     private Double discountAmount;
     private Boolean isRecommended = false;
     private String waiveOffStrategy;

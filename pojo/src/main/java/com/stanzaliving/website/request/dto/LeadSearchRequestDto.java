@@ -14,13 +14,14 @@ import com.stanzaliving.core.leaddashboard.enums.LeadSubStatus;
 import com.stanzaliving.website.enums.LeadMetricsEnum;
 import com.stanzaliving.website.enums.LeadQualifiedBy;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 /**
  * @author raj.kumar
  *
  */
 @Data
-@Builder
+@SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString(callSuper = true)
