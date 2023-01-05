@@ -29,4 +29,5 @@ public class GstInformationDto {
     private String footerCityName;
     private String footerZipcode;
     private String gstCode;
+    private String companyName;
 }

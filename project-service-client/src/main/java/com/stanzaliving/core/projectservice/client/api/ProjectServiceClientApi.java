@@ -296,23 +296,32 @@ public class ProjectServiceClientApi {
 
     }
 
-    public ResponseDto<Boolean> isBookingExistsForResidence(String estateUuid) {
+    public ResponseDto<PropertyInfoDto> getPropertyDetails(String estateUuid) {
+        if (Objects.isNull(estateUuid)) {
+            return null;
+        }
+
+        Object postBody = null;
 
         // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<>();
+
         uriVariables.put("estateUuid", estateUuid);
 
-        String path = UriComponentsBuilder.fromPath("/internal/property/{estateUuid}/active-booking-exists").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/propertyDetails/{estateUuid}").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+
         final HttpHeaders headerParams = new HttpHeaders();
 
-        final String[] accepts = {"*/*"};
+        final String[] accepts = {
+                "*/*"
+        };
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<ResponseDto<Boolean>> returnType = new ParameterizedTypeReference<ResponseDto<Boolean>>() {
+        ParameterizedTypeReference<ResponseDto<PropertyInfoDto>> returnType = new ParameterizedTypeReference<ResponseDto<PropertyInfoDto>>() {
         };
-
-        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
     }
 }
