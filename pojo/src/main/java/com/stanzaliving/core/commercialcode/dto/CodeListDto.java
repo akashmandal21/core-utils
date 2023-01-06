@@ -23,10 +23,14 @@ public class CodeListDto {
     private Integer advanceRentalFirstMonths;
 
     private Integer advanceRentalLastMonths;
+
+    private Integer lastAdvanceRentalDays;
+
     private Double annualMaintenanceFee;
 
     private Double monthlyMaintenanceFee;
 
+    // ----> Monthly / upfront
     private String maintenanceFeeCollection;
 
     private boolean isAutoApplicable;
@@ -43,6 +47,7 @@ public class CodeListDto {
 
     private List<CommercialCardApplicabilityDto> applicabilityDtoList;
 
+    // ----> Monthly / Fixed
     private AMCAmountType maintenanceChargeAmountType;
 
     private CommercialCardStatus cardStatus;
