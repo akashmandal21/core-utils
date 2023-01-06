@@ -18,10 +18,8 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserMenuPreferenceNewResponseDto extends DayWiseSummaryResponseDto implements Serializable {
-
-	private static final long serialVersionUID = 6752047145406097701L;
-	private List<UserMenuPreferenceResponseDto> userMenuPreferences;
-	private Map<LocalDate, Boolean> dayWisePreferenceDetail;
+public class DayWiseResponseDto implements Serializable {
+	private static final long serialVersionUID = -769016461417491230L;
+	private Map<LocalDate, List<MealSummaryResponseDto>> dayWiseMealPreferenceSummary;
 
 }
