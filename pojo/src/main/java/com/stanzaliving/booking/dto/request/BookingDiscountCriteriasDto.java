@@ -32,5 +32,7 @@ public class BookingDiscountCriteriasDto {
     private MathematicalSymbol tokenAmountSymbol=MathematicalSymbol.GREATER_THAN_EQUAL_TO;
     private Integer tokenAmount;
     private Boolean remoteBooking;
+    private Double closureDuration;
+    private Boolean allowSameDayLeadCreation;
 
 }
