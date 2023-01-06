@@ -16,6 +16,7 @@ import com.stanzaliving.residence.dto.ResidencePropertyCardDto;
 import com.stanzaliving.residenceservice.BookingAttributesDto;
 import com.stanzaliving.residenceservice.Dto.*;
 import com.stanzaliving.residenceservice.enums.ResidenceAttributes;
+import com.stanzaliving.residenceservice.enums.VasCategory;
 import com.stanzaliving.venta.RoomInfoDto;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
@@ -241,7 +242,11 @@ public class ResidenceDataControllerApi {
 
         uriVariables.put("roomUUID", roomUuid);
 
-        uriVariables.put("serviceMixUUID", serviceMixUuid);
+        if(Objects.isNull(serviceMixUuid)){
+            uriVariables.put("serviceMixUUID", "null");
+        }else {
+            uriVariables.put("serviceMixUUID", serviceMixUuid);
+        }
 
         uriVariables.put("moveInDate", moveInDate);
 
@@ -1624,7 +1629,11 @@ public class ResidenceDataControllerApi {
 
         Map<String, Object> uriVariables = new HashMap();
 
-        uriVariables.put("serviceMixUUID", serviceMixUuid);
+        if(Objects.isNull(serviceMixUuid)){
+            uriVariables.put("serviceMixUUID", "null");
+        }else {
+            uriVariables.put("serviceMixUUID", serviceMixUuid);
+        }
 
         uriVariables.put("moveInDate", moveInDate);
 
@@ -2279,7 +2288,7 @@ public class ResidenceDataControllerApi {
         return null;
     }
 
-    public ResponseDto<Double> getAccessLevelConfigValue(String residenceUuid, String configKey) {
+    public ResponseDto<String> getAccessLevelConfigValue(String residenceUuid, String configKey) {
         Map<String, Object> uriVariables = new HashMap<>();
         uriVariables.put("residenceUuid", residenceUuid);
         uriVariables.put("configKey", configKey);
@@ -2288,7 +2297,7 @@ public class ResidenceDataControllerApi {
         HttpHeaders headerParams = new HttpHeaders();
         String[] accepts = new String[]{"*/*"};
         List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
-        ParameterizedTypeReference<ResponseDto<Double>> returnType = new ParameterizedTypeReference<ResponseDto<Double>>() {
+        ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
         };
         try {
             return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
@@ -2354,6 +2363,99 @@ public class ResidenceDataControllerApi {
             log.error("Exception occurred while sending IMS Email Digest", e);
             return null;
         }
+    }
+
+    public ResponseDto<List<Integer>> getRemoteBookingTokenAmountList(String residenceUuid) {
+
+        Map<String, Object> uriVariables = new HashMap<>();
+
+        uriVariables.put("residenceUuid", residenceUuid);
+
+        String path = UriComponentsBuilder.fromPath("/api/v1/remote-booking-amount/{residenceUuid}/get").buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        HttpHeaders headerParams = new HttpHeaders();
+
+        String[] accepts = new String[]{"*/*"};
+
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<List<Integer>>> returnType =
+                new ParameterizedTypeReference<ResponseDto<List<Integer>>>() {
+                };
+
+        try {
+            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+
+        } catch (Exception ex) {
+            log.error("Exception while fetching token amount list for remote booking", ex);
+        }
+        return null;
+    }
+
+    public ResponseDto<List<RoomParticularDto>> getAllRooms(String residenceUuid) {
+
+        Map<String, Object> uriVariables = new HashMap<>();
+
+        uriVariables.put("residenceUuid", residenceUuid);
+
+        String path = UriComponentsBuilder.fromPath("/internal/available-rooms/residence-uuid/{residenceUuid}").buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        HttpHeaders headerParams = new HttpHeaders();
+
+        String[] accepts = new String[]{"*/*"};
+
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<List<RoomParticularDto>>> returnType =
+                new ParameterizedTypeReference<ResponseDto<List<RoomParticularDto>>>() {
+                };
+
+        try {
+            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+
+        } catch (Exception ex) {
+            log.error("Exception while fetching all rooms", ex);
+        }
+        return null;
+    }
+
+    public List<ResidenceVasDto> getResidenceVasDetailsByCategory(String residenceUuid, VasCategory category) {
+
+        log.info("Residence-Data-Controller::Processing to get vas details based on residenceUuid {}", residenceUuid);
+
+        Map<String, Object> uriVariables = new HashMap<>();
+
+        uriVariables.put("residenceUuid", residenceUuid);
+
+        String path = UriComponentsBuilder.fromPath("/internal/residence-vas/{residenceUuid}/category").buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        String vasCategory = Objects.nonNull(category) ? category.toString(): null;
+
+        queryParams.put("vasCategory", Collections.singletonList(vasCategory));
+
+        HttpHeaders headerParams = new HttpHeaders();
+
+        String[] accepts = new String[]{"*/*"};
+
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<List<ResidenceVasDto>>> returnType =
+                new ParameterizedTypeReference<ResponseDto<List<ResidenceVasDto>>>() {
+                };
+
+        try {
+            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType).getData();
+
+        } catch (Exception ex) {
+            log.error("Exception while fetching vas Details from residenceUuid: {}", residenceUuid);
+        }
+        return Collections.emptyList();
     }
 
 }
