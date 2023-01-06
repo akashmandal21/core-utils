@@ -33,4 +33,6 @@ public class UserMenuPreferenceUpdateDto {
 	@NotNull(message = "Food Preference Selection is mandatory")
 	private FoodItemType foodPreference;
 
+	private String beveragePreference;
+
 }

@@ -36,4 +36,6 @@ public class UserMenuPreferenceAddDto {
 
 	private boolean skippedMealStatus;
 
+	private String beveragePreference;
+
 }
