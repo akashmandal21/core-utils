@@ -1629,7 +1629,11 @@ public class ResidenceDataControllerApi {
 
         Map<String, Object> uriVariables = new HashMap();
 
-        uriVariables.put("serviceMixUUID", serviceMixUuid);
+        if(Objects.isNull(serviceMixUuid)){
+            uriVariables.put("serviceMixUUID", "null");
+        }else {
+            uriVariables.put("serviceMixUUID", serviceMixUuid);
+        }
 
         uriVariables.put("moveInDate", moveInDate);
 

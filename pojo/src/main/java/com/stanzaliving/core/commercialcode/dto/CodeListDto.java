@@ -30,6 +30,7 @@ public class CodeListDto {
 
     private Double monthlyMaintenanceFee;
 
+    // ----> Monthly / upfront
     private String maintenanceFeeCollection;
 
     private boolean isAutoApplicable;
@@ -46,6 +47,7 @@ public class CodeListDto {
 
     private List<CommercialCardApplicabilityDto> applicabilityDtoList;
 
+    // ----> Monthly / Fixed
     private AMCAmountType maintenanceChargeAmountType;
 
     private CommercialCardStatus cardStatus;
