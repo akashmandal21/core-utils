@@ -112,4 +112,7 @@ public class BookingAggregationDto {
     private Date expectedMoveOutDate;
     private String residenceAddress;
     private ResidenceAgreementType residenceAgreementType;
+    private String bookingMode;
+    private boolean billToResident;
+    private boolean isPriceStrategy;
 }

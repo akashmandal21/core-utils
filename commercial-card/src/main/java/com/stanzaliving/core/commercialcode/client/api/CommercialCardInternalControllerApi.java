@@ -99,4 +99,51 @@ public class CommercialCardInternalControllerApi {
             return null;
         }
     }
+
+    public ExpiredBookingsDto updatePriceStrategyStatusWithActive() {
+
+        log.info("PriceStrategy-Data-Controller::Processing to retrieve commercial card that needs status ACTIVE updation ");
+
+        Map<String, Object> uriVariables = new HashMap();
+
+        String path = UriComponentsBuilder.fromPath("/internal/price-strategy/active").buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+
+        HttpHeaders headerParams = new HttpHeaders();
+
+        String[] accepts = new String[]{"*/*"};
+
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ExpiredBookingsDto> returnType =
+                new ParameterizedTypeReference<ExpiredBookingsDto>() {};
+
+        return this.restClient.invokeAPI(path, HttpMethod.GET
+                , queryParams, null, headerParams, accept, returnType);
+    }
+
+    public ExpiredBookingsDto updatePriceStrategyStatusWithExpired() {
+
+        log.info("PriceStrategy-Data-Controller::Processing to retrieve PriceStrategy that needs status EXPIRED updation ");
+
+        Map<String, Object> uriVariables = new HashMap();
+
+        String path = UriComponentsBuilder.fromPath("/internal/price-strategy/expire").buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+
+        HttpHeaders headerParams = new HttpHeaders();
+
+
+        String[] accepts = new String[]{"*/*"};
+
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ExpiredBookingsDto> returnType =
+                new ParameterizedTypeReference<ExpiredBookingsDto>() {};
+
+        return this.restClient.invokeAPI(path, HttpMethod.GET
+                , queryParams, null, headerParams, accept, returnType);
+    }
 }
