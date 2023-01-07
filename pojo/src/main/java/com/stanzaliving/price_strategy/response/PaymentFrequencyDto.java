@@ -23,5 +23,6 @@ public class PaymentFrequencyDto {
     private List<String> splitUpfrontComponent;
     private String collectionUpfrontComponent;
     private Double processingFee;
+    private Double priceImpact;
     private String paymentTermName;
 }
