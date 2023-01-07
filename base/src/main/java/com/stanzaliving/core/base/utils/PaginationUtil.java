@@ -15,7 +15,7 @@ public class PaginationUtil {
 
 	public int correctLimit(int limit) {
 		limit = Math.max(1, limit);
-		limit = Math.min(1000, limit);
+		limit = Math.min(10000, limit);
 		return limit;
 	}
 

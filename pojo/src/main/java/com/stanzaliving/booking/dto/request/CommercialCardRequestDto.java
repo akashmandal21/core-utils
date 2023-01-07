@@ -6,12 +6,13 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
-@Builder
+@SuperBuilder
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -23,7 +24,11 @@ public class CommercialCardRequestDto implements Serializable {
 	
 	@Builder.Default
 	@Min(value = 0, message = "last advance rental months cannot be negative")
-	private Double lastAdvanceRentalMonths = 0.0;
+	private Integer lastAdvanceRentalMonths = 0;
+
+	@Builder.Default
+	@Min(value = 0, message = "last advance rental days cannot be negative")
+	private Integer lastAdvanceRentalDays = 0;
 
 	@Min(value = 0, message = "security deposit cannot be negative")
 	private Double securityDeposit;
@@ -42,10 +47,6 @@ public class CommercialCardRequestDto implements Serializable {
 	private AMCAmountType maintenanceChargeAmountType;
 
 	public CommercialCardRequestDto(CommercialCardRequestDto commercialCardRequestDto) {
-	}
-
-	public double getLastAdvanceRentalMonths() {
-		return lastAdvanceRentalMonths.doubleValue();
 	}
 
 }

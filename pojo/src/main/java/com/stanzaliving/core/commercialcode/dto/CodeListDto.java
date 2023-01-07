@@ -14,7 +14,6 @@ import java.util.List;
 @AllArgsConstructor
 @ToString
 public class CodeListDto {
-
     private String uuid;
 
     private String commercialCodeName;
@@ -25,14 +24,13 @@ public class CodeListDto {
 
     private Integer advanceRentalLastMonths;
 
-    private Integer advanceRentalFirstMonth1;
-
-    private Integer advanceRentalLastMonth2;
+    private Integer lastAdvanceRentalDays;
 
     private Double annualMaintenanceFee;
 
     private Double monthlyMaintenanceFee;
 
+    // ----> Monthly / upfront
     private String maintenanceFeeCollection;
 
     private boolean isAutoApplicable;
@@ -49,6 +47,7 @@ public class CodeListDto {
 
     private List<CommercialCardApplicabilityDto> applicabilityDtoList;
 
+    // ----> Monthly / Fixed
     private AMCAmountType maintenanceChargeAmountType;
 
     private CommercialCardStatus cardStatus;
