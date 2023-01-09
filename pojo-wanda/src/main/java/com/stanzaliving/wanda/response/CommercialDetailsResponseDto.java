@@ -93,5 +93,4 @@ public class CommercialDetailsResponseDto {
 	private ResidenceAgreementType residenceAgreementType = ResidenceAgreementType.LEASE_DEED;
 
 	private Boolean priceStrategyEnabled;
-
 }
