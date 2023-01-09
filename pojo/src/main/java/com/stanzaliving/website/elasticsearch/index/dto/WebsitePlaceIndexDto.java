@@ -50,9 +50,9 @@ public class WebsitePlaceIndexDto extends AbstractSearchIndexDto implements Seri
 	
 	private String transformationUuid;
 	
-	private Double latitude;
+	private double latitude;
 
-	private Double longitude;
+	private double longitude;
 	
 	@Builder.Default
 	private String type = "place";
