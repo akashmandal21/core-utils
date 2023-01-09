@@ -26,6 +26,10 @@ public class FoodPreferenceComboResponseDto implements Serializable {
 	private boolean defaultMenu;
 	private boolean selected;
 	private String comboName;
+	private String mealCardName;
+	private String mealCuisineL1;
+	private String mealCuisineL2;
+	private List<String> mealImgUrls;
 	private FoodItemBasePreference basePreference;
 	private String basePreferenceName;
 	private FoodRegion foodRegion;
