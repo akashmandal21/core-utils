@@ -19,7 +19,6 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class MealSummaryResponseDto implements Serializable {
 	private static final long serialVersionUID = -1489352139506367799L;
-
 	private MealType mealType;
 	private boolean isApplicable;
 }

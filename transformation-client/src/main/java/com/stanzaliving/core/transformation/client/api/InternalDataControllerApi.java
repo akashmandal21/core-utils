@@ -3,6 +3,31 @@
  */
 package com.stanzaliving.core.transformation.client.api;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.concurrent.CompletableFuture;
+import java.util.stream.Collectors;
+
+import com.stanzaliving.core.base.exception.ApiValidationException;
+import com.stanzaliving.core.base.exception.PreconditionFailedException;
+import com.stanzaliving.core.base.exception.StanzaHttpException;
+import com.stanzaliving.invoice.enums.DealType;
+import com.stanzaliving.transformations.pojo.*;
+import com.sun.org.apache.bcel.internal.generic.ArrayInstruction;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
+import org.springframework.util.CollectionUtils;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
+import org.springframework.web.util.UriComponentsBuilder;
+
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.stanzaliving.boq_service.dto.BulkActionsModalFilterOptionsDto;
 import com.stanzaliving.boq_service.dto.LabelValueDto;
@@ -735,17 +760,20 @@ public class InternalDataControllerApi {
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
     }
 
-    public ResponseDto<StanzaGstView> getStanzaGst(String stateId) {
+    public ResponseDto<StanzaGstView> getStanzaGst(String stateId, DealType dealType) {
 
         Object postBody = null;
 
         // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<>();
         uriVariables.put("stateUuid", stateId);
-
         String path = UriComponentsBuilder.fromPath("/internal/get/stanzagst/{stateUuid}").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        if(Objects.nonNull(dealType)){
+            queryParams.put("dealType", Arrays.asList(dealType.name()));
+        }
 
         final HttpHeaders headerParams = new HttpHeaders();
 

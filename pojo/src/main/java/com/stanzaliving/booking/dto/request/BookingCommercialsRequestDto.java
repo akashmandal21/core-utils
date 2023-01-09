@@ -64,5 +64,6 @@ public class BookingCommercialsRequestDto implements Serializable {
 
     private double withoutEscalationPrice;
     private double escalatedPrice;
+    private double monthlyFlatDiscount;
 
 }

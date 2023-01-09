@@ -28,6 +28,7 @@ public class CommercialsResponseDtoV2 {
     private Double onBoardingCharges;
     private Double maintenanceFee;
     private Integer advanceMonths;
+    private Integer advanceDays;
     private Double advanceFee;
     private String maxDate;
     private double upsell;
@@ -47,6 +48,7 @@ public class CommercialsResponseDtoV2 {
     private String subContract2EndDate; //add
     @Builder.Default
     private ResidenceAgreementType residenceAgreementType = ResidenceAgreementType.LEASE_DEED;
+    private Boolean priceStrategyEnabled;
 
 
 }
