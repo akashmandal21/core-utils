@@ -33,4 +33,7 @@ public class QuestionsDto {
 
     @NotNull
     private String options;
+
+    private SurveyConfigurationDto surveyConfig;
+
 }

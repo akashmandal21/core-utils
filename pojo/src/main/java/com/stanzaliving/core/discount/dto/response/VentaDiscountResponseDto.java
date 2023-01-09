@@ -39,5 +39,6 @@ public class VentaDiscountResponseDto {
     @JsonFormat(pattern = DateUtil.yyyy_MM_dd_FORMAT, timezone = StanzaConstants.IST_TIMEZONE)
     private LocalDate endDate;
     private Integer totalCount;
+    private String discountStrategyUuid;
 
 }
