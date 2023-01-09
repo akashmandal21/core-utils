@@ -255,7 +255,7 @@ public class WebsiteClientApi {
 
             return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
         } catch (Exception e) {
-            log.error("Error while Fetching Stanza MM details from website for cityId: {}", e);
+            log.error("Error while Fetching Stanza all city dtos: {}", e);
         }
         return null;
     }
