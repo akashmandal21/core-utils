@@ -21,5 +21,7 @@ public class MenuCategoryResidenceConsumerDto implements Serializable {
     private String dealId;
     private DealCategory dealCategory;
     private LocalDate startDate;
+    private LocalDate endDate;
+    private boolean foodDisabled;
     private String updateBy;
 }
