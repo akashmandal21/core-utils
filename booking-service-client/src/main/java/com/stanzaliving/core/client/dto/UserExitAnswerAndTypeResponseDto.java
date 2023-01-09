@@ -5,13 +5,18 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class UserExitAnswerAndTypeResponseDto {
 
-    private String answer;
     private String type;
+    private String answer;
     private String source;
+    private String questionUuid;
+    private List<String> options;
+
 }
