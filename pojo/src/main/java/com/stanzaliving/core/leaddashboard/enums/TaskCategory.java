@@ -15,9 +15,7 @@ import lombok.Getter;
 public enum TaskCategory {
 
 	TASK("#58CCB6","#58CCB6","Task"),
-	MEETING("#007AFF","#C7CEEA","Meeting"),
-
-	BOTH("#D9CDCA","#928F8E","Both");
+	MEETING("#007AFF","#C7CEEA","Meeting");
 	
 	private String taskCategoryColor;
 	private String taskCategoryColorV3;
