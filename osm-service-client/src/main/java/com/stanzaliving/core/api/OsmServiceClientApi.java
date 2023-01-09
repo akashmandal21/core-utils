@@ -69,7 +69,7 @@ public class OsmServiceClientApi {
             return restClient.invokeAPI(path, HttpMethod.POST, queryParams, websitePlaceIndexDtos, headerParams, accept, returnType);
 
         } catch (Exception e) {
-            log.error("Error while Fetching Osm Place Entities By cityTransformationUuid: {}, {}", e);
+            log.error("Error while pushing old places data to new elastic", e);
         }
         return null;
     }
