@@ -12,6 +12,9 @@ public class PaymentFrequencyDto {
     private PaymentTerm paymentTerm;
     private Double monthlyRent;
     private Double totalAmount;
+    private String showMonthlyRent;
+    private String showTotalAmount;
+    private String showDiscountAmount;
     private Double discountAmount;
     private Boolean isRecommended = false;
     private String waiveOffStrategy;
@@ -20,5 +23,6 @@ public class PaymentFrequencyDto {
     private List<String> splitUpfrontComponent;
     private String collectionUpfrontComponent;
     private Double processingFee;
+    private Double priceImpact;
     private String paymentTermName;
 }

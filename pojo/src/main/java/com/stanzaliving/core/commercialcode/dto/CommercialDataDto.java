@@ -18,6 +18,7 @@ public class CommercialDataDto {
    private PlatformType platform;
    private PaymentFrequency paymentFrequency;
    private Double monthlyRent;
+   private String showMonthlyRent;
    private Double monthlyRentWithPriceImpact;
    private Double priceImpact;
 
