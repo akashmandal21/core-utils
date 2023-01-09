@@ -72,7 +72,4 @@ public class WebsitePlaceIndexDto extends AbstractSearchIndexDto implements Seri
 	private String apartmentCitySlug;
 	
 	private String apartmentMMSlug;
-
-	@Builder.Default
-	private Integer customRankMultiplier = 1;
 }
