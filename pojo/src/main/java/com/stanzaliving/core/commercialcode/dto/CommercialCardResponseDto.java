@@ -72,4 +72,7 @@ public class CommercialCardResponseDto {
     private Double monthlyFeesMultiplier;
 
     private AMCAmountType maintenanceChargeAmountType;
+
+    private String priceImpactPercentage;
+
 }
