@@ -48,6 +48,7 @@ public class CommercialsResponseDtoV2 {
     private String subContract2EndDate; //add
     @Builder.Default
     private ResidenceAgreementType residenceAgreementType = ResidenceAgreementType.LEASE_DEED;
+    private Boolean priceStrategyEnabled;
 
 
 }
