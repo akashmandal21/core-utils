@@ -50,4 +50,7 @@ public class CityCmsResponseDTO {
 	private String apartmentSeoTitle;
 	private String apartmentSeoDescription;
 	private String apartmentCityDescription;
+
+	private String transformationUuid;
+	private Long transformationId;
 }
