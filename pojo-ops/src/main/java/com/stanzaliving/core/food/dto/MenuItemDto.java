@@ -72,5 +72,6 @@ public class MenuItemDto implements Serializable {
 
 	private boolean isDebarred;
 
-	private CuisineTagsDto cuisineTagsDto;
+	private CuisineTagsDto l1AndL2CuisineTagsDto;
+
 }
