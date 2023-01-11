@@ -116,6 +116,8 @@
         <module>messagebird-client</module>
         <module>cloudinary-client</module>
         <module>aws-lambda-client</module>
+        <module>osm-service-client</module>
+        <module>location-service-client</module>
     </modules>
 
 	<build>

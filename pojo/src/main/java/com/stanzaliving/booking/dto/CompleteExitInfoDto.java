@@ -32,4 +32,5 @@ public class CompleteExitInfoDto {
     private String bookingSubStatus;
     private LocalDate movedOutDate;
     private String exitStatus;
+    private LocalDate auditRescheduledDate;
 }
