@@ -9,9 +9,9 @@ import java.util.List;
 @NoArgsConstructor
 @Data
 @ToString
-public class HouseRatingDto {
+public class ResidenceRatingDto {
 
-    private List<String> houseRating;
+    private List<String> residenceRating;
     private String residenceUuid;
 
 }
