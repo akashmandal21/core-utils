@@ -87,7 +87,7 @@ public class UserCache {
 		Optional<UserProfileDto> optionalUserProfileDto = userProfileCache.getUnchecked(uuid);
 		if (optionalUserProfileDto.isPresent()) {
 			UserProfileDto userProfileDto = optionalUserProfileDto.get();
-			userName = userProfileDto.getFirstName() + " " + userProfileDto.getLastName();
+			userName = userProfileDto.getFirstName() + " " + (StringUtils.isNotBlank(userProfileDto.getLastName()) ? userProfileDto.getLastName() : "");
 		}
 		return userName;
 	}
