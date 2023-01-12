@@ -11,7 +11,7 @@ import java.util.List;
 @ToString
 public class ResidenceRatingDto {
 
-    private List<String> residenceRating;
-    private String residenceUuid;
+    private String residenceRating;
+    private String foodRating;
 
 }
