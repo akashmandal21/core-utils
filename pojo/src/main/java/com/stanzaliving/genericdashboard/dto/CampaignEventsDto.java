@@ -11,6 +11,7 @@ import java.util.List;
 @AllArgsConstructor
 @EqualsAndHashCode
 @ToString
+@Builder
 public class CampaignEventsDto {
 
     private String uuid;
