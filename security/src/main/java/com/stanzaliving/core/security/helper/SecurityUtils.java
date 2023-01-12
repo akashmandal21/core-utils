@@ -11,6 +11,7 @@ import com.stanzaliving.core.user.enums.UserType;
 
 import lombok.experimental.UtilityClass;
 import lombok.extern.log4j.Log4j2;
+import org.apache.commons.lang3.StringUtils;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -32,7 +33,7 @@ public class SecurityUtils {
 		String userName = "";
 
 		if (currentUser != null) {
-			userName = currentUser.getFirstName() + " " + currentUser.getLastName();
+			userName = currentUser.getFirstName() + " " + (StringUtils.isNotBlank(currentUser.getLastName()) ? currentUser.getLastName() : "");
 		}
 
 		return userName;
