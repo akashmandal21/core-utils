@@ -28,6 +28,8 @@ import lombok.experimental.SuperBuilder;
 public class FoodOrderBasePreferenceDto {
 
 	private String residenceFoodMenuId;
+	
+	private String defaultBerverage;
 
 	private String vendorId;
 
