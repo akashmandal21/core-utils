@@ -1284,7 +1284,10 @@ public class DateUtil {
         return ans;
     }
 
-    // This method return duration in String e.g. 11 months 7 days
+    // This method return duration in String,
+    // For e.g. Input -> startDate = 2022-01-01
+    //                   endDate = 2022-11-07
+    //          Output -> 11 months 7 days
     public static String getContractDuration(Date startDate, Date endDate) {
         Period contractPeriod = DateUtil.findDifference(startDate, DateUtil.addDaysToDate(endDate,1));
         return DateUtil.dateDifferenceInString(contractPeriod);
