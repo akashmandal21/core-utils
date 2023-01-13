@@ -17,7 +17,10 @@ import lombok.experimental.SuperBuilder;
 public class UserBeveragePreferenceCountDto {
 
     @Builder.Default
-    private Integer count = 0;
+    private Integer preferenceCount = 0;
+
+    @Builder.Default
+    private Integer inputCount = 0;
 
     private String beveragePreferenceName;
 
