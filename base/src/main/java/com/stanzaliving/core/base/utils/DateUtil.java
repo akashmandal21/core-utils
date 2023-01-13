@@ -1246,4 +1246,37 @@ public class DateUtil {
     public static boolean isSameDay(Date d1, Date d2){
         return normalizeDate(d1).equals(normalizeDate(d2));
     }
+
+    public double getTenureDurationInDouble(String duration, Date endDate) {
+        if(Objects.isNull(endDate)){
+            endDate = new Date();
+        }
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(endDate);
+        duration = duration.trim();
+        log.info("duration :: {}", duration);
+        double ans;
+        int a = duration.indexOf("month");
+        int first = 0;
+        if (a > 0)
+            first = Integer.parseInt(duration.substring(0, a).trim());
+        double second = 0;
+        if (a < 0) {
+            int b = duration.indexOf("day");
+            if (b > 0)
+                second = Integer.parseInt(duration.substring(0, b).trim());
+        } else if (a + 5 != duration.length()) {
+            char pos = duration.charAt(a + 5);
+            int count = a + 5;
+            if (pos == 's') {
+                count++;
+            }
+            int b = duration.indexOf("day");
+            if (b > 0)
+                second = Integer.parseInt(duration.substring(count, b).trim());
+        }
+        second = second/ cal.getActualMaximum(Calendar.DATE);
+        ans = first  + second;
+        return ans;
+    }
 }
