@@ -1247,6 +1247,10 @@ public class DateUtil {
         return normalizeDate(d1).equals(normalizeDate(d2));
     }
 
+    //This method returns duration in double.
+    // For e.g. Input -> duration = 11 months 15 days
+    //                   endDate = 2022-11-01
+    //          Output -> 11.5
     public double getTenureDurationInDouble(String duration, Date endDate) {
         if(Objects.isNull(endDate)){
             endDate = new Date();
@@ -1278,5 +1282,11 @@ public class DateUtil {
         second = second/ cal.getActualMaximum(Calendar.DATE);
         ans = first  + second;
         return ans;
+    }
+
+    // This method return duration in String e.g. 11 months 7 days
+    public static String getContractDuration(Date startDate, Date endDate) {
+        Period contractPeriod = DateUtil.findDifference(startDate, DateUtil.addDaysToDate(endDate,1));
+        return DateUtil.dateDifferenceInString(contractPeriod);
     }
 }
