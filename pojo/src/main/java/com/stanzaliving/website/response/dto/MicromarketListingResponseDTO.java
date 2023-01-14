@@ -22,6 +22,7 @@ public class MicromarketListingResponseDTO {
 	private int micromarketId;
 	private String name;
 	private String slug;
+	private String apartmentMMSlug;
 	private int cityId;
 	private String cityName;
 	private String citySlug;
@@ -31,4 +32,8 @@ public class MicromarketListingResponseDTO {
 	EnumListing<Status> status;
 	@Default
 	private boolean enabled = true;
+
+	private String transformationUuid;
+	private Long transformationId;
+
 }

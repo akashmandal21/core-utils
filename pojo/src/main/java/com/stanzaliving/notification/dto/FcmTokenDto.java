@@ -37,4 +37,10 @@ public class FcmTokenDto {
     private String deviceName;
 
     private String residenceUuid;
+
+    private String residenceName;
+
+    private String city;
+
+    private String microMarket;
 }
