@@ -20,4 +20,6 @@ public class ConversionResponseDto {
 
     private Map<LocalDate, String> data;
 
+    private double count;
+
 }
