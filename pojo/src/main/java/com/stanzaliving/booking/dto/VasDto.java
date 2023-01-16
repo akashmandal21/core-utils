@@ -23,4 +23,6 @@ public class VasDto {
 
     @JsonFormat(pattern = DateUtil.yyyy_MM_dd_FORMAT, timezone = StanzaConstants.IST_TIMEZONE)
     private Date optOutDate;
+
+    private String planUuid;
 }
