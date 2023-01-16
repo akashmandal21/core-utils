@@ -119,6 +119,7 @@ public enum EstateStatus {
 	SENT_BACK_L2_BY_NH_L2("L2 Sent Back By NH"),
 	SENT_BACK_L2_BY_ZH_L2("L2 Sent Back By ZH"),
 	SENT_BACK_L2_BY_LEADERSHIP("L2 Sent Back By Leadership"),
+	SENT_FOR_L1_APPROVAL_TO_DPM("SENT_FOR_L1_APPROVAL_TO_DPM"),
 	SENT_TO_SUNIL_AND_LEGAL("Pending Sunil And Legal Approval");
 
 

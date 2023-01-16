@@ -1,7 +1,12 @@
 package com.stanzaliving.core.food.dto;
 
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
@@ -15,4 +20,5 @@ public class KitchenFoodOrderReminderDto {
 	private String lunchCutoffTime;
 	private String snacksCutoffTime;
 	private String dinnerCutoffTime;
+	private String residenceList;
 }

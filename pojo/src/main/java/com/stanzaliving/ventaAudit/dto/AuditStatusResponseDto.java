@@ -18,6 +18,7 @@ public class AuditStatusResponseDto {
     private LocalDate auditedOn;
     private LocalDate auditedScheduledOn;
     private String auditorUuid;
+    private String auditorName;
     private String auditRejectionReason;
     private String auditorContactNo;
 }

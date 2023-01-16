@@ -45,7 +45,7 @@ import lombok.extern.log4j.Log4j2;
 @Log4j2
 @UtilityClass
 public class DateUtil {
-	
+
     public final String DATETIME_WITH_AM_PM = "dd MMM, yyyy hh:mm:ss a";
     public final String DD_MMM_YYYY_FORMAT = "dd-MMM-yyyy";
     public final String yyyy_MM_dd_HH_mm_ss = "yyyy-MM-dd HH:mm:ss";
@@ -67,6 +67,28 @@ public class DateUtil {
         cal.set(Calendar.MINUTE, 0);
         cal.set(Calendar.SECOND, 0);
         cal.set(Calendar.MILLISECOND, 0);
+        return cal.getTime();
+    }
+
+    public Date normalizeDate(Date date, Boolean normalize) {
+        if(Objects.isNull(date)){
+            return null;
+        }
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        if(normalize) {
+            cal.set(Calendar.HOUR_OF_DAY, 0);
+            cal.set(Calendar.MINUTE, 0);
+            cal.set(Calendar.SECOND, 0);
+            cal.set(Calendar.MILLISECOND, 0);
+        }
+        else {
+            cal.set(Calendar.HOUR_OF_DAY, 23);
+            cal.set(Calendar.MINUTE, 59);
+            cal.set(Calendar.SECOND, 59);
+            cal.set(Calendar.MILLISECOND, 0);
+        }
+
         return cal.getTime();
     }
 
@@ -1203,5 +1225,71 @@ public class DateUtil {
 
     public static Long convertToEpochInMiliSeconds(LocalDate localDate) {
         return Objects.isNull(localDate) ? null : localDate.atStartOfDay().toInstant(ZoneOffset.of(StanzaConstants.ZONE_OFFSET)).toEpochMilli();
+    }
+
+    public static LocalDate getPrevOrSameDayOfTheWeek(LocalDate date, DayOfWeek day) {
+
+        return date.with(TemporalAdjusters.previousOrSame(day));
+    }
+
+    public static LocalDate getNextOrSameDayOfTheWeek(LocalDate date, DayOfWeek day) {
+
+        return date.with(TemporalAdjusters.nextOrSame(day));
+    }
+
+    public static Date addMonthsToDate(Date date, int months){
+        Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.MONTH, months);
+        return cal.getTime();
+    }
+
+    public static boolean isSameDay(Date d1, Date d2){
+        return normalizeDate(d1).equals(normalizeDate(d2));
+    }
+
+    //This method returns duration in double.
+    // For e.g. Input -> duration = 11 months 15 days
+    //                   endDate = 2022-11-01
+    //          Output -> 11.5
+    public double getTenureDurationInDouble(String duration, Date endDate) {
+        if(Objects.isNull(endDate)){
+            endDate = new Date();
+        }
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(endDate);
+        duration = duration.trim();
+        log.info("duration :: {}", duration);
+        double ans;
+        int a = duration.indexOf("month");
+        int first = 0;
+        if (a > 0)
+            first = Integer.parseInt(duration.substring(0, a).trim());
+        double second = 0;
+        if (a < 0) {
+            int b = duration.indexOf("day");
+            if (b > 0)
+                second = Integer.parseInt(duration.substring(0, b).trim());
+        } else if (a + 5 != duration.length()) {
+            char pos = duration.charAt(a + 5);
+            int count = a + 5;
+            if (pos == 's') {
+                count++;
+            }
+            int b = duration.indexOf("day");
+            if (b > 0)
+                second = Integer.parseInt(duration.substring(count, b).trim());
+        }
+        second = second/ cal.getActualMaximum(Calendar.DATE);
+        ans = first  + second;
+        return ans;
+    }
+
+    // This method return duration in String,
+    // For e.g. Input -> startDate = 2022-01-01
+    //                   endDate = 2022-11-07
+    //          Output -> 11 months 7 days
+    public static String getContractDuration(Date startDate, Date endDate) {
+        Period contractPeriod = DateUtil.findDifference(startDate, DateUtil.addDaysToDate(endDate,1));
+        return DateUtil.dateDifferenceInString(contractPeriod);
     }
 }

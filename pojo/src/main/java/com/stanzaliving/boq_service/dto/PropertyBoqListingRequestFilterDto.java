@@ -38,4 +38,8 @@ public class PropertyBoqListingRequestFilterDto {
     private List<LabelValueDto<BoqLabel>> boqLabel;
 
     private List<LabelValueDto<BoqStatus>> boqStatus;
+
+    private String itemFilter;
+
+    private List<String> itemUuids;
 }

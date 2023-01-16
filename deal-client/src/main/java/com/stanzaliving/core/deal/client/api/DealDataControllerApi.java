@@ -4,6 +4,7 @@ import com.stanzaliving.booking.dto.RoomAndBedsResponseDto;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.deal.client.dto.*;
+import com.stanzaliving.core.dto.B2bBillDetailsDto;
 import com.stanzaliving.core.user.enums.EnumListing;
 import com.stanzaliving.core.user.enums.Nationality;
 import lombok.extern.log4j.Log4j2;
@@ -406,6 +407,32 @@ public class DealDataControllerApi {
 
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
 
+    }
+
+    public ResponseDto<B2bBillDetailsDto> getBillPricingDetails(String contractUuid, String residenceUuid, String occupancyType) {
+
+        log.info("Booking-Data-Controller::Processing to fetch Contract Details for Contract uuid {}", contractUuid);
+
+        Map<String, Object> uriVariables = new HashMap();
+
+        String path = UriComponentsBuilder.fromPath("/internal/deal/resident/billing-details").buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+        queryParams.add("contractUuid", contractUuid);
+        queryParams.add("residenceUuid", residenceUuid);
+        queryParams.add("occupancyType", occupancyType);
+
+        HttpHeaders headerParams = new HttpHeaders();
+
+        String[] accepts = new String[]{"*/*"};
+
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<B2bBillDetailsDto>> returnType =
+                new ParameterizedTypeReference<ResponseDto<B2bBillDetailsDto>>() {
+                };
+
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
     }
 
 }

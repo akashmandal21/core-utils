@@ -337,29 +337,29 @@ public class LedgerServiceApi {
         }
     }
 
-    public ResponseDto<RefundDetailsResponseDto> getRefundDetails(String bookingUuid) {
+    public ResponseDto<RefundDetailsResponseDto> getRefundDetails(String referenceId) {
+        log.info("Reference id {}", referenceId);
         Map<String, Object> uriVariables = new HashMap<>();
         String path = UriComponentsBuilder.fromPath("/internal/api/v1/refundDetails")
                 .buildAndExpand(uriVariables).toUriString();
-
         MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-        queryParams.add("bookingUuid", bookingUuid);
+        queryParams.add("referenceId", referenceId);
+        queryParams.add("bookingUuid", referenceId);
 
         HttpHeaders headerParams = new HttpHeaders();
         String[] accepts = new String[]{"*/*"};
         List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
-
         ParameterizedTypeReference<ResponseDto<RefundDetailsResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<RefundDetailsResponseDto>>() {
         };
-
         try {
+            log.info("Executing Api for getting residence Info with Url {}", path);
             return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
-
         } catch (Exception e) {
-            log.error("Error while fetching refund details", e);
-           return null;
+            log.error("Exception while fetching ledger information based on referenceId {}, Exception is ", referenceId, e);
         }
+        return null;
     }
+
 
     public ResponseDto<Boolean> getBankDetails(String userUuid) {
         log.info("In getBankDetails for user {}", userUuid);
