@@ -3,6 +3,7 @@ package com.stanzaliving.booking.dto;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.stanzaliving.core.base.StanzaConstants;
 import com.stanzaliving.core.base.utils.DateUtil;
+import com.stanzaliving.residenceservice.enums.VasCategory;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -25,4 +26,6 @@ public class VasDto {
     private Date optOutDate;
 
     private String planUuid;
+
+    private VasCategory vasCategory;
 }
