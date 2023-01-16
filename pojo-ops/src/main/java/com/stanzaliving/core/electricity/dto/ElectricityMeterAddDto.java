@@ -43,4 +43,12 @@ public class ElectricityMeterAddDto {
 
 	@NotNull(message = "Reading Unit Type is mandatory")
 	private ReadingUnitType unitType;
+
+	private String unitRate;
+
+	private String fixedCharges;
+
+	private String meterConstant;
+
+	private String tax;
 }
