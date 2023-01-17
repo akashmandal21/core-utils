@@ -6,11 +6,12 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
 import java.util.Date;
 
 @Data
-@Builder
+@SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
 public class BookingDiscountCriteriasDto {
@@ -32,5 +33,7 @@ public class BookingDiscountCriteriasDto {
     private MathematicalSymbol tokenAmountSymbol=MathematicalSymbol.GREATER_THAN_EQUAL_TO;
     private Integer tokenAmount;
     private Boolean remoteBooking;
+    private Double closureDuration;
+    private String sameDayLeadCreation;
 
 }
