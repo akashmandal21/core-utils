@@ -1,6 +1,6 @@
 package com.stanzaliving.core.food.dto;
 
-import java.util.Collection;
+import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -28,6 +28,6 @@ public class ItemTypeUserPreferenceCountDto {
 
     private String residenceFoodMenuId;
 
-    private Collection<UserBeveragePreferenceCountDto> userBeveragePreferenceCountDtos;
+    private List<UserBeveragePreferenceCountDto> userBeveragePreferenceCountDtos;
 
 }
