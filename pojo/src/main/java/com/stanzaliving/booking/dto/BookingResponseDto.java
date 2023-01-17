@@ -78,4 +78,6 @@ public class BookingResponseDto {
 
     private String residenceName;
 
+    private boolean priceStrategy;
+
 }
