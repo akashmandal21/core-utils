@@ -37,5 +37,7 @@ public class UserRegistrationDetailsDto {
 
 	@NotNull(message = "Check-In Date cannot be null")
 	private LocalDate checkInDate;
-	
+
+	private String source;
+
 }
