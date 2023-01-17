@@ -1,4 +1,4 @@
-package com.stanzaliving.core.dto;
+package com.stanzaliving.kyc;
 
 import com.stanzaliving.core.enums.ApprovalStatus;
 import com.stanzaliving.core.enums.DocumentTypeEnum;
