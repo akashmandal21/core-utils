@@ -1,12 +1,15 @@
 package com.stanzaliving.core.dto;
 
+import com.stanzaliving.core.enums.ApprovalStatus;
 import com.stanzaliving.core.enums.DocumentTypeEnum;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Builder
 @Data
@@ -14,7 +17,11 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 public class KycDocumentsRequestDto {
 
-    @NotNull
-    private String bookingUuid;
+    @NotEmpty
+    private List<String> bookingUuid;
+
+    private DocumentTypeEnum documentType;
+
+    private List<ApprovalStatus> approvalStatus;
 
 }
