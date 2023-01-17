@@ -68,6 +68,10 @@ public class WebsiteResidenceDetailedResponseDTO implements Serializable {
 	private Integer preBookingAmount;
 
 	private Integer unlockDiscountAmount;
+
+	private Integer discountPercentage;
+
+	private Integer discountedPrice;
 	
 	private String preBookingMode;
 	
