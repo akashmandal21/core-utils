@@ -34,7 +34,6 @@ public class BookingDiscountCriteriasDto {
     private Integer tokenAmount;
     private Boolean remoteBooking;
     private Double closureDuration;
-    @Builder.Default
-    private Boolean allowSameDayLeadCreation = Boolean.TRUE;
+    private String sameDayLeadCreation;
 
 }
