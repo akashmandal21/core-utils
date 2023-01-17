@@ -735,7 +735,7 @@ public class OperationsClientApi {
 	public ResidentServiceMixV2VasResponseDto customizeVasForResident(ResidentServiceMixVasRequestDto residentServiceMixVasRequestDto) {
 		final Map<String, Object> uriVariables = new HashMap<>();
 
-		String path = UriComponentsBuilder.fromPath("v2/resident/servicemix/customize/vas").buildAndExpand(uriVariables).toUriString();
+		String path = UriComponentsBuilder.fromPath("/v2/resident/servicemix/customize/vas").buildAndExpand(uriVariables).toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
