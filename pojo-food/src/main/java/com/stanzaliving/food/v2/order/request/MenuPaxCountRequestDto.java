@@ -1,10 +1,12 @@
 package com.stanzaliving.food.v2.order.request;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.stanzaliving.core.food.dto.UserBeveragePreferenceCountDto;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -33,7 +35,8 @@ public class MenuPaxCountRequestDto extends PaxCountRequestDto {
 
 	private String menuName;
 
-	private List<UserBeveragePreferenceCountDto> userBeveragePreferenceCountDtos;
+	@Builder.Default
+	private List<UserBeveragePreferenceCountDto> userBeveragePreferenceCountDtos = new ArrayList<>();
 
 	private String defaultBeverage;
 }
