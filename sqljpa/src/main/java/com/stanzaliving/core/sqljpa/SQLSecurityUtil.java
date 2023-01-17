@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.stanzaliving.core.pojo.CurrentUser;
 import lombok.experimental.UtilityClass;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 
@@ -46,7 +47,7 @@ public class SQLSecurityUtil {
 				builder.append(userIdDto.getLastName());
 			}
 
-			userName = userIdDto.getFirstName() + " " + userIdDto.getLastName();
+			userName = userIdDto.getFirstName() + " " + (StringUtils.isNotBlank(userIdDto.getLastName()) ? userIdDto.getLastName() : "");
 		}
 
 		return userName;
