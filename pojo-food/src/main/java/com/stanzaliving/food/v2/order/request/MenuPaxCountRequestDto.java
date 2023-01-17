@@ -1,6 +1,6 @@
 package com.stanzaliving.food.v2.order.request;
 
-import java.util.Collection;
+import java.util.List;
 
 import com.stanzaliving.core.food.dto.UserBeveragePreferenceCountDto;
 
@@ -33,7 +33,7 @@ public class MenuPaxCountRequestDto extends PaxCountRequestDto {
 
 	private String menuName;
 
-	private Collection<UserBeveragePreferenceCountDto> userBeveragePreferenceCountDtos;
+	private List<UserBeveragePreferenceCountDto> userBeveragePreferenceCountDtos;
 
 	private String defaultBeverage;
 }
