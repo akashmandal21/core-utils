@@ -1258,4 +1258,50 @@ public class DateUtil {
     public static boolean isSameDay(Date d1, Date d2){
         return normalizeDate(d1).equals(normalizeDate(d2));
     }
+
+    //This method returns duration in double.
+    // For e.g. Input -> duration = 11 months 15 days
+    //                   endDate = 2022-11-01
+    //          Output -> 11.5
+    public double getTenureDurationInDouble(String duration, Date endDate) {
+        if(Objects.isNull(endDate)){
+            endDate = new Date();
+        }
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(endDate);
+        duration = duration.trim();
+        log.info("duration :: {}", duration);
+        double ans;
+        int a = duration.indexOf("month");
+        int first = 0;
+        if (a > 0)
+            first = Integer.parseInt(duration.substring(0, a).trim());
+        double second = 0;
+        if (a < 0) {
+            int b = duration.indexOf("day");
+            if (b > 0)
+                second = Integer.parseInt(duration.substring(0, b).trim());
+        } else if (a + 5 != duration.length()) {
+            char pos = duration.charAt(a + 5);
+            int count = a + 5;
+            if (pos == 's') {
+                count++;
+            }
+            int b = duration.indexOf("day");
+            if (b > 0)
+                second = Integer.parseInt(duration.substring(count, b).trim());
+        }
+        second = second/ cal.getActualMaximum(Calendar.DATE);
+        ans = first  + second;
+        return ans;
+    }
+
+    // This method return duration in String,
+    // For e.g. Input -> startDate = 2022-01-01
+    //                   endDate = 2022-11-07
+    //          Output -> 11 months 7 days
+    public static String getContractDuration(Date startDate, Date endDate) {
+        Period contractPeriod = DateUtil.findDifference(startDate, DateUtil.addDaysToDate(endDate,1));
+        return DateUtil.dateDifferenceInString(contractPeriod);
+    }
 }
