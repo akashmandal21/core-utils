@@ -1,13 +1,14 @@
 package com.stanzaliving.food.v2.order.request;
 
 import java.util.ArrayList;
-import java.util.Collection;
+import java.util.List;
 
 import javax.validation.constraints.NotBlank;
 
 import com.stanzaliving.core.food.dto.UserBeveragePreferenceCountDto;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -45,6 +46,7 @@ public class UpdateItemGrammageRequestDto {
 
 	private int nonSlStaffNonVegPax;
 
-	private Collection<UserBeveragePreferenceCountDto> userBeveragePreferenceCountDtos = new ArrayList<>();
+	@Builder.Default
+	private List<UserBeveragePreferenceCountDto> userBeveragePreferenceCountDtos = new ArrayList<>();
 
 }
