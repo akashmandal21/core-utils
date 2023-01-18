@@ -13,4 +13,6 @@ import java.util.Date;
 @AllArgsConstructor
 public class MoveInRangeDto {
     Date minMoveInDate;
+
+    Date maxMoveInDate;
 }
