@@ -29,7 +29,7 @@ public class FoodOrderBasePreferenceDto {
 
 	private String residenceFoodMenuId;
 	
-	private String defaultBerverage;
+	private String defaultBeverage;
 
 	private String vendorId;
 
