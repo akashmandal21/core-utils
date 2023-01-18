@@ -2,7 +2,6 @@ package com.stanzaliving.core.food.dto;
 
 import java.time.LocalTime;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 import com.stanzaliving.core.food.dto.request.AdditionalItemsRequestDto;
@@ -71,5 +70,5 @@ public class FoodOrderBasePreferenceDto {
 	private Integer nonVegPax;
 	
 	@Builder.Default
-	private Collection<UserBeveragePreferenceCountDto> userBeveragePreferenceCountDtos = new ArrayList<>();
+	private List<UserBeveragePreferenceCountDto> userBeveragePreferenceCountDtos = new ArrayList<>();
 }
