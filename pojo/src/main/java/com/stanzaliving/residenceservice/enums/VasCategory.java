@@ -8,6 +8,8 @@ import lombok.Getter;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.stanzaliving.residenceservice.enums.VasCategory.getServiceMixType;
+
 @Getter
 @AllArgsConstructor
 public enum VasCategory {
@@ -44,6 +46,24 @@ public enum VasCategory {
     public static ServiceMixServiceType getServiceMixType(VasCategory vasCategory){
         Map<VasCategory, ServiceMixServiceType> serviceMixServiceTypeMap = getServiceMixServiceTypeMap();
         return serviceMixServiceTypeMap.getOrDefault(vasCategory, null);
+    }
+
+    public static Map<ServiceMixServiceType, VasCategory> getVasCategoryMap(){
+        Map<ServiceMixServiceType, VasCategory> vasCategoryMap = new HashMap<>();
+        vasCategoryMap.put(ServiceMixServiceType.FOOD, VasCategory.FOOD);
+        vasCategoryMap.put(ServiceMixServiceType.LAUNDRY, VasCategory.LAUNDRY);
+        vasCategoryMap.put(ServiceMixServiceType.ELECTRICITY, VasCategory.ELECTRICITY);
+        vasCategoryMap.put(ServiceMixServiceType.TRANSPORT, VasCategory.TRANSPORT);
+        vasCategoryMap.put(ServiceMixServiceType.HOUSE_KEEPING, VasCategory.HOUSEKEEPING);
+        vasCategoryMap.put(ServiceMixServiceType.INTERNET,VasCategory.INTERNET);
+        vasCategoryMap.put(ServiceMixServiceType.SECURITY, VasCategory.SECURITY);
+        vasCategoryMap.put(ServiceMixServiceType.OTHERS,VasCategory.OTHER);
+        return vasCategoryMap;
+    }
+
+    public static VasCategory getVasCategory(ServiceMixServiceType serviceMixServiceType){
+        Map<ServiceMixServiceType, VasCategory> vasCategoryMap = getVasCategoryMap();
+        return vasCategoryMap.getOrDefault(serviceMixServiceType, null);
     }
 
 
