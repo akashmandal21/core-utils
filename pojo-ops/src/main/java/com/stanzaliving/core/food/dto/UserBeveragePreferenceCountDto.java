@@ -26,4 +26,6 @@ public class UserBeveragePreferenceCountDto {
 
     private String beveragePreference;
 
+    private boolean defaultBeverageItem;
+
 }

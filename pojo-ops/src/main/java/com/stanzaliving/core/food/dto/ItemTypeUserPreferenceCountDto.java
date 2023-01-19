@@ -28,6 +28,8 @@ public class ItemTypeUserPreferenceCountDto {
 
     private String residenceFoodMenuId;
 
+    private boolean defaultMenu;
+
     private List<UserBeveragePreferenceCountDto> userBeveragePreferenceCountDtos;
 
 }
