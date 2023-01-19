@@ -17,6 +17,7 @@ import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -541,6 +542,31 @@ public class VentaClientApi {
 		ParameterizedTypeReference<Boolean> returnType = new ParameterizedTypeReference<Boolean>() {
 		};
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+	}
+
+	public ResponseEntity<LeadResponseDTO> getLeadDetailsById(String id){
+		Object postBody = null;
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("id", id);
+		String path = UriComponentsBuilder.fromPath("/lead/{id}").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {"*/*"};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseEntity<LeadResponseDTO>> returnType = new ParameterizedTypeReference<ResponseEntity<LeadResponseDTO>>() {
+		};
+
+		try {
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Error while fetching referral details: {}", e);
+			return null;
+		}
 	}
 
 }
