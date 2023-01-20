@@ -34,5 +34,6 @@ public class WeeklyMenuResponseDto extends MenuWiseMenuSearchRDto {
 	private List<DayWiseCogsDto> dayWiseCogs;
 	private CompositionRuleV2Dto rules;
 	private FoodMenuBudgetDto budgetRules;
+	private boolean copyAction;
 
 }
