@@ -62,4 +62,12 @@ public class ElectricityMeterDto extends AbstractDto {
 	private String activatedBy;
 	private String deactivatedBy;
 
+	private String unitRate;
+
+	private String fixedCharges;
+
+	private String meterConstant;
+
+	private String tax;
+
 }
