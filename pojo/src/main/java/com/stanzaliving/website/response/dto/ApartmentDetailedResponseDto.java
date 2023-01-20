@@ -114,7 +114,7 @@ public class ApartmentDetailedResponseDto implements Serializable {
 	
 	private AddressResponseDTO address;
 	
-	private Integer discountPercentage;
+	private double discountPercentage;
 	
 	private Integer discountedPrice;
 	

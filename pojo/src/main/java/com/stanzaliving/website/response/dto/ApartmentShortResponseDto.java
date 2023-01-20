@@ -63,7 +63,7 @@ public class ApartmentShortResponseDto implements Serializable {
 	
 	private Integer startingPrice;
 
-	private Integer discountPercentage;
+	private double discountPercentage;
 
 	private Integer discountedPrice;
 	

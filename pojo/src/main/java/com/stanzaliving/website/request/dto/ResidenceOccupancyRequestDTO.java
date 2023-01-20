@@ -32,7 +32,7 @@ public class ResidenceOccupancyRequestDTO {
 	private int residenceId;
 	private int startingPrice;
 	private String pricingPlan;
-	private Integer discountPercentage;
+	private double discountPercentage;
 	private Integer discountedPrice;
 
 	@Builder.Default

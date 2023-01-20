@@ -46,7 +46,7 @@ public class ApartmentRoomTypeResponseDTO implements Serializable {
 
 	private Integer available;
 
-	private Integer discountPercentage;
+	private double discountPercentage;
 
 	private Integer discountedPrice;
 

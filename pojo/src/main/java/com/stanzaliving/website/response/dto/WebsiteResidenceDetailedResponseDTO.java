@@ -69,7 +69,7 @@ public class WebsiteResidenceDetailedResponseDTO implements Serializable {
 
 	private Integer unlockDiscountAmount;
 
-	private Integer discountPercentage;
+	private double discountPercentage;
 
 	private Integer discountedPrice;
 	

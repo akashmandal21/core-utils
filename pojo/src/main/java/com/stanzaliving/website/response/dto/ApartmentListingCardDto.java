@@ -60,7 +60,7 @@ public class ApartmentListingCardDto implements Serializable {
 	
 	private int startingPrice;
 	
-	private Integer discountPercentage;
+	private double discountPercentage;
 	
 	private Integer discountedPrice;
 
