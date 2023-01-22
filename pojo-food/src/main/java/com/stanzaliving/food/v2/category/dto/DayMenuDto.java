@@ -17,5 +17,6 @@ public class DayMenuDto {
 	private String thaliId;
 	private String thaliVariantId;
 	private FoodServeType foodServeType;
+	private String defaultBeverage;
 
 }
