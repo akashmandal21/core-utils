@@ -26,4 +26,7 @@ public class ResidenceOccupancyResponseDTO implements Serializable {
 	private boolean soldOut;
 	private String residenceOccupancyImgUrl;
 	private String pricingPlan;
+	private Integer bumpUpAmount;
+	private Integer discountAmount;
+	private Integer discountedPrice;
 }
