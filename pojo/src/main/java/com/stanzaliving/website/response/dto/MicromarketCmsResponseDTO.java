@@ -62,4 +62,7 @@ public class MicromarketCmsResponseDTO {
 	private double apartmentDiscountPercentage;
 	private double pgBumpUpPercentage;
 	private double pgDiscountPercentage;
+
+	private boolean showDiscountForPg;
+	private boolean showDiscountForApartment;
 }
