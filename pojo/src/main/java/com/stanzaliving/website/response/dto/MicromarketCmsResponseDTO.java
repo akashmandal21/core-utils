@@ -57,4 +57,9 @@ public class MicromarketCmsResponseDTO {
 	private String apartmentSeoTitle;
 	private String apartmentSeoDescription;
 	private String apartmentMicromarketDescription;
+
+	private double apartmentBumpUpPercentage;
+	private double apartmentDiscountPercentage;
+	private double pgBumpUpPercentage;
+	private double pgDiscountPercentage;
 }
