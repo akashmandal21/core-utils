@@ -48,5 +48,8 @@ public class FoodPreferenceComboResponseDto implements Serializable {
 	private String mealName;
 	private Integer thaliSequence;
 	private String defaultBeverage;
+	private String defaultBeverageName;
+	private String selectedBeverage;
+	private String selectedBeverageName;
 
 }
