@@ -12,6 +12,6 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 public class DetractorDto {
-    private Boolean isDetractors;
+    private Boolean detractors;
     private String answer;
 }
