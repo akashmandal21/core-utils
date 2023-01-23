@@ -13,25 +13,25 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class OacDetailDto {
-    Date modified;
-    String _id;
-    Integer OACType;
-    String deviceId;
-    String doorId;
-    String nodeId;
-    Date endTime;
-    String reason;
-    String grantedBy;
+   private Date modified;
+   private String _id;
+   private Integer OACType;
+   private String deviceId;
+   private String doorId;
+   private String nodeId;
+   private Date endTime;
+   private String reason;
+   private String grantedBy;
 
-    String grantedTo;
+   private String grantedTo;
 
     @JsonProperty("OAC")
-    String OAC;
+    private String OAC;
 
-    Date timestamp;
+    private Date timestamp;
 
-    Date startTime;
+    private Date startTime;
 
     @JsonProperty("OACId")
-    String OACId;
+    private String OACId;
 }

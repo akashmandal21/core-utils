@@ -13,12 +13,12 @@ import java.util.List;
 @AllArgsConstructor
 public class GenerateOacResponseDto {
 	
-	Boolean success;
+	 private Boolean success;
 
     @JsonProperty("OACs")
-    List<OacDetailDto> OACs;
+    private List<OacDetailDto> OACs;
 
-    String message;
+    private String message;
 }
 
 
