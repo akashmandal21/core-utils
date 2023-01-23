@@ -76,6 +76,7 @@ public class BookingAggregationDto {
     private String cityUuid;
     private String microMarketUuid;
     private PaymentTerm paymentTerm;
+    private String paymentTermName;
     private boolean isRetentionBooking = false;
     private boolean noLockInSuitsBooking = false;
     private Date moveInDate;
@@ -114,4 +115,5 @@ public class BookingAggregationDto {
     private ResidenceAgreementType residenceAgreementType;
     private String bookingMode;
     private boolean billToResident;
+    private boolean isPriceStrategy;
 }

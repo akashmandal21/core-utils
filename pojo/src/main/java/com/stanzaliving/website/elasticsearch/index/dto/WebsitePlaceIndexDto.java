@@ -23,12 +23,16 @@ public class WebsitePlaceIndexDto extends AbstractSearchIndexDto implements Seri
 	private static final long serialVersionUID = 1L;
 	
 	private String place;
+
+	private String name;
 	
 	private Integer placeId;
 	
 	private String placeSlug;
 	
 	private String placeType;
+
+	private String osmPlaceType;
 	
 	private Integer placeTypeId;
 
