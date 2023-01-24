@@ -9,6 +9,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -27,6 +29,8 @@ public class CityListingResponseDTO {
 	private boolean enabled;
 	private String phone;
 	EnumListing<Status> status;
+
+	private List<String> dynamicUrlSlugs;
 
 	private String transformationUuid;
 	private Long transformationId;

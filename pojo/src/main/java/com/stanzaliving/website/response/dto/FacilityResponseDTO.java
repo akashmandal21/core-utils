@@ -5,6 +5,7 @@
 package com.stanzaliving.website.response.dto;
 
 import java.io.Serializable;
+import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -32,5 +33,6 @@ public class FacilityResponseDTO implements Serializable {
 	private String facilityImgUrl;
 	private Integer sequenceId;
 	private String iconImageUrlAltTag;
+	private List<String> dynamicUrlSlugs;
 
 }
