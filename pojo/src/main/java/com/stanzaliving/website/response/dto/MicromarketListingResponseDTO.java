@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.io.Serializable;
 import java.util.List;
 
 @Getter
@@ -19,7 +20,9 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class MicromarketListingResponseDTO {
+public class MicromarketListingResponseDTO implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	private int micromarketId;
 	private String name;

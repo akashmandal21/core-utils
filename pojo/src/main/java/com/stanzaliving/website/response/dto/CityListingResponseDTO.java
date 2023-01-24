@@ -9,6 +9,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.io.Serializable;
 import java.util.List;
 
 @Builder
@@ -16,7 +17,10 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Setter
-public class CityListingResponseDTO {
+public class CityListingResponseDTO implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+
 	private int cityId;
 	private String name;
 	private String slug;
