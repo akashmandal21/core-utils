@@ -70,4 +70,6 @@ public class ElectricityMeterDto extends AbstractDto {
 
 	private String tax;
 
+	private String roomNo;
+
 }
