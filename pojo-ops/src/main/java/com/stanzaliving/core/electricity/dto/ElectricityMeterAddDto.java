@@ -51,4 +51,6 @@ public class ElectricityMeterAddDto {
 	private String meterConstant;
 
 	private String tax;
+
+	private String roomNo;
 }
