@@ -57,7 +57,4 @@ public class ApartmentRoomTypeResponseDTO implements Serializable {
 	private int similarRoomCount;
 	
 	private boolean isSimilarAlreadyAdded;
-
-	private Integer bumpUpAmount;
-	private Integer discountAmount;
 }
