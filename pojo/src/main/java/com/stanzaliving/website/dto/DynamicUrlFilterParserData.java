@@ -19,6 +19,8 @@ import java.util.*;
 @AllArgsConstructor
 public class DynamicUrlFilterParserData implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+
     List<DynamicUrlsFilterDto> pgPageIdentifierDynamicDtos;
     List<DynamicUrlsFilterDto> colivingPageIdentifierDynamicDtos;
     List<DynamicUrlsFilterDto> apartmentPageIdentifierDynamicDtos;
