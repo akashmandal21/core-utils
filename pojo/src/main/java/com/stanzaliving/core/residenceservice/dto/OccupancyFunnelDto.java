@@ -11,6 +11,7 @@ import java.util.List;
 @Builder
 public class OccupancyFunnelDto {
     private String label;
+    private String period;
     private List<OnboardedFunnelDto> data;
 }
 
