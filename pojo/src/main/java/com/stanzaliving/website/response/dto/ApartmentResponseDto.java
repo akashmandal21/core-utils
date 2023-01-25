@@ -127,6 +127,10 @@ public class ApartmentResponseDto implements Serializable, Comparable<ApartmentR
 
 	private List<WebsiteImageLibraryDto> images;
 
+	private boolean showDiscount;
+
+	private Integer inventoryPrice;
+
 	@Override
 	public int compareTo(ApartmentResponseDto dto2) {
 		

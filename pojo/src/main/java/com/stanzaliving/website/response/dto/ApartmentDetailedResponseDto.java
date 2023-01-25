@@ -151,4 +151,8 @@ public class ApartmentDetailedResponseDto implements Serializable {
 	private List<ApartmentResponseDto> otherRooms;
 	
 	private WebsitePlaceIndexDto placeIndexDto;
+
+	private boolean showDiscount;
+
+	private Integer inventoryPrice;
 }
