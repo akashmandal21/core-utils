@@ -35,9 +35,12 @@ public class ListObjectConverter implements AttributeConverter<List<Object>, Str
     public List<Object> convertToEntityAttribute(String dbData) {
         log.info("LIST-HASHMAP-CONVERTER::Convert entity attribute of {}",dbData);
         List<Object> attributeInfo = null;
-        try {
-            attributeInfo = objectMapper.readValue(dbData, new TypeReference<List<Object>>(){});
-        } catch (final IOException e) {
+		try {
+			if (dbData != null) {
+				attributeInfo = objectMapper.readValue(dbData, new TypeReference<List<Object>>() {
+				});
+			}
+		} catch (final IOException e) {
             log.error("JSON reading error", e);
         }
 
