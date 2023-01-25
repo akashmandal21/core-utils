@@ -1,16 +1,15 @@
 package com.stanzaliving.core.sqljpa.conveter;
 
+import java.io.IOException;
+import java.util.List;
+
+import javax.persistence.AttributeConverter;
+
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.SneakyThrows;
-import lombok.extern.log4j.Log4j2;
 
-import javax.persistence.AttributeConverter;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.util.List;
-import java.util.Map;
+import lombok.extern.log4j.Log4j2;
 
 @Log4j2
 public class ListObjectConverter implements AttributeConverter<List<Object>, String> {
