@@ -1,6 +1,6 @@
 package com.stanzaliving.website.dto;
 
-import com.stanzaliving.website.enums.DynamicUrlsFilterCategory;
+import com.stanzaliving.website.enums.Gender;
 import com.stanzaliving.website.response.dto.CityListingResponseDTO;
 import com.stanzaliving.website.response.dto.FacilityResponseDTO;
 import com.stanzaliving.website.response.dto.FeatureResponseDTO;
@@ -11,9 +11,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Data
 @Builder
@@ -26,7 +24,7 @@ public class DynamicUrlFilterParserData implements Serializable {
     List<DynamicUrlsFilterDto> apartmentPageIdentifierDynamicDtos;
 
     List<CityListingResponseDTO> cityListingDtos;
-    Map<Integer, List<MicromarketListingResponseDTO>> micromarketListingDtos;
+    Map<Integer, List<MicromarketListingResponseDTO>> liveCityAndItsLiveMmListMap;
 
     List<DynamicUrlsFilterDto> genderFilterDynamicDtos;
     List<DynamicUrlsFilterDto> occupancyFilterDynamicDtos;
@@ -42,4 +40,33 @@ public class DynamicUrlFilterParserData implements Serializable {
 
     @Builder.Default
     List<Integer> mmIds = new ArrayList<>();
+
+    @Builder.Default
+    List<Gender> genderIn = new ArrayList<>();
+
+    @Builder.Default
+    Set<Integer> occupancyIds = new HashSet<>();
+
+    @Builder.Default
+    List<Integer> featureIdIn = new ArrayList<>();
+
+    @Builder.Default
+    List<Integer> facilityIdIn = new ArrayList<>();
+
+    @Builder.Default
+    Integer minPriceRange = null;
+
+    @Builder.Default
+    Integer maxPriceRange = null;
+
+    String residenceType;
+
+    @Builder.Default
+    List<Integer> roomCountIn = new ArrayList<>();
+
+    @Builder.Default
+    boolean entireFlat = false;
+
+    Integer pageNo;
+    Integer pageSize;
 }
