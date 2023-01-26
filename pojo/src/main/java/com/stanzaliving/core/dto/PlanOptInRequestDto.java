@@ -7,27 +7,32 @@ import com.stanzaliving.core.base.utils.DateUtil;
 import com.stanzaliving.residenceservice.enums.VasCategory;
 import lombok.*;
 
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 @Builder
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class PlanOptInRequestDto {
 
+    @Valid
     @NotBlank(message = "Plan uuid cannot be null or empty")
     private String planUuid;
 
-    @NotNull(message = "Opt in cannot be null")
+    @Valid
+    @NotNull(message = "Opt in date cannot be null")
     @JsonFormat(pattern = DateUtil.yyyy_MM_dd_FORMAT, timezone = StanzaConstants.IST_TIMEZONE)
     private Date optInDate;
 
     @Builder.Default
     private PaymentTerm paymentTerm = PaymentTerm.MONTHLY;
 
-    @NotNull(message = "Lock in cannot be null")
+    @Valid
+    @NotNull(message = "Lock in end-date cannot be null")
     @JsonFormat(pattern = DateUtil.yyyy_MM_dd_FORMAT, timezone = StanzaConstants.IST_TIMEZONE)
     private Date lockInEndDate;
 

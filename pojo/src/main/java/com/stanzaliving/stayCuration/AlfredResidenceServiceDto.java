@@ -42,5 +42,7 @@ public class AlfredResidenceServiceDto {
     private double planAmountBreakageFee;
 
     private LockInDto lockIn;
+    
+    private String planUuid;
 
 }
