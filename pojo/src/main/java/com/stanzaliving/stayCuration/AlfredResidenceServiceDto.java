@@ -25,6 +25,8 @@ public class AlfredResidenceServiceDto {
 
     private Object description;
 
+    private Object meta;
+
     private Double planAmountWithoutGst;
 
     private Double planAmountWithGst;
