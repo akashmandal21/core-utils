@@ -26,6 +26,6 @@ public class UserPreferenceCountDto {
 	
 	private long skippedMeals;
 	
-	private List<ItemTypeUserPreferenceCountDto> preferenceCountDtos;
+	private List<UserThaliOptionPreferenceCountDto> preferenceCountDtos;
 
 }
