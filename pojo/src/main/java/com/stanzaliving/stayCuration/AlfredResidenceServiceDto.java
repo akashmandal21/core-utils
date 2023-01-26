@@ -23,7 +23,7 @@ public class AlfredResidenceServiceDto {
 
     private Double serviceMixUuid;
 
-    private Map<String, String> description;
+    private Object description;
 
     private Double planAmountWithoutGst;
 
