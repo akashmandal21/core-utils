@@ -16,7 +16,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ItemTypeUserPreferenceCountDto {
+public class UserThaliOptionPreferenceCountDto {
 
     private String preferredMenu;
 
