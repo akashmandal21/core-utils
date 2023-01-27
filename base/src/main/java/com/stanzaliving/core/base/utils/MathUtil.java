@@ -47,4 +47,10 @@ public class MathUtil {
 	public static double roundDoubleValue(double number, Long decimalPrecision) {
 		return number == 0 ? 0 : (double) Math.round(number * decimalPrecision) / decimalPrecision;
 	}
+
+	public static double roundDoubleValue(double number) {
+		return number == 0 ? 0 : (double) Math.round(number);
+	}
+
+
 }

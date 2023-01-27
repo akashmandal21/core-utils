@@ -71,7 +71,8 @@ public enum PaymentPlanType {
 	ONM_ONBOARDING_CHARGE("ONM OnBoarding Charge"),
 	MANAGEMENT_FEE("Management Fee"),
 	PROCESSING_FEE("Processing Fee"),
-	EXIT_PROCESSING_FEE("Exit Processing Fee");
+	EXIT_PROCESSING_FEE("Exit Processing Fee"),
+	PLAN("PLAN");
 
 	private String name;
 	
