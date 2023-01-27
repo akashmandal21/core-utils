@@ -19,6 +19,7 @@ import com.stanzaliving.residenceservice.enums.ResidenceAttributes;
 import com.stanzaliving.residenceservice.enums.VasCategory;
 import com.stanzaliving.stayCuration.AlfredResidenceServiceDto;
 import com.stanzaliving.venta.RoomInfoDto;
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -33,6 +34,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import java.time.LocalDate;
 import java.util.*;
 import java.util.concurrent.CompletableFuture;
+import java.util.stream.Collectors;
 
 public class ResidenceDataControllerApi {
     private static final Logger log = LogManager.getLogger(ResidenceDataControllerApi.class);
@@ -2424,7 +2426,7 @@ public class ResidenceDataControllerApi {
         return null;
     }
 
-    public List<ResidenceVasDto> getResidenceVasDetailsByCategory(String residenceUuid, VasCategory category) {
+    public List<ResidenceVasDto> getResidenceVasDetailsByCategory(String residenceUuid, List<VasCategory> categoryList) {
 
         log.info("Residence-Data-Controller::Processing to get vas details based on residenceUuid {}", residenceUuid);
 
@@ -2436,9 +2438,11 @@ public class ResidenceDataControllerApi {
 
         MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-        String vasCategory = Objects.nonNull(category) ? category.toString(): null;
 
-        queryParams.put("vasCategory", Collections.singletonList(vasCategory));
+        if(CollectionUtils.isNotEmpty(categoryList)) {
+            List<String> vasCategories = categoryList.stream().map(Enum::toString).collect(Collectors.toList());
+            queryParams.put("vasCategory", vasCategories);
+        }
 
         HttpHeaders headerParams = new HttpHeaders();
 
@@ -2459,7 +2463,7 @@ public class ResidenceDataControllerApi {
         return Collections.emptyList();
     }
 
-    public ResponseDto<Map<String, List<AlfredResidenceServiceDto>>> getPlansByServiceMix(String serviceMixUuid) {
+    public ResponseDto<Map<String, List<AlfredResidenceServiceDto>>> getPlansByServiceMix(String serviceMixUuid, List<VasCategory> vasCategoryList) {
 
         log.info("Residence-Data-Controller::Processing to get plan details based on serviceMixUuid {}", serviceMixUuid);
 
@@ -2467,9 +2471,14 @@ public class ResidenceDataControllerApi {
 
         uriVariables.put("serviceMixUuid", serviceMixUuid);
 
-        String path = UriComponentsBuilder.fromPath("/stay-curation/internal/paid-services/service-mix/{serviceMixUuid}/plans").buildAndExpand(uriVariables).toUriString();
-
         MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        if(CollectionUtils.isNotEmpty(vasCategoryList)) {
+            List<String> vasCategories = vasCategoryList.stream().map(Enum::toString).collect(Collectors.toList());
+            queryParams.put("vasCategory", vasCategories);
+        }
+
+        String path = UriComponentsBuilder.fromPath("/stay-curation/internal/paid-services/service-mix/{serviceMixUuid}/plans/").buildAndExpand(uriVariables).toUriString();
 
         HttpHeaders headerParams = new HttpHeaders();
 
