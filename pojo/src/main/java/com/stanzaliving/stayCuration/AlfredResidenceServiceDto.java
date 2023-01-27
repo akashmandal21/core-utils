@@ -1,5 +1,6 @@
 package com.stanzaliving.stayCuration;
 
+import com.stanzaliving.booking.enums.PaymentTerm;
 import lombok.*;
 
 import java.util.Map;
@@ -19,9 +20,9 @@ public class AlfredResidenceServiceDto {
 
     private String residenceUuid;
 
-    private Double jarvisPlanUuid;
+    private String jarvisPlanUuid;
 
-    private Double serviceMixUuid;
+    private String serviceMixUuid;
 
     private Object description;
 
@@ -37,7 +38,7 @@ public class AlfredResidenceServiceDto {
 
     private GstDto igst;
 
-    private String planBillingFrequency;
+    private PaymentTerm planBillingFrequency;
 
     private double planAmountBreakageFee;
 

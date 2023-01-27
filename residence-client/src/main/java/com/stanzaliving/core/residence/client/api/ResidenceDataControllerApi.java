@@ -19,6 +19,7 @@ import com.stanzaliving.residenceservice.enums.ResidenceAttributes;
 import com.stanzaliving.residenceservice.enums.VasCategory;
 import com.stanzaliving.stayCuration.AlfredResidenceServiceDto;
 import com.stanzaliving.venta.RoomInfoDto;
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -33,6 +34,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import java.time.LocalDate;
 import java.util.*;
 import java.util.concurrent.CompletableFuture;
+import java.util.stream.Collectors;
 
 public class ResidenceDataControllerApi {
     private static final Logger log = LogManager.getLogger(ResidenceDataControllerApi.class);
@@ -2459,7 +2461,7 @@ public class ResidenceDataControllerApi {
         return Collections.emptyList();
     }
 
-    public ResponseDto<Map<String, List<AlfredResidenceServiceDto>>> getPlansByServiceMix(String serviceMixUuid) {
+    public ResponseDto<Map<VasCategory, List<AlfredResidenceServiceDto>>> getPlansByServiceMix(String serviceMixUuid, List<VasCategory> vasCategoryList) {
 
         log.info("Residence-Data-Controller::Processing to get plan details based on serviceMixUuid {}", serviceMixUuid);
 
@@ -2467,9 +2469,14 @@ public class ResidenceDataControllerApi {
 
         uriVariables.put("serviceMixUuid", serviceMixUuid);
 
-        String path = UriComponentsBuilder.fromPath("/stay-curation/internal/paid-services/service-mix/{serviceMixUuid}/plans").buildAndExpand(uriVariables).toUriString();
-
         MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        if(CollectionUtils.isNotEmpty(vasCategoryList)) {
+            List<String> vasCategories = vasCategoryList.stream().map(Enum::toString).collect(Collectors.toList());
+            queryParams.put("vasCategory", vasCategories);
+        }
+
+        String path = UriComponentsBuilder.fromPath("/stay-curation/internal/paid-services/service-mix/{serviceMixUuid}/plans/").buildAndExpand(uriVariables).toUriString();
 
         HttpHeaders headerParams = new HttpHeaders();
 
@@ -2477,8 +2484,8 @@ public class ResidenceDataControllerApi {
 
         List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<ResponseDto<Map<String, List<AlfredResidenceServiceDto>>>> returnType =
-                new ParameterizedTypeReference<ResponseDto<Map<String, List<AlfredResidenceServiceDto>>>>() {
+        ParameterizedTypeReference<ResponseDto<Map<VasCategory, List<AlfredResidenceServiceDto>>>> returnType =
+                new ParameterizedTypeReference<ResponseDto<Map<VasCategory, List<AlfredResidenceServiceDto>>>>() {
                 };
 
         try {
