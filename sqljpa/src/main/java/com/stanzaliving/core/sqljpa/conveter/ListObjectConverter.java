@@ -5,6 +5,9 @@ import java.util.List;
 
 import javax.persistence.AttributeConverter;
 
+import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
+
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -22,7 +25,9 @@ public class ListObjectConverter implements AttributeConverter<List<Object>, Str
         String attributeInfoJson = null;
 
         try {
-            attributeInfoJson = objectMapper.writeValueAsString(attribute);
+        	if(CollectionUtils.isNotEmpty(attribute)) {
+        		attributeInfoJson = objectMapper.writeValueAsString(attribute);	
+        	}
         } catch (final JsonProcessingException e) {
             log.error("JSON writing error", e);
         }
@@ -35,7 +40,7 @@ public class ListObjectConverter implements AttributeConverter<List<Object>, Str
         log.info("LIST-HASHMAP-CONVERTER::Convert entity attribute of {}",dbData);
         List<Object> attributeInfo = null;
 		try {
-			if (dbData != null) {
+			if (StringUtils.isNotBlank(dbData)) {
 				attributeInfo = objectMapper.readValue(dbData, new TypeReference<List<Object>>() {
 				});
 			}
