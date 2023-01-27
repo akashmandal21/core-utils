@@ -32,7 +32,7 @@ public class NormalizeOrderDto extends PaxCountRequestDto {
 	private boolean changed;
 
 	@Builder.Default
-	private boolean totalPaxChanged = true;
+	private boolean totalPaxChanged = false;
 
 	private List<MenuPaxCountRequestDto> menusPaxCount;
 
