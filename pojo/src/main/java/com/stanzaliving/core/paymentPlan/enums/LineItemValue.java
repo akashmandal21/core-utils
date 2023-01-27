@@ -28,7 +28,8 @@ public enum LineItemValue {
     RENTAL_FEE("RENTAL FEE"),
     SERVICE_FEE("SERVICE FEE"),
     MANAGEMENT_FEE("MANAGEMENT FEE"),
-    PROCESSING_FEE("PROCESSING FEE");
+    PROCESSING_FEE("PROCESSING FEE"),
+    PLAN_FEE("PLAN FEE");
 
     private String name;
 
