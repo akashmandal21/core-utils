@@ -11,7 +11,8 @@ public enum PaymentPlanResponseType {
 
     BOOKING("Booking Amount"),
     INSTALMENT("Instalment"),
-    VAS("Vas");
+    VAS("Vas"),
+    SUBSCRIPTION_PLAN("Subscription Plan");
 
     private String name;
 }
