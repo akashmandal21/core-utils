@@ -44,5 +44,7 @@ public class CommercialsDetailsResponseDTO implements Serializable {
 
     private boolean paymentSplitToggle;
 
+    private boolean priceStrategyEnabled;
+
 }
 
