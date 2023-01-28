@@ -75,4 +75,6 @@ public class CommercialCardResponseDto {
 
     private String priceImpactPercentage;
 
+    private boolean priceStrategyEnabled;
+
 }
