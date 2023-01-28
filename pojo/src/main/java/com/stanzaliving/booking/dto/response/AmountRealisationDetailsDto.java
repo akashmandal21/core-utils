@@ -10,10 +10,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class AmountRealisationDetailsDto {
-    private String paidAmount;
-    private String realisedAmount;
-    private String remainingAmount;
-    private String perDayRent;
+    private Double paidAmount;
+    private Double realisedAmount;
+    private Double remainingAmount;
+    private Double perDayRent;
     private Double waiveOffAmount;
 
 }
