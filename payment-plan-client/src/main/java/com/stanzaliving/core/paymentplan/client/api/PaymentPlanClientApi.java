@@ -776,7 +776,7 @@ public class PaymentPlanClientApi {
                 queryParams.add("optOutDate", date.format(optOutDate));
             }
             queryParams.add("vasUuid", vasUuid);
-            queryParams.add("paymentPlanType", paymentPlanType.getName());
+            queryParams.add("paymentPlanType", paymentPlanType.name());
             HttpHeaders headerParams = new HttpHeaders();
             final String[] accepts = {"*/*"};
             final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
