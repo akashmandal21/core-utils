@@ -40,7 +40,7 @@ public enum PropertyReportsTile {
     PRODUCT_MIX("Product Mix", true, true, false, Department.DESIGN, null, "productmix",
             Collections.singletonList(PropertyUpdateEnum.DESIGN_BED_COUNT_FINALIZATION_COMPLETED)),
     SECTIONAL_TRANSFORMATION("Sectional Transformation",true,true,true,Department.DESIGN,null,"sectional-transformation", null),
-    PROPERTY_LAYOUT("Property Layout",true,true,false, Department.DESIGN,null,"property-layout", null);
+    PROPERTY_LAYOUT("Property Layout",true,true,false, Department.DESIGN,null,"pms", null);
 
 
     private String tileText;
