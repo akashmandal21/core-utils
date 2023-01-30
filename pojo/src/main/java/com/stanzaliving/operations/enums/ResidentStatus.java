@@ -16,8 +16,6 @@ import java.util.Map;
 public enum ResidentStatus {
     MOVED_IN("Moved In"),
     MOVED_OUT("Moved Out");
-	MOVED_IN("Moved In"),
-	MOVED_OUT("Moved Out");
 
     private String statusName;
 
