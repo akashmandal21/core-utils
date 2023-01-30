@@ -226,6 +226,8 @@ public enum BookingStatus {
         bookingStatus.add(BookingStatus.STAY_FORFEITURE.getDescription());
         bookingStatus.add(BookingStatus.WRONG_BOOKING.getDescription());
         bookingStatus.add(BookingStatus.GUEST_ONBOARDING_COMPLETED.getDescription());
+        bookingStatus.add(BookingStatus.AGREEMENT_PENDING.getDescription());
+        bookingStatus.add(BookingStatus.AGREEMENT_SENT.getDescription());
         return bookingStatus;
     }
 
