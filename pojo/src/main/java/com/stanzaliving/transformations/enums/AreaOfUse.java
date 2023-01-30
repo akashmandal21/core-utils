@@ -28,7 +28,14 @@ public enum AreaOfUse {
 	COMMON_AREA("Common Area"),
 	LOGISTICS("Logistics"),
 	PROVISIONAL("Provisional"),
-	REFURB("Refurb");
+	REFURB("Refurb"),
+	DINING("Dining Area"),
+	CORRIDOR("Corridor"),
+	KITCHEN("Kitchen"),
+	LIFT("Lift"),
+	STAIRS("Stairs"),
+	UTILITY("Utility"),
+	WASHROOM("Washroom");
 	
 	private String name;
 
