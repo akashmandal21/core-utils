@@ -82,5 +82,5 @@ public class ResidenceDetailsResponseDTO implements Serializable {
 	private double discountPercentage;
 	private double bumpUpPercentage;
 	private boolean showDiscount;
-	private Integer inventoryPrice;
+	private int inventoryPrice;
 }
