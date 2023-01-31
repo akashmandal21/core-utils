@@ -1,11 +1,11 @@
 package com.stanzaliving.food.v2.order.request;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import com.stanzaliving.core.operations.enums.MealType;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -32,10 +32,10 @@ public class NormalizeOrderResponseDto extends PaxCountRequestDto {
 
 	private boolean changed;
 
-	@Builder.Default
-	private boolean totalPaxChanged = false;
-
 	private List<MenuPaxCountRequestDto> menusPaxCount;
 
+	private String residenceId;
+
+	private LocalDate menuDate;
 
 }
