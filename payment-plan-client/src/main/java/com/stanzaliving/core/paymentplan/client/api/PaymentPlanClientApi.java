@@ -4,13 +4,11 @@
 package com.stanzaliving.core.paymentplan.client.api;
 
 import com.stanzaliving.booking.SoldBookingDto;
-import com.stanzaliving.booking.dto.request.ContractExtensionPaymentPlanRequestDTO;
-import com.stanzaliving.booking.dto.request.PaymentPlanCorrectionDto;
-import com.stanzaliving.booking.dto.request.PaymentPlanRequestDto;
-import com.stanzaliving.booking.dto.request.VasPaymentPlanRequestDTO;
+import com.stanzaliving.booking.dto.request.*;
 import com.stanzaliving.booking.dto.response.CommercialsDetailsResponseDTO;
 import com.stanzaliving.booking.dto.response.ContractTerminationResponseDto;
 import com.stanzaliving.booking.dto.response.PaymentPlanResponseDto;
+import com.stanzaliving.booking.enums.PaymentPlanType;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.constants.SecurityConstants;
 import com.stanzaliving.core.base.http.StanzaRestClient;
