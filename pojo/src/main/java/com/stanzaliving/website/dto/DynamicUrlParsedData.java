@@ -1,40 +1,26 @@
 package com.stanzaliving.website.dto;
 
 import com.stanzaliving.website.enums.Gender;
-import com.stanzaliving.website.response.dto.CityListingResponseDTO;
-import com.stanzaliving.website.response.dto.FacilityResponseDTO;
-import com.stanzaliving.website.response.dto.FeatureResponseDTO;
-import com.stanzaliving.website.response.dto.MicromarketListingResponseDTO;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class DynamicUrlFilterParserData implements Serializable {
+public class DynamicUrlParsedData implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private List<DynamicUrlsFilterDto> pgPageIdentifierDynamicDtos;
-    private List<DynamicUrlsFilterDto> colivingPageIdentifierDynamicDtos;
-    private List<DynamicUrlsFilterDto> apartmentPageIdentifierDynamicDtos;
-
-    private List<CityListingResponseDTO> cityListingDtos;
-    private Map<Integer, List<MicromarketListingResponseDTO>> liveCityAndItsLiveMmListMap;
-
-    private List<DynamicUrlsFilterDto> genderFilterDynamicDtos;
-    private List<DynamicUrlsFilterDto> occupancyFilterDynamicDtos;
-    private List<DynamicUrlsFilterDto> budgetFilterDynamicDtos;
-    private List<DynamicUrlsFilterDto> bhkFilterDynamicDtos;
-    private List<DynamicUrlsFilterDto> entireFlatFilterDynamicDtos;
-    private List<FeatureResponseDTO> featureResponseDtos;
-    private List<FacilityResponseDTO> facilityResponseDtos;
+    private DynamicUrlRequiredParserDataReadOnly requiredParserDataReadOnly;
 
     @Builder.Default
     private boolean isFilteredUrl = false;
@@ -42,10 +28,14 @@ public class DynamicUrlFilterParserData implements Serializable {
     @Builder.Default
     private boolean isOsmLocationUrl = false;
 
-    private String filteredParentSeoContents;
-    private List<String> filteredChildSeoContents;
+    private String seoTitle;
+    private String seoDescription;
+    private String seoContent;
+    private String seoFaq;
 
-    private String unFilteredParentPageSeoContent;
+    private List<String> filteredSeoTitleChunks;
+    private List<String> filteredSeoDescriptionChunks;
+    private List<String> filteredSeoContentChunks;
 
     private String cityName;
     private String mmName;
