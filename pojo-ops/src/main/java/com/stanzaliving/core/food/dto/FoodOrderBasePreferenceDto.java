@@ -4,6 +4,7 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.stanzaliving.core.food.dto.request.AdditionalItemsRequestDto;
 import com.stanzaliving.core.food.dto.response.OrderItemGrammageDto;
 import com.stanzaliving.core.food.enums.FoodItemBasePreference;
@@ -70,5 +71,6 @@ public class FoodOrderBasePreferenceDto {
 	private Integer nonVegPax;
 	
 	@Builder.Default
+	@JsonProperty("userBeveragePreferenceCountDtos")
 	private List<UserBeveragePreferenceCountDto> userBeveragePreferenceCountDtos = new ArrayList<>();
 }

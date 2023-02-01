@@ -1,16 +1,18 @@
 package com.stanzaliving.core.sqljpa.conveter;
 
+import java.io.IOException;
+import java.util.List;
+
+import javax.persistence.AttributeConverter;
+
+import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
+
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.SneakyThrows;
-import lombok.extern.log4j.Log4j2;
 
-import javax.persistence.AttributeConverter;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.util.List;
-import java.util.Map;
+import lombok.extern.log4j.Log4j2;
 
 @Log4j2
 public class ListObjectConverter implements AttributeConverter<List<Object>, String> {
@@ -23,7 +25,9 @@ public class ListObjectConverter implements AttributeConverter<List<Object>, Str
         String attributeInfoJson = null;
 
         try {
-            attributeInfoJson = objectMapper.writeValueAsString(attribute);
+        	if(CollectionUtils.isNotEmpty(attribute)) {
+        		attributeInfoJson = objectMapper.writeValueAsString(attribute);	
+        	}
         } catch (final JsonProcessingException e) {
             log.error("JSON writing error", e);
         }
@@ -35,9 +39,12 @@ public class ListObjectConverter implements AttributeConverter<List<Object>, Str
     public List<Object> convertToEntityAttribute(String dbData) {
         log.info("LIST-HASHMAP-CONVERTER::Convert entity attribute of {}",dbData);
         List<Object> attributeInfo = null;
-        try {
-            attributeInfo = objectMapper.readValue(dbData, new TypeReference<List<Object>>(){});
-        } catch (final IOException e) {
+		try {
+			if (StringUtils.isNotBlank(dbData)) {
+				attributeInfo = objectMapper.readValue(dbData, new TypeReference<List<Object>>() {
+				});
+			}
+		} catch (final IOException e) {
             log.error("JSON reading error", e);
         }
 
