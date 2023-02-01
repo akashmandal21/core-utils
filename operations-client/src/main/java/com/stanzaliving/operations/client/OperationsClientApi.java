@@ -262,7 +262,7 @@ public class OperationsClientApi {
 
 	}
 
-	public ServiceMixEntityDto getServiceMixEntityByUuid(String uuid) {
+	public ServiceMixEntityDto getServiceMixEntityByUuid(String uuid, String residenceUuid) {
 
 		Object postBody = null;
 
@@ -275,6 +275,7 @@ public class OperationsClientApi {
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
 		queryParams.add("uuid", uuid);
+		queryParams.add("residenceId", residenceUuid);
 
 		final HttpHeaders headerParams = new HttpHeaders();
 
@@ -331,7 +332,7 @@ public class OperationsClientApi {
 		return Objects.nonNull(serviceMixEntity) ? serviceMixEntity : null;
 	}
 
-	public List<ServiceMixEntityDto> getServiceMixByUuidList(List<String> uuidList) {
+	public List<ServiceMixEntityDto> getServiceMixByUuidList(List<String> uuidList, String residenceUuid) {
 
 		Object postBody = null;
 
@@ -343,6 +344,7 @@ public class OperationsClientApi {
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
+		queryParams.add("residenceId", residenceUuid);
 		queryParams.addAll("serviceMixUuidList", uuidList);
 
 		final HttpHeaders headerParams = new HttpHeaders();

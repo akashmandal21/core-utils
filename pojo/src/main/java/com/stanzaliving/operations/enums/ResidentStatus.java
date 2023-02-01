@@ -14,28 +14,28 @@ import java.util.Map;
 @AllArgsConstructor
 @NoArgsConstructor
 public enum ResidentStatus {
-	MOVED_IN("Moved In"),
-	MOVED_OUT("Moved Out");
+    MOVED_IN("Moved In"),
+    MOVED_OUT("Moved Out");
 
-	private String statusName;
+    private String statusName;
 
-	private static List<EnumListing<ResidentStatus>> movedStatusMap = new ArrayList<>();
-	private static final Map<ResidentStatus, String> statusMap = new HashMap<>();
+    private static List<EnumListing<ResidentStatus>> movedStatusMap = new ArrayList<>();
+    private static final Map<ResidentStatus, String> statusMap = new HashMap<>();
 
-	static {
-		for(ResidentStatus movedStatus: ResidentStatus.values()){
-			statusMap.put(movedStatus, movedStatus.statusName);
-		}
-	}
-	static {
-		for(ResidentStatus movedStatus: ResidentStatus.values()){
-			movedStatusMap.add(EnumListing.of(movedStatus, movedStatus.statusName));
-		}
-	}
+    static {
+        for(ResidentStatus movedStatus: ResidentStatus.values()){
+            statusMap.put(movedStatus, movedStatus.statusName);
+        }
+    }
+    static {
+        for(ResidentStatus movedStatus: ResidentStatus.values()){
+            movedStatusMap.add(EnumListing.of(movedStatus, movedStatus.statusName));
+        }
+    }
 
-	public static Map<ResidentStatus, String> getMovedStatusMap() {
-		return statusMap;
-	}
-	
-	
+    public static Map<ResidentStatus, String> getMovedStatusMap() {
+        return statusMap;
+    }
+
+
 }
