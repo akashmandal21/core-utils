@@ -66,5 +66,6 @@ public class BookingEvent implements Serializable {
     private LocalDate auditRescheduledDate;
     @Builder.Default
     private ResidenceAgreementType residenceAgreementType = ResidenceAgreementType.LEASE_DEED;
+    boolean contractStarted;
 
 }
