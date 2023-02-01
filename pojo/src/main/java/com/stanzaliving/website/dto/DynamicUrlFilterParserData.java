@@ -21,54 +21,69 @@ public class DynamicUrlFilterParserData implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    List<DynamicUrlsFilterDto> pgPageIdentifierDynamicDtos;
-    List<DynamicUrlsFilterDto> colivingPageIdentifierDynamicDtos;
-    List<DynamicUrlsFilterDto> apartmentPageIdentifierDynamicDtos;
+    private List<DynamicUrlsFilterDto> pgPageIdentifierDynamicDtos;
+    private List<DynamicUrlsFilterDto> colivingPageIdentifierDynamicDtos;
+    private List<DynamicUrlsFilterDto> apartmentPageIdentifierDynamicDtos;
 
-    List<CityListingResponseDTO> cityListingDtos;
-    Map<Integer, List<MicromarketListingResponseDTO>> liveCityAndItsLiveMmListMap;
+    private List<CityListingResponseDTO> cityListingDtos;
+    private Map<Integer, List<MicromarketListingResponseDTO>> liveCityAndItsLiveMmListMap;
 
-    List<DynamicUrlsFilterDto> genderFilterDynamicDtos;
-    List<DynamicUrlsFilterDto> occupancyFilterDynamicDtos;
-    List<DynamicUrlsFilterDto> budgetFilterDynamicDtos;
-    List<DynamicUrlsFilterDto> bhkFilterDynamicDtos;
-    List<DynamicUrlsFilterDto> entireFlatFilterDynamicDtos;
-    List<FeatureResponseDTO> featureResponseDtos;
-    List<FacilityResponseDTO> facilityResponseDtos;
+    private List<DynamicUrlsFilterDto> genderFilterDynamicDtos;
+    private List<DynamicUrlsFilterDto> occupancyFilterDynamicDtos;
+    private List<DynamicUrlsFilterDto> budgetFilterDynamicDtos;
+    private List<DynamicUrlsFilterDto> bhkFilterDynamicDtos;
+    private List<DynamicUrlsFilterDto> entireFlatFilterDynamicDtos;
+    private List<FeatureResponseDTO> featureResponseDtos;
+    private List<FacilityResponseDTO> facilityResponseDtos;
+
+    @Builder.Default
+    private boolean isFilteredUrl = false;
+
+    @Builder.Default
+    private boolean isOsmLocationUrl = false;
+
+    private String filteredParentSeoContents;
+    private List<String> filteredChildSeoContents;
+
+    private String unFilteredParentPageSeoContent;
+
+    private String cityName;
+    private String mmName;
+    private String urlTargetPlaceName;
 
     //Actual Filter Data to be parsed and mapped to following variables, which will be passed to listing apis
 
-    Integer cityId;
+    private Integer cityId;
 
     @Builder.Default
-    List<Integer> mmIds = new ArrayList<>();
+    private List<Integer> mmIds = new ArrayList<>();
 
     @Builder.Default
-    List<Gender> genderIn = new ArrayList<>();
+    private List<Gender> genderIn = new ArrayList<>();
 
     @Builder.Default
-    Set<Integer> occupancyIds = new HashSet<>();
+    private Set<Integer> occupancyIds = new HashSet<>();
 
     @Builder.Default
-    List<Integer> featureIdIn = new ArrayList<>();
+    private List<Integer> featureIdIn = new ArrayList<>();
 
     @Builder.Default
-    List<Integer> facilityIdIn = new ArrayList<>();
+    private List<Integer> facilityIdIn = new ArrayList<>();
 
     @Builder.Default
-    Integer minPriceRange = null;
+    private Integer minPriceRange = null;
 
     @Builder.Default
-    Integer maxPriceRange = null;
+    private Integer maxPriceRange = null;
 
-    String residenceType;
-
-    @Builder.Default
-    List<Integer> roomCountIn = new ArrayList<>();
+    private String residenceType;
 
     @Builder.Default
-    boolean entireFlat = false;
+    private List<Integer> roomCountIn = new ArrayList<>();
 
-    Integer pageNo;
-    Integer pageSize;
+    @Builder.Default
+    private boolean entireFlat = false;
+
+    private Integer pageNo;
+    private Integer pageSize;
 }

@@ -24,4 +24,12 @@ public class DynamicUrlsFilterDto extends AbstractDto {
     private String filterValue;
 
     private List<String> dynamicUrlSlugs;
+
+    private String seoTitle;
+
+    private String seoDescription;
+
+    private String seoContent;
+
+    private String seoFaq;
 }
