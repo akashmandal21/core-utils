@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+import com.stanzaliving.boq_service.enums.BoqLabel;
 import com.stanzaliving.vendor.model.VendorPocDetailsDto;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -253,8 +254,40 @@ public class POClientApi {
         final Map<String, Object> uriVariables = new HashMap<>();
 
         uriVariables.put("propertyUuid", propertyUuid);
+//        uriVariables.put("boqLabel",boqLabel);
 
         String path = UriComponentsBuilder.fromPath("/internal/generic/po/remaining/item/quantity/{propertyUuid}").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<Map<String, BigDecimal>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<String, BigDecimal>>>() {
+        };
+
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+    }
+
+    public ResponseDto<Map<String, BigDecimal>> poItemQuantityForPropertyUuidAndLabel(String propertyUuid,BoqLabel boqLabel) {
+
+        if (Objects.isNull(propertyUuid))
+            return null;
+
+        Object postBody = null;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        uriVariables.put("propertyUuid", propertyUuid);
+        uriVariables.put("boqLabel",boqLabel);
+
+        String path = UriComponentsBuilder.fromPath("/internal/generic/po/remaining/item/quantity/{propertyUuid}/{boqLabel}").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
