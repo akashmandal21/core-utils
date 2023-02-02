@@ -49,6 +49,18 @@ public enum VasCategory {
 
     public static ServiceMixServiceType getServiceMixType(VasCategory vasCategory){
         Map<VasCategory, ServiceMixServiceType> serviceMixServiceTypeMap = getServiceMixServiceTypeMap();
-        return serviceMixServiceTypeMap.getOrDefault(vasCategory, null);
+        return serviceMixServiceTypeMap.getOrDefault(vasCategory, ServiceMixServiceType.OTHERS);
+    }
+
+    private static Map<String, VasCategory> vasCategoryNameMap = new HashMap<>();
+
+    static {
+        for (VasCategory vasCategory : VasCategory.values()) {
+            vasCategoryNameMap.put(vasCategory.getValue(), vasCategory);
+        }
+    }
+
+    public static VasCategory getVasCategoryByName(String name) {
+        return vasCategoryNameMap.getOrDefault(name, OTHER);
     }
 }
