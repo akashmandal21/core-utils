@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-import com.google.gson.Gson;
 import com.stanzaliving.operations.dto.request.ResidentServiceMixVasRequestDto;
 import com.stanzaliving.operations.dto.response.ResidentServiceMixV2VasResponseDto;
 import org.apache.commons.collections.CollectionUtils;
@@ -294,7 +293,7 @@ public class OperationsClientApi {
 		} catch (Exception e) {
 			log.error("Exception while fetching service mix with uuid {}", uuid, e);
 		}
-		log.info("serviceMixEntity is {}", new Gson().toJson(serviceMixEntity));
+		log.info("serviceMixEntity is {}", serviceMixEntity);
 
 		return serviceMixEntity;
 	}
@@ -331,7 +330,7 @@ public class OperationsClientApi {
 			log.error("Exception while fetching service mix with uuid {} and residenceId {}", serviceMixUuid, residenceUuid, e);
 		}
 
-		log.info("serviceMixEntity is {}", new Gson().toJson(serviceMixEntity));
+		log.info("serviceMixEntity is {}", serviceMixEntity);
 
 		return Objects.nonNull(serviceMixEntity) ? serviceMixEntity : null;
 	}
@@ -367,7 +366,7 @@ public class OperationsClientApi {
 		} catch (Exception e) {
 			log.error("Exception while fetching service mix list from uuidList {} ", uuidList, e);
 		}
-		log.info("serviceMixEntityList is {}", new Gson().toJson(serviceMixEntityList));
+		log.info("serviceMixEntityList is {}", serviceMixEntityList);
 
 		return serviceMixEntityList;
 	}
@@ -408,7 +407,7 @@ public class OperationsClientApi {
 			log.error("Exception while fetching service mix from fromDate {} ", fromDate, e);
 		}
 
-		log.info("serviceMixEntity is {}", new Gson().toJson(serviceMixEntity));
+		log.info("serviceMixEntity is {}", serviceMixEntity);
 
 		return Objects.nonNull(serviceMixEntity)? serviceMixEntity: null;
 	}
