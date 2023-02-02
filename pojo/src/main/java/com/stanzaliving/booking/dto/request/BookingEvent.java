@@ -1,20 +1,26 @@
 package com.stanzaliving.booking.dto.request;
 
-import com.stanzaliving.booking.dto.response.InventoryResponseOccupancyDto;
-import com.stanzaliving.booking.enums.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-import javax.persistence.Column;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+
+import com.stanzaliving.booking.dto.response.InventoryResponseOccupancyDto;
+import com.stanzaliving.booking.enums.BookingEventEnum;
+import com.stanzaliving.booking.enums.BookingResidenceType;
+import com.stanzaliving.booking.enums.BookingStatus;
+import com.stanzaliving.booking.enums.BookingSubStatus;
+import com.stanzaliving.booking.enums.BookingSubType;
+import com.stanzaliving.booking.enums.BookingType;
+import com.stanzaliving.booking.enums.PaymentTerm;
+import com.stanzaliving.booking.enums.ResidenceAgreementType;
+import com.stanzaliving.operations.enums.ServiceMixServiceType;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 
 @Builder
@@ -66,6 +72,7 @@ public class BookingEvent implements Serializable {
     private LocalDate auditRescheduledDate;
     @Builder.Default
     private ResidenceAgreementType residenceAgreementType = ResidenceAgreementType.LEASE_DEED;
-    boolean contractStarted;
+    private boolean contractStarted;
+    private Map<ServiceMixServiceType, String> selectedPlans;
 
 }
