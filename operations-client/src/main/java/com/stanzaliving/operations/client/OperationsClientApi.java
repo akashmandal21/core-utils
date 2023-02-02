@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+import com.google.gson.Gson;
 import com.stanzaliving.operations.dto.request.ResidentServiceMixVasRequestDto;
 import com.stanzaliving.operations.dto.response.ResidentServiceMixV2VasResponseDto;
 import org.apache.commons.collections.CollectionUtils;
@@ -262,7 +263,7 @@ public class OperationsClientApi {
 
 	}
 
-	public ServiceMixEntityDto getServiceMixEntityByUuid(String uuid) {
+	public ServiceMixEntityDto getServiceMixEntityByUuid(String uuid, String residenceUuid) {
 
 		Object postBody = null;
 
@@ -275,6 +276,7 @@ public class OperationsClientApi {
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
 		queryParams.add("uuid", uuid);
+		queryParams.add("residenceId", residenceUuid);
 
 		final HttpHeaders headerParams = new HttpHeaders();
 
@@ -292,6 +294,7 @@ public class OperationsClientApi {
 		} catch (Exception e) {
 			log.error("Exception while fetching service mix with uuid {}", uuid, e);
 		}
+		log.info("serviceMixEntity is {}", new Gson().toJson(serviceMixEntity));
 
 		return serviceMixEntity;
 	}
@@ -328,10 +331,12 @@ public class OperationsClientApi {
 			log.error("Exception while fetching service mix with uuid {} and residenceId {}", serviceMixUuid, residenceUuid, e);
 		}
 
+		log.info("serviceMixEntity is {}", new Gson().toJson(serviceMixEntity));
+
 		return Objects.nonNull(serviceMixEntity) ? serviceMixEntity : null;
 	}
 
-	public List<ServiceMixEntityDto> getServiceMixByUuidList(List<String> uuidList) {
+	public List<ServiceMixEntityDto> getServiceMixByUuidList(List<String> uuidList, String residenceUuid) {
 
 		Object postBody = null;
 
@@ -343,6 +348,7 @@ public class OperationsClientApi {
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
+		queryParams.add("residenceId", residenceUuid);
 		queryParams.addAll("serviceMixUuidList", uuidList);
 
 		final HttpHeaders headerParams = new HttpHeaders();
@@ -361,6 +367,7 @@ public class OperationsClientApi {
 		} catch (Exception e) {
 			log.error("Exception while fetching service mix list from uuidList {} ", uuidList, e);
 		}
+		log.info("serviceMixEntityList is {}", new Gson().toJson(serviceMixEntityList));
 
 		return serviceMixEntityList;
 	}
@@ -400,6 +407,8 @@ public class OperationsClientApi {
 		} catch (Exception e) {
 			log.error("Exception while fetching service mix from fromDate {} ", fromDate, e);
 		}
+
+		log.info("serviceMixEntity is {}", new Gson().toJson(serviceMixEntity));
 
 		return Objects.nonNull(serviceMixEntity)? serviceMixEntity: null;
 	}
