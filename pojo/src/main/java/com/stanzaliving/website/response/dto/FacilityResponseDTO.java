@@ -34,5 +34,8 @@ public class FacilityResponseDTO implements Serializable {
 	private Integer sequenceId;
 	private String iconImageUrlAltTag;
 	private List<String> dynamicUrlSlugs;
-
+	private String seoTitle;
+	private String seoDescription;
+	private String seoContent;
+	private String seoFaq;
 }

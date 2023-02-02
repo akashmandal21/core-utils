@@ -35,4 +35,19 @@ public class DynamicUrlRequiredParserDataReadOnly implements Serializable {
     private List<DynamicUrlsFilterDto> entireFlatFilterDynamicDtos;
     private List<FeatureResponseDTO> featureResponseDtos;
     private List<FacilityResponseDTO> facilityResponseDtos;
+
+    private String osmPgPageSeoTitle;
+    private String osmPgPageSeoDescription;
+    private String osmPgPageSeoContent;
+    private String osmPgPageSeoFaq;
+
+    private String osmColivingPageSeoTitle;
+    private String osmColivingPageSeoDescription;
+    private String osmColivingPageSeoContent;
+    private String osmColivingPageSeoFaq;
+
+    private String osmApartmentPageSeoTitle;
+    private String osmApartmentPageSeoDescription;
+    private String osmApartmentPageSeoContent;
+    private String osmApartmentPageSeoFaq;
 }
