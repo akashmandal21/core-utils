@@ -36,18 +36,39 @@ public class DynamicUrlRequiredParserDataReadOnly implements Serializable {
     private List<FeatureResponseDTO> featureResponseDtos;
     private List<FacilityResponseDTO> facilityResponseDtos;
 
-    private String osmPgPageSeoTitle;
-    private String osmPgPageSeoDescription;
-    private String osmPgPageSeoContent;
-    private String osmPgPageSeoFaq;
+    @Builder.Default
+    private String osmPgPageSeoTitle = "";
 
-    private String osmColivingPageSeoTitle;
-    private String osmColivingPageSeoDescription;
-    private String osmColivingPageSeoContent;
-    private String osmColivingPageSeoFaq;
+    @Builder.Default
+    private String osmPgPageSeoDescription = "";
 
-    private String osmApartmentPageSeoTitle;
-    private String osmApartmentPageSeoDescription;
-    private String osmApartmentPageSeoContent;
-    private String osmApartmentPageSeoFaq;
+    @Builder.Default
+    private String osmPgPageSeoContent = "";
+
+    @Builder.Default
+    private String osmPgPageSeoFaq = "";
+
+    @Builder.Default
+    private String osmColivingPageSeoTitle = "";
+
+    @Builder.Default
+    private String osmColivingPageSeoDescription = "";
+
+    @Builder.Default
+    private String osmColivingPageSeoContent = "";
+
+    @Builder.Default
+    private String osmColivingPageSeoFaq = "";
+
+    @Builder.Default
+    private String osmApartmentPageSeoTitle = "";
+
+    @Builder.Default
+    private String osmApartmentPageSeoDescription = "";
+
+    @Builder.Default
+    private String osmApartmentPageSeoContent = "";
+
+    @Builder.Default
+    private String osmApartmentPageSeoFaq = "";
 }
