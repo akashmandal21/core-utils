@@ -33,9 +33,17 @@ public class DynamicUrlParsedData implements Serializable {
     private String seoContent;
     private String seoFaq;
 
-    private List<String> filteredSeoTitleChunks;
-    private List<String> filteredSeoDescriptionChunks;
-    private List<String> filteredSeoContentChunks;
+    @Builder.Default
+    private String filteredSeoTitleChunks = "";
+
+    @Builder.Default
+    private String filteredSeoDescriptionChunks = "";
+
+    @Builder.Default
+    private String filteredSeoContentChunks = "";
+
+    @Builder.Default
+    private String filteredSeoFaqChunks = "";
 
     private String cityName;
     private String mmName;
