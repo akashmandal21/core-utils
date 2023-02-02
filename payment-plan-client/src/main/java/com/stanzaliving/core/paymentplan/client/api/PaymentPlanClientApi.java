@@ -756,7 +756,7 @@ public class PaymentPlanClientApi {
         }
     }
 
-    public ResponseDto<String> optOutVasPaymentPlan(String referenceId, String vasUuid, Date optOutDate) {
+    public ResponseDto<String> optOutVasPaymentPlan(String referenceId, String vasUuid, Date optOutDate, PaymentPlanType paymentPlanType, boolean moveIn) {
         try {
 
             Object postBody = null;
@@ -776,6 +776,8 @@ public class PaymentPlanClientApi {
                 queryParams.add("optOutDate", date.format(optOutDate));
             }
             queryParams.add("vasUuid", vasUuid);
+            queryParams.add("paymentPlanType", paymentPlanType.name());
+            queryParams.add("moveIn", String.valueOf(moveIn));
             HttpHeaders headerParams = new HttpHeaders();
             final String[] accepts = {"*/*"};
             final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
