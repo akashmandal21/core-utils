@@ -27,10 +27,13 @@ public class FoodPreferenceComboItemDto implements Serializable {
     private String itemName;
     private Integer stdQty;
     private Integer stdWeight;
+    private Double itemCost;
     private ListingDto units;
     private FoodItemType itemType;
     private boolean quantifiable;
     private boolean hideGrammage;
     private boolean hybridBuffetItem;
     private CuisineTagsDto cuisineTagsDto;
+    private boolean beverageItem;
+    private String imageUrl;
 }
