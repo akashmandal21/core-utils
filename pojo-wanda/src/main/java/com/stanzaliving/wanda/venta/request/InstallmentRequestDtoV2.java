@@ -3,6 +3,7 @@ package com.stanzaliving.wanda.venta.request;
 import com.stanzaliving.booking.dto.request.DiscountRequestDto;
 import com.stanzaliving.booking.enums.PaymentTerm;
 
+import com.stanzaliving.price_strategy.request.PaymentActionDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -21,4 +22,6 @@ public class InstallmentRequestDtoV2 {
     private Double upsell=0d;
     @Builder.Default
     private Double bumpUpPrice=0d;
+    private boolean splitEnabled;
+    private PaymentActionDto paymentActionDto;
 }
