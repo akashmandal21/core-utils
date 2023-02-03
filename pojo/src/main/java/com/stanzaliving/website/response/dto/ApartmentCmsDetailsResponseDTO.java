@@ -45,7 +45,10 @@ public class ApartmentCmsDetailsResponseDTO implements Serializable {
 	private String pricingPlan;
 	private int pricingPlanId;
 	private int startingPrice;
-	private Integer discountPercentage;
+	private double discountPercentage;
+	private double bumpUpPercentage;
+	private boolean showDiscount;
+	private int inventoryPrice;
 	private double latitude;
 	private double longitude;
 	private boolean enabled;

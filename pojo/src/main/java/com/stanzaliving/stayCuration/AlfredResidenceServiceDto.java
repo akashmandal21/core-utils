@@ -46,4 +46,6 @@ public class AlfredResidenceServiceDto {
     
     private String planUuid;
 
+    private String image;
+
 }
