@@ -74,5 +74,6 @@ public class BookingEvent implements Serializable {
     private ResidenceAgreementType residenceAgreementType = ResidenceAgreementType.LEASE_DEED;
     private boolean contractStarted;
     private Map<ServiceMixServiceType, String> selectedPlans;
+    private String serviceMixUuid;
 
 }

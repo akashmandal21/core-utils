@@ -40,4 +40,6 @@ public class UserRegistrationDetailsDto {
 
 	private String source;
 
+	private String planId;
+
 }
