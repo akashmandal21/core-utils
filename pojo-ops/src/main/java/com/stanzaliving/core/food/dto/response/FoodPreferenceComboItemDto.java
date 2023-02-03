@@ -35,4 +35,5 @@ public class FoodPreferenceComboItemDto implements Serializable {
     private boolean hybridBuffetItem;
     private CuisineTagsDto cuisineTagsDto;
     private String imageUrl;
+	private boolean beverageItem;
 }
