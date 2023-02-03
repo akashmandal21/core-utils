@@ -5,7 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
+import java.util.Set;
+
 
 @Builder
 @Data
@@ -13,8 +14,8 @@ import java.util.List;
 @AllArgsConstructor
 public class CustomizeVasSyncResponse {
 
-    private List<String> activateVasBookings;
+    private Set<String> activateVasBookings;
 
-    private List<String> deactivateVasBookings;
+    private Set<String> deactivateVasBookings;
 
 }
