@@ -21,6 +21,9 @@ public class ResidentServiceMixVasRequestDto {
     @NotBlank(message = "PlanId can't be null")
     private String planId;
 
+    @NotBlank(message = "ServiceMixUuid can't be null")
+    private String serviceMixUuid;
+
     private ServiceMixServiceType serviceMixServiceType;
 
     private ResidentServiceMixAction residentServiceMixAction;
