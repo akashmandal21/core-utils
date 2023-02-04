@@ -8,6 +8,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+import com.stanzaliving.operations.dto.request.ResidentServiceMixVasRequestDto;
+import com.stanzaliving.operations.dto.response.ResidentServiceMixV2VasResponseDto;
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -729,4 +731,29 @@ public class OperationsClientApi {
 
         return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : null;
     }
+
+	public ResidentServiceMixV2VasResponseDto customizeVasForResident(ResidentServiceMixVasRequestDto residentServiceMixVasRequestDto) {
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/internal/v2/resident/servicemix/customize/vas").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		TypeReference<ResponseDto<ResidentServiceMixV2VasResponseDto>> returnType = new TypeReference<ResponseDto<ResidentServiceMixV2VasResponseDto>>() {
+		};
+
+		ResponseDto<ResidentServiceMixV2VasResponseDto> responseDto = null;
+
+		try {
+
+			responseDto = restClient.post(path, queryParams, residentServiceMixVasRequestDto, null, null, returnType, MediaType.APPLICATION_JSON);
+
+		} catch (Exception e) {
+
+			log.error("Error while customizing vas for resident", e);
+
+		}
+
+		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : null;
+	}
 }
