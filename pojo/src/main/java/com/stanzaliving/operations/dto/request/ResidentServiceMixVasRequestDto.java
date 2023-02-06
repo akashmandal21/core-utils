@@ -29,3 +29,4 @@ public class ResidentServiceMixVasRequestDto {
     private ResidentServiceMixAction residentServiceMixAction;
 
 }
+
