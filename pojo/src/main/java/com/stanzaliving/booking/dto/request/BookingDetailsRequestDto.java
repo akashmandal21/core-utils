@@ -59,6 +59,4 @@ public class BookingDetailsRequestDto implements Serializable {
 
 	private String residenceUuid;
 
-	private boolean subscriptionPlansToBeRemoved;
-
 }

@@ -50,4 +50,6 @@ public class PaymentPlanRequestDto implements Serializable {
 	private double managementFeePercentage = 0.0;
 
 	private PaymentActionDto paymentActionDto;
+
+	private boolean subscriptionPlansToBeRemoved;
 }
