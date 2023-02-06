@@ -78,4 +78,9 @@ public class ResidenceDetailsResponseDTO implements Serializable {
 	private Set<ResidenceNearbyLocationResponseDTO> residenceNearbyLocations = new HashSet<>(0);
 
 	private AddressResponseDTO address;
+
+	private double discountPercentage;
+	private double bumpUpPercentage;
+	private boolean showDiscount;
+	private int inventoryPrice;
 }
