@@ -41,5 +41,7 @@ public class ItemCostResponseDto {
 	
 	private String unitName;
 
+	private Double itemCost;
+
 	private String imageUrl;
 }

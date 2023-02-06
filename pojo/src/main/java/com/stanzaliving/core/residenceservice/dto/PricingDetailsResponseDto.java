@@ -25,4 +25,5 @@ public class PricingDetailsResponseDto {
     private double total;
     private double underWrittenIncGst;
     private boolean isRoomConverted;
+    private double priceImpact;
 }
