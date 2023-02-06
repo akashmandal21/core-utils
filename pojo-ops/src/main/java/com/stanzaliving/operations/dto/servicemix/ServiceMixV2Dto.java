@@ -36,6 +36,8 @@ public class ServiceMixV2Dto extends AbstractDto {
 
     private ServiceMixConfigV2 serviceMixConfig;
 
+    private ServiceMixConfigV2 addOnConfig;
+
     private String seasonUuid;
 
     private String seasonName;

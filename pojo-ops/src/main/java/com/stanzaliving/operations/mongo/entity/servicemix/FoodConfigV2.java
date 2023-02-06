@@ -11,9 +11,11 @@ import org.springframework.data.annotation.Id;
 @AllArgsConstructor
 @Data
 @SuperBuilder
-public class FoodConfigV2 {
+public class FoodConfigV2<T> {
   @Id
   private String id;
+  private String foodPlanId;
+  private String foodPlanName;
   private FoodMealConfigV2 foodMealConfig;
   private FoodMenuConfigV2 foodMenuConfig;
   private FoodCompositionConfigV2 foodCompositionConfig;

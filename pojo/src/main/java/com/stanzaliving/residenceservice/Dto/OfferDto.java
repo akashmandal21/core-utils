@@ -2,6 +2,7 @@ package com.stanzaliving.residenceservice.Dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.stanzaliving.residenceservice.enums.VasCategory;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -31,8 +32,11 @@ public class OfferDto {
     @JsonProperty("products")
     private List<String> products;
 
-    @JsonProperty("plans")
-    private List<String> plans;
+    @JsonProperty("mandatory_products")
+    private List<String> mandatoryProducts;
+
+    @JsonProperty("add_on_plans")
+    private List<String> addOnPlans;
 
     @JsonProperty("metadata")
     private Map<String, Object> metadata;
