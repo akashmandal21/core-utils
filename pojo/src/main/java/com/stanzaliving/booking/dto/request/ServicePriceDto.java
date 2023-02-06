@@ -1,14 +1,16 @@
 package com.stanzaliving.booking.dto.request;
 
+import com.stanzaliving.residenceservice.enums.VasCategory;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.Min;
 import java.io.Serializable;
 
-@Builder
+@SuperBuilder
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -17,6 +19,8 @@ public class ServicePriceDto implements Serializable {
 	private String serviceId;
 
 	private String serviceName;
+
+	private VasCategory category;
 	
 	@Builder.Default
 	@Min(value = 0, message = "service fee cannot be negative")
