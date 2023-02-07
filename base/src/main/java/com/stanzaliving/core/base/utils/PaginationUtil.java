@@ -24,4 +24,8 @@ public class PaginationUtil {
 		return pageNo;
 	}
 
+	public int correctPageNoForElastic(int pageNo) {
+		return Math.max(0, pageNo) +1 ;
+	}
+
 }
