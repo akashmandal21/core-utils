@@ -6,6 +6,8 @@ import com.stanzaliving.core.leaddashboard.enums.LeadSubStatus;
 import com.stanzaliving.website.enums.LeadQualifiedBy;
 import lombok.*;
 
+import java.util.Date;
+
 @Setter
 @Getter
 @Builder
@@ -90,4 +92,6 @@ public class LeadDetailEntity {
     private LeadSubStatus otherSubStatus;
 
     private String accommodationType;
+
+    private Date createdAt;
 }

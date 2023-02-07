@@ -38,6 +38,7 @@ public class FoodPreferenceComboResponseDto implements Serializable {
 	private FoodItemType foodPreference;
 	private String foodPreferenceName;
 	private List<FoodPreferenceComboItemDto> comboItemDtos;
+	private List<FoodPreferenceComboItemDto> beverageComboItemDtos;
 	private String slogan;
 	private String mealImg;
 	private RegionAndFoodItemBasePreference regionAndFoodItemBasePreference;
