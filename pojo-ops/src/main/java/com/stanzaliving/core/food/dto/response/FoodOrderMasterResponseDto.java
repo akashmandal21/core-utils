@@ -68,4 +68,10 @@ public class FoodOrderMasterResponseDto {
 	
 	private boolean feedbackAllowed;
 
+	private String comboName;
+
+	private String mealCardName;
+
+	private List<String> mealImgUrls;
+
 }
