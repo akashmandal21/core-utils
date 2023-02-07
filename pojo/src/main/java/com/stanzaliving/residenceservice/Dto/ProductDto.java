@@ -20,6 +20,9 @@ public class ProductDto {
     @JsonProperty("product_name")
     private String productName;
 
+    @JsonProperty("product_category")
+    private String productCategory;
+
     @JsonProperty("product_status")
     private int productStatus = 1;
 
