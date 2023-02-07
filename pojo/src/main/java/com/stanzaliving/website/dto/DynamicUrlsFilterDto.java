@@ -3,10 +3,11 @@ package com.stanzaliving.website.dto;
 import com.stanzaliving.core.base.common.dto.AbstractDto;
 import com.stanzaliving.website.enums.DynamicUrlsFilterCategory;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import java.util.List;
 
-@Builder
+@SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
