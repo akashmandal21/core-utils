@@ -1,6 +1,8 @@
 package com.stanzaliving.acl.client.dto;
 
 
+import com.stanzaliving.acl.client.enums.EvaluationType;
+
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
@@ -10,15 +12,21 @@ public class ConditionContextDto implements Serializable {
     private String resource;
     private List<String> permissions;
     private HashMap<String,Object> attributeValues;
+    private EvaluationType evaluationType;
     private String userId;
 
     public ConditionContextDto(){}
 
-    public ConditionContextDto(String resource, List<String> permissions, HashMap<String,Object> attributeValues, String userId){
+    public ConditionContextDto(String resource, List<String> permissions, HashMap<String,Object> attributeValues,EvaluationType evaluationType, String userId){
         this.resource=resource;
         this.attributeValues=attributeValues;
         this.permissions=permissions;
+        this.evaluationType=evaluationType;
         this.userId=userId;
+    }
+
+    public EvaluationType getEvaluationType(){
+        return evaluationType;
     }
 
     public String getResource() {
@@ -51,5 +59,9 @@ public class ConditionContextDto implements Serializable {
 
     public void setUserId(String userId) {
         this.userId = userId;
+    }
+
+    public void setEvaluationType(EvaluationType evaluationType){
+        this.evaluationType=evaluationType;
     }
 }

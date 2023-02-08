@@ -4,6 +4,7 @@ package com.stanzaliving.acl.client.annotationProcessors;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.stanzaliving.acl.client.AttributeDto;
+import com.stanzaliving.acl.client.enums.EvaluationType;
 import com.stanzaliving.acl.client.exception.ApiValidationException;
 import com.stanzaliving.acl.client.Utils.AttributeValueProvider;
 import com.stanzaliving.acl.client.dto.ConditionContextDto;
@@ -40,6 +41,7 @@ public class CheckPermissionProcessor {
         String[] permissions=methodSignature.getMethod().getAnnotation(CheckPermission.class).permissions();
         String resource=methodSignature.getMethod().getAnnotation(CheckPermission.class).resource();
         Class<? extends AttributeValueProvider> className=methodSignature.getMethod().getAnnotation(CheckPermission.class).attributeValueProvider();
+        EvaluationType evaluationType=methodSignature.getMethod().getAnnotation(CheckPermission.class).evaluationType();
 
         AttributeValueProvider attributeValueProvider= null;
         HttpServletRequest request=null;
@@ -64,7 +66,7 @@ public class CheckPermissionProcessor {
         conditionHeaders.put("Accept", Collections.singletonList(MediaType.ALL_VALUE));
 
         HttpEntity<ConditionContextDto> conditionRequest = new HttpEntity<>(
-                new ConditionContextDto(resource, Arrays.asList(permissions),attributes,token),
+                new ConditionContextDto(resource, Arrays.asList(permissions),attributes,evaluationType,token),
                 conditionHeaders
         );
 
