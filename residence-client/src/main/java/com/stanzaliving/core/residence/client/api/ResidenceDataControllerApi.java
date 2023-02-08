@@ -2528,7 +2528,7 @@ public class ResidenceDataControllerApi {
     }
 
     public ResponseDto<List<String>> getPlansByCategory(List<VasCategory> vasCategoryList, boolean includeDeprecated) {
-        log.info("Residence-Data-Controller::Processing to get plan details based on categories {}", vasCategoryList);
+        log.info("Residence-Data-Controller::Processing to get plan details based on categories and includeDeprecated {}", vasCategoryList, includeDeprecated);
 
         Map<String, Object> uriVariables = new HashMap<>();
 
@@ -2541,7 +2541,7 @@ public class ResidenceDataControllerApi {
 
         queryParams.put("includeDeprecated", Collections.singletonList(String.valueOf(includeDeprecated)));
 
-        String path = UriComponentsBuilder.fromPath("/stay-curation/internal/paid-services/category/plans/").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/stay-curation/internal/paid-services/category/plans").buildAndExpand(uriVariables).toUriString();
 
         HttpHeaders headerParams = new HttpHeaders();
 
@@ -2556,7 +2556,7 @@ public class ResidenceDataControllerApi {
             return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
 
         } catch (Exception ex) {
-            log.error("Exception while fetching plan details based on categories: {}", vasCategoryList);
+            log.error("Exception while fetching plan details based on categories: {}", vasCategoryList, ex);
         }
         return null;
     }
