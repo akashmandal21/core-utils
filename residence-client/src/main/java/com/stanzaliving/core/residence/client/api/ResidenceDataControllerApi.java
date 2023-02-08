@@ -2528,7 +2528,7 @@ public class ResidenceDataControllerApi {
     }
 
     public ResponseDto<List<String>> getPlansByCategory(List<VasCategory> vasCategoryList, boolean includeDeprecated) {
-        log.info("Residence-Data-Controller::Processing to get plan details based on categories and includeDeprecated {}", vasCategoryList, includeDeprecated);
+        log.info("Residence-Data-Controller::Processing to get plan details based on categories {} and includeDeprecated {}", vasCategoryList, includeDeprecated);
 
         Map<String, Object> uriVariables = new HashMap<>();
 
