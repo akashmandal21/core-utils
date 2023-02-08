@@ -115,6 +115,7 @@ public enum LeadSourceEnum {
     SULEKHA("Sulekha", LeadSourceGroupEnum.AFFILIATE),
     TEAMS_PAGE("Teams page", LeadSourceGroupEnum.DIGITAL),
     TERMS_CONDITION_PAGE("Terms Condition Page", LeadSourceGroupEnum.DIGITAL),
+    TENANTO("Tenanto", LeadSourceGroupEnum.AFFILIATE),
     UNATTRIBUTED("Unattributed", LeadSourceGroupEnum.OTHERS),
     UTM_SOURCE("utmSource", LeadSourceGroupEnum.OTHERS),
     VANTAGE_CIRCLE("Vantage Circle", LeadSourceGroupEnum.AFFILIATE),

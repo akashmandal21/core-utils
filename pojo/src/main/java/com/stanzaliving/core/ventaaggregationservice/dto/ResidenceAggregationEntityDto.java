@@ -88,6 +88,8 @@ public class ResidenceAggregationEntityDto {
     @Builder.Default
     private ResidenceAgreementType residenceAgreementType = ResidenceAgreementType.LEASE_DEED;
 
+    private boolean enableStayCuration;
+
 }
 
 
