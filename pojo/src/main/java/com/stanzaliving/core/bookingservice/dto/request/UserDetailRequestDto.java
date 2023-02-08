@@ -27,6 +27,9 @@ public class UserDetailRequestDto {
     @Valid
     private PhoneNumberDto mobile;
 
+    @Valid
+    private PhoneNumberDto leadMobile;
+
     @NotBlank(message = "Email is mandatory to add new user")
     @Email
     private String email;
