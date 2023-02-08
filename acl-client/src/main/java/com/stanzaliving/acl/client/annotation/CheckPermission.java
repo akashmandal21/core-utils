@@ -1,6 +1,7 @@
 package com.stanzaliving.acl.client.annotation;
 
 import com.stanzaliving.acl.client.Utils.AttributeValueProvider;
+import com.stanzaliving.acl.client.enums.EvaluationType;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -13,4 +14,5 @@ public @interface CheckPermission {
     String resource();
     String[] permissions();
     Class<? extends AttributeValueProvider> attributeValueProvider();
+    EvaluationType evaluationType();
 }
