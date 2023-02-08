@@ -57,4 +57,6 @@ public class ResidentFoodFeedbackDto {
 	private List<ResidentFoodItemFeedbackDto> foodItemFeedbackDtos;
 
 	private Map<Integer, List<ResidentMealFeedbackOptions>> ratingWiseMealFeedbackOptions;
+
+	private boolean partial;
 }

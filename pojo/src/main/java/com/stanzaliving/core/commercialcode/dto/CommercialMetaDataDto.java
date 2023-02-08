@@ -10,4 +10,5 @@ public class CommercialMetaDataDto {
     private String value;
     @Builder.Default
     private String note = "";
+    private String abbreviation ;
 }

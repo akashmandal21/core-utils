@@ -17,7 +17,9 @@ import com.stanzaliving.residenceservice.BookingAttributesDto;
 import com.stanzaliving.residenceservice.Dto.*;
 import com.stanzaliving.residenceservice.enums.ResidenceAttributes;
 import com.stanzaliving.residenceservice.enums.VasCategory;
+import com.stanzaliving.stayCuration.AlfredResidenceServiceDto;
 import com.stanzaliving.venta.RoomInfoDto;
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -32,6 +34,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import java.time.LocalDate;
 import java.util.*;
 import java.util.concurrent.CompletableFuture;
+import java.util.stream.Collectors;
 
 public class ResidenceDataControllerApi {
     private static final Logger log = LogManager.getLogger(ResidenceDataControllerApi.class);
@@ -242,7 +245,11 @@ public class ResidenceDataControllerApi {
 
         uriVariables.put("roomUUID", roomUuid);
 
-        uriVariables.put("serviceMixUUID", serviceMixUuid);
+        if(Objects.isNull(serviceMixUuid)){
+            uriVariables.put("serviceMixUUID", "null");
+        }else {
+            uriVariables.put("serviceMixUUID", serviceMixUuid);
+        }
 
         uriVariables.put("moveInDate", moveInDate);
 
@@ -1625,7 +1632,11 @@ public class ResidenceDataControllerApi {
 
         Map<String, Object> uriVariables = new HashMap();
 
-        uriVariables.put("serviceMixUUID", serviceMixUuid);
+        if(Objects.isNull(serviceMixUuid)){
+            uriVariables.put("serviceMixUUID", "null");
+        }else {
+            uriVariables.put("serviceMixUUID", serviceMixUuid);
+        }
 
         uriVariables.put("moveInDate", moveInDate);
 
@@ -2448,6 +2459,72 @@ public class ResidenceDataControllerApi {
             log.error("Exception while fetching vas Details from residenceUuid: {}", residenceUuid);
         }
         return Collections.emptyList();
+    }
+
+    public ResponseDto<Map<VasCategory, List<AlfredResidenceServiceDto>>> getPlansByServiceMix(String serviceMixUuid, List<VasCategory> vasCategoryList,  boolean includeDeprecated) {
+
+        log.info("Residence-Data-Controller::Processing to get plan details based on serviceMixUuid {}", serviceMixUuid);
+
+        Map<String, Object> uriVariables = new HashMap<>();
+
+        uriVariables.put("serviceMixUuid", serviceMixUuid);
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        if(CollectionUtils.isNotEmpty(vasCategoryList)) {
+            List<String> vasCategories = vasCategoryList.stream().map(Enum::toString).collect(Collectors.toList());
+            queryParams.put("vasCategory", vasCategories);
+        }
+
+        queryParams.put("includeDeprecated", Collections.singletonList(String.valueOf(includeDeprecated)));
+
+        String path = UriComponentsBuilder.fromPath("/stay-curation/internal/paid-services/service-mix/{serviceMixUuid}/plans/").buildAndExpand(uriVariables).toUriString();
+
+        HttpHeaders headerParams = new HttpHeaders();
+
+        String[] accepts = new String[]{"*/*"};
+
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<Map<VasCategory, List<AlfredResidenceServiceDto>>>> returnType =
+                new ParameterizedTypeReference<ResponseDto<Map<VasCategory, List<AlfredResidenceServiceDto>>>>() {
+                };
+
+        try {
+            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+
+        } catch (Exception ex) {
+            log.error("Exception while fetching plan details for serviceMixUuid: {}", serviceMixUuid);
+        }
+        return null;
+    }
+
+    public ResponseDto<Map<VasCategory, List<AlfredResidenceServiceDto>>> fetchOptedPlans(List<String> planUuids) {
+
+        log.info("Residence-Data-Controller::Processing to fetch plan details based on plan uuids {}", planUuids);
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/stay-curation/internal/paid-services/plans/").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<Map<VasCategory, List<AlfredResidenceServiceDto>>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<VasCategory,List<AlfredResidenceServiceDto>>>>() {
+        };
+
+        try {
+            return this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, planUuids, headerParams, accept, returnType);
+        } catch (Exception var13) {
+            log.error("Exception while fetching plan details based on plan uuids  {}", planUuids);
+            return null;
+        }
     }
 
 }

@@ -38,6 +38,7 @@ public enum BookingEventEnum {
     AUDIT_APPROVED("Audit Approved"),
     AUDIT_APPROVED_EMAIL("Audit Approved Email"),
     AUDIT_REJECTED("Audit Rejected"),
+    AUDIT_RESCHEDULED("Audit Rescheduled"),
     ADDENDUM_SIGNED("Addendum Signed"),
     LEAD_BOOKED("Lead Booked"),
     BOOKING_AMOUNT_PENDING("Booking Amount Pending"),
