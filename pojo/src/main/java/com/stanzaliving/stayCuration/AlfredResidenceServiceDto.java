@@ -53,4 +53,8 @@ public class AlfredResidenceServiceDto {
 
     private Date planEndDate;
 
+    private boolean deprecated;
+
+    private boolean optedOut;
+
 }
