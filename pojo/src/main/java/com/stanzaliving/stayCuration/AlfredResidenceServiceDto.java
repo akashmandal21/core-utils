@@ -55,4 +55,6 @@ public class AlfredResidenceServiceDto {
 
     private boolean deprecated;
 
+    private boolean optedOut;
+
 }
