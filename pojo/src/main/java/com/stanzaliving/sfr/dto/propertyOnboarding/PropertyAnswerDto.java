@@ -23,6 +23,7 @@ public class PropertyAnswerDto extends AbstractMongoDto {
     private String variableName;
     private List<String> answers;
     private List<String> imageUrls;
+    private Integer disabledCount;
     @NotNull(message = "Remarks cannot be null")
     private String remarks;
 }
