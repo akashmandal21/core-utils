@@ -56,6 +56,10 @@ public class ResidenceResponseShortDTO implements Serializable {
 
 	private Integer unlockDiscountAmount;
 
+	private double discountPercentage;
+
+	private Integer discountedPrice;
+
 	private String preBookingMode;
 
 	private String googleMapLink;
