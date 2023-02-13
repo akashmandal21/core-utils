@@ -4,11 +4,13 @@ import com.stanzaliving.booking.dto.request.BookingRequestDto;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.stanzaliving.booking.SoldBookingDto;
 import com.stanzaliving.booking.dto.*;
+import com.stanzaliving.booking.dto.request.CustomizeVasSyncResponse;
 import com.stanzaliving.booking.dto.response.*;
 import com.stanzaliving.booking.dto.response.BookingCommercialsCardResponseDto;
 import com.stanzaliving.booking.dto.response.InventoryOccupancyResponseDto;
 import com.stanzaliving.booking.dto.response.LedgerResponseDto;
 import com.stanzaliving.booking.dto.response.NeedsAttentionBookingResponseDto;
+import com.stanzaliving.booking.enums.ResidenceAgreementType;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.exception.ApiValidationException;
 import com.stanzaliving.core.base.http.StanzaRestClient;
@@ -1465,7 +1467,7 @@ public class BookingDataControllerApi {
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
     }
 
-    public ResponseDto<List<String>> fetchBookingsForVasSync() {
+    public ResponseDto<CustomizeVasSyncResponse> fetchBookingsForVasSync() {
         Object postBody = null;
 
         // create path and map variables
@@ -1480,9 +1482,31 @@ public class BookingDataControllerApi {
         final String[] accepts = {"*/*"};
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<ResponseDto<List<String>>> returnType = new ParameterizedTypeReference<ResponseDto<List<String>>>() {
+        ParameterizedTypeReference<ResponseDto<CustomizeVasSyncResponse>> returnType = new ParameterizedTypeReference<ResponseDto<CustomizeVasSyncResponse>>() {
         };
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+    }
+
+    public ResponseDto<String> updateResidenceAgreementType(String bookingUuid, ResidenceAgreementType residenceAgreementType) {
+        Object postBody = null;
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        uriVariables.put("bookingUuid", bookingUuid);
+        uriVariables.put("residenceAgreementType", residenceAgreementType);
+
+        String path = UriComponentsBuilder.fromPath("/internal/v1/update/residence-agreement-type/{residenceAgreementType}/booking/{bookingUuid}").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
     }
 
 }
