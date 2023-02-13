@@ -28,6 +28,10 @@ public class DynamicUrlParsedData implements Serializable {
     @Builder.Default
     private boolean isOsmLocationUrl = false;
 
+    boolean isPgPage;
+    boolean isColivingPage;
+    boolean isApartmentPage;
+
     private String seoTitle;
     private String seoDescription;
     private String seoContent;
