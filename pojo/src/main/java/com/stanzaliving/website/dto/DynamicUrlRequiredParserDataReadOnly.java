@@ -10,8 +10,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -23,32 +21,20 @@ public class DynamicUrlRequiredParserDataReadOnly implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @Builder.Default
-    private List<DynamicUrlsFilterDto> pgPageIdentifierDynamicDtos = new ArrayList<>();
-    @Builder.Default
-    private List<DynamicUrlsFilterDto> colivingPageIdentifierDynamicDtos = new ArrayList<>();
-    @Builder.Default
-    private List<DynamicUrlsFilterDto> apartmentPageIdentifierDynamicDtos = new ArrayList<>();
-    @Builder.Default
+    private List<DynamicUrlsFilterDto> pgPageIdentifierDynamicDtos;
+    private List<DynamicUrlsFilterDto> colivingPageIdentifierDynamicDtos;
+    private List<DynamicUrlsFilterDto> apartmentPageIdentifierDynamicDtos;
 
-    private List<CityListingResponseDTO> cityListingDtos = new ArrayList<>();
-    @Builder.Default
-    private Map<Integer, List<MicromarketListingResponseDTO>> liveCityAndItsLiveMmListMap = new HashMap<>();
-    @Builder.Default
+    private List<CityListingResponseDTO> cityListingDtos;
+    private Map<Integer, List<MicromarketListingResponseDTO>> liveCityAndItsLiveMmListMap;
 
-    private List<DynamicUrlsFilterDto> genderFilterDynamicDtos = new ArrayList<>();
-    @Builder.Default
-    private List<DynamicUrlsFilterDto> occupancyFilterDynamicDtos = new ArrayList<>();
-    @Builder.Default
-    private List<DynamicUrlsFilterDto> budgetFilterDynamicDtos = new ArrayList<>();
-    @Builder.Default
-    private List<DynamicUrlsFilterDto> bhkFilterDynamicDtos = new ArrayList<>();
-    @Builder.Default
-    private List<DynamicUrlsFilterDto> entireFlatFilterDynamicDtos = new ArrayList<>();
-    @Builder.Default
-    private List<FeatureResponseDTO> featureResponseDtos = new ArrayList<>();
-    @Builder.Default
-    private List<FacilityResponseDTO> facilityResponseDtos = new ArrayList<>();
+    private List<DynamicUrlsFilterDto> genderFilterDynamicDtos;
+    private List<DynamicUrlsFilterDto> occupancyFilterDynamicDtos;
+    private List<DynamicUrlsFilterDto> budgetFilterDynamicDtos;
+    private List<DynamicUrlsFilterDto> bhkFilterDynamicDtos;
+    private List<DynamicUrlsFilterDto> entireFlatFilterDynamicDtos;
+    private List<FeatureResponseDTO> featureResponseDtos;
+    private List<FacilityResponseDTO> facilityResponseDtos;
 
     @Builder.Default
     private String osmPgPageSeoTitle = "";
