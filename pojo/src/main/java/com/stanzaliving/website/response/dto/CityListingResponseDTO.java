@@ -18,6 +18,7 @@ public class CityListingResponseDTO {
 	private int cityId;
 	private String name;
 	private String slug;
+	private String apartmentCitySlug;
 	private String code;
 	private String iconImageUrl;
 	private int websiteDisplayOrder;
@@ -26,4 +27,7 @@ public class CityListingResponseDTO {
 	private boolean enabled;
 	private String phone;
 	EnumListing<Status> status;
+
+	private String transformationUuid;
+	private Long transformationId;
 }

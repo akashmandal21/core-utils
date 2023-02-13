@@ -7,6 +7,7 @@ import javax.validation.constraints.NotNull;
 
 import com.stanzaliving.core.operations.enums.DealCategory;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -39,5 +40,10 @@ public class ResidenceFoodMenuCategoryApprovalRequest {
 	private boolean serviceMixUpdate;
 	
 	private String changedBy;
+
+    @Builder.Default
+    private boolean foodDisabled = false;
+
+    private LocalDate endDate;
 
 }

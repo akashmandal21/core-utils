@@ -3,10 +3,12 @@ package com.stanzaliving.core.user.acl.enums;
 import com.stanzaliving.core.base.enums.AccessLevel;
 import com.stanzaliving.core.base.enums.AccessModule;
 import com.stanzaliving.core.base.enums.Department;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -25,6 +27,14 @@ public enum Role {
     CITY_LEAD_MANAGER("CITY_LEAD_MANAGER", AccessLevel.CITY, Department.SALES, AccessModule.PG_LEAD_EDIT),
     ZONAL_LEAD_MANAGER("ZONAL_LEAD_MANAGER", AccessLevel.CITY, Department.SALES),
     COUNTRY_LEAD_MANAGER("COUNTRY_LEAD_MANAGER", AccessLevel.COUNTRY, Department.SALES, AccessModule.PG_LEAD_EDIT),
+
+    INTERNAL_SALES_RESIDENCE("INTERNAL_SALES_RESIDENCE", AccessLevel.RESIDENCE, Department.SALES, AccessModule.PG_LEAD_EDIT),
+
+    INTERNAL_SALES_MICROMARKET("INTERNAL_SALES_MICROMARKET", AccessLevel.MICROMARKET, Department.SALES, AccessModule.PG_LEAD_EDIT),
+
+    INTERNAL_SALES_CITY("INTERNAL_SALES_CITY", AccessLevel.CITY, Department.SALES, AccessModule.PG_LEAD_EDIT),
+
+    INTERNAL_SALES_COUNTRY("INTERNAL_SALES_COUNTRY", AccessLevel.COUNTRY, Department.SALES, AccessModule.PG_LEAD_EDIT),
 
     RESIDENCE_LEAD_VIEWER("RESIDENCE_LEAD_VIEWER", AccessLevel.RESIDENCE, Department.SALES),
 
@@ -149,5 +159,14 @@ public enum Role {
         this.roleName = roleName;
         this.accessLevel = accessLevel;
         this.department = department;
+    }
+
+    public static boolean internalSalesRole(Role role) {
+        Set<Role> internalSalesRoleSet = new HashSet<>();
+        internalSalesRoleSet.add(INTERNAL_SALES_RESIDENCE);
+        internalSalesRoleSet.add(INTERNAL_SALES_MICROMARKET);
+        internalSalesRoleSet.add(INTERNAL_SALES_CITY);
+        internalSalesRoleSet.add(INTERNAL_SALES_COUNTRY);
+        return internalSalesRoleSet.contains(role);
     }
 }

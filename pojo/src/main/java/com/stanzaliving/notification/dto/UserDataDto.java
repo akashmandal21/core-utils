@@ -22,4 +22,6 @@ public class UserDataDto {
     private String residentEmail;
 
     private String phoneNumber;
+
+    private String residenceUuid;
 }

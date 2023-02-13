@@ -27,8 +27,11 @@ public enum BoqLabel {
     B2B_DEAL_EXPENSE("B2B DEAL EXPENSE"),
     PILOT_COST("PILOT COST"),
     REFURB_MISPLACED_ITEMS("Refurb - Misplaced Items"),
-    REFURB_R_AND_M("Refurb - R&M"),
     TRANSFORMATION_LL_ITEMS("Transformation - LL items"),
+    REFURB_R_AND_M("Refurb - R&M"),
+    REFURB_EXIT("Refurb - Exit"),
+    CONSUMER_DEBIT("Consumer Debit"),
+    POTENTIAL_LL_DEBIT("Potential LL Debit"),
     NA("NA"); // not to be used while labeling. (only used to tag legacy boqs)
 
     private final String boqLabelText;
@@ -41,10 +44,12 @@ public enum BoqLabel {
     public static List<BoqLabel> getBOQLabelsForPoExpenseType(String poExpenseType) {
         if(poExpenseType.equals("Capex")) {
             return Arrays.asList(TRANSFORMATION, STRUCTURAL_CHANGE, MARGIN_ENHANCEMENT, REDENSIFICATION, REFURBISHMENT, VAS, LL_DEBIT_LL_ASSET,
-                    LL_DEBIT_SL_ASSET, CONSULTANT_DEBIT, LL_SOW_MISALIGNMENT, VENDOR_DEBIT, B2B_DEAL_EXPENSE, PILOT_COST, REFURB_MISPLACED_ITEMS, REFURB_R_AND_M, NA);
+                    LL_DEBIT_SL_ASSET, CONSULTANT_DEBIT, LL_SOW_MISALIGNMENT, VENDOR_DEBIT, B2B_DEAL_EXPENSE, PILOT_COST, REFURB_MISPLACED_ITEMS, TRANSFORMATION_LL_ITEMS,
+                    REFURB_R_AND_M, REFURB_EXIT,CONSUMER_DEBIT,POTENTIAL_LL_DEBIT, NA);
         }else if(poExpenseType.equals("Opex")){
             return Arrays.asList(TRANSFORMATION, STRUCTURAL_CHANGE, MARGIN_ENHANCEMENT, REDENSIFICATION, REFURBISHMENT, VAS, LL_DEBIT_LL_ASSET,
-                    LL_DEBIT_SL_ASSET, CONSULTANT_DEBIT, LL_SOW_MISALIGNMENT, VENDOR_DEBIT, B2B_DEAL_EXPENSE, PILOT_COST, REFURB_MISPLACED_ITEMS, REFURB_R_AND_M, NA);
+                    LL_DEBIT_SL_ASSET, CONSULTANT_DEBIT, LL_SOW_MISALIGNMENT, VENDOR_DEBIT, B2B_DEAL_EXPENSE, PILOT_COST, REFURB_MISPLACED_ITEMS, TRANSFORMATION_LL_ITEMS,
+                    REFURB_R_AND_M, REFURB_EXIT,CONSUMER_DEBIT,POTENTIAL_LL_DEBIT, NA);
         }
         return new ArrayList<>();
     }

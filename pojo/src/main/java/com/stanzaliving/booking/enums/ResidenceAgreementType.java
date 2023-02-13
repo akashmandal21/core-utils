@@ -9,7 +9,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public enum ResidenceAgreementType {
     LEASE_DEED("Lease Deed"),
-    ONM("ONM");
+    ONM("ONM"),
+    STAY_CURATION("Stay Curation");
 
     private String propertyType;
 }

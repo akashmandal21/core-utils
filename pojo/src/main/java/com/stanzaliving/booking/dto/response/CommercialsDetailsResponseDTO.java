@@ -42,5 +42,9 @@ public class CommercialsDetailsResponseDTO implements Serializable {
 
     private AdvanceRentalDto lastAdvanceRental;
 
+    private boolean paymentSplitToggle;
+
+    private boolean priceStrategyEnabled;
+
 }
 

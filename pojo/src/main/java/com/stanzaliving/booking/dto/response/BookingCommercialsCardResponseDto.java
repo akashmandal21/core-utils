@@ -28,4 +28,6 @@ public class BookingCommercialsCardResponseDto {
     private Double monthlyMaintenanceFee;
 
     private Double onBoardingCharge;
+
+    private boolean priceStrategy;
 }
