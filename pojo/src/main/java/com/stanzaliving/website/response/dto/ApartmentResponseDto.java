@@ -99,7 +99,7 @@ public class ApartmentResponseDto implements Serializable, Comparable<ApartmentR
 	
 	private Date created;
 	
-	private Integer discountPercentage;
+	private double discountPercentage;
 	
 	private Integer discountedPrice;
 	
@@ -126,6 +126,10 @@ public class ApartmentResponseDto implements Serializable, Comparable<ApartmentR
 	private List<ApartmentRoomTypeResponseDTO> apartmentRoomTypes = Collections.emptyList();
 
 	private List<WebsiteImageLibraryDto> images;
+
+	private boolean showDiscount;
+
+	private Integer inventoryPrice;
 
 	@Override
 	public int compareTo(ApartmentResponseDto dto2) {

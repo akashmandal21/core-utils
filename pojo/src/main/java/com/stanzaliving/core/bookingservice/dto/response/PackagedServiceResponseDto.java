@@ -17,4 +17,5 @@ public class PackagedServiceResponseDto implements Serializable {
     private Double feePerMonth;
     private String serviceMixUuid;
     private String serviceMixName;
+    private Integer currentOptedInBookingsCount;
 }

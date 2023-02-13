@@ -60,7 +60,7 @@ public class ApartmentListingCardDto implements Serializable {
 	
 	private int startingPrice;
 	
-	private Integer discountPercentage;
+	private double discountPercentage;
 	
 	private Integer discountedPrice;
 
@@ -121,4 +121,8 @@ public class ApartmentListingCardDto implements Serializable {
 	private List<ApartmentRoomTypeResponseDTO> apartmentRoomTypes;
 
 	private List<String> ventaRoomNumbers;
+
+	private boolean showDiscount;
+
+	private Integer inventoryPrice;
 }

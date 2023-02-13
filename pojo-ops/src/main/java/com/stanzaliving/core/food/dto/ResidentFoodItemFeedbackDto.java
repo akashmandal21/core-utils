@@ -49,5 +49,9 @@ public class ResidentFoodItemFeedbackDto {
 	private String comment;
 
 	private List<ExpectedItemFeedbackReasonDto> expectedItemFeedbackReasons;
+	
+	private List<String> feedBackReasons;
+
+	private String imageUrl;
 
 }
