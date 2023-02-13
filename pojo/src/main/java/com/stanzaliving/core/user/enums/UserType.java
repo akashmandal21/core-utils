@@ -5,6 +5,7 @@ package com.stanzaliving.core.user.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.util.Arrays;
 import java.util.List;
@@ -15,7 +16,7 @@ import java.util.List;
  * @date 09-Oct-2019
  */
 @Getter
-@AllArgsConstructor
+@NoArgsConstructor
 public enum UserType {
 
 	EMPLOYEE("employee"),
@@ -51,5 +52,13 @@ public enum UserType {
 	}
 
 	public String typeName;
+
+	public String getTypeName(){
+		return typeName;
+	}
+
+	UserType(String typeName){
+		this.typeName=typeName;
+	}
 
 }
