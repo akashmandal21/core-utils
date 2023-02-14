@@ -38,7 +38,10 @@ public class TokenAuthenticationValidator implements RequestValidator {
 
 		Cookie[] cookies = request.getCookies();
 		String domainName = request.getHeader("origin");
-		domainName = domainName.substring(domainName.indexOf("://") + 3);
+		if(StringUtils.isNotBlank(domainName)) {
+			if(domainName.trim().contains("://"))
+				domainName = domainName.substring(domainName.indexOf("://") + 3);
+		}
 		log.info("domainName {}", domainName);
 
 		if (cookies != null) {
