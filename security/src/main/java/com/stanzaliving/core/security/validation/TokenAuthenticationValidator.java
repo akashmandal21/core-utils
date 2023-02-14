@@ -37,6 +37,8 @@ public class TokenAuthenticationValidator implements RequestValidator {
 		String token = null;
 
 		Cookie[] cookies = request.getCookies();
+		String domainName = request.getHeader(":authority");
+		log.info("domainName {}", domainName);
 
 		if (cookies != null) {
 
@@ -77,7 +79,7 @@ public class TokenAuthenticationValidator implements RequestValidator {
 				String appEnv = request.getHeader(SecurityConstants.APP_ENVIRONMENT);
 				boolean isApp = StringUtils.isNotBlank(appEnv) && SecurityConstants.APP_ENVIRONMENT_TRUE.equals(appEnv);
 
-				response.addCookie(SecureCookieUtil.create(SecurityConstants.TOKEN_HEADER_NAME, token, Optional.of(isLocalFrontEnd), Optional.of(isApp)));
+				response.addCookie(SecureCookieUtil.create(SecurityConstants.TOKEN_HEADER_NAME, token, Optional.of(isLocalFrontEnd), Optional.of(isApp), domainName));
 
 				return CurrentUser.builder()
 						.token(token)
