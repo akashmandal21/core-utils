@@ -13,5 +13,5 @@ import lombok.NoArgsConstructor;
 public class EventDto {
 
     private EventType eventType;
-    UserOnboardingData data;
+    private UserOnboardingData data;
 }
