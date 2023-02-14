@@ -53,5 +53,6 @@ public class FoodQrItemDto {
 	private boolean pickMealDisable;
 	private boolean baseCombo;
 	private FoodPreferenceComboResponseDto foodPreferenceComboResponseDto;
-
+	private LocalTime startTime;
+	private LocalTime endTime;
 }
