@@ -3,6 +3,7 @@
  */
 package com.stanzaliving.core.food.dto;
 
+import com.stanzaliving.core.food.dto.response.FoodPreferenceComboResponseDto;
 import com.stanzaliving.core.food.enums.FoodItemBasePreference;
 import com.stanzaliving.core.food.enums.FoodItemType;
 import com.stanzaliving.core.food.enums.FoodRegion;
@@ -53,5 +54,6 @@ public class FoodQrItemDto {
 	private boolean baseCombo;
 	private LocalTime startTime;
 	private LocalTime endTime;
+	private FoodPreferenceComboResponseDto foodPreferenceComboResponseDto;
 
 }
