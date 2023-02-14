@@ -44,4 +44,7 @@ public class ConvertRoomRequestDto {
     private Boolean isAlreadyConverted;
 
     private String inventoryUuid;
+
+    private boolean nonRecommendedRoom;
+
 }

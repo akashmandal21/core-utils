@@ -51,4 +51,5 @@ public class PaymentPlanRequestDto implements Serializable {
 
 	private PaymentActionDto paymentActionDto;
 
+	private boolean subscriptionPlansToBeRemoved;
 }
