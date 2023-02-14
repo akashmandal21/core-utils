@@ -37,4 +37,5 @@ public class FoodPreferenceComboItemDto implements Serializable {
     private String imageUrl;
 	private boolean beverageItem;
     private boolean selectedBeverageItem;
+    private int rank;
 }

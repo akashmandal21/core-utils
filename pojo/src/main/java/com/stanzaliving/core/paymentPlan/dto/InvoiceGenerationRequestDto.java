@@ -19,6 +19,7 @@ public class InvoiceGenerationRequestDto {
     private String residenceUuid;
     private PaymentTerm paymentTerm;
     private boolean completeInvoice;
+    private boolean fixSeries;
     private LocalDate executionDate;
     private boolean realiseBookingAmount = Boolean.FALSE;
     private ResidenceAgreementType residenceAgreementType;

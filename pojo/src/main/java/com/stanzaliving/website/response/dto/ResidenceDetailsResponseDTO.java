@@ -55,6 +55,7 @@ public class ResidenceDetailsResponseDTO implements Serializable {
 	private int sortOrder;
 	private String residenceType;
 	private String googleMapLink;
+	private String googlePlaceId;
 	private String virtualTourImage;
 	private String videoLink;
 	private String cardCTAName;
