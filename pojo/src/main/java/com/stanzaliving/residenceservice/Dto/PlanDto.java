@@ -11,6 +11,7 @@ import lombok.experimental.SuperBuilder;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 @Data
 @ToString(callSuper = true)
@@ -25,6 +26,9 @@ public class PlanDto {
 
     @JsonProperty("plan_category")
     private VasCategory planCategory;
+
+    @JsonProperty("plan_residence")
+    private Set<String> residenceUuid;
 
     @JsonProperty("jarvis_plan_id")
     private String jarvisPlanId;
