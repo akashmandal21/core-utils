@@ -783,6 +783,8 @@ public class UserClientApi {
 
 		String path = UriComponentsBuilder.fromPath("/internal/details/userProfiles").buildAndExpand(uriVariables).toUriString();
 
+		userIds.removeIf(StringUtils::isEmpty);
+
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 		ParameterizedTypeReference<ResponseDto<Map<String, UserProfileDto>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<String, UserProfileDto>>>() {
 		};
