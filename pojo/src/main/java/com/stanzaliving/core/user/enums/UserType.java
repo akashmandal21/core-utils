@@ -48,7 +48,7 @@ public enum UserType {
 
 	public static List<UserType> getMigratedUserTypes(){
 		return Arrays.asList(UserType.MANAGER,UserType.DESIGN_COORDINATOR,
-				UserType.PROJECT_MANAGER,UserType.SITE_ENGINEER,UserType.ZONAL_HEAD,UserType.NATIONAL_HEAD);
+				UserType.PROJECT_MANAGER,UserType.SITE_ENGINEER,UserType.ZONAL_HEAD,UserType.NATIONAL_HEAD,UserType.LEADERSHIP);
 	}
 
 	public String typeName;
