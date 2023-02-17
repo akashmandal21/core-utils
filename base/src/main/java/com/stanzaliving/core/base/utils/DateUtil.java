@@ -70,7 +70,7 @@ public class DateUtil {
         return cal.getTime();
     }
 
-    public Date normalizeDate(Date date, Boolean normalize) {
+    public static Date normalizeDate(Date date, Boolean normalize) {
         if(Objects.isNull(date)){
             return null;
         }
