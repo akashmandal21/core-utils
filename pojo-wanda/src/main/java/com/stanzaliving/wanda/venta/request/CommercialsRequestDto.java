@@ -26,4 +26,5 @@ public class CommercialsRequestDto {
     private String lockInEndDate;
     private String serviceMixUuid;
     private String serviceMixName;
+    private String priceStrategyUuid;
 }
