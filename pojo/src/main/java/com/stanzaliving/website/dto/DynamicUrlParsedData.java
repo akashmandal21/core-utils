@@ -53,7 +53,7 @@ public class DynamicUrlParsedData implements Serializable {
     //Actual Filter Data to be parsed and mapped to following variables, which will be passed to listing apis
 
     private String osmType;
-    private String osmId;
+    private Long osmId;
 
     private Integer cityId;
 
