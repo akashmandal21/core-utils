@@ -31,5 +31,7 @@ public class UserFilterDto {
 
 	private Department department;
 
+	private Boolean migrated;
+
 	private PaginationRequest pageRequest;
 }
