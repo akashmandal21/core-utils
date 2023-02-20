@@ -46,49 +46,12 @@ public class DynamicUrlParsedData implements Serializable {
     @Builder.Default
     private String filteredSeoFaqChunks = "";
 
-    private String cityName;
-    private String mmName;
-    private String urlTargetPlaceName;
-
     //Actual Filter Data to be parsed and mapped to following variables, which will be passed to listing apis
 
     private String osmType;
     private Long osmId;
 
-    private Integer cityId;
+    private WebsiteAppliedFiltersDto controllerFilters;
+    private WebsiteAppliedFiltersDto parsedFilters;
 
-    @Builder.Default
-    private List<Integer> mmIds = new ArrayList<>();
-
-    @Builder.Default
-    private List<Gender> genderIn = new ArrayList<>();
-
-    @Builder.Default
-    private Set<Integer> occupancyIds = new HashSet<>();
-
-    @Builder.Default
-    private List<Integer> featureIdIn = new ArrayList<>();
-
-    @Builder.Default
-    private List<Integer> facilityIdIn = new ArrayList<>();
-
-    @Builder.Default
-    private Integer minPriceRange = null;
-
-    @Builder.Default
-    private Integer maxPriceRange = null;
-
-    private String residenceType;
-
-    @Builder.Default
-    private List<Integer> roomCountIn = new ArrayList<>();
-
-    @Builder.Default
-    private boolean entireFlat = false;
-
-    private Double latitude;
-    private Double longitude;
-
-    private Integer pageNo;
-    private Integer pageSize;
 }
