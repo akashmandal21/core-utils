@@ -46,12 +46,6 @@ public class DynamicUrlParsedData implements Serializable {
     @Builder.Default
     private String filteredSeoFaqChunks = "";
 
-    //Actual Filter Data to be parsed and mapped to following variables, which will be passed to listing apis
-
-    private String osmType;
-    private Long osmId;
-
     private WebsiteAppliedFiltersDto controllerFilters;
     private WebsiteAppliedFiltersDto parsedFilters;
-
 }

@@ -22,6 +22,9 @@ public class WebsiteAppliedFiltersDto implements Serializable {
 
     private boolean allControllerFiltersAreEmpty;
 
+    private String osmType;
+    private Long osmId;
+
     private Integer cityId;
     private String cityName;
     private String mmName;
