@@ -35,7 +35,7 @@ public class AttributesAndPermissionsSynchronizer {
         messageConverters.add(converter);
         restTemplate.setMessageConverters(messageConverters);
         try {
-            restTemplate.exchange("https://dev.stanzaliving.com/userv2/internal/resource/AttributesAndPermisions", HttpMethod.POST, request, ResourceDto.class);
+            restTemplate.exchange("https://userv2.stanzaliving.com/userv2/internal/resource/AttributesAndPermisions", HttpMethod.POST, request, ResourceDto.class);
         }
         catch (Exception e){
             throw new ApiValidationException("Not able to push permissions and attributes");
