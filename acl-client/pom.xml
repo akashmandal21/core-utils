@@ -34,17 +34,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-log4j2</artifactId>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>com.stanzaliving.core</groupId>-->
-<!--            <artifactId>base</artifactId>-->
-<!--            <version>${global.version}</version>-->
-<!--        </dependency>-->
-
-<!--        <dependency>-->
-<!--            <groupId>com.stanzaliving.core</groupId>-->
-<!--            <artifactId>pojo</artifactId>-->
-<!--            <version>${global.version}</version>-->
-<!--        </dependency>-->
 
         <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
         <dependency>
