@@ -76,7 +76,7 @@ public class CheckPermissionProcessor {
         messageConverters.add(converter);
         restTemplate.setMessageConverters(messageConverters);
         try {
-            ResponseEntity<Boolean> conditionResponse = restTemplate.exchange("https://dev.stanzaliving.com/userv2/internal/eval/permission",
+            ResponseEntity<Boolean> conditionResponse = restTemplate.exchange("https://userv2.stanzaliving.com/userv2/internal/eval/permission",
                     HttpMethod.POST, conditionRequest, Boolean.class);
             if(!conditionResponse.getBody()){
                 throw new ApiValidationException("User doesn't have the relevant role or permissions");
