@@ -50,4 +50,15 @@ public class CityCmsResponseDTO {
 	private String apartmentSeoTitle;
 	private String apartmentSeoDescription;
 	private String apartmentCityDescription;
+
+	private String transformationUuid;
+	private Long transformationId;
+
+	private double apartmentBumpUpPercentage;
+	private double apartmentDiscountPercentage;
+	private double pgBumpUpPercentage;
+	private double pgDiscountPercentage;
+
+	private boolean showDiscountForPg;
+	private boolean showDiscountForApartment;
 }

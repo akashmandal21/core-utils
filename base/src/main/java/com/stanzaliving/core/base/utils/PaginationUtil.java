@@ -15,13 +15,17 @@ public class PaginationUtil {
 
 	public int correctLimit(int limit) {
 		limit = Math.max(1, limit);
-		limit = Math.min(1000, limit);
+		limit = Math.min(10000, limit);
 		return limit;
 	}
 
 	public int correctPageNo(int pageNo) {
 		pageNo = Math.max(1, pageNo);
 		return pageNo;
+	}
+
+	public int correctPageNoForElastic(int pageNo) {
+		return Math.max(0, pageNo) +1 ;
 	}
 
 }

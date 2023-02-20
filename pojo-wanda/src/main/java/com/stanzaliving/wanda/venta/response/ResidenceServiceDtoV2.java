@@ -1,5 +1,6 @@
 package com.stanzaliving.wanda.venta.response;
 
+import com.stanzaliving.residenceservice.enums.VasCategory;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -35,5 +36,6 @@ public class ResidenceServiceDtoV2 {
 	private String shortText;
 	private String bgColor;
 	private Double totalAmount;
-
+	private VasCategory vasCategory;
+	private PackageServiceDto packagedServices;
 }

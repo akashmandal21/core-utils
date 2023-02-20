@@ -38,6 +38,7 @@ public enum BookingEventEnum {
     AUDIT_APPROVED("Audit Approved"),
     AUDIT_APPROVED_EMAIL("Audit Approved Email"),
     AUDIT_REJECTED("Audit Rejected"),
+    AUDIT_RESCHEDULED("Audit Rescheduled"),
     ADDENDUM_SIGNED("Addendum Signed"),
     LEAD_BOOKED("Lead Booked"),
     BOOKING_AMOUNT_PENDING("Booking Amount Pending"),
@@ -83,7 +84,11 @@ public enum BookingEventEnum {
     CONTRACT_EXTENSION_REQUESTED("contract extension request created"),
     CONTRACT_MODIFIED("Contract is modified successfully"),
     CONTRACT_START_DATE_CROSSED("Contract Start Date Crossed"),
-    BOOKING_AUTO_FORFEITURE("Booking Auto Forfeiture");
+    BOOKING_AUTO_FORFEITURE("Booking Auto Forfeiture"),
+    REMOTE_BOOKING_FORFEITURE("Remote Booking Forfeiture"),
+    REMOTE_BOOKING_ROOM_SHIFT("Remote Booking Room Shift"),
+
+    REMOTE_BOOKING_REFUND("Remote Booking Refund");
 
     private final String eventName;
 

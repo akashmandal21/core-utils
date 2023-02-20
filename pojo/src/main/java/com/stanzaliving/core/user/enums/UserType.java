@@ -5,6 +5,10 @@ package com.stanzaliving.core.user.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * @author naveen
@@ -12,9 +16,10 @@ import lombok.Getter;
  * @date 09-Oct-2019
  */
 @Getter
-@AllArgsConstructor
+@NoArgsConstructor
 public enum UserType {
 
+	EMPLOYEE("employee"),
 	STUDENT("Student"),
 	PARENT("Parent"),
 	LEGAL("Legal"),
@@ -42,6 +47,19 @@ public enum UserType {
 	VENDOR("Vendor"),
 	EMPLOYEE("Employee");
 
+	public static List<UserType> getMigratedUserTypes(){
+		return Arrays.asList(UserType.MANAGER,UserType.DESIGN_COORDINATOR,
+				UserType.PROJECT_MANAGER,UserType.SITE_ENGINEER,UserType.ZONAL_HEAD,UserType.NATIONAL_HEAD,UserType.LEADERSHIP);
+	}
+
 	public String typeName;
+
+	public String getTypeName(){
+		return typeName;
+	}
+
+	UserType(String typeName){
+		this.typeName=typeName;
+	}
 
 }

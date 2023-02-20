@@ -344,6 +344,7 @@ public class LedgerServiceApi {
                 .buildAndExpand(uriVariables).toUriString();
         MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
         queryParams.add("referenceId", referenceId);
+        queryParams.add("bookingUuid", referenceId);
 
         HttpHeaders headerParams = new HttpHeaders();
         String[] accepts = new String[]{"*/*"};
@@ -358,6 +359,7 @@ public class LedgerServiceApi {
         }
         return null;
     }
+
 
     public ResponseDto<Boolean> getBankDetails(String userUuid) {
         log.info("In getBankDetails for user {}", userUuid);
