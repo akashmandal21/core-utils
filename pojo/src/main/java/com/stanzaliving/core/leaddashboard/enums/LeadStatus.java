@@ -1,7 +1,6 @@
 package com.stanzaliving.core.leaddashboard.enums;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import lombok.AllArgsConstructor;
@@ -64,13 +63,5 @@ public enum LeadStatus {
 		leadStatuses.add(MOVED_OUT);
 
 		return leadStatuses.contains(leadStatus);
-	}
-
-	public static List<LeadStatus> revivalLeadStatuses;
-
-	static {
-		revivalLeadStatuses.add(DISQUALIFIED);
-		revivalLeadStatuses.add(DROPPED);
-		revivalLeadStatuses.add(MOVED_OUT);
 	}
 }
