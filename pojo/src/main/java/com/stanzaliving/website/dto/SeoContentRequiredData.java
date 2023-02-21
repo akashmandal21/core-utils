@@ -1,9 +1,6 @@
 package com.stanzaliving.website.dto;
 
-import com.stanzaliving.website.response.dto.CityListingResponseDTO;
-import com.stanzaliving.website.response.dto.FacilityResponseDTO;
-import com.stanzaliving.website.response.dto.FeatureResponseDTO;
-import com.stanzaliving.website.response.dto.MicromarketListingResponseDTO;
+import com.stanzaliving.website.response.dto.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -25,6 +22,8 @@ public class SeoContentRequiredData implements Serializable {
 
     private MicromarketListingResponseDTO micromarketDto;
     private List<MicromarketListingResponseDTO> nearByMicromarketDtos;
+
+    private List<WebsiteNeighbourhoodDto> neighbourhoodDtos;
 
     private String slPlaceName;
     private String nameUrlSlug;
