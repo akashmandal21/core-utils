@@ -67,11 +67,12 @@ public enum LeadStatus {
 		return leadStatuses.contains(leadStatus);
 	}
 
-	public static List<LeadStatus> revivalLeadStatuses = new ArrayList<>();
+	public static List<LeadStatus> referrableLeadStatuses = new ArrayList<>();
 
 	static {
-		revivalLeadStatuses.add(DISQUALIFIED);
-		revivalLeadStatuses.add(DROPPED);
-		revivalLeadStatuses.add(MOVED_OUT);
+		referrableLeadStatuses.add(DISQUALIFIED);
+		referrableLeadStatuses.add(DROPPED);
+		referrableLeadStatuses.add(MOVED_OUT);
+		referrableLeadStatuses.add(BOOKED);
 	}
 }
