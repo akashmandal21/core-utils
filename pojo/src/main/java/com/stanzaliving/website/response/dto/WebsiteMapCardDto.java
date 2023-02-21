@@ -52,6 +52,8 @@ public class WebsiteMapCardDto implements Serializable {
 
 	private int startingPrice;
 
+	private Integer discountedPrice;
+
 	private String pricingPlan;
 	
 	private String googleMapLink;

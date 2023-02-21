@@ -55,6 +55,7 @@ public class ResidenceDetailsResponseDTO implements Serializable {
 	private int sortOrder;
 	private String residenceType;
 	private String googleMapLink;
+	private String googlePlaceId;
 	private String virtualTourImage;
 	private String videoLink;
 	private String videoLink2;
@@ -78,4 +79,9 @@ public class ResidenceDetailsResponseDTO implements Serializable {
 	private Set<ResidenceNearbyLocationResponseDTO> residenceNearbyLocations = new HashSet<>(0);
 
 	private AddressResponseDTO address;
+
+	private double discountPercentage;
+	private double bumpUpPercentage;
+	private boolean showDiscount;
+	private int inventoryPrice;
 }

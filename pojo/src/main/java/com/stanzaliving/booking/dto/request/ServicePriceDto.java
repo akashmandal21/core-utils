@@ -20,7 +20,7 @@ public class ServicePriceDto implements Serializable {
 
 	private String serviceName;
 
-	private String category;
+	private VasCategory category;
 	
 	@Builder.Default
 	@Min(value = 0, message = "service fee cannot be negative")
