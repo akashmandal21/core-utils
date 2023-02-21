@@ -33,6 +33,7 @@ public class MicromarketListingResponseDTO implements Serializable {
 	private String citySlug;
 	private double latitude;
 	private double longitude;
+	private Double distanceFromPlace;
 	private String phone;
 	EnumListing<Status> status;
 	@Default

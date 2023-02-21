@@ -48,4 +48,6 @@ public class DynamicUrlParsedData implements Serializable {
 
     private WebsiteAppliedFiltersDto controllerFilters;
     private WebsiteAppliedFiltersDto parsedFilters;
+
+    private SeoContentRequiredData seoContentRequiredData;
 }
