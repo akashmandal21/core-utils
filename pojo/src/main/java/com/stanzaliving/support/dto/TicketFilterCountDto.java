@@ -1,6 +1,5 @@
 package com.stanzaliving.support.dto;
 
-import java.io.Serializable;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -10,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class TicketFilterCountDto implements Serializable {
+public class TicketFilterCountDto {
 
     private String name;
 

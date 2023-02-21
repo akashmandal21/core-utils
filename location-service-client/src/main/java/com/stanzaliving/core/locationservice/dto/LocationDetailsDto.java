@@ -15,5 +15,5 @@ public class LocationDetailsDto {
 
 	private String locationId;
 
-	private String transformationLocationUuid;
+	private String transformationUuid;
 }

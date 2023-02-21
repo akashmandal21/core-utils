@@ -52,6 +52,4 @@ public class ResidentFoodItemFeedbackDto {
 	
 	private List<String> feedBackReasons;
 
-	private String imageUrl;
-
 }

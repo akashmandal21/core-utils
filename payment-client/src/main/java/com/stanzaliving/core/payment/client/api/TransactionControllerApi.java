@@ -531,8 +531,15 @@ public class TransactionControllerApi {
         TypeReference<ResponseDto<String>> returnType = new TypeReference<ResponseDto<String>>() {
         };
         ResponseDto<String> responseDto;
-        responseDto = restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
-        return responseDto;
+        try {
+            responseDto = restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept,
+                    returnType);
+            return responseDto;
+
+        } catch (Exception e) {
+            log.error("Exception while refund of remote booking for bookingUuid : {}, error is {}", bookingUuid, e.getMessage(), e);
+        }
+        return null;
     }
 
 }

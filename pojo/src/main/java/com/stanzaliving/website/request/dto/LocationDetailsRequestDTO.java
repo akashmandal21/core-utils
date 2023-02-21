@@ -18,5 +18,4 @@ public class LocationDetailsRequestDTO {
 	private double latitude;
 	private double longitude;
 	private String gmbLink;
-	private String googlePlaceId;
 }

@@ -52,8 +52,7 @@ public enum ResidenceAttributes {
     BOOKING_AUTO_FORFEITURE_DURATION_IN_DAYS("Booking Auto Forfeiture Duration in Days", "Integer"),
     MAX_ALLOWED_DAYS_AFTER_BOOKING_FORFEITURE("Max Allowed Days After Booking Forfeiture", "Integer"),
     MAXIMUM_WAIVE_OFF_PERCENTAGE("Maximum Waive off Percentage", "Double"),
-    BOOKING_AMOUNT_REALISATION_ENABLED("Booking Amount Realisation Enabled", "Boolean"),
-    EXIT_PROCESSING_FEE("Exit Processing Fee", "Double");
+    BOOKING_AMOUNT_REALISATION_ENABLED("Booking Amount Realisation Enabled", "Boolean");
 
     private String label;
     private String type;
@@ -86,7 +85,6 @@ public enum ResidenceAttributes {
         residenceAttributes.add(BOOKING_START_DATE);
         residenceAttributes.add(PRE_BOOKING_START_DATE);
         residenceAttributes.add(RETENTION_MIN_TOKEN_AMOUNT);
-        residenceAttributes.add(EXIT_PROCESSING_FEE);
         return residenceAttributes;
     }
  }

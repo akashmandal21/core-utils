@@ -13,6 +13,5 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 public class DetractorDto {
     private Boolean detractors;
-    private Double rating;
     private String answer;
 }
