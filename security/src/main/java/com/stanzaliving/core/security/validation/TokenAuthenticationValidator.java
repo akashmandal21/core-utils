@@ -83,7 +83,7 @@ public class TokenAuthenticationValidator implements RequestValidator {
 				String appEnv = request.getHeader(SecurityConstants.APP_ENVIRONMENT);
 				boolean isApp = StringUtils.isNotBlank(appEnv) && SecurityConstants.APP_ENVIRONMENT_TRUE.equals(appEnv);
 
-				response.addCookie(SecureCookieUtil.create(SecurityConstants.TOKEN_HEADER_NAME, token, Optional.of(isLocalFrontEnd), Optional.of(isApp), domainName));
+//				response.addCookie(SecureCookieUtil.create(SecurityConstants.TOKEN_HEADER_NAME, token, Optional.of(isLocalFrontEnd), Optional.of(isApp), domainName));
 
 				return CurrentUser.builder()
 						.token(token)
