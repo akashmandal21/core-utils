@@ -28,7 +28,7 @@ public class PlanDto {
     private VasCategory planCategory;
 
     @JsonProperty("plan_residence")
-    private Set<String> residenceUuid;
+    private String residenceUuid;
 
     @JsonProperty("jarvis_plan_id")
     private String jarvisPlanId;
@@ -37,12 +37,18 @@ public class PlanDto {
     private List<String> products;
 
     @JsonProperty("description")
-    private Map<String, Object> description;
+    private Map<String, String> description;
 
     @JsonProperty("metadata")
     private Map<String, Object> metadata;
 
     @JsonProperty("plan_status")
     private int planStatus = 1;
+
+    @JsonProperty("plan_type")
+    private String planType;
+
+    @JsonProperty("plan_hierarchy")
+    private Integer hierarchy;
 
 }
