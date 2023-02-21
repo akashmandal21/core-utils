@@ -35,7 +35,8 @@ public enum AreaOfUse {
 	LIFT("Lift", "#F3F3F3", "", false, false),
 	STAIRS("Stairs", "#F3F3F3", "", false, false),
 	UTILITY("Utility", "#F3F3F3", "", false, false),
-	WASHROOM("Washroom", "#F3F3F3", "", false, false);
+	WASHROOM("Washroom", "#F3F3F3", "", false, false),
+	FACADE("Facade", "#F3F3F3", "", false, false);
 
 	private String name;
 	private String color;
@@ -54,9 +55,9 @@ public enum AreaOfUse {
 	public static Map<String, AreaOfUse> areaofUseMap = new HashMap<>();
 	public static Map<String, AreaOfUse> areaofUseUpperCaseMap = new HashMap<>();
 	public static final List<AreaOfUse> areaOfUseList = Arrays.asList(ROOM, RECEPTION, ENTERTAINMENT, BACK_OF_HOUSE,
-			GAMING, CAFE_AREA, BRANDING, ELECTRONIC, GYM, COMMON_AREA, LOGISTICS, PROVISIONAL, REFURB, DINING, CORRIDOR, KITCHEN, LIFT, STAIRS, UTILITY, WASHROOM);
+			GAMING, CAFE_AREA, BRANDING, ELECTRONIC, GYM, COMMON_AREA, LOGISTICS, PROVISIONAL, REFURB, DINING, CORRIDOR, KITCHEN, LIFT, STAIRS, UTILITY, WASHROOM, FACADE);
 	public static final List<AreaOfUse> commonAous = Arrays.asList(RECEPTION, ENTERTAINMENT, GAMING, GYM, COMMON_AREA,
-			DINING, CORRIDOR, KITCHEN, LIFT, STAIRS, UTILITY, WASHROOM, CAFE_AREA, BACK_OF_HOUSE);
+			DINING, CORRIDOR, KITCHEN, LIFT, STAIRS, UTILITY, WASHROOM, CAFE_AREA, BACK_OF_HOUSE, FACADE);
 
 	static {
 		areaofUseMap.put("Room", AreaOfUse.ROOM);
@@ -79,6 +80,7 @@ public enum AreaOfUse {
 		areaofUseMap.put("Stairs", AreaOfUse.STAIRS);
 		areaofUseMap.put("Utility", AreaOfUse.UTILITY);
 		areaofUseMap.put("Washroom", AreaOfUse.WASHROOM);
+		areaofUseMap.put("Facade", AreaOfUse.FACADE);
 
 		Arrays.stream(AreaOfUse.values()).forEach(f->areaofUseUpperCaseMap.put(f.getName().toUpperCase(),f));
 	}
