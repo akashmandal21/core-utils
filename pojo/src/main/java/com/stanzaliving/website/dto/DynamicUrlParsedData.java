@@ -1,16 +1,11 @@
 package com.stanzaliving.website.dto;
 
-import com.stanzaliving.website.enums.Gender;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 @Data
 @Builder
@@ -28,10 +23,10 @@ public class DynamicUrlParsedData implements Serializable {
     boolean isColivingPage;
     boolean isApartmentPage;
 
-    private String seoTitle;
-    private String seoDescription;
-    private String seoContent;
-    private String seoFaq;
+    private String filteredSeoTitleCommon;
+    private String filteredSeoDescriptionCommon;
+    private String filteredSeoContentCommon;
+    private String filteredSeoFaqCommon;
 
     @Builder.Default
     private String filteredSeoTitleChunks = "";

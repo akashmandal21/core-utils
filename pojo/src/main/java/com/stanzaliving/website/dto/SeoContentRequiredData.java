@@ -20,6 +20,7 @@ public class SeoContentRequiredData implements Serializable {
 
     private CityListingResponseDTO cityDto;
 
+    private String urlContainedAllMmNames;
     private MicromarketListingResponseDTO micromarketDto;
     private List<MicromarketListingResponseDTO> nearByMicromarketDtos;
 
