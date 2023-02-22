@@ -11,6 +11,7 @@ import lombok.experimental.SuperBuilder;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 @Data
 @ToString(callSuper = true)
@@ -26,6 +27,9 @@ public class PlanDto {
     @JsonProperty("plan_category")
     private VasCategory planCategory;
 
+    @JsonProperty("plan_residence")
+    private String residenceUuid;
+
     @JsonProperty("jarvis_plan_id")
     private String jarvisPlanId;
 
@@ -33,12 +37,18 @@ public class PlanDto {
     private List<String> products;
 
     @JsonProperty("description")
-    private Map<String, Object> description;
+    private Map<String, String> description;
 
     @JsonProperty("metadata")
     private Map<String, Object> metadata;
 
     @JsonProperty("plan_status")
     private int planStatus = 1;
+
+    @JsonProperty("plan_type")
+    private String planType;
+
+    @JsonProperty("plan_hierarchy")
+    private Integer hierarchy;
 
 }
