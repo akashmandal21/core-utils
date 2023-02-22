@@ -4,6 +4,7 @@ import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.osm.dto.StanzaOsmPlaceDto;
 import com.stanzaliving.website.elasticsearch.index.dto.WebsitePlaceIndexDto;
+import com.stanzaliving.website.response.dto.PlaceSearchResponseDto;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -69,6 +70,31 @@ public class OsmServiceClientApi {
 
         } catch (Exception e) {
             log.error("Error while pushing old places data to new elastic", e);
+        }
+        return null;
+    }
+
+    public ResponseDto<PlaceSearchResponseDto> searchPlaceInOsmElasticCluster(String searchTerm) {
+
+        try {
+            String path = UriComponentsBuilder.fromPath("internal/website/place/search").toUriString();
+
+            final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+            queryParams.add("searchTerm", searchTerm);
+
+            final HttpHeaders headerParams = new HttpHeaders();
+
+            final String[] accepts = {"*/*"};
+
+            final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+            ParameterizedTypeReference<ResponseDto<PlaceSearchResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<PlaceSearchResponseDto>>() {
+            };
+
+            return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+
+        } catch (Exception e) {
+            log.error("Error while searching place in elastic", e);
         }
         return null;
     }
