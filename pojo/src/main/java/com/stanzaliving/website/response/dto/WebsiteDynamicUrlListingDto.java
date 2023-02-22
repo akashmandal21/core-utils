@@ -25,6 +25,7 @@ public class WebsiteDynamicUrlListingDto implements Serializable {
 
 	boolean isApartmentPage;
 
+	private String url;
 	private String seoTitle;
 	private String seoDescription;
 	private String seoContent;
