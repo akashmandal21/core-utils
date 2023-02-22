@@ -28,6 +28,8 @@ public class SeoTemplateRequiredData implements Serializable {
     private String slPlaceName;
     private String nameUrlSlug;
 
+    private WebsiteFlatUrlResponseDTO websiteFlatUrlResponseDTO;
+
     private String filteredSeoTitleCommonTemplate;
     private String filteredSeoDescriptionCommonTemplate;
     private String filteredSeoContentCommonTemplate;
