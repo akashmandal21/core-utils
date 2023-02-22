@@ -21,6 +21,9 @@ public class DynamicUrlParsedData implements Serializable {
     private boolean isFilteredUrl;
     private boolean isFlatUrl;
 
+    private boolean isSeoDataDbSaveRequired;
+    private Long dynamicSeoUrlsEntityId;
+
     boolean isPgPage;
     boolean isColivingPage;
     boolean isApartmentPage;
