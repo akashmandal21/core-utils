@@ -24,23 +24,6 @@ public class DynamicUrlParsedData implements Serializable {
     boolean isColivingPage;
     boolean isApartmentPage;
 
-    private String filteredSeoTitleCommon;
-    private String filteredSeoDescriptionCommon;
-    private String filteredSeoContentCommon;
-    private String filteredSeoFaqCommon;
-
-    @Builder.Default
-    private String filteredSeoTitleChunks = "";
-
-    @Builder.Default
-    private String filteredSeoDescriptionChunks = "";
-
-    @Builder.Default
-    private String filteredSeoContentChunks = "";
-
-    @Builder.Default
-    private String filteredSeoFaqChunks = "";
-
     private WebsiteAppliedFiltersDto controllerFilters;
     private WebsiteAppliedFiltersDto parsedFilters;
 

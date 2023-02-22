@@ -29,64 +29,20 @@ public class SeoContentRequiredData implements Serializable {
     private String slPlaceName;
     private String nameUrlSlug;
 
-
-
-
-
-
-
-
-
-
-
-    private List<DynamicUrlsFilterDto> pgPageIdentifierDynamicDtos;
-    private List<DynamicUrlsFilterDto> colivingPageIdentifierDynamicDtos;
-    private List<DynamicUrlsFilterDto> apartmentPageIdentifierDynamicDtos;
-
-    private List<CityListingResponseDTO> cityListingDtos;
-    private Map<Integer, List<MicromarketListingResponseDTO>> liveCityAndItsLiveMmListMap;
-
-    private List<DynamicUrlsFilterDto> genderFilterDynamicDtos;
-    private List<DynamicUrlsFilterDto> occupancyFilterDynamicDtos;
-    private List<DynamicUrlsFilterDto> budgetFilterDynamicDtos;
-    private List<DynamicUrlsFilterDto> bhkFilterDynamicDtos;
-    private List<DynamicUrlsFilterDto> entireFlatFilterDynamicDtos;
-    private List<FeatureResponseDTO> featureResponseDtos;
-    private List<FacilityResponseDTO> facilityResponseDtos;
+    private String filteredSeoTitleCommonTemplate;
+    private String filteredSeoDescriptionCommonTemplate;
+    private String filteredSeoContentCommonTemplate;
+    private String filteredSeoFaqCommonTemplate;
 
     @Builder.Default
-    private String osmPgPageSeoTitle = "";
+    private String filteredSeoTitleChunks = "";
 
     @Builder.Default
-    private String osmPgPageSeoDescription = "";
+    private String filteredSeoDescriptionChunks = "";
 
     @Builder.Default
-    private String osmPgPageSeoContent = "";
+    private String filteredSeoContentChunks = "";
 
     @Builder.Default
-    private String osmPgPageSeoFaq = "";
-
-    @Builder.Default
-    private String osmColivingPageSeoTitle = "";
-
-    @Builder.Default
-    private String osmColivingPageSeoDescription = "";
-
-    @Builder.Default
-    private String osmColivingPageSeoContent = "";
-
-    @Builder.Default
-    private String osmColivingPageSeoFaq = "";
-
-    @Builder.Default
-    private String osmApartmentPageSeoTitle = "";
-
-    @Builder.Default
-    private String osmApartmentPageSeoDescription = "";
-
-    @Builder.Default
-    private String osmApartmentPageSeoContent = "";
-
-    @Builder.Default
-    private String osmApartmentPageSeoFaq = "";
+    private String filteredSeoFaqChunks = "";
 }
