@@ -18,6 +18,7 @@ public class DynamicUrlParsedData implements Serializable {
     private DynamicUrlRequiredParserDataReadOnly requiredParserDataReadOnly;
 
     private boolean isFilteredUrl;
+    private boolean isFlatUrl;
 
     boolean isPgPage;
     boolean isColivingPage;
