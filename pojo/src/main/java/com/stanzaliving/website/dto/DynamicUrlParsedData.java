@@ -16,6 +16,7 @@ public class DynamicUrlParsedData implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private DynamicUrlRequiredParserDataReadOnly requiredParserDataReadOnly;
+    private SeoTemplateRequiredData seoTemplateRequiredData;
 
     private boolean isFilteredUrl;
     private boolean isFlatUrl;
@@ -26,6 +27,4 @@ public class DynamicUrlParsedData implements Serializable {
 
     private WebsiteAppliedFiltersDto controllerFilters;
     private WebsiteAppliedFiltersDto parsedFilters;
-
-    private SeoContentRequiredData seoContentRequiredData;
 }

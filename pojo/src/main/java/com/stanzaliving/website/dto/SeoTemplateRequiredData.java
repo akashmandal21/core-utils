@@ -8,13 +8,12 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.util.List;
-import java.util.Map;
 
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class SeoContentRequiredData implements Serializable {
+public class SeoTemplateRequiredData implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
