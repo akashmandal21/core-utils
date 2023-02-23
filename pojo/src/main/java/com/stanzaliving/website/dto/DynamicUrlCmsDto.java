@@ -20,6 +20,8 @@ public class DynamicUrlCmsDto extends AbstractDto {
 
     private DynamicUrlType dynamicUrlType;
 
+    private String dynamicUrlTypeName;
+
     private PropertyEntityType propertyEntityType;
 
     private String url;
