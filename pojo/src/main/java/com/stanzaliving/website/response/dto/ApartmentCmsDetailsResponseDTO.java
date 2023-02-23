@@ -60,6 +60,7 @@ public class ApartmentCmsDetailsResponseDTO implements Serializable {
 	private String fomoTagcolour;
 	private int sortOrder;
 	private String googleMapLink;
+	private String googlePlaceId;
 	private String virtualTourImage;
 	private String videoLink;
 	private String videoLink2;
