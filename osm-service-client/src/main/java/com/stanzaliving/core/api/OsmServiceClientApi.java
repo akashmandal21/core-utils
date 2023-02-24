@@ -1,5 +1,6 @@
 package com.stanzaliving.core.api;
 
+import com.stanzaliving.core.base.common.dto.PageResponse;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.osm.dto.StanzaOsmPlaceDto;
@@ -15,6 +16,7 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.List;
+import java.util.Objects;
 
 @Log4j2
 public class OsmServiceClientApi {
@@ -49,7 +51,7 @@ public class OsmServiceClientApi {
         return null;
     }
 
-    public ResponseDto<List<StanzaOsmPlaceDto>> fetchOsmPlacesForTheWholeCity(String transformationCityUuid) {
+    public ResponseDto<PageResponse<StanzaOsmPlaceDto>> fetchOsmPlacesForTheWholeCity(String transformationCityUuid, Integer pageNo, Integer pageSize) {
 
         try {
             String path = UriComponentsBuilder.fromPath("internal/website/osm/get/all/stanza/place/by").toUriString();
@@ -57,13 +59,18 @@ public class OsmServiceClientApi {
             final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
             queryParams.add("transformationCityUuid", transformationCityUuid);
 
+            if (Objects.nonNull(pageNo) && Objects.nonNull(pageSize)) {
+                queryParams.add("pageNo", pageNo.toString());
+                queryParams.add("pageSize", pageSize.toString());
+            }
+
             final HttpHeaders headerParams = new HttpHeaders();
 
             final String[] accepts = {"*/*"};
 
             final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-            ParameterizedTypeReference<ResponseDto<List<StanzaOsmPlaceDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<StanzaOsmPlaceDto>>>() {
+            ParameterizedTypeReference<ResponseDto<PageResponse<StanzaOsmPlaceDto>>> returnType = new ParameterizedTypeReference<ResponseDto<PageResponse<StanzaOsmPlaceDto>>>() {
             };
 
             return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
