@@ -39,9 +39,10 @@ public class ApartmentCmsDetailsResponseDTO implements Serializable {
 	private int cityId;
 	private String cityName;
 	private String citySlug;
-	private String description;
 	private String seoTitle;
 	private String seoDescription;
+	private String description;
+	private String seoFaq;
 	private String pricingPlan;
 	private int pricingPlanId;
 	private int startingPrice;

@@ -36,6 +36,7 @@ public class CityResponseDTO implements Serializable {
 	private String cityResidenceTypeText;
 	private String phone;
 	private String description;
+	private String seoFaq;
 	private String imageAltTag;
 	private String iconImageUrlAltTag;
 	private String cityImgUrl;
@@ -63,6 +64,7 @@ public class CityResponseDTO implements Serializable {
 	private String apartmentSeoTitle;
 	private String apartmentSeoDescription;
 	private String apartmentCityDescription;
+	private String apartmentSeoFaq;
 	
 	//place specific data fields-
 	private String place;
