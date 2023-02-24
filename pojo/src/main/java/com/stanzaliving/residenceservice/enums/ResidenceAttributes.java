@@ -53,7 +53,8 @@ public enum ResidenceAttributes {
     MAX_ALLOWED_DAYS_AFTER_BOOKING_FORFEITURE("Max Allowed Days After Booking Forfeiture", "Integer"),
     MAXIMUM_WAIVE_OFF_PERCENTAGE("Maximum Waive off Percentage", "Double"),
     BOOKING_AMOUNT_REALISATION_ENABLED("Booking Amount Realisation Enabled", "Boolean"),
-    EXIT_PROCESSING_FEE("Exit Processing Fee", "Double");
+    EXIT_PROCESSING_FEE("Exit Processing Fee", "Double"),
+    ONE_MONTH_BOOKING_ENABLED("One Month Booking Enabled", "Boolean");
 
     private String label;
     private String type;

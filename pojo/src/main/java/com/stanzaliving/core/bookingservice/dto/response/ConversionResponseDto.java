@@ -25,4 +25,6 @@ public class ConversionResponseDto {
 
     private double count;
 
+    private List<String> leadUuids;
+
 }
