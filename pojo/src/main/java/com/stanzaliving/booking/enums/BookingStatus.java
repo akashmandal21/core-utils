@@ -71,11 +71,11 @@ public enum BookingStatus {
 
     public static Set<String> activeStatusBookingStr() {
         Set<String> bookingStatus = new HashSet<>();
-        bookingStatus.add(BookingStatus.AGREEMENT_PENDING.bookingStatus);
-        bookingStatus.add(BookingStatus.AGREEMENT_SENT.bookingStatus);
-        bookingStatus.add(BookingStatus.ONBOARDING_PENDING.bookingStatus);
-        bookingStatus.add(BookingStatus.ONBOARDING_IN_PROGRESS.bookingStatus);
-        bookingStatus.add(BookingStatus.ONBOARDING_COMPLETED.bookingStatus);
+        bookingStatus.add(AGREEMENT_PENDING.bookingStatus);
+        bookingStatus.add(AGREEMENT_SENT.bookingStatus);
+        bookingStatus.add(ONBOARDING_PENDING.bookingStatus);
+        bookingStatus.add(ONBOARDING_IN_PROGRESS.bookingStatus);
+        bookingStatus.add(ONBOARDING_COMPLETED.bookingStatus);
         return bookingStatus;
     }
 
