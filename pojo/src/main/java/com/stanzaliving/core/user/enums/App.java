@@ -10,7 +10,16 @@ public enum App {
     NUCLEUS,
     NEXUS;
 
-    public static Set<App> appsEligibleForSingleSignOn(){
+    public static Set<App> appsEligibleForUserSessionCheck(){
+        Set<App> appSet = new HashSet<>();
+        appSet.add(SIGMA);
+        appSet.add(ALFRED);
+        appSet.add(NEXUS);
+        appSet.add(NUCLEUS);
+        return appSet;
+    }
+
+    public static Set<App> appsEligibleForDeviceIdCheck(){
         Set<App> appSet = new HashSet<>();
         appSet.add(SIGMA);
         appSet.add(ALFRED);
