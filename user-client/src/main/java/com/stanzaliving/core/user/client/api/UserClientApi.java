@@ -3,17 +3,13 @@
  */
 package com.stanzaliving.core.user.client.api;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 import com.stanzaliving.core.base.enums.AccessLevel;
 import com.stanzaliving.core.base.exception.StanzaHttpException;
+import com.stanzaliving.core.base.utils.ObjectMapperUtil;
+import com.stanzaliving.core.base.utils.SecureCookieUtil;
+import com.stanzaliving.core.user.acl.dto.AclUserDto;
 import com.stanzaliving.core.user.acl.dto.RoleDto;
 import com.stanzaliving.core.user.request.dto.*;
 import com.stanzaliving.core.user.dto.*;
@@ -23,12 +19,12 @@ import com.stanzaliving.core.user.enums.UserType;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
+import org.springframework.http.*;
 import org.springframework.lang.Nullable;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
+import org.springframework.web.client.DefaultResponseErrorHandler;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -57,6 +53,10 @@ import com.stanzaliving.core.user.request.dto.UpdateUserRequestDto;
 import com.stanzaliving.core.user.request.dto.UserRequestDto;
 
 import lombok.extern.log4j.Log4j2;
+
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * @author naveen.kumar
@@ -1111,4 +1111,142 @@ public class UserClientApi {
 			return null;
 		}
 	}
+
+	public ResponseDto<Void> sendMobileVerificationOtp(MobileOtpRequestDto mobileOtpRequestDto) {
+		if (Objects.isNull(mobileOtpRequestDto)) {
+			throw new IllegalArgumentException("Request is null for sending otp");
+		}
+		try {
+			Object postBody = mobileOtpRequestDto;
+
+			// create path and map variables
+			final Map<String, Object> uriVariables = new HashMap<>();
+			String path = UriComponentsBuilder.fromPath("/internal/otp/mobile/request").buildAndExpand(uriVariables).toUriString();
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+			final HttpHeaders headerParams = new HttpHeaders();
+			final String[] accepts = {
+					"*/*"
+			};
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+			ParameterizedTypeReference<ResponseDto<Void>> returnType = new ParameterizedTypeReference<ResponseDto<Void>>() {
+			};
+			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Exception occurred to send otp: {}", e.getMessage(), e);
+			return null;
+		}
+	}
+
+	public ResponseDto<Void> verifyOtp(MobileOtpValidateRequestDto mobileOtpValidateRequestDto) {
+		if (Objects.isNull(mobileOtpValidateRequestDto)) {
+			throw new IllegalArgumentException("Request is null for verifying otp");
+		}
+		try {
+			Object postBody = mobileOtpValidateRequestDto;
+
+			// create path and map variables
+			final Map<String, Object> uriVariables = new HashMap<>();
+			String path = UriComponentsBuilder.fromPath("/internal/otp/mobile/validate").buildAndExpand(uriVariables).toUriString();
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+			final HttpHeaders headerParams = new HttpHeaders();
+			final String[] accepts = {
+					"*/*"
+			};
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+			ParameterizedTypeReference<ResponseDto<Void>> returnType = new ParameterizedTypeReference<ResponseDto<Void>>() {
+			};
+			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Exception occurred while validating otp: {}", e.getMessage(), e);
+			return null;
+		}
+	}
+		public ResponseDto<Void> sendLogInVerificationOtp(LoginRequestDto loginRequestDto) {
+			if (Objects.isNull(loginRequestDto)) {
+				throw new IllegalArgumentException("Request is null for sending login otp");
+			}
+			try {
+				Object postBody = loginRequestDto;
+
+				// create path and map variables
+				final Map<String, Object> uriVariables = new HashMap<>();
+				String path = UriComponentsBuilder.fromPath("/auth/login").buildAndExpand(uriVariables).toUriString();
+				final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+				final HttpHeaders headerParams = new HttpHeaders();
+				final String[] accepts = {
+						"*/*"
+				};
+				final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+				ParameterizedTypeReference<ResponseDto<Void>> returnType = new ParameterizedTypeReference<ResponseDto<Void>>() {
+				};
+				return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+			} catch (Exception e) {
+				log.error("Exception occurred to send login otp: {}", e.getMessage(), e);
+				return null;
+			}
+		}
+
+	public ResponseDto<AclUserDto> verifyLoginOtp(OtpValidateRequestDto loginOtpValidateRequestDto) {
+		if (Objects.isNull(loginOtpValidateRequestDto)) {
+			throw new IllegalArgumentException("Request is null for verifying login otp");
+		}
+		try {
+			Object postBody = loginOtpValidateRequestDto;
+
+			// create path and map variables
+			final Map<String, Object> uriVariables = new HashMap<>();
+			String path = UriComponentsBuilder.fromPath("/auth/validateOtp").buildAndExpand(uriVariables).toUriString();
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+			final HttpHeaders headerParams = new HttpHeaders();
+			final String[] accepts = {
+					"*/*"
+			};
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+			ParameterizedTypeReference<ResponseDto<AclUserDto>> returnType = new ParameterizedTypeReference<ResponseDto<AclUserDto>>() {
+			};
+			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Exception occurred while validating otp: {}", e.getMessage(), e);
+			return null;
+		}
+	}
+
+	public ResponseDto<AclUserDto> verifyLoginOtp1(OtpValidateRequestDto loginOtpValidateRequestDto, HttpServletResponse httpServletResponse) {
+		try {
+			RestTemplate restTemplate = new RestTemplate();
+			restTemplate.setErrorHandler(new DefaultResponseErrorHandler() {
+				@Override
+				public boolean hasError(HttpStatus statusCode) {
+					return false;
+				}
+			});
+			HttpHeaders headers = new HttpHeaders();
+			headers.setContentType(MediaType.APPLICATION_JSON);
+
+
+			HttpEntity<OtpValidateRequestDto> entity = new HttpEntity<>(loginOtpValidateRequestDto, headers);
+			ParameterizedTypeReference<ResponseDto<AclUserDto>> responseType = new ParameterizedTypeReference<ResponseDto<AclUserDto>>() {
+			};
+			final Map<String, Object> uriVariables = new HashMap<>();
+			String path = "https://userservice.stanzaliving.com/user/auth/validateOtp";
+			ResponseEntity<ResponseDto<AclUserDto>> result = restTemplate.exchange(path, HttpMethod.POST,
+					entity, responseType);
+
+			result.getBody();
+			String token = result.getHeaders().get("Set-Cookie").get(0).substring(6);
+			token = token.substring(0,token.indexOf(";"));
+			Cookie cookie = new Cookie("token", token);
+			httpServletResponse.addCookie(cookie);
+			log.info("Response Received from New Model Lead Score API : {}", result.getHeaders());
+			return result.getBody();
+		} catch (Exception e) {
+			log.info("Exception occurred while getting New Model Lead Score API {} ", e.getMessage(), e);
+		}
+		return null;
+	}
 }
+

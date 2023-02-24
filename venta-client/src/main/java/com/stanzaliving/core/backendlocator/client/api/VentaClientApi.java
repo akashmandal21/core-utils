@@ -6,6 +6,7 @@ import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.dto.TransactionMigrationForDate;
 import com.stanzaliving.core.leaddashboard.dto.LeadDetailsDto;
 import com.stanzaliving.core.payment.dto.PreBookingRefundDto;
+import com.stanzaliving.core.user.dto.InventoryUserDto;
 import com.stanzaliving.venta.BedCountDetailsDto;
 import com.stanzaliving.venta.DeadBedCountDto;
 import com.stanzaliving.venta.ResidenceRoomDetails;
@@ -542,5 +543,32 @@ public class VentaClientApi {
 		};
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
+
+
+	public InventoryUserDto getUserFromInventory(String phone) {
+		Object postBody = null;
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("mobile", phone);
+		String path = UriComponentsBuilder.fromPath("/user/by-mobile/{mobile}").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {"*/*"};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<InventoryUserDto> returnType = new ParameterizedTypeReference<InventoryUserDto>() {
+		};
+
+		try {
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Error while fetching user details from old inventory service: {}", e.getMessage(),e);
+			return null;
+		}
+	}
+
 
 }
