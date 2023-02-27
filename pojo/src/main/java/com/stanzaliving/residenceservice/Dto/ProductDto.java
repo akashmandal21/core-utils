@@ -24,6 +24,6 @@ public class ProductDto {
     private String productCategory;
 
     @JsonProperty("product_status")
-    private int productStatus = 1;
+    private String productStatus = "Active";
 
 }

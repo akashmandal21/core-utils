@@ -43,7 +43,7 @@ public class PlanDto {
     private Map<String, Object> metadata;
 
     @JsonProperty("plan_status")
-    private int planStatus = 1;
+    private String planStatus = "Active";
 
     @JsonProperty("plan_type")
     private String planType;

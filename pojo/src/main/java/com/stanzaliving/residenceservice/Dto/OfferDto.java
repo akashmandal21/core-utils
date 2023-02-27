@@ -42,5 +42,5 @@ public class OfferDto {
     private Map<String, Object> metadata;
 
     @JsonProperty("offer_status")
-    private int offerStatus = 1;
+    private String offerStatus = "Active";
 }
