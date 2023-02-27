@@ -28,6 +28,4 @@ public class PlanResponseDto {
 
     private String serviceMixUuid;
 
-    private String planType;
-
 }
