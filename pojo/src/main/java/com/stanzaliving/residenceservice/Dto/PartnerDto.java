@@ -21,5 +21,5 @@ public class PartnerDto {
     private String partnerName;
 
     @JsonProperty("partner_status")
-    private int partnerStatus = 1;
+    private String partnerStatus;
 }

@@ -57,4 +57,6 @@ public class AlfredResidenceServiceDto {
 
     private boolean optedOut;
 
+    private String planType;
+
 }
