@@ -28,6 +28,7 @@ public class UserMenuCategoryPlansDtoStayCuration implements Serializable {
     private String menuId;
     private LocalDate planStartDate;
     private LocalDate planEndDate;
-
+    private String planId;
+    private String planName;
     private Map<MealType, List<DayOfWeek>> mealDays;
 }
