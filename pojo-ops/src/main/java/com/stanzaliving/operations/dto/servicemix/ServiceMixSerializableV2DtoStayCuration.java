@@ -23,6 +23,7 @@ public class ServiceMixSerializableV2DtoStayCuration extends AbstractDto {
     private static final long serialVersionUID = 1L;
 
     private String residenceId;
+    private boolean stayCuration;
 
     private String cityId;
 
