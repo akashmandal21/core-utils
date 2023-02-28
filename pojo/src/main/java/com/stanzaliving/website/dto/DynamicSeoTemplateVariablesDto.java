@@ -27,5 +27,9 @@ public class DynamicSeoTemplateVariablesDto implements Serializable {
     private String top10NearbyHouseHyperlink;
     private String top3NearbyHouseHyperlink;
     private String neighbourhoodList;
+    private String neighbourhoodPlace1;
+    private String neighbourhoodPlace2;
+    private String neighbourhoodPlace3;
+    private String neighbourhoodPlace4;
     private String neighbourhoodListTop6;
 }
