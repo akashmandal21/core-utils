@@ -5,10 +5,12 @@ import lombok.experimental.UtilityClass;
 @UtilityClass
 public class DynamicSeoConstants {
 
+    public static final String URL_HYPHEN = "-";
+    public static final String SPACE_VERTICAL_BAR_SPACE = " | ";
+    public static final String HTML_LINE_SEPARATOR = " <br/> ";
     public final String NAME_HYPER_LINK = "#SL_NAME_HYPER_LINK";
     public final String HYPERLINK = "#SL_HYPERLINK";
     public final String HTML_HYPERLINK_PARA = "<p><a href=\"" + HYPERLINK + "\">" + NAME_HYPER_LINK + "</a></p><br/>";
-
     public final String SL_PLACE_NAME = "#SL_PLACE_NAME";
     public final String SL_PLACE_NAME_URL_SLUG = "#SL_PLACE_NAME_URL_SLUG";
     public final String SL_CITY_NAME = "#SL_PLACE_NAME";
@@ -23,7 +25,4 @@ public class DynamicSeoConstants {
     public final String SL_NEIGHBOURHOOD_LIST = "#SL_NEIGHBOURHOOD_LIST";
     public final String SL_TOP6_NEIGHBOURHOOD_LIST = "#SL_TOP6_NEIGHBOURHOOD_LIST";
 
-    public static final String URL_HYPHEN = "-";
-    public static final String SPACE_VERTICAL_BAR_SPACE = " | ";
-    public static final String HTML_LINE_SEPARATOR = " <br/> ";
 }
