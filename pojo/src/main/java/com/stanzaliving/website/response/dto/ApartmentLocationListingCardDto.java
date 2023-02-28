@@ -2,11 +2,13 @@ package com.stanzaliving.website.response.dto;
 
 import com.stanzaliving.core.enums.PropertyEntityType;
 import com.stanzaliving.website.dto.WebsiteImageLibraryDto;
+import com.stanzaliving.website.enums.Gender;
 import lombok.*;
 
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 @Builder
 @AllArgsConstructor
@@ -27,6 +29,14 @@ public class ApartmentLocationListingCardDto implements Serializable {
     private String apartmentDetailsName;
 
     private String slug;
+
+    private Gender gender;
+
+    private String genderName;
+
+    private Set<Integer> roomCountList;
+
+    private Integer societyId;
 
     private int micromarketId;
 
