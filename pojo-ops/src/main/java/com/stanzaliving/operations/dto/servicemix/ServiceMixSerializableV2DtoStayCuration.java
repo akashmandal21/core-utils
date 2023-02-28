@@ -4,7 +4,7 @@ import com.stanzaliving.approval.enums.ApprovalStatus;
 import com.stanzaliving.core.base.common.dto.AbstractDto;
 import com.stanzaliving.core.operations.enums.DealCategory;
 import com.stanzaliving.operations.enums.ServiceMixStatus;
-import com.stanzaliving.operations.mongo.entity.servicemix.ServiceMixConfigV2;
+import com.stanzaliving.operations.mongo.entity.servicemix.ServiceMixConfigV2StayCuration;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -18,7 +18,7 @@ import java.util.Map;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-public class ServiceMixV2Dto extends AbstractDto {
+public class ServiceMixSerializableV2DtoStayCuration extends AbstractDto {
 
     private static final long serialVersionUID = 1L;
 
@@ -30,13 +30,13 @@ public class ServiceMixV2Dto extends AbstractDto {
 
     private String versionName;
 
+    private String versionDisplayName;
+
     private Long version;
 
     private LocalDate fromDate;
 
-    private ServiceMixConfigV2 serviceMixConfig;
-
-    private ServiceMixConfigV2 addOnConfig;
+    private ServiceMixConfigV2StayCuration serviceMixConfig;
 
     private String seasonUuid;
 

@@ -8,20 +8,17 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
-import org.springframework.data.annotation.Id;
 
+import java.io.Serializable;
 
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
 @SuperBuilder
-public class SecurityConfigV2 {
-    @Id
-    private String id;
-    @Builder.Default
-    private String securityPlanId = "Security_Default_Plan_Id";
-    @Builder.Default
-    private String securityPlanName = "Default Plan";
+@Data
+public class SecurityConfigDetailsV2StayCuration implements Serializable {
+
+    private String planId;
+    private String planName;
     @Builder.Default
     private BooleanConfig bioMetric = new BooleanConfig();
     @Builder.Default
