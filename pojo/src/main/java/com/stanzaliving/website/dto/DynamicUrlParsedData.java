@@ -17,6 +17,7 @@ public class DynamicUrlParsedData implements Serializable {
 
     private DynamicUrlRequiredParserDataReadOnly requiredParserDataReadOnly;
     private SeoTemplateRequiredData seoTemplateRequiredData;
+    private DynamicSeoTemplateVariablesDto dynamicSeoTemplateVariablesDto;
 
     private boolean isFilteredUrl;
     private boolean isFlatUrl;
