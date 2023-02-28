@@ -23,4 +23,7 @@ public class DynamicSeoConstants {
     public final String SL_NEIGHBOURHOOD_LIST = "#SL_NEIGHBOURHOOD_LIST";
     public final String SL_TOP6_NEIGHBOURHOOD_LIST = "#SL_TOP6_NEIGHBOURHOOD_LIST";
 
+    public static final String URL_HYPHEN = "-";
+    public static final String SPACE_VERTICAL_BAR_SPACE = " | ";
+    public static final String HTML_LINE_SEPARATOR = " <br/> ";
 }
