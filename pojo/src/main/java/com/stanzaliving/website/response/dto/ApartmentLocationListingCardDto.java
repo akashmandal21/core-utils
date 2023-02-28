@@ -2,10 +2,10 @@ package com.stanzaliving.website.response.dto;
 
 import com.stanzaliving.core.enums.PropertyEntityType;
 import com.stanzaliving.website.dto.WebsiteImageLibraryDto;
-import com.stanzaliving.website.enums.Gender;
 import lombok.*;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 @Builder
@@ -44,7 +44,7 @@ public class ApartmentLocationListingCardDto implements Serializable {
 
     private String apartmentCitySlug;
 
-    private PriceDto priceDto;
+    private ListingPriceDto listingPriceDto;
 
     private String pricingPlan;
 
@@ -52,22 +52,11 @@ public class ApartmentLocationListingCardDto implements Serializable {
 
     private Integer unlockDiscountAmount;
 
-    private String preBookingMode;
-
     private String googleMapLink;
 
     private double latitude;
 
     private double longitude;
-
-    //
-    private String virtualTourImage;
-
-    private String videoLink;
-
-    private Integer sortOrder;
-
-    private Integer secondSortOrder;
 
     private Double distanceFromPlace;
 
@@ -83,8 +72,6 @@ public class ApartmentLocationListingCardDto implements Serializable {
 
     private AddressResponseDTO addressResponseDTO;
 
-    private Integer residenceTypeId;
-
     private PropertyEntityType propertyEntityType;
 
     private List<Integer> featureIds;
@@ -95,15 +82,11 @@ public class ApartmentLocationListingCardDto implements Serializable {
 
     private List<WebsiteImageLibraryDto> images;
 
-    private int similarApartmentsCount;
-
     private boolean soldOut;
 
+    private Date singleRoomNextAvailableFrom;
+
+    private Date entireFlatNextAvailableFrom;
+
     private boolean isEntireFlatAvailable;
-
-    private List<ApartmentRoomTypeResponseDTO> apartmentRoomTypes;
-
-    private List<String> ventaRoomNumbers;
-
-    private boolean showDiscount;
 }
