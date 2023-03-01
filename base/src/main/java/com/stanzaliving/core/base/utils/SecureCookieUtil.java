@@ -1,5 +1,7 @@
 package com.stanzaliving.core.base.utils;
 
+import java.util.Enumeration;
+import java.util.Objects;
 import java.util.Optional;
 
 import javax.servlet.http.Cookie;
@@ -77,7 +79,7 @@ public class SecureCookieUtil {
 		cookie.setPath("/");
 
 		if (!isLocalFrontEnd) {
-			cookie.setDomain(cookie.getDomain());
+			cookie.setDomain(Objects.nonNull(cookie.getDomain()) ? cookie.getDomain() : StringUtils.isNotBlank(domainName) ? domainName : SecurityConstants.STANZA_DOMAIN);
 		}
 
 		return cookie;
@@ -89,7 +91,7 @@ public class SecureCookieUtil {
 		cookie.setPath("/");
 
 		if (!isLocalFrontEnd) {
-			cookie.setDomain(cookie.getDomain());
+			cookie.setDomain(Objects.nonNull(cookie.getDomain()) ? cookie.getDomain() : SecurityConstants.STANZA_DOMAIN);
 		}
 
 		return cookie;
@@ -100,14 +102,19 @@ public class SecureCookieUtil {
 		String frontEnv = request.getHeader(SecurityConstants.FRONT_ENVIRONMENT);
 		boolean isLocalFrontEnd = StringUtils.isNotBlank(frontEnv) && SecurityConstants.FRONT_ENVIRONMENT_LOCAL.equals(frontEnv);
 
-		Cookie[] cookies = request.getCookies();
 		String domainName = request.getHeader("origin");
 		if(StringUtils.isNotBlank(domainName)) {
 			if(domainName.trim().contains("://"))
 				domainName = domainName.substring(domainName.indexOf("://") + 3);
 		}
 		log.info("domainName {}", domainName);
-
+		Enumeration<String> headerNames = request.getHeaderNames();
+		if (headerNames != null) {
+			while (headerNames.hasMoreElements()) {
+				log.info("Header: " + request.getHeader(headerNames.nextElement()));
+			}
+		}
+		Cookie[] cookies = request.getCookies();
 		if (cookies != null) {
 			for (Cookie cookie : cookies) {
 				if (SecurityConstants.TOKEN_HEADER_NAME.equals(cookie.getName())) {
