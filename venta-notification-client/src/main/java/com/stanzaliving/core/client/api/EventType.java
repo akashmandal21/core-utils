@@ -51,7 +51,8 @@ public enum EventType {
     REMOTE_BOOKING_ROOM_SHIFT("REMOTE_BOOKING_ROOM_SHIFT"),
     REMOTE_BOOKING_FORFEITURE("REMOTE_BOOKING_FORFEITURE"),
     REMOTE_BOOKING_REFUND("REMOTE_BOOKING_REFUND"),
-    INCEPTION("Inception");
+    INCEPTION("Inception"),
+    MEDULLA_PARTNER("MEDULLA_PARTNER");
     private String commandText;
 
     EventType(String commandText)
