@@ -111,7 +111,8 @@ public class SecureCookieUtil {
 		Enumeration<String> headerNames = request.getHeaderNames();
 		if (headerNames != null) {
 			while (headerNames.hasMoreElements()) {
-				log.info("Header: " + request.getHeader(headerNames.nextElement()));
+				String headerName = headerNames.nextElement();
+				log.info("Header= " +  headerName + " : " + request.getHeader(headerName));
 			}
 		}
 		Cookie[] cookies = request.getCookies();
