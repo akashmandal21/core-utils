@@ -5,6 +5,7 @@ import lombok.experimental.UtilityClass;
 @UtilityClass
 public class DynamicSeoConstants {
 
+    public static final String WILDCARD_FOR_ELASTIC_DYNAMIC_URL = "nearby";
     public static final String URL_HYPHEN = "-";
     public static final String SPACE_VERTICAL_BAR_SPACE = " | ";
     public static final String HTML_LINE_SEPARATOR = " <br/> ";
