@@ -20,7 +20,7 @@ public class ApartmentLocationListingCardDto implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private int locationId;
+    private long locationId;
 
     private String name;
 
