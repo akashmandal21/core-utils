@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+import com.stanzaliving.operations.dto.request.ResidentServiceMixAddOnRequestDtoStayCuration;
 import com.stanzaliving.operations.dto.request.ResidentServiceMixVasRequestDto;
 import com.stanzaliving.operations.dto.response.ResidentServiceMixV2VasResponseDto;
 import org.apache.commons.collections.CollectionUtils;
@@ -810,7 +811,7 @@ public class OperationsClientApi {
         return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : null;
     }
 
-	public ResidentServiceMixV2VasResponseDto customizeVasForResident(ResidentServiceMixVasRequestDto residentServiceMixVasRequestDto) {
+	public ResidentServiceMixV2VasResponseDto customizeVasForResident(ResidentServiceMixAddOnRequestDtoStayCuration residentServiceMixVasRequestDto) {
 		final Map<String, Object> uriVariables = new HashMap<>();
 
 		String path = UriComponentsBuilder.fromPath("/internal/v2/resident/servicemix/customize/vas").buildAndExpand(uriVariables).toUriString();
