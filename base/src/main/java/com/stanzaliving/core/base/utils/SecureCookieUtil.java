@@ -115,8 +115,8 @@ public class SecureCookieUtil {
 				}
 			}
 			//Explicitly expiring cookie having domain - stanzaliving.com
-//			Cookie newCookie = new Cookie(SecurityConstants.TOKEN_HEADER_NAME, null);
-//			response.addCookie(SecureCookieUtil.expire(newCookie, isLocalFrontEnd, SecurityConstants.STANZA_DOMAIN));
+			Cookie newCookie = new Cookie(SecurityConstants.TOKEN_HEADER_NAME, null);
+			response.addCookie(SecureCookieUtil.expire(newCookie, isLocalFrontEnd, SecurityConstants.STANZA_DOMAIN));
 		}
 	}
 
