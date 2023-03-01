@@ -68,4 +68,6 @@ public class ServiceMixSerializableV2DtoStayCuration extends AbstractDto {
 
     private Map<String, String> tags;
 
+    private boolean stayCuration;
+
 }

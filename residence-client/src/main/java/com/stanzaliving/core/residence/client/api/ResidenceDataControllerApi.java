@@ -1439,13 +1439,14 @@ public class ResidenceDataControllerApi {
         }
     }
 
-    public ResponseDto<Map<String, Object>> fetchPackagedServiceData(String uuid) {
+    public ResponseDto<Map<String, Object>> fetchPackagedServiceData(String uuid, boolean isStay) {
 
         log.info("Residence-Data-Controller::Processing to fetch Package service for service-mix uuid {}", uuid);
 
         Map<String, Object> uriVariables = new HashMap();
 
         uriVariables.put("uuid", uuid);
+        uriVariables.put("stayCuration", isStay);
 
         String path = UriComponentsBuilder.fromPath("/internal/api/v1/packaged-service/{uuid}").buildAndExpand(uriVariables).toUriString();
 
