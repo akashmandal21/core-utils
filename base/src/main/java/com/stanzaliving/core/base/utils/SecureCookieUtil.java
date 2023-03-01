@@ -77,7 +77,7 @@ public class SecureCookieUtil {
 		cookie.setPath("/");
 
 		if (!isLocalFrontEnd) {
-//			cookie.setDomain(StringUtils.isNotBlank(domainName) ? domainName : SecurityConstants.STANZA_DOMAIN);
+			cookie.setDomain(cookie.getDomain());
 		}
 
 		return cookie;
@@ -89,7 +89,7 @@ public class SecureCookieUtil {
 		cookie.setPath("/");
 
 		if (!isLocalFrontEnd) {
-//			cookie.setDomain(SecurityConstants.STANZA_DOMAIN);
+			cookie.setDomain(cookie.getDomain());
 		}
 
 		return cookie;
