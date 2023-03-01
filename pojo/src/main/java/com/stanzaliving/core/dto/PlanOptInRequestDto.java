@@ -37,4 +37,7 @@ public class PlanOptInRequestDto {
     private Date lockInEndDate;
 
     private VasCategory category;
+
+    private double vasPriceAmount;
+
 }
