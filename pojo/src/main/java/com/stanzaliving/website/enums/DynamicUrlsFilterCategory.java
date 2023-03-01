@@ -9,9 +9,9 @@ import lombok.NoArgsConstructor;
 @Getter
 public enum DynamicUrlsFilterCategory {
 
-    PG_PAGE_IDENTIFIERS("Pg Page Identifiers"),
-    PG_CO_LIVING_PAGE_IDENTIFIERS("Pg Co-living Page Identifiers"),
-    APARTMENT_PAGE_IDENTIFIERS("Apartment Page Identifiers"),
+    PG_PAGE_IDENTIFIERS("PG templates and aliases"),
+    PG_CO_LIVING_PAGE_IDENTIFIERS("Coliving templates and aliases"),
+    APARTMENT_PAGE_IDENTIFIERS("Apartment templates and aliases"),
     CITY_FILTER("City"),
     MM_FILTER("Micromarket"),
     GENDER_FILTER("Gender"),
@@ -19,7 +19,7 @@ public enum DynamicUrlsFilterCategory {
     AMENITIES_FILTER("Amenities"),
     SERVICES_FILTER("Services"),
     BUDGET_FILTER("Budget"),
-    BHK_FILTER("BKH Types"),
+    BHK_FILTER("BKH Type"),
     ENTIRE_FLAT_FILTER("Entire Flat");
 
     private String filterCategoryName;
