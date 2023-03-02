@@ -47,6 +47,11 @@ public class DocumentRequestDto {
 
     private LocalDate executionDate;
 
+    @Builder.Default
+    private boolean ignoreRefundCheck = false;
+
+    private LocalDate moveOutDate;
+
     private PaymentPlanType callerServiceCategory;
 
     private String categoryUuid;
