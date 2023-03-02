@@ -74,12 +74,9 @@ public class NotificationProducer {
 				@Override
 				public void onSuccess(SendResult<String, String> result) {
 
-					if (log.isDebugEnabled()) {
+					log.debug("Sent Message=[topic: " + record.topic() + ", partition: " + record.partition() + ", messageId: " + messageId + "] with offset="
+							+ result.getRecordMetadata().offset() + " and timestamp= " + result.getRecordMetadata().timestamp());
 
-						log.debug("Sent Message=[topic: " + record.topic() + ", partition: " + record.partition() + ", messageId: " + messageId + "] with offset="
-								+ result.getRecordMetadata().offset() + " and timestamp= " + result.getRecordMetadata().timestamp());
-
-					}
 				}
 
 				@Override

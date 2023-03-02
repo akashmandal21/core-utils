@@ -101,13 +101,15 @@ public class ApartmentDetailedResponseDto implements Serializable {
 	private String fomoTagName;
 	
 	private String fomoTagcolour;
-	
-	private String description;
-	
+
 	private String seoTitle;
 	
 	private String seoDescription;
-	
+
+	private String description;
+
+	private String seoFaq;
+
 	private String transformationUuid;
 	
 	private String transformationId;

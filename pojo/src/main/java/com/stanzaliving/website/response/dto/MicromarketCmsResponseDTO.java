@@ -37,6 +37,7 @@ public class MicromarketCmsResponseDTO {
 	private String phone;
 	private String campaignSlug;
 	private String description;
+	private String seoFaq;
 	EnumListing<Status> status;
 	private Long reviewCount;
 	private Double rating;
@@ -57,6 +58,7 @@ public class MicromarketCmsResponseDTO {
 	private String apartmentSeoTitle;
 	private String apartmentSeoDescription;
 	private String apartmentMicromarketDescription;
+	private String apartmentMicromarketSeoFaq;
 
 	private double apartmentBumpUpPercentage;
 	private double apartmentDiscountPercentage;

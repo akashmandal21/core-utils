@@ -92,6 +92,8 @@ public class ApartmentListingCardDto implements Serializable {
 
 	private String seoDescription;
 
+	private String seoFaq;
+
 	private String transformationUuid;
 
 	private String transformationId;
