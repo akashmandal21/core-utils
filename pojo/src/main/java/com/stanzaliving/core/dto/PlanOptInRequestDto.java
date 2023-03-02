@@ -38,6 +38,8 @@ public class PlanOptInRequestDto {
 
     private VasCategory category;
 
+    private String planName;
+
     private double vasPriceAmount;
 
 }
