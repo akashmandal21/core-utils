@@ -1,6 +1,5 @@
 package com.stanzaliving.operations.mongo.entity.servicemix;
 
-
 import com.stanzaliving.operations.dto.servicemix.FoodMealDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
