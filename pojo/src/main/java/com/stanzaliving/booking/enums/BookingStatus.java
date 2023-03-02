@@ -460,7 +460,6 @@ public enum BookingStatus {
         bookingStatus.add(RENT_DEFAULTER_PAID.getBookingStatus());
         bookingStatus.add(RENT_DEFAULTER_UNPAID.getBookingStatus());
         bookingStatus.add(STAY_FORFEITURE.getBookingStatus());
-        bookingStatus.add(TRESSPASSER.getBookingStatus());
         return bookingStatus;
     }
 
