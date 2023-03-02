@@ -13,6 +13,8 @@ public class PendingApprovalSummaryDto {
     @Builder.Default
     private Integer serviceMixCount = 0;
     @Builder.Default
+    private Integer serviceMixCountStayCuration = 0;
+    @Builder.Default
     private Integer underWrittenCount = 0;
     @Builder.Default
     private Integer transformationCount = 0;
