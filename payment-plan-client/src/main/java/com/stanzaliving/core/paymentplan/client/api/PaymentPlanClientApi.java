@@ -1078,16 +1078,16 @@ public class PaymentPlanClientApi {
 
     }
 
-    public CompletableFuture<ResponseDto<Boolean>> createSubscriptionPaymentPlan(VasPaymentPlanRequestDTO vasPaymentPlanRequestDTO) {
+    public CompletableFuture<ResponseDto<Boolean>> createSubscriptionPaymentPlan(VasRequestDto vasRequestDto) {
 
         try {
-            Object postBody = vasPaymentPlanRequestDTO;
+            Object postBody = vasRequestDto;
 
-            log.info("Creating vas for booking id {} ", vasPaymentPlanRequestDTO.getReferenceId());
+            log.info("Creating vas payment plan request dto list {} ", vasRequestDto.getVasPaymentPlanRequestDtoList());
 
             final Map<String, Object> uriVariables = new HashMap<>();
 
-            String path = UriComponentsBuilder.fromPath("/internal/api/v1/create/vas").buildAndExpand(uriVariables)
+            String path = UriComponentsBuilder.fromPath("/internal/api/v1/create/vas/plans").buildAndExpand(uriVariables)
                     .toUriString();
 
             final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
@@ -1103,7 +1103,7 @@ public class PaymentPlanClientApi {
 
             return CompletableFuture.completedFuture(restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType));
         } catch (Exception e) {
-            log.error("error while creating the vas for booking {} error is {}", vasPaymentPlanRequestDTO.getReferenceId(), e);
+            log.error("Error while creating vas payment plan request dto list error", e);
         }
 
         return null;

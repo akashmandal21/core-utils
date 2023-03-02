@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 
@@ -15,11 +16,11 @@ import java.util.Date;
 @AllArgsConstructor
 public class OptedPlansRequestDto {
 
-    @NotNull(message = "planUuid cannot be null")
+    @NotBlank(message = "planUuid cannot be null")
     @Valid
     private String planUuid;
 
-    @NotNull(message = "planUuid cannot be null")
+    @NotNull(message = "optInDate cannot be null")
     @Valid
     private Date optInDate;
 }
