@@ -1446,11 +1446,11 @@ public class ResidenceDataControllerApi {
         Map<String, Object> uriVariables = new HashMap();
 
         uriVariables.put("uuid", uuid);
-        uriVariables.put("stayCuration", isStay);
 
         String path = UriComponentsBuilder.fromPath("/internal/api/v1/packaged-service/{uuid}").buildAndExpand(uriVariables).toUriString();
 
         MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+        queryParams.add("stayCuration", String.valueOf(isStay));
 
         HttpHeaders headerParams = new HttpHeaders();
 
