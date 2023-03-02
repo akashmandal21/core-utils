@@ -8,7 +8,7 @@ import lombok.*;
 @Getter
 @Setter
 @ToString
-public class PropertyLocationDetailsRequestDto {
+public class SocietyLocationRequestDto {
 
     private Long locationId;
     private String googleMapLink;
