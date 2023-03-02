@@ -33,6 +33,7 @@ public class CityCmsResponseDTO {
 	private String phone;
 	private String campaignSlug;
 	private String description;
+	private String seoFaq;
 	private String imageAltTag;
 	private String iconImageUrlAltTag;
 	private String cityImgUrl;
@@ -50,6 +51,7 @@ public class CityCmsResponseDTO {
 	private String apartmentSeoTitle;
 	private String apartmentSeoDescription;
 	private String apartmentCityDescription;
+	private String apartmentSeoFaq;
 
 	private String transformationUuid;
 	private Long transformationId;

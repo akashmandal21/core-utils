@@ -1439,7 +1439,7 @@ public class ResidenceDataControllerApi {
         }
     }
 
-    public ResponseDto<Map<String, Object>> fetchPackagedServiceData(String uuid) {
+    public ResponseDto<Map<String, Object>> fetchPackagedServiceData(String uuid, boolean isStay) {
 
         log.info("Residence-Data-Controller::Processing to fetch Package service for service-mix uuid {}", uuid);
 
@@ -1450,6 +1450,7 @@ public class ResidenceDataControllerApi {
         String path = UriComponentsBuilder.fromPath("/internal/api/v1/packaged-service/{uuid}").buildAndExpand(uriVariables).toUriString();
 
         MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+        queryParams.add("stayCuration", String.valueOf(isStay));
 
         HttpHeaders headerParams = new HttpHeaders();
 
