@@ -1,6 +1,7 @@
 package com.stanzaliving.core.residence.client.api;
 
 
+import com.stanzaliving.booking.dto.request.OptedPlansRequestDto;
 import com.stanzaliving.booking.dto.request.PricingStrategyRequestDto;
 import com.stanzaliving.booking.dto.response.InventoryPricingResponseDto;
 import com.stanzaliving.booking.dto.response.ServiceMixResponse;
@@ -2500,9 +2501,9 @@ public class ResidenceDataControllerApi {
         return null;
     }
 
-    public ResponseDto<Map<VasCategory, List<AlfredResidenceServiceDto>>> fetchOptedPlans(List<String> planUuids) {
+    public ResponseDto<Map<VasCategory, List<AlfredResidenceServiceDto>>> fetchOptedPlans(List<OptedPlansRequestDto> optedPlansRequestDtoList) {
 
-        log.info("Residence-Data-Controller::Processing to fetch plan details based on plan uuids {}", planUuids);
+        log.info("Residence-Data-Controller::Processing to fetch plan details based on optedPlansRequestDtoList {}", optedPlansRequestDtoList);
 
         final Map<String, Object> uriVariables = new HashMap<>();
 
@@ -2521,9 +2522,9 @@ public class ResidenceDataControllerApi {
         };
 
         try {
-            return this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, planUuids, headerParams, accept, returnType);
+            return this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, optedPlansRequestDtoList, headerParams, accept, returnType);
         } catch (Exception var13) {
-            log.error("Exception while fetching plan details based on plan uuids  {}", planUuids);
+            log.error("Exception while fetching plan details based on optedPlansRequestDtoList {}", optedPlansRequestDtoList);
             return null;
         }
     }
