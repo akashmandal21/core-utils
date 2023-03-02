@@ -1,9 +1,7 @@
 package com.stanzaliving.core.food.dto;
 
 import java.io.Serializable;
-import java.time.DayOfWeek;
 import java.time.LocalDate;
-import java.util.List;
 import java.util.Map;
 
 import com.stanzaliving.core.operations.enums.MealType;
@@ -30,5 +28,5 @@ public class UserMenuCategoryPlansDtoStayCuration implements Serializable {
     private LocalDate planEndDate;
     private String planId;
     private String planName;
-    private Map<MealType, List<DayOfWeek>> mealDays;
+    private Map<MealType, FoodMealDaysDetailsDto> mealDays;
 }
