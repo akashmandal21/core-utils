@@ -49,6 +49,8 @@ public class AlfredResidenceServiceDto {
 
     private String image;
 
+    private Object tag;
+
     private Date planStartDate;
 
     private Date planEndDate;
