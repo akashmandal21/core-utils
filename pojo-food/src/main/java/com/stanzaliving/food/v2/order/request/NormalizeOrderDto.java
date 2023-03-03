@@ -37,10 +37,10 @@ public class NormalizeOrderDto extends PaxCountRequestDto {
 
 	private List<MenuPaxCountRequestDto> menusPaxCount;
 
-	//@NotBlank(message = "Residence Id is mandatory")
+	@NotBlank(message = "Residence Id is mandatory")
 	private String residenceId;
 
-	//@NotNull(message = "Food Order Date is mandatory")
+	@NotNull(message = "Food Order Date is mandatory")
 	private LocalDate menuDate;
 
 
