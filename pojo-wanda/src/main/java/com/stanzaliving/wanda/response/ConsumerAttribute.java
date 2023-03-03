@@ -9,8 +9,6 @@ import lombok.Getter;
 @Getter
 public class ConsumerAttribute {
 
-    private String consumerResidenceMappingUuid;
-
     private String attributeName;
 
     private String attributeValue;
