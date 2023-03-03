@@ -3,6 +3,7 @@ package com.stanzaliving.core.securityservice.client.api;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.constants.SecurityConstants;
 import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.core.security.dto.AttendanceDataRequestDto;
 import com.stanzaliving.core.security.dto.ResidentActivityDTO;
 import com.stanzaliving.core.securityservice.client.dto.InternetAndFoodScanDataResponseDto;
 import lombok.extern.log4j.Log4j2;
@@ -15,6 +16,7 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import java.time.LocalDate;
 import java.util.*;
 
 @Log4j2
@@ -91,6 +93,37 @@ public class SecurityInternalControllerApi {
         } catch (Exception e) {
             log.info("Exception e {},", e);
             return null;
+        }
+    }
+
+    public Map<String, Integer> getResidenceAttendanceData(Set<String> residenceIds, LocalDate currentDate) {
+        log.info("Request received to getUserLatestInternetUsageAndFoodScanDates with residentIds: {} and date: {}", residenceIds, currentDate);
+
+        AttendanceDataRequestDto attendanceDataRequestDto = AttendanceDataRequestDto.builder()
+                .residenceIds(residenceIds)
+                .date(currentDate)
+                .build();
+        String path = UriComponentsBuilder.fromPath("/internal/presentAttendance/summary").toUriString();
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<Map<String, Integer>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<String, Integer>>>() {
+        };
+
+        try {
+            log.info("Executing security api to get user's last internet usage and food scan date");
+            return this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, attendanceDataRequestDto, headerParams, accept, returnType).getData();
+        } catch (Exception e) {
+            log.info("Exception e {},", e);
+            return new HashMap<>();
         }
     }
 

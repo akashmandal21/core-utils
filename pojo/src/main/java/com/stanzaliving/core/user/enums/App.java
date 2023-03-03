@@ -8,7 +8,8 @@ public enum App {
     SIGMA,
     ALFRED,
     NUCLEUS,
-    NEXUS;
+    NEXUS,
+    NUCLEUSX;
 
     public static Set<App> appsEligibleForUserSessionCheck(){
         Set<App> appSet = new HashSet<>();
@@ -16,6 +17,7 @@ public enum App {
         appSet.add(ALFRED);
         appSet.add(NEXUS);
         appSet.add(NUCLEUS);
+        appSet.add(NUCLEUSX);
         return appSet;
     }
 
