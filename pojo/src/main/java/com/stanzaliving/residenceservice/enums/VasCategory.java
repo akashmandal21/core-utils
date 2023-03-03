@@ -19,16 +19,16 @@ import java.util.Map;
 public enum VasCategory {
 
     FOOD("Food"),
-    ROOM("Room"),
     LAUNDRY("Laundry"),
-    ELECTRICITY("Electricity"),
-    TRANSPORT("Transport"),
-    MAINTENANCE("Maintenance"),
-    PARKING("Parking"),
-    HOUSEKEEPING("Housekeeping"),
     INTERNET("Internet"),
+    ELECTRICITY("Electricity"),
+    HOUSEKEEPING("Housekeeping"),
+    MAINTENANCE("Maintenance"),
     SECURITY("Security"),
+    TRANSPORT("Transport"),
     FITNESS("Fitness"),
+    PARKING("Parking"),
+    ROOM("Room"),
     TESTING("Testing"),
     OTHER("Other");
 
