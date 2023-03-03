@@ -2464,7 +2464,7 @@ public class ResidenceDataControllerApi {
         return Collections.emptyList();
     }
 
-    public ResponseDto<Map<VasCategory, List<AlfredResidenceServiceDto>>> getPlansByServiceMix(String serviceMixUuid, List<VasCategory> vasCategoryList,  boolean includeDeprecated) {
+    public ResponseDto<Map<VasCategory, List<AlfredResidenceServiceDto>>> getPlansByServiceMix(String serviceMixUuid, List<VasCategory> vasCategoryList,  boolean includeDeprecated, Date moveIn) {
 
         log.info("Residence-Data-Controller::Processing to get plan details based on serviceMixUuid {}", serviceMixUuid);
 
@@ -2480,6 +2480,8 @@ public class ResidenceDataControllerApi {
         }
 
         queryParams.put("includeDeprecated", Collections.singletonList(String.valueOf(includeDeprecated)));
+
+        queryParams.put("moveIn", Collections.singletonList(moveIn.toString()));
 
         String path = UriComponentsBuilder.fromPath("/stay-curation/internal/paid-services/service-mix/{serviceMixUuid}/plans/").buildAndExpand(uriVariables).toUriString();
 

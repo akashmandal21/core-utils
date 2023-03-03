@@ -42,4 +42,6 @@ public class PlanOptInRequestDto {
 
     private double vasPriceAmount;
 
+    private double breakageFee;
+
 }
