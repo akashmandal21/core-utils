@@ -11,6 +11,7 @@ import lombok.*;
 public class PropertyLocationSeoDetailsRequestDto {
 
     private Long locationId;
+    private String description;
     private String seoTitle;
     private String seoDescription;
 }
