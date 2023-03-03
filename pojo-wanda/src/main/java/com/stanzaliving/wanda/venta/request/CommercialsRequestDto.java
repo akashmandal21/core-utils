@@ -28,4 +28,5 @@ public class CommercialsRequestDto {
     private String serviceMixName;
     private String newPriceStrategyCard;
     private Double newMonthlyRent;
+
 }
