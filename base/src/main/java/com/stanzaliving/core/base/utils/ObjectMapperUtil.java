@@ -4,7 +4,7 @@
 package com.stanzaliving.core.base.utils;
 
 import java.io.IOException;
-import java.util.List;
+import java.util.Objects;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -63,6 +63,18 @@ public class ObjectMapperUtil {
 				t = mapper.readValue(value, typeReference);
 			} catch (IOException e) {
 				log.error("Error while parsing json to object: {}", e.getMessage());
+			}
+		}
+		return t;
+	}
+
+	public <T> T convertObjectByTypeReference(Object value, TypeReference<T> typeReference) {
+		T t = null;
+		if (Objects.nonNull(value)) {
+			try {
+				t = mapper.convertValue(value, typeReference);
+			} catch (Exception e) {
+				log.error("Error while converting object to typeReference object type: {}", e.getMessage());
 			}
 		}
 		return t;
