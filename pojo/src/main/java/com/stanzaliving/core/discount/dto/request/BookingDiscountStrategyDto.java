@@ -25,4 +25,5 @@ public class BookingDiscountStrategyDto {
 	private Integer advanceRentalFirstMonths;
 	private Integer advanceRentalLastMonths;
 	private Integer lastAdvanceRentalDays;
+	private boolean remoteBooking;
 }
