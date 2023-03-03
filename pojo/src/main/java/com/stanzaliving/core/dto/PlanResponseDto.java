@@ -29,6 +29,6 @@ public class PlanResponseDto {
 
     private String serviceMixUuid;
 
-    private PlanTypeEnum planType;
+    private String planType;
 
 }
