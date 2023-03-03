@@ -58,6 +58,6 @@ public class AlfredResidenceServiceDto {
 
     private boolean optedOut;
 
-    private PlanTypeEnum planType;
+    private String planType;
 
 }
