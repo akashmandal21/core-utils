@@ -30,3 +30,4 @@ public class ExtraFoodOrderDetail {
     private Map<MealType, Boolean> mealType;
 
 }
+

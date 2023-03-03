@@ -8,6 +8,7 @@ import java.util.Set;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+
 @Getter
 @AllArgsConstructor
 public enum LeadStatus {
@@ -19,8 +20,9 @@ public enum LeadStatus {
 	VISIT_SCHEDULED("Visit Scheduled"),
 	VISIT_STARTED("Visit Started"),
 	VISIT_COMPLETED("Visit Completed"),
-	BOOKED("Booked"),
-	MOVED_OUT("Moved Out");
+
+	MOVED_OUT("Moved Out"),
+	BOOKED("Booked");
 	
 	private final String statusDescription;
 	

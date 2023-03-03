@@ -64,7 +64,6 @@ public class ApartmentCmsDetailsResponseDTO implements Serializable {
 	private String googlePlaceId;
 	private String virtualTourImage;
 	private String videoLink;
-	private String videoLink2;
 	private String cardCTAName;
 	private Integer cardCTAId;
 	private String leadFormModeName;

@@ -539,10 +539,14 @@ public class UserClientApi {
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-
+<<<<<<< HEAD
+=======
 		queryParams.add("includeDeactivated", "true");
 
 		final HttpHeaders headerParams = new HttpHeaders();
+>>>>>>> 7cd5c7b649fb704ed0250d8bb5ea00d0c1e0c664
+
+		queryParams.add("includeDeactivated", "true");
 
 		final String[] accepts = {
 				"*/*"

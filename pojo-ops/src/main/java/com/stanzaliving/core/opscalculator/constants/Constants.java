@@ -93,5 +93,14 @@ public class Constants {
 	public static final BigDecimal MONTHS_BIGDECIMAL =  new BigDecimal(12);
 	public static final BigDecimal DAYS_IN_MONTH_IN_BIGDECIMAL = new BigDecimal(30);
 	public static final BigDecimal DAYS_IN_YEAR_IN_BIGDECIMAL = new BigDecimal(365);
+	public static final BigDecimal DAYS_IN_WEEK_IN_BIGDECIMAL = new BigDecimal(7);
+	public static final int ZERO = 0;
+	public static final BigDecimal SIX_VALUE_IN_BIGDECIMAL = new BigDecimal(6);
+	public static final int DEFUALT_BUILDING_MAINTENANCE_CHARGES = 45;
+	public static final int INTERNET_DEFUALT_MG_OCCUPANCY_PERCENT = 90;
+	public static final int INTERNET_DEFAULT_PLAN_RATE = 225;
+	public static final int INTERNET_DEFUALT_INFRA_CHARGES = 20;
+	public static final BigDecimal UNIFORM_DEFUALT_RATE_RM = new BigDecimal(18000);
+
 
 }
