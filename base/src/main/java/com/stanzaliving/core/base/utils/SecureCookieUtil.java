@@ -71,6 +71,18 @@ public class SecureCookieUtil {
 		return cookie;
 	}
 
+	public static Cookie expire(Cookie cookie, boolean isLocalFrontEnd, String domainName) {
+		cookie.setMaxAge(0);
+		cookie.setValue(null);
+		cookie.setPath("/");
+
+		if (!isLocalFrontEnd) {
+			cookie.setDomain(StringUtils.isNotBlank(domainName) ? domainName : SecurityConstants.STANZA_DOMAIN);
+		}
+
+		return cookie;
+	}
+
 	public static Cookie expire(Cookie cookie, boolean isLocalFrontEnd) {
 		cookie.setMaxAge(0);
 		cookie.setValue(null);
@@ -89,14 +101,22 @@ public class SecureCookieUtil {
 		boolean isLocalFrontEnd = StringUtils.isNotBlank(frontEnv) && SecurityConstants.FRONT_ENVIRONMENT_LOCAL.equals(frontEnv);
 
 		Cookie[] cookies = request.getCookies();
+		String domainName = request.getHeader("origin");
+		if(StringUtils.isNotBlank(domainName)) {
+			if(domainName.trim().contains("://"))
+				domainName = domainName.substring(domainName.indexOf("://") + 3);
+		}
+		log.info("domainName {}", domainName);
 
 		if (cookies != null) {
 			for (Cookie cookie : cookies) {
-
 				if (SecurityConstants.TOKEN_HEADER_NAME.equals(cookie.getName())) {
-					response.addCookie(SecureCookieUtil.expire(cookie, isLocalFrontEnd));
+					response.addCookie(SecureCookieUtil.expire(cookie, isLocalFrontEnd, domainName));
 				}
 			}
+			//Explicitly expiring cookie having domain - stanzaliving.com
+			Cookie newCookie = new Cookie(SecurityConstants.TOKEN_HEADER_NAME, null);
+			response.addCookie(SecureCookieUtil.expire(newCookie, isLocalFrontEnd, SecurityConstants.STANZA_DOMAIN));
 		}
 	}
 

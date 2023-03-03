@@ -27,4 +27,7 @@ public class AddressResponseDTO implements Serializable{
 	private double longitude;
 	private String phone;
 	private String mobile;
+	private String displayAddressLine1;
+	private String displayAddressLine2;
+	private String displayAddress;
 }

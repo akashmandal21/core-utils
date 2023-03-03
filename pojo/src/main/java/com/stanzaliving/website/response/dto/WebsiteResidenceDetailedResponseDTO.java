@@ -1,13 +1,10 @@
 package com.stanzaliving.website.response.dto;
 
 import java.io.Serializable;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 import com.stanzaliving.core.enums.PropertyEntityType;
+import com.stanzaliving.website.dto.WebsiteImageLibraryDto;
 import com.stanzaliving.website.enums.FomoTag;
 import com.stanzaliving.website.enums.Gender;
 
@@ -47,13 +44,15 @@ public class WebsiteResidenceDetailedResponseDTO implements Serializable {
 	private String cityName;
 	
 	private String citySlug;
-	
-	private String description;
-	
+
 	private String seoTitle;
 	
 	private String seoDescription;
-	
+
+	private String description;
+
+	private String seoFaq;
+
 	private String pricingPlan;
 	
 	private int startingPrice;
@@ -71,6 +70,10 @@ public class WebsiteResidenceDetailedResponseDTO implements Serializable {
 	private Integer preBookingAmount;
 
 	private Integer unlockDiscountAmount;
+
+	private double discountPercentage;
+
+	private Integer discountedPrice;
 	
 	private String preBookingMode;
 	
@@ -89,6 +92,8 @@ public class WebsiteResidenceDetailedResponseDTO implements Serializable {
 	private String googleMapLink;
 	
 	private String videoLink;
+
+	private String videoLink2;
 	
 	private String virtualTourImage;
 	
@@ -109,8 +114,7 @@ public class WebsiteResidenceDetailedResponseDTO implements Serializable {
 	@Builder.Default
 	private List<ResidenceOccupancyResponseDTO> residenceOccupancies = Collections.emptyList();
 
-	@Builder.Default
-	private Collection<ImageResponseDTO> images = new HashSet<>();
+	private List<WebsiteImageLibraryDto> images;
 
 	@Builder.Default
 	private Set<ResidenceNearbyLocationResponseDTO> residenceNearbyLocations = new HashSet<>();

@@ -10,6 +10,7 @@ import java.util.Map;
 @AllArgsConstructor
 public enum ApartmentType {
 
+
     ONE_BHK("1BHK", 1),
     TWO_BHK("2BHK", 2),
     THREE_BHK("3BHK", 3),

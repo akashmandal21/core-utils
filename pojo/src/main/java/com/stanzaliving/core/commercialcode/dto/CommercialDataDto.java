@@ -1,5 +1,7 @@
 package com.stanzaliving.core.commercialcode.dto;
 
+import com.stanzaliving.booking.enums.BookingSubType;
+import com.stanzaliving.booking.enums.PaymentFrequency;
 import lombok.Data;
 
 import java.util.List;
@@ -12,4 +14,14 @@ public class CommercialDataDto {
    private boolean disabled;
    private boolean autoApplicable;
    private List<String> applicabilityCriteria;
+   private BookingSubType bookingSubType;
+   private PlatformType platform;
+   private PaymentFrequency paymentFrequency;
+   private Double monthlyRent;
+   private String showMonthlyRent;
+   private Double monthlyRentWithPriceImpact;
+   private Double priceImpact;
+   private Integer tenureSortKey;
+   private Double gstWithPriceImpact;
+
 }

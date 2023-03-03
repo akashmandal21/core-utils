@@ -6,7 +6,7 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum BookingEventEnum {
-	BOOKING_CREATED("Booking Created"),
+    BOOKING_CREATED("Booking Created"),
     GUEST_BOOKING_CREATED("Guest Booking Created"),
     BOOKING_DETAILS_UPDATED("Booking Details Updated"),
     INITIATE_BOOKING("Initiate Booking"),
@@ -38,6 +38,7 @@ public enum BookingEventEnum {
     AUDIT_APPROVED("Audit Approved"),
     AUDIT_APPROVED_EMAIL("Audit Approved Email"),
     AUDIT_REJECTED("Audit Rejected"),
+    AUDIT_RESCHEDULED("Audit Rescheduled"),
     ADDENDUM_SIGNED("Addendum Signed"),
     LEAD_BOOKED("Lead Booked"),
     BOOKING_AMOUNT_PENDING("Booking Amount Pending"),
@@ -81,17 +82,14 @@ public enum BookingEventEnum {
     ALFRED_MOVE_IN_DATE_CHANGE("Move in date is changed by Resident from Alfred App"),
     ROOM_CHANGE_REQUESTED("Room change request created"),
     CONTRACT_EXTENSION_REQUESTED("contract extension request created"),
-    CONTRACT_MODIFIED("Contract is modified successfully");
+    CONTRACT_MODIFIED("Contract is modified successfully"),
+    CONTRACT_START_DATE_CROSSED("Contract Start Date Crossed"),
+    BOOKING_AUTO_FORFEITURE("Booking Auto Forfeiture"),
+    REMOTE_BOOKING_FORFEITURE("Remote Booking Forfeiture"),
+    REMOTE_BOOKING_ROOM_SHIFT("Remote Booking Room Shift"),
 
+    REMOTE_BOOKING_REFUND("Remote Booking Refund");
 
-
-
-
-
-
-
-
-
-    String eventName;
+    private final String eventName;
 
 }

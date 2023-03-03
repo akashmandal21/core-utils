@@ -24,4 +24,6 @@ public class BookingDiscountStrategyDto {
 	private String residenceUuid;
 	private Integer advanceRentalFirstMonths;
 	private Integer advanceRentalLastMonths;
+	private Integer lastAdvanceRentalDays;
+	private boolean remoteBooking;
 }

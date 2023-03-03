@@ -74,5 +74,5 @@ public class TicketDto {
     private String assignedToRoleUuid;
     private String expandableBarColor;
     private Boolean satisfied;
-
+    private String slaMessage;
 }

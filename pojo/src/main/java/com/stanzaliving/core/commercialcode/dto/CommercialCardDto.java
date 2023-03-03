@@ -1,6 +1,9 @@
 package com.stanzaliving.core.commercialcode.dto;
 
 import com.stanzaliving.booking.enums.BookingStatus;
+import com.stanzaliving.booking.enums.BookingSubType;
+import com.stanzaliving.booking.enums.PaymentFrequency;
+import com.stanzaliving.booking.enums.ResidenceAgreementType;
 import com.stanzaliving.commercialcard.enums.CommercialCardUserType;
 import lombok.*;
 
@@ -18,11 +21,21 @@ public class CommercialCardDto {
     private CommercialCardUserType commercialCardUserType;
 
     private Double monthlyRent;
+
+    private Double monthlyGST;
+
+    private ResidenceAgreementType residenceAgreementType;
     
     private Boolean modifyContractFlow = Boolean.FALSE;
 
     private String appliedCommercialCard;
 
     private BookingStatus bookingStatus;
+
+    private BookingSubType bookingSubType;
+
+    private PlatformType platform;
+
+    private PaymentFrequency paymentFrequency;
 
 }

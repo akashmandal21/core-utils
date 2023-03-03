@@ -3,6 +3,7 @@
  */
 package com.stanzaliving.core.food.dto;
 
+import java.io.Serializable;
 import java.time.LocalTime;
 import java.util.List;
 
@@ -25,7 +26,9 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class FoodMenuDto {
+public class FoodMenuDto implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	private String foodMenuUuid;
 

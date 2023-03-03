@@ -93,7 +93,7 @@ public enum BookingSubStatus {
         return bookingStatus;
     }
 
-    public static Set<String> exitProcessBookingSubStatuses(){
+    public static Set<String> exitProcessBookingSubStatuses() {
         Set<String> bookingStatus = new HashSet<>();
         bookingStatus.add(EXIT_INITIATED.getBookingSubStatus());
         bookingStatus.add(KEY_HANDOVER_PENDING.getBookingSubStatus());
@@ -101,7 +101,15 @@ public enum BookingSubStatus {
         return bookingStatus;
     }
 
+    public static Set<BookingSubStatus> cleverTapBookingSubStatus() {
+        Set<BookingSubStatus> bookingSubStatus = new HashSet<>();
+        bookingSubStatus.add(BookingSubStatus.EXIT_INITIATED);
+        bookingSubStatus.add(BookingSubStatus.PERSONAL_DETAILS_PENDING);
+        bookingSubStatus.add(BookingSubStatus.BOOKING_AMOUNT_PENDING);
+        bookingSubStatus.add(BookingSubStatus.PAYMENT_PENDING);
 
 
+        return bookingSubStatus;
+    }
 
 }

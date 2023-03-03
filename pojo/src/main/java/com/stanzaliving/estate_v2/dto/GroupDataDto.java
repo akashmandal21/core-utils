@@ -18,5 +18,6 @@ public class GroupDataDto {
     private String groupApprovalStatus;
     private boolean legalInfoGroup;
     private boolean legalDocumentInfoGroup;
+    private List<String> legalUploadGroupRoles;
     private List<String> legalGroupRoles;
 }

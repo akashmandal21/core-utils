@@ -1,13 +1,10 @@
 package com.stanzaliving.website.response.dto;
 
 import java.io.Serializable;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 import com.stanzaliving.core.enums.PropertyEntityType;
+import com.stanzaliving.website.dto.WebsiteImageLibraryDto;
 import com.stanzaliving.website.elasticsearch.index.dto.WebsitePlaceIndexDto;
 import com.stanzaliving.website.enums.FomoTag;
 import com.stanzaliving.website.enums.Gender;
@@ -44,6 +41,8 @@ public class ApartmentDetailedResponseDto implements Serializable {
 	private String slug;
 	
 	private String roomId;
+
+	private String roomNumber;
 	
 	private Gender gender;
 	
@@ -88,6 +87,8 @@ public class ApartmentDetailedResponseDto implements Serializable {
 	private double longitude;
 	
 	private String videoLink;
+
+	private String videoLink2;
 	
 	private String virtualTourImage;
 	
@@ -100,20 +101,22 @@ public class ApartmentDetailedResponseDto implements Serializable {
 	private String fomoTagName;
 	
 	private String fomoTagcolour;
-	
-	private String description;
-	
+
 	private String seoTitle;
 	
 	private String seoDescription;
-	
+
+	private String description;
+
+	private String seoFaq;
+
 	private String transformationUuid;
 	
 	private String transformationId;
 	
 	private AddressResponseDTO address;
 	
-	private Integer discountPercentage;
+	private double discountPercentage;
 	
 	private Integer discountedPrice;
 	
@@ -131,9 +134,10 @@ public class ApartmentDetailedResponseDto implements Serializable {
 	
 	@Builder.Default
 	private List<ApartmentRoomTypeResponseDTO> apartmentRoomTypes = Collections.emptyList();
+
+	private List<String> ventaRoomNumbers;
 	
-	@Builder.Default
-	private Collection<ImageResponseDTO> images = new HashSet<>();
+	private List<WebsiteImageLibraryDto> images;
 	
 	@Builder.Default
 	private Set<ResidenceNearbyLocationResponseDTO> residenceNearbyLocations = new HashSet<>(0);
@@ -149,4 +153,8 @@ public class ApartmentDetailedResponseDto implements Serializable {
 	private List<ApartmentResponseDto> otherRooms;
 	
 	private WebsitePlaceIndexDto placeIndexDto;
+
+	private boolean showDiscount;
+
+	private Integer inventoryPrice;
 }

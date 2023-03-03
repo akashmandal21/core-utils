@@ -106,6 +106,8 @@ public class NewLedgerLineItemResponseDto implements Comparable {
 		String AMOUNT_CARRYFORWARDED="Amount Carry-forwarded";
 		String WRITE_OFF="Write Off";
 		String PAYMENT_REFUNDED = "Payment Refunded";
+
+		String BOOKING_AMOUNT_REALISATION_CARRY_FORWARD = "Booking amount realisation carry forward";
 	}
 
 	public interface TRANSACTION_TYPE {

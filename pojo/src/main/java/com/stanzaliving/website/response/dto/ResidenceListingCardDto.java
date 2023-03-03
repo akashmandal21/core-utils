@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import com.stanzaliving.core.enums.PropertyEntityType;
+import com.stanzaliving.website.dto.WebsiteImageLibraryDto;
 import com.stanzaliving.website.enums.FomoTag;
 import com.stanzaliving.website.enums.Gender;
 
@@ -54,6 +55,10 @@ public class ResidenceListingCardDto implements Serializable {
 
 	private Integer unlockDiscountAmount;
 
+	private double discountPercentage;
+
+	private Integer discountedPrice;
+
 	private String preBookingMode;
 
 	private String googleMapLink;
@@ -84,6 +89,12 @@ public class ResidenceListingCardDto implements Serializable {
 
 	private Integer residenceAddressId;
 
+	private String seoTitle;
+
+	private String seoDescription;
+
+	private String seoFaq;
+
 	private AddressResponseDTO addressResponseDTO;
 	
 	private Integer residenceTypeId;
@@ -96,5 +107,5 @@ public class ResidenceListingCardDto implements Serializable {
 
 	private List<ResidenceOccupancyResponseDTO> residenceOccupancies;
 
-	private List<ImageResponseDTO> images;
+	private List<WebsiteImageLibraryDto> images;
 }

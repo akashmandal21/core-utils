@@ -9,6 +9,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
+import com.stanzaliving.wanda.dtos.*;
 import com.stanzaliving.core.base.exception.BaseMarker;
 import com.stanzaliving.wanda.venta.response.BookingStatusResponseDto;
 import org.springframework.core.ParameterizedTypeReference;
@@ -18,28 +19,22 @@ import org.springframework.http.MediaType;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
-
 import com.stanzaliving.core.backend.dto.UserHostelDto;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.internet.response.UserCurrentPlanDetailDto;
 import com.stanzaliving.transformations.pojo.ResidenceUIDto;
 import com.stanzaliving.venta.OccupiedRoomDto;
-import com.stanzaliving.wanda.dtos.BankDetailsDto;
-import com.stanzaliving.wanda.dtos.FeaturephoneUserDto;
-import com.stanzaliving.wanda.dtos.FullUserDto;
-import com.stanzaliving.wanda.dtos.LocationDetailsListDto;
-import com.stanzaliving.wanda.dtos.ResidentProfessionalDetailsDto;
-import com.stanzaliving.wanda.dtos.UserCodeIdMapDto;
-import com.stanzaliving.wanda.dtos.UserDetailDto;
-import com.stanzaliving.wanda.dtos.UserHostelDetailsDto;
 import com.stanzaliving.wanda.food.request.DemographicsRequestDto;
 import com.stanzaliving.wanda.food.response.FoodRegionPreferenceResponse;
 import com.stanzaliving.wanda.response.OnBoardingGetResponse;
 import com.stanzaliving.wanda.response.ResidentKYCDocumentResponseDtoV2;
+import com.stanzaliving.wanda.response.UserInternetStatusInfoDto;
 import com.stanzaliving.wanda.response.WandaFileResponseDto;
 import com.stanzaliving.wanda.response.WandaResponse;
-
 import lombok.extern.log4j.Log4j2;
+import java.util.Collections;
+
 
 @Log4j2
 public class WandaClientApi {
@@ -179,6 +174,39 @@ public class WandaClientApi {
 		return null;
 	}
 
+	public List<FeaturephoneUserDto> getFeaturePhoneUsersV2(String residenceId, Boolean featurePhone, String residentCode) {
+
+      try {
+          Object postBody = null;
+
+          log.info("Received request to get Feature phone user dto of residenceId: {}", residenceId);
+
+          final Map<String, Object> uriVariables = new HashMap<>();
+
+          String path = UriComponentsBuilder.fromPath("/coreApi/user/list/feature/phone/v2").buildAndExpand(uriVariables)
+                  .toUriString();
+
+          final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+          queryParams.add("hostel", residenceId);
+          queryParams.add("featurePhone", Objects.nonNull(featurePhone) ? featurePhone.toString() : null);
+          queryParams.add("residentCode", residentCode);
+
+          final HttpHeaders headerParams = new HttpHeaders();
+
+          final String[] accepts = { "*/*" };
+          final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+          ParameterizedTypeReference<List<FeaturephoneUserDto>> returnType = new ParameterizedTypeReference<List<FeaturephoneUserDto>>() {
+          };
+
+          return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+      } catch (Exception e) {
+          log.error(BaseMarker.WANDA_API_ERROR,"Error while fetching feature phone users for hostel: " + residenceId, e);
+      }
+
+      return null;
+  }
+
 	public List<UserHostelDetailsDto> getUserHostelDetails(String hostelId) {
 		return getUserHostelDetails(hostelId, false);
 	}
@@ -245,6 +273,23 @@ public class WandaClientApi {
 
 		return Objects.nonNull(responseDto) ? responseDto : new ArrayList<>();
 
+	}
+
+	public List<UserHostelDto> getUserHostelByHostelId(String hostelId) {
+		log.info("Received request to get UserHostelDto by HostelId: {}", hostelId);
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("hostelId", hostelId);
+
+		String path = UriComponentsBuilder.fromPath("/coreApi/user/list/hostel/{hostelId}").buildAndExpand(uriVariables).toUriString();
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {"*/*"};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+		ParameterizedTypeReference<List<UserHostelDto>> returnType = new ParameterizedTypeReference<List<UserHostelDto>>() {
+		};
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
 	}
 
 
@@ -825,6 +870,29 @@ public class WandaClientApi {
 		return null;
 	}
 
+	public ResponseDto<UpiDetailsDto> getUpiDetailsForUserId(String userId) {
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("userId", userId);
+
+		String path = UriComponentsBuilder.fromPath("/internal/upi/{userId}").buildAndExpand(uriVariables).toUriString();
+
+		MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		HttpHeaders headerParams = new HttpHeaders();
+		String[] accepts = new String[]{"*/*"};
+		List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<UpiDetailsDto>> returnType = new ParameterizedTypeReference<ResponseDto<UpiDetailsDto>>() {
+		};
+		try {
+			log.info("Executing Api for getting bank account details with Url {}", path);
+			return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error(BaseMarker.WANDA_API_ERROR,"Exception while fetching bank account details based on userId " + userId, e);
+		}
+		return null;
+	}
+
 	public boolean updateHostelOfUserByUserCode(String userCode, String hostelId) {
 
 		Object postBody = null;
@@ -928,4 +996,89 @@ public class WandaClientApi {
 		return null;
 	}
 
+	public ResponseDto<Boolean> saveUpiDetails(UpiDetailsDto upiDetailsDto) {
+		Object postBody = upiDetailsDto;
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/internal/upi").buildAndExpand(uriVariables).toUriString();
+
+		MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		HttpHeaders headerParams = new HttpHeaders();
+		String[] accepts = new String[]{"*/*"};
+		List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<Boolean>> returnType = new ParameterizedTypeReference<ResponseDto<Boolean>>() {
+		};
+		try {
+			log.info("Executing Api for saving upi account details with Url {} on upiDetailsDto {} ", path,upiDetailsDto);
+			return this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Exception while saving upi account details based on upiDetailsDto {}, Exception is {}", upiDetailsDto, e);
+		}
+		return null;
+	}
+
+	public ResponseDto<UserCurrentPlanDetailDto> getUserInternetUsage(String userId, String residenceUuid) {
+		try {
+
+			log.info("Received request to get UserInternetUsage of userUuid {}", userId);
+
+			final Map<String, Object> uriVariables = new HashMap<>();
+
+			String path = UriComponentsBuilder.fromPath("/internal/internet/usage")
+					.buildAndExpand(uriVariables).toUriString();
+
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+			queryParams.put("residenceId", Collections.singletonList(residenceUuid));
+			queryParams.put("userId", Collections.singletonList(userId));
+
+			final HttpHeaders headerParams = new HttpHeaders();
+
+			final String[] accepts = { "*/*" };
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+			ParameterizedTypeReference<ResponseDto<UserCurrentPlanDetailDto>> returnType =
+					new ParameterizedTypeReference<ResponseDto<UserCurrentPlanDetailDto>>() {
+					};
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Error while fetching Internet Usage for userUuid: {}", userId, e);
+		}
+
+		return ResponseDto.failure("Failed to get internet usage");
+	}
+
+	public ResponseDto<UserInternetStatusInfoDto> getUserInternetPlan(String userId, String residenceUuid) {
+		try {
+
+			log.info("Received request to get UserInternetPlan of userUuid {}", userId);
+
+			final Map<String, Object> uriVariables = new HashMap<>();
+
+			String path = UriComponentsBuilder.fromPath("/internal/internet/plan")
+					.buildAndExpand(uriVariables).toUriString();
+
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+			queryParams.put("residenceId", Collections.singletonList(residenceUuid));
+			queryParams.put("userId", Collections.singletonList(userId));
+
+			final HttpHeaders headerParams = new HttpHeaders();
+
+			final String[] accepts = { "*/*" };
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+			ParameterizedTypeReference<ResponseDto<UserInternetStatusInfoDto>> returnType =
+					new ParameterizedTypeReference<ResponseDto<UserInternetStatusInfoDto>>() {
+					};
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Error while fetching Internet Plan for userUuid: {}", userId, e);
+		}
+
+		return ResponseDto.failure("Failed to get Plan details");
+	}
 }

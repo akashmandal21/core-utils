@@ -36,7 +36,6 @@ import com.stanzaliving.po.generic.dto.TOTemplateDto;
 import com.stanzaliving.po.model.PoAggregationDto;
 import com.stanzaliving.po.model.PoResponse;
 import com.stanzaliving.po.model.PropertyPoStatusSummaryDto;
-
 import lombok.extern.log4j.Log4j2;
 
 @Log4j2
@@ -688,7 +687,7 @@ public class POClientApi {
         
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 	}
-	
+
     public ResponseDto<String> getPoPdfAndSendEmail(String poUuid, EmailDto emailDto) {
 
         log.info("HTTP Client call to get PO Pdf{} ", poUuid);
@@ -924,4 +923,30 @@ public class POClientApi {
 
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, map, headerParams, accept, vddReturnType);
     }
+
+    public ResponseDto<List<String>> getPoToUuidsForPropertyUuid(String propertyUuid) {
+
+        log.info("HTTP Client call to get poToUuids");
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("propertyUuid", propertyUuid);
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        Map<String, List<String>> map = new HashMap<>();
+
+        ParameterizedTypeReference<ResponseDto<List<String>>> vddReturnType = new ParameterizedTypeReference<ResponseDto<List<String>>>() {
+        };
+
+        String path = UriComponentsBuilder.fromPath("internal/getPoToUuids/{propertyUuid}").buildAndExpand(uriVariables).toUriString();
+
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, map, headerParams, accept, vddReturnType);
+    }
+
 }

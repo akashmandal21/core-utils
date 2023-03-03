@@ -45,9 +45,10 @@ public class PersonnelCategoryV2Dto extends CategoryV2Dto {
 	private int sgCount;
 	private int sgCountSuggested;
 	private String sgCountSuggestedReason;
-	@ValidEnum(enumClass = SecurityGuardType.class, fieldName = "SecurityGuardType")
+
+	@ValidEnum(enumClass = SecurityGuardType.class, fieldName = "HouseKeepingType")
 	private SecurityGuardType sgType;
-	@ValidEnum(enumClass = SecurityGuardType.class, fieldName = "SecurityGuardType")
+	@ValidEnum(enumClass = SecurityGuardType.class, fieldName = "HouseKeepingType")
 	private SecurityGuardType sgTypeSuggested;
 	private String sgTypeSuggestedReason;
 

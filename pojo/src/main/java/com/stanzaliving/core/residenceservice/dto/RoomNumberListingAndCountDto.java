@@ -12,6 +12,8 @@ public class RoomNumberListingAndCountDto implements Serializable {
 
     private int count;
     private boolean isAllRoomsAvailable;
+    private Double bumpUpPricePercentage;
+    private Integer recommendedRoomsCount;
     private List<RoomNumberListingResponseDto> roomNumberAttributes;
     private List<ManagedApartmentDetailDto> managedApartmentDetails;
 

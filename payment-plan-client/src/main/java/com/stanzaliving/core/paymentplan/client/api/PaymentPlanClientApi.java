@@ -4,12 +4,11 @@
 package com.stanzaliving.core.paymentplan.client.api;
 
 import com.stanzaliving.booking.SoldBookingDto;
-import com.stanzaliving.booking.dto.request.ContractExtensionPaymentPlanRequestDTO;
-import com.stanzaliving.booking.dto.request.PaymentPlanCorrectionDto;
-import com.stanzaliving.booking.dto.request.PaymentPlanRequestDto;
-import com.stanzaliving.booking.dto.request.VasPaymentPlanRequestDTO;
+import com.stanzaliving.booking.dto.request.*;
 import com.stanzaliving.booking.dto.response.CommercialsDetailsResponseDTO;
+import com.stanzaliving.booking.dto.response.ContractTerminationResponseDto;
 import com.stanzaliving.booking.dto.response.PaymentPlanResponseDto;
+import com.stanzaliving.booking.enums.PaymentPlanType;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.constants.SecurityConstants;
 import com.stanzaliving.core.base.http.StanzaRestClient;
@@ -540,9 +539,7 @@ public class PaymentPlanClientApi {
 
     public ResponseDto<Boolean> enablePaymentPlanForCancelOrModifyExit(String referenceId, String token) {
         try {
-            if (StringUtils.isBlank(token)) {
-                throw new IllegalArgumentException("Token missing for updating payment plan");
-            }
+
             Object postBody = null;
 
             log.info("request received to enable payment plan for reference Id {}", referenceId);
@@ -557,9 +554,6 @@ public class PaymentPlanClientApi {
             final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
             HttpHeaders headerParams = new HttpHeaders();
-
-            String tokenCookie = SecurityConstants.TOKEN_HEADER_NAME + "=" + token;
-            headerParams.add(SecurityConstants.COOKIE_HEADER_NAME, tokenCookie);
 
             final String[] accepts = {"*/*"};
 
@@ -762,7 +756,7 @@ public class PaymentPlanClientApi {
         }
     }
 
-    public ResponseDto<String> optOutVasPaymentPlan(String referenceId, String vasUuid, Date optOutDate) {
+    public ResponseDto<String> optOutVasPaymentPlan(String referenceId, String vasUuid, Date optOutDate, PaymentPlanType paymentPlanType, boolean moveIn) {
         try {
 
             Object postBody = null;
@@ -782,6 +776,8 @@ public class PaymentPlanClientApi {
                 queryParams.add("optOutDate", date.format(optOutDate));
             }
             queryParams.add("vasUuid", vasUuid);
+            queryParams.add("paymentPlanType", paymentPlanType.name());
+            queryParams.add("moveIn", String.valueOf(moveIn));
             HttpHeaders headerParams = new HttpHeaders();
             final String[] accepts = {"*/*"};
             final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
@@ -970,6 +966,115 @@ public class PaymentPlanClientApi {
             log.error("error while correcting the paymentPlan {}", e);
             return null;
         }
+
+    }
+
+    public ResponseDto<String> updatePaymentPlanForRevokingContractTermination(String bookingUuid, LocalDate contractTerminationDate, boolean savePaymentPlan) {
+
+        try {
+            Object postBody = null;
+
+            log.info("get paymentPlan by bookingUuid is {} ", bookingUuid);
+
+            final Map<String, Object> uriVariables = new HashMap<>();
+
+            uriVariables.put("bookingUuid", bookingUuid);
+            uriVariables.put("contractTerminationDate", contractTerminationDate);
+            uriVariables.put("savePaymentPlan", savePaymentPlan);
+
+            String path = UriComponentsBuilder.fromPath("/internal/api/v1/update/contract-termination/revoke/{bookingUuid}/{contractTerminationDate}/{savePaymentPlan}").buildAndExpand(uriVariables)
+                    .toUriString();
+
+            final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+            HttpHeaders headerParams = new HttpHeaders();
+
+            final String[] accepts = {"*/*"};
+
+            final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+            ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+            };
+
+            return restClient.invokeAPI(path, HttpMethod.POST, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Error while updating the paymentPlan while revoking contract termination", e);
+        }
+
+        return null;
+
+    }
+
+    public ResponseDto<ContractTerminationResponseDto> updatePaymentPlanForContractTermination(String bookingUuid, LocalDate contractTerminationDate, boolean savePaymentPlan) {
+
+        try {
+            Object postBody = null;
+
+            log.info("get paymentPlan by bookingUuid is {} ", bookingUuid);
+
+            final Map<String, Object> uriVariables = new HashMap<>();
+
+            uriVariables.put("bookingUuid", bookingUuid);
+            uriVariables.put("contractTerminationDate", contractTerminationDate);
+            uriVariables.put("savePaymentPlan", savePaymentPlan);
+
+            String path = UriComponentsBuilder.fromPath("/internal/api/v1/update/contract-termination/{bookingUuid}/{contractTerminationDate}/{savePaymentPlan}").buildAndExpand(uriVariables)
+                    .toUriString();
+
+            final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+            HttpHeaders headerParams = new HttpHeaders();
+
+            final String[] accepts = {"*/*"};
+
+            final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+            ParameterizedTypeReference<ResponseDto<ContractTerminationResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<ContractTerminationResponseDto>>() {
+            };
+
+            return restClient.invokeAPI(path, HttpMethod.POST, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Error while updating the paymentPlan while contract termination", e);
+        }
+
+        return null;
+
+    }
+
+
+    public ResponseDto<ContractTerminationResponseDto> updatePaymentPlanForExitDataCorrection(String bookingUuid, LocalDate chargedTillDate, boolean savePaymentPlan) {
+
+        try {
+            Object postBody = null;
+
+            log.info("get paymentPlan by bookingUuid is {} ", bookingUuid);
+
+            final Map<String, Object> uriVariables = new HashMap<>();
+
+            uriVariables.put("bookingUuid", bookingUuid);
+            uriVariables.put("chargedTillDate", chargedTillDate);
+            uriVariables.put("savePaymentPlan", savePaymentPlan);
+
+            String path = UriComponentsBuilder.fromPath("/internal/api/v1//update/exit-data-correction/{bookingUuid}/{chargedTillDate}/{savePaymentPlan}").buildAndExpand(uriVariables)
+                    .toUriString();
+
+            final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+            HttpHeaders headerParams = new HttpHeaders();
+
+            final String[] accepts = {"*/*"};
+
+            final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+            ParameterizedTypeReference<ResponseDto<ContractTerminationResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<ContractTerminationResponseDto>>() {
+            };
+
+            return restClient.invokeAPI(path, HttpMethod.POST, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Error while updating the paymentPlan while exit data correction", e);
+        }
+
+        return null;
 
     }
 }

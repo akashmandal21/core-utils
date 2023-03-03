@@ -2,11 +2,10 @@ package com.stanzaliving.website.response.dto;
 
 import java.io.Serializable;
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import com.stanzaliving.core.enums.PropertyEntityType;
+import com.stanzaliving.website.dto.WebsiteImageLibraryDto;
 import com.stanzaliving.website.enums.FomoTag;
 import com.stanzaliving.website.enums.Gender;
 
@@ -57,6 +56,10 @@ public class ResidenceResponseShortDTO implements Serializable {
 
 	private Integer unlockDiscountAmount;
 
+	private double discountPercentage;
+
+	private Integer discountedPrice;
+
 	private String preBookingMode;
 
 	private String googleMapLink;
@@ -93,14 +96,13 @@ public class ResidenceResponseShortDTO implements Serializable {
 	private PropertyEntityType propertyEntityType;
 
 	@Builder.Default
-	private Set<FacilityResponseDTO> facilities = new HashSet<>(0);
-	
+	private List<FacilityResponseDTO> facilities = Collections.emptyList();
+
 	@Builder.Default
 	private List<FeatureResponseDTO> features = Collections.emptyList();
 
 	@Builder.Default
 	private List<ResidenceOccupancyResponseDTO> residenceOccupancies = Collections.emptyList();
 
-	@Builder.Default
-	private Set<ImageResponseDTO> images = new HashSet<>(0);
+	private List<WebsiteImageLibraryDto> images;
 }

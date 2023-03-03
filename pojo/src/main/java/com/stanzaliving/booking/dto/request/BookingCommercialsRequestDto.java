@@ -6,48 +6,67 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.validation.Valid;
-import javax.validation.constraints.Min;
 import java.io.Serializable;
 
-@Builder
 @Data
-@AllArgsConstructor
+@Builder
 @NoArgsConstructor
+@AllArgsConstructor
 public class BookingCommercialsRequestDto implements Serializable {
-	@Builder.Default
-	private Double licenseFee = 0.0;
 
-	@Builder.Default
-	private Double conversionPrice = 0.0;
+    @Builder.Default
+    private Double licenseFee = 0.0;
 
-	@Builder.Default
-	private Double cityHeadBuffer = 0.0;
+    @Builder.Default
+    private Double conversionPrice = 0.0;
 
-	@Builder.Default
-	private Double upsell = 0.0;
+    @Builder.Default
+    private Double cityHeadBuffer = 0.0;
 
-	@Builder.Default
-	private Double priceBump = 0.0;
+    @Builder.Default
+    private Double upsell = 0.0;
 
-	@Builder.Default
-	private Double pricingStrategyAmount = 0.0;
+    @Builder.Default
+    private Double bumpUpPrice = 0.0;
 
-	@Valid
-	private ServicePriceDto packagedServicePriceDto;
+    @Builder.Default
+    private Double priceBump = 0.0;
 
-	@Valid
-	private ServicePriceDto foodServicePriceDto;
+    @Builder.Default
+    private Double pricingStrategyAmount = 0.0;
 
-	@Valid
-	private ServicePriceDto vasPriceDto;
+    @Valid
+    private ServicePriceDto packagedServicePriceDto;
 
-	@Valid
-	private ServicePriceDto accommodationPriceDto;
+    @Valid
+    private ServicePriceDto foodServicePriceDto;
 
-	@Valid
-	private ServicePriceDto upsellPriceDto;
+    @Valid
+    private ServicePriceDto vasPriceDto;
 
-	@Valid
-	private ServicePriceDto cityBufferPriceDto;
+    @Valid
+    private ServicePriceDto accommodationPriceDto;
+
+    @Valid
+    private ServicePriceDto upsellPriceDto;
+
+    @Valid
+    private ServicePriceDto bumpUpPriceDto;
+
+    @Valid
+    private ServicePriceDto cityBufferPriceDto;
+
+    @Valid
+    private ServicePriceDto rentalONMPriceDto;
+
+    @Valid
+    private ServicePriceDto servicesONMPriceDto;
+
+    @Valid
+    private ServicePriceDto planPriceDto;
+
+    private double withoutEscalationPrice;
+    private double escalatedPrice;
+    private double monthlyFlatDiscount;
 
 }

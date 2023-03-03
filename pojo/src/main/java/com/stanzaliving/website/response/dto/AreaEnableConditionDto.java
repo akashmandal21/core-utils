@@ -14,5 +14,7 @@ public class AreaEnableConditionDto {
 
 	boolean canBeEnabled;
 
+	private String errorMessage;
+
 	private List<String> errorStatements;
 }
