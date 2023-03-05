@@ -19,7 +19,11 @@ public class OptedPlansRequestDto {
     @Valid
     private String planUuid;
 
-    @NotNull(message = "planUuid cannot be null")
+    @NotNull(message = "serviceMixUuid cannot be null")
+    @Valid
+    private String serviceMixUuid;
+
+    @NotNull(message = "optInDate cannot be null")
     @Valid
     private Date optInDate;
 }
