@@ -74,8 +74,6 @@ public class ApartmentLocationListingCardDto implements Serializable {
 
     private String seoDescription;
 
-    private Integer residenceAddressId;
-
     private AddressResponseDTO addressResponseDTO;
 
     private PropertyEntityType propertyEntityType;
