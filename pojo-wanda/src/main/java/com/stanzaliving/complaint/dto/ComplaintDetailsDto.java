@@ -20,8 +20,12 @@ public class ComplaintDetailsDto {
 	private ComplaintMetaDataDto complaintMetaDataDto;
 	
 	private String categoryName;
+
+	private String categoryDisplayName;
 	
 	private String subCategoryName;
+
+	private String subCategoryDisplayName;
 	
 	private String complaintType;
 }
