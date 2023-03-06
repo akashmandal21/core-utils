@@ -34,6 +34,7 @@ public class MicromarketResponseDTO {
 	private String seoDescription;
 	private String phone;
 	private String description;
+	private String seoFaq;
 	private String micromarketDescription;
 	private String citySlug;
 	EnumListing<Status> status;
@@ -60,7 +61,8 @@ public class MicromarketResponseDTO {
 	private String apartmentSeoTitle;
 	private String apartmentSeoDescription;
 	private String apartmentMicromarketDescription;
-	
+	private String apartmentMicromarketSeoFaq;
+
 	private boolean comingSoonPg;
 	private boolean comingSoonApartment;
 	

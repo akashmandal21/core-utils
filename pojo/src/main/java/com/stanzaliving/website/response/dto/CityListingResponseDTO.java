@@ -9,12 +9,18 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.io.Serializable;
+import java.util.List;
+
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-public class CityListingResponseDTO {
+public class CityListingResponseDTO implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+
 	private int cityId;
 	private String name;
 	private String slug;
@@ -27,6 +33,8 @@ public class CityListingResponseDTO {
 	private boolean enabled;
 	private String phone;
 	EnumListing<Status> status;
+
+	private List<String> dynamicUrlSlugs;
 
 	private String transformationUuid;
 	private Long transformationId;
