@@ -27,8 +27,9 @@ public class ApartmentSeoDetailsRequestDTO {
 	private String apartmentMMSlug;
 	
 	private String apartmentMicromarketDescription;
-	
-	
+
+	private String apartmentMicromarketSeoFaq;
+
 	private Double apartmentRating;
 	
 	private Long apartmentReviewCount;
@@ -38,4 +39,6 @@ public class ApartmentSeoDetailsRequestDTO {
 	private String apartmentSeoTitle;
 
 	private String apartmentSeoDescription;
+
+	private String apartmentSeoFaq;
 }
