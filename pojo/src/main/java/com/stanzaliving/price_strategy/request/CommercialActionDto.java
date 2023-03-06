@@ -21,6 +21,7 @@ public class CommercialActionDto {
     @Min(value = 15, message = "Value must be an integer value grater than 15")
     private Integer lastAdvancedRentalDays;
     @Builder.Default
+    @Min(value = 1, message = "starting advance rental months cannot be negative or zero")
     private Integer advanceRentalFirstMonths = 1;
     private SecurityDepositDto securityDepositDto;
     private MaintenanceFeeDto maintenanceFeeDto;
