@@ -44,4 +44,6 @@ public class PlanOptInRequestDto {
 
     private double breakageFee;
 
+    private double planAmount;
+
 }

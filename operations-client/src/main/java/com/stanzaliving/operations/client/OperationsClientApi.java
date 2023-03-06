@@ -811,7 +811,7 @@ public class OperationsClientApi {
         return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : null;
     }
 
-	public ResidentServiceMixV2VasResponseDto customizeVasForResident(ResidentServiceMixAddOnRequestDtoStayCuration residentServiceMixVasRequestDto) {
+	public ResidentServiceMixV2VasResponseDto customizeVasForResident(ResidentServiceMixVasRequestDto residentServiceMixVasRequestDto) {
 		final Map<String, Object> uriVariables = new HashMap<>();
 
 		String path = UriComponentsBuilder.fromPath("/internal/v2/resident/servicemix/customize/vas").buildAndExpand(uriVariables).toUriString();
