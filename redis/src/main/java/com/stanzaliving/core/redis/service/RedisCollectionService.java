@@ -39,6 +39,8 @@ public interface RedisCollectionService {
 
 	boolean putToMap(String mapName, String key, Object value, long ttl, TimeUnit timeUnit);
 
+	Object getFromMap(String mapName, String key);
+
 	String getFromStringMapCache(String mapName, String key);
 
 	String addInStringMapCache(String mapName, String key, String value, long ttl, TimeUnit timeUnit);
