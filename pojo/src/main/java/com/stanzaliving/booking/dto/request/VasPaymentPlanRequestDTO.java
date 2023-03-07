@@ -22,7 +22,9 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class VasPaymentPlanRequestDTO implements Serializable {
+public class
+
+VasPaymentPlanRequestDTO implements Serializable {
 
     @NotEmpty(message = "referenceId cannot be null or blank")
     private String referenceId;
@@ -56,6 +58,8 @@ public class VasPaymentPlanRequestDTO implements Serializable {
     private Boolean savePaymentPlan = false;
 
     private Boolean isModifyContract = false;
+
+    private Date modifiedContractStartDate;
 
     private Boolean isGenerateInvoice =false;
 
