@@ -1,9 +1,8 @@
 package com.stanzaliving.core.food.dto;
 
+import java.io.Serializable;
 import java.time.DayOfWeek;
 import java.util.List;
-
-import com.stanzaliving.core.base.common.dto.AbstractDto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -19,7 +18,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-public class FoodMealDaysDetailsDto extends AbstractDto {
+public class FoodMealDaysDetailsDto implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
