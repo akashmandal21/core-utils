@@ -86,7 +86,7 @@ public class ApartmentLocationListingCardDto implements Serializable {
 
     private List<WebsiteImageLibraryDto> images;
 
-    private boolean soldOut;
+    private boolean isLocationSoldOut;
 
     private Date singleRoomNextAvailableFrom;
 
