@@ -91,7 +91,8 @@ public enum BookingEventEnum {
     REMOTE_BOOKING_FORFEITURE("Remote Booking Forfeiture"),
     REMOTE_BOOKING_ROOM_SHIFT("Remote Booking Room Shift"),
 
-    REMOTE_BOOKING_REFUND("Remote Booking Refund");
+    REMOTE_BOOKING_REFUND("Remote Booking Refund"),
+    RESIDENCE_CHANGE_REQUESTED("Residence change request created");
 
     private final String eventName;
 
