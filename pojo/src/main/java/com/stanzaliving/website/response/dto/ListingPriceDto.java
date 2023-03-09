@@ -13,6 +13,6 @@ public class ListingPriceDto implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    SingleRoomPrice singleRoomPrice;
-    EntireFlatPrice entireFlatPrice;
+    PriceDTO singleRoomPrice;
+    PriceDTO entireFlatPrice;
 }

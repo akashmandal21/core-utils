@@ -9,7 +9,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @Getter
 @Setter
-public class SingleRoomPrice implements Serializable {
+public class PriceDTO implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
