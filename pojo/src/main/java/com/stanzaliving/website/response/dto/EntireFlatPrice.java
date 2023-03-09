@@ -13,6 +13,6 @@ public class EntireFlatPrice implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private int startingPrice;
+    private Integer startingPrice;
     private Integer discountedPrice;
 }
