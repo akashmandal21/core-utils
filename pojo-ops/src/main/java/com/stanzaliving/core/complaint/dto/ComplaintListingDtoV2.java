@@ -27,8 +27,10 @@ public class ComplaintListingDtoV2 {
 	private String roomNo;
 	private String complaintUuid;
 	private String complaintCategory;
+	private String complaintCategoryDisplayName;
 	private String complaintStatus;
 	private String complaintSubCategoryName;
+	private String complaintSubCategoryDisplayName;
 	private Date created;
 	private Date closedAt;
 	@Builder.Default
