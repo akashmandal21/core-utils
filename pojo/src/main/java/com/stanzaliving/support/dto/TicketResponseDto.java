@@ -4,9 +4,12 @@ import com.stanzaliving.core.base.enums.TicketRaisedForType;
 import com.stanzaliving.support.enums.Priority;
 import com.stanzaliving.support.enums.Source;
 import com.stanzaliving.support.enums.TicketSource;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
-import javax.persistence.Column;
 import java.util.Date;
 
 @Builder
@@ -19,10 +22,12 @@ public class TicketResponseDto {
     private String subCategoryUuid;
 
     private String subCategory;
+    private String subCategoryDisplayName;
 
     private String categoryUuid;
 
     private String category;
+    private String categoryDisplayName;
 
     private String complaintGroupUuid;
 
@@ -41,11 +46,11 @@ public class TicketResponseDto {
     private Date createdAt;
 
     private UserResidenceDto raisedFor;
-    
+
     private UserResidenceDto createdByDetail;
-    
+
     private TicketRaisedForType raisedForType;
-    
+
     private String assignedToUuid;
 
     private String assignedTo;

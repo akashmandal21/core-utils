@@ -45,6 +45,9 @@ public class FoodOrderRequestDto {
 	private Integer nonVeg;
 
 	@Builder.Default
+	private Integer attendanceCount = 0;
+
+	@Builder.Default
 	private Integer totalOrder = 0;
 
 	@Builder.Default

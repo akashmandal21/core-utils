@@ -25,4 +25,5 @@ public class SeoDetailsRequestDTO {
 	private String seoTitle;
 	private String seoDescription;
 	private String description;
+	private String seoFaq;
 }

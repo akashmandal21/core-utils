@@ -24,9 +24,10 @@ public class WebsiteFlatUrlResponseDTO {
 	private int flatUrlId;
 	private String url;
 	private String name;
-	private String description;
 	private String seoTitle;
 	private String seoDescription;
+	private String description;
+	private String seoFaq;
 	private Double rating;
 	private String reviewCount;
 	private String minPriceValue;
