@@ -84,6 +84,8 @@ public class PropertyLocationListingCardDto implements Serializable {
     private Date entireFlatNextAvailableFrom;
 
     private boolean isEntireFlatAvailable;
-    
+
     private boolean isPropertyLocationListingCardEligible;
+
+    List<ApartmentListingCardDto> apartmentListingCardDTOs;
 }
