@@ -13,6 +13,8 @@ public class ListingPriceDto implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    PriceDTO singleRoomPrice;
-    PriceDTO entireFlatPrice;
+    @Builder.Default
+    PriceDTO singleRoomPrice = PriceDTO.builder().build();
+    @Builder.Default
+    PriceDTO entireFlatPrice = PriceDTO.builder().build();
 }

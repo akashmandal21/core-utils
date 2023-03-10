@@ -30,13 +30,7 @@ public class ApartmentLocationListingCardDto implements Serializable {
 
     private String slug;
 
-    private Gender gender;
-
-    private String genderName;
-
     private Set<Integer> roomCountList;
-
-    private Integer societyId;
 
     private int micromarketId;
 
@@ -54,7 +48,8 @@ public class ApartmentLocationListingCardDto implements Serializable {
 
     private String apartmentCitySlug;
 
-    private ListingPriceDto listingPriceDto;
+    @Builder.Default
+    private ListingPriceDto listingPriceDto = ListingPriceDto.builder().build();
 
     private String pricingPlan;
 
