@@ -1,9 +1,6 @@
 package com.stanzaliving.core.discount.dto.response;
 
-import com.stanzaliving.booking.enums.ApplicabilityLevelType;
-import com.stanzaliving.booking.enums.DiscountApplicabilityType;
-import com.stanzaliving.booking.enums.PropertyType;
-import com.stanzaliving.booking.enums.Strategy;
+import com.stanzaliving.booking.enums.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -59,5 +56,7 @@ public class DiscountStrategyListingResponseDto {
     private Integer cutOffDate;
     
     private PropertyType propertyType;
+
+    private BookingSubType bookingSubType;
 
 }
