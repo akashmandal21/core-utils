@@ -1,5 +1,6 @@
 package com.stanzaliving.transformations.ui.pojo;
 
+import java.io.Serializable;
 import java.util.List;
 
 import lombok.AllArgsConstructor;
@@ -15,7 +16,7 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class MicroMarket {
+public class MicroMarket implements Serializable {
 
 	private String microMarketName;
 
