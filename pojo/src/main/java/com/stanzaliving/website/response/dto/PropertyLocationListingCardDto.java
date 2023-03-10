@@ -2,7 +2,6 @@ package com.stanzaliving.website.response.dto;
 
 import com.stanzaliving.core.enums.PropertyEntityType;
 import com.stanzaliving.website.dto.WebsiteImageLibraryDto;
-import com.stanzaliving.website.enums.Gender;
 import lombok.*;
 
 import java.io.Serializable;
@@ -16,7 +15,7 @@ import java.util.Set;
 @Getter
 @Setter
 @ToString
-public class ApartmentLocationListingCardDto implements Serializable {
+public class PropertyLocationListingCardDto implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

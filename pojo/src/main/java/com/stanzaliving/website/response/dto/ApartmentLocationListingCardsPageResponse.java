@@ -13,7 +13,7 @@ public class ApartmentLocationListingCardsPageResponse extends PageResponse<Apar
 
     private static final long serialVersionUID = 1L;
 
-    private List<ApartmentLocationListingCardDto> apartments;
+    private List<PropertyLocationListingCardDto> apartments;
 
     private List<Integer> residenceIdsToShowMapPin;
 }
