@@ -30,7 +30,13 @@ public class ApartmentLocationListingCardDto implements Serializable {
 
     private String slug;
 
+    private Gender gender;
+
+    private String genderName;
+
     private Set<Integer> roomCountList;
+
+    private Integer societyId;
 
     private int micromarketId;
 
