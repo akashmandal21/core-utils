@@ -93,6 +93,8 @@ public class ResidenceListingCardDto implements Serializable {
 
 	private String seoDescription;
 
+	private String seoFaq;
+
 	private AddressResponseDTO addressResponseDTO;
 	
 	private Integer residenceTypeId;

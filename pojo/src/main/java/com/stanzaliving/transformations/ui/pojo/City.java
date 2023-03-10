@@ -1,5 +1,6 @@
 package com.stanzaliving.transformations.ui.pojo;
 
+import java.io.Serializable;
 import java.util.List;
 
 import lombok.AllArgsConstructor;
@@ -13,7 +14,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class City {
+public class City implements Serializable {
 
 	private String cityName;
 	
