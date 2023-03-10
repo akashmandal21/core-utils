@@ -7,7 +7,6 @@ import lombok.*;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
-import java.util.Set;
 
 @Builder
 @AllArgsConstructor
@@ -19,17 +18,15 @@ public class PropertyLocationListingCardDto implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private long locationId;
+    private long propertyLocationId;
 
     private String name;
 
-    private String apartmentLocationListingName;
+    private String propertyLocationListingName;
 
-    private String apartmentLocationDetailsName;
+    private String propertyLocationDetailsName;
 
     private String slug;
-
-    private Set<Integer> roomCountList;
 
     private int micromarketId;
 
@@ -80,11 +77,13 @@ public class PropertyLocationListingCardDto implements Serializable {
 
     private List<WebsiteImageLibraryDto> images;
 
-    private boolean isLocationSoldOut;
+    private boolean isPropertyLocationSoldOut;
 
     private Date singleRoomNextAvailableFrom;
 
     private Date entireFlatNextAvailableFrom;
 
     private boolean isEntireFlatAvailable;
+    
+    private boolean isPropertyLocationListingCardEligible;
 }
