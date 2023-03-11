@@ -23,8 +23,8 @@ public enum StanzaPaymentService {
 	CAFE("Cafe"),
 	FOOD_SUBSCRIPTION("Food Subscription"),
 	PREPAID_METER("Prepaid Meter"),
-	SUBSCRIPTION_PLAN("Subscription Plan")
-	;
+	BOOSTER_PACK("Internet booster pack"),
+	SUBSCRIPTION_PLAN("Subscription Plan");
 
 	private String displayName;
 }
