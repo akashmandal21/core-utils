@@ -58,6 +58,6 @@ public class DiscountStrategyListingResponseDto {
     
     private PropertyType propertyType;
 
-    private List<BookingSubType> bookingSubType;
+    private List<BookingSubType> bookingSubTypes;
 
 }
