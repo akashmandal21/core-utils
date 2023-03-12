@@ -44,9 +44,11 @@ public class PropertyLocationListingCardDto implements Serializable {
 
     private String apartmentCitySlug;
 
+    //
     @Builder.Default
     private ListingPriceDto listingPriceDto = ListingPriceDto.builder().build();
 
+    //
     private String pricingPlan;
 
     private Integer preBookingAmount;
@@ -59,32 +61,44 @@ public class PropertyLocationListingCardDto implements Serializable {
 
     private double longitude;
 
+    //
     private Double distanceFromPlace;
 
     private String seoTitle;
 
     private String seoDescription;
 
+    //
     private AddressResponseDTO addressResponseDTO;
 
+    //
     private PropertyEntityType propertyEntityType;
 
+    //
     private List<Integer> featureIds;
 
+    //
     private List<FacilityResponseDTO> facilities;
 
+    //
     private List<FeatureResponseDTO> features;
 
+    //
     private List<WebsiteImageLibraryDto> images;
 
+    //
     private boolean isPropertyLocationSoldOut;
 
+    //
     private Date singleRoomNextAvailableFrom;
 
+    //
     private Date entireFlatNextAvailableFrom;
 
+    //
     private boolean isEntireFlatAvailable;
 
+    //
     private boolean isPropertyLocationListingCardEligible;
 
     List<ApartmentListingCardDto> apartmentListingCardDTOs;
