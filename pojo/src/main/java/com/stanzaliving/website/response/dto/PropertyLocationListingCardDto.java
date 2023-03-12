@@ -48,7 +48,6 @@ public class PropertyLocationListingCardDto implements Serializable {
     @Builder.Default
     private ListingPriceDto listingPriceDto = ListingPriceDto.builder().build();
 
-    //
     private String pricingPlan;
 
     private Integer preBookingAmount;
@@ -68,10 +67,8 @@ public class PropertyLocationListingCardDto implements Serializable {
 
     private String seoDescription;
 
-    //
     private AddressResponseDTO addressResponseDTO;
 
-    //
     private PropertyEntityType propertyEntityType;
 
     //
