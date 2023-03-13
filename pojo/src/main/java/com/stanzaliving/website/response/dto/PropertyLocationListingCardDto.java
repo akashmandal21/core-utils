@@ -71,13 +71,10 @@ public class PropertyLocationListingCardDto implements Serializable {
 
     private PropertyEntityType propertyEntityType;
 
-    //
     private List<FacilityResponseDTO> facilities;
 
-    //
     private List<FeatureResponseDTO> features;
 
-    //
     private List<WebsiteImageLibraryDto> images;
 
     //
@@ -89,7 +86,6 @@ public class PropertyLocationListingCardDto implements Serializable {
     //
     private Date entireFlatNextAvailableFrom;
 
-    //
     private boolean isEntireFlatAvailable;
 
     //
