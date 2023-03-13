@@ -9,6 +9,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 
+import java.util.List;
+
 @Builder
 @AllArgsConstructor
 @Getter
@@ -22,4 +24,5 @@ public class MigrationDto {
     private ResidentRelationDto residentRelationDto;
     private ResidentEmergencyContactDto residentEmergencyContactDto;
     private ConsumerTemporaryMapping consumerTemporaryMapping;
+    private List<ConsumerAttribute> consumerAttributes;
 }
