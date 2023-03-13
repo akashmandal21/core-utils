@@ -97,7 +97,7 @@ public class SecurityInternalControllerApi {
     }
 
     public Map<String, Integer> getResidenceAttendanceData(Set<String> residenceIds, LocalDate currentDate) {
-        log.info("Request received to getUserLatestInternetUsageAndFoodScanDates with residentIds: {} and date: {}", residenceIds, currentDate);
+        log.info("Request received to getResidenceAttendanceData with residentIds: {} and date: {}", residenceIds, currentDate);
 
         AttendanceDataRequestDto attendanceDataRequestDto = AttendanceDataRequestDto.builder()
                 .residenceIds(residenceIds)
