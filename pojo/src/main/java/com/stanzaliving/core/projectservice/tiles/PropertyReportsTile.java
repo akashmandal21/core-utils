@@ -31,7 +31,7 @@ public enum PropertyReportsTile {
             null),
     PO("POs", true, true, true, Department.GC, PropertyUpdateEnum.CHECK_COMPLETED_FROM_SOURCE_SERVICE, "screen/po",null),
 
-    LLHODOC("LL HO Doc",true,true,false,null,null,"llho", null),
+    LLHODOC("Landlord Handover",true,true,false,null,null,"llho", null),
 
     GRN("GRN", true, true, true, Department.GC, PropertyUpdateEnum.CHECK_COMPLETED_FROM_SOURCE_SERVICE, "grn",null),
     HOTO("HOTO", true, true, false, Department.PROJECTS, PropertyUpdateEnum.PROJECTS_HOTO_GENERATED, "hoto",null),
