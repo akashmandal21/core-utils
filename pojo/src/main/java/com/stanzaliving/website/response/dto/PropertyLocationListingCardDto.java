@@ -71,8 +71,10 @@ public class PropertyLocationListingCardDto implements Serializable {
 
     private PropertyEntityType propertyEntityType;
 
+    //
     private List<FacilityResponseDTO> facilities;
-    
+
+    //
     private List<FeatureResponseDTO> features;
 
     //
