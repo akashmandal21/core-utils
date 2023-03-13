@@ -62,4 +62,6 @@ public class AlfredResidenceServiceDto {
 
     private String planType;
 
+    private String nature;
+
 }
