@@ -1,6 +1,7 @@
 package com.stanzaliving.stayCuration;
 
 import com.stanzaliving.booking.enums.PaymentTerm;
+import com.stanzaliving.residenceservice.enums.PlanNature;
 import com.stanzaliving.residenceservice.enums.PlanTypeEnum;
 import lombok.*;
 
@@ -61,5 +62,7 @@ public class AlfredResidenceServiceDto {
     private boolean optedOut;
 
     private String planType;
+
+    private String nature;
 
 }
