@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -57,6 +58,6 @@ public class DiscountStrategyListingResponseDto {
     
     private PropertyType propertyType;
 
-    private BookingSubType bookingSubType;
+    private List<BookingSubType> bookingSubTypes;
 
 }
