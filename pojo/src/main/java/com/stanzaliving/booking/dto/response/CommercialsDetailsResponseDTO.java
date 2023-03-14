@@ -46,5 +46,6 @@ public class CommercialsDetailsResponseDTO implements Serializable {
 
     private boolean priceStrategyEnabled;
 
+    private int securityDepositSplitCount;
 }
 
