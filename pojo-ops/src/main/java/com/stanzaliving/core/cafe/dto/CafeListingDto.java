@@ -39,4 +39,7 @@ public class CafeListingDto {
 
     private List<ResidenceMicromarketDto> residences;
 
+    private String cafeDisplayName;
+
+
 }

@@ -1077,4 +1077,37 @@ public class PaymentPlanClientApi {
         return null;
 
     }
+
+    public CompletableFuture<ResponseDto<Boolean>> createSubscriptionPaymentPlan(VasRequestDto vasRequestDto) {
+
+        try {
+            Object postBody = vasRequestDto;
+
+            log.info("Creating vas payment plan request dto list {} ", vasRequestDto.getVasPaymentPlanRequestDtoList());
+
+            final Map<String, Object> uriVariables = new HashMap<>();
+
+            String path = UriComponentsBuilder.fromPath("/internal/api/v1/create/vas/plans").buildAndExpand(uriVariables)
+                    .toUriString();
+
+            final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+            HttpHeaders headerParams = new HttpHeaders();
+
+            final String[] accepts = {"*/*"};
+
+            final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+            ParameterizedTypeReference<ResponseDto<Boolean>> returnType = new ParameterizedTypeReference<ResponseDto<Boolean>>() {
+            };
+
+            return CompletableFuture.completedFuture(restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType));
+        } catch (Exception e) {
+            log.error("Error while creating vas payment plan request dto list error", e);
+        }
+
+        return null;
+
+    }
+
 }

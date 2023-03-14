@@ -37,4 +37,15 @@ public class PlanOptInRequestDto {
     private Date lockInEndDate;
 
     private VasCategory category;
+
+    private String planName;
+
+    private double vasPriceAmount;
+
+    private double breakageFee;
+
+    private double planAmount;
+
+    private boolean isRenewal;
+
 }
