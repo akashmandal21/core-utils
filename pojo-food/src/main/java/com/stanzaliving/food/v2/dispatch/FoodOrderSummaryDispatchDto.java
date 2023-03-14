@@ -31,6 +31,8 @@ public class FoodOrderSummaryDispatchDto {
 
 	private String vendorId;
 
+	private boolean stanzaKitchen;
+
 	private String foodOrderId;
 
 	private String menuCategoryId;

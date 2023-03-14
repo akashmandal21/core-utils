@@ -81,4 +81,6 @@ public class BookingResponseDto {
     private boolean priceStrategy;
 
     private Boolean moveIn;
+
+    private ResidenceAgreementType residenceAgreementType;
 }
