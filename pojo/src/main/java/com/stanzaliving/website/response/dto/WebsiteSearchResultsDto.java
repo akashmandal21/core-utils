@@ -37,6 +37,9 @@ public class WebsiteSearchResultsDto extends PageResponse<WebsiteSearchResultsDt
 	@JsonInclude(value = Include.NON_NULL)
 	private List<ApartmentListingCardDto> apartments;
 
+	@JsonInclude(value = Include.NON_NULL)
+	private List<PropertyLocationListingCardDto> propertyLocations;
+
 	private boolean isApartmentPage;
 
 	private List<Integer> residenceIdsToShowMapPin;
