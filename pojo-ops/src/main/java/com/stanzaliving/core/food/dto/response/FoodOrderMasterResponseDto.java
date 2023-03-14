@@ -74,4 +74,5 @@ public class FoodOrderMasterResponseDto {
 
 	private List<String> mealImgUrls;
 
+	private FoodPreferenceComboResponseDto foodPreferenceComboResponseDto;
 }
