@@ -66,6 +66,10 @@ public class PropertyLocationListingCardDto implements Serializable {
 
     private String seoDescription;
 
+    private String description;
+
+    private String seoFaq;
+
     private AddressResponseDTO addressResponseDTO;
 
     private PropertyEntityType propertyEntityType;
