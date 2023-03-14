@@ -7,6 +7,7 @@ import com.stanzaliving.core.dto.TransactionMigrationForDate;
 import com.stanzaliving.core.leaddashboard.dto.LeadDetailsDto;
 import com.stanzaliving.core.payment.dto.PreBookingRefundDto;
 import com.stanzaliving.core.user.dto.InventoryUserDto;
+import com.stanzaliving.core.ventaaggregationservice.dto.BookingAggregationDto;
 import com.stanzaliving.venta.BedCountDetailsDto;
 import com.stanzaliving.venta.DeadBedCountDto;
 import com.stanzaliving.venta.ResidenceRoomDetails;
@@ -18,8 +19,10 @@ import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.time.LocalDate;
@@ -566,6 +569,32 @@ public class VentaClientApi {
 			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 		} catch (Exception e) {
 			log.error("Error while fetching user details from old inventory service: {}", e.getMessage(),e);
+			return null;
+		}
+	}
+
+	public BookingAggregationDto getBookingDetailsByBookingUuid(String bookingUuid) {
+		log.info("VentaAggregationClient::Processing to get booking on basis of bookingUuid {}", bookingUuid);
+
+		Object postBody = null;
+		final Map<String, Object> uriVariables = new HashMap<>();
+		uriVariables.put("booking-uuid", bookingUuid);
+		String path = UriComponentsBuilder.fromPath("/user/by-mobile/{mobile}").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {"*/*"};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<BookingAggregationDto> returnType = new ParameterizedTypeReference<BookingAggregationDto>() {
+		};
+
+		try {
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Error while fetching user details from old inventory service: {}", e.getMessage(), e);
 			return null;
 		}
 	}
