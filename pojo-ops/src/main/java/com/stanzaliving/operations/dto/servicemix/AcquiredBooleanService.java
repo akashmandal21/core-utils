@@ -1,12 +1,14 @@
 package com.stanzaliving.operations.dto.servicemix;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 @Getter
 @Setter
 @ToString(callSuper = true)
+@SuperBuilder
+@NoArgsConstructor
+@AllArgsConstructor
 public class AcquiredBooleanService extends BooleanService {
 	private Integer items;
 	private String acquisition;

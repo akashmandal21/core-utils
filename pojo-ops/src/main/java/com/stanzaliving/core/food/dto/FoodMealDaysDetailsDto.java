@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.time.DayOfWeek;
 import java.util.List;
 
+import com.stanzaliving.operations.dto.servicemix.BooleanService;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -18,7 +19,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-public class FoodMealDaysDetailsDto implements Serializable {
+public class FoodMealDaysDetailsDto extends BooleanService implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
