@@ -14,4 +14,5 @@ public class PropertyLocationSeoDetailsRequestDto {
     private String description;
     private String seoTitle;
     private String seoDescription;
+    private String seoFaq;
 }
