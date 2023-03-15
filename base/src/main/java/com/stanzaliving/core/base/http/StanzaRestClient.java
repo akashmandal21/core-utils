@@ -183,6 +183,18 @@ public class StanzaRestClient {
 		return invokeAPI(path, method, queryParams, body, headerParams, accept, returnType, MediaType.APPLICATION_JSON);
 	}
 
+	public <T> T invokeAPIWithFormUrlEncoded(
+			String path,
+			HttpMethod method,
+			MultiValueMap<String, String> queryParams,
+			Object body,
+			HttpHeaders headerParams,
+			List<MediaType> accept,
+			ParameterizedTypeReference<T> returnType) {
+
+		return invokeAPI(path, method, queryParams, body, headerParams, accept, returnType, MediaType.APPLICATION_FORM_URLENCODED);
+	}
+
 	public <T> T invokeAPI(
 			String path,
 			HttpMethod method,
