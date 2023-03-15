@@ -42,4 +42,12 @@ public class PlanOptInRequestDto {
 
     private double vasPriceAmount;
 
+    private double breakageFee;
+
+    private double planAmount;
+
+    private boolean isRenewal;
+
+    private boolean skipPaymentPlanCreation = false;
+
 }
