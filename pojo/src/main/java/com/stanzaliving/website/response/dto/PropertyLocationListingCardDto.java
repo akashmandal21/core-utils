@@ -59,7 +59,6 @@ public class PropertyLocationListingCardDto implements Serializable {
 
     private double longitude;
 
-    //
     private Double distanceFromPlace;
 
     private String seoTitle;
@@ -78,7 +77,6 @@ public class PropertyLocationListingCardDto implements Serializable {
 
     private List<FeatureResponseDTO> features;
 
-    //
     private List<WebsiteImageLibraryDto> images;
 
     private boolean isPropertyLocationSoldOut;
@@ -88,8 +86,7 @@ public class PropertyLocationListingCardDto implements Serializable {
     private Date entireFlatNextAvailableFrom;
 
     private boolean isEntireFlatAvailable;
-
-    //
+    
     private boolean isPropertyLocationListingCardEligible;
 
     List<ApartmentListingCardDto> apartmentListingCardDTOs;
