@@ -44,8 +44,13 @@ public class PropertyLocationListingCardDto implements Serializable {
 
     private String apartmentCitySlug;
 
-    @Builder.Default
-    private ListingPriceDto listingPriceDto = ListingPriceDto.builder().build();
+    private Integer singleRoomStartingPrice;
+
+    private Integer singleRoomDiscountedPrice;
+
+    private Integer entireFlatStartingPrice;
+
+    private Integer entireFlatDiscountedPrice;
 
     private String pricingPlan;
 
@@ -86,8 +91,6 @@ public class PropertyLocationListingCardDto implements Serializable {
     private Date entireFlatNextAvailableFrom;
 
     private boolean isEntireFlatAvailable;
-    
-    private boolean isPropertyLocationListingCardEligible;
 
     List<ApartmentListingCardDto> apartmentListingCardDTOs;
 }
