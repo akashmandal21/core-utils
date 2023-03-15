@@ -1,6 +1,8 @@
 package com.stanzaliving.stayCuration;
 
 import com.stanzaliving.booking.enums.PaymentTerm;
+import com.stanzaliving.residenceservice.enums.PlanNature;
+import com.stanzaliving.residenceservice.enums.PlanTypeEnum;
 import lombok.*;
 
 import java.util.Date;
@@ -49,6 +51,8 @@ public class AlfredResidenceServiceDto {
 
     private String image;
 
+    private Object tag;
+
     private Date planStartDate;
 
     private Date planEndDate;
@@ -56,5 +60,9 @@ public class AlfredResidenceServiceDto {
     private boolean deprecated;
 
     private boolean optedOut;
+
+    private String planType;
+
+    private String nature;
 
 }
