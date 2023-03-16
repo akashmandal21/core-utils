@@ -6,6 +6,7 @@ import com.stanzaliving.residenceservice.enums.PlanTypeEnum;
 import lombok.*;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
 
@@ -28,6 +29,8 @@ public class AlfredResidenceServiceDto {
     private String serviceMixUuid;
 
     private Object description;
+
+    private List<String> showDescription;
 
     private Object meta;
 
