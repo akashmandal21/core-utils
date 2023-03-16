@@ -15,5 +15,5 @@ public class PropertyLocationListingCardsPageResponse extends PageResponse<Prope
 
     private List<PropertyLocationListingCardDto> propertyLocations;
 
-    private List<Integer> propertyLocationIdsToShowMapPin;
+    private List<Long> propertyLocationIdsToShowMapPin;
 }
