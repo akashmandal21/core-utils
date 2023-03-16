@@ -43,6 +43,8 @@ public class WebsiteSearchResultsDto extends PageResponse<WebsiteSearchResultsDt
 	private boolean isApartmentPage;
 
 	private List<Integer> residenceIdsToShowMapPin;
+
+	private List<Long> propertyLocationIdsToShowMapPin;
 	
 	private WebsitePlaceIndexDto placeIndexDto;
 }
