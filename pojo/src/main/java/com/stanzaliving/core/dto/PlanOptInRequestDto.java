@@ -46,8 +46,6 @@ public class PlanOptInRequestDto {
 
     private double planAmount;
 
-    private boolean isRenewal;
-
     private boolean skipPaymentPlanCreation = false;
 
 }
