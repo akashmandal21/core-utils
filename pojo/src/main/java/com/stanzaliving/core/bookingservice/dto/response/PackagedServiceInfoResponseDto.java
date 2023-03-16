@@ -16,6 +16,7 @@ public class PackagedServiceInfoResponseDto {
     private String serviceMixUuid;
     private String serviceMixName;
     private List<Object> serviceDescription;
+    private List<Object> serviceStayCurationDescription;
     private String serviceSetName;
     private Integer currentOptedInBookingsCount;
 }
