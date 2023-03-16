@@ -92,5 +92,7 @@ public class PropertyLocationListingCardDto implements Serializable {
 
     private boolean isEntireFlatAvailable;
 
+    private boolean isPropertyLocationListingCardEligible;
+
     List<ApartmentListingCardDto> apartmentListingCardDTOs;
 }
