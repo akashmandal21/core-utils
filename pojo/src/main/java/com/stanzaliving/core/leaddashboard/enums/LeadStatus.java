@@ -1,6 +1,8 @@
 package com.stanzaliving.core.leaddashboard.enums;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import lombok.AllArgsConstructor;
@@ -20,7 +22,7 @@ public enum LeadStatus {
 	BOOKED("Booked"),
 	MOVED_OUT("Moved Out");
 	
-	private String statusDescription;
+	private final String statusDescription;
 	
 	public static boolean isLeadQualified(LeadStatus leadStatus) {
 		Set<LeadStatus> leadStatuses = new HashSet<>();
@@ -63,5 +65,14 @@ public enum LeadStatus {
 		leadStatuses.add(MOVED_OUT);
 
 		return leadStatuses.contains(leadStatus);
+	}
+
+	public static List<LeadStatus> referrableLeadStatuses = new ArrayList<>();
+
+	static {
+		referrableLeadStatuses.add(DISQUALIFIED);
+		referrableLeadStatuses.add(DROPPED);
+		referrableLeadStatuses.add(MOVED_OUT);
+		referrableLeadStatuses.add(BOOKED);
 	}
 }

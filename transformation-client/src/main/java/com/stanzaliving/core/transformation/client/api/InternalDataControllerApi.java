@@ -15,8 +15,8 @@ import java.util.stream.Collectors;
 import com.stanzaliving.core.base.exception.ApiValidationException;
 import com.stanzaliving.core.base.exception.PreconditionFailedException;
 import com.stanzaliving.core.base.exception.StanzaHttpException;
+import com.stanzaliving.invoice.enums.DealType;
 import com.stanzaliving.transformations.pojo.*;
-import com.sun.org.apache.bcel.internal.generic.ArrayInstruction;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -720,17 +720,20 @@ public class InternalDataControllerApi {
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
     }
 
-    public ResponseDto<StanzaGstView> getStanzaGst(String stateId) {
+    public ResponseDto<StanzaGstView> getStanzaGst(String stateId, DealType dealType) {
 
         Object postBody = null;
 
         // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<>();
         uriVariables.put("stateUuid", stateId);
-
         String path = UriComponentsBuilder.fromPath("/internal/get/stanzagst/{stateUuid}").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        if(Objects.nonNull(dealType)){
+            queryParams.put("dealType", Arrays.asList(dealType.name()));
+        }
 
         final HttpHeaders headerParams = new HttpHeaders();
 
@@ -1416,6 +1419,5 @@ public class InternalDataControllerApi {
 
         return gstInformationDto;
     }
-
 
 }

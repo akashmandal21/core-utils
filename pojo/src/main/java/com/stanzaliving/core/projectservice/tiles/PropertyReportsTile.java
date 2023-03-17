@@ -31,14 +31,17 @@ public enum PropertyReportsTile {
             null),
     PO("POs", true, true, true, Department.GC, PropertyUpdateEnum.CHECK_COMPLETED_FROM_SOURCE_SERVICE, "screen/po",null),
 
-    LLHODOC("LL HO Doc",true,true,false,null,null,"llho", null),
+    LLHODOC("Landlord Handover",true,true,false,null,null,"llho", null),
 
     GRN("GRN", true, true, true, Department.GC, PropertyUpdateEnum.CHECK_COMPLETED_FROM_SOURCE_SERVICE, "grn",null),
     HOTO("HOTO", true, true, false, Department.PROJECTS, PropertyUpdateEnum.PROJECTS_HOTO_GENERATED, "hoto",null),
     SERVICE_MIX("Service Mix", true, false, false, Department.DESIGN, PropertyUpdateEnum.SERVICE_MIX_COMPLETED, "servicemix",
             Arrays.asList(PropertyUpdateEnum.DESIGN_BED_COUNT_FINALIZATION_COMPLETED,PropertyUpdateEnum.SERVICE_MIX_COMPLETED)),
     PRODUCT_MIX("Product Mix", true, true, false, Department.DESIGN, null, "productmix",
-            Collections.singletonList(PropertyUpdateEnum.DESIGN_BED_COUNT_FINALIZATION_COMPLETED));
+            Collections.singletonList(PropertyUpdateEnum.DESIGN_BED_COUNT_FINALIZATION_COMPLETED)),
+    SECTIONAL_TRANSFORMATION("Sectional Transformation",true,true,true,Department.DESIGN,null,"sectional-transformation", null),
+    PROPERTY_LAYOUT("Property Management",true,true,false, Department.DESIGN,null,"pms", null);
+
 
     private String tileText;
 

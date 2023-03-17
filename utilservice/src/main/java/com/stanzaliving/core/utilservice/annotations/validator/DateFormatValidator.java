@@ -11,15 +11,17 @@ import java.time.format.DateTimeParseException;
 public class DateFormatValidator implements
         ConstraintValidator<DateFormat, String> {
 
+    private String pattern;
+
     @Override
     public void initialize(DateFormat constraintAnnotation) {
-
+        this.pattern = constraintAnnotation.pattern();
     }
 
     @Override
     public boolean isValid(String value, ConstraintValidatorContext context) {
         try {
-            new SimpleDateFormat("yyyy-dd-MM").parse(value);
+            new SimpleDateFormat(this.pattern).parse(value);
             return true;
         } catch (DateTimeParseException | ParseException e) {
             return false;

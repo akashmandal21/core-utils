@@ -35,5 +35,6 @@ public class UserMenuPreferenceAddDto {
 	private FoodItemType foodPreference;
 
 	private boolean skippedMealStatus;
-
+	
+	private String beveragePreference;
 }

@@ -1,6 +1,5 @@
 package com.stanzaliving.ledger.dto;
 
-
 import com.stanzaliving.ledger.enums.CashReceiver;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

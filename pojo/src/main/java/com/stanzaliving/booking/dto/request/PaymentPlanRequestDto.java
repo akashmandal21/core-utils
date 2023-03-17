@@ -1,17 +1,22 @@
 package com.stanzaliving.booking.dto.request;
 
-import com.stanzaliving.booking.enums.BookingType;
-import com.stanzaliving.booking.enums.ResidenceAgreementType;
+import com.stanzaliving.booking.enums.*;
+import com.stanzaliving.core.paymentPlan.dto.VasRequestDto;
+import com.stanzaliving.price_strategy.request.PaymentActionDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
 import javax.validation.Valid;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.util.Date;
+import java.util.List;
 
-@Builder
+@SuperBuilder
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -49,4 +54,9 @@ public class PaymentPlanRequestDto implements Serializable {
 	@Builder.Default
 	private double managementFeePercentage = 0.0;
 
+	private PaymentActionDto paymentActionDto;
+
+	private boolean subscriptionPlansToBeRemoved;
+
+	private VasRequestDto vasRequestDto;
 }

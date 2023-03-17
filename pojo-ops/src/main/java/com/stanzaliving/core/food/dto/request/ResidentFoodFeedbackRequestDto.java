@@ -42,4 +42,6 @@ public class ResidentFoodFeedbackRequestDto {
 	private Set<String> mealFeedbackOptionUuids;
 	
 	private String notificationId;
+
+	private boolean partial;
 }

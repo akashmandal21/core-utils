@@ -126,4 +126,6 @@ public class FoodItemDto extends AbstractDto {
 	private String linkedIngredientId;
 
 	private boolean isValidDishDetails;
+
+	private String foodItemCuisineTagId;
 }

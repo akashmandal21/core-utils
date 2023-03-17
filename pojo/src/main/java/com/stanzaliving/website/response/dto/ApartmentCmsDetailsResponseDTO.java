@@ -39,13 +39,17 @@ public class ApartmentCmsDetailsResponseDTO implements Serializable {
 	private int cityId;
 	private String cityName;
 	private String citySlug;
-	private String description;
 	private String seoTitle;
 	private String seoDescription;
+	private String description;
+	private String seoFaq;
 	private String pricingPlan;
 	private int pricingPlanId;
 	private int startingPrice;
-	private Integer discountPercentage;
+	private double discountPercentage;
+	private double bumpUpPercentage;
+	private boolean showDiscount;
+	private int inventoryPrice;
 	private double latitude;
 	private double longitude;
 	private boolean enabled;
@@ -57,6 +61,7 @@ public class ApartmentCmsDetailsResponseDTO implements Serializable {
 	private String fomoTagcolour;
 	private int sortOrder;
 	private String googleMapLink;
+	private String googlePlaceId;
 	private String virtualTourImage;
 	private String videoLink;
 	private String videoLink2;

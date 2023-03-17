@@ -44,13 +44,15 @@ public class WebsiteResidenceDetailedResponseDTO implements Serializable {
 	private String cityName;
 	
 	private String citySlug;
-	
-	private String description;
-	
+
 	private String seoTitle;
 	
 	private String seoDescription;
-	
+
+	private String description;
+
+	private String seoFaq;
+
 	private String pricingPlan;
 	
 	private int startingPrice;
@@ -68,6 +70,10 @@ public class WebsiteResidenceDetailedResponseDTO implements Serializable {
 	private Integer preBookingAmount;
 
 	private Integer unlockDiscountAmount;
+
+	private double discountPercentage;
+
+	private Integer discountedPrice;
 	
 	private String preBookingMode;
 	

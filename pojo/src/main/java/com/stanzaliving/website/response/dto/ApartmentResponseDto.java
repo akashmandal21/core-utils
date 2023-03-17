@@ -1,14 +1,10 @@
 package com.stanzaliving.website.response.dto;
 
 import java.io.Serializable;
-import java.util.Collections;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 import com.stanzaliving.core.enums.PropertyEntityType;
+import com.stanzaliving.website.dto.WebsiteImageLibraryDto;
 import com.stanzaliving.website.enums.FomoTag;
 import com.stanzaliving.website.enums.Gender;
 
@@ -103,7 +99,7 @@ public class ApartmentResponseDto implements Serializable, Comparable<ApartmentR
 	
 	private Date created;
 	
-	private Integer discountPercentage;
+	private double discountPercentage;
 	
 	private Integer discountedPrice;
 	
@@ -119,9 +115,8 @@ public class ApartmentResponseDto implements Serializable, Comparable<ApartmentR
 	private Boolean soldOut;
 	
 	private boolean isEntireFlatAvailable;
-	
-	@Builder.Default
-	private Set<FacilityResponseDTO> facilities = new HashSet<>();
+
+	private List<FacilityResponseDTO> facilities;
 	
 	private List<Integer> featureIds;
 
@@ -129,9 +124,12 @@ public class ApartmentResponseDto implements Serializable, Comparable<ApartmentR
 	
 	@Builder.Default
 	private List<ApartmentRoomTypeResponseDTO> apartmentRoomTypes = Collections.emptyList();
-	
-	@Builder.Default
-	private Set<ImageResponseDTO> images = new HashSet<>();
+
+	private List<WebsiteImageLibraryDto> images;
+
+	private boolean showDiscount;
+
+	private Integer inventoryPrice;
 
 	@Override
 	public int compareTo(ApartmentResponseDto dto2) {

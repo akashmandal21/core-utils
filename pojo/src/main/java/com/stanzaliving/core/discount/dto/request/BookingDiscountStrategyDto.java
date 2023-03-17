@@ -1,5 +1,6 @@
 package com.stanzaliving.core.discount.dto.request;
 
+import com.stanzaliving.booking.enums.BookingSubType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -24,4 +25,7 @@ public class BookingDiscountStrategyDto {
 	private String residenceUuid;
 	private Integer advanceRentalFirstMonths;
 	private Integer advanceRentalLastMonths;
+	private Integer lastAdvanceRentalDays;
+	private boolean remoteBooking;
+	private BookingSubType bookingSubType;
 }

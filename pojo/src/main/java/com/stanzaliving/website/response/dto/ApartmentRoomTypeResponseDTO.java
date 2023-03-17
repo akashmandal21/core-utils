@@ -38,6 +38,10 @@ public class ApartmentRoomTypeResponseDTO implements Serializable {
 
 	private Integer startingPrice;
 
+	private Integer inventoryPrice;
+
+	private boolean showDiscount;
+
 	private Boolean soldOut;
 
 	private String pricingPlan;
@@ -46,7 +50,7 @@ public class ApartmentRoomTypeResponseDTO implements Serializable {
 
 	private Integer available;
 
-	private Integer discountPercentage;
+	private double discountPercentage;
 
 	private Integer discountedPrice;
 
