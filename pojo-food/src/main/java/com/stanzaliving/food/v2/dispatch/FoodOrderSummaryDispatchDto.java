@@ -33,7 +33,7 @@ public class FoodOrderSummaryDispatchDto {
 	private String vendorId;
 
 	@Builder.Default
-	private boolean stanzaKitchen = false;
+	private boolean stanzaKitchen = true;
 
 	private String foodOrderId;
 
