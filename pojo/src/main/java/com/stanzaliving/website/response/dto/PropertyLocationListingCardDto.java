@@ -20,6 +20,8 @@ public class PropertyLocationListingCardDto implements Serializable {
 
     private long propertyLocationId;
 
+    private String locationServiceUuid;
+
     private String name;
 
     private String propertyLocationListingName;
