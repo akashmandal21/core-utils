@@ -1,11 +1,13 @@
 package com.stanzaliving.core.bookingservice.dto.response;
 
+import com.stanzaliving.core.dto.PlanOptInRequestDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -17,4 +19,6 @@ public class PackagedServiceResponseDto implements Serializable {
     private Double feePerMonth;
     private String serviceMixUuid;
     private String serviceMixName;
+    private Integer currentOptedInBookingsCount;
+    private List<PlanOptInRequestDto> planOptInRequestDtoList;
 }

@@ -91,5 +91,6 @@ public class CommercialDetailsResponseDto {
 
 	@Builder.Default
 	private ResidenceAgreementType residenceAgreementType = ResidenceAgreementType.LEASE_DEED;
-	
+
+	private Boolean priceStrategyEnabled;
 }

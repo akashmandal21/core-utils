@@ -25,6 +25,7 @@ public class FlatUrlRequestDTO {
 	private String url;
 	private List<FlatUrlPlaceResponseDTO> placeData;
 	private String description;
+	private String seoFaq;
 	private String name;
 	private String seoTitle;
 	private String seoDescription;

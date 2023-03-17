@@ -14,4 +14,5 @@ public class CafeOrderCreatedRDto {
     private Double totalAmount;
     private Double gstAmount;
     private Double amount;
+    private String orderCode;
 }
