@@ -26,5 +26,4 @@ public class WishListRequestDto {
 	List<Long> propertyLocationIdsWhereEntireFlatIsTrue;
 	
 	private List<String> roomIds;
-
 }
