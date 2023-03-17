@@ -10,7 +10,9 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
+import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
@@ -18,11 +20,11 @@ import java.util.Date;
 import java.util.List;
 
 
-@Builder
+@SuperBuilder
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class VasPaymentPlanRequestDTO implements Serializable {
+public class VasPaymentPlanRequestDTO extends PaymentPlanRequestDto implements Serializable {
 
     @NotEmpty(message = "referenceId cannot be null or blank")
     private String referenceId;
@@ -53,9 +55,9 @@ public class VasPaymentPlanRequestDTO implements Serializable {
     @Builder.Default
     private PaymentTerm paymentTerm = PaymentTerm.MONTHLY;
 
-    private Boolean savePaymentPlan = false;
-
     private Boolean isModifyContract = false;
+
+    private Date modifiedContractStartDate;
 
     private Boolean isGenerateInvoice =false;
 
