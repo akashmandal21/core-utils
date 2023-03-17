@@ -3,6 +3,7 @@ package com.stanzaliving.core.dto;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.stanzaliving.core.base.StanzaConstants;
 import com.stanzaliving.core.base.utils.DateUtil;
+import com.stanzaliving.residenceservice.enums.PlanTypeEnum;
 import com.stanzaliving.residenceservice.enums.VasCategory;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -27,5 +28,7 @@ public class PlanResponseDto {
     private Date planEndDate;
 
     private String serviceMixUuid;
+
+    private String planType;
 
 }
