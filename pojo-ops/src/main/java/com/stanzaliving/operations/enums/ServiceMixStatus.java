@@ -15,7 +15,8 @@ public enum ServiceMixStatus {
 	APPROVED,
 	REJECTED,
 	DISCARDED,
-	MERGED;
+	MERGED,
+	DEACTIVATED;
 
 	private String status;
 	
