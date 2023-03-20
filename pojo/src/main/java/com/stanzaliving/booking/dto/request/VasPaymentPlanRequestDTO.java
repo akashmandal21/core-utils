@@ -53,6 +53,8 @@ public class VasPaymentPlanRequestDTO implements Serializable {
 
     private Boolean isModifyContract = false;
 
+    private Boolean savePaymentPlan = false;
+
     private Date modifiedContractStartDate;
 
     private Boolean isGenerateInvoice =false;
