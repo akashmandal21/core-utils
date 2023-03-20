@@ -16,12 +16,11 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-
 @SuperBuilder
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class VasPaymentPlanRequestDTO implements Serializable {
+public class PlanPaymentPlanRequestDTO extends PaymentPlanRequestDto implements Serializable {
     @NotEmpty(message = "referenceId cannot be null or blank")
     private String referenceId;
 
@@ -52,8 +51,6 @@ public class VasPaymentPlanRequestDTO implements Serializable {
     private PaymentTerm paymentTerm = PaymentTerm.MONTHLY;
 
     private Boolean isModifyContract = false;
-
-    private Boolean savePaymentPlan = false;
 
     private Date modifiedContractStartDate;
 

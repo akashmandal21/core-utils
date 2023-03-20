@@ -389,6 +389,38 @@ public class PaymentPlanClientApi {
 
     }
 
+    public ResponseDto<Boolean> createOrUpdateSubscriptionServices(PlanPaymentPlanRequestDTO vasPaymentPlanRequestDTO) {
+
+        try {
+            Object postBody = vasPaymentPlanRequestDTO;
+
+            log.info("Creating subscription plan for booking id {} ", vasPaymentPlanRequestDTO.getReferenceId());
+
+            final Map<String, Object> uriVariables = new HashMap<>();
+
+            String path = UriComponentsBuilder.fromPath("/internal/api/v1/create/plan").buildAndExpand(uriVariables)
+                    .toUriString();
+
+            final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+            HttpHeaders headerParams = new HttpHeaders();
+
+            final String[] accepts = {"*/*"};
+
+            final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+            ParameterizedTypeReference<ResponseDto<Boolean>> returnType = new ParameterizedTypeReference<ResponseDto<Boolean>>() {
+            };
+
+            return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("error while creating the subscription plan for booking {} error is {}", vasPaymentPlanRequestDTO.getReferenceId(), e);
+        }
+
+        return null;
+
+    }
+
     public CompletableFuture<ResponseDto<PaymentPlanResponseDto>> getPaymentPlanByFuture(String bookingUuid, String paymentTerm) {
 
         try {

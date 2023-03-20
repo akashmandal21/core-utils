@@ -6,6 +6,7 @@ import com.stanzaliving.residenceservice.enums.PlanTypeEnum;
 import lombok.*;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
 
@@ -29,6 +30,8 @@ public class AlfredResidenceServiceDto {
 
     private Object description;
 
+    private List<String> showDescription;
+
     private Object meta;
 
     private Double planAmountWithoutGst;
@@ -50,6 +53,8 @@ public class AlfredResidenceServiceDto {
     private String planUuid;
 
     private String image;
+
+    private String ventaImage;
 
     private Object tag;
 

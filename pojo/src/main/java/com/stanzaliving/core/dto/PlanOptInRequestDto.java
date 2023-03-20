@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.stanzaliving.booking.enums.PaymentTerm;
 import com.stanzaliving.core.base.StanzaConstants;
 import com.stanzaliving.core.base.utils.DateUtil;
+import com.stanzaliving.residenceservice.enums.PlanTypeEnum;
 import com.stanzaliving.residenceservice.enums.VasCategory;
 import lombok.*;
 
@@ -46,6 +47,9 @@ public class PlanOptInRequestDto {
 
     private double planAmount;
 
-    private boolean isRenewal;
+    private boolean skipPaymentPlanCreation = false;
+
+    @Builder.Default
+    private PlanTypeEnum planType = PlanTypeEnum.POSTPAID;
 
 }
