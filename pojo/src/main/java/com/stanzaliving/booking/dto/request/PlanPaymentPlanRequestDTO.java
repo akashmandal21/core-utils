@@ -16,12 +16,11 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-
 @SuperBuilder
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class VasPaymentPlanRequestDTO implements Serializable {
+public class PlanPaymentPlanRequestDTO extends PaymentPlanRequestDto implements Serializable {
     @NotEmpty(message = "referenceId cannot be null or blank")
     private String referenceId;
 
