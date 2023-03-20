@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+import com.stanzaliving.operations.dto.request.ResidentServiceMixAddOnRequestDtoStayCuration;
 import com.stanzaliving.operations.dto.request.ResidentServiceMixVasRequestDto;
 import com.stanzaliving.operations.dto.response.ResidentServiceMixV2VasResponseDto;
 import org.apache.commons.collections.CollectionUtils;
