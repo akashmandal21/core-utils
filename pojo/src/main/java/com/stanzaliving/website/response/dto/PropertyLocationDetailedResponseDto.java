@@ -78,11 +78,7 @@ public class PropertyLocationDetailedResponseDto implements Serializable {
 
     private String locationServiceUuid;
 
-    //
     private AddressResponseDTO address;
-
-    //
-    private Boolean propertyLocationSoldOut;
 
     //
     private boolean isEntireFlatAvailable;
