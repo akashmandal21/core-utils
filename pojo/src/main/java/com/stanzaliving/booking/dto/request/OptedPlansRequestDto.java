@@ -1,5 +1,6 @@
 package com.stanzaliving.booking.dto.request;
 
+import com.stanzaliving.residenceservice.enums.PlanTypeEnum;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -26,4 +27,6 @@ public class OptedPlansRequestDto {
     @NotNull(message = "optInDate cannot be null")
     @Valid
     private Date optInDate;
+
+    private PlanTypeEnum planType;
 }
