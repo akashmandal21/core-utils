@@ -19,9 +19,6 @@ public class PropertyLocationDetailedResponseDto implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    // for lambda
-    private String residenceName;
-
     private Long propertyLocationId;
 
     private String name;
@@ -30,8 +27,10 @@ public class PropertyLocationDetailedResponseDto implements Serializable {
 
     private String propertyLocationListingName;
 
-    // list of roomCount
-    private Integer roomCount;
+    // for lambda
+    private String residenceName;
+
+    private List<PriceDTO> pricing;
 
     private String slug;
 
@@ -54,9 +53,6 @@ public class PropertyLocationDetailedResponseDto implements Serializable {
     private boolean enabled;
 
     private String pricingPlan;
-
-    // list. for all SKU
-    private Integer startingPrice;
 
     private Integer preBookingAmount;
 
@@ -100,7 +96,7 @@ public class PropertyLocationDetailedResponseDto implements Serializable {
 
     private List<WebsiteImageLibraryDto> images;
 
-    // map cards in details page. Can use this from listing page wala map api
+    // map cards in details page. Can use this from listing page map api
     private List<WebsiteMapCardDto> cityAllProperties;
 
     // if user lands up searching a place
