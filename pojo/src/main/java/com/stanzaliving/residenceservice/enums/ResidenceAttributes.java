@@ -54,7 +54,8 @@ public enum ResidenceAttributes {
     MAXIMUM_WAIVE_OFF_PERCENTAGE("Maximum Waive off Percentage", "Double"),
     BOOKING_AMOUNT_REALISATION_ENABLED("Booking Amount Realisation Enabled", "Boolean"),
     EXIT_PROCESSING_FEE("Exit Processing Fee", "Double"),
-    ONE_MONTH_BOOKING_ENABLED("One Month Booking Enabled", "Boolean");
+    ONE_MONTH_BOOKING_ENABLED("One Month Booking Enabled", "Boolean"),
+    RC_LESS_ONBOARDING_ENABLED("RC-less Onboarding Enabled", "Boolean");
 
     private String label;
     private String type;
