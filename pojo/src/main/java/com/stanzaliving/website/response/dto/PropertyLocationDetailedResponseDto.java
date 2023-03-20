@@ -50,8 +50,6 @@ public class PropertyLocationDetailedResponseDto implements Serializable {
 
     private String apartmentCitySlug;
 
-    private boolean enabled;
-
     private String pricingPlan;
 
     private Integer preBookingAmount;
@@ -80,20 +78,24 @@ public class PropertyLocationDetailedResponseDto implements Serializable {
 
     private String locationServiceUuid;
 
+    //
     private AddressResponseDTO address;
 
+    //
     private Boolean propertyLocationSoldOut;
 
+    //
     private boolean isEntireFlatAvailable;
 
     private PropertyEntityType propertyEntityType;
 
+    //
     private List<FacilityResponseDTO> facilities;
 
+    //
     private List<FeatureResponseDTO> features;
 
-    private List<ApartmentRoomTypeResponseDTO> apartmentRoomTypes;
-
+    //
     private List<WebsiteImageLibraryDto> images;
 
     // map cards in details page. Can use this from listing page map api
