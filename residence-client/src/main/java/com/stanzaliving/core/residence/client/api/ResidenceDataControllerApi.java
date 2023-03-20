@@ -16,6 +16,7 @@ import com.stanzaliving.core.security.helper.SecurityUtils;
 import com.stanzaliving.residence.dto.ResidencePropertyCardDto;
 import com.stanzaliving.residenceservice.BookingAttributesDto;
 import com.stanzaliving.residenceservice.Dto.*;
+import com.stanzaliving.residenceservice.enums.PlanTypeEnum;
 import com.stanzaliving.residenceservice.enums.ResidenceAttributes;
 import com.stanzaliving.residenceservice.enums.VasCategory;
 import com.stanzaliving.stayCuration.AlfredResidenceServiceDto;
@@ -2462,46 +2463,6 @@ public class ResidenceDataControllerApi {
             log.error("Exception while fetching vas Details from residenceUuid: {}", residenceUuid);
         }
         return Collections.emptyList();
-    }
-
-    public ResponseDto<Map<VasCategory, List<AlfredResidenceServiceDto>>> getPlansByServiceMix(String serviceMixUuid, List<VasCategory> vasCategoryList,  boolean includeDeprecated, Date moveIn) {
-
-        log.info("Residence-Data-Controller::Processing to get plan details based on serviceMixUuid {}", serviceMixUuid);
-
-        Map<String, Object> uriVariables = new HashMap<>();
-
-        uriVariables.put("serviceMixUuid", serviceMixUuid);
-
-        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-
-        if(CollectionUtils.isNotEmpty(vasCategoryList)) {
-            List<String> vasCategories = vasCategoryList.stream().map(Enum::toString).collect(Collectors.toList());
-            queryParams.put("vasCategory", vasCategories);
-        }
-
-        queryParams.put("includeDeprecated", Collections.singletonList(String.valueOf(includeDeprecated)));
-
-        queryParams.put("moveIn", Collections.singletonList(moveIn.toString()));
-
-        String path = UriComponentsBuilder.fromPath("/stay-curation/internal/paid-services/service-mix/{serviceMixUuid}/plans/").buildAndExpand(uriVariables).toUriString();
-
-        HttpHeaders headerParams = new HttpHeaders();
-
-        String[] accepts = new String[]{"*/*"};
-
-        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
-
-        ParameterizedTypeReference<ResponseDto<Map<VasCategory, List<AlfredResidenceServiceDto>>>> returnType =
-                new ParameterizedTypeReference<ResponseDto<Map<VasCategory, List<AlfredResidenceServiceDto>>>>() {
-                };
-
-        try {
-            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
-
-        } catch (Exception ex) {
-            log.error("Exception while fetching plan details for serviceMixUuid: {}", serviceMixUuid);
-        }
-        return null;
     }
 
     public ResponseDto<Map<VasCategory, List<AlfredResidenceServiceDto>>> fetchOptedPlans(List<OptedPlansRequestDto> optedPlansRequestDtoList) {
