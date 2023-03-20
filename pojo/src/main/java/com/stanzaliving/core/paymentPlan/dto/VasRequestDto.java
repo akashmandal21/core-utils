@@ -1,5 +1,6 @@
 package com.stanzaliving.core.paymentPlan.dto;
 
+import com.stanzaliving.booking.dto.request.PlanPaymentPlanRequestDTO;
 import com.stanzaliving.booking.dto.request.VasPaymentPlanRequestDTO;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -15,6 +16,6 @@ import java.util.List;
 @NoArgsConstructor
 public class VasRequestDto {
 
-    @NotEmpty(message = "vasPaymentPlanRequestDtoList cannot be empty")
-    private List<VasPaymentPlanRequestDTO> vasPaymentPlanRequestDtoList;
+    @NotEmpty(message = "planPaymentPlanRequestDtoList cannot be empty")
+    private List<PlanPaymentPlanRequestDTO> vasPaymentPlanRequestDtoList;
 }
