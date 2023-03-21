@@ -1,6 +1,7 @@
 package com.stanzaliving.core.residence.client.api;
 
 
+import com.stanzaliving.booking.dto.request.OptedPlansRequestDto;
 import com.stanzaliving.booking.dto.request.PricingStrategyRequestDto;
 import com.stanzaliving.booking.dto.response.InventoryPricingResponseDto;
 import com.stanzaliving.booking.dto.response.ServiceMixResponse;
@@ -15,6 +16,7 @@ import com.stanzaliving.core.security.helper.SecurityUtils;
 import com.stanzaliving.residence.dto.ResidencePropertyCardDto;
 import com.stanzaliving.residenceservice.BookingAttributesDto;
 import com.stanzaliving.residenceservice.Dto.*;
+import com.stanzaliving.residenceservice.enums.PlanTypeEnum;
 import com.stanzaliving.residenceservice.enums.ResidenceAttributes;
 import com.stanzaliving.residenceservice.enums.VasCategory;
 import com.stanzaliving.stayCuration.AlfredResidenceServiceDto;
@@ -1439,7 +1441,7 @@ public class ResidenceDataControllerApi {
         }
     }
 
-    public ResponseDto<Map<String, Object>> fetchPackagedServiceData(String uuid) {
+    public ResponseDto<Map<String, Object>> fetchPackagedServiceData(String uuid, boolean isStay) {
 
         log.info("Residence-Data-Controller::Processing to fetch Package service for service-mix uuid {}", uuid);
 
@@ -1450,6 +1452,7 @@ public class ResidenceDataControllerApi {
         String path = UriComponentsBuilder.fromPath("/internal/api/v1/packaged-service/{uuid}").buildAndExpand(uriVariables).toUriString();
 
         MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+        queryParams.add("stayCuration", String.valueOf(isStay));
 
         HttpHeaders headerParams = new HttpHeaders();
 
@@ -2462,47 +2465,9 @@ public class ResidenceDataControllerApi {
         return Collections.emptyList();
     }
 
-    public ResponseDto<Map<VasCategory, List<AlfredResidenceServiceDto>>> getPlansByServiceMix(String serviceMixUuid, List<VasCategory> vasCategoryList,  boolean includeDeprecated) {
+    public ResponseDto<Map<VasCategory, List<AlfredResidenceServiceDto>>> fetchOptedPlans(List<OptedPlansRequestDto> optedPlansRequestDtoList) {
 
-        log.info("Residence-Data-Controller::Processing to get plan details based on serviceMixUuid {}", serviceMixUuid);
-
-        Map<String, Object> uriVariables = new HashMap<>();
-
-        uriVariables.put("serviceMixUuid", serviceMixUuid);
-
-        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-
-        if(CollectionUtils.isNotEmpty(vasCategoryList)) {
-            List<String> vasCategories = vasCategoryList.stream().map(Enum::toString).collect(Collectors.toList());
-            queryParams.put("vasCategory", vasCategories);
-        }
-
-        queryParams.put("includeDeprecated", Collections.singletonList(String.valueOf(includeDeprecated)));
-
-        String path = UriComponentsBuilder.fromPath("/stay-curation/internal/paid-services/service-mix/{serviceMixUuid}/plans/").buildAndExpand(uriVariables).toUriString();
-
-        HttpHeaders headerParams = new HttpHeaders();
-
-        String[] accepts = new String[]{"*/*"};
-
-        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
-
-        ParameterizedTypeReference<ResponseDto<Map<VasCategory, List<AlfredResidenceServiceDto>>>> returnType =
-                new ParameterizedTypeReference<ResponseDto<Map<VasCategory, List<AlfredResidenceServiceDto>>>>() {
-                };
-
-        try {
-            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
-
-        } catch (Exception ex) {
-            log.error("Exception while fetching plan details for serviceMixUuid: {}", serviceMixUuid);
-        }
-        return null;
-    }
-
-    public ResponseDto<Map<VasCategory, List<AlfredResidenceServiceDto>>> fetchOptedPlans(List<String> planUuids) {
-
-        log.info("Residence-Data-Controller::Processing to fetch plan details based on plan uuids {}", planUuids);
+        log.info("Residence-Data-Controller::Processing to fetch plan details based on optedPlansRequestDtoList {}", optedPlansRequestDtoList);
 
         final Map<String, Object> uriVariables = new HashMap<>();
 
@@ -2521,44 +2486,11 @@ public class ResidenceDataControllerApi {
         };
 
         try {
-            return this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, planUuids, headerParams, accept, returnType);
+            return this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, optedPlansRequestDtoList, headerParams, accept, returnType);
         } catch (Exception var13) {
-            log.error("Exception while fetching plan details based on plan uuids  {}", planUuids);
+            log.error("Exception while fetching plan details based on optedPlansRequestDtoList {}", optedPlansRequestDtoList);
             return null;
         }
     }
 
-    public ResponseDto<List<String>> getPlansByCategory(List<VasCategory> vasCategoryList, boolean includeDeprecated) {
-        log.info("Residence-Data-Controller::Processing to get plan details based on categories {} and includeDeprecated {}", vasCategoryList, includeDeprecated);
-
-        Map<String, Object> uriVariables = new HashMap<>();
-
-        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-
-        if(CollectionUtils.isNotEmpty(vasCategoryList)) {
-            List<String> vasCategories = vasCategoryList.stream().map(Enum::toString).collect(Collectors.toList());
-            queryParams.put("vasCategory", vasCategories);
-        }
-
-        queryParams.put("includeDeprecated", Collections.singletonList(String.valueOf(includeDeprecated)));
-
-        String path = UriComponentsBuilder.fromPath("/stay-curation/internal/paid-services/category/plans").buildAndExpand(uriVariables).toUriString();
-
-        HttpHeaders headerParams = new HttpHeaders();
-
-        String[] accepts = new String[]{"*/*"};
-
-        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
-
-        ParameterizedTypeReference<ResponseDto<List<String>>> returnType = new ParameterizedTypeReference<ResponseDto<List<String>>>() {
-                };
-
-        try {
-            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
-
-        } catch (Exception ex) {
-            log.error("Exception while fetching plan details based on categories: {}", vasCategoryList, ex);
-        }
-        return null;
-    }
 }
