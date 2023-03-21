@@ -6,8 +6,9 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum PlanTypeEnum {
-    PREPAID ("prepaid"),
+
+    PREPAID("prepaid"),
     POSTPAID("postpaid");
 
-    private  String label;
+    private final String label;
 }
