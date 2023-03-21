@@ -1,5 +1,6 @@
 package com.stanzaliving.internet.dto;
 
+import com.stanzaliving.internet.enums.InternetPlanType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -41,6 +42,8 @@ public class UserRegistrationDetailsDto {
 	private LocalDate startDate;
 
 	private LocalDate endDate;
+
+	private InternetPlanType planType;
 
 	private String source;
 
