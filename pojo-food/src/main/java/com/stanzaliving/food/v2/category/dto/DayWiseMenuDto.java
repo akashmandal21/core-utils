@@ -1,5 +1,6 @@
 package com.stanzaliving.food.v2.category.dto;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -33,4 +34,6 @@ public class DayWiseMenuDto implements Serializable {
 	private boolean regularMealMenuDefined;
 	private Double cogs;
 	private Double budgeted;
+	@Builder.Default
+	private boolean beverageRuleSatisfied = true;
 }
