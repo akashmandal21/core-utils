@@ -10,6 +10,7 @@ import lombok.experimental.SuperBuilder;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
+import java.util.Objects;
 
 @Data
 @SuperBuilder
@@ -31,4 +32,8 @@ public class OptedPlansRequestDto {
 
     @Builder.Default
     private PlanTypeEnum planType = PlanTypeEnum.POSTPAID;
+
+    public PlanTypeEnum getPlanType() {
+        return Objects.nonNull(this.planType) ? this.planType : PlanTypeEnum.POSTPAID;
+    }
 }
