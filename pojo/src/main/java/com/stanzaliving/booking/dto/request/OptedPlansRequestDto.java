@@ -27,6 +27,6 @@ public class OptedPlansRequestDto {
     @NotNull(message = "optInDate cannot be null")
     @Valid
     private Date optInDate;
-
-    private PlanTypeEnum planType;
+    
+    private PlanTypeEnum planType = PlanTypeEnum.POSTPAID;
 }
