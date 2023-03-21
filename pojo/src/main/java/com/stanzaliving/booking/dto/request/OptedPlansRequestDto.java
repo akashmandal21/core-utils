@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
+import java.util.Objects;
 
 @Data
 @Builder
@@ -29,4 +30,8 @@ public class OptedPlansRequestDto {
     private Date optInDate;
 
     private PlanTypeEnum planType = PlanTypeEnum.POSTPAID;
+
+    public PlanTypeEnum getPlanType() {
+        return Objects.nonNull(this.planType) ? this.planType : PlanTypeEnum.POSTPAID;
+    }
 }
