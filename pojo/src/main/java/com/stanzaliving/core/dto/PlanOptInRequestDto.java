@@ -12,6 +12,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
+import java.util.Objects;
 
 @Builder
 @Getter
@@ -52,4 +53,7 @@ public class PlanOptInRequestDto {
     @Builder.Default
     private PlanTypeEnum planType = PlanTypeEnum.POSTPAID;
 
+    public PlanTypeEnum getPlanType() {
+        return Objects.nonNull(this.planType) ? this.planType : PlanTypeEnum.POSTPAID;
+    }
 }
