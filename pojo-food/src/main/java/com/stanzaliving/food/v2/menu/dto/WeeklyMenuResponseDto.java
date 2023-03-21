@@ -1,6 +1,7 @@
 package com.stanzaliving.food.v2.menu.dto;
 
 import com.stanzaliving.core.food.dto.FoodMenuBudgetDto;
+import com.stanzaliving.food.v2.category.dto.BeverageRuleDto;
 import com.stanzaliving.food.v2.category.dto.CompositionRuleV2Dto;
 import com.stanzaliving.food.v2.category.dto.DayWiseCogsDto;
 import com.stanzaliving.food.v2.category.dto.MealWiseMenuDto;
@@ -34,5 +35,10 @@ public class WeeklyMenuResponseDto extends MenuWiseMenuSearchRDto {
 	private List<DayWiseCogsDto> dayWiseCogs;
 	private CompositionRuleV2Dto rules;
 	private FoodMenuBudgetDto budgetRules;
+<<<<<<< Updated upstream
+=======
+	private BeverageRuleDto beverageRuleDto;
+	private boolean copyAction;
+>>>>>>> Stashed changes
 
 }
