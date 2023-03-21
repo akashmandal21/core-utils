@@ -38,6 +38,10 @@ public class UserRegistrationDetailsDto {
 	@NotNull(message = "Check-In Date cannot be null")
 	private LocalDate checkInDate;
 
+	private LocalDate startDate;
+
+	private LocalDate endDate;
+
 	private String source;
 
 	private String planId;
