@@ -101,4 +101,6 @@ public class MenuCategoryDetailDto extends MenuCategoryDTO {
 	private Boolean isDebarDishExist;
 
 	private BrmUpdationType brmUpdationType;
+
+	private boolean copyAction;
 }

@@ -37,4 +37,5 @@ public class WeeklyMenuResponseDto extends MenuWiseMenuSearchRDto {
 	private FoodMenuBudgetDto budgetRules;
 	private BeverageRuleDto beverageRuleDto;
 	private boolean copyAction;
+
 }
