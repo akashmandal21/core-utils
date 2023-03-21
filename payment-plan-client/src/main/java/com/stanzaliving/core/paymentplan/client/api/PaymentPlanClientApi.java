@@ -389,7 +389,7 @@ public class PaymentPlanClientApi {
 
     }
 
-    public ResponseDto<Boolean> createOrUpdateSubscriptionServices(VasPaymentPlanRequestDTO vasPaymentPlanRequestDTO) {
+    public ResponseDto<Boolean> createOrUpdateSubscriptionServices(PlanPaymentPlanRequestDTO vasPaymentPlanRequestDTO) {
 
         try {
             Object postBody = vasPaymentPlanRequestDTO;

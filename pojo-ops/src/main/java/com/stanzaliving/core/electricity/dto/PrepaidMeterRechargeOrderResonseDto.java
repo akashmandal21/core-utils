@@ -2,7 +2,7 @@ package com.stanzaliving.core.electricity.dto;
 
 
 import com.stanzaliving.core.payment.enums.PaymentMode;
-import com.stanzaliving.core.payment.enums.StanzaPaymentService;
+//import com.stanzaliving.core.payment.enums.StanzaPaymentService;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -24,6 +24,6 @@ public class PrepaidMeterRechargeOrderResonseDto {
 	private String userId;
 	private String userCode;
 
-	private StanzaPaymentService stanzaPaymentService;
+//	private StanzaPaymentService stanzaPaymentService;
 	private PaymentMode paymentMode;
 }
