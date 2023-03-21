@@ -35,10 +35,6 @@ public class WeeklyMenuResponseDto extends MenuWiseMenuSearchRDto {
 	private List<DayWiseCogsDto> dayWiseCogs;
 	private CompositionRuleV2Dto rules;
 	private FoodMenuBudgetDto budgetRules;
-<<<<<<< Updated upstream
-=======
 	private BeverageRuleDto beverageRuleDto;
 	private boolean copyAction;
->>>>>>> Stashed changes
-
 }
