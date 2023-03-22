@@ -31,4 +31,8 @@ public class OptedPlansRequestDto {
 
     @Builder.Default
     private PlanTypeEnum planType = PlanTypeEnum.POSTPAID;
+
+    public PlanTypeEnum getPlanType() {
+        return Objects.nonNull(this.planType) ? this.planType : PlanTypeEnum.POSTPAID;
+    }
 }
