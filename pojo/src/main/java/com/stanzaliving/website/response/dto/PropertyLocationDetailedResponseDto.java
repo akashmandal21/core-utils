@@ -27,7 +27,6 @@ public class PropertyLocationDetailedResponseDto implements Serializable {
 
     private String propertyLocationListingName;
 
-    // for lambda
     private String residenceName;
 
     //
