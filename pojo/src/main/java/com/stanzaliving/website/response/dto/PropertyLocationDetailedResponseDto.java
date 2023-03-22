@@ -30,8 +30,7 @@ public class PropertyLocationDetailedResponseDto implements Serializable {
     private String propertyLocationListingName;
 
     private String residenceName;
-
-    // left
+    
     private List<PriceDTO> pricing;
 
     private String slug;
