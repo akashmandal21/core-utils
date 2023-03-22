@@ -5,13 +5,15 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
+import java.util.Objects;
 
 @Data
-@Builder
+@SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
 public class OptedPlansRequestDto {
@@ -28,5 +30,10 @@ public class OptedPlansRequestDto {
     @Valid
     private Date optInDate;
 
+    @Builder.Default
     private PlanTypeEnum planType = PlanTypeEnum.POSTPAID;
+
+    public PlanTypeEnum getPlanType() {
+        return Objects.nonNull(this.planType) ? this.planType : PlanTypeEnum.POSTPAID;
+    }
 }
