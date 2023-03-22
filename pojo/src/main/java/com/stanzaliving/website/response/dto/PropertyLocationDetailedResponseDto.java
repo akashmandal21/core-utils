@@ -23,10 +23,8 @@ public class PropertyLocationDetailedResponseDto implements Serializable {
 
     private String name;
 
-    // room level
     private String propertyLocationDetailsName;
 
-    // room level
     private String propertyLocationListingName;
 
     private String residenceName;
@@ -81,11 +79,8 @@ public class PropertyLocationDetailedResponseDto implements Serializable {
 
     private AddressResponseDTO address;
 
-    // left
     private boolean isEntireFlatAvailable;
 
-    // left
-    // room level
     private boolean soldOut;
 
     private PropertyEntityType propertyEntityType;
