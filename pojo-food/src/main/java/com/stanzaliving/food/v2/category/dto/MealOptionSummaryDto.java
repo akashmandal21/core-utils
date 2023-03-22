@@ -1,6 +1,7 @@
 package com.stanzaliving.food.v2.category.dto;
 
 import java.io.Serializable;
+
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,4 +18,6 @@ public class MealOptionSummaryDto implements Serializable {
     private MealOptionDto mealOptionDto;
     @Builder.Default
     private String beverageHash = "";
+    @Builder.Default
+    private boolean defaultBeverageRequired = false;
 }

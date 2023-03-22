@@ -19,4 +19,6 @@ public class MenuItemSummaryDto implements Serializable {
     private List<MenuItemDto> menuItemDtoList;
     @Builder.Default
     private String beverageHash = "";
+    @Builder.Default
+    private boolean defaultBeverageRequired = false;
 }

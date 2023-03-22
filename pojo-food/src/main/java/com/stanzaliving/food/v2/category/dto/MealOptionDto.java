@@ -29,4 +29,5 @@ public class MealOptionDto extends OrderedListingDto {
 	private Boolean mealOfDay;
 	private FoodServeType foodServeType;
 	private String defaultBeverage;
+	private boolean defaultBeverageRequired;
 }

@@ -38,4 +38,6 @@ public class FoodPreferenceComboItemDto implements Serializable {
 	private boolean beverageItem;
     private boolean selectedBeverageItem;
     private int rank;
+
+
 }

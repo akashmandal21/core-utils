@@ -2,6 +2,7 @@ package com.stanzaliving.core.sqljpa.conveter;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Objects;
 
 import javax.persistence.AttributeConverter;
 
@@ -11,8 +12,9 @@ import org.apache.commons.lang3.StringUtils;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
 import lombok.extern.log4j.Log4j2;
-import java.util.Objects;
+
 
 
 @Log4j2
