@@ -20,4 +20,6 @@ public class PriceDTO implements Serializable {
     private String name;
 
     private Integer price;
+
+    private boolean soldOut;
 }

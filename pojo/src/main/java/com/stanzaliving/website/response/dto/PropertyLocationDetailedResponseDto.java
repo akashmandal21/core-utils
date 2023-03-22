@@ -23,13 +23,15 @@ public class PropertyLocationDetailedResponseDto implements Serializable {
 
     private String name;
 
+    // room level
     private String propertyLocationDetailsName;
 
+    // room level
     private String propertyLocationListingName;
 
     private String residenceName;
 
-    //
+    // left
     private List<PriceDTO> pricing;
 
     private String slug;
@@ -80,8 +82,12 @@ public class PropertyLocationDetailedResponseDto implements Serializable {
 
     private AddressResponseDTO address;
 
-    //
+    // left
     private boolean isEntireFlatAvailable;
+
+    // left
+    // room level
+    private boolean soldOut;
 
     private PropertyEntityType propertyEntityType;
 
@@ -89,12 +95,9 @@ public class PropertyLocationDetailedResponseDto implements Serializable {
 
     private List<FeatureResponseDTO> features;
 
-    //
+    // left
     private List<WebsiteImageLibraryDto> images;
 
-    // map cards in details page. Can use this from listing page map api
-    private List<WebsiteMapCardDto> cityAllProperties;
-
-    // if user lands up searching a place
+    // left
     private WebsitePlaceIndexDto placeIndexDto;
 }
