@@ -30,6 +30,7 @@ public class PropertyLocationDetailedResponseDto implements Serializable {
     // for lambda
     private String residenceName;
 
+    //
     private List<PriceDTO> pricing;
 
     private String slug;
@@ -85,10 +86,8 @@ public class PropertyLocationDetailedResponseDto implements Serializable {
 
     private PropertyEntityType propertyEntityType;
 
-    //
     private List<FacilityResponseDTO> facilities;
 
-    //
     private List<FeatureResponseDTO> features;
 
     //
