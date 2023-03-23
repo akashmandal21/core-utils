@@ -19,7 +19,7 @@ public enum DynamicUrlsFilterCategory {
     AMENITIES_FILTER("Amenities"),
     SERVICES_FILTER("Services"),
     BUDGET_FILTER("Budget"),
-    BHK_FILTER("BKH Type"),
+    BHK_FILTER("BHK Type"),
     ENTIRE_FLAT_FILTER("Entire Flat");
 
     private String filterCategoryName;
