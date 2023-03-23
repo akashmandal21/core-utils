@@ -91,7 +91,6 @@ public class PropertyLocationDetailedResponseDto implements Serializable {
 
     // left
     private List<WebsiteImageLibraryDto> images;
-
-    // left
+    
     private WebsitePlaceIndexDto placeIndexDto;
 }
