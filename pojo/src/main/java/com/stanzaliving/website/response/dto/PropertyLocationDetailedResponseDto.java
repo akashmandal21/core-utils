@@ -55,12 +55,6 @@ public class PropertyLocationDetailedResponseDto implements Serializable {
 
     private Integer unlockDiscountAmount;
 
-    private String preBookingMode;
-
-    private Integer leadFormModeId;
-
-    private String leadFormModeName;
-
     private String googleMapLink;
 
     private double latitude;
