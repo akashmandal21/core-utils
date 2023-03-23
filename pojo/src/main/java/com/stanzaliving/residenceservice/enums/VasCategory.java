@@ -18,22 +18,23 @@ import static com.stanzaliving.residenceservice.enums.VasCategory.getServiceMixT
 @AllArgsConstructor
 public enum VasCategory {
 
-    FOOD("Food", "Additive"),
-    LAUNDRY("Laundry", "Update"),
-    INTERNET("Internet", "Update"),
-    ELECTRICITY("Electricity", "Update"),
-    HOUSEKEEPING("Housekeeping", "Update"),
-    MAINTENANCE("Maintenance", "Update"),
-    SECURITY("Security", "Update"),
-    TRANSPORT("Transport", "Update"),
-    FITNESS("Fitness", "Update"),
-    PARKING("Parking", "Update"),
-    ROOM("Room", "Update"),
-    TESTING("Testing", "Update"),
-    OTHER("Other", "Additive");
+    FOOD("Food", "Additive", "FOOD"),
+    LAUNDRY("Laundry", "Update", "LAUNDRY"),
+    INTERNET("Internet", "Update", "INTERNET"),
+    ELECTRICITY("Electricity", "Update", "ELECTRICITY"),
+    HOUSEKEEPING("Housekeeping", "Update", "HOUSEKEEPING"),
+    MAINTENANCE("Maintenance", "Update", "MAINTENANCE"),
+    SECURITY("Security", "Update", "SECURITY"),
+    TRANSPORT("Transport", "Update", "TRANSPORT"),
+    FITNESS("Fitness", "Update", "FITNESS"),
+    PARKING("Parking", "Update", "PARKING"),
+    ROOM("Room", "Update", "ROOM"),
+    TESTING("Testing", "Update", "TESTING"),
+    OTHER("Other", "Additive", "OTHER");
 
     private final String value;
     private final String nature;
+    private final String name;
 
     public static Map<VasCategory, ServiceMixServiceType> getServiceMixServiceTypeMap(){
         Map<VasCategory, ServiceMixServiceType> serviceMixTypeMap = new HashMap<>();
