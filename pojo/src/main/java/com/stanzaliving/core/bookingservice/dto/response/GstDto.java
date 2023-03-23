@@ -1,5 +1,6 @@
 package com.stanzaliving.core.bookingservice.dto.response;
 
+import com.stanzaliving.core.bookingservice.dto.GstName;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -15,4 +16,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class GstDto {
     private Double gstValue;
+    private GstName gstName;
 }
