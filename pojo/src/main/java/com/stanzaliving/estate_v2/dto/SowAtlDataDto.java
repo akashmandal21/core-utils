@@ -20,5 +20,6 @@ public class SowAtlDataDto {
     @Builder.Default
     private String clauseAnswer="Yes";
     private String proposedTerm;
-    private String reason;
+    private List<LabelValueDto> followUpData;
+
 }
