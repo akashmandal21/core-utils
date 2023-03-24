@@ -15,9 +15,9 @@ public class LocationDto implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private String locationName;
+    private String name;
 
-    private String locationServiceUuid;
+    private String locationId;
 
-    private String locationType;
+    private String type;
 }
