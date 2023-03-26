@@ -82,7 +82,7 @@ public class PropertyLocationDetailedResponseDto implements Serializable {
     private List<FacilityResponseDTO> facilities;
 
     private List<FeatureResponseDTO> features;
-    
+
     private List<WebsiteImageLibraryDto> images;
 
     private WebsitePlaceIndexDto placeIndexDto;
