@@ -19,7 +19,5 @@ public class LocationDto implements Serializable {
 
     private String locationId;
 
-    private String type;
-
     private String locationCode;
 }

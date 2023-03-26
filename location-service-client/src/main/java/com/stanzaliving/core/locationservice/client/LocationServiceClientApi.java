@@ -109,7 +109,7 @@ public class LocationServiceClientApi {
             return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
 
         } catch (Exception e) {
-            log.error("Error while fetching LocationDto For transformationUuid: {}", transformationUuid, e);
+            log.error("Error while fetching LocationDto for transformationUuid: {}", transformationUuid, e);
         }
         return null;
     }
