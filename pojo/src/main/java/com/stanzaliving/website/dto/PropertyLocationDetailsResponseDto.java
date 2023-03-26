@@ -19,6 +19,7 @@ public class PropertyLocationDetailsResponseDto implements Serializable {
     private String seoTitle;
     private String description;
     private String seoDescription;
+    private String seoFaq;
     private Integer preBookingAmount;
     private Integer unlockDiscountAmount;
     private int micromarketId;
@@ -29,4 +30,5 @@ public class PropertyLocationDetailsResponseDto implements Serializable {
     private String citySlug;
     private Double latitude;
     private Double longitude;
+    private String slug;
 }
