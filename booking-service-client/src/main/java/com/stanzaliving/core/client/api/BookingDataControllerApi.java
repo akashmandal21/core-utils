@@ -1536,7 +1536,6 @@ public class BookingDataControllerApi {
 
         Object postBody = null;
 
-        // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<>();
 
         String path = UriComponentsBuilder.fromPath("/internal/v1/booking/forfeit-remote-bookings").buildAndExpand(uriVariables).toUriString();
