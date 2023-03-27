@@ -11,7 +11,7 @@ import java.io.Serializable;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class PriceDTO implements Serializable {
+public class DetailsPagePricingDTO implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
