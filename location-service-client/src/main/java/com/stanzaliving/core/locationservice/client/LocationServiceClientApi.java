@@ -82,7 +82,7 @@ public class LocationServiceClientApi {
         return null;
     }
 
-    public ResponseDto<LocationDto> getSocietyLocation(String transformationUuid , String parentTypes) {
+    public ResponseDto<List<LocationDto>> getSocietyLocation(String transformationUuid , String parentTypes) {
 
         try {
             final Map<String, Object> uriVariables = new HashMap<>();
@@ -103,7 +103,7 @@ public class LocationServiceClientApi {
 
             final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-            ParameterizedTypeReference<ResponseDto<LocationDto>> returnType = new ParameterizedTypeReference<ResponseDto<LocationDto>>() {
+            ParameterizedTypeReference<ResponseDto<List<LocationDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<LocationDto>>>() {
             };
 
             return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
