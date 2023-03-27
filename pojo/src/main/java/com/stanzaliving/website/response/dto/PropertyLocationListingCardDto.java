@@ -32,6 +32,8 @@ public class PropertyLocationListingCardDto implements Serializable {
 
     private String residenceName;
 
+    private String propertyCode;
+
     private int micromarketId;
 
     private String micromarketName;
