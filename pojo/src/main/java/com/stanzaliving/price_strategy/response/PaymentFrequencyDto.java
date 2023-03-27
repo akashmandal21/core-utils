@@ -9,20 +9,26 @@ import java.util.List;
 @Data
 @Builder
 public class PaymentFrequencyDto {
-    private PaymentTerm paymentTerm;
+
     private Double monthlyRent;
     private Double totalAmount;
+    private Double priceImpact;
+    private Double processingFee;
+    private Double discountAmount;
+    private Double discountPercentage;
+
     private String showMonthlyRent;
     private String showTotalAmount;
-    private String showDiscountAmount;
-    private Double discountAmount;
-    private Boolean isRecommended = false;
+    private String paymentTermName;
     private String waiveOffStrategy;
     private String discountStrategy;
-    private Double discountPercentage;
-    private List<String> splitUpfrontComponent;
+    private String showDiscountAmount;
     private String collectionUpfrontComponent;
-    private Double processingFee;
-    private Double priceImpact;
-    private String paymentTermName;
+
+    private Boolean isRecommended;
+
+    private PaymentTerm paymentTerm;
+
+    private List<String> splitUpfrontComponent;
+
 }
