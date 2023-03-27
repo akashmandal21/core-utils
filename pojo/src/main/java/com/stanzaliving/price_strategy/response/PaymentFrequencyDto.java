@@ -11,6 +11,8 @@ import java.util.List;
 public class PaymentFrequencyDto {
 
     private Double monthlyRent;
+    private String gstAmountLabel;
+    private String monthlyRentExclusiveGstAmountLabel;
     private Double totalAmount;
     private Double priceImpact;
     private Double processingFee;
