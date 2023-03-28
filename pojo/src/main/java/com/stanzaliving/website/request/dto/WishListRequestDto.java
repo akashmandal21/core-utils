@@ -19,9 +19,9 @@ public class WishListRequestDto {
 	
 	private List<Integer> residenceIds;
 
-	// details page and listing(entireFlat==false)
-	List<Long> propertyLocationIdsWhereEntireFlatIsFalse;
+	// propertyLocationIdsWhereEntireFlatIsFalse
+	List<Long> roomLevelPropertyLocationIds;
 
-	// listing(entireFlat==true)
-	List<Long> propertyLocationIdsWhereEntireFlatIsTrue;
+	// propertyLocationIdsWhereEntireFlatIsTrue
+	List<Long> entireFlatPropertyLocationIds;
 }
