@@ -75,6 +75,8 @@ public class PropertyLocationDetailedResponseDto implements Serializable {
 
     private boolean isEntireFlatAvailable;
 
+    private boolean isEntireFlatFilterApplied;
+
     private boolean soldOut;
 
     private PropertyEntityType propertyEntityType;

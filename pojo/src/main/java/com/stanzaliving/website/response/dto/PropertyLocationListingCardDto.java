@@ -50,10 +50,12 @@ public class PropertyLocationListingCardDto implements Serializable {
 
     private String apartmentCitySlug;
 
+    // for wishlist
     private Integer singleRoomStartingPrice;
 
     private Integer singleRoomDiscountedPrice;
 
+    // for wishlist
     private Integer entireFlatStartingPrice;
 
     private Integer entireFlatDiscountedPrice;
@@ -88,17 +90,24 @@ public class PropertyLocationListingCardDto implements Serializable {
 
     private List<FeatureResponseDTO> features;
 
+    // for wishlist
     private List<WebsiteImageLibraryDto> images;
 
+    // for wishlist
     private boolean isPropertyLocationSoldOut;
 
+    // for wishlist
     private Date singleRoomNextAvailableFrom;
 
+    // for wishlist
     private Date entireFlatNextAvailableFrom;
 
+    // for wishlist
     private boolean isEntireFlatAvailable;
 
     private boolean isPropertyLocationListingCardEligible;
+
+    private boolean isEntireFlatFilterApplied;
 
     List<ApartmentListingCardDto> apartmentListingCardDTOs;
 }
