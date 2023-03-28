@@ -10,6 +10,6 @@ import lombok.*;
 @Builder
 public class ResidenceCardDto {
 
-    Integer totalOccupiedRooms;
-    Float totalOccupiedBeds;
+    long totalOccupiedRooms;
+    double totalOccupiedBeds;
 }
