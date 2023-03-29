@@ -11,15 +11,21 @@ import java.io.Serializable;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class LeadFromDropDownDTO implements Serializable {
+public class LeadFormAndPricingDTO implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     private Integer sequenceId;
 
+    private String name;
+
+    private Integer startingPrice;
+
+    private Integer discountedPrice;
+
+    private boolean soldOut;
+
     private String leadFormName;
 
     private String transformationUuid;
-
-    private boolean soldOut;
 }
