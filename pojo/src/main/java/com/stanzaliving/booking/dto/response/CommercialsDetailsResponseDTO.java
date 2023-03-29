@@ -1,6 +1,7 @@
 package com.stanzaliving.booking.dto.response;
 
 import com.stanzaliving.booking.dto.MonthlyBreakupDto;
+import com.stanzaliving.booking.dto.request.ServicePriceDto;
 import com.stanzaliving.booking.enums.AMCAmountType;
 import com.stanzaliving.booking.enums.MaintenanceFeeCollectionType;
 import lombok.AllArgsConstructor;
@@ -46,5 +47,8 @@ public class CommercialsDetailsResponseDTO implements Serializable {
 
     private boolean priceStrategyEnabled;
 
+    private int securityDepositSplitCount;
+
+    private ServicePriceDto maintenanceFeeDto;
 }
 
