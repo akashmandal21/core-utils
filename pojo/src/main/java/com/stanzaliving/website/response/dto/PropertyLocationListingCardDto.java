@@ -109,5 +109,7 @@ public class PropertyLocationListingCardDto implements Serializable {
 
     private boolean isEntireFlatFilterApplied;
 
+    private List<LeadFromDropDownDTO> leadFromDropDownDTOs;
+
     List<ApartmentListingCardDto> apartmentListingCardDTOs;
 }
