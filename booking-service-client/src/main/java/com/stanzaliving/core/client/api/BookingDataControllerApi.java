@@ -16,6 +16,7 @@ import com.stanzaliving.core.base.exception.ApiValidationException;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.bookingservice.dto.request.BookingsForUpsellRequestDto;
 import com.stanzaliving.core.bookingservice.dto.request.GuestRequestPayloadDto;
+import com.stanzaliving.core.bookingservice.dto.request.ResidenceCardDto;
 import com.stanzaliving.core.bookingservice.dto.request.ResidentRequestDto;
 import com.stanzaliving.core.bookingservice.dto.response.BookedPackageServiceDto;
 import com.stanzaliving.core.bookingservice.dto.response.GstDto;
@@ -62,6 +63,27 @@ public class BookingDataControllerApi {
         ParameterizedTypeReference<ResponseDto<Map<String, List<InventoryResponseOccupancyDto>>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<String, List<InventoryResponseOccupancyDto>>>>() {
         };
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+    }
+
+    public ResidenceCardDto getBookedInventoryDetail(String residenceUuid, String moveInDate, String moveOutDate) {
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("uuid", residenceUuid);
+        uriVariables.put("moveIn", moveInDate);
+        uriVariables.put("moveOut", moveOutDate);
+
+        String path = UriComponentsBuilder.fromPath("/internal/v2/residence/{uuid}/move-in/{moveIn}/move-out/{moveOut}").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResidenceCardDto> returnType = new ParameterizedTypeReference<ResidenceCardDto>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
     }
 
     public ResponseDto<List<BookingResponseDto>> getBookingsEligibleForExpiration() {
