@@ -57,6 +57,7 @@ import com.stanzaliving.core.client.dto.ContractModificationDetailsDto;
 import com.stanzaliving.core.client.dto.ExceptionOnboardingDetailsDto;
 import com.stanzaliving.core.client.dto.InventoryResponseOccupancyDto;
 import com.stanzaliving.core.client.dto.PackageServicesResponseDto;
+import com.stanzaliving.core.client.dto.PlanMirResponseDto;
 import com.stanzaliving.core.client.dto.RequestDto;
 import com.stanzaliving.ledger.dto.UpcomingBookingsDto;
 import com.stanzaliving.wanda.venta.response.BookingStatusResponseDto;
@@ -1581,27 +1582,34 @@ public class BookingDataControllerApi {
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
     }
 
-    public ResponseDto<String> getMenuCategoryWiseMir(List<String> residenceIds, LocalDate date) {
-        if(residenceIds.size() > 10) {
+    public List<PlanMirResponseDto> getMenuCategoryWiseMir(List<String> residenceIds, LocalDate date) {
+        ResponseDto<List<PlanMirResponseDto>> responseDto = null;
+        if (residenceIds.size() > 10) {
             log.error("residenceIds list input size can't be greater than 10");
             throw new StanzaException("residenceIds list input size can't be greater than 10");
         }
-        // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<>();
 
         String path = UriComponentsBuilder.fromPath("/internal/v2/move-in-resident").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-        queryParams.add("date", date);
+        queryParams.add("date", date.toString());
 
         final HttpHeaders headerParams = new HttpHeaders();
 
-        final String[] accepts = {"*/*"};
+        final String[] accepts = { "*/*" };
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+        ParameterizedTypeReference<ResponseDto<List<PlanMirResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<PlanMirResponseDto>>>() {
         };
-        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, residenceIds, headerParams, accept, returnType);
+
+        try {
+            responseDto = restClient.invokeAPI(path, HttpMethod.POST, queryParams, residenceIds, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Error while getting menucategory wise mir {}", date, e);
+        }
+
+        return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : null;
     }
 
 }
