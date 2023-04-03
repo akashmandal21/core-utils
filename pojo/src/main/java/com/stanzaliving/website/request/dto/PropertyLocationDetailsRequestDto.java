@@ -2,6 +2,8 @@ package com.stanzaliving.website.request.dto;
 
 import lombok.*;
 
+import javax.persistence.Column;
+
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -13,4 +15,5 @@ public class PropertyLocationDetailsRequestDto {
     private Long locationId;
     private Integer preBookingAmount;
     private Integer unlockDiscountAmount;
+    private Integer sortOrder;
 }
