@@ -1,5 +1,6 @@
 package com.stanzaliving.website.request.dto;
 
+import com.stanzaliving.core.base.common.dto.AbstractDto;
 import lombok.*;
 
 import javax.persistence.Column;
@@ -10,9 +11,8 @@ import javax.persistence.Column;
 @Getter
 @Setter
 @ToString
-public class PropertyLocationDetailsRequestDto {
+public class PropertyLocationDetailsRequestDto extends AbstractDto {
 
-    private Long locationId;
     private Integer preBookingAmount;
     private Integer unlockDiscountAmount;
     private Integer sortOrder;

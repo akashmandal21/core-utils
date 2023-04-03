@@ -1,5 +1,6 @@
 package com.stanzaliving.website.request.dto;
 
+import com.stanzaliving.core.base.common.dto.AbstractDto;
 import lombok.*;
 
 @Builder
@@ -8,8 +9,7 @@ import lombok.*;
 @Getter
 @Setter
 @ToString
-public class SocietyLocationRequestDto {
+public class SocietyLocationRequestDto extends AbstractDto {
 
-    private Long locationId;
     private String googleMapLink;
 }

@@ -1,5 +1,6 @@
 package com.stanzaliving.website.request.dto;
 
+import com.stanzaliving.core.base.common.dto.AbstractDto;
 import lombok.*;
 
 @Builder
@@ -8,9 +9,8 @@ import lombok.*;
 @Getter
 @Setter
 @ToString
-public class PropertyLocationSeoDetailsRequestDto {
+public class PropertyLocationSeoDetailsRequestDto extends AbstractDto {
 
-    private Long locationId;
     private String slug;
     private String description;
     private String seoTitle;
