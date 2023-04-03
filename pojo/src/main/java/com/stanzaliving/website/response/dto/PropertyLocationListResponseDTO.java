@@ -1,4 +1,5 @@
 package com.stanzaliving.website.response.dto;
+import com.stanzaliving.core.base.common.dto.AbstractDto;
 import lombok.*;
 
 import java.io.Serializable;
@@ -9,11 +10,10 @@ import java.io.Serializable;
 @Getter
 @Setter
 @ToString
-public class PropertyLocationListResponseDTO implements Serializable {
+public class PropertyLocationListResponseDTO extends AbstractDto implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private long locationId;
     private String name;
     private String slug;
     private double latitude;
@@ -28,5 +28,4 @@ public class PropertyLocationListResponseDTO implements Serializable {
     private String apartmentCitySlug;
     private Integer preBookingAmount;
     private Integer unlockDiscountAmount;
-    private boolean status;
 }

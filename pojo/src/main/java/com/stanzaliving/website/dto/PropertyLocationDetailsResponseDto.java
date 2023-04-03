@@ -1,5 +1,8 @@
 package com.stanzaliving.website.dto;
 
+import com.stanzaliving.core.base.common.dto.AbstractDto;
+import com.stanzaliving.core.enums.LocationType;
+import com.stanzaliving.website.response.dto.AddressResponseDTO;
 import lombok.*;
 
 import java.io.Serializable;
@@ -10,11 +13,14 @@ import java.io.Serializable;
 @Getter
 @Setter
 @ToString
-public class PropertyLocationDetailsResponseDto implements Serializable {
+public class PropertyLocationDetailsResponseDto extends AbstractDto implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private Long locationId;
+    private String name;
+    private String nearbyArea;
+    private AddressResponseDTO addressResponseDTO;
+    private LocationType locationType;
     private String googleMapLink;
     private String seoTitle;
     private String description;
