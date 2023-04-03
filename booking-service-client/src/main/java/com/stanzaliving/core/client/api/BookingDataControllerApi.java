@@ -1617,7 +1617,7 @@ public class BookingDataControllerApi {
         ResidenceCardDto responseDto = null;
         final Map<String, Object> uriVariables = new HashMap<>();
 
-        String path = UriComponentsBuilder.fromPath("/internal/v2/residence-stats/move-in/{moveIn}").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/v2/residence-stats").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
         queryParams.add("moveIn", moveIn.toString());
