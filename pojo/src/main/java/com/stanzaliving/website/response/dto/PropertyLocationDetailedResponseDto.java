@@ -9,6 +9,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 @Data
@@ -78,6 +79,10 @@ public class PropertyLocationDetailedResponseDto implements Serializable {
     private boolean isEntireFlatFilterApplied;
 
     private boolean soldOut;
+
+    private Date singleRoomNextAvailableFrom;
+
+    private Date entireFlatNextAvailableFrom;
 
     private PropertyEntityType propertyEntityType;
 
