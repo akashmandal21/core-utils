@@ -19,4 +19,5 @@ public class Internet extends BooleanService {
 	private int speed;
 	private DataUnit speedUnit;
 	private int validity;
+	private PlanData planData;
 }

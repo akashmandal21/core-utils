@@ -16,6 +16,7 @@ import java.util.Map;
 public class CafeRDto {
     private String cafeId;
     private String name;
+    private String cafeDisplayName;
     private Integer itemCount;
     private List<ServingMode> modes;
     private Map<ServingMode, List<CafeMenuSlotRDto>> modeSlots;

@@ -10,6 +10,8 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
+
 /**
  * @author naveen.kumar
  *
@@ -22,7 +24,7 @@ import lombok.NoArgsConstructor;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class Residence {
+public class Residence implements Serializable {
 
 	private String residenceName;
 	
