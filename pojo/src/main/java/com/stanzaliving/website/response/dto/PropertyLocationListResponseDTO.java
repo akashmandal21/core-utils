@@ -1,6 +1,6 @@
 package com.stanzaliving.website.response.dto;
 import com.stanzaliving.core.base.common.dto.AbstractDto;
-import com.stanzaliving.transformations.enums.LocationType;
+import com.stanzaliving.core.enums.LocationType;
 import lombok.*;
 
 import java.io.Serializable;
