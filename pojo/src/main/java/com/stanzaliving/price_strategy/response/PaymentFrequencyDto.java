@@ -17,6 +17,7 @@ public class PaymentFrequencyDto {
     private Double discountAmount;
     private Double discountPercentage;
 
+    private String gstAmountLabel;
     private String showMonthlyRent;
     private String showTotalAmount;
     private String paymentTermName;
@@ -24,6 +25,7 @@ public class PaymentFrequencyDto {
     private String discountStrategy;
     private String showDiscountAmount;
     private String collectionUpfrontComponent;
+    private String monthlyRentExclusiveGstAmountLabel;
 
     private Boolean isRecommended;
 
