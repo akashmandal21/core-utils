@@ -25,6 +25,7 @@ public class CompleteExitInfoDto {
     private String residenceUuid;
     private String residenceName;
     private String userCode;
+    private String userUuid;
     private String roomNumber;
     private String bookingUuid;
     private String auditUuid;

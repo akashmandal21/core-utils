@@ -1,5 +1,6 @@
 package com.stanzaliving.core.food.dto;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
@@ -20,7 +21,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ResidentFoodFeedbackDto {
+public class ResidentFoodFeedbackDto implements Serializable {
 
 	private String residentFoodFeedbackId;
 
@@ -57,4 +58,6 @@ public class ResidentFoodFeedbackDto {
 	private List<ResidentFoodItemFeedbackDto> foodItemFeedbackDtos;
 
 	private Map<Integer, List<ResidentMealFeedbackOptions>> ratingWiseMealFeedbackOptions;
+
+	private boolean partial;
 }

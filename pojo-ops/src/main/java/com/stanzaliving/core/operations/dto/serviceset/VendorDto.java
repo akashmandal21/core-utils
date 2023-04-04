@@ -39,4 +39,7 @@ public class VendorDto extends AbstractDto {
 	private String vendorCityId;
 
 	private String vendorCityName;
+
+	private String vendorEmail;
+
 }

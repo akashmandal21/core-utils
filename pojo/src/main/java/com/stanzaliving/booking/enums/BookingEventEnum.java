@@ -3,6 +3,9 @@ package com.stanzaliving.booking.enums;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Getter
 @AllArgsConstructor
 public enum BookingEventEnum {
@@ -84,8 +87,28 @@ public enum BookingEventEnum {
     CONTRACT_EXTENSION_REQUESTED("contract extension request created"),
     CONTRACT_MODIFIED("Contract is modified successfully"),
     CONTRACT_START_DATE_CROSSED("Contract Start Date Crossed"),
-    BOOKING_AUTO_FORFEITURE("Booking Auto Forfeiture");
+    BOOKING_AUTO_FORFEITURE("Booking Auto Forfeiture"),
+    REMOTE_BOOKING_FORFEITURE("Remote Booking Forfeiture"),
+    REMOTE_BOOKING_ROOM_SHIFT("Remote Booking Room Shift"),
+
+    REMOTE_BOOKING_REFUND("Remote Booking Refund"),
+    RESIDENCE_CHANGE_REQUESTED("Residence change request created");
 
     private final String eventName;
 
+    public static List<BookingEventEnum> bookingEventsForJarvisSync(){
+        List<BookingEventEnum> bookingEventList = new ArrayList<>();
+        bookingEventList.add(BookingEventEnum.BOOKING_AUTO_FORFEITURE);
+        bookingEventList.add(BookingEventEnum.MARK_STAY_FORFEITURE);
+        bookingEventList.add(BookingEventEnum.MARK_CONTRACT_TERMINATED);
+        bookingEventList.add(BookingEventEnum.MARK_CONTRACT_COMPLETED);
+        bookingEventList.add(BookingEventEnum.CANCEL_BOOKING);
+        bookingEventList.add(BookingEventEnum.CONTRACT_END);
+        bookingEventList.add(BookingEventEnum.MARK_RESIDENT_AS_MOVE_OUT);
+
+        bookingEventList.add(BookingEventEnum.TOKEN_AMOUNT_PAID);
+        bookingEventList.add(BookingEventEnum.BOOKING_AMOUNT_PAID);
+        bookingEventList.add(BookingEventEnum.PAYMENT_MODE_ONLINE);
+        return bookingEventList;
+    }
 }
