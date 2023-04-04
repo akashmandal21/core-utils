@@ -1,5 +1,6 @@
 package com.stanzaliving.website.response.dto;
 
+import com.stanzaliving.core.enums.LocationType;
 import com.stanzaliving.core.enums.PropertyEntityType;
 import com.stanzaliving.website.dto.WebsiteImageLibraryDto;
 import lombok.*;
@@ -23,6 +24,8 @@ public class PropertyLocationListingCardDto implements Serializable {
     private String locationServiceUuid;
 
     private String name;
+
+    private LocationType locationType;
 
     private String propertyLocationListingName;
 

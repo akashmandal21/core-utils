@@ -1,5 +1,6 @@
 package com.stanzaliving.website.response.dto;
 
+import com.stanzaliving.core.enums.LocationType;
 import com.stanzaliving.core.enums.PropertyEntityType;
 import com.stanzaliving.website.dto.WebsiteImageLibraryDto;
 import com.stanzaliving.website.elasticsearch.index.dto.WebsitePlaceIndexDto;
@@ -23,6 +24,8 @@ public class PropertyLocationDetailedResponseDto implements Serializable {
     private Long propertyLocationId;
 
     private String name;
+
+    private LocationType locationType;
 
     private String propertyLocationDetailsName;
 
