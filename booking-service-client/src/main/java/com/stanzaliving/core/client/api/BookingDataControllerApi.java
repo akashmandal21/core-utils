@@ -1612,6 +1612,26 @@ public class BookingDataControllerApi {
         return (Objects.nonNull(responseDto) && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : null;
     }
 
+    public ResponseDto<String> forfeitRemoteBookings() {
+
+        Object postBody = null;
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/internal/v1/booking/forfeit-remote-bookings").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+    }
+
     public ResidenceCardDto getBedsStatByResidenceUuidByDate(List<String> residenceUuids, Date moveIn) {
 
         ResidenceCardDto responseDto = null;

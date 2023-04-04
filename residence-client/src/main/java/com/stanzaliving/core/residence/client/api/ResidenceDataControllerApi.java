@@ -438,12 +438,18 @@ public class ResidenceDataControllerApi {
     }
 
     public ResponseDto<RoomInventoryDetailDto> getRoomWithInventory(String roomUUID, String moveInDate) {
+        return this.getRoomWithInventory(roomUUID, moveInDate, new ArrayList<>());
+    }
+
+    public ResponseDto<RoomInventoryDetailDto> getRoomWithInventory(String roomUUID, String moveInDate, List<String> occupiedInventories) {
         log.info("Residence-Data-Controller::Processing to get room inventories for roomUUID {} based on movein-in date {}", roomUUID, moveInDate);
         Map<String, Object> uriVariables = new HashMap();
         uriVariables.put("roomUUID", roomUUID);
         uriVariables.put("moveInDate", moveInDate);
         String path = UriComponentsBuilder.fromPath("/internal/room-inventory/{roomUUID}/move-in-date/{moveInDate}").buildAndExpand(uriVariables).toUriString();
         MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+        if (CollectionUtils.isNotEmpty(occupiedInventories))
+            queryParams.put("occupiedInventories", occupiedInventories);
         HttpHeaders headerParams = new HttpHeaders();
         String[] accepts = new String[]{"*/*"};
         List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
