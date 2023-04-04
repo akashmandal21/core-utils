@@ -1,5 +1,6 @@
 package com.stanzaliving.website.response.dto;
 import com.stanzaliving.core.base.common.dto.AbstractDto;
+import com.stanzaliving.transformations.enums.LocationType;
 import lombok.*;
 
 import java.io.Serializable;
@@ -15,6 +16,7 @@ public class PropertyLocationListResponseDTO extends AbstractDto implements Seri
     private static final long serialVersionUID = 1L;
 
     private String name;
+    private LocationType locationType;
     private String slug;
     private double latitude;
     private double longitude;
