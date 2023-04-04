@@ -7,7 +7,9 @@ import com.stanzaliving.booking.dto.response.InventoryPricingResponseDto;
 import com.stanzaliving.booking.dto.response.ServiceMixResponse;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.constants.SecurityConstants;
+import com.stanzaliving.core.base.enums.DateFormat;
 import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.core.base.utils.DateUtil;
 import com.stanzaliving.core.base.utils.ObjectMapperUtil;
 import com.stanzaliving.core.residenceservice.dto.AttributesResponseDto;
 import com.stanzaliving.core.residenceservice.dto.ResidenceBlendedPriceDto;
@@ -2491,6 +2493,34 @@ public class ResidenceDataControllerApi {
             log.error("Exception while fetching plan details based on optedPlansRequestDtoList {}", optedPlansRequestDtoList);
             return null;
         }
+    }
+
+    public RoomCardDetailDto getCardDetailsV2(List<String> residenceUuids, Date moveIn) {
+
+        RoomCardDetailDto responseDto = null;
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/internal/api/v2/inventory-view").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        if (Objects.nonNull(moveIn))
+            queryParams.add("fromDate", DateUtil.customDateFormatter(moveIn, DateFormat.YYYY_HIFEN_MM_HIFEN_DD));
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = { "*/*" };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<RoomCardDetailDto> returnType = new ParameterizedTypeReference<RoomCardDetailDto>() {
+        };
+
+        try {
+            responseDto = restClient.invokeAPI(path, HttpMethod.POST, queryParams, residenceUuids, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Error while getting BedsStatByResidenceUuidByDate", e);
+        }
+        return (Objects.nonNull(responseDto)) ? responseDto : null;
+
     }
 
 }
