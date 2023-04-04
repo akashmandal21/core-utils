@@ -20,4 +20,6 @@ public class LocationDto implements Serializable {
     private String name;
 
     private String locationCode;
+
+    private String nearByArea;
 }
