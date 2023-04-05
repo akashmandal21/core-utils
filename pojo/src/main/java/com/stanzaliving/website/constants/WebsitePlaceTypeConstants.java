@@ -25,7 +25,7 @@ public class WebsitePlaceTypeConstants {
 	
 	public final String CORPORATE="Corporate Park";
 
-	public final String STANDALONE = "Standalone";
+	public final String STANDALONE_BUILDING = "Building";
 	
 	public final Integer  PLACE_TYPE_ID_CITY = 5;
 	
