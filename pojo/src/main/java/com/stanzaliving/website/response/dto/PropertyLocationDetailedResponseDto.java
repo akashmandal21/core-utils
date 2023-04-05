@@ -37,7 +37,7 @@ public class PropertyLocationDetailedResponseDto implements Serializable {
 
     private String residenceName;
     
-    private List<LeadFormAndPricingDTO> leadFormAndPricingDTOS;
+    private List<LeadFormAndPricingDTO> leadFormAndPricingDTOs;
 
     private String slug;
 
