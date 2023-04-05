@@ -73,7 +73,7 @@ public class PropertyLocationDetailedResponseDto implements Serializable {
 
     private String seoDescription;
 
-    private String description;
+    private String seoContent;
 
     private String seoFaq;
 

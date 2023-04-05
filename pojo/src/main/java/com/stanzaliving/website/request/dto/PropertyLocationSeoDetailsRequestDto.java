@@ -12,7 +12,7 @@ import lombok.*;
 public class PropertyLocationSeoDetailsRequestDto extends AbstractDto {
 
     private String slug;
-    private String description;
+    private String seoContent;
     private String seoTitle;
     private String seoDescription;
     private String seoFaq;

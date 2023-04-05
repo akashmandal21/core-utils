@@ -23,7 +23,7 @@ public class PropertyLocationDetailsResponseDto extends AbstractDto implements S
     private LocationType locationType;
     private String googleMapLink;
     private String seoTitle;
-    private String description;
+    private String seoContent;
     private String seoDescription;
     private String seoFaq;
     private Integer preBookingAmount;
