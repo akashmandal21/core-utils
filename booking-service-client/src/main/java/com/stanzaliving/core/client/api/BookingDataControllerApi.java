@@ -9,6 +9,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+import com.stanzaliving.core.base.enums.DateFormat;
+import com.stanzaliving.core.base.utils.DateUtil;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -1630,6 +1632,34 @@ public class BookingDataControllerApi {
         ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
         };
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+    }
+
+    public ResidenceCardDto getBedsStatByResidenceUuidByDate(List<String> residenceUuids, Date moveIn) {
+
+        ResidenceCardDto responseDto = null;
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/internal/v2/residence-stats").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        if(Objects.nonNull(moveIn))
+            queryParams.add("moveIn", DateUtil.customDateFormatter(moveIn, DateFormat.YYYY_HIFEN_MM_HIFEN_DD));
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = { "*/*" };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResidenceCardDto> returnType = new ParameterizedTypeReference<ResidenceCardDto>() {
+        };
+
+        try {
+            responseDto = restClient.invokeAPI(path, HttpMethod.POST, queryParams, residenceUuids, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Error while getting BedsStatByResidenceUuidByDate", e);
+        }
+        return (Objects.nonNull(responseDto)) ? responseDto : null;
+
     }
 
 }
