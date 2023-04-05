@@ -27,6 +27,8 @@ public class PropertyLocationListingCardDto implements Serializable {
 
     private LocationType locationType;
 
+    private String nearbyArea;
+
     private String propertyLocationListingName;
 
     private String propertyLocationDetailsName;
