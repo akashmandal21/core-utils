@@ -32,4 +32,7 @@ public interface S3UploadService {
 
 	String upload(String bucket, String prefix, String fileName, File file, String contentType, AmazonS3 s3Client, boolean isPublic);
 
+	String getUploadPreSignedUrl(String bucket, String filePath, int durationInSeconds, AmazonS3 s3Client,String fileName,boolean isPublic);
+
+
 }

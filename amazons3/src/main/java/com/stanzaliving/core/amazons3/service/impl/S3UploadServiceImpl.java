@@ -164,4 +164,53 @@ public class S3UploadServiceImpl implements S3UploadService {
 		return upload(bucket, fileName, file, contentType, s3Client, isPublic);
 	}
 
+	@Override
+	public String getUploadPreSignedUrl(String bucket, String filePath, int durationInSeconds, AmazonS3 s3Client,String fileName,boolean isPublic) {
+
+		fileName = S3Util.createFilePathWithPrefix(filePath, fileName);
+
+		if (StringUtils.isNotEmpty(fileName)) {
+
+			try {
+				log.debug("Getting upload signed url for filepath " + filePath + " in Bucket: " + bucket);
+
+				ObjectMetadata meta = new ObjectMetadata();
+				meta.setContentLength(inputStream.available());
+				meta.setContentType(contentType);
+
+				PutObjectRequest putObjectRequest = new PutObjectRequest(bucket, filePath, inputStream, meta);
+
+				if (isPublic) {
+					log.debug("Uploading " + filePath + " in Bucket: " + bucket + " as Public Readable");
+					putObjectRequest = putObjectRequest.withCannedAcl(CannedAccessControlList.PublicRead);
+				}
+
+				PutObjectResult result = S3Util.getAmazonS3Client(s3Client).putObject(putObjectRequest);
+
+				if (result != null) {
+
+					log.debug(filePath + " Uploaded Successfully in Bucket: " + bucket);
+
+					return filePath;
+				}
+
+			} catch (Exception e) {
+				log.error("Error uploading file on S3: ", e);
+			}finally {
+				try {
+					inputStream.close();
+				}catch (IOException e) {
+					log.error("Error uploading file on S3: ", e);
+					throw new RuntimeException(e);
+				}
+			}
+		} else {
+			log.warn("Content InputStream is null. Not Uploading on S3");
+		}
+
+		return null;
+
+		return null;
+	}
+
 }
