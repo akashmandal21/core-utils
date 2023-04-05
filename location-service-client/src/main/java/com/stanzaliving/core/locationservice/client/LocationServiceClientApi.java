@@ -82,7 +82,7 @@ public class LocationServiceClientApi {
         return null;
     }
 
-    public ResponseDto<List<LocationDto>> getSocietyLocation(String transformationUuid , String parentTypes) {
+    public ResponseDto<List<LocationDto>> getSocietyLocation(String transformationUuid , String society, String standaloneBuilding) {
 
         try {
             final Map<String, Object> uriVariables = new HashMap<>();
@@ -93,8 +93,12 @@ public class LocationServiceClientApi {
 
             final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-            if (StringUtils.isNotBlank(parentTypes)) {
-                queryParams.add("parentTypes", parentTypes);
+            if (StringUtils.isNotBlank(society)) {
+                queryParams.add("parentTypes", society);
+            }
+
+            if (StringUtils.isNotBlank(standaloneBuilding)) {
+                queryParams.add("parentTypes", standaloneBuilding);
             }
 
             final HttpHeaders headerParams = new HttpHeaders();

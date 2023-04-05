@@ -11,19 +11,10 @@ import java.io.Serializable;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class LocationDto implements Serializable {
+public class GeoPoint implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private String locationId;
-
-    private String name;
-
-    private String type;
-
-    private Geometry geometry;
-
-    private Properties properties;
-
-    private String locationCode;
+    private double latitude;
+    private double longitude;
 }
