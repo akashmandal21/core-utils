@@ -28,6 +28,8 @@ public class RoomNumberListingResponseDto implements Serializable {
     private Date availableFrom;
 
     private Double startingPrice;
+    private Double gstAmountLabel;
+    private Double gstPercentageLabel;
     private Double bumpedUpStartingPrice;
 
     private String floor;
