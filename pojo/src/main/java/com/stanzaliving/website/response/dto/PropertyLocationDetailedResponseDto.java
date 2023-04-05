@@ -29,6 +29,8 @@ public class PropertyLocationDetailedResponseDto implements Serializable {
 
     private String nearbyArea;
 
+    private Integer sortOrder;
+
     private String propertyLocationDetailsName;
 
     private String propertyLocationListingName;
