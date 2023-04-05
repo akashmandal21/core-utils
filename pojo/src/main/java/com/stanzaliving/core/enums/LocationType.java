@@ -7,7 +7,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum LocationType {
 
-    SOCIETY("Society"), STANDALONE("Standalone");
+    SOCIETY("Society"), STANDALONE_BUILDING("Standalone Building");
 
     private String locationTypeName;
 }
