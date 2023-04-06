@@ -17,6 +17,7 @@ public class PropertyLocationListResponseDTO extends AbstractDto implements Seri
 
     private String name;
     private LocationType locationType;
+    private String locationTypeName;
     private String slug;
     private double latitude;
     private double longitude;

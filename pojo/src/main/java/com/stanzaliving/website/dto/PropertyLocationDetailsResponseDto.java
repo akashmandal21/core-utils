@@ -18,9 +18,11 @@ public class PropertyLocationDetailsResponseDto extends AbstractDto implements S
     private static final long serialVersionUID = 1L;
 
     private String name;
+    private Integer sortOrder;
     private String nearbyArea;
     private AddressResponseDTO addressResponseDTO;
     private LocationType locationType;
+    private String locationTypeName;
     private String googleMapLink;
     private String seoTitle;
     private String seoContent;
