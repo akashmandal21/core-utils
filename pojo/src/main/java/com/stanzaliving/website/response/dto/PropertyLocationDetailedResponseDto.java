@@ -85,7 +85,7 @@ public class PropertyLocationDetailedResponseDto implements Serializable {
 
     private boolean isEntireFlatFilterApplied;
 
-    private boolean soldOut;
+    private boolean isPropertyLocationSoldOut;
 
     private Date singleRoomNextAvailableFrom;
 
