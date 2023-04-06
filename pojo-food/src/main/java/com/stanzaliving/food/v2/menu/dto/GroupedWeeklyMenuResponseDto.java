@@ -60,6 +60,8 @@ public class GroupedWeeklyMenuResponseDto extends AbstractDto {
     private boolean comboRulesSatisfied;
     @Builder.Default
     private boolean beverageRuleSatisfied = true;
+    @Builder.Default
+    private boolean defaultBeverageRuleSatisfied = true;
     private boolean menuDefined;
     private ApprovalStatus approvalStatus;
     private List<String> pendingApprovers;
