@@ -30,11 +30,11 @@ public enum ResidenceAttributes {
     ROOM_CONVERSION_CHARGES("Room Conversion Charges", "String"),
     RETENTION_CREATION_BUFFER_DAYS("Retention Creation Buffer Days", "Integer"),
     NO_LOCK_IN_SUITS_BOOKING("No Lock In Suits Booking", "Boolean"),
-	
+
     MONTHLY_MULTIPLIER("Monthly Multiplier","Double"),
 	SD_MULTIPLIER("SD Multiplier","Double"),
 	AMC_MULTIPLIER("AMC Multiplier","Double"),
-	
+
 	FUTURE_BOOKING_ALLOWED_DAYS("Future Booking Allowed Duration","Integer"),
     NEEDS_ATTENTION_EXPIRY_TIME("Needs Attention Expiry Time","String"),
 
@@ -54,7 +54,6 @@ public enum ResidenceAttributes {
     MAXIMUM_WAIVE_OFF_PERCENTAGE("Maximum Waive off Percentage", "Double"),
     BOOKING_AMOUNT_REALISATION_ENABLED("Booking Amount Realisation Enabled", "Boolean"),
     EXIT_PROCESSING_FEE("Exit Processing Fee", "Double"),
-    ONE_MONTH_BOOKING_ENABLED("One Month Booking Enabled", "Boolean"),
     RC_LESS_ONBOARDING_ENABLED("RC-less Onboarding Enabled", "Boolean");
 
     private String label;
