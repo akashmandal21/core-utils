@@ -2503,7 +2503,7 @@ public class ResidenceDataControllerApi {
 
     public RoomCardDetailDto getCardDetailsV2(List<String> residenceUuids, Date moveIn) {
 
-        RoomCardDetailDto responseDto = null;
+        ResponseDto<RoomCardDetailDto> responseDto = null;
         final Map<String, Object> uriVariables = new HashMap<>();
 
         String path = UriComponentsBuilder.fromPath("/internal/api/v2/inventory-view").buildAndExpand(uriVariables).toUriString();
@@ -2517,7 +2517,7 @@ public class ResidenceDataControllerApi {
         final String[] accepts = { "*/*" };
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<RoomCardDetailDto> returnType = new ParameterizedTypeReference<RoomCardDetailDto>() {
+        ParameterizedTypeReference<ResponseDto<RoomCardDetailDto>> returnType = new ParameterizedTypeReference<ResponseDto<RoomCardDetailDto>>() {
         };
 
         try {
@@ -2525,7 +2525,7 @@ public class ResidenceDataControllerApi {
         } catch (Exception e) {
             log.error("Error while getting BedsStatByResidenceUuidByDate", e);
         }
-        return (Objects.nonNull(responseDto)) ? responseDto : null;
+        return (Objects.nonNull(responseDto)) ? responseDto.getData() : null;
 
     }
 
