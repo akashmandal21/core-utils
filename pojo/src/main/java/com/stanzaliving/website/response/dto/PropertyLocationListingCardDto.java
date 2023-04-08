@@ -1,5 +1,6 @@
 package com.stanzaliving.website.response.dto;
 
+import com.stanzaliving.core.base.common.dto.AbstractDto;
 import com.stanzaliving.core.enums.LocationType;
 import com.stanzaliving.core.enums.PropertyEntityType;
 import com.stanzaliving.website.dto.WebsiteImageLibraryDto;
@@ -15,7 +16,7 @@ import java.util.List;
 @Getter
 @Setter
 @ToString
-public class PropertyLocationListingCardDto implements Serializable {
+public class PropertyLocationListingCardDto extends AbstractDto implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
