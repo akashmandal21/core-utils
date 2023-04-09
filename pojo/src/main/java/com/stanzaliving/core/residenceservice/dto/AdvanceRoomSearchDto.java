@@ -38,9 +38,6 @@ public class AdvanceRoomSearchDto {
     private String referralUserUuid;
     private String referralRoomNumber;
 
-    private ResidenceSortBy sortBy;
-    private RoommateFilterDto roommateFilterDto;
-
     private List<Role> roles;
     private List<String> floors;
     private List<Integer> bhkType;
@@ -50,5 +47,8 @@ public class AdvanceRoomSearchDto {
     private List<EstateGender> genders;
     private List<RoomStatus> roomStatus;
     private List<String> micromarketUuids;
+
+    private ResidenceSortBy sortBy;
+    private RoommateFilterDto roommateFilterDto;
 
 }
