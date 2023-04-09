@@ -21,7 +21,7 @@ public class AdvanceRoomSearchDto {
     private int page;
     private int limit = 10;
 
-    private boolean isSold;
+    private boolean sold;
     private boolean inventoryView;
     private boolean insideSalesView;
     private boolean remoteBookingFlag;
@@ -38,7 +38,6 @@ public class AdvanceRoomSearchDto {
     private String referralUserUuid;
     private String referralRoomNumber;
 
-    private Role role;
     private ResidenceSortBy sortBy;
     private RoommateFilterDto roommateFilterDto;
 
