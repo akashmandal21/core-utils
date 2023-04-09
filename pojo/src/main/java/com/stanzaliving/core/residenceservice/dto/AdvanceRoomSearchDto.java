@@ -46,7 +46,6 @@ public class AdvanceRoomSearchDto {
     private List<Integer> occupancies;
     private List<EstateGender> genders;
     private List<RoomStatus> roomStatus;
-    private List<String> micromarketUuids;
 
     private ResidenceSortBy sortBy;
     private RoommateFilterDto roommateFilterDto;
