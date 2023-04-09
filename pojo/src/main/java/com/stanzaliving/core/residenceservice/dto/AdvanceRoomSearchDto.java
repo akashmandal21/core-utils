@@ -21,13 +21,13 @@ public class AdvanceRoomSearchDto {
     private int page;
     private int limit = 10;
 
+    private double inventoryMinPrice;
+    private double inventoryMaxPrice;
+
     private boolean sold;
     private boolean inventoryView;
     private boolean insideSalesView;
     private boolean remoteBookingFlag;
-
-    private Double inventoryMinPrice;
-    private Double inventoryMaxPrice;
 
     private String moveInDate;
     private String roomNumber;
