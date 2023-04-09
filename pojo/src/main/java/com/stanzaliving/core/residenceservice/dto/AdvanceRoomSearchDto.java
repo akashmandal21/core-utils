@@ -36,6 +36,7 @@ public class AdvanceRoomSearchDto {
     private String microMarketId;
     private String residenceName;
     private String referralUserUuid;
+    private String referralRoomNumber;
 
     private Role role;
     private ResidenceSortBy sortBy;
