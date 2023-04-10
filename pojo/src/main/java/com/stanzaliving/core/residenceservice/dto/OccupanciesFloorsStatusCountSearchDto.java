@@ -10,7 +10,10 @@ import java.util.List;
 @Setter
 @ToString
 public class OccupanciesFloorsStatusCountSearchDto {
-    private List<OptionsDto> occupancies;
-    private List<OptionsDto> floors;
+
+    private List<OptionsWithNotesDto> floors;
+    private List<OptionsWithNotesDto> gender;
     private List<OptionsWithNotesDto> roomStatus;
+    private List<OptionsWithNotesDto> occupancies;
+
 }
