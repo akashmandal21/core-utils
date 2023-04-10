@@ -19,10 +19,12 @@ import java.util.List;
 public class AdvanceRoomSearchDto {
 
     private int page;
+    @Builder.Default
     private int limit = 10;
 
     private double inventoryMinPrice;
-    private double inventoryMaxPrice;
+    @Builder.Default
+    private double inventoryMaxPrice = Double.MAX_VALUE;
 
     private boolean sold;
     private boolean inventoryView;
@@ -47,7 +49,8 @@ public class AdvanceRoomSearchDto {
     private List<EstateGender> genders;
     private List<RoomStatus> roomStatus;
 
-    private ResidenceSortBy sortBy;
+    @Builder.Default
+    private ResidenceSortBy sortBy = ResidenceSortBy.DEFAULT;
     private RoommateFilterDto roommateFilterDto;
 
 }
