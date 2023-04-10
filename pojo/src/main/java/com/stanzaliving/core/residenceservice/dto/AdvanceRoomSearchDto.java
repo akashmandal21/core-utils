@@ -49,7 +49,8 @@ public class AdvanceRoomSearchDto {
     private List<EstateGender> genders;
     private List<RoomStatus> roomStatus;
 
-    private ResidenceSortBy sortBy;
+    @Builder.Default
+    private ResidenceSortBy sortBy = ResidenceSortBy.DEFAULT;
     private RoommateFilterDto roommateFilterDto;
 
 }
