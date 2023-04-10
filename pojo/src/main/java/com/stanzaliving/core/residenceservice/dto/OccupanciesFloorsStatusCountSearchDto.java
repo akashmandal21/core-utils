@@ -12,7 +12,7 @@ import java.util.List;
 public class OccupanciesFloorsStatusCountSearchDto {
 
     private List<OptionsWithNotesDto> floors;
-    private List<OptionsWithNotesDto> gender;
+    private List<OptionsWithNotesDto> genders;
     private List<OptionsWithNotesDto> roomStatus;
     private List<OptionsWithNotesDto> occupancies;
 
