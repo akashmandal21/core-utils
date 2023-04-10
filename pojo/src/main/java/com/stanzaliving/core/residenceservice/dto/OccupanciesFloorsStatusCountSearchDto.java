@@ -14,6 +14,7 @@ public class OccupanciesFloorsStatusCountSearchDto {
     private List<OptionsWithNotesDto> floors;
     private List<OptionsWithNotesDto> genders;
     private List<OptionsWithNotesDto> roomStatus;
+    private List<OptionsWithNotesDto> attributes;
     private List<OptionsWithNotesDto> occupancies;
 
 }
