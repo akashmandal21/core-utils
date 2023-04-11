@@ -18,7 +18,12 @@ import lombok.ToString;
 public class WishListRequestDto {
 	
 	private List<Integer> residenceIds;
-	
+
 	private List<String> roomIds;
 
+	// propertyLocationIdsWhereEntireFlatIsFalse
+	List<Long> roomLevelPropertyLocationIds;
+
+	// propertyLocationIdsWhereEntireFlatIsTrue
+	List<Long> entireFlatPropertyLocationIds;
 }
