@@ -36,4 +36,6 @@ public class DayWiseMenuDto implements Serializable {
 	private Double budgeted;
 	@Builder.Default
 	private boolean beverageRuleSatisfied = true;
+	@Builder.Default
+	private boolean defaultBeverageRuleSatisfied = true;
 }

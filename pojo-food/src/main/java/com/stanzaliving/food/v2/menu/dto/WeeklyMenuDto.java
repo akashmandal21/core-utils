@@ -78,6 +78,7 @@ public class WeeklyMenuDto extends AbstractDto {
     private List<DayWiseCogsDto> dayWiseCogs;
     private CompositionRuleV2Dto rules;
     private BeverageRuleDto beverageRuleDto;
+    private BeverageRuleDto defaultBeverageRuleDto;
     private FoodMenuBudgetDto budgetRules;
     private List<MenuCategoryResidenceRDto> residences;
     private List<SpecialEventDto> events;

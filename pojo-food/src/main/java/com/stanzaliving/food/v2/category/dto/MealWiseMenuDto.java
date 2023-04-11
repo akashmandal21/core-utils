@@ -26,4 +26,7 @@ public class MealWiseMenuDto implements Serializable {
 
 	@Builder.Default
 	private boolean isBeverageRuleSatisfied = true;
+
+	@Builder.Default
+	private boolean isDefaultBeverageRuleSatisfied = true;
 }

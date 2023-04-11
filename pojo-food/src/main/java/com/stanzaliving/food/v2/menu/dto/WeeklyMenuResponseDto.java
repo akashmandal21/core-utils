@@ -36,6 +36,7 @@ public class WeeklyMenuResponseDto extends MenuWiseMenuSearchRDto {
 	private CompositionRuleV2Dto rules;
 	private FoodMenuBudgetDto budgetRules;
 	private BeverageRuleDto beverageRuleDto;
+	private BeverageRuleDto defaultBeverageRuleDto;
 	private boolean copyAction;
 
 }

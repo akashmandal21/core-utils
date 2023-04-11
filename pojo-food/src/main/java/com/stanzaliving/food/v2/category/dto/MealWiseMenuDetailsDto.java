@@ -18,4 +18,6 @@ public class MealWiseMenuDetailsDto implements Serializable {
     private List<MealWiseMenuDto> mealWiseMenuDtoList;
     @Builder.Default
     private boolean isBeverageRuleSatisfied = true;
+    @Builder.Default
+    private boolean isDefaultBeverageRuleSatisfied = true;
 }
