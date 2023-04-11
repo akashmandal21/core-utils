@@ -17,6 +17,7 @@ import java.util.Set;
 public class PackagedServiceResponseDto implements Serializable {
     private Set<Object> serviceSet;
     private Double feePerMonth;
+    private Double gstAmountLabel;
     private String serviceMixUuid;
     private String serviceMixName;
     private Integer currentOptedInBookingsCount;

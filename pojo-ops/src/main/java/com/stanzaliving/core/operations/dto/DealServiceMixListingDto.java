@@ -27,6 +27,7 @@ public class DealServiceMixListingDto {
 	
 	private String uuid;
 	private String versionName;
+	private String displayName;
 	private Long version;
 	private LocalDate fromDate;
 	private LocalDate toDate;

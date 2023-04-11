@@ -36,12 +36,18 @@ public class WebsitePlaceNearByPropertiesResponseDTO implements Serializable {
 	
 	@JsonInclude(value = Include.NON_NULL)
 	private List<ResidenceResponseShortDTO> residenceResponseShortDTOs;
+
+	@JsonInclude(value = Include.NON_NULL)
+	private List<PropertyLocationListingCardDto> propertyLocationListingCardDTOs;
 	
 	@Builder.Default
 	private Integer residenceCount = 0;
 
 	@Builder.Default
 	private Integer apartmentCount = 0;
+
+	@Builder.Default
+	private Integer propertyLocationCount = 0;
 	
 	@Builder.Default
 	private Boolean isApartmentPage = false;
