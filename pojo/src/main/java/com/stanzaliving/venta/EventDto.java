@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @Builder
-public class EventDto {
+public class EventDto<T> {
     private EventType eventType;
-    MonthlyRentDto data;
+    T data;
 }
