@@ -32,6 +32,8 @@ public class PropertyLocationListingCardDto extends AbstractDto implements Seria
 
     private String nearbyArea;
 
+    private Integer roomCount;
+
     private Integer sortOrder;
 
     private String propertyLocationListingName;
