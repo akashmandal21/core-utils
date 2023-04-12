@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.stanzaliving.core.payment.dto;
 
@@ -31,16 +31,16 @@ public class TransactionInitiateDto {
 	private String pgOrderId;
 
 	private String callbackUrl;
-	
+
 	private Integer amount;
-	
+
 	private String currency;
 
 	private String merchantTransactionId;
-	
+
 	@Default
 	private Boolean isEndUserPayingFee = false;
-	
+
 	private String paymentModeKey;
 
 	private String email;
@@ -60,4 +60,5 @@ public class TransactionInitiateDto {
 	private String key;
 
 	private String environment;
+	private String paymentSessionId;
 }

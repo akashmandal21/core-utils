@@ -44,6 +44,8 @@ public enum ResidenceAttributes {
     BOOKING_EXIT_NOTICE_PERIOD("Notice Period", "String"),
     EMI_ENABLED("EMI Enabled","Boolean"),
 
+    CASHFREE_EMI_ENABLED("Cashfree EMI Enabled","Boolean"),
+
     BOOKING_START_DATE("Booking Start Date", "Date"),
     PRE_BOOKING_START_DATE("Pre-Booking Start Date", "Date"),
 
