@@ -78,4 +78,6 @@ public class DocumentRequestDto {
 
     @Builder.Default
     private boolean fixSeries = false;
+
+    private boolean splitToggleEnabled;
 }

@@ -19,6 +19,7 @@ public class WebsiteDynamicUrlListingDto implements Serializable {
 
 	private ResidenceListingPageResponse residenceListingPageResponse;
 	private ApartmentListingPageResponse apartmentListingPageResponse;
+	private PropertyLocationListingCardsPageResponse propertyLocationListingCardsPageResponse;
 
 	private Integer cityId;
 	private String cityName;
