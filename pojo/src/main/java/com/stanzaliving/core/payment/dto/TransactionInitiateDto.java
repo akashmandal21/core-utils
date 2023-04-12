@@ -60,4 +60,5 @@ public class TransactionInitiateDto {
 	private String key;
 
 	private String environment;
+	private String paymentSessionId;
 }
