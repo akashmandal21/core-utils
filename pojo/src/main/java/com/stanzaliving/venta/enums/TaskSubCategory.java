@@ -13,7 +13,8 @@ public enum TaskSubCategory {
     RESOLVE_COMPLAINT("Resolve complaint"),
     COMPLETE_EXIT("Complete Exit"),
     COMPLETE_AUDIT("Complete Audit"),
-    MONTHLY_RENT("Monthly Rent");
+    MONTHLY_RENT("Monthly Rent"),
+    RENEW_CONTRACT("Renew Contract");
 
     private String name;
 }
