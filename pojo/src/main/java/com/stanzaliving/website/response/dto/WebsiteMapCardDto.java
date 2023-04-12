@@ -26,6 +26,8 @@ public class WebsiteMapCardDto implements Serializable {
 	
 	private int residenceId;
 
+	private long propertyLocationId;
+
 	private String name;
 
 	private String slug;
@@ -51,6 +53,11 @@ public class WebsiteMapCardDto implements Serializable {
 	private String citySlug;
 
 	private int startingPrice;
+
+	private Integer singleRoomStartingPrice;
+	private Integer singleRoomDiscountedPrice;
+	private Integer entireFlatStartingPrice;
+	private Integer entireFlatDiscountedPrice;
 
 	private Integer discountedPrice;
 
