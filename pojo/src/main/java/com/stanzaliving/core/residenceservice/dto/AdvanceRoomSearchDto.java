@@ -19,15 +19,17 @@ import java.util.List;
 public class AdvanceRoomSearchDto {
 
     private int page;
+    @Builder.Default
     private int limit = 10;
 
-    private boolean isSold;
+    private double inventoryMinPrice;
+    @Builder.Default
+    private double inventoryMaxPrice = Double.MAX_VALUE;
+
+    private boolean sold;
     private boolean inventoryView;
     private boolean insideSalesView;
     private boolean remoteBookingFlag;
-
-    private Double inventoryMinPrice;
-    private Double inventoryMaxPrice;
 
     private String moveInDate;
     private String roomNumber;
@@ -38,10 +40,6 @@ public class AdvanceRoomSearchDto {
     private String referralUserUuid;
     private String referralRoomNumber;
 
-    private Role role;
-    private ResidenceSortBy sortBy;
-    private RoommateFilterDto roommateFilterDto;
-
     private List<Role> roles;
     private List<String> floors;
     private List<Integer> bhkType;
@@ -50,6 +48,9 @@ public class AdvanceRoomSearchDto {
     private List<Integer> occupancies;
     private List<EstateGender> genders;
     private List<RoomStatus> roomStatus;
-    private List<String> micromarketUuids;
+
+    @Builder.Default
+    private ResidenceSortBy sortBy = ResidenceSortBy.DEFAULT;
+    private RoommateFilterDto roommateFilterDto;
 
 }
