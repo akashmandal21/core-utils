@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
  * @date 29-Sep-2019
  */
 @Getter
-@ToString
+@ToString(callSuper = true)
 @ResponseStatus(code = HttpStatus.ACCEPTED)
 public class StanzaException extends RuntimeException {
 
