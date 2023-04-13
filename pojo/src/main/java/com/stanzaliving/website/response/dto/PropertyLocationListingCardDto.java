@@ -70,6 +70,8 @@ public class PropertyLocationListingCardDto extends AbstractDto implements Seria
 
     private Integer entireFlatDiscountedPrice;
 
+    private boolean entireFlatSoldOutTag;
+
     private String pricingPlan;
 
     private Integer preBookingAmount;
