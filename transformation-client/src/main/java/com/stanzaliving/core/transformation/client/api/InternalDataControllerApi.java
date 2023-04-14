@@ -53,9 +53,16 @@ import lombok.extern.log4j.Log4j2;
 @Log4j2
 public class InternalDataControllerApi {
 
-    private StanzaRestClient restClient;
+    private final StanzaRestClient restClient;
+    private final boolean activeResidences;
 
     public InternalDataControllerApi(StanzaRestClient stanzaRestClient) {
+        this.activeResidences = true;
+        this.restClient = stanzaRestClient;
+    }
+
+    public InternalDataControllerApi(StanzaRestClient stanzaRestClient, boolean activeResidences) {
+        this.activeResidences = false;
         this.restClient = stanzaRestClient;
     }
 
@@ -526,7 +533,7 @@ public class InternalDataControllerApi {
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-        queryParams.add("active", "true");
+        queryParams.add("active", String.valueOf(activeResidences));
 
         final HttpHeaders headerParams = new HttpHeaders();
 
