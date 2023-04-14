@@ -28,6 +28,7 @@ public class RenewContractDto {
     private String userCode;
     private String bookingUuid;
     private LocalDate moveInDate;
+    private LocalDate contractEndDate;
     private String bookingResidenceType;
     private String roomNumber;
 }
