@@ -62,7 +62,7 @@ public class InternalDataControllerApi {
     }
 
     public InternalDataControllerApi(StanzaRestClient stanzaRestClient, boolean activeResidences) {
-        this.activeResidences = false;
+        this.activeResidences = activeResidences;
         this.restClient = stanzaRestClient;
     }
 
