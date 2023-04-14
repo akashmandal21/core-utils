@@ -22,6 +22,7 @@ import lombok.Setter;
 public class AddressRequestDTO {
 
 	private int addressId;
+	private Long propertyLocationId;
 	private String line1;
 	private String line2;
 	private String landmark;
