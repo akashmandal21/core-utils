@@ -6,6 +6,7 @@ import com.stanzaliving.website.enums.Gender;
 import lombok.*;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 @Builder
@@ -119,6 +120,8 @@ public class ApartmentListingCardDto implements Serializable {
 	private int similarApartmentsCount;
 	
 	private boolean soldOut;
+
+	private Date nextAvailableFromForEntireFlat;
 	
 	private boolean isEntireFlatAvailable;
 	
