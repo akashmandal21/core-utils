@@ -58,7 +58,8 @@ public enum ResidenceAttributes {
     MIN_DURATION_TO_START_NUDGE("Min Duration To Start Nudge", "String"),
     MAX_DURATION_TO_PUSH_CONTRACT("Max Duration To Push Contract", "String"),
     MIN_DURATION_BEFORE_MOVE_IN_DATE_CHANGE("Min Duration Before Move In Date change", "String"),
-    MIN_DURATION_BEFORE_CURRENT_DATE("Min Duration Before Current Date", "String");
+    MIN_DURATION_BEFORE_CURRENT_DATE("Min Duration Before Current Date", "String"),
+    ONE_MONTH_BOOKING_ENABLED("One month Booking enabled", "Boolean");
     private String label;
     private String type;
 
