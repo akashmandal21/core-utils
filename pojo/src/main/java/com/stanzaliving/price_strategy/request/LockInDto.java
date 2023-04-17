@@ -1,5 +1,6 @@
 package com.stanzaliving.price_strategy.request;
 
+import com.stanzaliving.booking.enums.BookingType;
 import com.stanzaliving.commercialcard.enums.CriteriaCondition;
 import lombok.*;
 
@@ -17,4 +18,6 @@ public class LockInDto {
     @NotNull(message = "Operator cannot be null")
     private CriteriaCondition operator;
     private String value;
+    private String residenceUuid;
+    private BookingType bookingUserType;
 }
