@@ -29,6 +29,7 @@ public class CreationDto {
     private CommercialCardStatus strategyCardStatus;
 
     private CommercialCardUserType bookingType;
+    private List<CommercialCardUserType> bookingTypes;
 
     @NotNull(message = "UserType can't be null")
     private List<ConditionsRule> conditionsRules;
