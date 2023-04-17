@@ -180,6 +180,17 @@ public class RedisCollectionServiceImpl implements RedisCollectionService {
 	}
 
 	@Override
+	public Object getFromMap(String mapName, String key) {
+		return redissonClient.getMapCache(mapName).get(key);
+	}
+
+	@Override
+	public boolean putToMap(String mapName, String key, Object value, long ttl, TimeUnit timeUnit) {
+		Object object = redissonClient.getMapCache(mapName).put(key, value, ttl, timeUnit);
+		return Objects.nonNull(object);
+	}
+
+	@Override
 	public String getFromStringMapCache(String mapName, String key) {
 		return getRedisStringMapCache(mapName).get(key);
 	}

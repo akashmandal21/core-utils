@@ -20,6 +20,8 @@ public class ApartmentListingCardDto implements Serializable {
 
 	private int residenceId;
 
+	private Long propertyLocationId;
+
 	private String name;
 
 	private String apartmentListingName;
@@ -91,6 +93,8 @@ public class ApartmentListingCardDto implements Serializable {
 	private String seoTitle;
 
 	private String seoDescription;
+
+	private String seoFaq;
 
 	private String transformationUuid;
 

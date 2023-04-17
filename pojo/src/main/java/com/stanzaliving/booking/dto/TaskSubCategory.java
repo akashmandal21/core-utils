@@ -12,7 +12,8 @@ public enum TaskSubCategory {
     POLICE_VERIFICATION("Police Verification"),
     RESOLVE_COMPLAINT("Resolve complaint"),
     COMPLETE_EXIT("Complete Exit"),
-    COMPLETE_AUDIT("Complete Audit");
+    COMPLETE_AUDIT("Complete Audit"),
+    PRE_ONBOARDING_CHECKLIST("Pre OnBoarding Checklist");
 
     private String name;
 }

@@ -10,6 +10,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import java.util.List;
+
 @Builder
 @Data
 @AllArgsConstructor
@@ -26,4 +28,7 @@ public class CommercialsRequestDto {
     private String lockInEndDate;
     private String serviceMixUuid;
     private String serviceMixName;
+    private String newPriceStrategyCard;
+    private Double newMonthlyRent;
+    private List<String> planUuidList;
 }

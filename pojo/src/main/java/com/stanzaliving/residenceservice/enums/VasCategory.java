@@ -11,21 +11,23 @@ import java.util.Map;
 @AllArgsConstructor
 public enum VasCategory {
 
-    FOOD("Food"),
-    ROOM("Room"),
-    LAUNDRY("Laundry"),
-    ELECTRICITY("Electricity"),
-    TRANSPORT("Transport"),
-    MAINTENANCE("Maintenance"),
-    PARKING("Parking"),
-    HOUSEKEEPING("Housekeeping"),
-    INTERNET("Internet"),
-    SECURITY("Security"),
-    FITNESS("Fitness"),
-    TESTING("Testing"),
-    OTHER("Other");
+    FOOD("Food", "Additive", "FOOD"),
+    LAUNDRY("Laundry", "Update", "LAUNDRY"),
+    INTERNET("Internet", "Update", "INTERNET"),
+    ELECTRICITY("Electricity", "Update", "ELECTRICITY"),
+    HOUSEKEEPING("Housekeeping", "Update", "HOUSEKEEPING"),
+    MAINTENANCE("Maintenance", "Update", "MAINTENANCE"),
+    SECURITY("Security", "Update", "SECURITY"),
+    TRANSPORT("Transport", "Update", "TRANSPORT"),
+    FITNESS("Fitness", "Update", "FITNESS"),
+    PARKING("Parking", "Update", "PARKING"),
+    ROOM("Room", "Update", "ROOM"),
+    TESTING("Testing", "Update", "TESTING"),
+    OTHER("Other", "Additive", "OTHER");
 
     private final String value;
+    private final String nature;
+    private final String name;
 
     public static Map<VasCategory, ServiceMixServiceType> getServiceMixServiceTypeMap(){
         Map<VasCategory, ServiceMixServiceType> serviceMixTypeMap = new HashMap<>();
