@@ -5,6 +5,7 @@ import com.squareup.javapoet.*;
 import com.stanzaliving.acl.client.AttributeDto;
 import com.stanzaliving.acl.client.annotation.Attribute;
 import com.stanzaliving.acl.client.annotation.Resource;
+import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 
 import javax.annotation.processing.*;
@@ -43,12 +44,12 @@ public class ResourceProcessor extends AbstractProcessor {
     @Override
     public boolean process(Set<? extends TypeElement> annotations, RoundEnvironment roundEnv) {
         try {
+            HashMap<String, ArrayList<String>> resourceAttributeMap = new HashMap<>();
+            HashMap<String, ArrayList<String>> resourcePermissionMap = new HashMap<>();
+            HashMap<String, TypeSpec.Builder> resourceBuilderMap = new HashMap<>();
             for (TypeElement annotation : annotations) {
                 if (annotation.getSimpleName().toString().equals("Resource")) {
                     Set<? extends Element> annotatedElements = roundEnv.getElementsAnnotatedWith(annotation);
-                    HashMap<String, ArrayList<String>> resourceAttributeMap = new HashMap<>();
-                    HashMap<String, ArrayList<String>> resourcePermissionMap = new HashMap<>();
-                    HashMap<String, TypeSpec.Builder> resourceBuilderMap = new HashMap<>();
 
                     for (Element annotatedElement : annotatedElements) {
 
@@ -91,15 +92,15 @@ public class ResourceProcessor extends AbstractProcessor {
                             }
                         }
                     }
-                    processPermission(resourcePermissionMap);
-
-                    try {
-                        generateClassForAttributes(resourceBuilderMap);
-                        generateClassForResourceAttributeAndPermission(resourceAttributeMap, resourcePermissionMap);
-                    } catch (IOException e) {
-                        messager.printMessage(Diagnostic.Kind.ERROR,e.getMessage());
-                    }
                 }
+            }
+            processPermission(resourcePermissionMap);
+
+            try {
+                generateClassForAttributes(resourceBuilderMap,resourceAttributeMap);
+                generateClassForResourceAttributeAndPermission(resourceAttributeMap, resourcePermissionMap);
+            } catch (IOException e) {
+                messager.printMessage(Diagnostic.Kind.ERROR,e.getMessage());
             }
             return true;
         }
@@ -108,9 +109,11 @@ public class ResourceProcessor extends AbstractProcessor {
         }
     }
 
-    private void generateClassForAttributes(HashMap<String,TypeSpec.Builder> resourceBuilderMap) throws IOException {
-        for(TypeSpec.Builder attributeDtoBuilder: resourceBuilderMap.values()) {
-            generateFile(attributeDtoBuilder);
+    private void generateClassForAttributes(HashMap<String,TypeSpec.Builder> resourceBuilderMap,HashMap<String, ArrayList<String>> resourceAttributeMap) throws IOException {
+        for(Map.Entry<String,TypeSpec.Builder> resourceBuilder: resourceBuilderMap.entrySet()) {
+            if(!CollectionUtils.isEmpty(resourceAttributeMap.get(resourceBuilder.getKey()))) {
+                generateFile(resourceBuilder.getValue());
+            }
         }
     }
 

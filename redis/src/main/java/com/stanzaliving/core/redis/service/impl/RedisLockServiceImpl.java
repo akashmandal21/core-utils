@@ -27,7 +27,7 @@ public class RedisLockServiceImpl implements RedisLockService {
 	@Override
 	public RLock acquire(String lockName) {
 
-		log.info("Acquiring Lock for [{}]", lockName);
+//		log.info("Acquiring Lock for [{}]", lockName);
 
 		return redissonClient.getLock(lockName);
 	}
@@ -35,7 +35,7 @@ public class RedisLockServiceImpl implements RedisLockService {
 	@Override
 	public RLock acquireFair(String lockName) {
 
-		log.info("Acquiring Fair Lock for [{}]", lockName);
+//		log.info("Acquiring Fair Lock for [{}]", lockName);
 
 		return redissonClient.getFairLock(lockName);
 	}
@@ -44,11 +44,11 @@ public class RedisLockServiceImpl implements RedisLockService {
 	public void release(RLock rLock) {
 
 		if (Objects.isNull(rLock)) {
-			log.warn("Lock is null to release");
+//			log.warn("Lock is null to release");
 			return;
 		}
 		if (rLock.isLocked()) {
-			log.info("Releasing lock for: {}", rLock.getName());
+//			log.info("Releasing lock for: {}", rLock.getName());
 			rLock.unlock();
 		}
 	}

@@ -19,7 +19,6 @@ import java.util.List;
 @NoArgsConstructor
 public enum UserType {
 
-	EMPLOYEE("employee"),
 	STUDENT("Student"),
 	PARENT("Parent"),
 	LEGAL("Legal"),
