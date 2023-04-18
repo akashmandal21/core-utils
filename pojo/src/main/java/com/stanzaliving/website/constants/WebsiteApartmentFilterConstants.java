@@ -2,6 +2,8 @@ package com.stanzaliving.website.constants;
 
 import lombok.experimental.UtilityClass;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -60,4 +62,7 @@ public class WebsiteApartmentFilterConstants {
 	public final String TRUE = "true";
 	public final String FALSE = "false";
 
+	public final List<Integer> AMENITIES_TO_BE_REMOVED_FOR_APARTMENTS = Arrays.asList(5,11);
+
+	public final List<Integer> SERVICES_TO_BE_REMOVED_FOR_APARTMENTS = Arrays.asList(21,25);
 }
