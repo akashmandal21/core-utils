@@ -41,4 +41,6 @@ public class CreationDto {
     private List<PaymentActionDto> allowedFrequencies;
 
     private String bookingSubTypes;
+
+    private String oldPriceStrategyUuid;
 }
