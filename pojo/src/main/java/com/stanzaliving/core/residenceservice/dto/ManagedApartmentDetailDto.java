@@ -28,11 +28,8 @@ public class ManagedApartmentDetailDto implements Serializable {
     private float blockedRooms = 0.0F;
     private String residenceCode;
     private Date availableFrom;
-<<<<<<< Updated upstream
     private String rofrTag;
-=======
     private Date rofrAvailabelFrom;
->>>>>>> Stashed changes
 
 
 }
