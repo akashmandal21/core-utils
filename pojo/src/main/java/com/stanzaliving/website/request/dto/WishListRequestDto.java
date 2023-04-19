@@ -19,7 +19,7 @@ public class WishListRequestDto {
 	
 	private List<Integer> residenceIds;
 
-	private List<String> roomIds;
+//	private List<String> roomIds;
 
 	// propertyLocationIdsWhereEntireFlatIsFalse
 	List<Long> roomLevelPropertyLocationIds;
