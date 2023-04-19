@@ -191,7 +191,7 @@ public class ExceptionInterceptor {
 	public <T> ResponseDto<T> handleMultipartException(MultipartException e) {
 
 		String exceptionId = getExceptionId();
-		log.error("Got MultipartException for exceptionId: {} with Message:", exceptionId, e);
+		log.error("Got MultipartException for exceptionId: {} with Message: {}", exceptionId, e.getMessage());
 
 		return ResponseDto.failure(e.getMessage(), exceptionId);
 	}
@@ -320,7 +320,7 @@ public class ExceptionInterceptor {
 	public <T> ResponseDto<T> handleStanzaException(StanzaException e) {
 
 		String exceptionId = getExceptionId();
-		log.error("Got StanzaException for exceptionId: {}", exceptionId, e);
+		log.error("Got StanzaException for exceptionId: {} with Message {}", exceptionId, e.getMessage());
 
 		return ResponseDto.failure(e.getMessage(), exceptionId);
 	}
