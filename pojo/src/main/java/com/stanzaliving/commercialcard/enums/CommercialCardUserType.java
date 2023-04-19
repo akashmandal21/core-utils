@@ -9,10 +9,12 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 public enum CommercialCardUserType {
-    SCHOLAR,
-    SUITES,
-    MANAGED_APARTMENT,
-    MANAGED_APARTMENTS,
-    ALL,
-    PROFESSIONAL
+    SCHOLAR("SCHOLAR"), SUITES("SUITES"), MANAGED_APARTMENT("MANAGED_APARTMENT"), MANAGED_APARTMENTS("MANAGED_APARTMENTS"),
+    ALL("ALL"), PROFESSIONAL("PROFESSIONAL");
+
+    private final String commercialCardUserType;
+
+    public String getDescription() {
+        return commercialCardUserType;
+    }
 }
