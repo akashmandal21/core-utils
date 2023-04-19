@@ -23,5 +23,7 @@ public class CommercialDataDto {
    private Double priceImpact;
    private Double tenureSortKey;
    private Double gstWithPriceImpact;
+   private Double gstPercentageLabel;
+   private Double monthlyRentWithoutGstLabel;
 
 }

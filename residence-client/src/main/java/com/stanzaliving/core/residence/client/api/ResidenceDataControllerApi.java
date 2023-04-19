@@ -7,7 +7,9 @@ import com.stanzaliving.booking.dto.response.InventoryPricingResponseDto;
 import com.stanzaliving.booking.dto.response.ServiceMixResponse;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.constants.SecurityConstants;
+import com.stanzaliving.core.base.enums.DateFormat;
 import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.core.base.utils.DateUtil;
 import com.stanzaliving.core.base.utils.ObjectMapperUtil;
 import com.stanzaliving.core.residenceservice.dto.AttributesResponseDto;
 import com.stanzaliving.core.residenceservice.dto.ResidenceBlendedPriceDto;
@@ -16,6 +18,7 @@ import com.stanzaliving.core.security.helper.SecurityUtils;
 import com.stanzaliving.residence.dto.ResidencePropertyCardDto;
 import com.stanzaliving.residenceservice.BookingAttributesDto;
 import com.stanzaliving.residenceservice.Dto.*;
+import com.stanzaliving.residenceservice.enums.PlanTypeEnum;
 import com.stanzaliving.residenceservice.enums.ResidenceAttributes;
 import com.stanzaliving.residenceservice.enums.VasCategory;
 import com.stanzaliving.stayCuration.AlfredResidenceServiceDto;
@@ -435,12 +438,18 @@ public class ResidenceDataControllerApi {
     }
 
     public ResponseDto<RoomInventoryDetailDto> getRoomWithInventory(String roomUUID, String moveInDate) {
+        return this.getRoomWithInventory(roomUUID, moveInDate, new ArrayList<>());
+    }
+
+    public ResponseDto<RoomInventoryDetailDto> getRoomWithInventory(String roomUUID, String moveInDate, List<String> occupiedInventories) {
         log.info("Residence-Data-Controller::Processing to get room inventories for roomUUID {} based on movein-in date {}", roomUUID, moveInDate);
         Map<String, Object> uriVariables = new HashMap();
         uriVariables.put("roomUUID", roomUUID);
         uriVariables.put("moveInDate", moveInDate);
         String path = UriComponentsBuilder.fromPath("/internal/room-inventory/{roomUUID}/move-in-date/{moveInDate}").buildAndExpand(uriVariables).toUriString();
         MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+        if (CollectionUtils.isNotEmpty(occupiedInventories))
+            queryParams.put("occupiedInventories", occupiedInventories);
         HttpHeaders headerParams = new HttpHeaders();
         String[] accepts = new String[]{"*/*"};
         List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
@@ -2464,46 +2473,6 @@ public class ResidenceDataControllerApi {
         return Collections.emptyList();
     }
 
-    public ResponseDto<Map<VasCategory, List<AlfredResidenceServiceDto>>> getPlansByServiceMix(String serviceMixUuid, List<VasCategory> vasCategoryList,  boolean includeDeprecated, Date moveIn) {
-
-        log.info("Residence-Data-Controller::Processing to get plan details based on serviceMixUuid {}", serviceMixUuid);
-
-        Map<String, Object> uriVariables = new HashMap<>();
-
-        uriVariables.put("serviceMixUuid", serviceMixUuid);
-
-        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-
-        if(CollectionUtils.isNotEmpty(vasCategoryList)) {
-            List<String> vasCategories = vasCategoryList.stream().map(Enum::toString).collect(Collectors.toList());
-            queryParams.put("vasCategory", vasCategories);
-        }
-
-        queryParams.put("includeDeprecated", Collections.singletonList(String.valueOf(includeDeprecated)));
-
-        queryParams.put("moveIn", Collections.singletonList(moveIn.toString()));
-
-        String path = UriComponentsBuilder.fromPath("/stay-curation/internal/paid-services/service-mix/{serviceMixUuid}/plans/").buildAndExpand(uriVariables).toUriString();
-
-        HttpHeaders headerParams = new HttpHeaders();
-
-        String[] accepts = new String[]{"*/*"};
-
-        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
-
-        ParameterizedTypeReference<ResponseDto<Map<VasCategory, List<AlfredResidenceServiceDto>>>> returnType =
-                new ParameterizedTypeReference<ResponseDto<Map<VasCategory, List<AlfredResidenceServiceDto>>>>() {
-                };
-
-        try {
-            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
-
-        } catch (Exception ex) {
-            log.error("Exception while fetching plan details for serviceMixUuid: {}", serviceMixUuid);
-        }
-        return null;
-    }
-
     public ResponseDto<Map<VasCategory, List<AlfredResidenceServiceDto>>> fetchOptedPlans(List<OptedPlansRequestDto> optedPlansRequestDtoList) {
 
         log.info("Residence-Data-Controller::Processing to fetch plan details based on optedPlansRequestDtoList {}", optedPlansRequestDtoList);
@@ -2530,6 +2499,34 @@ public class ResidenceDataControllerApi {
             log.error("Exception while fetching plan details based on optedPlansRequestDtoList {}", optedPlansRequestDtoList);
             return null;
         }
+    }
+
+    public RoomCardDetailDto getCardDetailsV2(List<String> residenceUuids, Date moveIn) {
+
+        ResponseDto<RoomCardDetailDto> responseDto = null;
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/internal/api/v2/inventory-view").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        if (Objects.nonNull(moveIn))
+            queryParams.add("fromDate", DateUtil.customDateFormatter(moveIn, DateFormat.YYYY_HIFEN_MM_HIFEN_DD));
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = { "*/*" };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<RoomCardDetailDto>> returnType = new ParameterizedTypeReference<ResponseDto<RoomCardDetailDto>>() {
+        };
+
+        try {
+            responseDto = restClient.invokeAPI(path, HttpMethod.POST, queryParams, residenceUuids, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Error while getting BedsStatByResidenceUuidByDate", e);
+        }
+        return (Objects.nonNull(responseDto)) ? responseDto.getData() : null;
+
     }
 
 }

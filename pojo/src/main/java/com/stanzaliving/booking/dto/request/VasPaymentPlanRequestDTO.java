@@ -1,7 +1,5 @@
 package com.stanzaliving.booking.dto.request;
 
-import com.stanzaliving.booking.dto.request.ServicePriceDto;
-import com.stanzaliving.booking.dto.request.VasPriceDto;
 import com.stanzaliving.booking.enums.BookingType;
 import com.stanzaliving.booking.enums.PaymentPlanType;
 import com.stanzaliving.booking.enums.PaymentTerm;
@@ -12,7 +10,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
-import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
@@ -24,8 +21,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class VasPaymentPlanRequestDTO extends PaymentPlanRequestDto implements Serializable {
-
+public class VasPaymentPlanRequestDTO implements Serializable {
     @NotEmpty(message = "referenceId cannot be null or blank")
     private String referenceId;
 
@@ -56,6 +52,8 @@ public class VasPaymentPlanRequestDTO extends PaymentPlanRequestDto implements S
     private PaymentTerm paymentTerm = PaymentTerm.MONTHLY;
 
     private Boolean isModifyContract = false;
+
+    private Boolean savePaymentPlan = false;
 
     private Date modifiedContractStartDate;
 
