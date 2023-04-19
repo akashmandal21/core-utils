@@ -26,7 +26,11 @@ public class RoomNumberListingResponseDto implements Serializable {
     private boolean isConverted;
 
     private Date availableFrom;
+<<<<<<< Updated upstream
     private String rofrtag;
+=======
+    private Date rofrAvailableFrom;
+>>>>>>> Stashed changes
 
     private Double startingPrice;
     private Double gstAmountLabel;
