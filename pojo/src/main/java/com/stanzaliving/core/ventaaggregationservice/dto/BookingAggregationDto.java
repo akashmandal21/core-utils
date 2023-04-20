@@ -3,6 +3,7 @@ package com.stanzaliving.core.ventaaggregationservice.dto;
 import com.stanzaliving.booking.dto.BookingTag;
 import com.stanzaliving.booking.dto.EligibleStatusMappingDto;
 import com.stanzaliving.booking.dto.response.InventoryResponseOccupancyDto;
+import com.stanzaliving.booking.enums.BookingPreference;
 import com.stanzaliving.booking.enums.BookingResidenceType;
 import com.stanzaliving.booking.enums.PaymentTerm;
 import com.stanzaliving.booking.enums.ResidenceAgreementType;
@@ -116,4 +117,5 @@ public class BookingAggregationDto {
     private String bookingMode;
     private boolean billToResident;
     private boolean isPriceStrategy;
+    private BookingPreference bookingPreference;
 }
