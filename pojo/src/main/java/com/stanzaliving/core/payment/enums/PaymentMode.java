@@ -93,7 +93,6 @@ public enum PaymentMode {
     	paymentMode.add(VIRTUAL_ACCOUNT);
     	paymentMode.add(CC);
     	paymentMode.add(CASHFREE);
-    	paymentMode.add(PAY_U);
     	return paymentMode;
     }
 }
