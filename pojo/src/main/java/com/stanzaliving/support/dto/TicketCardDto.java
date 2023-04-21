@@ -48,5 +48,6 @@ public class TicketCardDto {
     private Date closedAt;
     private Priority priority;
     private String slaMessage;
+    private boolean canAddDescription;
 }
 

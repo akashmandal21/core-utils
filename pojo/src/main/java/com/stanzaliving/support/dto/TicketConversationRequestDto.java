@@ -14,7 +14,6 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 public class TicketConversationRequestDto {
 
-    @NotBlank(message = "Message cannot be empty")
     private String message;
 
     @NotNull(message = "Make the message public or private")
