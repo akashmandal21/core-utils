@@ -8,19 +8,19 @@ import javax.validation.constraints.NotNull;
 
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
 @Builder
 @ToString
+@NoArgsConstructor
+@AllArgsConstructor
 public class BookingAttributesDto {
 
     @NotNull(message = "Id cannot be blank")
     private Long id;
+
     @NotNull(message = "Uuid cannot be blank")
-
     private String uuid;
-    @NotNull(message = "key cannot be blank")
 
+    @NotNull(message = "key cannot be blank")
     @ValidEnum(message = "${validatedValue} is not allowed", enumClass = ResidenceAttributes.class, fieldName = "key")
     private ResidenceAttributes key;
 
@@ -28,10 +28,13 @@ public class BookingAttributesDto {
     private String value;
 
     private String dataType;
+
     private String label;
+
     private String valueSuffix;
 
-
-
+    public int getOrdinal() {
+        return this.getKey().ordinal();
+    }
 
 }
