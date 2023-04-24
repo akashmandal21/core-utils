@@ -118,4 +118,5 @@ public class BookingAggregationDto {
     private boolean billToResident;
     private boolean isPriceStrategy;
     private BookingPreference bookingPreference;
+    private BookingAggregationDto secondPreferenceBookingData; //applicable only if booking preference is PRIMARY
 }
