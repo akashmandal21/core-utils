@@ -11,6 +11,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.NotEmpty;
 import java.util.List;
 
 @Data
@@ -18,5 +19,6 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class BookingConfirmationDto {
+    @NotEmpty(message = "List can not be empty")
     private List<String> bookingUuidList;
 }
