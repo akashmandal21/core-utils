@@ -13,6 +13,7 @@ import com.stanzaliving.acl.client.annotation.CheckPermission;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
@@ -35,7 +36,7 @@ import java.util.*;
 @Component
 public class CheckPermissionProcessor {
 
-    @Around("@annotation(com.stanzaliving.acl.client.annotation.CheckPermission)")
+    @Before("@annotation(com.stanzaliving.acl.client.annotation.CheckPermission)")
     public Object process(ProceedingJoinPoint joinPoint) throws Exception {
         MethodSignature methodSignature=(MethodSignature) joinPoint.getSignature();
         String[] permissions=methodSignature.getMethod().getAnnotation(CheckPermission.class).permissions();
