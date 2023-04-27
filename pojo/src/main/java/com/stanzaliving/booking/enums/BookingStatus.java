@@ -481,4 +481,13 @@ public enum BookingStatus {
         return bookingStatus;
     }
 
+    public static List<BookingStatus> bookingStatusBeforeAgreementSent() {
+        List<BookingStatus> bookingStatus = new ArrayList<>();
+        bookingStatus.add(BookingStatus.SHARED_WITH_RESIDENT);
+        bookingStatus.add(BookingStatus.IN_PROGRESS);
+        bookingStatus.add(BookingStatus.DRAFT);
+        bookingStatus.add(BookingStatus.AGREEMENT_PENDING);
+        return bookingStatus;
+    }
+
 }
