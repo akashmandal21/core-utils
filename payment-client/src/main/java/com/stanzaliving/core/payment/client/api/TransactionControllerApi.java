@@ -11,6 +11,7 @@ import com.stanzaliving.core.payment.enums.PaymentStatus;
 import com.stanzaliving.core.payment.enums.ReferenceType;
 import com.stanzaliving.core.payment.enums.StanzaPaymentService;
 import com.stanzaliving.paymentService.dto.PaymentEntityDto;
+import com.stanzaliving.paymentService.dto.PaymentMappingDto;
 import lombok.extern.log4j.Log4j2;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
@@ -522,6 +523,26 @@ public class TransactionControllerApi {
         final Map<String, Object> uriVariables = new HashMap<>();
         uriVariables.put("bookingUuid", bookingUuid);
         String path = UriComponentsBuilder.fromPath("/internal/remote-booking-refund/{bookingUuid}/bookingUuid").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+        final String[] accepts = {"*/*"};
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        TypeReference<ResponseDto<String>> returnType = new TypeReference<ResponseDto<String>>() {
+        };
+        ResponseDto<String> responseDto;
+        responseDto = restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+        return responseDto;
+    }
+
+
+    public ResponseDto<String> rofrPaymentMapping(PaymentMappingDto paymentMappingDto) {
+
+        log.info("Called api for rofr payment mapping for paymentMappingDto {}", paymentMappingDto);
+        Object postBody = paymentMappingDto;
+        final Map<String, Object> uriVariables = new HashMap<>();
+        String path = UriComponentsBuilder.fromPath("/internal/rofr-payment-map").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
