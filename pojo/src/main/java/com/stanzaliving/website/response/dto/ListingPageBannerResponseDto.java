@@ -22,7 +22,11 @@ public class ListingPageBannerResponseDto extends AbstractDto implements Seriali
 
     private Integer cityId;
 
+    private String cityName;
+
     private Integer micromarketId;
+
+    private String micromarketName;
 
     private boolean displayToggle;
 
