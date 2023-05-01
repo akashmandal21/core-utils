@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+import com.stanzaliving.booking.dto.*;
 import com.stanzaliving.core.base.enums.DateFormat;
 import com.stanzaliving.core.base.utils.DateUtil;
 import org.springframework.core.ParameterizedTypeReference;
@@ -21,16 +22,6 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.stanzaliving.booking.SoldBookingDto;
-import com.stanzaliving.booking.dto.BookingNeedsAttentionUpdationDto;
-import com.stanzaliving.booking.dto.BookingResponseDto;
-import com.stanzaliving.booking.dto.ContractApprovalDto;
-import com.stanzaliving.booking.dto.ExpiredBookingsDto;
-import com.stanzaliving.booking.dto.ExpiredBookingsResponseDto;
-import com.stanzaliving.booking.dto.PaymentPendingBookingDto;
-import com.stanzaliving.booking.dto.PaymentPendingBookingResponseDto;
-import com.stanzaliving.booking.dto.PaymentPendingBookingStatusChangeDto;
-import com.stanzaliving.booking.dto.UpdateDealAndInventoryDto;
-import com.stanzaliving.booking.dto.VasEmailDto;
 import com.stanzaliving.booking.dto.request.BookingRequestDto;
 import com.stanzaliving.booking.dto.request.CustomizeVasSyncResponse;
 import com.stanzaliving.booking.dto.response.BookingCommercialsCardResponseDto;
@@ -1660,6 +1651,47 @@ public class BookingDataControllerApi {
         }
         return (Objects.nonNull(responseDto)) ? responseDto : null;
 
+    }
+
+    public ResponseDto<BookingConfirmationDto> getBookingsEligibleForConfirmation() {
+
+        Object postBody = null;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/internal/v1/booking/eligible-for-confirmation").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<BookingConfirmationDto>> returnType = new ParameterizedTypeReference<ResponseDto<BookingConfirmationDto>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+    }
+
+    public ResponseDto<BookingConfirmationResponseDto> confirmRofrBookings(BookingConfirmationDto bookingConfirmationDto) {
+
+        Object postBody = bookingConfirmationDto;
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/booking/v1/confirm-rofr-bookings").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<BookingConfirmationResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<BookingConfirmationResponseDto>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
     }
 
 }
