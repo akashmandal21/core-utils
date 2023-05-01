@@ -43,7 +43,9 @@ public class SlackUtil {
 				.append("\n ").append(StanzaConstants.QUERY_STRING).append(": ")
 				.append(MDC.get(StanzaConstants.QUERY_STRING))
 				.append("\n Exception: ")
-				.append(exception.toString());
+				.append(exception.toString())
+				.append("\n Message: ")
+				.append(exception.getMessage());
 
 		return slackMessage;
 	}

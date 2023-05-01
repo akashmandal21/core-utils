@@ -43,4 +43,22 @@ public class TransactionInitiateDto {
 	
 	private String paymentModeKey;
 
+	private String email;
+
+	private String name;
+
+	private String phone;
+
+	private String productInfo;
+
+	private String hash;
+
+	private String sUrl;
+
+	private String fUrl;
+
+	private String key;
+
+	private String environment;
+	private String paymentSessionId;
 }
