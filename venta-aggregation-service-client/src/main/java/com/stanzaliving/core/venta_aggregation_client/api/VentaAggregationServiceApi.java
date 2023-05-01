@@ -14,6 +14,7 @@ import com.stanzaliving.core.bookingservice.dto.response.ResidenceQrCodeResponse
 import com.stanzaliving.core.dto.LeadElasticDto;
 import com.stanzaliving.core.venta_aggregation_client.config.RestResponsePage;
 import com.stanzaliving.core.ventaaggregationservice.dto.*;
+import com.stanzaliving.ventaInvoice.dto.ResidenceDto;
 import lombok.extern.log4j.Log4j2;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
@@ -23,6 +24,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.util.UriComponentsBuilder;
 
 @Log4j2
@@ -696,5 +698,24 @@ public class VentaAggregationServiceApi {
             log.error("error while fetching bookings for invoicing {}", e.getMessage());
             return null;
         }
+    }
+
+    public ResponseDto<List<ResidenceDto>> getResidenceListingForInvoiceDashboard(ResidenceFilterRequestDto residenceFilterRequestDto)  {
+        final Map<String, Object> uriVariables = new HashMap<>();
+        String path = UriComponentsBuilder.fromPath("/internal/residence/invoice-dashboard-listing")
+                .buildAndExpand(uriVariables).toUriString();
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        HttpHeaders headerParams = new HttpHeaders();
+        String[] accepts = new String[]{"*/*"};
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<List<ResidenceDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<ResidenceDto>>>() {
+        };
+        ResponseDto<List<ResidenceDto>> response = null;
+        try {
+            response = this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, residenceFilterRequestDto, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception while fetching bookings for upsellRequestDto {}, Exception is ", residenceFilterRequestDto, e);
+        }
+        return response;
     }
 }
