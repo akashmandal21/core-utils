@@ -1,7 +1,7 @@
 package com.stanzaliving.website.request.dto;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
-import com.stanzaliving.core.enums.BannerPageType;
+import com.stanzaliving.core.enums.WebsiteListingPageType;
 import lombok.*;
 
 import java.io.Serializable;
@@ -16,7 +16,7 @@ public class ListingPageBannerRequestDto extends AbstractDto implements Serializ
 
     private static final long serialVersionUID = 1L;
 
-    private BannerPageType bannerPageType;
+    private WebsiteListingPageType websiteListingPageType;
 
     private Integer cityId;
 
