@@ -39,4 +39,6 @@ public class ListingPageConfigDto extends AbstractDto implements Serializable {
     private boolean configToggle;
 
     private String config;
+
+    private boolean overrideThisConfigInCityMicromarketHierarchy;
 }
