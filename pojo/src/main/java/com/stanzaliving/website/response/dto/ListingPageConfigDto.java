@@ -29,7 +29,7 @@ public class ListingPageConfigDto extends AbstractDto implements Serializable {
 
     private String cityName;
 
-    private Integer micromarketId;
+    private Integer mmId;
 
     private String micromarketName;
 
