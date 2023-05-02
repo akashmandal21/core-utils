@@ -5,6 +5,7 @@ import com.stanzaliving.core.enums.WebsiteConfigType;
 import com.stanzaliving.core.enums.WebsiteListingPageType;
 import lombok.*;
 
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 @Builder
@@ -17,10 +18,12 @@ public class ListingPageConfigDto extends AbstractDto implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    @NotNull
     private WebsiteListingPageType websiteListingPageType;
 
     private String websiteListingPageTypeName;
 
+    @NotNull
     private WebsiteConfigType websiteConfigType;
 
     private String websiteConfigTypeName;
@@ -36,4 +39,6 @@ public class ListingPageConfigDto extends AbstractDto implements Serializable {
     private boolean configToggle;
 
     private String config;
+
+    private boolean overrideThisConfigInCityMicromarketHierarchy;
 }
