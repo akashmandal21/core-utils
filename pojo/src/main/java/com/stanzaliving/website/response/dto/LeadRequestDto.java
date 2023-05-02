@@ -1,5 +1,6 @@
 package com.stanzaliving.website.response.dto;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.AllArgsConstructor;
@@ -87,6 +88,8 @@ public class LeadRequestDto {
 	private String utmCampaign;
 	private String utmTerm;
 	private String utmAdgroup;
+
+	@JsonAlias("gclid")
 	private String gclId;
 	private String utmContent;
 	private String utmTarget;
