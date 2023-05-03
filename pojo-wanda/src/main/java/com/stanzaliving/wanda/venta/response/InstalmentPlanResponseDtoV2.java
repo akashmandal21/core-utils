@@ -16,5 +16,5 @@ public class InstalmentPlanResponseDtoV2 {
 	private PaymentTerm paymentTerm;
 	private Double upfrontPaymentMonth;
 	private PaymentTerm installmentTypeEnum;
-	private Boolean noCostEmiApplicable;
+	private boolean noCostEmiApplicable;
 }
