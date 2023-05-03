@@ -92,7 +92,8 @@ public enum BookingEventEnum {
     REMOTE_BOOKING_ROOM_SHIFT("Remote Booking Room Shift"),
 
     REMOTE_BOOKING_REFUND("Remote Booking Refund"),
-    RESIDENCE_CHANGE_REQUESTED("Residence change request created");
+    RESIDENCE_CHANGE_REQUESTED("Residence change request created"),
+    ROFR_BOOKING_CONFIRMED("Rofr Booking Confirmed");
 
     private final String eventName;
 
