@@ -12,5 +12,8 @@ public class BookingConstants {
     public final static String REMOTE_BOOKING_FORFEITURE_REMARKS = "Remote booking forfeiture";
 
     public static final String REMOTE_BOOKING_AUTO_FORFEITURE_DAYS = "REMOTE_BOOKING_AUTO_FORFEITURE_DAYS";
+    public static final String MAX_EXIT_UPDATE_COUNT = "MAX_EXIT_UPDATE_COUNT";
+
+    public static final String BLOCKED_INVENTORY_DAYS_AFTER_MOVE_OUT_DATE = "BLOCKED_INVENTORY_DAYS_AFTER_MOVE_OUT_DATE";
 
 }
