@@ -27,6 +27,8 @@ public class RoomNumberListingResponseDto implements Serializable {
     private boolean referralRoom;
 
     private Date availableFrom;
+    private String rofrtag;
+    private Date rofrAvailableFrom;
 
     private Double startingPrice;
     private Double gstAmountLabel;
