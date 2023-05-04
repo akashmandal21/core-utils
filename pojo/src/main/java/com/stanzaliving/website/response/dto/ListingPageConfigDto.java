@@ -1,8 +1,8 @@
 package com.stanzaliving.website.response.dto;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
-import com.stanzaliving.core.enums.WebsiteConfigType;
-import com.stanzaliving.core.enums.WebsiteListingPageType;
+import com.stanzaliving.website.enums.WebsiteConfigType;
+import com.stanzaliving.website.enums.WebsiteListingPageType;
 import lombok.*;
 
 import javax.validation.constraints.NotNull;

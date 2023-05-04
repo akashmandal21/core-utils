@@ -1,4 +1,4 @@
-package com.stanzaliving.core.enums;
+package com.stanzaliving.website.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -18,6 +18,9 @@ public enum WebsiteListingPageType {
     MICROMARKET_APARTMENT_PAGE("Micromarket Apartment Page Configurations");
 
     private String websiteListingPageTypeName;
+
+    private static final List<WebsiteListingPageType> defaultListingPageTypes = Arrays.asList(CITY_PG_PAGE_DEFAULT, CITY_APARTMENT_PAGE_DEFAULT);
+    private static final List<WebsiteListingPageType> customListingPageTypes = Arrays.asList(CITY_PG_PAGE, CITY_APARTMENT_PAGE, MICROMARKET_PG_PAGE, MICROMARKET_APARTMENT_PAGE);
 
     public static List<WebsiteListingPageType> getHierarchicalChildrenFromDefaultPageType(WebsiteListingPageType defaultListingPageType) {
 
