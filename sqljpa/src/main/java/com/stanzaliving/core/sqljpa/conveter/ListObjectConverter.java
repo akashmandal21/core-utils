@@ -52,7 +52,7 @@ public class ListObjectConverter implements AttributeConverter<List<Object>, Str
             return null;
         }
 
-        log.info("LIST-HASHMAP-CONVERTER::Convert entity attribute of {}",dbData);
+//        log.info("LIST-HASHMAP-CONVERTER::Convert entity attribute of {}",dbData);
         List<Object> attributeInfo = null;
         try {
             attributeInfo = objectMapper.readValue(dbData, new TypeReference<List<Object>>(){});

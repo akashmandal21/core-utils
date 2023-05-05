@@ -22,6 +22,11 @@ public enum WebsiteListingPageType {
     public static final List<WebsiteListingPageType> defaultListingPageTypes = Arrays.asList(CITY_PG_PAGE_DEFAULT, CITY_APARTMENT_PAGE_DEFAULT);
     public static final List<WebsiteListingPageType> customListingPageTypes = Arrays.asList(CITY_PG_PAGE, CITY_APARTMENT_PAGE, MICROMARKET_PG_PAGE, MICROMARKET_APARTMENT_PAGE);
 
+    public static final List<WebsiteListingPageType> cityListingPageTypes = Arrays.asList(CITY_PG_PAGE, CITY_APARTMENT_PAGE);
+
+    public static final List<WebsiteListingPageType> mmListingPageTypes = Arrays.asList(MICROMARKET_PG_PAGE, MICROMARKET_APARTMENT_PAGE);
+
+
     public static List<WebsiteListingPageType> getHierarchicalChildrenFromDefaultPageType(WebsiteListingPageType defaultListingPageType) {
 
         if (WebsiteListingPageType.CITY_PG_PAGE_DEFAULT.equals(defaultListingPageType)) {
