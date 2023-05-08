@@ -33,7 +33,7 @@ public class ListObjectConverter implements AttributeConverter<List<Object>, Str
             return null;
         }
 
-        log.info("LIST-HASHMAP-CONVERTER::Received attribute for conversion {}",attribute);
+//        log.info("LIST-HASHMAP-CONVERTER::Received attribute for conversion {}",attribute);
         String attributeInfoJson = null;
 
         try {
