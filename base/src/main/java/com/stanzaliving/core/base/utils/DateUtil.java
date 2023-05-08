@@ -742,6 +742,10 @@ public class DateUtil {
         return newdate;
     }
 
+    public LocalDate addDaysToLocalDate(LocalDate d1, long days) {
+        return d1.plusDays(days);
+    }
+
     public Date addDayAndSetHour(Integer days, Integer hour) {
 
         LocalDateTime tomorrow = LocalDateTime.now().plusDays(days);

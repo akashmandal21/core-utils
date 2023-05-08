@@ -3,6 +3,7 @@ package com.stanzaliving.website.response.dto;
 import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import com.stanzaliving.website.enums.SeoUrlType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Builder.Default;
@@ -162,6 +163,9 @@ public class LeadRequestDto {
 
 	private String platformOs;
 	private String preferredLanguage;
+
+	private String seoUrlType;
+	private String url;
 
 	public String getEmail() {
 		return Objects.nonNull(this.email) ? this.email.trim(): null;
