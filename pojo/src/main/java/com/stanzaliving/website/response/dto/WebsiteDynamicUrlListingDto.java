@@ -2,6 +2,7 @@ package com.stanzaliving.website.response.dto;
 
 import com.stanzaliving.website.dto.WebsiteAppliedFiltersDto;
 import com.stanzaliving.website.elasticsearch.index.dto.WebsitePlaceIndexDto;
+import com.stanzaliving.website.enums.SeoUrlType;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -35,4 +36,5 @@ public class WebsiteDynamicUrlListingDto implements Serializable {
 	private WebsiteAppliedFiltersDto parsedFilters;
 	private WebsitePlaceIndexDto placeIndexDto;
 
+	private SeoUrlType seoUrlType;
 }
