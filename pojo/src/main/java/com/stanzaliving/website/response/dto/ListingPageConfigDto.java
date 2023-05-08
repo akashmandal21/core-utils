@@ -1,8 +1,8 @@
 package com.stanzaliving.website.response.dto;
 
 import com.stanzaliving.core.base.common.dto.AbstractDto;
-import com.stanzaliving.website.enums.WebsiteConfigType;
-import com.stanzaliving.website.enums.WebsiteListingPageType;
+import com.stanzaliving.core.enums.PropertyEntityType;
+import com.stanzaliving.website.enums.WebsitePageConfigType;
 import lombok.*;
 
 import javax.validation.constraints.NotNull;
@@ -19,14 +19,14 @@ public class ListingPageConfigDto extends AbstractDto implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @NotNull
-    private WebsiteListingPageType websiteListingPageType;
+    private PropertyEntityType propertyEntityType;
 
-    private String websiteListingPageTypeName;
+    private String propertyEntityName;
 
     @NotNull
-    private WebsiteConfigType websiteConfigType;
+    private WebsitePageConfigType websitePageConfigType;
 
-    private String websiteConfigTypeName;
+    private String websitePageConfigTypeName;
 
     private Integer cityId;
 
