@@ -24,6 +24,7 @@ public class CreationDto {
     private String name;
     private CommercialCodeType applyTo;
     private String applyToEntity;
+    private List<String> applyToEntities;
     private Date applicabilityFrom;
     private Date applicabilityTo;
     private CommercialCardStatus strategyCardStatus;
