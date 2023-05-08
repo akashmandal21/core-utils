@@ -23,7 +23,7 @@ public class CreationDto {
     @NotNull(message = "Name can't be null")
     private String name;
     private CommercialCodeType applyTo;
-    private String applyToEntity;
+    private List<String> applyToEntity;
     private Date applicabilityFrom;
     private Date applicabilityTo;
     private CommercialCardStatus strategyCardStatus;
