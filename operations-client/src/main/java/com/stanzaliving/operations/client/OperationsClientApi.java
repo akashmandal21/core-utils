@@ -420,6 +420,7 @@ public class OperationsClientApi {
 
 		queryParams.add("residenceId", residenceUuid);
 		queryParams.addAll("serviceMixUuidList", uuidList);
+		queryParams.add("currentServiceMix", "true");
 
 		final HttpHeaders headerParams = new HttpHeaders();
 
