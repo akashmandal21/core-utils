@@ -406,7 +406,7 @@ public class OperationsClientApi {
         return serviceMixEntityList;
     }
 
-	public List<ServiceMixEntityDto> getServiceMixByUuidList(List<String> uuidList, String residenceUuid) {
+	public List<ServiceMixEntityDto> getServiceMixByUuidList(List<String> uuidList, String residenceUuid, boolean currentServiceMix) {
 
 		Object postBody = null;
 
@@ -420,7 +420,7 @@ public class OperationsClientApi {
 
 		queryParams.add("residenceId", residenceUuid);
 		queryParams.addAll("serviceMixUuidList", uuidList);
-		queryParams.add("currentServiceMix", "true");
+		queryParams.add("currentServiceMix", String.valueOf(currentServiceMix));
 
 		final HttpHeaders headerParams = new HttpHeaders();
 
