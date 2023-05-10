@@ -12,6 +12,7 @@ import com.stanzaliving.operations.dto.request.ResidentServiceMixAddOnRequestDto
 import com.stanzaliving.operations.dto.request.ResidentServiceMixVasRequestDto;
 import com.stanzaliving.operations.dto.response.ResidentServiceMixV2VasResponseDto;
 import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -406,46 +407,11 @@ public class OperationsClientApi {
         return serviceMixEntityList;
     }
 
-
 	public List<ServiceMixEntityDto> getServiceMixByUuidList(List<String> uuidList, String residenceUuid) {
-
-		Object postBody = null;
-
-		List<ServiceMixEntityDto> serviceMixEntityList = new ArrayList<>();
-
-		final Map<String, Object> uriVariables = new HashMap<>();
-
-		String path = UriComponentsBuilder.fromPath("/internal/ops/servicemix/getServiceMixListForUuids").buildAndExpand(uriVariables).toUriString();
-
-		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-
-		queryParams.add("residenceId", residenceUuid);
-		queryParams.addAll("serviceMixUuidList", uuidList);
-
-		final HttpHeaders headerParams = new HttpHeaders();
-
-		final String[] accepts = {
-				"*/*"
-		};
-		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-
-		ParameterizedTypeReference<ResponseDto<List<ServiceMixEntityDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<ServiceMixEntityDto>>>() {
-
-		};
-
-		try {
-			serviceMixEntityList = restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType).getData();
-		} catch (Exception e) {
-			log.error("Exception while fetching service mix list from uuidList {} ", uuidList, e);
-		}
-		log.info("serviceMixEntityList is {}", serviceMixEntityList);
-
-		return serviceMixEntityList;
+		return this.getServiceMixByUuidListV2(uuidList,residenceUuid,null);
 	}
 
-	public List<ServiceMixEntityDto> getServiceMixByUuidListV2(List<String> uuidList, String residenceUuid, boolean currentServiceMix) {
-
-		Object postBody = null;
+	public List<ServiceMixEntityDto> getServiceMixByUuidListV2(List<String> uuidList, String residenceUuid, String moveInDate) {
 
 		List<ServiceMixEntityDto> serviceMixEntityList = new ArrayList<>();
 
@@ -457,7 +423,7 @@ public class OperationsClientApi {
 
 		queryParams.add("residenceId", residenceUuid);
 		queryParams.addAll("serviceMixUuidList", uuidList);
-		queryParams.add("currentServiceMix", String.valueOf(currentServiceMix));
+		if (StringUtils.isNotBlank(moveInDate)) queryParams.add("serviceMixDate", moveInDate);
 
 		final HttpHeaders headerParams = new HttpHeaders();
 
