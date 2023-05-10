@@ -718,4 +718,27 @@ public class VentaAggregationServiceApi {
         }
         return response;
     }
+
+    public ResponseDto<List<String>> getAllBookingsEligibleForTresPassing() {
+        log.info("Aggregation Residence Controller::Processing to get bookings eligible for trespassing");
+        Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/internal/eligible-for-trespassing")
+                .buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        HttpHeaders headerParams = new HttpHeaders();
+        String[] accepts = new String[]{"*/*"};
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<List<String>>> returnType = new ParameterizedTypeReference<ResponseDto<List<String>>>() {
+        };
+        try {
+            log.info("Executing Api for fetching bookings eligible for trespassin with Url {}", path);
+            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception while fetching bookings eligible for trespassing, Exception is {}", e.getMessage(), e);
+        }
+        return null;
+    }
 }
