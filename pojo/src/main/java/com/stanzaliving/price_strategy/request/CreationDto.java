@@ -1,6 +1,7 @@
 package com.stanzaliving.price_strategy.request;
 
 import com.stanzaliving.booking.enums.BookingSubType;
+import com.stanzaliving.commercialcard.enums.AMCAmountType;
 import com.stanzaliving.commercialcard.enums.CommercialCardStatus;
 import com.stanzaliving.commercialcard.enums.CommercialCardUserType;
 import com.stanzaliving.commercialcard.enums.CommercialCodeType;
@@ -40,4 +41,12 @@ public class CreationDto {
     private List<PaymentActionDto> allowedFrequencies;
 
     private String bookingSubTypes;
+
+    private AMCAmountType onBoardingChargeType;
+
+    private Double onBoardingCharges;
+
+    private AMCAmountType exitProcessingType;
+
+    private Double exitProcessingCharges;
 }

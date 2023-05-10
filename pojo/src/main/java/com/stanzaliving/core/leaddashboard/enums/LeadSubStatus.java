@@ -138,7 +138,7 @@ public enum LeadSubStatus {
 		pieChartStatus.put(LeadSubStatus.VISIT_2_SCHEDULED, "Follow Up Visit Scheduled");
 		pieChartStatus.put(LeadSubStatus.POST_VISIT_1_FOLLOW_UP, "Post Visit Follow Up Needed");
 		pieChartStatus.put(LeadSubStatus.BOOKED, "Booked");
-		pieChartStatus.put(LeadSubStatus.MOVED_OUT, "Move Out");
+		pieChartStatus.put(LeadSubStatus.MOVED_OUT, "Moved Out");
 		pieChartStatus.put(LeadSubStatus.POST_VISIT_1_DROP, "Dropped");
 
 		return pieChartStatus;
