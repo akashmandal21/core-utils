@@ -1,5 +1,6 @@
 package com.stanzaliving.price_strategy.request;
 
+import com.stanzaliving.commercialcard.enums.AMCAmountType;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -24,5 +25,13 @@ public class CommercialActionDto {
     private Integer advanceRentalFirstMonths = 1;
     private SecurityDepositDto securityDepositDto;
     private MaintenanceFeeDto maintenanceFeeDto;
+
+    private AMCAmountType onBoardingChargeType;
+
+    private Double onBoardingCharges;
+
+    private AMCAmountType exitProcessingType;
+
+    private Double exitProcessingCharges;
 
 }
