@@ -8,7 +8,7 @@ import lombok.Getter;
 public enum WebsitePageConfigType {
 
     LISTING_PAGE_CAROUSEL_BANNERS("Listing Page Carousel Banners"),
-    LISTING_PAGE_CARD_BANNER("Listing Page Card Banner");
+    LISTING_PAGE_CARD_BANNERS("Listing Page Card Banners");
 
     private String websiteConfigTypeName;
 }
