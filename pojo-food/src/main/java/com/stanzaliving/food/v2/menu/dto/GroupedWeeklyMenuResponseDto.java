@@ -86,5 +86,5 @@ public class GroupedWeeklyMenuResponseDto extends AbstractDto {
     private String approvedBy;
     private Boolean isDebarDishExist;
     private SelectedKitchenDto selectedKitchen;
-
+    private boolean beverageRuleApplicable;
 }

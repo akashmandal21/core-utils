@@ -104,4 +104,6 @@ public class MenuCategoryDetailDto extends MenuCategoryDTO {
 	private BrmUpdationType brmUpdationType;
 
 	private boolean copyAction;
+
+	private boolean beverageRuleApplicable;
 }
