@@ -302,6 +302,15 @@ public class ExceptionInterceptor {
 		return ResponseDto.failure(e.getMessage(), exceptionId);
 	}
 
+	@ExceptionHandler(ManyDeviceLoginException.class)
+	@ResponseStatus(code = HttpStatus.TOO_MANY_REQUESTS)
+	public <T> ResponseDto<T> handleManyLoginException(ManyDeviceLoginException e) {
+
+		String exceptionId = getExceptionId();
+		log.error("Got AuthException for exceptionId: {}", exceptionId, e);
+
+		return ResponseDto.failure(e.getMessage(), exceptionId);
+	}
 	/************************ Stanza Specific Exceptions ************************/
 
 	@ExceptionHandler(AuthException.class)
