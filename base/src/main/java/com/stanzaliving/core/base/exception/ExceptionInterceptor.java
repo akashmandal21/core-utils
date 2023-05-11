@@ -307,7 +307,7 @@ public class ExceptionInterceptor {
 	public <T> ResponseDto<T> handleManyLoginException(ManyDeviceLoginException e) {
 
 		String exceptionId = getExceptionId();
-		log.error("Got AuthException for exceptionId: {}", exceptionId, e);
+		log.error("Got Many login on same device for exceptionId: {}", exceptionId, e);
 
 		return ResponseDto.failure(e.getMessage(), exceptionId);
 	}
