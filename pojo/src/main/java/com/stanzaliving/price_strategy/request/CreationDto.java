@@ -41,12 +41,4 @@ public class CreationDto {
     private List<PaymentActionDto> allowedFrequencies;
 
     private String bookingSubTypes;
-
-    private AMCAmountType onBoardingChargeType;
-
-    private Double onBoardingCharges;
-
-    private AMCAmountType exitProcessingType;
-
-    private Double exitProcessingCharges;
 }
