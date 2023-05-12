@@ -12,6 +12,7 @@ import com.stanzaliving.operations.dto.request.ResidentServiceMixAddOnRequestDto
 import com.stanzaliving.operations.dto.request.ResidentServiceMixVasRequestDto;
 import com.stanzaliving.operations.dto.response.ResidentServiceMixV2VasResponseDto;
 import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -407,8 +408,10 @@ public class OperationsClientApi {
     }
 
 	public List<ServiceMixEntityDto> getServiceMixByUuidList(List<String> uuidList, String residenceUuid) {
+		return this.getServiceMixByUuidListV2(uuidList,residenceUuid,null);
+	}
 
-		Object postBody = null;
+	public List<ServiceMixEntityDto> getServiceMixByUuidListV2(List<String> uuidList, String residenceUuid, String moveInDate) {
 
 		List<ServiceMixEntityDto> serviceMixEntityList = new ArrayList<>();
 
@@ -420,6 +423,7 @@ public class OperationsClientApi {
 
 		queryParams.add("residenceId", residenceUuid);
 		queryParams.addAll("serviceMixUuidList", uuidList);
+		if (StringUtils.isNotBlank(moveInDate)) queryParams.add("serviceMixDate", moveInDate);
 
 		final HttpHeaders headerParams = new HttpHeaders();
 
