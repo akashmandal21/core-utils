@@ -41,7 +41,18 @@ public enum ResidenceAttributes {
     RETENTION_CREATION_BUFFER_DAYS("Retention Creation Buffer Days", "Integer"),
     BOOKING_AMOUNT_REALISATION_ENABLED("Booking Amount Realisation Enabled", "Boolean"),
     BOOKING_AUTO_FORFEITURE_DURATION_IN_DAYS("Booking Auto Forfeiture Duration in Days", "Integer"),
+<<<<<<< Updated upstream
     MAX_ALLOWED_DAYS_AFTER_BOOKING_FORFEITURE("Max Allowed Days After Booking Forfeiture", "Integer");
+=======
+    MAX_ALLOWED_DAYS_AFTER_BOOKING_FORFEITURE("Max Allowed Days After Booking Forfeiture", "Integer"),
+    BOOKING_RENEWAL_COUNTDOWN_HOURS("Booking Renewal CountDown Hours", "Integer"),
+
+    MOVE_IN_DATE_CHANGE("MOVE_IN_DATE_CHANGE", "Integer"),
+    CONTRACT_END_DATE_CHANGE("CONTRACT_END_DATE_CHANGE", "Integer"),
+    LOCK_IN_DATE_CHANGE("LOCK_IN_DATE_CHANGE", "Integer"),
+    ROOM_CHANGE("ROOM_CHANGE", "Integer"),
+    PLAN_CHANGE("PLAN_CHANGE", "Integer");
+>>>>>>> Stashed changes
 
     private static final Map<ResidenceAttributes, String> getType = new HashMap<>();
     private static final Map<ResidenceAttributes, String> getLabel = new HashMap<>();
