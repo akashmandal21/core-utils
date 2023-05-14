@@ -1,21 +1,13 @@
 package com.stanzaliving.core.residenceservice.dto;
 
 import com.stanzaliving.core.base.common.dto.RoommateFilterDto;
+import com.stanzaliving.core.estate.enums.EstateGender;
 import com.stanzaliving.core.residenceservice.enums.ResidenceSortBy;
 import com.stanzaliving.core.residenceservice.enums.RoomStatus;
 import com.stanzaliving.core.user.acl.enums.Role;
-import com.stanzaliving.core.utilservice.annotations.DateFormat;
-
-import com.stanzaliving.website.request.dto.UserRoleDto;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
-import javax.validation.constraints.NotBlank;
 import java.util.List;
 
 @Getter
@@ -26,56 +18,40 @@ import java.util.List;
 @AllArgsConstructor
 public class AdvanceRoomSearchDto {
 
-    private Role role;
-    private List<Role> roles;
-    private List<String> micromarketUuids;
+    private int page;
+    @Builder.Default
+    private int limit = 10;
 
-    private String residenceUuid;
+    private double inventoryMinPrice;
+    @Builder.Default
+    private double inventoryMaxPrice = Double.MAX_VALUE;
 
-    private String roomNumber;
+    private boolean sold;
+    private boolean inventoryView;
+    private boolean insideSalesView;
+    private boolean remoteBookingFlag;
+    private boolean ensureVacantRoom;
 
-    private List<Integer> occupancies;
-
-    private List<String> floors;
-
-    private List<RoomStatus> roomStatus;
-
-    @DateFormat(message = "Move-in date is invalid | Expected format 'yyyy-dd-MM'")
-    @NotBlank(message = "Move-in date cannot be empty")
     private String moveInDate;
-
-    private List<String> attributes;
-
-    private Double inventoryMinPrice;
-
-    private Double inventoryMaxPrice;
-
-    @Builder.Default
-    private Integer page = 0;
-
-    @Builder.Default
-    private Integer limit = 10;
-
-    private ResidenceSortBy sortBy;
-
+    private String roomNumber;
     private String moveOutDate;
-
+    private String residenceUuid;
     private String microMarketId;
     private String residenceName;
+    private String referralUserUuid;
+    private String referralRoomNumber;
+
+    private List<Role> roles;
+    private List<String> floors;
     private List<Integer> bhkType;
-    private Boolean inventoryView;
-
-    private RoommateFilterDto roommateFilterDto;
-
     private List<String> roomUuids;
+    private List<String> attributes;
+    private List<Integer> occupancies;
+    private List<EstateGender> genders;
+    private List<RoomStatus> roomStatus;
 
     @Builder.Default
-    private Boolean isSold = false;
-
-    @Builder.Default
-    private Boolean remoteBookingFlag = false;
-
-    @Builder.Default
-    private Boolean insideSalesView = false;
+    private ResidenceSortBy sortBy = ResidenceSortBy.DEFAULT;
+    private RoommateFilterDto roommateFilterDto;
 
 }

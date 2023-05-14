@@ -53,9 +53,16 @@ import lombok.extern.log4j.Log4j2;
 @Log4j2
 public class InternalDataControllerApi {
 
-    private StanzaRestClient restClient;
+    private final StanzaRestClient restClient;
+    private final boolean activeResidences;
 
     public InternalDataControllerApi(StanzaRestClient stanzaRestClient) {
+        this.activeResidences = true;
+        this.restClient = stanzaRestClient;
+    }
+
+    public InternalDataControllerApi(StanzaRestClient stanzaRestClient, boolean activeResidences) {
+        this.activeResidences = activeResidences;
         this.restClient = stanzaRestClient;
     }
 
@@ -526,7 +533,8 @@ public class InternalDataControllerApi {
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-        queryParams.add("active", "true");
+        if (activeResidences)
+            queryParams.add("active", "true");
 
         final HttpHeaders headerParams = new HttpHeaders();
 
@@ -977,7 +985,7 @@ public class InternalDataControllerApi {
             final Map<String, Object> uriVariables = new HashMap<>();
             uriVariables.put("micromarketUuid", micromarketUuid);
 
-            String path = UriComponentsBuilder.fromPath("internal/get/residences/by/micromarketuuid/{micromarketUuid}").buildAndExpand(uriVariables).toUriString();
+            String path = UriComponentsBuilder.fromPath("/internal/get/residences/by/micromarketuuid/{micromarketUuid}").buildAndExpand(uriVariables).toUriString();
 
             final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 

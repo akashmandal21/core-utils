@@ -2,6 +2,7 @@ package com.stanzaliving.website.response.dto;
 
 import com.stanzaliving.website.dto.WebsiteAppliedFiltersDto;
 import com.stanzaliving.website.elasticsearch.index.dto.WebsitePlaceIndexDto;
+import com.stanzaliving.website.enums.SeoUrlType;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -18,7 +19,7 @@ public class WebsiteDynamicUrlListingDto implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private ResidenceListingPageResponse residenceListingPageResponse;
-	private ApartmentListingPageResponse apartmentListingPageResponse;
+//	private ApartmentListingPageResponse apartmentListingPageResponse;
 	private PropertyLocationListingCardsPageResponse propertyLocationListingCardsPageResponse;
 
 	private Integer cityId;
@@ -35,4 +36,5 @@ public class WebsiteDynamicUrlListingDto implements Serializable {
 	private WebsiteAppliedFiltersDto parsedFilters;
 	private WebsitePlaceIndexDto placeIndexDto;
 
+	private SeoUrlType seoUrlType;
 }

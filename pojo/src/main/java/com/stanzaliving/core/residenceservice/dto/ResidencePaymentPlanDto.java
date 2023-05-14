@@ -26,6 +26,8 @@ public class ResidencePaymentPlanDto {
 
 	private String uuid;
 
+	private boolean noCostEmiApplicable;
+
 	@NotBlank(message = "payment plan cannot be blank")
 	private PaymentTerm paymentPlan;
 
