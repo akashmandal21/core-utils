@@ -18,6 +18,8 @@ public class ListingPageConfigDto extends AbstractDto implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    private String configName;
+
     @NotNull
     private PropertyEntityType propertyEntityType;
 
