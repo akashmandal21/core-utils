@@ -19,7 +19,7 @@ public class ListingPageConfigDto extends AbstractDto implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @NotBlank
+    @NotBlank(message = "Name field can't be blank")
     private String configName;
 
     @NotNull
