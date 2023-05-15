@@ -22,12 +22,12 @@ public class ListingPageConfigDto extends AbstractDto implements Serializable {
     @NotBlank(message = "Name field can't be blank")
     private String configName;
 
-    @NotNull
+    @NotNull(message = "Property Type field can't be null")
     private PropertyEntityType propertyEntityType;
 
     private String propertyEntityName;
 
-    @NotNull
+    @NotNull(message = "Website Page Config Type field can't be null")
     private WebsitePageConfigType websitePageConfigType;
 
     private String websitePageConfigTypeName;
