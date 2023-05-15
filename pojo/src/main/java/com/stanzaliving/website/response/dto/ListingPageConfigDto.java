@@ -5,6 +5,7 @@ import com.stanzaliving.core.enums.PropertyEntityType;
 import com.stanzaliving.website.enums.WebsitePageConfigType;
 import lombok.*;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
@@ -18,6 +19,7 @@ public class ListingPageConfigDto extends AbstractDto implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    @NotBlank
     private String configName;
 
     @NotNull
