@@ -61,4 +61,10 @@ public class CodeListDto {
     private String priceImpact;
 
     private CommercialCardUserType userType;
+
+    private AMCAmountType onBoardingChargeType;
+
+    private AMCAmountType exitProcessingType;
+
+    private Double exitProcessingCharges;
 }
