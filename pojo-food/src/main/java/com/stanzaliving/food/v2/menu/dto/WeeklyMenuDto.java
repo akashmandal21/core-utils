@@ -5,6 +5,7 @@ import com.stanzaliving.core.food.dto.FoodMenuBudgetDto;
 import com.stanzaliving.core.food.dto.response.SpecialEventDto;
 import com.stanzaliving.core.food.enums.FoodServeType;
 import com.stanzaliving.core.food.enums.MenuType;
+import com.stanzaliving.food.v2.category.dto.BeverageRuleDto;
 import com.stanzaliving.food.v2.category.dto.CompositionRuleV2Dto;
 import com.stanzaliving.food.v2.category.dto.DayWiseCogsDto;
 import com.stanzaliving.food.v2.category.dto.MealWiseMenuDto;
@@ -76,6 +77,8 @@ public class WeeklyMenuDto extends AbstractDto {
     private List<MealWiseMenuDto> mealWiseMenus;
     private List<DayWiseCogsDto> dayWiseCogs;
     private CompositionRuleV2Dto rules;
+    private BeverageRuleDto beverageRuleDto;
+    private BeverageRuleDto defaultBeverageRuleDto;
     private FoodMenuBudgetDto budgetRules;
     private List<MenuCategoryResidenceRDto> residences;
     private List<SpecialEventDto> events;
