@@ -83,4 +83,6 @@ public class BookingResponseDto {
     private Boolean moveIn;
 
     private ResidenceAgreementType residenceAgreementType;
+
+    private double exitProcessingFee;
 }
