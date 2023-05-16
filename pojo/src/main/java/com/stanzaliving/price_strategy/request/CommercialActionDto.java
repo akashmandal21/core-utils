@@ -2,6 +2,7 @@ package com.stanzaliving.price_strategy.request;
 
 import com.stanzaliving.commercialcard.enums.AMCAmountType;
 import lombok.*;
+import com.stanzaliving.commercialcard.enums.AMCAmountType;
 import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.Max;
