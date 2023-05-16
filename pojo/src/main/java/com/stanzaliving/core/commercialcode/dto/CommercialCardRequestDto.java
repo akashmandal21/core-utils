@@ -56,4 +56,6 @@ public class CommercialCardRequestDto {
     private PaymentFrequency paymentFrequency;
 
     private String strategyUuid;
+
+    private boolean alfredRequest;
 }
