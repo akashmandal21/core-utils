@@ -109,7 +109,11 @@ public class DiscountClientApi {
 		return null;
 	}
 
-	public ResponseDto<BookingDiscountDetailsResponseDto> getBookingDiscountDetails(String bookingUuid) {
+	public ResponseDto<BookingDiscountDetailsResponseDto> getBookingDiscountDetails(String bookingUuid){
+		return getBookingDiscountDetails(bookingUuid, false);
+	}
+
+	public ResponseDto<BookingDiscountDetailsResponseDto> getBookingDiscountDetails(String bookingUuid, boolean ignoreAppliedcheck) {
 
 		try {
 			Object postBody = null;

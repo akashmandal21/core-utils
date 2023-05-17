@@ -84,6 +84,7 @@ public class BookingResponseDto {
 
     private ResidenceAgreementType residenceAgreementType;
 
-    private BookingPreference bookingPreference;
     private double exitProcessingFee;
+
+    private BookingPreference bookingPreference;
 }
