@@ -11,7 +11,7 @@ public class WebsiteSelfRefundPageConstants {
 
 	public final List<String> BOOKING_EXIST_PREBOOKING_NOT_ELIGIBLE_LIST = Arrays.asList(BookingStatus.AGREEMENT_PENDING.getBookingStatus(), BookingStatus.AGREEMENT_SENT.getBookingStatus(), BookingStatus.ONBOARDING_IN_PROGRESS.getBookingStatus(), BookingStatus.ONBOARDING_PENDING.getBookingStatus(), BookingStatus.ONBOARDING_COMPLETED.getBookingStatus());
 
-	public final String BOOKING_EXIST_PREBOOKING_NOT_ELIGIBLE = "<div id=\"noBookingFound\" class=\"case-4\"><p><span class=\"font-medium\">Seems like you already have a booking with Stanza Living.</span> Just head over to the Stanza Living Resident App and check the status of your refund.</p></div>";
+	public final String BOOKING_EXIST_PREBOOKING_NOT_ELIGIBLE = "<div id=\"noBookingFound\" class=\"case-4\"><p><span class=\"font-medium\">Seems like you already have a booking with us.</span> Just head over to the Stanza Living Resident App and check the status of your refund.</p></div>";
 
 	public final int REFUND_REMAINING_WAITING_PERIOD_DAYS_COUNT = 14;
 
