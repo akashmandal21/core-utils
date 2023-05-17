@@ -13,5 +13,8 @@ public class ItemDetailDto {
 	private String itemName;
 	private Integer itemQty;
 	private String itemImg;
+	private String itemId;
+	private String itemPreferenceCount;
+	private String itemType;
 
 }
