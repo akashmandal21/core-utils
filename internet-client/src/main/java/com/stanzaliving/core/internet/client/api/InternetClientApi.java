@@ -18,6 +18,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.core.internet.dto.InternetLoginFoodRequestDto;
 import com.stanzaliving.core.internet.dto.InternetLoginSummaryDto;
 import com.stanzaliving.core.security.dto.InternetAttendanceMappingRequestDto;
 import com.stanzaliving.internet.dto.InternetPlanDto;
@@ -74,11 +75,8 @@ public class InternetClientApi {
 		ResponseDto<List<InternetLoginSummaryDto>> responseDto = null;
 
 		final Map<String, Object> uriVariables = new HashMap<>();
-
-		Map<String, Object> postBody = new HashMap<String, Object>();
-		postBody.put("residenceIdList", residenceIds);
-		postBody.put("endDate", endDate);
-		postBody.put("startDate", startDate);
+		InternetLoginFoodRequestDto internetLoginFoodRequestDto = InternetLoginFoodRequestDto.builder().residenceIdList(residenceIds).startDate(startDate)
+				.endDate(endDate).build();
 
 		String path = UriComponentsBuilder.fromPath("/sessionDetails/get/all/foodFeedback/v2").buildAndExpand(uriVariables).toUriString();
 
@@ -95,7 +93,7 @@ public class InternetClientApi {
 		};
 
 		try {
-			responseDto = restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+			responseDto = restClient.invokeAPI(path, HttpMethod.POST, queryParams, internetLoginFoodRequestDto, headerParams, accept, returnType);
 		} catch (Exception e) {
 			log.error("Exception while fetching session details from internet: ", e);
 		}

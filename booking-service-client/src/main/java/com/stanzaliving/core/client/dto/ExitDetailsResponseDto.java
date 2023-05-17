@@ -94,4 +94,7 @@ public class ExitDetailsResponseDto {
 
     @JsonFormat(pattern="yyyy-MM-dd")
     private LocalDate noticePeriodStartDate;
+
+    @JsonFormat(pattern="yyyy-MM-dd")
+    private LocalDate movedOutDate;
 }
