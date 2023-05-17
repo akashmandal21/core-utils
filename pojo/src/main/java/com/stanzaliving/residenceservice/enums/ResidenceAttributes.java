@@ -48,7 +48,10 @@ public enum ResidenceAttributes {
     CONTRACT_END_DATE_CHANGE("CONTRACT_END_DATE_CHANGE", "Integer"),
     LOCK_IN_DATE_CHANGE("LOCK_IN_DATE_CHANGE", "Integer"),
     ROOM_CHANGE("ROOM_CHANGE", "Integer"),
-    PLAN_CHANGE("PLAN_CHANGE", "Integer");
+    PLAN_CHANGE("PLAN_CHANGE", "Integer"),
+    MIN_ALLOWED_DAYS_BEFORE_MOVE_IN("Min Allowed Days Before Move In", "Integer"),
+    MAX_ALLOWED_DAYS_AFTER_MOVE_IN("Max Allowed Days After Move In", "Integer");
+
 
     private static final Map<ResidenceAttributes, String> getType = new HashMap<>();
     private static final Map<ResidenceAttributes, String> getLabel = new HashMap<>();
