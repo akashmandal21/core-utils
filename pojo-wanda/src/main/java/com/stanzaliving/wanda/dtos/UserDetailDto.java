@@ -31,6 +31,7 @@ public class UserDetailDto implements Serializable {
     private String residenceAddressId;
     private String collegeName;
     private String currentResidenceUuid;
+    private String originalResidenceUuid;
     @Deprecated
     private String room;
     private String countryCode;
