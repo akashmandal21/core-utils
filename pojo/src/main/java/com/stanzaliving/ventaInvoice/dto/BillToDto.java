@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.apache.commons.lang3.StringUtils;
 
 @Getter
 @Setter
@@ -25,4 +26,10 @@ public class BillToDto {
     private String residenceUuid;
     private String roomNumber;
     private String residentPostalCode;
+
+    public String getLastName() {
+        if(StringUtils.isBlank(this.lastName))
+            return "";
+        return this.lastName;
+    }
 }

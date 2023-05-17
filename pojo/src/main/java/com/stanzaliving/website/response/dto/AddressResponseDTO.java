@@ -17,6 +17,7 @@ public class AddressResponseDTO implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	private int addressId;
+	private Long propertyLocationId;
 	private String line1;
 	private String line2;
 	private String landmark;
