@@ -10,11 +10,14 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ItemDetailDto {
+
 	private String itemName;
 	private Integer itemQty;
 	private String itemImg;
+	@Builder.Default
+	private Double itemGrammage = 0d;
 	private String itemId;
-	private String itemPreferenceCount;
 	private String itemType;
-
+	private String unit;
+	private Double orderedWeight;
 }
