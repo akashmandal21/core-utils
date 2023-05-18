@@ -30,6 +30,7 @@ public class AdvanceRoomSearchDto {
     private boolean inventoryView;
     private boolean insideSalesView;
     private boolean remoteBookingFlag;
+    private boolean ensureVacantRoom;
 
     private String moveInDate;
     private String roomNumber;

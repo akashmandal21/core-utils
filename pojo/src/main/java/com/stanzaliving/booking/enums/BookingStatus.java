@@ -474,6 +474,20 @@ public enum BookingStatus {
         return bookingStatus;
     }
 
+    public static List<BookingStatus> bookingEligibleForRofrConfirmationStatus() {
+        List<BookingStatus> bookingStatus = new ArrayList<>();
+        bookingStatus.add(BookingStatus.SHARED_WITH_RESIDENT);
+        bookingStatus.add(BookingStatus.AGREEMENT_PENDING);
+        return bookingStatus;
+    }
+
+    public static List<String> bookingEligibleForRofrConfirmation() {
+        List<String> bookingStatus = new ArrayList<>();
+        bookingStatus.add(BookingStatus.SHARED_WITH_RESIDENT.getDescription());
+        bookingStatus.add(BookingStatus.AGREEMENT_PENDING.getDescription());
+        return bookingStatus;
+    }
+
     public static List<BookingStatus> bookingStatusBeforeAgreementSent() {
         List<BookingStatus> bookingStatus = new ArrayList<>();
         bookingStatus.add(BookingStatus.SHARED_WITH_RESIDENT);
