@@ -22,14 +22,16 @@ public class CreationDto {
     @NotBlank(message = "Name cannot be empty")
     @NotNull(message = "Name can't be null")
     private String name;
-    private CommercialCodeType applyTo;
-    private String applyToEntity;
-    private List<String> applyToEntities;
-    private Date applicabilityFrom;
-    private Date applicabilityTo;
-    private CommercialCardStatus strategyCardStatus;
 
-    private CommercialCardUserType bookingType;
+    private CommercialCodeType applyTo;
+
+    private List<String> applyToEntities;
+
+    private Date applicabilityFrom;
+
+    private Date applicabilityTo;
+
+    private CommercialCardStatus strategyCardStatus;
 
     private List<CommercialCardUserType> bookingTypes;
 
