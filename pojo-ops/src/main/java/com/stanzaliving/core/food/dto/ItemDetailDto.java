@@ -20,4 +20,6 @@ public class ItemDetailDto {
 	private String itemType;
 	private String unit;
 	private Double orderedWeight;
+	private Double orderedQty;
+	private String categoryId;
 }
