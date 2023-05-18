@@ -74,6 +74,8 @@ public class MenuCategoryDetailDto extends MenuCategoryDTO {
 	private String approvalRequestedBy;
 
 	private CompositionRuleV2Dto compositionRules;
+	private BeverageRuleDto beverageRuleDto;
+	private BeverageRuleDto defaultBeverageRuleDto;
 	private List<MealWiseMenuDto> mealWiseMenus;
 	private MealCategoryPriceDto mealPriceData;
 
@@ -100,4 +102,8 @@ public class MenuCategoryDetailDto extends MenuCategoryDTO {
 	private Boolean isDebarDishExist;
 
 	private BrmUpdationType brmUpdationType;
+
+	private boolean copyAction;
+
+	private boolean beverageRuleApplicable;
 }

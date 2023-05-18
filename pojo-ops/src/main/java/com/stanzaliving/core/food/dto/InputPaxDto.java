@@ -1,7 +1,5 @@
 package com.stanzaliving.core.food.dto;
 
-import java.util.List;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -16,16 +14,21 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserPreferenceCountDto {
+public class InputPaxDto {
 
 	@Builder.Default
-	private Integer totalVeg = 0;
+	private Integer vegPax = 0;
 
 	@Builder.Default
-	private Integer totalNonveg = 0;
-	
-	private long skippedMeals;
-	
-	private List<UserThaliOptionPreferenceCountDto> preferenceCountDtos;
+	private Integer nonVegPax = 0;
+
+	@Builder.Default
+	private Integer stanzaStaffVegPax = 0;
+
+	@Builder.Default
+	private Integer stanzaStaffNonVegPax = 0;
+
+	@Builder.Default
+	private Integer nonSlStaffVegPax = 0;
 
 }
