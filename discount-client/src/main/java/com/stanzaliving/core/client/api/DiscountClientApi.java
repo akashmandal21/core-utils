@@ -123,6 +123,7 @@ public class DiscountClientApi {
 			String path = UriComponentsBuilder.fromPath("/discount-details/{bookingUuid}").buildAndExpand(uriVariables)
 					.toUriString();
 			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+			queryParams.add("ignoreAppliedCheck", String.valueOf(ignoreAppliedcheck));
 			final HttpHeaders headerParams = new HttpHeaders();
 			final String[] accepts = { "*/*" };
 
