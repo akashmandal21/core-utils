@@ -36,13 +36,10 @@ public class CreationDto {
 
     private List<CommercialCardUserType> bookingTypes;
 
-    @NotNull(message = "UserType can't be null")
     private List<ConditionsRule> conditionsRules;
 
-    @NotNull(message = "commercial rules can't be null")
     private CommercialActionDto commercialActionDto;
 
-    @NotNull(message = "payment rule can't be null")
     private List<PaymentActionDto> allowedFrequencies;
 
     private String bookingSubTypes;
