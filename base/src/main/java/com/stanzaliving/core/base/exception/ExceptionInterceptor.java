@@ -341,7 +341,7 @@ public class ExceptionInterceptor {
 	public <T> ResponseDto<T> handleIllegalArgumentException(IllegalArgumentException e) {
 
 		String exceptionId = getExceptionId();
-		log.error("Got IllegalArgumentException for exceptionId: {} with Message {}", exceptionId, e.getMessage());
+		log.error("Got IllegalArgumentException for exceptionId: {} with Message {}", exceptionId, e.getMessage(), e);
 
 		return ResponseDto.failure(e.getMessage(), exceptionId);
 	}
