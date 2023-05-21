@@ -34,7 +34,7 @@ public class ListObjectConverter implements AttributeConverter<List<Object>, Str
             return null;
         }
 
-        log.info("LIST-HASHMAP-CONVERTER::Received attribute for conversion {}",attribute);
+//        log.info("LIST-HASHMAP-CONVERTER::Received attribute for conversion {}",attribute);
         String attributeInfoJson = null;
 
         try {
@@ -55,7 +55,7 @@ public class ListObjectConverter implements AttributeConverter<List<Object>, Str
             return null;
         }
 
-        log.info("LIST-HASHMAP-CONVERTER::Convert entity attribute of {}",dbData);
+//        log.info("LIST-HASHMAP-CONVERTER::Convert entity attribute of {}",dbData);
         List<Object> attributeInfo = null;
 		try {
 			if (StringUtils.isNotBlank(dbData)) {
