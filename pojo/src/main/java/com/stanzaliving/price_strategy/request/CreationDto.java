@@ -1,6 +1,7 @@
 package com.stanzaliving.price_strategy.request;
 
 import com.stanzaliving.booking.enums.BookingSubType;
+import com.stanzaliving.commercialcard.enums.AMCAmountType;
 import com.stanzaliving.commercialcard.enums.CommercialCardStatus;
 import com.stanzaliving.commercialcard.enums.CommercialCardUserType;
 import com.stanzaliving.commercialcard.enums.CommercialCodeType;
