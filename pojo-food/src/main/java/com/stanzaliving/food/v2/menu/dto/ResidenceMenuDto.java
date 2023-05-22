@@ -39,4 +39,5 @@ public class ResidenceMenuDto extends AbstractDto {
 	private boolean defaultMenu;
 	private String menuGroupId;
 	private FoodItemType itemType;
+	private String defaultBeverage;
 }

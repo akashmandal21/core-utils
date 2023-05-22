@@ -3,9 +3,6 @@ package com.stanzaliving.food.v2.order.request;
 import java.time.LocalDate;
 import java.util.List;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-
 import com.stanzaliving.core.operations.enums.MealType;
 
 import lombok.AllArgsConstructor;
@@ -16,11 +13,11 @@ import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 /**
- * @author piyush.srivastava "piyush.srivastava@stanzaliving.com"
+ * @author manish.pareek"
  *
  * @version 2.0
  *
- * @since 02-Aug-2021
+ * @since 26-JAN-2023
  */
 
 @Getter
@@ -29,7 +26,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class NormalizeOrderDto extends PaxCountRequestDto {
+public class NormalizeOrderResponseDto extends PaxCountRequestDto {
 
 	private MealType mealType;
 
@@ -37,12 +34,8 @@ public class NormalizeOrderDto extends PaxCountRequestDto {
 
 	private List<MenuPaxCountRequestDto> menusPaxCount;
 
-	@NotBlank(message = "Residence Id is mandatory")
 	private String residenceId;
 
-	@NotNull(message = "Food Order Date is mandatory")
 	private LocalDate menuDate;
-
-
 
 }

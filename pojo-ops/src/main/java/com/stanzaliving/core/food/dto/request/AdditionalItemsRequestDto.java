@@ -38,4 +38,8 @@ public class AdditionalItemsRequestDto {
 
 	private FoodItemType itemType;
 
+	private String categoryId;
+
+	private boolean isBeverage;
+
 }
