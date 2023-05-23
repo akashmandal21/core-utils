@@ -87,4 +87,6 @@ public class BookingResponseDto {
     private double exitProcessingFee;
 
     private BookingPreference bookingPreference;
+
+    private String primaryBookingUuid;
 }
