@@ -14,16 +14,18 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ItemTypeUserPreferenceCountDto {
+public class UserBeveragePreferenceCountDto {
 
-	private String preferredMenu;
+    @Builder.Default
+    private Integer preferenceCount = 0;
 
-	@Builder.Default
-	private Integer veg = 0;
+    @Builder.Default
+    private Integer inputCount = 0;
 
-	@Builder.Default
-	private Integer nonveg = 0;
-	
-	private String residenceFoodMenuId;
+    private String beveragePreferenceName;
+
+    private String beveragePreference;
+
+    private boolean defaultBeverageItem;
 
 }

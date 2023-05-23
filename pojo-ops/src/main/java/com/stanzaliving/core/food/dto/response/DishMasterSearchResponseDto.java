@@ -57,6 +57,8 @@ public class DishMasterSearchResponseDto implements Serializable {
 
 	private Boolean addOnEnabled;
 
+	private boolean isBeverage;
+
 	private EnumListing<RecipeType> recipeType;
 
 	private EnumListing<CommercialTag> commercialTag;
