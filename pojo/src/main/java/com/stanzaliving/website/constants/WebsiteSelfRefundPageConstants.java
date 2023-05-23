@@ -1,10 +1,18 @@
 package com.stanzaliving.website.constants;
 
+import com.stanzaliving.booking.enums.BookingStatus;
 import lombok.experimental.UtilityClass;
+
+import java.util.Arrays;
+import java.util.List;
 
 @UtilityClass
 public class WebsiteSelfRefundPageConstants {
-	
+
+	public final List<String> BOOKING_EXIST_PREBOOKING_NOT_ELIGIBLE_LIST = Arrays.asList(BookingStatus.AGREEMENT_PENDING.getBookingStatus(), BookingStatus.AGREEMENT_SENT.getBookingStatus(), BookingStatus.BOOKING_FORFEITURE.getBookingStatus(), BookingStatus.CANCELLED.getBookingStatus(), BookingStatus.CONTRACT_COMPLETED.getBookingStatus(), BookingStatus.CONTRACT_TERMINATED.getBookingStatus(), BookingStatus.ONBOARDING_COMPLETED.getBookingStatus(), BookingStatus.ONBOARDING_IN_PROGRESS.getBookingStatus(), BookingStatus.ONBOARDING_PENDING.getBookingStatus(), BookingStatus.PAYMENT_PENDING.getBookingStatus(), BookingStatus.RENT_DEFAULTER_PAID.getBookingStatus(), BookingStatus.RENT_DEFAULTER_UNPAID.getBookingStatus(), BookingStatus.SHARED_WITH_RESIDENT.getBookingStatus(), BookingStatus.STAY_FORFEITURE.getBookingStatus(), BookingStatus.TRESSPASSER.getBookingStatus());
+
+	public final String BOOKING_EXIST_PREBOOKING_NOT_ELIGIBLE = "<div id=\"noBookingFound\" class=\"case-4\"><p><span class=\"font-medium\">Seems like you already have a booking with us.</span> Just head over to the Stanza Living Resident App and check the status of your refund.</p></div>";
+
 	public final int REFUND_REMAINING_WAITING_PERIOD_DAYS_COUNT = 14;
 
 	public final String SELF_REFUND_REQUEST_NOT_RAISED_MESSAGE = "Your booking is waiting to get finalized.";
