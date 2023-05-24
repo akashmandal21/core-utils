@@ -60,4 +60,8 @@ public class PropertyBoqListingGroupByBoq {
     private boolean canApprove;
 
     private long commentCount;
+
+    private Long approvedOn;
+
+    private String approvedBy;
 }
