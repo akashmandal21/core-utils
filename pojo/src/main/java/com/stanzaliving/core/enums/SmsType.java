@@ -11,6 +11,5 @@ package com.stanzaliving.core.enums;
 public enum SmsType {
 
 	OTP,
-	OTP_V2,
 	TEXT
 }

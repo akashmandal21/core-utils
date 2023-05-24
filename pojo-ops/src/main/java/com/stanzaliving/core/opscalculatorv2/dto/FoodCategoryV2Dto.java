@@ -31,13 +31,13 @@ public class FoodCategoryV2Dto extends CategoryV2Dto {
 	private BigDecimal menuPricePerDay = new BigDecimal(0);
 	
 	@Builder.Default
-	private BigDecimal weekDays = new BigDecimal(5);
+	private BigDecimal weekDays = new BigDecimal(0);
 	
 	@Builder.Default
 	private BigDecimal weekdayUtilization = new BigDecimal(0);
 	
 	@Builder.Default
-	private BigDecimal weekendDays = new BigDecimal(2);
+	private BigDecimal weekendDays = new BigDecimal(0);
 	
 	@Builder.Default
 	private BigDecimal weekendUtilization = new BigDecimal(0);
@@ -72,15 +72,12 @@ public class FoodCategoryV2Dto extends CategoryV2Dto {
 	@Builder.Default
     private BigDecimal utilizationNonLeaveDays = new BigDecimal(0);
 
-    @Builder.Default
-    private BigDecimal overallUtilization = new BigDecimal(0);
+	@Builder.Default
+	private BigDecimal utilizationNonLeaveDaysSuggested = new BigDecimal(0);
 
-    @Builder.Default
-    private BigDecimal utilizationNonLeaveDaysSuggested = new BigDecimal(0);
+	private String utilizationNonLeaveDaysSuggestedReason;
 
-    private String utilizationNonLeaveDaysSuggestedReason;
-
-    List<SMLevelFoodCategoryDto> smLevelFoodCategoryDtoList;
+	List<SMLevelFoodCategoryDto> smLevelFoodCategoryDtoList;
 
 	@Builder.Default
 	private int gst = Constants.GST_FOOD_VENDOR_PERCENT;

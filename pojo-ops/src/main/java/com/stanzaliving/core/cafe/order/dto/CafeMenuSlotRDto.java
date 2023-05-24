@@ -22,5 +22,4 @@ public class CafeMenuSlotRDto {
     private LocalTime endTime;
     private boolean nextDayApplicable;
     private LocalDate orderDate;
-    private LocalDate menuDate;
 }

@@ -23,14 +23,14 @@ public class AttendanceSummaryResponseDto {
     private String residenceId;
 
 	private boolean foodScan;
+	private boolean breakfastScan;
+	private boolean lunchScan;
+	private boolean eveiningSnackScan;
+	private boolean dinnerScan;
 	private boolean internetUsed;
 	private String location;
 	private boolean cafeFoodOrder;
 	private boolean supportTicket;
 	private boolean securityAttendance;
-	private boolean gpsPing;
-	private boolean present;
-	private Date updatedAt;
-	private String updatedByFlag;
 
 }

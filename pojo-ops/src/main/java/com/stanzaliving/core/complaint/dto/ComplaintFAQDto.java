@@ -12,8 +12,6 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
-import java.io.Serializable;
-
 /**
  * @author nipunaggarwal
  *
@@ -24,7 +22,7 @@ import java.io.Serializable;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ComplaintFAQDto implements Serializable {
+public class ComplaintFAQDto {
 
 	private String complaintFAQUuid;
 	private String question;

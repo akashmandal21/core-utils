@@ -35,8 +35,4 @@ public class SmsDto {
 
 	private String templateId;
 
-	private String otp;
-
-	private int retryCount;
-
 }

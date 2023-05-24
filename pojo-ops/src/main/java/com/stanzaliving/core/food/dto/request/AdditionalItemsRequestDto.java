@@ -40,6 +40,4 @@ public class AdditionalItemsRequestDto {
 
 	private String categoryId;
 
-	private boolean isBeverage;
-
 }

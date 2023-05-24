@@ -154,8 +154,8 @@ public class AuditServiceClientApi {
         } catch (Exception e) {
 
             log.error("Error while searching from venta aggregation service.", e);
+            return null;
 
-            throw new ApiValidationException("Some error occurred. Please try again after some time.");
 
         }
     }

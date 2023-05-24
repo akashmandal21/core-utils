@@ -14,8 +14,6 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.Date;
 import java.util.List;
 
@@ -46,13 +44,11 @@ public class FoodQrItemDto {
 	private List<String> foodItemNames;
 	private boolean isMealReplacement;
 	private boolean incorrectQr;
-	private boolean collectedFood;
 	private String scannedCombo;
 	private Date scannedTime;
 	private String requestedCombo;
 	private boolean pickMealDisable;
 	private boolean baseCombo;
 	private FoodPreferenceComboResponseDto foodPreferenceComboResponseDto;
-	private LocalTime startTime;
-	private LocalTime endTime;
+
 }

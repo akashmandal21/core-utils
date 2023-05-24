@@ -11,7 +11,6 @@ import lombok.Getter;
 public enum ApprovalEntityType {
 
 	SERVICE_MIX("Service Mix", "service-mix", "service-mix"),
-	SERVICE_MIX_STAY_CURATION("Service Mix Stay Curation", "SERVICEMIX_STAY_CURATION", "SERVICEMIX_STAY_CURATION"),
 	SESSION_UNDERWRITTEN("Stabilised Underwritten", "underwritten", "underwritten"),
 	MONTHLY_UNDERWRITTEN("Monthly Underwritten", "underwritten", "underwritten"),
 	FOOD_MENU_CATEGORY("Food Menu Category", "foodMenuCategory", "foodMenuCategory"),

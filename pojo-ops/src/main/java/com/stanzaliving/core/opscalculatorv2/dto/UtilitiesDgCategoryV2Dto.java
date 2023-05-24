@@ -7,7 +7,6 @@ package com.stanzaliving.core.opscalculatorv2.dto;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -29,8 +28,6 @@ public class UtilitiesDgCategoryV2Dto extends CategoryV2Dto{
 	
 	private int numberOfDG;
 	private double dgCostPerMonth;
-	@Builder.Default
-	private double dgCostPerMonthPerBed = 35;
 
 }
 

@@ -5,7 +5,6 @@ package com.stanzaliving.core.user.request.dto;
 
 import javax.validation.constraints.NotBlank;
 
-import com.stanzaliving.core.enums.Source;
 import com.stanzaliving.core.user.enums.UserType;
 import com.stanzaliving.core.utilservice.annotations.EnsureNumber;
 
@@ -37,7 +36,5 @@ public class LoginRequestDto {
 	private String mobile;
 	
 	private UserType userType;
-
-	private Source userSource;
 	
 }

@@ -22,6 +22,6 @@ public class AmcCostSlotV2Dto {
     private String name;
     private String placeHolder;
     @Builder.Default
-    private boolean amcCostApplicable = true;
+    private boolean amcCostApplicable = false;
     private int amcCostPerYear;
 }

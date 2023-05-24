@@ -32,14 +32,14 @@ import lombok.experimental.SuperBuilder;
 @ToString(callSuper = true)
 public class UtilitiesElectricityCategoryV2Dto extends CategoryV2Dto {
 
+	public int unitForEquipmentsPerDay;
+	
 	public int totalCharges;
 	
 	public double fixedCharges;
-	public UnitRate unitRateType;
-	@Builder.Default
-	public double unitRate = 7.8;
-	@Builder.Default
-	public double taxPercent = 10;
+	public UnitRate unitRate;
+	public double unitRateValue;
+	public double taxPercent;
 	
 	
 	public int acRoomsCount;
@@ -47,21 +47,16 @@ public class UtilitiesElectricityCategoryV2Dto extends CategoryV2Dto {
 	public int acRoomsWithAcPassThroughCount;
 	public int nonAcRoomsWithRoomPassThroughCount;
 	
-	@Builder.Default
-	public double passThroughUnitRate = 12;
-
+	
+	public double passThroughUnitRate;
 	public double acRunningMonthsPerYear;
 	public double commonAreaAcCount;
-	@Builder.Default
-	public double commonAreaAcConsumptionPerDay = 12;
+	public double commonAreaAcConsumptionPerDay;
 	public double boilerCount;
-
-	@Builder.Default
-	public double boilerConsumptionPerDay = 10;
+	public double boilerConsumptionPerDay;
 	
-	public double liftCount;
-	@Builder.Default
-	public double liftConsumptionPerDay = 11;
+	public double otherEquipCount;
+	public double unitsConsumedByOthersEquipPerDay;
 	
 	public double totalUnitsPerMonth;
 	public double totalPassThroughUnitsPerMonth;
@@ -70,8 +65,6 @@ public class UtilitiesElectricityCategoryV2Dto extends CategoryV2Dto {
 	public int landlordReceivablesInPercent;
 	
 	public double finalElectricityCost;
-
-	public double acRunningHoursPerDay;
 	    	
 	public void setFixedCharges(double fixedCharges) {
 		this.fixedCharges = fixedCharges;

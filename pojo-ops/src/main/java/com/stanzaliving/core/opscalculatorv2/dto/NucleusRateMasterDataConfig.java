@@ -35,6 +35,4 @@ public class NucleusRateMasterDataConfig implements Serializable  {
 	
 	private AuditRateMasterDto auditRateMasterDto;
 	
-	private EquipmentRentalRateMasterDto equipmentRentalRateMasterDto;
-	
 }

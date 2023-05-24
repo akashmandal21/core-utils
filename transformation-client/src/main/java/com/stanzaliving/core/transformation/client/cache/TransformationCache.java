@@ -9,7 +9,6 @@ import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-import com.stanzaliving.core.base.exception.StanzaHttpException;
 import com.stanzaliving.core.user.acl.enums.AccessLevelEntityEnum;
 import com.stanzaliving.transformations.pojo.*;
 import lombok.extern.log4j.Log4j2;
@@ -371,7 +370,7 @@ public class TransformationCache {
 		}
 		catch (Exception exception){
 			log.info("Transformation Cache Exception ",exception.getMessage());
-			throw new StanzaHttpException("Transformation is down");
+			return null;
 		}
 		log.info("uuid {}", uuid);
 		return residenceByUuidMap.get(uuid);

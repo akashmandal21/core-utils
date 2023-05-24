@@ -56,10 +56,6 @@ public enum EquipmentType {
         public void setSelectedApplicableOption(RepairCategoryDto repairCategoryDto){
             repairCategoryDto.setFirePanelAmcCostApplicable(true);
         }
-    },
-    OTHERS("Others"){
-        public void setSelectedApplicableOption(RepairCategoryDto repairCategoryDto) {
-        }
     };
     String name;
     public static List<DropDownDto> getAllEquipmentTypeValues(){

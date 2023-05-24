@@ -43,6 +43,4 @@ public class OrderItemGrammageDto {
 
 	private String categoryId;
 
-	private boolean isBeverage;
-
 }

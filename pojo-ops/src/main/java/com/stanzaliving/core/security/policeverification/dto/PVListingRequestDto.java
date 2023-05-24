@@ -45,7 +45,7 @@ public class PVListingRequestDto {
     private List<ResidentStatus> residentStatus;
 
     private List<RegistrationType> registrationType;
-    
+
     private PageAndSortDto pageDto;
 
     private String pvUuid;

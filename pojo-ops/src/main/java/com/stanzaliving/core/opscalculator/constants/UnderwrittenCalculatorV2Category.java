@@ -27,7 +27,6 @@ public enum UnderwrittenCalculatorV2Category {
 	INCENTIVE("incentive"),
 	CX("cx"),
 	TRANSPORT("transport"),
-	EQUIPMENT_RENTAL("equipmentRental"),
 	UNDER_WRITTEN("underWritten");
 
 	private String underwrittenCalculatorCategory;

@@ -87,6 +87,8 @@ public class ApartmentDetailedResponseDto implements Serializable {
 	private double longitude;
 	
 	private String videoLink;
+
+	private String videoLink2;
 	
 	private String virtualTourImage;
 	

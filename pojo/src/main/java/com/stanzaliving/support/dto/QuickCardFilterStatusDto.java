@@ -11,27 +11,19 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class QuickCardFilterStatusDto {
 
-    @Builder.Default
-    private boolean dueToday = false;
+    private boolean dueToday;
 
-    @Builder.Default
-    private boolean escalated = false;
+    private boolean escalated;
 
-    @Builder.Default
-    private boolean withinSla = false;
+    private boolean withinSla;
 
-    @Builder.Default
-    private boolean outsideSla = false;
+    private boolean outsideSla;
 
-    @Builder.Default
-    private boolean todayTasks = false;
+    private boolean todayTasks;
 
-    @Builder.Default
-    private boolean satisfied = false;
+    private boolean satisfied;
 
-    @Builder.Default
-    private boolean unSatisfied = false;
+    private boolean unSatisfied;
 
-    @Builder.Default
-    private boolean notReceived = false;
+    private boolean notReceived;
 }
