@@ -604,34 +604,6 @@ public class VentaAggregationServiceApi {
         }
 
     }
-
-    public ResponseDto<BookingAggregationDto> getBookingDetailsByMobileNumber(String residentMobile) {
-        try {
-            final Map<String, Object> uriVariables = new HashMap<>();
-
-            uriVariables.put("residentMobile", residentMobile);
-
-            String path = UriComponentsBuilder.fromPath("/internal/booking/details/mobile/{residentMobile}").buildAndExpand(uriVariables).toUriString();
-
-            final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-
-            final HttpHeaders headerParams = new HttpHeaders();
-
-            final String[] accepts = {"*/*"};
-            final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-
-            ParameterizedTypeReference<ResponseDto<BookingAggregationDto>> returnType = new ParameterizedTypeReference<ResponseDto<BookingAggregationDto>>() {
-            };
-
-            return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
-
-        } catch (Exception e) {
-            log.error("Exception occurred while get Booking Details By Mobile Number: {}", residentMobile, e);
-            return null;
-        }
-
-    }
-
     public ResponseDto<List<BookingAggregationDto>> getActiveBookingsForDigest(String date) {
         try {
             Object postBody = null;
