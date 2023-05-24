@@ -3,6 +3,7 @@ package com.stanzaliving.core.opscalculatorv2.dto;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -22,7 +23,8 @@ import lombok.experimental.SuperBuilder;
 @JsonIgnoreProperties({ "count", "rate", "utilization", "margin", "gst" })
 public class SuppliesCategoryV2Dto extends CategoryV2Dto {
 
-	private boolean isSuppliesApplicable;
-
-	private int suppliesCostPerMonth;
+    @Builder.Default
+    private boolean isSuppliesApplicable = true;
+    @Builder.Default
+    private int suppliesCostPerMonth = 50;
 }

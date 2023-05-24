@@ -35,8 +35,7 @@ public enum AlfredStep {
 	GUEST_SELFIE(19, Arrays.asList("GUEST_SELFIE")),
 	GUEST_ONBOARDING_PENDING(20, Arrays.asList("HOMESCREEN")),
 	MOVE_IN_DATE_CHANGE(21, Arrays.asList("MOVE IN DATE CHANGE")),
-	SD_REFUND(22, new ArrayList<>())
-	;
+	SD_REFUND(22, new ArrayList<>());
 
 	private Integer sequenceId;
 	private List<String> bookingStatuses;

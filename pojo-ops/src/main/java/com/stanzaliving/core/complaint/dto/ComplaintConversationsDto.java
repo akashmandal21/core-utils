@@ -43,5 +43,6 @@ public class ComplaintConversationsDto {
     private boolean incoming;
 
     private boolean isPrivate;
+    private boolean resolvedMessage;
 
 }

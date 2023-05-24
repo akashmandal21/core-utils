@@ -22,6 +22,7 @@ public class PersonnelRateMasterDto implements Serializable {
 	private String hk12HrRate;
 	private String sgRate;
 	private String rcRate;
+	private String rmRate;
 	private String jrRcRate;
 	private String releiverJrRcRate;
 

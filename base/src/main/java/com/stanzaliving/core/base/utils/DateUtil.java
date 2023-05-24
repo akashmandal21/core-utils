@@ -1208,6 +1208,10 @@ public class DateUtil {
         return (fromDate.isBefore(localDate) || fromDate.equals(localDate)) && (toDate.isAfter(localDate) || toDate.equals(localDate));
     }
 
+    public static Boolean isLocalDateInLocalDateRange(LocalDate localDate, LocalDate fromDate, LocalDate toDate) {
+        return (fromDate.isBefore(localDate) || fromDate.equals(localDate)) && (toDate.isAfter(localDate) || toDate.equals(localDate));
+    }
+
     public static List<LocalDate> getCalendarMonthOfYear(Integer month,Integer year) {
 
         LocalDate startDate = getMonthStartBeginningDate(month, year);

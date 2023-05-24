@@ -75,7 +75,7 @@
 		<hibernate-validator.version>6.0.10.Final</hibernate-validator.version>
 		<c3p0.version>0.9.5.4</c3p0.version>
 
-		<jsonevent-layout.version>1.7</jsonevent-layout.version>
+		<jsonevent-layoutEnum.version>1.7</jsonevent-layoutEnum.version>
 
 		<json-lib.version>2.4</json-lib.version>
 		<json-lib.classifier>jdk15</json-lib.classifier>

@@ -25,10 +25,10 @@ import lombok.experimental.SuperBuilder;
 @ToString(callSuper = true)
 public class PersonnelCategoryV2Dto extends CategoryV2Dto {
 
-	private int hk12HrCount;
-	private int hk12HrCountSuggested;
+	private double hk12HrCount;
+	private double hk12HrCountSuggested;
 	private String hk12HrCountSuggestedReason;
-	
+
 	@ValidEnum(enumClass = HouseKeepingType.class, fieldName = "HouseKeepingType")
 	private HouseKeepingType hkType;
 	@ValidEnum(enumClass = HouseKeepingType.class, fieldName = "HouseKeepingType")
@@ -42,8 +42,8 @@ public class PersonnelCategoryV2Dto extends CategoryV2Dto {
 	@Builder.Default
 	public List<DropDownDto> hkTypeOptions = new ArrayList<>();
 
-	private int sgCount;
-	private int sgCountSuggested;
+	private double sgCount;
+	private double sgCountSuggested;
 	private String sgCountSuggestedReason;
 
 	@ValidEnum(enumClass = SecurityGuardType.class, fieldName = "HouseKeepingType")
@@ -59,14 +59,14 @@ public class PersonnelCategoryV2Dto extends CategoryV2Dto {
 	@Builder.Default
 	public List<DropDownDto> sgTypeOptions = new ArrayList<>();
 
-	private int jrRcCount;
-	private int jrRcCountSuggested;
+	private double jrRcCount;
+	private double jrRcCountSuggested;
 	private String jrRcCountSuggestedReason;
 
 	private double jrRcRate;
 
-	private int rcCount;
-	private int rcCountSuggested;
+	private double rcCount;
+	private double rcCountSuggested;
 	private String rcCountSuggestedReason;
 	private double rcRate;
 	private double releiverJrRc;
@@ -74,15 +74,21 @@ public class PersonnelCategoryV2Dto extends CategoryV2Dto {
 	public double hk12HrCostPerBed;
 	public double sgCostPerBed;
 	public double rcCostPerBed;
+	public double rmCostPerBed;
 	public double jrRcCostPerBed;
 	public double releiverCostPerBed;
 
-	private int noOfEmployeesSuggested;
-	private int noOfEmployees;
+	private double noOfEmployeesSuggested;
+	private double noOfEmployees;
 	private String noOfEmployeesSuggestedReason;
 
-	private double employeeRatePerMonth;
-	private double employeeRatePerMonthSuggested;
-	private String employeeRatePerMonthSuggestedReason;
+    private double employeeRatePerMonth;
+    private double employeeRatePerMonthSuggested;
+    private String employeeRatePerMonthSuggestedReason;
+
+    private double rmCount;
+    private double rmCountSuggested;
+    private String rmCountSuggestedReason;
+    private double rmRate;
 
 }

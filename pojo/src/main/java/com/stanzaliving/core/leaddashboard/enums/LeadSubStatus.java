@@ -3,7 +3,11 @@ package com.stanzaliving.core.leaddashboard.enums;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Set;
 
 @Getter
 @AllArgsConstructor
@@ -15,14 +19,17 @@ public enum LeadSubStatus {
 	QUALIFIED("Qualified", "#6236FF", "#6BBFFF"),
 	PRE_QUALIFICATION_FOLLOW_UP("Pre Qualification Follow Up", "#44D7B6", "#FFB701"),
 	RNR("RNR", "#32C5FF", "#32C5FF"),
+
 	BOOKED("Booked", "#6DD400", "#60C3AD"),
 	MOVED_OUT("Moved Out", "#E02020", "#F55F71"),
 	DISQUALIFIED("Disqualified", "#FA6400", "#F55F71"),
 
 	PRE_VISIT_FOLLOW_UP("Pre Visit Follow Up", "#F45E58", "#FFB701"),
 	PRE_VISIT_SCHEDULED_FOLLOW_UP("Pre Visit 1 Scheduled Follow Up", "#EEC583", "#FFB701"),
+
 	PRE_VISIT_SCHEDULED_DROP("Pre-Visit Scheduled Drop", "#E02020", "#F55F71"),
 	PRE_VISIT_DROP("Pre-Visit Drop", "#E02020", "#F55F71"),
+
 	VISIT_1_STARTED("Visit 1 Started", "#EC9797", "#7D6476"),
 	VISIT_1_SCHEDULED("Visit 1 Scheduled", "#F7B500", "#645A87"),
 	VISIT_1_COMPLETED("Visit 1 Completed", "#EEC583", "#B1D6A3"),
@@ -218,5 +225,4 @@ public enum LeadSubStatus {
 		
 		return qualifiedVisitCompletedStatus.contains(leadSubStatus);
 	}
-
 }

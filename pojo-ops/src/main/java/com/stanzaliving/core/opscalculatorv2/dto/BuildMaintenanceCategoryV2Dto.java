@@ -21,13 +21,20 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @ToString(callSuper = true)
 public class BuildMaintenanceCategoryV2Dto extends CategoryV2Dto {
-	public boolean pestControlApplicable;
-	public boolean overheadTankCleaningInfoApplicable;
-	public boolean underGroundTankCleaningInfoApplicable;
-	public boolean facadeCleaningApplicable;
-	public boolean fumigationPerBedBugsApplicable;
-	public boolean garbageCostApplicable;
-	public boolean floorCleaningApplicable;
+    @Builder.Default
+    public boolean pestControlApplicable = true;
+    @Builder.Default
+    public boolean overheadTankCleaningInfoApplicable = true;
+    @Builder.Default
+    public boolean underGroundTankCleaningInfoApplicable = true;
+    @Builder.Default
+    public boolean facadeCleaningApplicable = true;
+    @Builder.Default
+    public boolean fumigationPerBedBugsApplicable = true;
+    @Builder.Default
+    public boolean garbageCostApplicable = true;
+    @Builder.Default
+    public boolean floorCleaningApplicable = true;
 
 	@Builder.Default
 	private List<DropDownDto> serviceTypeOptions = new ArrayList<>();
