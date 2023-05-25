@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+import com.stanzaliving.booking.dto.*;
 import com.stanzaliving.core.base.enums.DateFormat;
 import com.stanzaliving.core.base.utils.DateUtil;
 import org.springframework.core.ParameterizedTypeReference;
@@ -21,16 +22,6 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.stanzaliving.booking.SoldBookingDto;
-import com.stanzaliving.booking.dto.BookingNeedsAttentionUpdationDto;
-import com.stanzaliving.booking.dto.BookingResponseDto;
-import com.stanzaliving.booking.dto.ContractApprovalDto;
-import com.stanzaliving.booking.dto.ExpiredBookingsDto;
-import com.stanzaliving.booking.dto.ExpiredBookingsResponseDto;
-import com.stanzaliving.booking.dto.PaymentPendingBookingDto;
-import com.stanzaliving.booking.dto.PaymentPendingBookingResponseDto;
-import com.stanzaliving.booking.dto.PaymentPendingBookingStatusChangeDto;
-import com.stanzaliving.booking.dto.UpdateDealAndInventoryDto;
-import com.stanzaliving.booking.dto.VasEmailDto;
 import com.stanzaliving.booking.dto.request.BookingRequestDto;
 import com.stanzaliving.booking.dto.request.CustomizeVasSyncResponse;
 import com.stanzaliving.booking.dto.response.BookingCommercialsCardResponseDto;
@@ -1540,6 +1531,48 @@ public class BookingDataControllerApi {
         ParameterizedTypeReference<ResponseDto<Double>> returnType = new ParameterizedTypeReference<ResponseDto<Double>>() {
         };
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+    }
+
+    public ResponseDto<List<String>> getPendingRequestsEligibleForExpiration() {
+
+        Object postBody = null;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/internal/v1/booking/pending-requests-for-expiration").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<List<String>>> returnType = new ParameterizedTypeReference<ResponseDto<List<String>>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+    }
+
+    public ResponseDto<ExpiredPendingRequestsResponseDto> expirePendingRequests(ExpiredPendingRequestsDto expiredPendingRequestsDto) {
+
+        Object postBody = null;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/internal/v1/request/pending-approval/expire").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<ExpiredPendingRequestsResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<ExpiredPendingRequestsResponseDto>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
     }
 
     public ResponseDto<CustomizeVasSyncResponse> fetchBookingsForVasSync() {
