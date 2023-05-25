@@ -15,11 +15,11 @@ public class ItemDetailDto {
 	private Integer itemQty;
 	private String itemImg;
 	@Builder.Default
-	private Double itemGrammage = 0d;
 	private String itemId;
 	private String itemType;
-	private String unit;
-	private Double orderedWeight;
-	private Double orderedQty;
 	private String categoryId;
+	private String itemGrammage;
+	private String orderedQty;
+	private String orderedWeight;
+	private String unit;
 }
