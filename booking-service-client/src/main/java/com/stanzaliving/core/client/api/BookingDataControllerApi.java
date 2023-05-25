@@ -11,10 +11,6 @@ import java.util.Objects;
 
 import com.stanzaliving.core.base.enums.DateFormat;
 import com.stanzaliving.core.base.utils.DateUtil;
-import com.stanzaliving.core.food.dto.DateFoodMenuDto;
-import com.stanzaliving.jarvis.request.PreviousOrderDataPoint;
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -1664,24 +1660,5 @@ public class BookingDataControllerApi {
         }
         return (Objects.nonNull(responseDto)) ? responseDto : null;
 
-    }
-
-    public List<PreviousOrderDataPoint> getPreviousOrderDataPoints(String residenceId, List<Date> dates) {
-        try {
-            String path = UriComponentsBuilder.fromPath("/internal/previousOrderDataPoints").build().toUriString();
-            final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-            if (StringUtils.isNotBlank(residenceId)) {
-                queryParams.add("residenceId", residenceId);
-            }
-            final HttpHeaders headerParams = new HttpHeaders();
-            final String[] accepts = { "*/*" };
-            final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-            ParameterizedTypeReference<List<PreviousOrderDataPoint>> returnType = new ParameterizedTypeReference<List<PreviousOrderDataPoint>>() {
-            };
-            return restClient.invokeAPI(path, HttpMethod.POST, queryParams, dates, headerParams, accept, returnType);
-        } catch (Exception e) {
-            log.error("Exception caught while fetching Previous Order Data Points.", e);
-            return null;
-        }
     }
 }
