@@ -42,6 +42,8 @@ public class FoodOrderMenuCategoryDto {
 
 	private Integer mirCount;
 
+	private Integer attendanceCount;
+
 	@Builder.Default
 	private Boolean ordered = false;
 

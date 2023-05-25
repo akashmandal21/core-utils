@@ -75,4 +75,8 @@ public class CommercialCardResponseDto {
 
     private String priceImpactPercentage;
 
+    private boolean priceStrategyEnabled;
+
+    private com.stanzaliving.commercialcard.enums.AMCAmountType onBoardingChargeType;
+
 }

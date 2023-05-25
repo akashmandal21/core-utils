@@ -3,11 +3,14 @@ package com.stanzaliving.wanda.venta.request;
 
 import com.stanzaliving.booking.enums.BookingType;
 import com.stanzaliving.collector.enums.MaintenanceFeeType;
+import com.stanzaliving.core.bookingservice.dto.response.PackagedServiceResponseDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+
+import java.util.List;
 
 @Builder
 @Data
@@ -23,4 +26,9 @@ public class CommercialsRequestDto {
     private MaintenanceFeeType maintenanceFeeSelectionId;
     private boolean isMoveInDateChange = false;
     private String lockInEndDate;
+    private String serviceMixUuid;
+    private String serviceMixName;
+    private String newPriceStrategyCard;
+    private Double newMonthlyRent;
+    private List<String> planUuidList;
 }

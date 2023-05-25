@@ -36,5 +36,6 @@ public class PaymentPlanV2RequestDto {
 	private Boolean isPriceStrategy = false;
 
 	private PaymentActionDto paymentActionDto;
-	
+
+	private boolean subscriptionPlansToBeRemoved;
 }

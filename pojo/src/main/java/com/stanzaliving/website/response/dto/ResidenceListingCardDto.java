@@ -55,6 +55,10 @@ public class ResidenceListingCardDto implements Serializable {
 
 	private Integer unlockDiscountAmount;
 
+	private double discountPercentage;
+
+	private Integer discountedPrice;
+
 	private String preBookingMode;
 
 	private String googleMapLink;
@@ -88,6 +92,8 @@ public class ResidenceListingCardDto implements Serializable {
 	private String seoTitle;
 
 	private String seoDescription;
+
+	private String seoFaq;
 
 	private AddressResponseDTO addressResponseDTO;
 	

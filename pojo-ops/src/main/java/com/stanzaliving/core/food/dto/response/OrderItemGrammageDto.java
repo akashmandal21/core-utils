@@ -41,4 +41,8 @@ public class OrderItemGrammageDto {
 	@Builder.Default
 	private boolean isApplicableToNonSl = false;
 
+	private String categoryId;
+
+	private boolean isBeverage;
+
 }

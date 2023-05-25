@@ -38,4 +38,6 @@ public class CreationDto {
 
     @NotNull(message = "payment rule can't be null")
     private List<PaymentActionDto> allowedFrequencies;
+
+    private String bookingSubTypes;
 }

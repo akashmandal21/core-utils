@@ -8,7 +8,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+import com.stanzaliving.operations.dto.request.ResidentServiceMixAddOnRequestDtoStayCuration;
+import com.stanzaliving.operations.dto.request.ResidentServiceMixVasRequestDto;
+import com.stanzaliving.operations.dto.response.ResidentServiceMixV2VasResponseDto;
 import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -262,6 +266,41 @@ public class OperationsClientApi {
 
 	public ServiceMixEntityDto getServiceMixEntityByUuid(String uuid) {
 
+        Object postBody = null;
+
+        ServiceMixEntityDto serviceMixEntity = null;
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/internal/ops/servicemix/getServiceMix").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        queryParams.add("uuid", uuid);
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<ServiceMixEntityDto>> returnType = new ParameterizedTypeReference<ResponseDto<ServiceMixEntityDto>>() {
+
+        };
+
+        try {
+            serviceMixEntity = restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType).getData();
+        } catch (Exception e) {
+            log.error("Exception while fetching service mix with uuid {}", uuid, e);
+        }
+        log.info("serviceMixEntity is {}", serviceMixEntity);
+
+        return serviceMixEntity;
+    }
+
+	public ServiceMixEntityDto getServiceMixEntityByUuid(String uuid, String residenceUuid) {
+
 		Object postBody = null;
 
 		ServiceMixEntityDto serviceMixEntity = null;
@@ -273,6 +312,7 @@ public class OperationsClientApi {
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
 		queryParams.add("uuid", uuid);
+		queryParams.add("residenceId", residenceUuid);
 
 		final HttpHeaders headerParams = new HttpHeaders();
 
@@ -290,6 +330,7 @@ public class OperationsClientApi {
 		} catch (Exception e) {
 			log.error("Exception while fetching service mix with uuid {}", uuid, e);
 		}
+		log.info("serviceMixEntity is {}", serviceMixEntity);
 
 		return serviceMixEntity;
 	}
@@ -326,12 +367,51 @@ public class OperationsClientApi {
 			log.error("Exception while fetching service mix with uuid {} and residenceId {}", serviceMixUuid, residenceUuid, e);
 		}
 
+		log.info("serviceMixEntity is {}", serviceMixEntity);
+
 		return Objects.nonNull(serviceMixEntity) ? serviceMixEntity : null;
 	}
-
+	
 	public List<ServiceMixEntityDto> getServiceMixByUuidList(List<String> uuidList) {
 
-		Object postBody = null;
+        Object postBody = null;
+
+        List<ServiceMixEntityDto> serviceMixEntityList = new ArrayList<>();
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/internal/ops/servicemix/getServiceMixListForUuids").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        queryParams.addAll("serviceMixUuidList", uuidList);
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<List<ServiceMixEntityDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<ServiceMixEntityDto>>>() {
+
+        };
+
+        try {
+            serviceMixEntityList = restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType).getData();
+        } catch (Exception e) {
+            log.error("Exception while fetching service mix list from uuidList {} ", uuidList, e);
+        }
+        log.info("serviceMixEntityList is {}", serviceMixEntityList);
+
+        return serviceMixEntityList;
+    }
+
+	public List<ServiceMixEntityDto> getServiceMixByUuidList(List<String> uuidList, String residenceUuid) {
+		return this.getServiceMixByUuidListV2(uuidList,residenceUuid,null);
+	}
+
+	public List<ServiceMixEntityDto> getServiceMixByUuidListV2(List<String> uuidList, String residenceUuid, String moveInDate) {
 
 		List<ServiceMixEntityDto> serviceMixEntityList = new ArrayList<>();
 
@@ -341,7 +421,9 @@ public class OperationsClientApi {
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
+		queryParams.add("residenceId", residenceUuid);
 		queryParams.addAll("serviceMixUuidList", uuidList);
+		if (StringUtils.isNotBlank(moveInDate)) queryParams.add("serviceMixDate", moveInDate);
 
 		final HttpHeaders headerParams = new HttpHeaders();
 
@@ -359,6 +441,7 @@ public class OperationsClientApi {
 		} catch (Exception e) {
 			log.error("Exception while fetching service mix list from uuidList {} ", uuidList, e);
 		}
+		log.info("serviceMixEntityList is {}", serviceMixEntityList);
 
 		return serviceMixEntityList;
 	}
@@ -398,6 +481,8 @@ public class OperationsClientApi {
 		} catch (Exception e) {
 			log.error("Exception while fetching service mix from fromDate {} ", fromDate, e);
 		}
+
+		log.info("serviceMixEntity is {}", serviceMixEntity);
 
 		return Objects.nonNull(serviceMixEntity)? serviceMixEntity: null;
 	}
@@ -729,4 +814,29 @@ public class OperationsClientApi {
 
         return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : null;
     }
+
+	public ResidentServiceMixV2VasResponseDto customizeVasForResident(ResidentServiceMixVasRequestDto residentServiceMixVasRequestDto) {
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/internal/v2/resident/servicemix/customize/vas").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		TypeReference<ResponseDto<ResidentServiceMixV2VasResponseDto>> returnType = new TypeReference<ResponseDto<ResidentServiceMixV2VasResponseDto>>() {
+		};
+
+		ResponseDto<ResidentServiceMixV2VasResponseDto> responseDto = null;
+
+		try {
+
+			responseDto = restClient.post(path, queryParams, residentServiceMixVasRequestDto, null, null, returnType, MediaType.APPLICATION_JSON);
+
+		} catch (Exception e) {
+
+			log.error("Error while customizing vas for resident", e);
+
+		}
+
+		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : null;
+	}
 }

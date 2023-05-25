@@ -1,6 +1,7 @@
 package com.stanzaliving.website.response.dto;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 import com.stanzaliving.website.enums.ApartmentRoomType;
@@ -38,6 +39,10 @@ public class ApartmentRoomTypeResponseDTO implements Serializable {
 
 	private Integer startingPrice;
 
+	private Integer inventoryPrice;
+
+	private boolean showDiscount;
+
 	private Boolean soldOut;
 
 	private String pricingPlan;
@@ -46,7 +51,7 @@ public class ApartmentRoomTypeResponseDTO implements Serializable {
 
 	private Integer available;
 
-	private Integer discountPercentage;
+	private double discountPercentage;
 
 	private Integer discountedPrice;
 
@@ -57,4 +62,6 @@ public class ApartmentRoomTypeResponseDTO implements Serializable {
 	private int similarRoomCount;
 	
 	private boolean isSimilarAlreadyAdded;
+
+	private Date nextAvailableFrom;
 }

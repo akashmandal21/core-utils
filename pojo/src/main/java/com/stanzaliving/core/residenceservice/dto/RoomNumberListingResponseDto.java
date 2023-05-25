@@ -16,21 +16,25 @@ import java.util.List;
 @AllArgsConstructor
 public class RoomNumberListingResponseDto implements Serializable {
 
-    private float deadBeds = 0.0F;
-    private float totalBeds = 0.0F;
-    private float blockedBeds = 0.0F;
-    private float occupiedBeds = 0.0F;
-    private float availableBeds = 0.0F;
-    private float softBlockedBeds = 0.0F;
+    private float deadBeds;
+    private float totalBeds;
+    private float blockedBeds;
+    private float occupiedBeds;
+    private float availableBeds;
+    private float softBlockedBeds;
 
-    private boolean isConverted;
+    private boolean converted;
+    private boolean referralRoom;
 
     private Date availableFrom;
 
     private Double startingPrice;
+    private Double gstAmountLabel;
+    private Double gstPercentageLabel;
     private Double bumpedUpStartingPrice;
 
     private String floor;
+    private String gender;
     private String bhkType;
     private String occupancy;
     private String roomNumber;
@@ -41,11 +45,10 @@ public class RoomNumberListingResponseDto implements Serializable {
     private String convertedOccupancy;
 
     private RoomStatus roomStatus;
-
     private RoomPricingResponseDto roomPricing;
+    private ResidenceAgreementType residenceAgreementType;
 
     private List<String> inventoryUuidList;
     private List<AttributesResponseDto> attributesResponseDto;
-    @Builder.Default
-    private ResidenceAgreementType residenceAgreementType = ResidenceAgreementType.LEASE_DEED;
+
 }

@@ -5,6 +5,7 @@ import com.stanzaliving.core.operations.enums.DealCategory;
 import com.stanzaliving.core.operations.enums.MealType;
 import com.stanzaliving.food.v2.common.constant.PackageLocationType;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -30,6 +31,9 @@ public class FoodOrderSummaryDispatchDto {
 	private DealCategory dealCategory;
 
 	private String vendorId;
+
+	@Builder.Default
+	private boolean stanzaKitchen = true;
 
 	private String foodOrderId;
 

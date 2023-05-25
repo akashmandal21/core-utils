@@ -22,6 +22,8 @@ public class CafeMasterResponseDto extends AbstractDto {
 
     private String cafeName;
 
+    private String cafeDisplayName;
+
     private List<CafeTags> tags;
 
     private List<String> tagNames;

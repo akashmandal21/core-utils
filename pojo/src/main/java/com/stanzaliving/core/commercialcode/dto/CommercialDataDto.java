@@ -21,5 +21,9 @@ public class CommercialDataDto {
    private String showMonthlyRent;
    private Double monthlyRentWithPriceImpact;
    private Double priceImpact;
+   private Double tenureSortKey;
+   private Double gstWithPriceImpact;
+   private Double gstPercentageLabel;
+   private Double monthlyRentWithoutGstLabel;
 
 }

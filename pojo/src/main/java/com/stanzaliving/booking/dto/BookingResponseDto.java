@@ -78,4 +78,11 @@ public class BookingResponseDto {
 
     private String residenceName;
 
+    private boolean priceStrategy;
+
+    private Boolean moveIn;
+
+    private ResidenceAgreementType residenceAgreementType;
+
+    private double exitProcessingFee;
 }

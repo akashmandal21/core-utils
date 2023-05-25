@@ -101,20 +101,22 @@ public class ApartmentDetailedResponseDto implements Serializable {
 	private String fomoTagName;
 	
 	private String fomoTagcolour;
-	
-	private String description;
-	
+
 	private String seoTitle;
 	
 	private String seoDescription;
-	
+
+	private String description;
+
+	private String seoFaq;
+
 	private String transformationUuid;
 	
 	private String transformationId;
 	
 	private AddressResponseDTO address;
 	
-	private Integer discountPercentage;
+	private double discountPercentage;
 	
 	private Integer discountedPrice;
 	
@@ -151,4 +153,8 @@ public class ApartmentDetailedResponseDto implements Serializable {
 	private List<ApartmentResponseDto> otherRooms;
 	
 	private WebsitePlaceIndexDto placeIndexDto;
+
+	private boolean showDiscount;
+
+	private Integer inventoryPrice;
 }
