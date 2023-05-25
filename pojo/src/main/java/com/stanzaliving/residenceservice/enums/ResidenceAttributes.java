@@ -42,12 +42,15 @@ public enum ResidenceAttributes {
     BOOKING_AMOUNT_REALISATION_ENABLED("Booking Amount Realisation Enabled", "Boolean"),
     BOOKING_AUTO_FORFEITURE_DURATION_IN_DAYS("Booking Auto Forfeiture Duration in Days", "Integer"),
     MAX_ALLOWED_DAYS_AFTER_BOOKING_FORFEITURE("Max Allowed Days After Booking Forfeiture", "Integer"),
-    BOOKING_RENEWAL_COUNTDOWN_HOURS("Booking Renewal CountDown Hours", "Integer"),
-    MOVE_IN_DATE_CHANGE("MOVE_IN_DATE_CHANGE", "Integer"),
-    CONTRACT_END_DATE_CHANGE("CONTRACT_END_DATE_CHANGE", "Integer"),
-    LOCK_IN_DATE_CHANGE("LOCK_IN_DATE_CHANGE", "Integer"),
-    ROOM_CHANGE("ROOM_CHANGE", "Integer"),
-    PLAN_CHANGE("PLAN_CHANGE", "Integer");
+    BOOKING_RENEWAL_COUNTDOWN_HOURS("Booking Renewal Countdown Hours", "Integer"),
+    MOVE_IN_DATE_CHANGE("Move in Date Change", "Integer"),
+    CONTRACT_END_DATE_CHANGE("Contract End Date Change", "Integer"),
+    LOCK_IN_DATE_CHANGE("Lock In Date Change", "Integer"),
+    ROOM_CHANGE("Room Change", "Integer"),
+    PLAN_CHANGE("Plan Change", "Integer"),
+    MIN_ALLOWED_DAYS_BEFORE_MOVE_IN("Min Allowed Days Before Move In", "Integer"),
+    MAX_ALLOWED_DAYS_AFTER_MOVE_IN("Max Allowed Days After Move In", "Integer");
+
 
     private static final Map<ResidenceAttributes, String> getType = new HashMap<>();
     private static final Map<ResidenceAttributes, String> getLabel = new HashMap<>();
