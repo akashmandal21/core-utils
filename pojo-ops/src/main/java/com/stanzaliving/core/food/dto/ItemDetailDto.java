@@ -16,8 +16,8 @@ public class ItemDetailDto {
 	private String itemId;
 	private String itemPreferenceCount;
 	private String itemType;
-	private String itemGrammage;
-	private String orderedQty;
-	private String orderedWeight;
+	private Double itemGrammage;
+	private Integer orderedQty;
+	private Double orderedWeight;
 	private String unit;
 }
