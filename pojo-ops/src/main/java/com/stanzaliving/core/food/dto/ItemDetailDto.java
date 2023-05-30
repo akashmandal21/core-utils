@@ -3,13 +3,15 @@ package com.stanzaliving.core.food.dto;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import java.io.Serializable;
+
 @Getter
 @Setter
 @ToString
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ItemDetailDto {
+public class ItemDetailDto implements Serializable {
 	private String itemName;
 	private Integer itemQty;
 	private String itemImg;
