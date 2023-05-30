@@ -47,6 +47,7 @@ public class EstateAttributeDetailsDto{
     private String leaseDurationInYears;
 
     private String rentalInflationInYears;
+    private String bdUserUuid;
 
 
 }
