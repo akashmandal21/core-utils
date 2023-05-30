@@ -38,6 +38,7 @@ public enum ModuleState implements State<ModuleState> {
     PARALLEL_ENTRY_PENDING_L1_APPROVAL("Parallel Entry Pending L1 Approval","#FFC300"),
     PARALLEL_ENTRY_PENDING_L2_APPROVAL("Parallel Entry Pending L2 Approval","#FFC300"),
     PARALLEL_ENTRY_PENDING_L3_APPROVAL("Parallel Entry Pending L3 Approval","#FFC300"),
+    LL_HO_EDIT("Approved","#e5e3e3"),
     PARALLEL_ENTRY_APPROVED("Approved","#77baa6");
 
     private final String status;
