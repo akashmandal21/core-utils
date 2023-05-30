@@ -52,6 +52,10 @@ public class PropertyNamingDto {
 
 	private String oldPropName;
 
+	private String bdUserUuid;
+
+	private String noOfFloors;
+
 	private PropertyEntityType propertyType;
 
 	private PropertyDealType propertyDealType;
