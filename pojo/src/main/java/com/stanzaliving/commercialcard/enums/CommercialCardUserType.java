@@ -12,20 +12,24 @@ import java.util.Map;
 @AllArgsConstructor
 @ToString
 public enum CommercialCardUserType {
-    SCHOLAR,
-    SUITES,
-    MANAGED_APARTMENT,
-    MANAGED_APARTMENTS,
-    ALL,
-    PROFESSIONAL;
+    SCHOLAR("SCHOLAR"), SUITES("SUITES"), MANAGED_APARTMENT("MANAGED_APARTMENT"), MANAGED_APARTMENTS("MANAGED_APARTMENTS"),
+    ALL("ALL"), PROFESSIONAL("PROFESSIONAL");
 
-    private static Map<String, CommercialCardUserType> commercialCardUserTypeByName = new HashMap<>();
+    private final String commercialCardUserType;
+
+    public String getDescription() {
+        return commercialCardUserType;
+    }
+
+    private static Map<String, CommercialCardUserType> commercialCardUserTypeNameMap = new HashMap<>();
+
     static {
-        for (CommercialCardUserType commercialCardUserType : CommercialCardUserType.values()) {
-            commercialCardUserTypeByName.put(commercialCardUserType.name(), commercialCardUserType);
+        for (CommercialCardUserType cardUserType : CommercialCardUserType.values()) {
+            commercialCardUserTypeNameMap.put(cardUserType.getDescription(), cardUserType);
         }
     }
-    public static CommercialCardUserType getCommercialTypeUserName(String commercialCardUserType) {
-            return commercialCardUserTypeByName.get(commercialCardUserType);
+
+    public static CommercialCardUserType getCommercialCardUserTypeByName(String name) {
+        return commercialCardUserTypeNameMap.getOrDefault(name, SCHOLAR);
     }
 }

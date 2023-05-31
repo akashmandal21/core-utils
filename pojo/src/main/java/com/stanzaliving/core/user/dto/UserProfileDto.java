@@ -73,5 +73,7 @@ public class UserProfileDto extends UserDto {
 
 	private boolean status;
 
+	private boolean isMigrated;
+
 	private String companyName;
 }

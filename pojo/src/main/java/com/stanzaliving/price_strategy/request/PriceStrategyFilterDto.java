@@ -41,4 +41,6 @@ public class PriceStrategyFilterDto {
     private String sortOrder;
 
     private List<String> bookingSubTypes;
+
+    private  List<String> strategyUuids;
 }
