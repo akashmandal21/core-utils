@@ -12,6 +12,7 @@ import java.util.Objects;
 import com.stanzaliving.booking.dto.*;
 import com.stanzaliving.core.base.enums.DateFormat;
 import com.stanzaliving.core.base.utils.DateUtil;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -1705,7 +1706,7 @@ public class BookingDataControllerApi {
         String path = UriComponentsBuilder.fromPath("/internal/v1/update/onm-failure-message/{bookingUuid}").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-        if(Objects.nonNull(failureMessage))
+        if(StringUtils.isNotBlank(failureMessage))
             queryParams.add("failureMessage", failureMessage);
 
         final HttpHeaders headerParams = new HttpHeaders();
