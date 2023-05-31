@@ -8,6 +8,7 @@ import java.net.UnknownHostException;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
+import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.tuple.Pair;
 import org.slf4j.MDC;
 
@@ -27,6 +28,10 @@ public class SlackUtil {
 
 	public StringBuilder createMessage(Exception exception) {
 		Pair<String, String> ipAddress = getIpAddress();
+        StackTraceElement[] stackTrace=exception.getStackTrace();
+		String traceMsg = "null";
+		if(ArrayUtils.isNotEmpty(stackTrace))
+			traceMsg=stackTrace[0].toString();
 
 		StringBuilder slackMessage = new StringBuilder();
 		slackMessage
@@ -43,7 +48,7 @@ public class SlackUtil {
 				.append("\n ").append(StanzaConstants.QUERY_STRING).append(": ")
 				.append(MDC.get(StanzaConstants.QUERY_STRING))
 				.append("\n Exception: ")
-				.append(exception.toString());
+				.append(exception.toString()+"\n stackTrace: "+traceMsg);
 
 		return slackMessage;
 	}
