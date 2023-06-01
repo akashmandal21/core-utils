@@ -12,6 +12,7 @@ import java.util.Objects;
 import com.stanzaliving.booking.dto.*;
 import com.stanzaliving.core.base.enums.DateFormat;
 import com.stanzaliving.core.base.utils.DateUtil;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -1734,6 +1735,29 @@ public class BookingDataControllerApi {
         ParameterizedTypeReference<ResponseDto<BookingConfirmationResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<BookingConfirmationResponseDto>>() {
         };
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+    }
+
+    public void updateONMCorrectionFailureLogs(String bookingUuid, String failureMessage){
+        String responseDto = null;
+        final Map<String, Object> uriVariables = new HashMap<>();
+        Object postBody = null;
+
+        uriVariables.put("bookingUuid", bookingUuid);
+
+        String path = UriComponentsBuilder.fromPath("/internal/v1/update/onm-failure-message/{bookingUuid}").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        if(StringUtils.isNotBlank(failureMessage))
+            queryParams.add("failureMessage", failureMessage);
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = { "*/*" };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<String> returnType = new ParameterizedTypeReference<String>() {
+        };
+        restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
     }
 
 }
