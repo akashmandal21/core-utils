@@ -1557,7 +1557,7 @@ public class BookingDataControllerApi {
 
     public ResponseDto<ExpiredPendingRequestsResponseDto> expirePendingRequests(ExpiredPendingRequestsDto expiredPendingRequestsDto) {
 
-        Object postBody = null;
+        Object postBody = expiredPendingRequestsDto;
 
         // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<>();
