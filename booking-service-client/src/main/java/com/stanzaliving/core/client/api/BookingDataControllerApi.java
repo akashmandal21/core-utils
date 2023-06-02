@@ -1719,4 +1719,24 @@ public class BookingDataControllerApi {
         restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
     }
 
+    public void updateONMMigrationFailureLogs(String bookingUuid, String failureMessage) {
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        uriVariables.put("bookingUuid", bookingUuid);
+
+        String path = UriComponentsBuilder.fromPath("/internal/v1/update/onm-migration-failure-message/{bookingUuid}").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        if(StringUtils.isNotBlank(failureMessage))
+            queryParams.add("failureMessage", failureMessage);
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = { "*/*" };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<String> returnType = new ParameterizedTypeReference<String>() {
+        };
+        restClient.invokeAPI(path, HttpMethod.POST, queryParams, null, headerParams, accept, returnType);
+    }
 }
