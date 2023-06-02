@@ -1719,16 +1719,18 @@ public class BookingDataControllerApi {
         restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
     }
 
-    public void updateONMMigrationFailureLogs(String bookingUuid, String failureMessage) {
+    public void updateONMMigrationLogs(String bookingUuid, String migrationStatus, String message) {
         final Map<String, Object> uriVariables = new HashMap<>();
 
         uriVariables.put("bookingUuid", bookingUuid);
 
-        String path = UriComponentsBuilder.fromPath("/internal/v1/update/onm-migration-failure-message/{bookingUuid}").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/v1/save/onm-migration-logs/{bookingUuid}").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-        if(StringUtils.isNotBlank(failureMessage))
-            queryParams.add("failureMessage", failureMessage);
+        if(StringUtils.isNotBlank(message))
+            queryParams.add("message", message);
+        if(StringUtils.isNotBlank(migrationStatus))
+            queryParams.add("migrationStatus", migrationStatus);
 
         final HttpHeaders headerParams = new HttpHeaders();
 
