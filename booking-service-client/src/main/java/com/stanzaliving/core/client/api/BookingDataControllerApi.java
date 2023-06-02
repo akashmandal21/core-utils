@@ -1573,7 +1573,7 @@ public class BookingDataControllerApi {
 
         ParameterizedTypeReference<ResponseDto<ExpiredPendingRequestsResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<ExpiredPendingRequestsResponseDto>>() {
         };
-        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
     }
 
     public ResponseDto<CustomizeVasSyncResponse> fetchBookingsForVasSync() {
