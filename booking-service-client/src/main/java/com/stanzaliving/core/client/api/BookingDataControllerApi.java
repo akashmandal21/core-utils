@@ -1727,14 +1727,14 @@ public class BookingDataControllerApi {
         String path = UriComponentsBuilder.fromPath("/internal/v1/save/onm-migration-logs/{bookingUuid}").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-        if (StringUtils.isNotBlank(message))
+        if(StringUtils.isNotBlank(message))
             queryParams.add("message", message);
-        if (StringUtils.isNotBlank(migrationStatus))
+        if(StringUtils.isNotBlank(migrationStatus))
             queryParams.add("migrationStatus", migrationStatus);
 
         final HttpHeaders headerParams = new HttpHeaders();
 
-        final String[] accepts = {"*/*"};
+        final String[] accepts = { "*/*" };
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
         ParameterizedTypeReference<String> returnType = new ParameterizedTypeReference<String>() {
