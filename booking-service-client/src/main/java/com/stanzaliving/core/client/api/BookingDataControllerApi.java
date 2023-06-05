@@ -1741,23 +1741,4 @@ public class BookingDataControllerApi {
         };
         restClient.invokeAPI(path, HttpMethod.POST, queryParams, null, headerParams, accept, returnType);
     }
-
-    public List<PreviousOrderDataPoint> getPreviousOrderDataPoints(String residenceId, List<Date> dates) {
-        try {
-            String path = UriComponentsBuilder.fromPath("/internal/previousOrderDataPoints").build().toUriString();
-            final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-            if (StringUtils.isNotBlank(residenceId)) {
-                queryParams.add("residenceId", residenceId);
-            }
-            final HttpHeaders headerParams = new HttpHeaders();
-            final String[] accepts = { "*/*" };
-            final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
-            ParameterizedTypeReference<List<PreviousOrderDataPoint>> returnType = new ParameterizedTypeReference<List<PreviousOrderDataPoint>>() {
-            };
-            return restClient.invokeAPI(path, HttpMethod.POST, queryParams, dates, headerParams, accept, returnType);
-        } catch (Exception e) {
-            log.error("Exception caught while fetching Previous Order Data Points.", e);
-            return null;
-        }
-    }
 }
