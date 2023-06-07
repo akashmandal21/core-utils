@@ -12,6 +12,7 @@ import java.util.Objects;
 import com.stanzaliving.booking.dto.*;
 import com.stanzaliving.core.base.enums.DateFormat;
 import com.stanzaliving.core.base.utils.DateUtil;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -1556,7 +1557,7 @@ public class BookingDataControllerApi {
 
     public ResponseDto<ExpiredPendingRequestsResponseDto> expirePendingRequests(ExpiredPendingRequestsDto expiredPendingRequestsDto) {
 
-        Object postBody = null;
+        Object postBody = expiredPendingRequestsDto;
 
         // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<>();
@@ -1572,7 +1573,7 @@ public class BookingDataControllerApi {
 
         ParameterizedTypeReference<ResponseDto<ExpiredPendingRequestsResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<ExpiredPendingRequestsResponseDto>>() {
         };
-        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
     }
 
     public ResponseDto<CustomizeVasSyncResponse> fetchBookingsForVasSync() {
@@ -1695,4 +1696,49 @@ public class BookingDataControllerApi {
 
     }
 
+    public void updateONMCorrectionFailureLogs(String bookingUuid, String failureMessage){
+        String responseDto = null;
+        final Map<String, Object> uriVariables = new HashMap<>();
+        Object postBody = null;
+
+        uriVariables.put("bookingUuid", bookingUuid);
+
+        String path = UriComponentsBuilder.fromPath("/internal/v1/update/onm-failure-message/{bookingUuid}").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        if(StringUtils.isNotBlank(failureMessage))
+            queryParams.add("failureMessage", failureMessage);
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = { "*/*" };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<String> returnType = new ParameterizedTypeReference<String>() {
+        };
+        restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+    }
+
+    public void updateONMMigrationLogs(String bookingUuid, String migrationStatus, String message) {
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        uriVariables.put("bookingUuid", bookingUuid);
+
+        String path = UriComponentsBuilder.fromPath("/internal/v1/save/onm-migration-logs/{bookingUuid}").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        if(StringUtils.isNotBlank(message))
+            queryParams.add("message", message);
+        if(StringUtils.isNotBlank(migrationStatus))
+            queryParams.add("migrationStatus", migrationStatus);
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = { "*/*" };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<String> returnType = new ParameterizedTypeReference<String>() {
+        };
+        restClient.invokeAPI(path, HttpMethod.POST, queryParams, null, headerParams, accept, returnType);
+    }
 }
