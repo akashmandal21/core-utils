@@ -229,6 +229,27 @@ public class ItemMasterClientApi {
 		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, filterDto, headerParams, accept, returnType);
 	}
 
+
+
+	public ResponseDto<List<GenericItemDto>> getItemsWithUuids(List<String> uuids){
+		final Map<String, Object> uriVariables = new HashMap<>();
+		String path = UriComponentsBuilder.fromPath("/internal/details/get/itemByUUids")
+				.buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<List<GenericItemDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<GenericItemDto>>>() {
+		};
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, uuids, headerParams, accept, returnType);
+
+	}
 	public ResponseDto<List<String>> getItemCodes(Department department, List<String> itemNames) {
 
 		final Map<String, Object> uriVariables = new HashMap<>();
