@@ -48,4 +48,6 @@ public class InventoryResponseOccupancyDto {
 
     private double bumpUpPrice;
 
+    private Integer floor;
+
 }
