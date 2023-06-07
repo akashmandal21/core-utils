@@ -17,5 +17,6 @@ public class PaymentStrategyResponseDto {
     boolean isPriceStrategy;
 
     PaymentTerm paymentTerm;
+    Double gstPercentage;
     List<PaymentFrequencyDto> paymentStrategies;
 }
