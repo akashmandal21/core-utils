@@ -46,4 +46,8 @@ public class InventoryResponseOccupancyDto {
 
     private Date availableFrom;
 
+    private double bumpUpPrice;
+
+    private Integer floor;
+
 }
