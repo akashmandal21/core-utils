@@ -22,6 +22,7 @@ public class ItemDetailDto implements Serializable {
 	private String itemId;
 	private String itemPreferenceCount;
 	private String itemType;
+	private String categoryId;
 	private Double itemGrammage;
 	private Integer orderedQty;
 	private Double orderedWeight;
