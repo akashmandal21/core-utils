@@ -41,4 +41,6 @@ public class RefundRequest {
 
     private RefundMode refundMode;
 
+    private boolean razorPayPayoutRefundFromSecondaryAccount = Boolean.FALSE;
+
 }
