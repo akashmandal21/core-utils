@@ -33,11 +33,15 @@ public enum ModuleState implements State<ModuleState> {
     LL_HO_PENDING_L1_APPROVAL("Pending L1 Approval","#FFC300"),
     LL_HO_PENDING_L2_APPROVAL("Pending L2 Approval","#FFC300"),
     LL_HO_PENDING_L3_APPROVAL("Pending L3 Approval","#FFC300"),
+    LL_HO_EDIT_PENDING_L1_APPROVAL("Pending L1 Approval","#FFC300"),
+    LL_HO_EDIT_PENDING_L2_APPROVAL("Pending L2 Approval","#FFC300"),
+    LL_HO_EDIT_PENDING_L3_APPROVAL("Pending L3 Approval","#FFC300"),
     LL_HO_LL_SIGN_PENDING("Landlord Sign Pending","#FFC300"),
     LL_HO_APPROVED("Approved","#77baa6"),
     PARALLEL_ENTRY_PENDING_L1_APPROVAL("Parallel Entry Pending L1 Approval","#FFC300"),
     PARALLEL_ENTRY_PENDING_L2_APPROVAL("Parallel Entry Pending L2 Approval","#FFC300"),
     PARALLEL_ENTRY_PENDING_L3_APPROVAL("Parallel Entry Pending L3 Approval","#FFC300"),
+    LL_HO_EDIT("Approved","#e5e3e3"),
     PARALLEL_ENTRY_APPROVED("Approved","#77baa6");
 
     private final String status;
