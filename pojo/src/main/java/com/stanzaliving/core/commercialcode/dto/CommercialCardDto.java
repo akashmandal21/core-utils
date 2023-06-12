@@ -38,4 +38,6 @@ public class CommercialCardDto {
 
     private PaymentFrequency paymentFrequency;
 
+    private String moveInDate;
+
 }
