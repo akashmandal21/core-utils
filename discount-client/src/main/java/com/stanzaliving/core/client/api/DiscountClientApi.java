@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.stanzaliving.booking.dto.request.DiscountStrategyBookingDto;
 import com.stanzaliving.core.discount.dto.request.BookingDiscountRequestDTO;
 import com.stanzaliving.core.discount.dto.response.*;
 import org.springframework.core.ParameterizedTypeReference;
@@ -254,6 +255,50 @@ public class DiscountClientApi {
 			log.error("Exception occurred while sending discount Email", e);
 			return null;
 		}
+	}
+
+	public ResponseDto<Boolean> updateDiscountStrategyUsage(DiscountStrategyBookingDto discountStrategyBookingDto) {
+
+		log.info("Discount-Client::Processing to update discount strategy usage {}", discountStrategyBookingDto);
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/discount-strategy/usage").buildAndExpand(uriVariables).toUriString();
+
+		MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		HttpHeaders headerParams = new HttpHeaders();
+
+		String[] accepts = new String[]{"*/*"};
+
+		List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<Boolean>> returnType =
+				new ParameterizedTypeReference<ResponseDto<Boolean>>() {};
+
+		return this.restClient.invokeAPI(path, HttpMethod.PUT, queryParams, discountStrategyBookingDto, headerParams, accept, returnType);
+	}
+
+	public ResponseDto<Boolean> releaseDiscountStrategyUsage(DiscountStrategyBookingDto discountStrategyBookingDto) {
+
+		log.info("Discount-Client::Processing to restore discount strategy usage {}", discountStrategyBookingDto);
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/discount-strategy/release").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		HttpHeaders headerParams = new HttpHeaders();
+
+		String[] accepts = new String[]{"*/*"};
+
+		List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<Boolean>> returnType =
+				new ParameterizedTypeReference<ResponseDto<Boolean>>() {};
+
+		return this.restClient.invokeAPI(path, HttpMethod.PUT, queryParams, discountStrategyBookingDto, headerParams, accept, returnType);
 	}
 
 }
