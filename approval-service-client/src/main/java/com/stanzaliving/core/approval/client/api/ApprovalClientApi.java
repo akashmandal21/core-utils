@@ -63,7 +63,7 @@ public class ApprovalClientApi {
 
     public Map<String, ApprovalListingDto> getApprovalData(ApprovalEntityType entityType, Collection<String> uuids) {
         final Map<String, Object> uriVariables = new HashMap<>();
-        String path = UriComponentsBuilder.fromPath("internal/get/approval-data").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/get/approval-data").buildAndExpand(uriVariables).toUriString();
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
         queryParams.add("entityType", entityType.toString());
         final HttpHeaders headerParams = new HttpHeaders();
@@ -91,7 +91,7 @@ public class ApprovalClientApi {
 
     public List<ApprovalStatus> getAllowedStatusForEmail(String emailId, ApprovalEntityType entityType) {
         final Map<String, Object> uriVariables = new HashMap<>();
-        String path = UriComponentsBuilder.fromPath("internal/dropdown/approval-status").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/dropdown/approval-status").buildAndExpand(uriVariables).toUriString();
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
         queryParams.add("email", emailId);
         queryParams.add("entityType", entityType.toString());
@@ -116,7 +116,7 @@ public class ApprovalClientApi {
     public ResponseDto updateApprovalStatus(ApprovalResponseDto approvalResponseDto, String cookieToken) {
         final Map<String, Object> uriVariables = new HashMap<>();
 
-        String path = UriComponentsBuilder.fromPath("updateApprovalStatus").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/updateApprovalStatus").buildAndExpand(uriVariables).toUriString();
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
         final HttpHeaders headerParams = new HttpHeaders();
         headerParams.add("Cookie", cookieToken);
