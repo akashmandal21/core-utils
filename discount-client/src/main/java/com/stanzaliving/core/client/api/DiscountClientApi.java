@@ -259,7 +259,7 @@ public class DiscountClientApi {
 
 	public ResponseDto<Boolean> updateDiscountStrategyUsage(DiscountStrategyBookingDto discountStrategyBookingDto) {
 
-		log.info("Discount-Client::Processing to update discount strategy usage {}", discountStrategyBookingDto);
+		log.info("Discount-Client::Processing to update discount strategy for booking uuid {} and discount strategy uuid {}", discountStrategyBookingDto.getBookingUuid(), discountStrategyBookingDto.getDiscountStrategyUuid());
 
 		final Map<String, Object> uriVariables = new HashMap<>();
 
@@ -281,7 +281,7 @@ public class DiscountClientApi {
 
 	public ResponseDto<Boolean> releaseDiscountStrategyUsage(DiscountStrategyBookingDto discountStrategyBookingDto) {
 
-		log.info("Discount-Client::Processing to restore discount strategy usage {}", discountStrategyBookingDto);
+		log.info("Discount-Client::Processing to release discount strategy for booking uuid {} and discount strategy uuid {}", discountStrategyBookingDto.getBookingUuid(), discountStrategyBookingDto.getDiscountStrategyUuid());
 
 		final Map<String, Object> uriVariables = new HashMap<>();
 
