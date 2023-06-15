@@ -689,6 +689,7 @@ public class UserClientApi {
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
 		queryParams.putAll(restClient.parameterToMultiValueMap(null, "mobile", phone));
+		queryParams.add("status", "true");
 
 		final HttpHeaders headerParams = new HttpHeaders();
 
