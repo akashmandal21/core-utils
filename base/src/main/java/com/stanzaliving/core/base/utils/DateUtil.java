@@ -1300,4 +1300,9 @@ public class DateUtil {
         Period contractPeriod = DateUtil.findDifference(startDate, DateUtil.addDaysToDate(endDate,1));
         return DateUtil.dateDifferenceInString(contractPeriod);
     }
+
+    public String convertDateToASpecificFormat(String oldDateFormat, String newDateFormat, Date date) {
+        SimpleDateFormat formatter = new SimpleDateFormat(newDateFormat);
+        return formatter.format(date);
+    }
 }
