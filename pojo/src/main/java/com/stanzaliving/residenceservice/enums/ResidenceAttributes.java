@@ -50,7 +50,7 @@ public enum ResidenceAttributes {
     PLAN_CHANGE("Plan Change", "Integer"),
     MIN_ALLOWED_DAYS_BEFORE_MOVE_IN("Min Allowed Days Before Move In", "Integer"),
     MAX_ALLOWED_DAYS_AFTER_MOVE_IN("Max Allowed Days After Move In", "Integer"),
-    REFUND_SCHEDULED_DAYS("Refund Scheduler Days", "Integer");
+    REFUND_SCHEDULED_DAYS("Refund Scheduled Days", "Integer");
 
 
     private static final Map<ResidenceAttributes, String> getType = new HashMap<>();
