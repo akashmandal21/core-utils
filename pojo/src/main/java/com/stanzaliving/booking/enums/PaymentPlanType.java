@@ -71,6 +71,8 @@ public enum PaymentPlanType {
 	ONM_MAINTENANCE_FEE("ONM Maintenance Fee"),
 
 	ONM_ONBOARDING_CHARGE("ONM OnBoarding Charge"),
+
+	ONM_PROCESSING_FEE("ONM Processing Fee"),
 	MANAGEMENT_FEE("Management Fee"),
 	PROCESSING_FEE("Processing Fee"),
 	SUBSCRIPTION_PLAN("Subscription Plan"),
