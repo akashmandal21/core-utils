@@ -7,6 +7,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+
 @Builder
 @Data
 @AllArgsConstructor
@@ -20,4 +22,9 @@ public class PaymentPlanLineItemResponse {
     private double amount;
 
     private String period;
+
+    private LocalDate fromDate;
+
+    private LocalDate toDate;
+
 }
