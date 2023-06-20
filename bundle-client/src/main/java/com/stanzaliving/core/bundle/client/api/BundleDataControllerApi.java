@@ -35,7 +35,7 @@ public class BundleDataControllerApi {
 
         final Map<String, Object> uriVariables = new HashMap<>();
 
-        String path = UriComponentsBuilder.fromPath("/bundle-service/add-on/paid-services/plans/").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/add-on/list/by/bundleId/planUuid/").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
