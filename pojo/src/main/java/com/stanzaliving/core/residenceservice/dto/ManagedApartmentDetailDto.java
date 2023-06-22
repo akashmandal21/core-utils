@@ -29,6 +29,7 @@ public class ManagedApartmentDetailDto implements Serializable {
     private String residenceCode;
     private Date availableFrom;
     private String rofrTag;
+    private Integer rofrHours;
     private Date rofrAvailabelFrom;
 
 
