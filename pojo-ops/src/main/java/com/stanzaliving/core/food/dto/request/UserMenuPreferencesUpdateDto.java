@@ -31,6 +31,8 @@ public class UserMenuPreferencesUpdateDto {
 	@NotBlank(message = "User Id Cannot be blank")
 	private String userId;
 
+	private String residenceId;
+
 	@NotEmpty(message = "Menu preferences selection are mandatory")
 	private List<UserMenuPreferenceAddDto> menuPreferences;
 

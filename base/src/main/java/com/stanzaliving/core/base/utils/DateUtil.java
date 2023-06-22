@@ -106,6 +106,10 @@ public class DateUtil {
         return Instant.ofEpochMilli(date.getTime()).atZone(StanzaConstants.IST_TIMEZONEID).format(DateTimeFormatter.ofPattern(format));
     }
 
+    public long getDaysBetweenDates(LocalDate fromDate, LocalDate toDate) {
+        return ChronoUnit.DAYS.between(fromDate, toDate);
+    }
+
     public long getDaysBetweenDates(Date fromDate, Date toDate) {
         return ChronoUnit.DAYS.between(fromDate.toInstant(), toDate.toInstant());
     }
@@ -740,6 +744,10 @@ public class DateUtil {
         long ltime = d1.getTime() + days * 24 * 60 * 60 * 1000;
         Date newdate = new Date(ltime);
         return newdate;
+    }
+
+    public LocalDate addDaysToLocalDate(LocalDate d1, long days) {
+        return d1.plusDays(days);
     }
 
     public Date addDayAndSetHour(Integer days, Integer hour) {

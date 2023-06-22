@@ -14,6 +14,7 @@ import com.stanzaliving.core.bookingservice.dto.response.ResidenceQrCodeResponse
 import com.stanzaliving.core.dto.LeadElasticDto;
 import com.stanzaliving.core.venta_aggregation_client.config.RestResponsePage;
 import com.stanzaliving.core.ventaaggregationservice.dto.*;
+import com.stanzaliving.ventaInvoice.dto.ResidenceDto;
 import lombok.extern.log4j.Log4j2;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
@@ -23,6 +24,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.util.UriComponentsBuilder;
 
 @Log4j2
@@ -602,6 +604,34 @@ public class VentaAggregationServiceApi {
         }
 
     }
+
+    public ResponseDto<BookingAggregationDto> getBookingDetailsByMobileNumber(String residentMobile) {
+        try {
+            final Map<String, Object> uriVariables = new HashMap<>();
+
+            uriVariables.put("residentMobile", residentMobile);
+
+            String path = UriComponentsBuilder.fromPath("/internal/booking/details/mobile/{residentMobile}").buildAndExpand(uriVariables).toUriString();
+
+            final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+            final HttpHeaders headerParams = new HttpHeaders();
+
+            final String[] accepts = {"*/*"};
+            final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+            ParameterizedTypeReference<ResponseDto<BookingAggregationDto>> returnType = new ParameterizedTypeReference<ResponseDto<BookingAggregationDto>>() {
+            };
+
+            return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+
+        } catch (Exception e) {
+            log.error("Exception occurred while get Booking Details By Mobile Number: {}", residentMobile, e);
+            return null;
+        }
+
+    }
+
     public ResponseDto<List<BookingAggregationDto>> getActiveBookingsForDigest(String date) {
         try {
             Object postBody = null;
@@ -696,5 +726,47 @@ public class VentaAggregationServiceApi {
             log.error("error while fetching bookings for invoicing {}", e.getMessage());
             return null;
         }
+    }
+
+    public ResponseDto<List<ResidenceDto>> getResidenceListingForInvoiceDashboard(ResidenceFilterRequestDto residenceFilterRequestDto)  {
+        final Map<String, Object> uriVariables = new HashMap<>();
+        String path = UriComponentsBuilder.fromPath("/internal/residence/invoice-dashboard-listing")
+                .buildAndExpand(uriVariables).toUriString();
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        HttpHeaders headerParams = new HttpHeaders();
+        String[] accepts = new String[]{"*/*"};
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<List<ResidenceDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<ResidenceDto>>>() {
+        };
+        ResponseDto<List<ResidenceDto>> response = null;
+        try {
+            response = this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, residenceFilterRequestDto, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception while fetching bookings for upsellRequestDto {}, Exception is ", residenceFilterRequestDto, e);
+        }
+        return response;
+    }
+
+    public ResponseDto<List<String>> getAllBookingsEligibleForTresPassing() {
+        log.info("Aggregation Residence Controller::Processing to get bookings eligible for trespassing");
+        Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/internal/eligible-for-trespassing")
+                .buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        HttpHeaders headerParams = new HttpHeaders();
+        String[] accepts = new String[]{"*/*"};
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<List<String>>> returnType = new ParameterizedTypeReference<ResponseDto<List<String>>>() {
+        };
+        try {
+            log.info("Executing Api for fetching bookings eligible for trespassin with Url {}", path);
+            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception while fetching bookings eligible for trespassing, Exception is {}", e.getMessage(), e);
+        }
+        return null;
     }
 }

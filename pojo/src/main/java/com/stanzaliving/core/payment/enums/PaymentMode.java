@@ -37,7 +37,9 @@ public enum PaymentMode {
 	EMI_RAZORPAY("Emi Razorpay", 22),
 	RAZORPAY_PAYMENT_LINK("RAZORPAY_PAYMENT_LINK", 23),
 	BOOKING_AMOUNT_CARRY_FORWARD("Booking Amount Carry Forward", 24),
-	CASHFREE("CASHFREE", 25);
+	CASHFREE("CASHFREE", 25),
+	EMI_CASHFREE("Emi Cashfree",26);
+
 
 	private String paymentModeDesc;
 	private int paymentModeId;

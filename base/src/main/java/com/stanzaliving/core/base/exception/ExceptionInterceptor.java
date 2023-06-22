@@ -314,6 +314,16 @@ public class ExceptionInterceptor {
 		return ResponseDto.failure(e.getMessage(), exceptionId);
 	}
 
+	@ExceptionHandler(ResourceNotFoundException.class)
+	@ResponseStatus(code = HttpStatus.NOT_FOUND)
+	public <T> ResponseDto<T> handleAuthException(ResourceNotFoundException e) {
+
+		String exceptionId = getExceptionId();
+		log.error("Got ResourceNotFoundException for exceptionId: {}", exceptionId, e);
+
+		return ResponseDto.failure(e.getMessage(), exceptionId);
+	}
+
 	@ExceptionHandler(StanzaException.class)
 	@ResponseStatus(code = HttpStatus.BAD_REQUEST)
 	@SendExceptionToSlack
@@ -331,7 +341,7 @@ public class ExceptionInterceptor {
 	public <T> ResponseDto<T> handleIllegalArgumentException(IllegalArgumentException e) {
 
 		String exceptionId = getExceptionId();
-		log.error("Got IllegalArgumentException for exceptionId: {} with Message {}", exceptionId, e.getMessage());
+		log.error("Got IllegalArgumentException for exceptionId: {} with Message {}", exceptionId, e.getMessage(), e);
 
 		return ResponseDto.failure(e.getMessage(), exceptionId);
 	}

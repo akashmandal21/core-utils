@@ -36,5 +36,9 @@ public class UpiDetailsDto {
 
 	private String vpaId;
 
+	private String razorpayIdV2;
+
+	private String vpaIdV2;
+
 	private Boolean isActive = false;
 }

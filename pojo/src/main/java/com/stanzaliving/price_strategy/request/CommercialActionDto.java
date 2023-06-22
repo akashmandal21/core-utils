@@ -1,6 +1,7 @@
 package com.stanzaliving.price_strategy.request;
 
 import lombok.*;
+import com.stanzaliving.commercialcard.enums.AMCAmountType;
 import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.Max;
@@ -25,4 +26,11 @@ public class CommercialActionDto {
     private SecurityDepositDto securityDepositDto;
     private MaintenanceFeeDto maintenanceFeeDto;
 
+    private AMCAmountType onBoardingChargeType;
+
+    private Double onBoardingCharges;
+
+    private AMCAmountType exitProcessingType;
+
+    private Double exitProcessingCharges;
 }
