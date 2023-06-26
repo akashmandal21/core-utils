@@ -34,7 +34,7 @@ public class TicketResponseDto {
     private String complaintGroup;
 
     private Date slaTime;
-
+    private boolean sdRefundTicket;
     private String chipColor;
 
     private String description;

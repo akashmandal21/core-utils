@@ -51,7 +51,9 @@ public enum ResidenceAttributes {
     ONE_MONTH_BOOKING_ENABLED("One Month Booking Enabled", "Boolean"),
     MIN_ALLOWED_DAYS_BEFORE_MOVE_IN("Min Allowed Days Before Move In", "Integer"),
     MAX_ALLOWED_DAYS_AFTER_MOVE_IN("Max Allowed Days After Move In", "Integer"),
-    REFUND_SCHEDULED_DAYS("Refund Scheduler Days", "Integer");
+    REFUND_SCHEDULED_DAYS("Refund Scheduled Days", "Integer"),
+    EXIT_FEE_AFTER_RENEWAL("Exit Fee After Renewal", "Boolean"),
+    AUTO_AUDIT_DURATION("auto audit duration", "Integer");
 
 
     private static final Map<ResidenceAttributes, String> getType = new HashMap<>();
