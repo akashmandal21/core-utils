@@ -25,6 +25,8 @@ public class LeadRequestDto {
 	//private Integer leadId;
 	private Long leadId;
 	private String leadUuid;
+
+	private String redisUuidKey;
 	
 	private String userIpAddress;
 	
