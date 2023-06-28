@@ -93,6 +93,7 @@ public enum ResidenceAttributes {
         residenceAttributes.add(EXIT_PROCESSING_FEE);
         residenceAttributes.add(BOOKING_RENEWAL_COUNTDOWN_HOURS);
         residenceAttributes.add(BOOKING_AMOUNT_REALISATION_ENABLED);
+        residenceAttributes.add(FUTURE_BOOKING_ALLOWED_DAYS);
         return residenceAttributes;
     }
 
