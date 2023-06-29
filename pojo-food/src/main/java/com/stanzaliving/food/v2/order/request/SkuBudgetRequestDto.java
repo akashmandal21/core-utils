@@ -1,6 +1,7 @@
-package com.stanzaliving.core.food.dto.request;
+package com.stanzaliving.food.v2.order.request;
 
 import com.stanzaliving.core.operations.enums.MealType;
+import com.stanzaliving.food.v2.category.dto.MealWiseMenuDto;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -16,6 +17,7 @@ import java.util.Map;
 @AllArgsConstructor
 public class SkuBudgetRequestDto {
 
-    private String menuCategoryId;
     private Map<MealType, List<DayOfWeek>> mealTypeAndApplicableDaysMap;
+
+    private List<MealWiseMenuDto> mealWiseMenus;
 }
