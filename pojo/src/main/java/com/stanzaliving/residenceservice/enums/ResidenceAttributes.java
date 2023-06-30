@@ -91,6 +91,7 @@ public enum ResidenceAttributes {
         residenceAttributes.add(RETENTION_MIN_TOKEN_AMOUNT);
         residenceAttributes.add(EXIT_PROCESSING_FEE);
         residenceAttributes.add(BOOKING_AMOUNT_REALISATION_ENABLED);
+        residenceAttributes.add(FUTURE_BOOKING_ALLOWED_DAYS);
         return residenceAttributes;
     }
 
