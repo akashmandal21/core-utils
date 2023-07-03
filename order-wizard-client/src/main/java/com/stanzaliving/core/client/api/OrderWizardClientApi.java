@@ -31,13 +31,13 @@ public class OrderWizardClientApi {
         this.restClient = stanzaRestClient;
     }
 
-    public ResponseDto<BookingOrderDto> fetchOptedPlansByBookingId(String bookingUuid) {
+    public ResponseDto<List<BookingOrderDto>> fetchOptedPlansByBookingId(String bookingUuid) {
         log.info("Order-Wizard-Client::fetchOptedPlansByBookingId {}", bookingUuid);
 
         final Map<String, Object> uriVariables = new HashMap<>();
         uriVariables.put("bookingUuid", bookingUuid);
 
-        String path = UriComponentsBuilder.fromPath("/order-wizard/booking/order/{bookingUuid}/details").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/booking/order/{bookingUuid}/details").buildAndExpand(uriVariables).toUriString();
 
         final org.springframework.util.MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
@@ -46,7 +46,7 @@ public class OrderWizardClientApi {
         final String[] accepts = {"*/*"};
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<ResponseDto<BookingOrderDto>> returnType = new ParameterizedTypeReference<ResponseDto<BookingOrderDto>>() {
+        ParameterizedTypeReference<ResponseDto<List<BookingOrderDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<BookingOrderDto>>>() {
         };
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
     }
