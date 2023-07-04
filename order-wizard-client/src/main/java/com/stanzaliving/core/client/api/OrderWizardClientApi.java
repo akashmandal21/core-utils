@@ -56,13 +56,13 @@ public class OrderWizardClientApi {
     }
 
 
-    public ResponseDto<OrderCreationDto> orderCreation(OrderCreationDto orderCreationDto, String bookingUuid) {
+    public ResponseDto<List<BookingOrderDto>> orderCreation(OrderCreationDto orderCreationDto, String bookingUuid) {
 
         log.info("Order-Wizard-Client::Processing to save plan details based  {} and booking {}", orderCreationDto, bookingUuid);
 
         final Map<String, Object> uriVariables = new HashMap<>();
         uriVariables.put("bookingUuid", bookingUuid);
-        String path = UriComponentsBuilder.fromPath("/order-wizard/create/order/bundle/for/booking/{bookingUuid}").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/create/order/bundle/for/booking/{bookingUuid}").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
@@ -73,7 +73,7 @@ public class OrderWizardClientApi {
         };
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<ResponseDto<OrderCreationDto>> returnType = new ParameterizedTypeReference<ResponseDto<OrderCreationDto>>() {
+        ParameterizedTypeReference<ResponseDto<List<BookingOrderDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<BookingOrderDto>>>() {
         };
 
         try {

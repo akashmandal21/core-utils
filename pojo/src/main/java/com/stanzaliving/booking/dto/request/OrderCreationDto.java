@@ -11,7 +11,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class OrderCreationDto {
+public class OrderCreationDto implements Serializable {
 
     private String bundleId;
     private List<String> postpaidAddOnIds;
