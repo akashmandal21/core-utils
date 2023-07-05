@@ -13,6 +13,7 @@ import java.util.List;
 @Getter
 public enum CategoryStatus {
 	DRAFT("In Draft"),
+	SAVED("Saved"),
 	SUBMITTED("Submitted"),
 	APPROVED("Approved");
 	private final String status;
@@ -30,7 +31,7 @@ public enum CategoryStatus {
 	}
 	
 	public static List<CategoryStatus> draftStatus() {
-		return Arrays.asList(DRAFT, SUBMITTED);
+		return Arrays.asList(DRAFT, SUBMITTED, SAVED);
 	}
 	
 	
@@ -47,11 +48,11 @@ public enum CategoryStatus {
 	}
 	
 	public static List<CategoryStatus> allowedCopyStatus() {
-		return Arrays.asList(APPROVED, SUBMITTED);
+		return Arrays.asList(APPROVED, SUBMITTED, SAVED);
 	}
 	
 	public static List<CategoryStatus> clonableStatus() {
-		return Arrays.asList(APPROVED, SUBMITTED);
+		return Arrays.asList(APPROVED, SUBMITTED, SAVED);
 	}
 	
 	public static boolean submissionAllowed(CategoryStatus categoryStatus) {
