@@ -15,12 +15,14 @@ import java.util.Map;
 @NoArgsConstructor
 public enum ResidentStatus {
 	MOVED_IN("Moved In"),
-	MOVED_OUT("Moved Out");
+	MOVED_OUT("Moved Out"),
+	PENDING("Pending");
 
 	private String statusName;
 
 	private static List<EnumListing<ResidentStatus>> movedStatusMap = new ArrayList<>();
 	private static final Map<ResidentStatus, String> statusMap = new HashMap<>();
+	private static final List<EnumListing<ResidentStatus>> allStatusMap = new ArrayList<>();
 
 	static {
 		for(ResidentStatus movedStatus: ResidentStatus.values()){
@@ -29,7 +31,11 @@ public enum ResidentStatus {
 	}
 	static {
 		for(ResidentStatus movedStatus: ResidentStatus.values()){
-			movedStatusMap.add(EnumListing.of(movedStatus, movedStatus.statusName));
+			if (movedStatus != PENDING) {
+				statusMap.put(movedStatus, movedStatus.statusName);
+				movedStatusMap.add(EnumListing.of(movedStatus, movedStatus.statusName));
+			}
+			allStatusMap.add(EnumListing.of(movedStatus, movedStatus.statusName));
 		}
 	}
 
@@ -37,5 +43,9 @@ public enum ResidentStatus {
 		return statusMap;
 	}
 	
+	public static List<EnumListing<ResidentStatus>> getAllMovedStatusMap() {
+		return allStatusMap;
+	}
+
 	
 }

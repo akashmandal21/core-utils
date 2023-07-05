@@ -42,4 +42,7 @@ public class UserRegistrationDetailsDto {
 
 	private String planId;
 
+	private LocalDate startDate;
+
+	private LocalDate endDate;
 }
