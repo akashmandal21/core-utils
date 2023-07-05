@@ -30,7 +30,8 @@ public class LeadRequestDto implements Serializable {
 	private String leadUuid;
 
 	private String redisUuidKey;
-	
+	private String abVersion;
+
 	private String userIpAddress;
 	
 	private String firstName;
