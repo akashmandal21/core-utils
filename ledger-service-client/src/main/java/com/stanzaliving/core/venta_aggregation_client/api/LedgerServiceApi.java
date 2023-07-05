@@ -407,4 +407,27 @@ public class LedgerServiceApi {
         }
         return null;
     }
+
+    public ResponseDto<Boolean> sdAutoCarryForward(AutoRefundDto autoRefundDto) {
+        Object postBody = autoRefundDto;
+        Map<String, Object> uriVariables = new HashMap<>();
+        String path = UriComponentsBuilder.fromPath("/internal/api/v1/sdAutoCarryForward")
+                .buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        HttpHeaders headerParams = new HttpHeaders();
+        String[] accepts = new String[]{"*/*"};
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<Boolean>> returnType = new ParameterizedTypeReference<ResponseDto<Boolean>>() {
+        };
+        try {
+            log.info("Executing Api for Auto Carryforward {}", path);
+            return this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception while Auto Refund, Exception is ", e);
+        }
+        return null;
+    }
 }
