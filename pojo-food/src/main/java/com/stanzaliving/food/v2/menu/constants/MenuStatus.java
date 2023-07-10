@@ -12,6 +12,7 @@ import java.util.List;
 public enum MenuStatus {
 	DRAFT("In Draft"),
 	SAVED("Saved"),
+	MASTER_GROUP_SAVED("Saved All"),
 	SUBMITTED("Submitted"),
 	APPROVED("Approved");
 	private final String status;
