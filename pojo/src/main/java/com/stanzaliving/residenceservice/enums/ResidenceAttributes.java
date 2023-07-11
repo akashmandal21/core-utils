@@ -50,7 +50,9 @@ public enum ResidenceAttributes {
     PLAN_CHANGE("Plan Change", "Integer"),
     MIN_ALLOWED_DAYS_BEFORE_MOVE_IN("Min Allowed Days Before Move In", "Integer"),
     MAX_ALLOWED_DAYS_AFTER_MOVE_IN("Max Allowed Days After Move In", "Integer"),
-    REFUND_SCHEDULED_DAYS("Refund Scheduler Days", "Integer");
+    REFUND_SCHEDULED_DAYS("Refund Scheduled Days", "Integer"),
+    EXIT_FEE_AFTER_RENEWAL("Exit Fee After Renewal", "Boolean"),
+    AUTO_AUDIT_DURATION("Auto Audit Duration", "Integer");
 
     private static final Map<ResidenceAttributes, String> getType = new HashMap<>();
     private static final Map<ResidenceAttributes, String> getLabel = new HashMap<>();
@@ -89,6 +91,7 @@ public enum ResidenceAttributes {
         residenceAttributes.add(EXIT_PROCESSING_FEE);
         residenceAttributes.add(BOOKING_RENEWAL_COUNTDOWN_HOURS);
         residenceAttributes.add(BOOKING_AMOUNT_REALISATION_ENABLED);
+        residenceAttributes.add(FUTURE_BOOKING_ALLOWED_DAYS);
         return residenceAttributes;
     }
 
