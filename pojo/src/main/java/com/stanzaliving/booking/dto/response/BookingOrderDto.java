@@ -2,21 +2,20 @@ package com.stanzaliving.booking.dto.response;
 
 import com.stanzaliving.core.enums.BundleType;
 import com.stanzaliving.residenceservice.enums.VasCategory;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-@Data
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class BookingOrderDto implements Serializable {
+@Getter
+@Setter
+@ToString
+@Builder
+public class BookingOrderDto {
 
     private String orderId;
 
