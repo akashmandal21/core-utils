@@ -15,5 +15,5 @@ import java.util.List;
 public class OrderCreationDto implements Serializable {
 
     private String bundleId;
-    private List<String> postpaidAddOnIds;
+    private List<String> postpaidAddOnBillingIds;
 }
