@@ -36,4 +36,8 @@ public class PendingApprovalSummaryDto {
     private Integer dishReactivationCount = 0;
     @Builder.Default
     private Integer serviceMixCountStayCuration = 0;
+    @Builder.Default
+    private Integer foodCategoriesCountStay = 0;
+    @Builder.Default
+    private Integer weeklyMenuCountStay = 0;
 }
