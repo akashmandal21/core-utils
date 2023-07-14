@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 @Getter
@@ -20,12 +21,17 @@ import java.util.Objects;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class LeadRequestDto {
+public class LeadRequestDto implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	//private Integer leadId;
 	private Long leadId;
 	private String leadUuid;
-	
+
+	private String redisUuidKey;
+	private String abVersion;
+
 	private String userIpAddress;
 	
 	private String firstName;
