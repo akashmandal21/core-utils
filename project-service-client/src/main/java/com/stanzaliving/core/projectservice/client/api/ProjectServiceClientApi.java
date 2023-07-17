@@ -115,8 +115,6 @@ public class ProjectServiceClientApi {
         ParameterizedTypeReference<ResponseDto<String>> returnType =
                 new ParameterizedTypeReference<ResponseDto<String>>() {
                 };
-        ParameterizedTypeReference<ResponseDto<AsIsDataDto>> returnType = new ParameterizedTypeReference<ResponseDto<AsIsDataDto>>() {
-        };
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
     }
 
