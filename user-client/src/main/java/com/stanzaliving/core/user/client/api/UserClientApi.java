@@ -1,7 +1,5 @@
-/**
- * 
- */
 package com.stanzaliving.core.user.client.api;
+
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -42,6 +40,10 @@ import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.user.acl.dto.RoleDto;
 import com.stanzaliving.core.user.acl.dto.UserDeptLevelRoleNameUrlExpandedDto;
 import com.stanzaliving.core.user.acl.request.dto.UserRoleSearchDto;
+import com.stanzaliving.core.user.dto.*;
+import com.stanzaliving.core.user.dto.response.UserContactDetailsResponseDto;
+import com.stanzaliving.core.user.request.dto.ActiveUserRequestDto;
+import com.stanzaliving.core.user.request.dto.AddUserRequestDto;
 import com.stanzaliving.core.user.dto.AccessLevelRoleRequestDto;
 import com.stanzaliving.core.user.dto.UserDto;
 import com.stanzaliving.core.user.dto.UserManagerAndRoleDto;
@@ -57,6 +59,17 @@ import com.stanzaliving.core.user.request.dto.UpdateUserRequestDto;
 import com.stanzaliving.core.user.request.dto.UserRequestDto;
 
 import lombok.extern.log4j.Log4j2;
+import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
+import org.springframework.web.util.UriComponentsBuilder;
+
+import java.util.*;
 
 /**
  * @author naveen.kumar
@@ -1010,6 +1023,47 @@ public class UserClientApi {
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 	}
 
+	public ResponseDto<RoleDto> getRoleInfoByUuid(String roleUuid) {
+
+		  // create path and map variables
+		  final Map<String, Object> uriVariables = new HashMap<>();
+		  uriVariables.put("roleUuid", roleUuid);
+
+		  String path = UriComponentsBuilder.fromPath("/internal/acl/role/{roleUuid}").buildAndExpand(uriVariables).toUriString();
+      final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		  final HttpHeaders headerParams = new HttpHeaders();
+
+		  final String[] accepts = {
+				"*/*"
+		  };
+		  final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+      ParameterizedTypeReference<ResponseDto<RoleDto>> returnType = new ParameterizedTypeReference<ResponseDto<RoleDto>>() {
+		  };
+		  return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+	}
+
+    public ResponseDto<List<RoleDto>> getRoles(AccessLevel accessLevel, Department department) {
+
+        // create path and map variables
+        String path = UriComponentsBuilder.fromPath("/acl/role/getRoles").toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		    queryParams.add("accessLevel", accessLevel.name());
+		    queryParams.add("department", department.name());
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<List<RoleDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<RoleDto>>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+    }
+
     public ResponseDto<Boolean> updateUserStatus(String phone, UserType userType, Boolean status) {
 
         Object postBody = null;
@@ -1147,4 +1201,5 @@ public class UserClientApi {
 			return null;
 		}
 	}
+
 }
