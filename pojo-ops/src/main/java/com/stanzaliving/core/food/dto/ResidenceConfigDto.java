@@ -58,4 +58,6 @@ public class ResidenceConfigDto {
 	private LocalDate startDate;
 
 	private boolean operational;
+
+	private Double maxRadiusAllowed;
 }

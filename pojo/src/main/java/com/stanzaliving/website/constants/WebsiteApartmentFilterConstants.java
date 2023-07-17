@@ -2,6 +2,12 @@ package com.stanzaliving.website.constants;
 
 import lombok.experimental.UtilityClass;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
 @UtilityClass
 public class WebsiteApartmentFilterConstants {
 
@@ -32,10 +38,14 @@ public class WebsiteApartmentFilterConstants {
 	
 	public final Integer FILTER_ROOM_COUNT_SEQUENCE_ID = 6;
 	public final String FILTER_ROOM_COUNT_NAME = "NO OF BEDROOMS";
+	public final String FILTER_ROOM_COUNT_NAME_V2 = "BHK";
 	public final String FILTER_ROOM_BHK_NAME = " BHK";
 	public final String FILTER_ROOM_4_PLUS_BHK_NAME = "4+ BHK";
 	public final Integer FILTER_ROOM_4_PLUS_BHK_VALUE = 99;
-	
+	public final String FILTER_SINGLE_ROOM= " Single Room";
+
+	public final List<Integer> FILTER_ROOM_4_PLUS_BHK_VALUE_LIST = IntStream.rangeClosed(5, 999).boxed().collect(Collectors.toList());
+
 	public final Integer FILTER_ROOMS_SEQUENCE_ID = 7;
 	public final String FILTER_ROOMS_NAME = "ROOMS";
 	
@@ -44,4 +54,15 @@ public class WebsiteApartmentFilterConstants {
 
 	public final Integer FILTER_SERVICES_SEQUENCE_ID = 9;
 	public final String FILTER_SERVICES_NAME = "SERVICES";
+	
+	public final String ON = "ON";
+	public final String OFF = "OFF";
+	public final String ENTIRE_FLAT = "Entire Flat";
+
+	public final String TRUE = "true";
+	public final String FALSE = "false";
+
+	public final List<Integer> AMENITIES_TO_BE_REMOVED_FOR_APARTMENTS = Arrays.asList(5,11);
+
+	public final List<Integer> SERVICES_TO_BE_REMOVED_FOR_APARTMENTS = Arrays.asList(21,25);
 }

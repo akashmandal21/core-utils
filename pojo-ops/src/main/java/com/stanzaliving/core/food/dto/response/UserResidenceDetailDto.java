@@ -45,4 +45,6 @@ public class UserResidenceDetailDto {
 	private String originalResidenceName;
 	
 	private String originalRoomNumber;
+	
+	private String foodPickedAt;
 }

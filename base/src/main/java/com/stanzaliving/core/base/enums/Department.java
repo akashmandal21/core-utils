@@ -41,7 +41,10 @@ public enum Department {
 	SALES_SBR("Sales- SBR","SB","SLB"),
 	BRAND_MKTNG("Brand Marketing","BM","BRM"),
 	RES21("RE - S21","RS","RES"),
-	CORPORATE_DESIGN("Corporate Design","CD","CDS");
+	CORPORATE_DESIGN("Corporate Design","CD","CDS"),
+	SALES_IS("Sales IS", "IS", "SIS"),
+	RE_BROKERAGE("RE Brokerage","RB","RBK"),
+	TECH_PILOT("Tech Pilot", "TPL", "TPLT");
 
 	public String departmentName;
 	public String shortCode;

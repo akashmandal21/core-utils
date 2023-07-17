@@ -9,14 +9,10 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+
+import java.util.Date;
 
 @Data
-@Getter
-@Setter
-@ToString
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
@@ -29,5 +25,9 @@ public class ApprovalResponseDto {
 
     @NotNull(message = "approvalEntityType cannot be null")
     ApprovalStatus approvalStatus;
+
+    Date approvedAt;
+
+    String approvedBy;
 
 }

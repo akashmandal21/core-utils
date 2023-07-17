@@ -1,5 +1,8 @@
 package com.stanzaliving.core.leaddashboard.constants;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class LeadQuestionIdentifier {
     public static final String QUALIFIED_QUALIFICATION = "qualification";
     public static final String QUALIFIED_DURATION_OF_STAY = "durationOfStay";
@@ -7,6 +10,7 @@ public class LeadQuestionIdentifier {
     public static final String QUALIFIED_OCCUPANCY = "occupancy";  
     public static final String QUALIFIED_GENDER = "gender";
     public static final String QUALIFIED_LEAD_TYPE = "leadType";
+    public static final String QUALIFIED_ACCOMMODATION_TYPE = "accommodationType";
     public static final String QUALIFIED_DISQUALIFICATION_REASON = "qualifiedDisqualificationReason";
 
     public static final String PRE_VISIT_SCHEDULED_DROP_REASON = "preVisitScheduledDropReason";
@@ -22,6 +26,7 @@ public class LeadQuestionIdentifier {
     public static final String PRE_QUALIFICATION_FOLLOW_UP_DATE = "preQualificationFollowUpDate";
     
     public static final String LEAD_UNREACHABLE_ANSWER = "Lead Unreachable (EOD)";
+    public static final String LEAD_NO_SHOW = "No Show";
     public static final String RESIDENT_COMING_ON_SCHEDULED_DATE_TIME = "Resident Coming On Scheduled Date and Time";
     
     public static final String DROPPED = "Dropped";
@@ -63,4 +68,7 @@ public class LeadQuestionIdentifier {
     public static final String POST_VISIT_3_FOLLOWUP_DATE = "postVisit3FollowUpDate";
     public static final String POST_VISIT_4_FOLLOWUP_DATE = "postVisit4FollowUpDate";
     public static final String POST_VISIT_5_FOLLOWUP_DATE = "postVisit5FollowUpDate";
+    
+    public static final List<String> PROPERTY_VISITING_LIST = Arrays.asList(PROPERTY_1_VISITING, PROPERTY_2_VISITING,
+			PROPERTY_3_VISITING, PROPERTY_4_VISITING, PROPERTY_5_VISITING);
 }

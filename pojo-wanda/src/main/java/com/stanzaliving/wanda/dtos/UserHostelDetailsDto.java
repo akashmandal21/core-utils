@@ -10,6 +10,8 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
+import java.io.Serializable;
+
 /**
  * @author naveen.kumar
  *
@@ -22,7 +24,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserHostelDetailsDto {
+public class UserHostelDetailsDto implements Serializable {
 
 	private Integer userId;
 	private String userUuid;

@@ -10,8 +10,8 @@ import javax.validation.ConstraintValidatorContext;
 import com.stanzaliving.core.base.utils.DateUtil;
 import com.stanzaliving.core.utilservice.annotations.DateCompare;
 import com.stanzaliving.core.utilservice.utils.ReflectionUtils;
-
 import lombok.extern.log4j.Log4j2;
+
 
 @Log4j2
 public class DateCompareValidator implements ConstraintValidator<DateCompare, Object> {

@@ -11,11 +11,12 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum RelationType {
-	
-	FATHER("Father"), MOTHER("Mother"), UNCLE("Uncle"), BROTHER("Brother"), SISTER("Sister"), AUNT("Aunt"), SPOUSE("Spouse");
-	
+
+	FATHER("Father"), MOTHER("Mother"), UNCLE("Uncle"), BROTHER("Brother"), SISTER("Sister"), AUNT("Aunt"), SPOUSE("Spouse"),
+	PARENT("Parent"), GUARDIAN("Guardian");
+
 	private String name;
-	
+
 	private static List<EnumListing<RelationType>> relationTypes= new ArrayList<>();
 
 	static {
@@ -23,7 +24,7 @@ public enum RelationType {
 			relationTypes.add(EnumListing.of(relationType, relationType.getName()));
 		}
 	}
-	
+
 	public static List<EnumListing<RelationType>> getRelationTypes() {
 		return relationTypes;
 	}

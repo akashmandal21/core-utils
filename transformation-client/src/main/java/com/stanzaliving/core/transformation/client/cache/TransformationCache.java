@@ -1,14 +1,17 @@
 package com.stanzaliving.core.transformation.client.cache;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.concurrent.TimeUnit;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import com.stanzaliving.core.user.acl.enums.AccessLevelEntityEnum;
 import com.stanzaliving.transformations.pojo.*;
+import lombok.extern.log4j.Log4j2;
 import org.apache.commons.lang3.StringUtils;
 
 import com.google.common.cache.CacheBuilder;
@@ -16,7 +19,9 @@ import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
 import com.stanzaliving.core.base.enums.AccessLevel;
 import com.stanzaliving.core.transformation.client.api.InternalDataControllerApi;
+import org.springframework.util.CollectionUtils;
 
+@Log4j2
 public class TransformationCache {
 
 	private InternalDataControllerApi internalDataControllerApi;
@@ -24,6 +29,10 @@ public class TransformationCache {
 	public TransformationCache(InternalDataControllerApi internalDataControllerApi) {
 		this.internalDataControllerApi = internalDataControllerApi;
 	}
+	private Map<String, CityMetadataDto> cityByUuidMap;
+	private Map<String, MicroMarketMetadataDto> micromarketByUuidMap;
+	private Map<String, ResidenceUIDto> residenceByUuidMap;
+	private Map<String, ZoneMetadataDto> zoneByUuidMap;
 
 	private LoadingCache<String, List<CityMetadataDto>> allCityCache = CacheBuilder.newBuilder()
 			.expireAfterWrite(30, TimeUnit.MINUTES)
@@ -32,11 +41,12 @@ public class TransformationCache {
 
 						@Override
 						public List<CityMetadataDto> load(String key) {
-							return internalDataControllerApi.getAllCities().getData();
+							List<CityMetadataDto> cities= internalDataControllerApi.getAllCities().getData();
+							cityByUuidMap =cities.stream().collect(
+									Collectors.toMap(CityMetadataDto::getUuid, Function.identity()));
+							return cities;
 						}
 					});
-
-
 
 	private LoadingCache<String, List<ZoneMetadataDto>> allZoneCache = CacheBuilder.newBuilder()
 			.expireAfterWrite(30, TimeUnit.MINUTES)
@@ -45,7 +55,10 @@ public class TransformationCache {
 
 						@Override
 						public List<ZoneMetadataDto> load(String key) {
-							return internalDataControllerApi.getAllZones().getData();
+							List<ZoneMetadataDto> zones= internalDataControllerApi.getAllZones().getData();
+							zoneByUuidMap = zones.stream().collect(
+									Collectors.toMap(ZoneMetadataDto::getUuid, Function.identity()));
+							return zones;
 						}
 					});
 
@@ -79,7 +92,10 @@ public class TransformationCache {
 
 						@Override
 						public List<MicroMarketMetadataDto> load(String key) {
-							return internalDataControllerApi.getAllMicroMarkets().getData();
+							List<MicroMarketMetadataDto> micromarkets = internalDataControllerApi.getAllMicroMarkets().getData();
+							micromarketByUuidMap = micromarkets.stream().collect(
+									Collectors.toMap(MicroMarketMetadataDto::getUuid, Function.identity()));
+							return micromarkets;
 						}
 					});
 
@@ -88,7 +104,7 @@ public class TransformationCache {
 	}
 
 	private LoadingCache<String, List<ResidenceMetadataDto>> allResidenceCache = CacheBuilder.newBuilder()
-			.expireAfterWrite(30, TimeUnit.MINUTES)
+			.expireAfterWrite(60, TimeUnit.MINUTES)
 			.build(
 					new CacheLoader<String, List<ResidenceMetadataDto>>() {
 
@@ -110,7 +126,10 @@ public class TransformationCache {
 
 						@Override
 						public List<ResidenceUIDto> load(String key) {
-							return internalDataControllerApi.getResidenceDetailList().getData();
+							List<ResidenceUIDto> residences= internalDataControllerApi.getResidenceDetailList().getData();
+							residenceByUuidMap = residences.stream().collect(
+									Collectors.toMap(ResidenceUIDto::getUuid, Function.identity()));
+							return residences;
 						}
 					});
 
@@ -188,7 +207,7 @@ public class TransformationCache {
 		return allCountryNameCache.getUnchecked("countryName");
 	}
 	public Map<String,String> getStateUuids() { return allStatesUuidCache.getUnchecked("stateName"); }
-	
+
 	public String getLocationNameOrElseEmptyString(String locType, String uuid) {
 		String locationName = getLocationName(locType, uuid);
 		if (Objects.isNull(locationName)) {
@@ -311,8 +330,16 @@ public class TransformationCache {
 		return internalDataControllerApi.getResidenceData(residenceUuid).getData();
 	}
 
+	public ResidenceDto getResidenceDataFromPhoenixUuid(String residenceUuid) {
+		return internalDataControllerApi.getResidenceForPhoenixProperty(residenceUuid).getData();
+	}
+
 	public MicroMarketMetadataDto getMicromarketDataFromUuid(String micromarketUuid) {
 		return internalDataControllerApi.getMicromarketData(micromarketUuid).getData();
+	}
+
+	public CityUIDto getCityDataFromId(Long cityId) {
+		return internalDataControllerApi.getCityDtoUsingId(cityId).getData();
 	}
 
 	private LoadingCache<String, Map<String,String>> allStatesUuidCache = CacheBuilder.newBuilder()
@@ -325,5 +352,168 @@ public class TransformationCache {
 							return internalDataControllerApi.getAllStates().getData().stream().collect(Collectors.toMap(f->f.getStateName(), f->f.getUuid()));
 						}
 					});
+
+
+	public CityMetadataDto getCityByUuid(String uuid){
+		allCityCache.getUnchecked("city");
+		return cityByUuidMap.get(uuid);
+	}
+
+	public MicroMarketMetadataDto getMicromarketByUuid(String uuid){
+		allMicroMarketCache.getUnchecked("micromarket");
+		return micromarketByUuidMap.get(uuid);
+	}
+
+	public ResidenceUIDto getResidenceByUuid(String uuid){
+		try {
+			allResidenceWithCoreCache.getUnchecked("residenceWithCore");
+		}
+		catch (Exception exception){
+			log.info("Transformation Cache Exception ",exception.getMessage());
+			return null;
+		}
+		log.info("uuid {}", uuid);
+		return residenceByUuidMap.get(uuid);
+	}
+
+	public List<ResidenceUIDto> getResidencesByUuids(List<String> residenceUuids){
+		List<ResidenceUIDto> residenceUIDtoList = new ArrayList<>();
+		try {
+			allResidenceWithCoreCache.getUnchecked("residenceWithCore");
+		}
+		catch (Exception exception){
+			log.info("getResidencesByUuids :: Transformation Cache Exception {}",exception.getMessage(), exception);
+			return null;
+		}
+		log.info("residenceUuids {}", residenceUuids);
+		for(String residenceUuid : residenceUuids) {
+			residenceUIDtoList.add(residenceByUuidMap.get(residenceUuid));
+		}
+		return residenceUIDtoList;
+	}
+
+	public ZoneMetadataDto getZoneByUuid(String uuid){
+		allZoneCache.getUnchecked("zone");
+		return zoneByUuidMap.get(uuid);
+	}
+
+	public String getCityUuidByMicromarketUuid(String micromarketUuid) {
+		MicroMarketMetadataDto micromarketMetaData = getMicromarketDataFromUuid(micromarketUuid);
+
+		if(micromarketMetaData != null) {
+			return micromarketMetaData.getCityUuid();
+		}
+
+		log.debug("No city found for micromarket uuid {}", micromarketUuid);
+		return null;
+	}
+
+	public String getMicromarketUuidByResidenceUuid(String residenceUuid) {
+		ResidenceDto residenceDto = getResidenceDataFromUuid(residenceUuid);
+
+		if(residenceDto != null) {
+			return residenceDto.getMicromarketUuid();
+		}
+
+		log.debug("No Micromarket found for residence uuid {}", residenceUuid);
+
+		return null;
+	}
+
+	public List<String> getMicromarketUuidsByCityUuid(String cityUuid) {
+
+		List<MicroMarketMetadataDto> micromarketList = getAllMicroMarkets();
+
+		Map<String, List<MicroMarketMetadataDto>> cityMicromarketMap =
+			micromarketList.stream().collect(Collectors.groupingBy(MicroMarketMetadataDto::getCityUuid));
+
+		if (cityMicromarketMap.containsKey(cityUuid)) {
+			return cityMicromarketMap.get(cityUuid).stream().map(MicroMarketMetadataDto::getUuid).collect(Collectors.toList());
+		}
+
+		return null;
+	}
+
+	public List<MicroMarketMetadataDto> getMicromarketsByCityUuid(String cityUuid) {
+
+		List<MicroMarketMetadataDto> micromarketList = getAllMicroMarkets();
+
+		Map<String, List<MicroMarketMetadataDto>> cityMicromarketMap =
+			micromarketList.stream().collect(Collectors.groupingBy(MicroMarketMetadataDto::getCityUuid));
+
+		if (cityMicromarketMap.containsKey(cityUuid)) {
+			return cityMicromarketMap.get(cityUuid).stream().collect(Collectors.toList());
+		}
+
+		return null;
+	}
+
+	public List<String> getResidenceUuidsByCityUuid(String cityUuid) {
+		List<ResidenceMetadataDto> residenceList = getAllResidences();
+		List<String> residenceUuids = new ArrayList<>();
+
+		if (!CollectionUtils.isEmpty(residenceList)) {
+			for (ResidenceMetadataDto residenceMetadataDto : residenceList) {
+				if (Objects.nonNull(residenceMetadataDto) && Objects.nonNull(residenceMetadataDto.getMicroMarketUuid())) {
+					String micromarketUuid = residenceMetadataDto.getMicroMarketUuid();
+					MicroMarketMetadataDto microMarketMetadataDto = getMicromarketByUuid(micromarketUuid);
+					if (Objects.nonNull(microMarketMetadataDto) && Objects.nonNull(microMarketMetadataDto.getCityUuid()) &&
+						microMarketMetadataDto.getCityUuid().equals(cityUuid)) {
+						residenceUuids.add(residenceMetadataDto.getUuid());
+					}
+				}
+			}
+			return residenceUuids;
+		}
+		log.debug("No residence found for city uuid {}", cityUuid);
+		return null;
+	}
+
+	public List<String> getResidenceUuidsByMicromarketUuid(String micromarketUuid) {
+		List<ResidenceMetadataDto> residenceList = getAllResidences();
+		List<String> residenceUuids = new ArrayList<>();
+
+		if (!CollectionUtils.isEmpty(residenceList)) {
+			for (ResidenceMetadataDto residenceMetadataDto : residenceList) {
+				if (Objects.nonNull(residenceMetadataDto) && Objects.nonNull(residenceMetadataDto.getMicroMarketUuid())
+					&& residenceMetadataDto.getMicroMarketUuid().equals(micromarketUuid)) {
+					residenceUuids.add(residenceMetadataDto.getUuid());
+				}
+			}
+			return residenceUuids;
+		}
+		log.debug("No residence found for micromarket uuid {}", micromarketUuid);
+		return null;
+	}
+
+	public List<ResidenceMetadataDto> getResidencesByMicromarketUuid(String micromarketUuid) {
+		List<ResidenceMetadataDto> residenceList = getAllResidences();
+		List<ResidenceMetadataDto> residencesByMicromarket = new ArrayList<>();
+
+		if (!CollectionUtils.isEmpty(residenceList)) {
+			for (ResidenceMetadataDto residenceMetadataDto : residenceList) {
+				if (Objects.nonNull(residenceMetadataDto) && Objects.nonNull(residenceMetadataDto.getMicroMarketUuid())
+					&& residenceMetadataDto.getMicroMarketUuid().equals(micromarketUuid)) {
+					residencesByMicromarket.add(residenceMetadataDto);
+				}
+			}
+			return residencesByMicromarket;
+		}
+		log.debug("No residence found for micromarket uuid {}", micromarketUuid);
+		return null;
+	}
+
+	public String getCityUuidByResidenceUuid(String residenceUuid) {
+		ResidenceDto residenceDto = getResidenceDataFromUuid(residenceUuid);
+
+		if(Objects.nonNull(residenceDto) && Objects.nonNull(residenceDto.getMicromarketUuid())) {
+			MicroMarketMetadataDto microMarketMetadataDto = getMicromarketByUuid(residenceDto.getMicromarketUuid());
+			if (Objects.nonNull(microMarketMetadataDto) && Objects.nonNull(microMarketMetadataDto.getCityUuid())) {
+				return microMarketMetadataDto.getCityUuid();
+			}
+		}
+		log.debug("No city found for residence uuid {}", residenceUuid);
+		return null;
+	}
 
 }

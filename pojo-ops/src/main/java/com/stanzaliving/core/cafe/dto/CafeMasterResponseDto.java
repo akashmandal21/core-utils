@@ -22,6 +22,8 @@ public class CafeMasterResponseDto extends AbstractDto {
 
     private String cafeName;
 
+    private String cafeDisplayName;
+
     private List<CafeTags> tags;
 
     private List<String> tagNames;
@@ -47,5 +49,7 @@ public class CafeMasterResponseDto extends AbstractDto {
     private Integer pincode;
 
     private List<ResidenceMicromarketDto> residences;
+
+    private String imageUrl;
 
 }

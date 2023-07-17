@@ -27,5 +27,6 @@ public class ResidentKYCDocumentResponseDto {
 	private List<DocumentUploadType> dualSideDocuments;
 	
 	private DocumentSideType[] documentSideTypes;
-	
+
+	private List<RejectionReasonDto> rejectionReason;
 }

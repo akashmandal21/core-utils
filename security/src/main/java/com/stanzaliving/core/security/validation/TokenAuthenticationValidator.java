@@ -7,7 +7,9 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.stanzaliving.core.base.StanzaConstants;
 import org.apache.commons.lang3.StringUtils;
+import org.jboss.logging.MDC;
 import org.springframework.http.HttpStatus;
 
 import com.stanzaliving.core.base.common.dto.ResponseDto;
@@ -35,6 +37,12 @@ public class TokenAuthenticationValidator implements RequestValidator {
 		String token = null;
 
 		Cookie[] cookies = request.getCookies();
+		String domainName = request.getHeader("origin");
+		if(StringUtils.isNotBlank(domainName)) {
+			if(domainName.trim().contains("://"))
+				domainName = domainName.substring(domainName.indexOf("://") + 3);
+		}
+		log.info("domainName {}", domainName);
 
 		if (cookies != null) {
 
@@ -63,7 +71,8 @@ public class TokenAuthenticationValidator implements RequestValidator {
 			if (Objects.nonNull(responseDto) && responseDto.isStatus()) {
 
 				UserProfileDto dto = responseDto.getData();
-
+				MDC.put(StanzaConstants.REQ_UID, dto.getUuid());
+				MDC.put(StanzaConstants.REQ_MOBILE, dto.getMobile());
 				log.debug("User Fetched after Authentication: {}", dto.getUuid());
 
 				request.setAttribute("userId", dto.getUuid());
@@ -74,7 +83,7 @@ public class TokenAuthenticationValidator implements RequestValidator {
 				String appEnv = request.getHeader(SecurityConstants.APP_ENVIRONMENT);
 				boolean isApp = StringUtils.isNotBlank(appEnv) && SecurityConstants.APP_ENVIRONMENT_TRUE.equals(appEnv);
 
-				response.addCookie(SecureCookieUtil.create(SecurityConstants.TOKEN_HEADER_NAME, token, Optional.of(isLocalFrontEnd), Optional.of(isApp)));
+//				response.addCookie(SecureCookieUtil.create(SecurityConstants.TOKEN_HEADER_NAME, token, Optional.of(isLocalFrontEnd), Optional.of(isApp), domainName));
 
 				return CurrentUser.builder()
 						.token(token)

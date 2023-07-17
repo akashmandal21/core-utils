@@ -1,13 +1,17 @@
 package com.stanzaliving.approval.constants;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 import com.stanzaliving.approval.enums.ApprovalEntityType;
 import com.stanzaliving.approval.enums.ApprovalStatus;
 import com.stanzaliving.core.user.acl.enums.Role;
 import com.stanzaliving.core.user.enums.EnumListing;
-
-import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 
 public class ApprovalConstants {
@@ -26,6 +30,13 @@ public class ApprovalConstants {
 		put(ApprovalEntityType.FOOD_MENU_CATEGORY_V2, Role.FOOD_MENU_CATEGORY_L1_APPROVER);
 		put(ApprovalEntityType.WEEKLY_MENU, Role.WEEKLY_MENU_L1_APPROVER);
 		put(ApprovalEntityType.WEEKLY_MENU_V2, Role.WEEKLY_MENU_L1_APPROVER);
+		put(ApprovalEntityType.SUPPORT_TEMPLATE, Role.SUPPORT_TEMPLATE_APPROVAL_L1);
+		put(ApprovalEntityType.MONTHLY_BUDGET_MENU_PLANNING, Role.MONTHLY_BUDGET_MENU_PLANNING_L1_APPROVER);
+		put(ApprovalEntityType.ELECTRICITY_BILL_SPLITTER, Role.MICROMARKET_ELECTRICITY_SPLITTER_L1_APPROVER);
+		put(ApprovalEntityType.DISH_DEBAR, Role.DISH_DEBAR_CITY_L1_APPROVER);
+		put(ApprovalEntityType.DISH_REACTIVATION, Role.DISH_REACTIVATION_CITY_L1_APPROVER);
+
+
 	}};
 	
 	public static final HashMap<ApprovalEntityType, Role> l2ApproverEntityTypeRoleMap = new HashMap<ApprovalEntityType, Role>() {{
@@ -36,6 +47,11 @@ public class ApprovalConstants {
 		put(ApprovalEntityType.FOOD_MENU_CATEGORY_V2, Role.FOOD_MENU_CATEGORY_L2_APPROVER);
 		put(ApprovalEntityType.WEEKLY_MENU, Role.WEEKLY_MENU_L2_APPROVER);
 		put(ApprovalEntityType.WEEKLY_MENU_V2, Role.WEEKLY_MENU_L2_APPROVER);
+		put(ApprovalEntityType.SUPPORT_TEMPLATE, Role.SUPPORT_TEMPLATE_APPROVAL_L2);
+		put(ApprovalEntityType.MONTHLY_BUDGET_MENU_PLANNING, Role.MONTHLY_BUDGET_MENU_PLANNING_L2_APPROVER);
+		put(ApprovalEntityType.ELECTRICITY_BILL_SPLITTER, Role.CITY_ELECTRICITY_SPLITTER_L2_APPROVER);
+		put(ApprovalEntityType.DISH_DEBAR, Role.DISH_DEBAR_COUNTRY_L2_APPROVER);
+		put(ApprovalEntityType.DISH_REACTIVATION, Role.DISH_REACTIVATION_COUNTRY_L2_APPROVER);
 	}};
 	
 	public static final HashMap<ApprovalEntityType, Role> l3ApproverEntityTypeRoleMap = new HashMap<ApprovalEntityType, Role>() {{
@@ -45,17 +61,26 @@ public class ApprovalConstants {
 		put(ApprovalEntityType.FOOD_MENU_CATEGORY_V2, Role.FOOD_MENU_CATEGORY_L3_APPROVER);
 		put(ApprovalEntityType.WEEKLY_MENU, Role.WEEKLY_MENU_L3_APPROVER);
 		put(ApprovalEntityType.WEEKLY_MENU_V2, Role.WEEKLY_MENU_L3_APPROVER);
+		put(ApprovalEntityType.SUPPORT_TEMPLATE, Role.SUPPORT_TEMPLATE_APPROVAL_L3);
+		put(ApprovalEntityType.MONTHLY_BUDGET_MENU_PLANNING, Role.MONTHLY_BUDGET_MENU_PLANNING_L3_APPROVER);
+		put(ApprovalEntityType.ELECTRICITY_BILL_SPLITTER, Role.COUNTRY_ELECTRICITY_SPLITTER_L3_APPROVER);
+		put(ApprovalEntityType.DISH_DEBAR, Role.DISH_DEBAR_COUNTRY_L3_APPROVER);
+		put(ApprovalEntityType.DISH_REACTIVATION, Role.DISH_REACTIVATION_COUNTRY_L3_APPROVER);
 	}};
 	
 	public static final HashMap<ApprovalEntityType, Role> l4ApproverEntityTypeRoleMap = new HashMap<ApprovalEntityType, Role>() {{
 		put(ApprovalEntityType.WEEKLY_MENU, Role.WEEKLY_MENU_L4_APPROVER);
 		put(ApprovalEntityType.WEEKLY_MENU_V2, Role.WEEKLY_MENU_L4_APPROVER);
 		put(ApprovalEntityType.FOOD_MENU_CATEGORY_V2, Role.FOOD_MENU_CATEGORY_L4_APPROVER);
+		put(ApprovalEntityType.SUPPORT_TEMPLATE, Role.SUPPORT_TEMPLATE_APPROVAL_L4);
+		put(ApprovalEntityType.MONTHLY_BUDGET_MENU_PLANNING, Role.MONTHLY_BUDGET_MENU_PLANNING_L4_APPROVER);
 	}};
 	
 	public static final HashMap<ApprovalEntityType, Role> l5ApproverEntityTypeRoleMap = new HashMap<ApprovalEntityType, Role>() {{
 		put(ApprovalEntityType.WEEKLY_MENU, Role.WEEKLY_MENU_L5_APPROVER);
 		put(ApprovalEntityType.WEEKLY_MENU_V2, Role.WEEKLY_MENU_L5_APPROVER);
+		put(ApprovalEntityType.SUPPORT_TEMPLATE, Role.SUPPORT_TEMPLATE_APPROVAL_L5);
+		put(ApprovalEntityType.MONTHLY_BUDGET_MENU_PLANNING, Role.MONTHLY_BUDGET_MENU_PLANNING_L5_APPROVER);
 	}};
 	
 	

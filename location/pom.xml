@@ -7,7 +7,7 @@
 	<packaging>jar</packaging>
 
 	<dependencies>
-	
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -48,5 +48,5 @@
 		<version>1.0.0</version>
 		<relativePath>..</relativePath>
 	</parent>
-	
+
 </project>

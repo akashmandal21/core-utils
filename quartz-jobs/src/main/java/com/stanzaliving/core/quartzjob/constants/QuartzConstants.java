@@ -27,4 +27,10 @@ public class QuartzConstants {
 	public static final String SHUTDOWN_HOOK_CLASS = "org.quartz.plugin.shutdownHook.class";
 	public static final String SHUTDOWN_HOOK_CLEAN_SHUTDOWN = "org.quartz.plugin.shutdownHook.cleanShutdown";
 
+	public static final String LOCK_HANDLER_CLASS = "org.quartz.jobStore.lockHandler.class";
+
+	public static final String LOCK_HANDLER_MAX_RETRY = "org.quartz.jobStore.lockHandler.maxRetry";
+
+	public static final String LOCK_HANDLER_RETRY_PERIOD = "org.quartz.jobStore.lockHandler.retryPeriod";
+
 }

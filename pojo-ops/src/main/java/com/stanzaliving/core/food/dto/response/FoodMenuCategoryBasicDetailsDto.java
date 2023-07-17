@@ -5,6 +5,7 @@ import java.util.List;
 import com.stanzaliving.core.enums.ResidenceBrand;
 import com.stanzaliving.core.food.enums.FoodItemBasePreference;
 import com.stanzaliving.core.food.enums.FoodRegion;
+import com.stanzaliving.core.food.enums.FoodServeType;
 import com.stanzaliving.core.food.enums.GrammageHeavynessLevel;
 import com.stanzaliving.core.food.enums.MenuCategoryType;
 import com.stanzaliving.core.food.enums.MenuType;
@@ -28,6 +29,8 @@ public class FoodMenuCategoryBasicDetailsDto {
 
 	private String categoryName;
 	
+	private String categoryCode;
+	
 	private String microMarketId;
 
 	private String microMarketName;
@@ -47,4 +50,6 @@ public class FoodMenuCategoryBasicDetailsDto {
 	private MenuCategoryType categoryType;
 
 	private GrammageHeavynessLevel grammageHeavynessLevel;
+	
+	private FoodServeType foodServeType;
 }

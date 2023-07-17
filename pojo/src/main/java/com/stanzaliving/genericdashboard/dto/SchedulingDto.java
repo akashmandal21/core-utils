@@ -28,6 +28,10 @@ public class SchedulingDto {
 
     private Frequency frequency;
 
+    private Date noticeBoardStartTime;
+
+    private Date noticeBoardEndTime;
+
     private List<String> dates;
 
     private LocalTime scheduledAt;

@@ -1,13 +1,18 @@
 package com.stanzaliving.core.food.dto;
 
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.stanzaliving.core.food.dto.request.AdditionalItemsRequestDto;
+import com.stanzaliving.core.food.dto.response.OrderItemGrammageDto;
 import com.stanzaliving.core.food.enums.FoodItemBasePreference;
 import com.stanzaliving.core.food.enums.FoodRegion;
+import com.stanzaliving.core.food.enums.FoodServeType;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -23,6 +28,8 @@ import lombok.experimental.SuperBuilder;
 public class FoodOrderBasePreferenceDto {
 
 	private String residenceFoodMenuId;
+	
+	private String defaultBeverage;
 
 	private String vendorId;
 
@@ -39,17 +46,31 @@ public class FoodOrderBasePreferenceDto {
 	private String combo;
 
 	private String comboName;
-	
+
 	private boolean defaultMenu;
-	
+
 	private LocalTime mealStartTime;
 
 	private LocalTime mealEndTime;
 
+	private FoodServeType serveType;
+
 	private List<AdditionalItemsRequestDto> additionalItemsDtos;
+
+	@Builder.Default
+	private List<OrderItemGrammageDto> buffetItems = new ArrayList<>();
 	
 	private String thaliId;
+
 	private String thaliVariant;
+
 	private String thaliName;
 
+	private Integer vegPax;
+
+	private Integer nonVegPax;
+	
+	@Builder.Default
+	@JsonProperty("userBeveragePreferenceCountDtos")
+	private List<UserBeveragePreferenceCountDto> userBeveragePreferenceCountDtos = new ArrayList<>();
 }

@@ -9,5 +9,6 @@ package com.stanzaliving.taskservice.enums;
  */
 public enum TaskContextName {
 
-	ESTATE_SERVICE;
+	ESTATE_SERVICE,
+	ESTATE_V2_SERVICE;
 }

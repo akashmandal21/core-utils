@@ -8,13 +8,15 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
+import java.io.Serializable;
+
 @Getter
 @Setter
 @ToString
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ExpectedItemFeedbackReasonDto {
+public class ExpectedItemFeedbackReasonDto implements Serializable {
 
 	private String suggestion;
 

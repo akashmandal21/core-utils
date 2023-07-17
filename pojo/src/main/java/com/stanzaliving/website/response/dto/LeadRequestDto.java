@@ -1,5 +1,9 @@
 package com.stanzaliving.website.response.dto;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import com.stanzaliving.website.enums.SeoUrlType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Builder.Default;
@@ -8,15 +12,28 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.io.Serializable;
+import java.util.Objects;
+
 @Getter
 @Setter
 @ToString
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class LeadRequestDto {
+public class LeadRequestDto implements Serializable {
 
-	private Integer leadId;
+	private static final long serialVersionUID = 1L;
+
+	//private Integer leadId;
+	private Long leadId;
+	private String leadUuid;
+
+	private String redisUuidKey;
+	private String abVersion;
+
+	private String userIpAddress;
+	
 	private String firstName;
 	private String lastName;
 	private String email;
@@ -35,6 +52,9 @@ public class LeadRequestDto {
 	private String residenceNameUuid;
 
 	private String leadOwnerId;
+	
+	private String createdBy;
+	private String visitScheduledBy;
 
 	private Integer cityId;
 	private String cityName;
@@ -44,6 +64,10 @@ public class LeadRequestDto {
 	private String micromarketName;
 	private String micromarketNameUuid;
 
+	private String cityUuid;
+	private String micromarketUuid;
+	private String residenceUuid;
+	
 	private String micromarketAliasName;
 
 	private String otherMicromarketName;
@@ -51,6 +75,8 @@ public class LeadRequestDto {
 	private String referralCode;
 
 	private String durationOfStay;
+
+	private String preBookingDate;
 
 	private String durationTime;
 	private String college;
@@ -69,6 +95,8 @@ public class LeadRequestDto {
 	private String utmCampaign;
 	private String utmTerm;
 	private String utmAdgroup;
+
+	@JsonAlias("gclid")
 	private String gclId;
 	private String utmContent;
 	private String utmTarget;
@@ -86,10 +114,17 @@ public class LeadRequestDto {
 	private String moveInDate;
 	private Double reserveAmount;
 
+	private Integer preBookingAmount;
+	private Integer unlockDiscountAmount;
+
 	private String category;
 	private String fbclId;
 	private String creative;
+
+	@JsonProperty("gClientId")
 	private String gClientId;
+
+	@JsonProperty("gSessionId")
 	private String gSessionId;
 
 	private String razorpayPaymentId;
@@ -116,11 +151,42 @@ public class LeadRequestDto {
 
 	@Default
 	private boolean ignoreScheduleVisit = false;
-	@Default
-	private String accommodationType="PG";
+
+	private String accommodationType;
 
 	private boolean createHotLead;
-	
+
 	private String extendDurationMessage;
 
+	private boolean isLeadBooked;
+	
+	private Integer placeId;
+	private String placeName;
+
+	private String timeSlot;
+
+	private String budget;
+
+	private String platformOs;
+	private String preferredLanguage;
+
+	private String seoUrlType;
+	private String url;
+
+	public String getEmail() {
+		return Objects.nonNull(this.email) ? this.email.trim(): null;
+	}
+
+	public void setEmail(String email) {
+		this.email = Objects.nonNull(email) ? email.trim(): null;
+	}
+
+	public String getPhone() {
+		return Objects.nonNull(this.phone) ? this.phone.trim(): null;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = Objects.nonNull(phone) ? phone.trim(): null;
+	}
+	private String leadTag;
 }

@@ -70,6 +70,7 @@ public enum  PropertyUpdateEnum {
 
     //BOQ Completed
     DESIGN_BOQ_COMPLETED("Boq completed",true,NotificationTaskType.MASTER_BOQ_APPROVED, null, "Master BOQ"),
+    DESIGN_BOQ_CALLED_BACK("BOQ called back", true, null, null, "Master BOQ"),
 
     //EXTRA BOQ
     DESIGN_EXTRA_BOQ_SUBMITTED("Extra Boq Submitted For Approval",true,NotificationTaskType.MASTER_BOQ_SUBMITTED, null, "Extra BOQ"),
@@ -78,6 +79,8 @@ public enum  PropertyUpdateEnum {
     DESIGN_EXTRA_BOI_APPROVED("Extra Boq Boi Approved",true,NotificationTaskType.MASTER_BOI_APPROVED, null, "Extra BOQ"),
     DESIGN_EXTRA_GC_APPROVED("Extra Boq Gc Approved",true,NotificationTaskType.MASTER_GC_APPROVED, null, "Extra BOQ"),
     DESIGN_EXTRA_BOQ_COMPLETED("Extra Boq completed",true,NotificationTaskType.MASTER_BOQ_APPROVED, null, "Extra BOQ"),
+    DESIGN_EXTRA_BOQ_CALLED_BACK("Extra BOQ called back", true, null, null, "Extra BOQ"),
+
 
     //HOTO Submitted
     PROJECTS_HOTO_GENERATED("HOTO Generated",true,NotificationTaskType.HOTO_DOC_GENERATED),

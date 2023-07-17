@@ -1,5 +1,6 @@
 package com.stanzaliving.core.leadership.dto;
 
+import com.stanzaliving.core.enums.PropertyDealType;
 import com.stanzaliving.core.enums.PropertyEntityType;
 import com.stanzaliving.transformations.enums.BrandName;
 import com.stanzaliving.transformations.enums.GenderAllowed;
@@ -24,13 +25,13 @@ public class PropertyNamingDto {
 	private Long estateId;
 	
 	private String estateCode;
-	
+
 	private String propertyName;
-	
+
 	private BrandName brandName;
-	
+
 	private SubBrandName subBrandName;
-	
+
 	private GenderAllowed gender;
 
 	private Double totalPremiseArea;
@@ -52,5 +53,7 @@ public class PropertyNamingDto {
 	private String oldPropName;
 
 	private PropertyEntityType propertyType;
+
+	private PropertyDealType propertyDealType;
 
 }

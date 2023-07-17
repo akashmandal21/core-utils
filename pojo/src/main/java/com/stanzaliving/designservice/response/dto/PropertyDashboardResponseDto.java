@@ -27,4 +27,5 @@ public class PropertyDashboardResponseDto {
 	Map<DesignStatus, String> designStatusDescription;
 	List<DesignStatusCountDto> designStatusCountList;
 	Map<DesignStatus, Integer> designStatusCount;
+	List<String> competitor;
 }

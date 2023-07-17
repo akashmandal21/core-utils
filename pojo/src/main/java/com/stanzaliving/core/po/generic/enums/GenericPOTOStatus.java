@@ -37,7 +37,14 @@ public enum GenericPOTOStatus {
     APPROVED("Approved", "#60C3AD", "#EDFFF5", 3, false, false, null,true),
     SHORTCLOSED("Shortclosed", "#5F11D7", "#F4EEFF", 4, false, false, null,true),
     CANCELLED("Cancelled", "#5FC4F5", "#EDF4FF", 5, false, false, null,false),
-    GSRI_COMPLETED("GSRI Closed", "#37CF76", "#EFF9F6", 6, false, false, null,true);
+    GSRI_COMPLETED("GSRI Closed", "#37CF76", "#EFF9F6", 6, false, false, null,true),
+    //todo check for order number
+
+    VENDOR_ACCEPTANCE_PENDING("Vendor Acceptance Pending", "#FFB701", "#FFEAB6", 2, false, false, null,false),
+    VENDOR_ACCEPTED("Accepted By Vendor", "#60C3AD", "#EDFFF5", 3, false, false, null,true),
+    VENDOR_REJECTED("Rejected By Vendor", "#FF5238", "#FFE5E1", 5, false, false, null,false),
+    SHORTCLOSE_REQUESTED("Shortclose Requested", "#5F11D7", "#F4EEFF", 0, true, false, null,false);
+
 //    WORK_COMPLETED("Work Completed","#60C3AD","#60c3ad4d",7,false,false);
 
     private String statusText;
@@ -83,35 +90,73 @@ public enum GenericPOTOStatus {
     private static Map<ApprovalCycle, Map<Integer, GenericPOTOStatus>> orderMap = new HashMap<>();
 
     @Getter
+    private static final Map<Integer,GenericPOTOStatus> firstApprovalOrderStatusMap = new HashMap<>();
+
+    @Getter
+    private static final Map<Integer,GenericPOTOStatus> cancelOrderStatusMap = new HashMap<>();
+
+    @Getter
+    private static final Map<Integer,GenericPOTOStatus> shortCloseOrderStatusMap  =  new HashMap<>();
+    @Getter
     private static Set<GenericPOTOStatus> viewRole = new HashSet<>();
 
     static {
         cancelStatus.addAll(Arrays.asList(CANCEL_L1_APPROVAL_DUE, CANCEL_L2_APPROVAL_DUE, CANCEL_L3_APPROVAL_DUE));
         cancelRejectStatus.addAll(Arrays.asList(CANCEL_L1_REJECTED, CANCEL_L2_REJECTED, CANCEL_L3_REJECTED));
-        scStatus.addAll(Arrays.asList(SC_L1_APPROVAL_DUE, SC_L2_APPROVAL_DUE, SC_L3_APPROVAL_DUE));
+        scStatus.addAll(Arrays.asList(SC_L1_APPROVAL_DUE, SC_L2_APPROVAL_DUE, SC_L3_APPROVAL_DUE, SHORTCLOSE_REQUESTED));
         scRejectStatus.addAll(Arrays.asList(SC_L1_REJECTED, SC_L2_REJECTED, SC_L3_REJECTED));
-        scAllowedStatus.addAll(Arrays.asList(CANCEL_L1_REJECTED, CANCEL_L2_REJECTED, CANCEL_L3_REJECTED, APPROVED, SHORTCLOSED, SC_L1_REJECTED, SC_L2_REJECTED, SC_L3_REJECTED));
+        scAllowedStatus.addAll(Arrays.asList(CANCEL_L1_REJECTED, CANCEL_L2_REJECTED, CANCEL_L3_REJECTED, APPROVED, SHORTCLOSED, SC_L1_REJECTED, SC_L2_REJECTED, SC_L3_REJECTED, VENDOR_ACCEPTED));
         firstApprovalStatus.addAll(Arrays.asList(L1_APPROVAL_DUE, L2_APPROVAL_DUE, L3_APPROVAL_DUE));
-        firstApprovalCycle.addAll(Arrays.asList(IN_DRAFT, L1_SENT_BACK, L2_SENT_BACK, L3_SENT_BACK, L1_APPROVAL_DUE, L2_APPROVAL_DUE, L3_APPROVAL_DUE));
-        firstApprovalRejects.addAll(Arrays.asList(L1_SENT_BACK, L2_SENT_BACK, L3_SENT_BACK));
-        approvals.addAll(Arrays.asList(CANCEL_L2_APPROVAL_DUE, CANCEL_L3_APPROVAL_DUE, SC_L2_APPROVAL_DUE, SC_L3_APPROVAL_DUE, L2_APPROVAL_DUE, L3_APPROVAL_DUE, APPROVED, SHORTCLOSED, CANCELLED));
+        firstApprovalCycle.addAll(Arrays.asList(IN_DRAFT, L1_SENT_BACK, L2_SENT_BACK, L3_SENT_BACK, L1_APPROVAL_DUE, L2_APPROVAL_DUE, L3_APPROVAL_DUE, VENDOR_REJECTED));
+        firstApprovalRejects.addAll(Arrays.asList(L1_SENT_BACK, L2_SENT_BACK, L3_SENT_BACK, VENDOR_REJECTED));
+        approvals.addAll(Arrays.asList(CANCEL_L2_APPROVAL_DUE, CANCEL_L3_APPROVAL_DUE, SC_L2_APPROVAL_DUE, SC_L3_APPROVAL_DUE, L2_APPROVAL_DUE, L3_APPROVAL_DUE, APPROVED, SHORTCLOSED, CANCELLED, VENDOR_ACCEPTANCE_PENDING, VENDOR_ACCEPTED, VENDOR_REJECTED));
         allValues.addAll(Arrays.asList(CANCEL_L1_APPROVAL_DUE, CANCEL_L2_APPROVAL_DUE, CANCEL_L3_APPROVAL_DUE, SC_L1_APPROVAL_DUE, SC_L2_APPROVAL_DUE, SC_L3_APPROVAL_DUE, IN_DRAFT,
                 L1_SENT_BACK, L2_SENT_BACK, L3_SENT_BACK, L1_APPROVAL_DUE, L2_APPROVAL_DUE, L3_APPROVAL_DUE, CANCEL_L1_REJECTED, CANCEL_L2_REJECTED, CANCEL_L3_REJECTED, APPROVED, SHORTCLOSED,
-                SC_L1_REJECTED, SC_L2_REJECTED, SC_L3_REJECTED, CANCELLED, GSRI_COMPLETED));
+                SC_L1_REJECTED, SC_L2_REJECTED, SC_L3_REJECTED, CANCELLED, GSRI_COMPLETED, VENDOR_ACCEPTANCE_PENDING, VENDOR_ACCEPTED, VENDOR_REJECTED, SHORTCLOSE_REQUESTED));
         viewRole.addAll(Arrays.asList(CANCEL_L1_APPROVAL_DUE, CANCEL_L2_APPROVAL_DUE, CANCEL_L3_APPROVAL_DUE, SC_L1_APPROVAL_DUE, SC_L2_APPROVAL_DUE, SC_L3_APPROVAL_DUE,
                 L1_SENT_BACK, L2_SENT_BACK, L3_SENT_BACK, L1_APPROVAL_DUE, L2_APPROVAL_DUE, L3_APPROVAL_DUE, CANCEL_L1_REJECTED, CANCEL_L2_REJECTED, CANCEL_L3_REJECTED, APPROVED, SHORTCLOSED,
-                SC_L1_REJECTED, SC_L2_REJECTED, SC_L3_REJECTED, CANCELLED, GSRI_COMPLETED));
+                SC_L1_REJECTED, SC_L2_REJECTED, SC_L3_REJECTED, CANCELLED, GSRI_COMPLETED, VENDOR_ACCEPTANCE_PENDING, VENDOR_ACCEPTED, VENDOR_REJECTED, SHORTCLOSE_REQUESTED));
 
         allValues.stream().filter(f -> f.getCycle() != null).forEach(f -> {
             Map<Integer, GenericPOTOStatus> map = orderMap.getOrDefault(f.getCycle(), new HashMap<>());
             map.put(f.getOrder(), f);
             orderMap.put(f.getCycle(), map);
         });
+
+        for (GenericPOTOStatus status : firstApprovalStatus) {
+            if(status != VENDOR_ACCEPTANCE_PENDING) {
+                firstApprovalOrderStatusMap.put(status.getOrder(), status);
+            }
+        }
+
+        for(GenericPOTOStatus status : cancelStatus ){
+            cancelOrderStatusMap.put(status.getOrder(),status);
+
+        }
+
+        for(GenericPOTOStatus status : scStatus ){
+            shortCloseOrderStatusMap.put(status.getOrder(),status);
+
+        }
     }
 
     public static int getLevel(GenericPOTOStatus genericPOTOStatus) {
         return genericPOTOStatus.getOrder() >= 0 ? (genericPOTOStatus.getOrder()) + 1 : Math.abs(genericPOTOStatus.getOrder() - GenericConstants.rejectionStart);
     }
 
+    public static GenericPOTOStatus getStatusByOrder(int statusOrder){
 
+       return firstApprovalOrderStatusMap.get(statusOrder);
+    }
+
+    public static GenericPOTOStatus getCancelStatusByOrder(int statusOrder){
+
+        return cancelOrderStatusMap.get(statusOrder);
+    }
+
+    public static GenericPOTOStatus getShortClosedlStatusByOrder(int statusOrder){
+
+        return shortCloseOrderStatusMap.get(statusOrder);
+    }
 }
+

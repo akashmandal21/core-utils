@@ -1,15 +1,13 @@
 package com.stanzaliving.complaint.dto;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 @Getter
 @Setter
 @ToString
 @NoArgsConstructor
+@AllArgsConstructor
 @SuperBuilder
 public class ComplaintAttachmentDto {
 	

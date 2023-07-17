@@ -14,7 +14,8 @@ public enum SubBrandName {
 
 	PRIMA("Prima"),
 	MAGMA("Magna"),
-	SAMA("Summa");
+	SAMA("Summa"),
+	NA("Not Applicable");
 
 	private String subBrand;
 

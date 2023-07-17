@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class DegreeResponseDto {
     private int degreeId;
+    private String degreeUuid;
     private String name;
     private boolean enabled;
     private int maxYears;

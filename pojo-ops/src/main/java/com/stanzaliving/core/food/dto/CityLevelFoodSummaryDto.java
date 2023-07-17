@@ -39,13 +39,16 @@ public class CityLevelFoodSummaryDto {
 	private String approvalStatus;
 	private Double price;
 	private String boxOption;
+	private String foodServeType;
 	private ApprovalListingDto approvalSummary;
 	private List<String> residences;
 	private String residenceName;
 	private String menuStatus;
 	private boolean menuApproved;
+	private String categoryId;
 	private String categoryName;
 	private String categoryMealWiseName;
+	private List<String> micromarketNameList;
 	private String micromarketName;
 
 	private int totalCategory;

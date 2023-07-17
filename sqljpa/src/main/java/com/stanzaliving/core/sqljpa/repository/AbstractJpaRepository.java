@@ -40,4 +40,9 @@ public interface AbstractJpaRepository<T extends AbstractJpaEntity, I extends Se
 
 	Optional<T> findByUuidAndStatus(String uuid , boolean status);
 
+	T findByUuid(String uuid);
+
+    List<T> findByCreatedBy(String createdByUuid);
+
+	List<T> findByCreatedAtAfter(Date dateLastNDays);
 }

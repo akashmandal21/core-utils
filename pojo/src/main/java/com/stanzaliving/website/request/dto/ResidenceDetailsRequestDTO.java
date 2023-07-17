@@ -29,11 +29,15 @@ public class ResidenceDetailsRequestDTO {
 	private String mobileNo;
 	private String phoneNo;
 	private Integer preBookingAmount;
-	private int sortOrder;
+	private Integer unlockDiscountAmount;
+	private Integer sortOrder;
 	private boolean virtualTour;
-	private int cardCTAId;
+	private Integer cardCTAId;
 	private String cardCTAName;
+	private Integer leadFormModeId;
+	private String leadFormModeName;
 	private FomoTag fomoTag;
 	private String virtualTourImage;
 	private String videoLink;
+	private String videoLink2;
 }

@@ -34,8 +34,14 @@ public class MenuCategoryMealDto extends MealDto {
 	private Double mealCost;
 	private Double trueCost;
 
+	private Double nonVegMealCost;
+	private Double nonVegTrueCost;
+
 	private Double fnbMealCost;
 	private Double fnbTrueCost;
+
+	private Double nonVegFnbMealCost;
+	private Double nonVegFnbTrueCost;
 
 	private int activeDays;
 }

@@ -1,5 +1,6 @@
 package com.stanzaliving.core.food.dto;
 
+import java.io.Serializable;
 import java.util.List;
 
 import com.stanzaliving.core.enums.UnitOfMeasurement;
@@ -18,7 +19,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ResidentFoodItemFeedbackDto {
+public class ResidentFoodItemFeedbackDto implements Serializable {
 
 	private String residentFoodItemFeedbackId;
 
@@ -49,5 +50,9 @@ public class ResidentFoodItemFeedbackDto {
 	private String comment;
 
 	private List<ExpectedItemFeedbackReasonDto> expectedItemFeedbackReasons;
+	
+	private List<String> feedBackReasons;
+
+	private String imageUrl;
 
 }

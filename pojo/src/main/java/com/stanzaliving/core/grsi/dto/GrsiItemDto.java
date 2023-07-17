@@ -1,5 +1,6 @@
 package com.stanzaliving.core.grsi.dto;
 
+import com.stanzaliving.boq_service.enums.BoqLabel;
 import com.stanzaliving.core.base.enums.Department;
 
 import lombok.*;
@@ -12,6 +13,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
+@Builder
 public class GrsiItemDto {
 
     private String itemUuid;
@@ -23,4 +25,7 @@ public class GrsiItemDto {
     private BigDecimal quantity;
     private BigDecimal rentPeriod;
     private String gsriEventItemDetailsUuid;
+
+//    @Builder.Default
+//    private BoqLabel boqLabel = BoqLabel.NA;
 }

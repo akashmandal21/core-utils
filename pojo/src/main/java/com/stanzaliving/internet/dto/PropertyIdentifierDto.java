@@ -8,6 +8,7 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
+import javax.persistence.Column;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -27,5 +28,8 @@ public class PropertyIdentifierDto {
 
 	@NotBlank(message = "PropertyIdentifier Cannot be blank")
 	private String propertyIdentifier;
+
+	@NotBlank(message = "SiteId Cannot be blank")
+	private String siteId;
 
 }

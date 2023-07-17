@@ -36,6 +36,9 @@ public class QuatzUtil {
 		properties.put(QuartzConstants.JOB_STORE_CLUSTER_CHECKIN_INTERVAL, environment.getRequiredProperty(QuartzConstants.JOB_STORE_CLUSTER_CHECKIN_INTERVAL));
 		properties.put(QuartzConstants.SHUTDOWN_HOOK_CLASS, environment.getRequiredProperty(QuartzConstants.SHUTDOWN_HOOK_CLASS));
 		properties.put(QuartzConstants.SHUTDOWN_HOOK_CLEAN_SHUTDOWN, environment.getRequiredProperty(QuartzConstants.SHUTDOWN_HOOK_CLEAN_SHUTDOWN));
+		/*properties.put(QuartzConstants.LOCK_HANDLER_CLASS, environment.getRequiredProperty(QuartzConstants.LOCK_HANDLER_CLASS));
+		properties.put(QuartzConstants.LOCK_HANDLER_MAX_RETRY, environment.getRequiredProperty(QuartzConstants.LOCK_HANDLER_MAX_RETRY));
+		properties.put(QuartzConstants.LOCK_HANDLER_RETRY_PERIOD, environment.getRequiredProperty(QuartzConstants.LOCK_HANDLER_RETRY_PERIOD));*/
 
 		return properties;
 	}

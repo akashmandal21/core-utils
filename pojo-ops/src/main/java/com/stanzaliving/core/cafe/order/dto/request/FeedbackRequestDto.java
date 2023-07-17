@@ -48,5 +48,7 @@ public class FeedbackRequestDto {
 	private String nudgeId;
 	
 	private FeedbackSource source;
+	
+	private String notificationId;
 
 }

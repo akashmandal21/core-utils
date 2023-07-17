@@ -24,4 +24,8 @@ public class DocumentApprovalNotificationProducerDTO {
     private LocalDate rejectionDate;
 
     private String rejectionReason;
+
+    private String documentUuid;
+
+    private LocalDate updatedAt;
 }

@@ -1,13 +1,20 @@
-/**
- * 
- */
 package com.stanzaliving.core.user.client.api;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-
+import com.stanzaliving.core.base.common.dto.ResponseDto;
+import com.stanzaliving.core.base.constants.SecurityConstants;
+import com.stanzaliving.core.base.enums.Department;
+import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.core.user.acl.dto.RoleDto;
+import com.stanzaliving.core.user.acl.dto.UserAccessLevelIdsByRoleNameWithFiltersDto;
+import com.stanzaliving.core.user.acl.dto.UserAccessLevelIdsByRoleNameDto;
+import com.stanzaliving.core.user.acl.dto.UserDeptLevelRoleNameUrlExpandedDto;
+import com.stanzaliving.core.user.acl.request.dto.AddUserDeptLevelRoleRequestDto;
+import com.stanzaliving.core.user.acl.request.dto.CheckRoleNamesDto;
+import com.stanzaliving.core.user.acl.request.dto.RevokeUserDeptLevelRoleRequestDto;
+import com.stanzaliving.core.user.dto.UserManagerAndRoleDto;
+import com.stanzaliving.core.user.dto.response.UserContactDetailsResponseDto;
+import com.stanzaliving.core.user.enums.EnumListing;
+import com.stanzaliving.core.user.request.dto.UserStatusRequestDto;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -17,22 +24,8 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.stanzaliving.core.base.common.dto.ResponseDto;
-import com.stanzaliving.core.base.constants.SecurityConstants;
-import com.stanzaliving.core.base.enums.Department;
-import com.stanzaliving.core.base.http.StanzaRestClient;
-import com.stanzaliving.core.user.acl.dto.UserAccessLevelIdsByRoleNameDto;
-import com.stanzaliving.core.user.acl.dto.UserDeptLevelRoleNameUrlExpandedDto;
-import com.stanzaliving.core.user.acl.request.dto.AddUserDeptLevelRoleRequestDto;
-import com.stanzaliving.core.user.acl.request.dto.RevokeUserDeptLevelRoleRequestDto;
-import com.stanzaliving.core.user.dto.response.UserContactDetailsResponseDto;
+import java.util.*;
 
-/**
- * @author naveen.kumar
- *
- * @date 11-Dec-2019
- *
- **/
 public class AclUserClientApi {
 
 	private StanzaRestClient restClient;
@@ -209,9 +202,7 @@ public class AclUserClientApi {
 
 		final HttpHeaders headerParams = new HttpHeaders();
 
-		final String[] accepts = {
-				"*/*"
-		};
+		final String[] accepts = {"*/*"};
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
 		ParameterizedTypeReference<ResponseDto<Map<String, List<String>>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<String, List<String>>>>() {
@@ -220,7 +211,38 @@ public class AclUserClientApi {
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
 
 	}
-	
+
+	public ResponseDto<Map<String, List<String>>> getActiveUserIdAccessLevelIdByDepartmentRoleNameAccessLevelId(Department department, String roleName, List<String> accessLevelId) {
+
+		Object postBody = null;
+
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		uriVariables.put("department", department);
+		uriVariables.put("roleName", roleName);
+		uriVariables.put("accessLevelId", StringUtils.join(accessLevelId, ','));
+
+		String path = UriComponentsBuilder.fromPath("/internal/acl/activeUseridAccessLevelIdByRoleName/{department}/{roleName}/{accessLevelId}").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {"*/*"};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<Map<String, List<String>>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<String, List<String>>>>() {
+		};
+
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+
+	}
+
+	public ResponseDto<Map<String, List<String>>> getActiveUserIdAccessLevelIdByDepartmentRoleNameAccessLevelIdV2(Department department, String roleName, List<String> accessLevelId) {
+		return getActiveUseridAccessLevelIdByRoleName(new UserAccessLevelIdsByRoleNameDto(department, roleName, accessLevelId));
+	}
+
 	public ResponseDto<List<UserDeptLevelRoleNameUrlExpandedDto>> getUserInfoByEmailId(String email) {
 
 		Object postBody = null;
@@ -229,7 +251,7 @@ public class AclUserClientApi {
 		final Map<String, Object> uriVariables = new HashMap<>();
 
 		uriVariables.put("email", email);
-		
+
 		String path = UriComponentsBuilder.fromPath("/internal/acl/user/fe/{email}")
 				.buildAndExpand(uriVariables).toUriString();
 
@@ -243,6 +265,153 @@ public class AclUserClientApi {
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
 		ParameterizedTypeReference<ResponseDto<List<UserDeptLevelRoleNameUrlExpandedDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<UserDeptLevelRoleNameUrlExpandedDto>>>() {
+		};
+
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+
+	}
+
+	public ResponseDto<List<EnumListing<Department>>> getDepartmentList(String token) {
+
+		Object postBody = null;
+
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/department/list")
+				.buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+		String tokenCookie = SecurityConstants.TOKEN_HEADER_NAME + "=" + token;
+		headerParams.add(SecurityConstants.COOKIE_HEADER_NAME, tokenCookie);
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<List<EnumListing<Department>>>> returnType = new ParameterizedTypeReference<ResponseDto<List<EnumListing<Department>>>>() {
+		};
+
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+
+	}
+
+	public ResponseDto<List<RoleDto>> checkRolesInACL(CheckRoleNamesDto checkRoleNamesDto) {
+		CheckRoleNamesDto postBody = checkRoleNamesDto;
+		final Map<String, Object> uriVariables = new HashMap<>();
+		String path = UriComponentsBuilder.fromPath("/acl/role/getRolesByDepartmentAndNames")
+				.buildAndExpand(uriVariables)
+				.toUriString();
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		final HttpHeaders headerParams = new HttpHeaders();
+		final String[] accepts = { "*/*" };
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+		ParameterizedTypeReference<ResponseDto<List<RoleDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<RoleDto>>>() {
+		};
+		try {
+			return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+		} catch (Exception e) {
+			return null;
+		}
+	}
+	public ResponseDto<Boolean> updateUserByUuid(UserStatusRequestDto userStatusRequestDto) {
+
+		Object postBody = userStatusRequestDto;
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/update/userStatus").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		final HttpHeaders headerParams = new HttpHeaders();
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+		ParameterizedTypeReference<ResponseDto<Boolean>> returnType = new ParameterizedTypeReference<ResponseDto<Boolean>>() {
+		};
+
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+	}
+
+
+	public ResponseDto<Map<String, List<String>>> getUseridAccessLevelIdByRoleNameAndFilters(UserAccessLevelIdsByRoleNameWithFiltersDto userAccessLevelIdsByRoleNameDto) {
+
+		Object postBody = userAccessLevelIdsByRoleNameDto;
+
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/internal/acl/useridAccessLevelIdByRoleName/filters").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+			"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<Map<String, List<String>>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<String, List<String>>>>() {
+		};
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+
+	}
+
+	public ResponseDto<Map<String, List<String>>> getActiveUseridAccessLevelIdByRoleName(UserAccessLevelIdsByRoleNameDto userAccessLevelIdsByRoleNameDto) {
+
+		Object postBody = userAccessLevelIdsByRoleNameDto;
+
+		// create path and map variables
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/internal/acl/activeUseridAccessLevelIdByRoleName").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = {
+			"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<Map<String, List<String>>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<String, List<String>>>>() {
+		};
+		return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+
+	}
+
+	public ResponseDto<UserManagerAndRoleDto> getUserWithManagerAndRole(String userId, String token) {
+		Object postBody = null;
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+
+		String path = UriComponentsBuilder.fromPath("/details/manager/role").toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		queryParams.put("userId", Collections.singletonList(userId));
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		String tokenCookie = SecurityConstants.TOKEN_HEADER_NAME + "=" + token;
+		headerParams.add(SecurityConstants.COOKIE_HEADER_NAME, tokenCookie);
+
+		final String[] accepts = {
+				"*/*"
+		};
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<ResponseDto<UserManagerAndRoleDto>> returnType = new ParameterizedTypeReference<ResponseDto<UserManagerAndRoleDto>>() {
 		};
 
 		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);

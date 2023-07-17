@@ -17,7 +17,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.designservice.enums.DesignStatus;
-import com.stanzaliving.designservice.response.dto.PropertyBedCountReponseDto;
+import com.stanzaliving.designservice.response.dto.PropertyBedCountResponseDto;
 
 import lombok.extern.log4j.Log4j2;
 
@@ -63,7 +63,7 @@ public class DesignServiceClientApi {
 
     }
     
-    public ResponseDto<PropertyBedCountReponseDto> getDesignStatusBedCount(String estateUuid) {
+    public ResponseDto<PropertyBedCountResponseDto> getDesignStatusBedCount(String estateUuid) {
 
     	log.debug(" Get design status for estateUuid " + estateUuid);
     	
@@ -90,7 +90,7 @@ public class DesignServiceClientApi {
         };
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<ResponseDto<PropertyBedCountReponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<PropertyBedCountReponseDto>>() {
+        ParameterizedTypeReference<ResponseDto<PropertyBedCountResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<PropertyBedCountResponseDto>>() {
         };
         
         try {

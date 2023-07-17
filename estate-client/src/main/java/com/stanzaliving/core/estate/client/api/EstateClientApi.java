@@ -6,6 +6,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.stanzaliving.core.base.exception.ApiValidationException;
+import com.stanzaliving.core.base.exception.PreconditionFailedException;
+import com.stanzaliving.core.estate.constants.AttributeNames;
+import com.stanzaliving.transformations.pojo.PropertyInvoiceDetails;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -441,5 +446,51 @@ public class EstateClientApi {
 
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
 
+    }
+
+    public String getAttributeValueEmptyStringIfUnavailable(String estateUuid, String estateId, String attributeName) {
+        String competitionName = "";
+        try {
+            ResponseDto<EstateAttributeDto> estateAttributeDtoResponseDto = getSpecificEstateAttributeByEstateUuidOrEstateId(estateUuid, estateId, attributeName);
+            EstateAttributeDto estateAttributeDto = estateAttributeDtoResponseDto.getData();
+            competitionName = null == estateAttributeDto || StringUtils.isBlank(estateAttributeDto.getAttributeValue()) ? "" : estateAttributeDto.getAttributeValue();
+        } catch (Exception e) {
+            log.error("Unable to getAttributevalue for estateUuid {}, estateId {}, attributeName {}", estateUuid, estateId, attributeName, e);
+        }
+        return competitionName;
+    }
+
+    public PropertyInvoiceDetails getGstDataByResidenceUuid(String residenceUuid) {
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("uuid", residenceUuid);
+
+        String path = UriComponentsBuilder.fromPath("/internal/{uuid}/invoice-details")
+                .buildAndExpand(uriVariables)
+                .toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        final HttpHeaders headerParams = new HttpHeaders();
+        final String[] accepts = {"*/*"};
+
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        TypeReference<ResponseDto<PropertyInvoiceDetails>> returnType = new TypeReference<ResponseDto<PropertyInvoiceDetails>>() {
+        };
+
+        ResponseDto<PropertyInvoiceDetails> responseDto;
+        try {
+            responseDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Error while fetching Gst Information by residence UUID.", e);
+            throw new ApiValidationException("Some error occurred. Please try again after some time.");
+        }
+
+        if (!responseDto.isStatus()) {
+            throw new PreconditionFailedException(responseDto.getMessage());
+        }
+
+        PropertyInvoiceDetails gstInformationDto = responseDto.getData();
+
+        return gstInformationDto;
     }
 }

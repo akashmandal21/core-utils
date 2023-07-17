@@ -8,6 +8,7 @@ import lombok.experimental.UtilityClass;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.validator.routines.EmailValidator;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.math.BigDecimal;
 import java.math.MathContext;
@@ -85,6 +86,10 @@ public class StanzaUtils {
         return (int) ThreadLocalRandom.current().nextDouble(Math.pow(10, length - 1), Math.pow(10, length));
     }
 
+    public static boolean checkIfNumber(String str) {
+    	return StringUtils.isNotBlank(str)&&str.matches("[0-9]+");
+	}
+
 	public static int generateDefaultOtpOfLength(int length) {
 
 		int otp = 0;
@@ -123,6 +128,10 @@ public class StanzaUtils {
 			return false;
 		}
 		return EmailValidator.getInstance().isValid(email);
+	}
+	
+	public static String generateUniqueIdInLowerCase(int length) {
+		return RandomStringUtils.randomAlphanumeric(length).toLowerCase();
 	}
 
 	public static String generateUniqueId(int length) {
@@ -378,5 +387,13 @@ public class StanzaUtils {
 		}
 
 		return avgRating;
+	}
+
+	public String getTimeStampConcatenatedFileName(String fileName) {
+		return new Date().getTime() + "-" + fileName.replace(" ", "_");
+	}
+
+	public String getTimeStampConcatenatedFileName(MultipartFile multipartFile) {
+		return getTimeStampConcatenatedFileName(multipartFile.getOriginalFilename());
 	}
 }

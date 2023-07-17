@@ -4,10 +4,12 @@
 package com.stanzaliving.core.base.utils;
 
 import java.io.IOException;
+import java.util.Objects;
 
 import org.apache.commons.lang3.StringUtils;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.stanzaliving.core.base.http.BaseMapperConfig;
 
@@ -53,5 +55,28 @@ public class ObjectMapperUtil {
 		}
 		return t;
 	}
+	
+	public <T> T getObjectFromStringByTypeReference(String value, TypeReference<T> typeReference) {
+		T t = null;
+		if (StringUtils.isNotBlank(value)) {
+			try {
+				t = mapper.readValue(value, typeReference);
+			} catch (IOException e) {
+				log.error("Error while parsing json to object: {}", e.getMessage());
+			}
+		}
+		return t;
+	}
 
+	public <T> T convertObjectByTypeReference(Object value, TypeReference<T> typeReference) {
+		T t = null;
+		if (Objects.nonNull(value)) {
+			try {
+				t = mapper.convertValue(value, typeReference);
+			} catch (Exception e) {
+				log.error("Error while converting object to typeReference object type: {}, error: {}", e.getMessage(), e);
+			}
+		}
+		return t;
+	}
 }

@@ -5,6 +5,7 @@
 package com.stanzaliving.core.statustracker.db.service.impl;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -45,4 +46,5 @@ public class StatusTrackerDbServiceImpl extends AbstractJpaServiceImpl<StatusTra
 	public List<StatusTrackerEntity> findByContextUuidAndContextName(String contextUuid, String contextName) {
 		return statusTrackerRepository.findByContextUuidAndContextName(contextUuid, contextName);
 	}
+
 }

@@ -35,4 +35,7 @@ public class MenuItemRatingFilterDto {
 	private MealType mealType;
 
 	private Collection<String> itemIds;
+
+	private Collection<String> residenceIds;
+
 }

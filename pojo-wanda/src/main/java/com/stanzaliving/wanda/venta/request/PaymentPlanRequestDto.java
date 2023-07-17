@@ -17,8 +17,8 @@ public class PaymentPlanRequestDto {
     private String bookingUuid;
     
     @Builder.Default
-    private Boolean ledgerView = Boolean.FALSE;
+    private boolean ledgerView =false;
     
     @Builder.Default
-    private Boolean savePaymentPlan = Boolean.FALSE;
+    private boolean savePaymentPlan =false;
 }

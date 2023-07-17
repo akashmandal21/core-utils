@@ -1,5 +1,6 @@
 package com.stanzaliving.website.response.dto;
 
+import java.io.Serializable;
 import java.util.List;
 
 import com.stanzaliving.core.user.enums.EnumListing;
@@ -17,8 +18,10 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class CityResponseDTO {
+public class CityResponseDTO implements Serializable {
 
+	private static final long serialVersionUID = 1L;
+	
 	private int cityId;
 	private String name;
 	private String code;
@@ -33,6 +36,7 @@ public class CityResponseDTO {
 	private String cityResidenceTypeText;
 	private String phone;
 	private String description;
+	private String seoFaq;
 	private String imageAltTag;
 	private String iconImageUrlAltTag;
 	private String cityImgUrl;
@@ -43,8 +47,11 @@ public class CityResponseDTO {
 	private Boolean whatsappChatFlag;
 	private String cityDescription;
 	
-	@Builder.Default
-	private boolean comingSoon = false;
+	private boolean comingSoonPg;
+	private boolean comingSoonApartment;
+	
+	private int livePgsCount;
+	private int liveApartmentsCount;
 	
 	private List<AttributeDto> attributeDto;
     @Builder.Default
@@ -57,4 +64,16 @@ public class CityResponseDTO {
 	private String apartmentSeoTitle;
 	private String apartmentSeoDescription;
 	private String apartmentCityDescription;
+	private String apartmentSeoFaq;
+	
+	//place specific data fields-
+	private String place;
+	private Integer placeId;
+	private String placeSlug;
+	private String placeType;
+	private Integer placeTypeId;
+	private String city;
+	private String citySlug;
+	private String transformationUuid;
+
 }

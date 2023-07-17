@@ -14,9 +14,20 @@ public enum MenuStatus {
 	SUBMITTED("Submitted"),
 	APPROVED("Approved");
 	private final String status;
+
+	public static boolean showOnApprovalDashboard(MenuStatus menuStatus) {
+		return SUBMITTED.equals(menuStatus) || APPROVED.equals(menuStatus);
+	}
 	
 	public static boolean isEditable(MenuStatus menuStatus) {
 		return menuStatus == DRAFT || menuStatus == APPROVED ;
+	}
+
+	public static List<MenuStatus> getApprovalDashboardStatusList() {
+		List<MenuStatus> menuStatusList = new ArrayList<>();
+		menuStatusList.add(MenuStatus.APPROVED);
+		menuStatusList.add(MenuStatus.SUBMITTED);
+		return menuStatusList;
 	}
 	
 	private static final List<EnumListing<MenuStatus>> enumListing = new ArrayList<>();

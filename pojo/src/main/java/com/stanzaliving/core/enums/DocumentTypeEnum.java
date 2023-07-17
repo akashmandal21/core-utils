@@ -10,5 +10,9 @@ public enum DocumentTypeEnum {
     PASSPORT,
     VISA,
     POLICE_VERIFICATION,
-    FORM_C
+    POLICE_VERIFICATION_FORM,
+    FORM_C,
+    MOVE_IN_DATE_CHANGE,
+    ID_CARD,
+    SELFIE
 }

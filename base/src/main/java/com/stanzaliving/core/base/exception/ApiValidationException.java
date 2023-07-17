@@ -1,16 +1,15 @@
 /**
- * 
+ *
  */
 package com.stanzaliving.core.base.exception;
 
-import org.apache.commons.lang3.StringUtils;
-
 import lombok.Getter;
 import lombok.ToString;
+import org.apache.commons.lang3.StringUtils;
 
 @Getter
 @ToString(callSuper = true)
-public class ApiValidationException extends RuntimeException{
+public class ApiValidationException extends RuntimeException {
 
 	private static final long serialVersionUID = -4075250719863628707L;
 

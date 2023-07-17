@@ -8,7 +8,10 @@ import lombok.Getter;
 @Getter
 public enum GenderAllowed {
 
-	BOYS("Boys", "#8C54FF"), GIRLS("Girls", "#FD92AD"), COLIVING("Co-Living", "#b4b4b0");
+	BOYS("Boys", "#8C54FF"),
+	GIRLS("Girls", "#FD92AD"),
+	COLIVING("Co-Living", "#b4b4b0"),
+	NA("Not Applicable","#FD92AD");
 
 	String gender, color;
 

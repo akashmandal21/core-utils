@@ -20,7 +20,10 @@ public enum StanzaPaymentService {
 	IMS("Venta"),
 	WEBSITE("Website"),
 	ALFRED("Alfred"),
-	CAFE("Cafe"),;
+	CAFE("Cafe"),
+	FOOD_SUBSCRIPTION("Food Subscription"),
+	PREPAID_METER("Prepaid Meter"),
+	SUBSCRIPTION_PLAN("Subscription Plan");
 
 	private String displayName;
 }

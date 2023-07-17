@@ -9,6 +9,8 @@ public interface RedisCollectionService {
 
 	Map<String, String> getStringMap(String mapName);
 
+	Map<String,String> getFromStringMap(String mapName, Set<String> keys);
+
 	String getFromStringMap(String mapName, String key);
 
 	String addInStringMap(String mapName, String key, String value);
@@ -34,6 +36,10 @@ public interface RedisCollectionService {
 	void clearMap(String mapName);
 
 	Map<String, String> getStringMapCache(String mapName);
+
+	boolean putToMap(String mapName, String key, Object value, long ttl, TimeUnit timeUnit);
+
+	Object getFromMap(String mapName, String key);
 
 	String getFromStringMapCache(String mapName, String key);
 

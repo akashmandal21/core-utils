@@ -18,4 +18,18 @@ public class WebsitePlaceTypeConstants {
 	public final String SOCIETY = "Society";
 	
 	public final String PLACE = "place";
+	
+	public final String COLLEGE = "College";
+	
+	public final String OTHERS = "Others";
+	
+	public final String CORPORATE="Corporate Park";
+
+	public final String STANDALONE_BUILDING = "Building";
+	
+	public final Integer  PLACE_TYPE_ID_CITY = 5;
+	
+	public final Integer  PLACE_TYPE_ID_MICROMARKET = 4;
+
+	public final Integer  PLACE_TYPE_ID_SOCIETY = 8;
 }

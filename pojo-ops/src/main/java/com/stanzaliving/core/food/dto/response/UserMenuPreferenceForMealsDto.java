@@ -4,6 +4,7 @@ import com.stanzaliving.core.operations.enums.MealType;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import java.io.Serializable;
 import java.time.LocalTime;
 
 /**
@@ -21,7 +22,7 @@ import java.time.LocalTime;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserMenuPreferenceForMealsDto {
+public class UserMenuPreferenceForMealsDto implements Serializable {
 
 	private MealType nextMeal;
 
@@ -32,7 +33,7 @@ public class UserMenuPreferenceForMealsDto {
 	private UserMenuPreferenceResponseDto nextMealPreferences;
 
 	private LocalTime preferenceWindowCloseTime;
-	
+
 	private NextApplicableMealDto nextVasMeal;
 
 }

@@ -25,10 +25,12 @@ public class FlatUrlRequestDTO {
 	private String url;
 	private List<FlatUrlPlaceResponseDTO> placeData;
 	private String description;
+	private String seoFaq;
 	private String name;
 	private String seoTitle;
 	private String seoDescription;
 	private Boolean locationCheck;
+	private Boolean isMultiplePlaceActive;
 	private Gender gender;
 	private Long reviewCount;
 	private Double rating;

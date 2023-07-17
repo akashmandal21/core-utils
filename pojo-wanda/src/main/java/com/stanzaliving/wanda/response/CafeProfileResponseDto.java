@@ -13,6 +13,8 @@ public class CafeProfileResponseDto {
 
 	private WandaFileResponseDto profilePicture;
 	
+	private String residenceId;
+	
 	private String houseName;
 	
 	private String roomNumber;

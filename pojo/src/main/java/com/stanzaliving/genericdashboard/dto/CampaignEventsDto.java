@@ -10,11 +10,15 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode
+@ToString
+@Builder
 public class CampaignEventsDto {
 
     private String uuid;
 
     private String eventName;
+    
+    private String campaignId;
 
     private String eventCategoryName;
 
@@ -23,4 +27,5 @@ public class CampaignEventsDto {
     private List<CampaignEventAttributesDto> eventAttributesDtos;
 
     private String relationshipOperator;
+  
 }

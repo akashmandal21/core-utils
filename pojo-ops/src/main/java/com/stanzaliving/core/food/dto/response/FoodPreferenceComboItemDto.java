@@ -1,5 +1,7 @@
 package com.stanzaliving.core.food.dto.response;
 
+import java.io.Serializable;
+
 import com.stanzaliving.core.base.common.dto.ListingDto;
 import com.stanzaliving.core.food.enums.FoodItemType;
 
@@ -16,26 +18,25 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class FoodPreferenceComboItemDto {
+public class FoodPreferenceComboItemDto implements Serializable {
 
-	private String itemId;
-
-	private String categoryId;
-
-	private String subCategoryId;
-
-	private String itemName;
-
-	private Integer stdQty;
-
-	private Integer stdWeight;
-
-	private ListingDto units;
-
-	private FoodItemType itemType;
-	
-	private boolean quantifiable;
-
-	private boolean hideGrammage;
+    private static final long serialVersionUID = -1523221974565668717L;
+    private String itemId;
+    private String categoryId;
+    private String subCategoryId;
+    private String itemName;
+    private Integer stdQty;
+    private Integer stdWeight;
+    private Double itemCost;
+    private ListingDto units;
+    private FoodItemType itemType;
+    private boolean quantifiable;
+    private boolean hideGrammage;
+    private boolean hybridBuffetItem;
+    private CuisineTagsDto cuisineTagsDto;
+    private boolean beverageItem;
+    private String imageUrl;
+    private boolean selectedBeverageItem;
+    private int rank;
 
 }

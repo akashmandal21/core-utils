@@ -4,6 +4,7 @@
 package com.stanzaliving.qrcode.repository;
 
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.domain.Pageable;
@@ -40,4 +41,7 @@ public interface QRScanHistoryRepository extends AbstractJpaRepository<QRScanHis
 
 	QRScanHistory findByContextIdAndUserId(String contextId, String userId);
 
+	List<QRScanHistory> findByUserIdInAndStatus(List<String> userIds, boolean status);
+
+	List<QRScanHistory> findByUpdatedAtBetweenAndStatus(Date startDate, Date endDate, boolean status);
 }

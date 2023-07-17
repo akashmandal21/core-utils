@@ -19,6 +19,7 @@ public class CoreUserRequestDto {
 	private String gender;
 	private String clientName;
 	private String hostel;
+	private String residenceUuid;
 	private String city;
 	private String userSource;
 	private String dateOfBirth;

@@ -58,7 +58,7 @@ public class AssetUpdateDto extends AbstractSearchIndexDto {
 
 	private String assetNameSearch;
 	private String assetNameSuggest;
-	private String qrCodeSearch;
+	private String qrCodeIdSearch;
 	private String assetDescriptionSearch;
 	private String assetIdSearch;
 }

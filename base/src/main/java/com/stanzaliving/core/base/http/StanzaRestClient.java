@@ -3,13 +3,14 @@
  */
 package com.stanzaliving.core.base.http;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map.Entry;
-import java.util.Objects;
-
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.stanzaliving.core.base.StanzaConstants;
+import com.stanzaliving.core.base.exception.StanzaHttpException;
+import com.stanzaliving.core.base.exception.StanzaSecurityException;
+import lombok.extern.log4j.Log4j2;
+import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections.MapUtils;
 import org.slf4j.MDC;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -30,13 +31,12 @@ import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.stanzaliving.core.base.StanzaConstants;
-import com.stanzaliving.core.base.exception.StanzaHttpException;
-import com.stanzaliving.core.base.exception.StanzaSecurityException;
-
-import lombok.extern.log4j.Log4j2;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map.Entry;
+import java.util.Objects;
 
 /**
  * @author naveen
@@ -54,6 +54,8 @@ public class StanzaRestClient {
 
 	private HttpHeaders defaultHeaders = new HttpHeaders();
 
+	private HttpMessageConverter messageConverter;
+
 	public StanzaRestClient(String basePath) {
 		this.basePath = basePath;
 		this.restTemplate = buildRestTemplate();
@@ -64,6 +66,14 @@ public class StanzaRestClient {
 		this.basePath = basePath;
 		this.restTemplate = buildRestTemplate(connectTimeOut, readTimeOut);
 		objectMapper = BaseMapperConfig.getDefaultMapper();
+	}
+
+	public HttpMessageConverter getMessageConverter() {
+		return messageConverter;
+	}
+
+	public void setMessageConverter(HttpMessageConverter messageConverter) {
+		this.messageConverter = messageConverter;
 	}
 
 	public enum CollectionFormat {
@@ -173,6 +183,18 @@ public class StanzaRestClient {
 		return invokeAPI(path, method, queryParams, body, headerParams, accept, returnType, MediaType.APPLICATION_JSON);
 	}
 
+	public <T> T invokeAPIWithFormUrlEncoded(
+			String path,
+			HttpMethod method,
+			MultiValueMap<String, String> queryParams,
+			Object body,
+			HttpHeaders headerParams,
+			List<MediaType> accept,
+			ParameterizedTypeReference<T> returnType) {
+
+		return invokeAPI(path, method, queryParams, body, headerParams, accept, returnType, MediaType.APPLICATION_FORM_URLENCODED);
+	}
+
 	public <T> T invokeAPI(
 			String path,
 			HttpMethod method,
@@ -212,6 +234,11 @@ public class StanzaRestClient {
 	private <T> T getResponse(RequestEntity<Object> requestEntity, ParameterizedTypeReference<T> returnType, final UriComponentsBuilder builder) {
 		ResponseEntity<T> responseEntity = null;
 		try {
+			if (null != messageConverter) {
+				List<HttpMessageConverter<?>> messageConverters = new ArrayList<>();
+				messageConverters.add(messageConverter);
+				restTemplate.setMessageConverters(messageConverters);
+			}
 			responseEntity = restTemplate.exchange(requestEntity, returnType);
 
 		} catch (RestClientException e) {
@@ -333,21 +360,31 @@ public class StanzaRestClient {
 			HttpHeaders headerParams,
 			List<MediaType> accept,
 			TypeReference<T> returnType,
-			MediaType mediaType) {
+			MediaType contentType) {
 
 		final UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(basePath).path(path);
 
-		if (Objects.nonNull(queryParams)) {
+		if (MapUtils.isNotEmpty(queryParams)) {
 			builder.queryParams(queryParams);
+		}
+
+		if (Objects.isNull(headerParams)) {
+			headerParams = new HttpHeaders();
+		}
+
+		if (CollectionUtils.isEmpty(accept)) {
+			accept = new ArrayList<>();
+			accept.add(MediaType.ALL);
 		}
 
 		final BodyBuilder requestBuilder = RequestEntity.method(method, builder.build().toUri());
 
-		if (Objects.nonNull(accept)) {
-			requestBuilder.accept(accept.toArray(new MediaType[accept.size()]));
+
+		if (CollectionUtils.isNotEmpty(accept)) {
+			requestBuilder.accept(accept.toArray(new MediaType[0]));
 		}
 
-		requestBuilder.contentType(mediaType);
+		requestBuilder.contentType(contentType);
 
 		addHeadersToRequest(headerParams, requestBuilder);
 
@@ -549,4 +586,74 @@ public class StanzaRestClient {
 
 		return this;
 	}
+
+	public <T> T get(String path,
+			MultiValueMap<String, String> queryParams,
+			HttpHeaders headerParams,
+			List<MediaType> accept,
+			TypeReference<T> returnType,
+			MediaType mediaType){
+		return request(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType, mediaType);
+	}
+
+	public <T> T post(String path,
+			MultiValueMap<String, String> queryParams,
+			Object body,
+			HttpHeaders headerParams,
+			List<MediaType> accept,
+			TypeReference<T> returnType,
+			MediaType mediaType){
+		return request(path, HttpMethod.POST, queryParams, body, headerParams, accept, returnType, mediaType);
+	}
+
+	public <T> T put(String path,
+			MultiValueMap<String, String> queryParams,
+			Object body,
+			HttpHeaders headerParams,
+			List<MediaType> accept,
+			TypeReference<T> returnType,
+			MediaType mediaType){
+		return request(path, HttpMethod.PUT, queryParams, body, headerParams, accept, returnType, mediaType);
+	}
+
+	public <T> T head(String path,
+			MultiValueMap<String, String> queryParams,
+			Object body,
+			HttpHeaders headerParams,
+			List<MediaType> accept,
+			TypeReference<T> returnType,
+			MediaType mediaType){
+		return request(path, HttpMethod.HEAD, queryParams, body, headerParams, accept, returnType, mediaType);
+	}
+
+	public <T> T patch(String path,
+			MultiValueMap<String, String> queryParams,
+			Object body,
+			HttpHeaders headerParams,
+			List<MediaType> accept,
+			TypeReference<T> returnType,
+			MediaType mediaType){
+		return request(path, HttpMethod.PATCH, queryParams, body, headerParams, accept, returnType, mediaType);
+	}
+
+	public <T> T delete(String path,
+			MultiValueMap<String, String> queryParams,
+			Object body,
+			HttpHeaders headerParams,
+			List<MediaType> accept,
+			TypeReference<T> returnType,
+			MediaType mediaType){
+		return request(path, HttpMethod.DELETE, queryParams, body, headerParams, accept, returnType, mediaType);
+	}
+
+	public <T> T options(String path,
+			MultiValueMap<String, String> queryParams,
+			Object body,
+			HttpHeaders headerParams,
+			List<MediaType> accept,
+			TypeReference<T> returnType,
+			MediaType mediaType){
+		return request(path, HttpMethod.OPTIONS, queryParams, body, headerParams, accept, returnType, mediaType);
+	}
+
 }

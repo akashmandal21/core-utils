@@ -27,6 +27,8 @@ public enum EstateStatus {
 	//Level 1 Status
 	SENT_FOR_APPROVAL_TO_CITY_HEAD("L1 Sent to RM"),
 	SENT_FOR_APPROVAL_TO_CITY_HEAD_WITH_DESIGN_FILES("L1+DF Sent to RM"),
+	SENT_FOR_APPROVAL_TO_CLUSTER_MANAGER("Pending cluster manager approval"),
+    SENT_FOR_APPROVAL_TO_ZONAL_HEAD("Pending zonal head approval"),
 	APPROVED_BY_CITY_HEAD("Shortlisted By RM"),
 	SENT_BACK_BY_CITY_HEAD("L1 Sent Back By RM"),
 	SENT_BACK_FROM_INITIAL_BED_COUNT("Sent Back From Initial Bed Count"),
@@ -38,7 +40,7 @@ public enum EstateStatus {
 	SENT_FOR_APPROVAL("L2 Sent To NH & Design Head"),
 	SENT_BACK("L2 Sent Back By NH"),
 	APPROVED_BY_NATIONAL_HEAD("Pending Design Approval"),
-	SENT_BACK_BY_TRANSFORMATION("Sent Back By Design"),
+	SENT_BACK_BY_TRANSFORMATION("L2 Sent Back By Design"),
 	APPROVED_BY_TRANSFORMATION("Pending NH's Approval"),
 	SHORTLISTED("Shortlisted"),
 	
@@ -65,7 +67,7 @@ public enum EstateStatus {
 
 	//Sandeep's approval & sent back
 	SENT_FOR_SANDEEP_APPROVAL("Sent for Sandeep's approval"),
-	SENT_BACK_BY_SANDEEP("Sent back by Sandeep"),
+	SENT_BACK_BY_SANDEEP("L2 Sent back by Sandeep"),
 
 	DROPPED_REQUESTED("Property Drop Request Raised"),
 	DROPPED("Property Dropped"),
@@ -75,12 +77,54 @@ public enum EstateStatus {
 	CALLBACK_TO_L1_APPROVED("Callback Request To L1"),
 	CALLBACK_APPROVED("Call Back Request Approved"),
 	CALLBACK_DECLINE("Call Back Request Declined"),
+
+	L1_CALLBACK_APPROVAL("L1 Call Back Request"),
+	L2_CALLBACK_APPROVAL("L2 Call Back Request"),
+	L1_DROP_APPROVAL("L1 Drop Request"),
+	L2_DROP_APPROVAL("L2 Drop Request"),
 	
 	//Sales status
-	PENDING_SALES_APPROVAL("Pending Sales Approval");
-	
+	PENDING_SALES_APPROVAL("Pending Sales Approval"),
+
+	SENT_FOR_NH_DH_APPROVED("Pending L2 NH Approval"),
+	SENT_FOR_DH_NH_APPROVED("Pending L2 SOW Approval"),
+
+	PROPERTY_APPROVED("Property Approved"),
+
+	//New Pg flow status
+	SENT_FOR_L1_APPROVAL_TO_ZH("L1 Sent to ZH"),
+	SENT_FOR_L1_APPROVAL_TO_CH("L1 Sent to CH"),
+	SENT_FOR_L2_APPROVAL_TO_ZH("Pending ZH L2 approval"),
+	SENT_FOR_L2_APPROVAL_TO_NH("Pending NH L2 approval"),
+	SENT_FOR_APPROVAL_TO_TRANSFORMATION_AND_LEGAL("Pending Transformation and Legal approval"),
+	SENT_TO_TRANSFORMATION("Pending Transformation Approval"),
+	SENT_TO_LEGAL_AND_SANDEEP("Pending Legal and Sandeep Approval"),
+	SENT_TO_SANDEEP("Pending Sandeep Approval"),
+	SENT_FOR_LEADERSHIP_APPROVAL("Pending Final Deal Approval by Andy"),
+	SENT_TO_FILL_L2_DETAILS("Pending BD to fill L2 details"),
+	SENT_BACK_BY_CH("L1 Sent Back by CH"),
+	SENT_BACK_L2_BY_ZH("L1 Sent Back by ZH"),
+	SENT_BACK_L2_BY_NH("L1 Sent Back By NH"),
+	SENT_BACK_BY_ANDY("L1 Sent Back by Andy"),
+	SENT_BACK_BY_ZONAL_HEAD("L1 Sent Back By ZH"),
+	SENT_BACK_BY_LEGAL_TITLE_DOCS("Sent Back By Legal Title Docs"),
+	SENT_FOR_ATL("Sent for ATL generation"),
+	SENT_TO_TITLE_DOCS("Pending Legal for Title Docs Approval"),
+	SENT_TO_TITLE_DOCS_AND_SANDEEP("Pending Title Docs and Sandeep Approval"),
+	SENT_TO_TRANSFORMATION_AND_TITLE_DOCS("Pending Transformation and Title Docs Approval"),
+	BYPASS_APPROVAL("Pending Bypass Approval"),
+	SENT_BACK_L2_BY_ANDY("L2 Sent Back By Andy"),
+	SENT_BACK_L1_BY_SANDEEP("L1 Sent Back By Sandeep"),
+	SENT_BACK_L1_BY_TRANSFORMATION("L1 Sent Back By Transformation"),
+	SENT_BACK_L2_BY_NH_L2("L2 Sent Back By NH"),
+	SENT_BACK_L2_BY_ZH_L2("L2 Sent Back By ZH"),
+	SENT_BACK_L2_BY_LEADERSHIP("L2 Sent Back By Leadership"),
+	SENT_FOR_L1_APPROVAL_TO_DPM("SENT_FOR_L1_APPROVAL_TO_DPM"),
+	SENT_TO_SUNIL_AND_LEGAL("Pending Sunil And Legal Approval");
+
+
 	public static List<EstateStatus> NON_MODIFIABLE_ESTATE_STATUS;
-	
+
 	private String name;
 
 	private static Map<EstateStatus, String> estateStatusMap = new HashMap<>();
@@ -337,5 +381,4 @@ public enum EstateStatus {
 		
 		return dropUnderNHStatus;
 	}
-
 }

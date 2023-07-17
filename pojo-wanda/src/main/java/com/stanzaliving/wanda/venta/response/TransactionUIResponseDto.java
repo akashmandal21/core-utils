@@ -27,5 +27,6 @@ public class TransactionUIResponseDto {
 	private String transactionDate;
 	private String transactionTime;
 	private String invoiceName;
-	
+	private Boolean isLastTransaction;
+	private String paymentStatus;
 }

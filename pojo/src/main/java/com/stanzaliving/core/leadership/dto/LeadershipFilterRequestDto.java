@@ -23,6 +23,7 @@ import lombok.ToString;
 public class LeadershipFilterRequestDto {
 
 	private List<String> estateStatuses;
+	private List<String> competition;
 	private BedCountRange bedCountRange;
 	private RentBedRange rentBedRange;
 	private String city;

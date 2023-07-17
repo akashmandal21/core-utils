@@ -50,4 +50,6 @@ public class PhoenixBedCountResponseDto {
 
 	private Boolean isReOpenAllowed;
 
+	private String competitor;
+
 }

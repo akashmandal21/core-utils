@@ -2,6 +2,7 @@ package com.stanzaliving.item_master.dtos;
 
 import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.core.generic.dto.UIKeyValue;
+import com.stanzaliving.item_master.enums.FarCategory;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -36,7 +37,8 @@ public class GenericItemDto {
     private Double sgst;
     private Double igst;
     private Boolean inactive;
-
+    private FarCategory farCategory;
+    private Boolean taggable;
     //Rates
     private BigDecimal globalRate;
     private BigDecimal cityRate;

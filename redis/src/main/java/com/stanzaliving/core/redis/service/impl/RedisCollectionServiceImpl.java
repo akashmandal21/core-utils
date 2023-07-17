@@ -43,6 +43,22 @@ public class RedisCollectionServiceImpl implements RedisCollectionService {
 	}
 
 	@Override
+	public Map<String,String> getFromStringMap(String mapName, Set<String> keys) {
+
+		log.debug("Fetching map: {} from redis", mapName);
+
+		RMap<String,String> rMap = getRedisStringMap(mapName);
+
+		Map<String,String> map = rMap.getAll(keys);
+
+		if(map==null)
+			return new HashMap<>();
+
+		return map;
+
+	}
+
+	@Override
 	public String getFromStringMap(String mapName, String key) {
 		return getRedisStringMap(mapName).get(key);
 	}
@@ -161,6 +177,17 @@ public class RedisCollectionServiceImpl implements RedisCollectionService {
 
 	private RMapCache<String, String> getRedisStringMapCache(String mapName) {
 		return redissonClient.getMapCache(mapName);
+	}
+
+	@Override
+	public Object getFromMap(String mapName, String key) {
+		return redissonClient.getMapCache(mapName).get(key);
+	}
+
+	@Override
+	public boolean putToMap(String mapName, String key, Object value, long ttl, TimeUnit timeUnit) {
+		Object object = redissonClient.getMapCache(mapName).put(key, value, ttl, timeUnit);
+		return Objects.nonNull(object);
 	}
 
 	@Override

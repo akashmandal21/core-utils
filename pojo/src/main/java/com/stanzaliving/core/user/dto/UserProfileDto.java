@@ -69,4 +69,11 @@ public class UserProfileDto extends UserDto {
 	
 	private LocalDate arrivalDate;
 	
+	private int ageLimit;
+
+	private boolean status;
+
+	private boolean isMigrated;
+
+	private String companyName;
 }

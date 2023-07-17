@@ -2,6 +2,7 @@ package com.stanzaliving.genericdashboard.dto;
 
 import com.stanzaliving.genericdashboard.enums.QuestionCategory;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -9,6 +10,7 @@ import lombok.Setter;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+@Builder
 @Getter
 @Setter
 @NoArgsConstructor
@@ -31,4 +33,7 @@ public class QuestionsDto {
 
     @NotNull
     private String options;
+
+    private SurveyConfigurationDto surveyConfig;
+
 }

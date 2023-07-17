@@ -1,6 +1,7 @@
 package com.stanzaliving.food.v2.category.dto;
 
 import com.stanzaliving.core.operations.enums.MealType;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -23,4 +24,9 @@ public class MealWiseMenuDto implements Serializable {
 
 	private List<DayWiseMenuDto> dayWiseMenu;
 
+	@Builder.Default
+	private boolean isBeverageRuleSatisfied = true;
+
+	@Builder.Default
+	private boolean isDefaultBeverageRuleSatisfied = true;
 }

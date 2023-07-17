@@ -10,6 +10,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.io.Serializable;
+
 /**
  * @author naveen.kumar
  *
@@ -22,7 +24,7 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class ResidentMealFeedbackOptions {
+public class ResidentMealFeedbackOptions implements Serializable {
 
 	private String mealFeedbackOptionUuid;
 	

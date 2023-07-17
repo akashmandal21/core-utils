@@ -18,5 +18,6 @@ import lombok.ToString;
 public class QualificationQuestionResponseDto {
 
 	private List<QualificationQuestionAnswerMetaDataDto> questionMetadata;
-
+	
+	private Long leadId;
 }

@@ -29,4 +29,6 @@ public class InternetErrorDto {
 
 	private String exception;
 
+	private String message;
+
 }

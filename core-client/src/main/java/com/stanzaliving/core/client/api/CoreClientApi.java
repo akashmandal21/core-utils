@@ -115,11 +115,19 @@ public class CoreClientApi {
 		};
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-		FullUserDto fullUserDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, FullUserDto.class);
 		ResponseDto<FullUserDto> responseDto = new ResponseDto<>();
-		responseDto.setData(fullUserDto);
-		responseDto.setStatus(true);
-		responseDto.setHttpStatusCode(200);
+		try {
+
+			FullUserDto fullUserDto = restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, FullUserDto.class);
+			responseDto.setData(fullUserDto);
+			responseDto.setStatus(true);
+			responseDto.setHttpStatusCode(200);
+
+			log.info("fullUserDto {}", fullUserDto);
+
+		} catch (Exception e) {
+			log.error("Exception while calling core api ", e);
+		}
 
 		return responseDto;
 	}
@@ -484,4 +492,5 @@ public class CoreClientApi {
 		restClient.invokeAPI(path, HttpMethod.POST, queryParams, hostelVasEnabledUpdateDtos, headerParams, accept, returnType);
 
 	}
+
 }

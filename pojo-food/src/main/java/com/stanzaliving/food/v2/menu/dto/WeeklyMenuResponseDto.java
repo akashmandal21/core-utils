@@ -1,6 +1,7 @@
 package com.stanzaliving.food.v2.menu.dto;
 
 import com.stanzaliving.core.food.dto.FoodMenuBudgetDto;
+import com.stanzaliving.food.v2.category.dto.BeverageRuleDto;
 import com.stanzaliving.food.v2.category.dto.CompositionRuleV2Dto;
 import com.stanzaliving.food.v2.category.dto.DayWiseCogsDto;
 import com.stanzaliving.food.v2.category.dto.MealWiseMenuDto;
@@ -23,6 +24,7 @@ public class WeeklyMenuResponseDto extends MenuWiseMenuSearchRDto {
 	private boolean compositionRulesSatisfied;
 	private boolean comboRulesSatisfied;
 	private boolean budgetUtilizationInLimit;
+	private boolean hybridMealRuleSatisfied;
 	private boolean mealOfDayDefined;
 	private boolean menuDefined;
 	private Double newnessPercentage;
@@ -33,5 +35,8 @@ public class WeeklyMenuResponseDto extends MenuWiseMenuSearchRDto {
 	private List<DayWiseCogsDto> dayWiseCogs;
 	private CompositionRuleV2Dto rules;
 	private FoodMenuBudgetDto budgetRules;
+	private BeverageRuleDto beverageRuleDto;
+	private BeverageRuleDto defaultBeverageRuleDto;
+	private boolean copyAction;
 
 }

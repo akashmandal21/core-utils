@@ -1,6 +1,8 @@
 package com.stanzaliving.core.boq_service.dtos;
 
+import com.stanzaliving.boq_service.dto.LabelValueDto;
 import com.stanzaliving.core.boq_service.enums.BoqItemProvider;
+import com.stanzaliving.transformations.enums.AreaOfUse;
 import com.stanzaliving.transformations.enums.LineItemStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -15,7 +17,14 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class BoqLineItemDto implements Comparable<BoqLineItemDto>{
-	
+
+    //new keys; will replace old keys with time
+    private List<LabelValueDto<AreaOfUse>> areaOfUseOptions;
+    private LabelValueDto<AreaOfUse> areaOfUseValue;
+    private BigDecimal itemAmount;
+    private LabelValueDto<BoqItemProvider> budgetByValue;
+    private LabelValueDto<BoqItemProvider> doneByValue;
+
     private String itemUuid;
     private String lineItemUuid;
     private String categoryName;
@@ -44,6 +53,7 @@ public class BoqLineItemDto implements Comparable<BoqLineItemDto>{
     private LineItemStatus lineItemStatus;
     private boolean itemApproved;
     private BigDecimal maxQuantity;
+    private String boqLabel;
 
     @Override
     public int compareTo(BoqLineItemDto o) {

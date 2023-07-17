@@ -48,7 +48,7 @@ public enum FARFields {
     ASSET_BGCOLOR(FARSections.ASSET),
     ASSET_LABEL(FARSections.ASSET),
 
-    ALLOCATION_ADDRESSUUID(FARSections.ALLOCATION), // todo - Call transformation_master with addressUuid - It will return microMarketUuid & cityUuid, locationName
+    ALLOCATION_ADDRESSUUID(FARSections.ALLOCATION), // Call transformation_master with addressUuid - It will return microMarketUuid & cityUuid, locationName
     ALLOCATION_LOCATIONTYPE(FARSections.ALLOCATION),
     ALLOCATION_ALLOCATEDTO(FARSections.ALLOCATION),
     ALLOCATION_ALLOCATEDIN(FARSections.ALLOCATION),

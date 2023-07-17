@@ -12,10 +12,12 @@ import com.stanzaliving.wanda.enums.ResidentType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.Setter;
 
 @Builder
 @Getter
 @AllArgsConstructor
+@Setter
 public class OnboardingPageEnumsDto {
 
 	private List<EnumListing<BloodGroup>> bloodGroup;

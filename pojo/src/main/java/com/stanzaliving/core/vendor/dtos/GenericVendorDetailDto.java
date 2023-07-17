@@ -39,6 +39,7 @@ public class GenericVendorDetailDto {
     private String pan;
 
     private List<VendorPocDetailsDto> vendorPOCs;
+    private List<VendorPocDto> vendorPocDtos;
 
     private String createdBy;
 

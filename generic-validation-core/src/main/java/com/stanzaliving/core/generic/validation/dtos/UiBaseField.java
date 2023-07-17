@@ -22,4 +22,5 @@ public class UiBaseField {
     private JsonNode data;
     private JsonNode value;
     private JsonNode skeleton;
+    private JsonNode minValue;
 }

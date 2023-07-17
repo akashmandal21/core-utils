@@ -18,10 +18,12 @@ public class MonthlyFee {
 	private String monthlyFeeStr;
 
 	private String packedServicesFeeStr;
-
+	private String foodServicesFeeStr;
 	private Double monthlyFee;
 
 	private Double packedServicesFee;
+	@Builder.Default
+	private Double foodServicesFee=0.0d;
 
 	private String total;
 	
@@ -30,4 +32,14 @@ public class MonthlyFee {
 	private List<Pair<String, String>> vasFees;
 
 	private String maintenanceFee;
+
+	private Double onmRentalCharges;
+
+	private Double onmServiceCharges;
+
+	private Double onmGstValue;
+
+	private Double onmGstPercentage;
+
+	private Double onmTotal;
 }

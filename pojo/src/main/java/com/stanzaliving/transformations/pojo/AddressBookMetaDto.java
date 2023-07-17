@@ -18,9 +18,9 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AddressBookMetaDto implements Serializable {
-	
+
 	private LocationType locationType;
-	
+
 	private String locationName;
 
 	private String uuid;
@@ -44,11 +44,11 @@ public class AddressBookMetaDto implements Serializable {
 	private String pincode;
 
 	private String addressLine1;
-	
+
 	private String addressLine2;
-	
+
 	private String landmark;
-	
+
 	private Double latitude;
 
 	private Double longitude;

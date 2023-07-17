@@ -5,6 +5,7 @@ import java.util.Date;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.core.po.generic.enums.GenericPOType;
 import com.stanzaliving.transformations.enums.LocationType;
 
@@ -33,5 +34,6 @@ public class GrsiEventUpdateDto {
     private GrsiItemDto gsriItem;
     private String adjustCloseId;
     private Integer version;
+    private Department poToDepartment;
 
 }

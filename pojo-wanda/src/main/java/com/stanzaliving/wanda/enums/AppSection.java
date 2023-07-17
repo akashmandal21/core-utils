@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.stanzaliving.banner.enumeration.AppPage;
+import com.stanzaliving.banner.enumeration.PageSection;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -23,7 +24,8 @@ public enum AppSection {
 	REFERRAL("Referral", AppPage.HOME_PAGE), 
 	COMMUNITY("Community", AppPage.HOME_PAGE), 
 	FEED_HOME_PAGE("Feed", AppPage.HOME_PAGE),
-	
+	COMMUNITYCARD("Community", AppPage.HOME_PAGE),
+	CONTRACT_RENEWAL("Contract Renewal", AppPage.HOME_PAGE),
 	//FOOD_PAGE Enums
 	
 	FOOD_MEAL_PREFERENCES("Food Meal Preferences", AppPage.FOOD_PAGE),
@@ -43,16 +45,22 @@ public enum AppSection {
 	CATEGORIES("Categories", AppPage.SUPPORT_HOME_PAGE),
 	FAQS("Faqs", AppPage.SUPPORT_HOME_PAGE),
 	FEEDBACK_SUPPORT_PAGE("Feedback", AppPage.SUPPORT_HOME_PAGE), 
-	DEALS_SUPPORT_PAGE("Deals", AppPage.SUPPORT_HOME_PAGE);
+	DEALS_SUPPORT_PAGE("Deals", AppPage.SUPPORT_HOME_PAGE),
 
+	//COMMUNITY_PAGE Enums
+	
+	COMMUNITY_SECTION("Community", AppPage.COMMUNITY_PAGE),
+	POPULAR_EVENTS_COMMUNITY_PAGE(PageSection.POPULAR_EVENTS.getDisplayName(), AppPage.COMMUNITY_PAGE);
+	
 	private String displayName;
 	
 	private AppPage appPage;
 	
-	public static List<AppSection> HomePageSectionList = new ArrayList<>();
-	public static List<AppSection> FoodPageSectionList = new ArrayList<>();
-	public static List<AppSection> MyStayPageSectionList = new ArrayList<>();
-	public static List<AppSection> SupportHomePageSectionList = new ArrayList<>();
+	public static List<AppSection> homePageSectionList = new ArrayList<>();
+	public static List<AppSection> foodPageSectionList = new ArrayList<>();
+	public static List<AppSection> myStayPageSectionList = new ArrayList<>();
+	public static List<AppSection> supportHomePageSectionList = new ArrayList<>();
+	public static List<AppSection> communityPageSectionList = new ArrayList<>();
 	
 	static {
 
@@ -61,20 +69,23 @@ public enum AppSection {
 			switch (appSection.getAppPage()) {
 			
 			case HOME_PAGE:
-				HomePageSectionList.add(appSection);
+				homePageSectionList.add(appSection);
 				break;
 			
 			case FOOD_PAGE:
-				FoodPageSectionList.add(appSection);
+				foodPageSectionList.add(appSection);
 				break;
 			
 			case MYSTAY_PAGE:
-				MyStayPageSectionList.add(appSection);
+				myStayPageSectionList.add(appSection);
 				break;
 			
 			case SUPPORT_HOME_PAGE:
-				SupportHomePageSectionList.add(appSection);
+				supportHomePageSectionList.add(appSection);
 				break;
+				
+			case COMMUNITY_PAGE:
+				communityPageSectionList.add(appSection);
 			
 			default:
 				break;
@@ -87,17 +98,20 @@ public enum AppSection {
 		switch (appPage) {
 
 		case HOME_PAGE:
-			return HomePageSectionList;
+			return homePageSectionList;
 
 		case FOOD_PAGE:
-			return FoodPageSectionList;
+			return foodPageSectionList;
 
 		case MYSTAY_PAGE:
-			return MyStayPageSectionList;
+			return myStayPageSectionList;
 
 		case SUPPORT_HOME_PAGE:
-			return SupportHomePageSectionList;
-
+			return supportHomePageSectionList;
+			
+		case COMMUNITY_PAGE:
+			return communityPageSectionList;
+			
 		default:
 			return null;
 		}
