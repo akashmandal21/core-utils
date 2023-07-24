@@ -19,10 +19,13 @@ public class PricingDetailsResponseDto {
     private double onmServiceFee;
     private double packagedServiceFee;
     private double foodService;
+    // without city buffer
     private double gst;
     private double underWritten;
     private double cityBuffer;
+    // with city buffer
     private double total;
+    private double totalIncGst;
     private double underWrittenIncGst;
     private boolean isRoomConverted;
     private double priceImpact;

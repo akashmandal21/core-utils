@@ -1,6 +1,6 @@
 package com.stanzaliving.core.dto;
 
-import com.stanzaliving.core.enums.Source;
+import com.stanzaliving.core.enums.SourceApp;
 import lombok.*;
 
 import javax.validation.Valid;
@@ -15,7 +15,7 @@ import java.util.List;
 public class OptInRequestDto {
 
     @Builder.Default
-    private Source optInSource = Source.SIGMA;
+    private SourceApp optInSource = SourceApp.SIGMA;
 
     @Valid
     @NotEmpty(message = "Plan Opt In Request List cannot be null or empty")

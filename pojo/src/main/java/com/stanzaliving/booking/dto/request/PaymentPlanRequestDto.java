@@ -1,7 +1,11 @@
 package com.stanzaliving.booking.dto.request;
 
+import com.stanzaliving.booking.dto.response.CommercialsDetailsResponseDTO;
+import com.stanzaliving.booking.dto.response.InventoryPricingResponseDto;
 import com.stanzaliving.booking.enums.*;
+import com.stanzaliving.core.commercialcode.dto.CommercialCardResponseDto;
 import com.stanzaliving.core.paymentPlan.dto.VasRequestDto;
+import com.stanzaliving.core.residenceservice.dto.PricingDetailsResponseDto;
 import com.stanzaliving.price_strategy.request.PaymentActionDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

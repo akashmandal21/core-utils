@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class InventoryPricingResponseDto {
+public class  InventoryPricingResponseDto {
 
     private double packagedServiceFee;
     private double packagedServiceCGST;
