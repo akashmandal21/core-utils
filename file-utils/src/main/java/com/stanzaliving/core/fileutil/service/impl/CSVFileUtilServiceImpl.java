@@ -104,6 +104,7 @@ public class CSVFileUtilServiceImpl implements CSVFileUtilService {
         List<Map<String, String>> csvData = new ArrayList<>();
         if (CVSUtil.hasCSVFormat(contentType) || ExcelUtil.hasExcelFormat(contentType)) {
             try (BufferedReader fileReader = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8)); CSVParser csvParser = new CSVParser(fileReader, CSVFormat.DEFAULT.withFirstRecordAsHeader().withIgnoreHeaderCase().withTrim())) {
+
                 csvHeader = csvParser.getHeaderNames();
                 Iterable<CSVRecord> csvRecords = csvParser.getRecords();
                 totalRecords = ((Collection<?>) csvRecords).size();
@@ -115,6 +116,14 @@ public class CSVFileUtilServiceImpl implements CSVFileUtilService {
 
             } catch (IOException e) {
                 throw new StanzaException("fail to parse CSV file: " + e.getMessage());
+            } finally {
+                try {
+                    if (Objects.nonNull(inputStream)) {
+                        inputStream.close();
+                    }
+                }catch (IOException e) {
+                   log.error("fail to close input stream : " + e.getMessage());
+                }
             }
         }
         return CSVResponse.builder().header(csvHeader).filterHeader(filterHeader).totalRecord(totalRecords).totalRecordMatched(csvData.size()).data(csvData).build();
