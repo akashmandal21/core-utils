@@ -109,6 +109,7 @@ public class CSVFileUtilServiceImpl implements CSVFileUtilService {
                 Iterable<CSVRecord> csvRecords = csvParser.getRecords();
                 totalRecords = ((Collection<?>) csvRecords).size();
                 for (CSVRecord csvRecord : csvRecords) {
+                    log.info("Csv Record :: {}", csvRecord);
                     List<String> finalFilterHeader = filterHeader.isEmpty() ? csvHeader : filterHeader;
                     Map<String, String> data = csvRecord.toMap().entrySet().stream().filter(row -> finalFilterHeader.contains(row.getKey())).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
                     csvData.add(data);
