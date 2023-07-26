@@ -190,6 +190,9 @@ public class PropertyInfoCDC {
     @JsonProperty("sow_atl_url")
     private String sowAtlUrl;
 
+    @JsonProperty("cluster_manager_id")
+    private String clusterManagerId;
+
     @JsonProperty("llhodoc_url")
     private String llhodocUrl;
 }
