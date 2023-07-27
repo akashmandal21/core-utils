@@ -31,7 +31,7 @@ public enum CategoryStatus {
 	}
 	
 	public static List<CategoryStatus> draftStatus() {
-		return Arrays.asList(DRAFT, SUBMITTED, SAVED);
+		return Arrays.asList(DRAFT, SUBMITTED);
 	}
 	
 	
@@ -48,14 +48,14 @@ public enum CategoryStatus {
 	}
 	
 	public static List<CategoryStatus> allowedCopyStatus() {
-		return Arrays.asList(APPROVED, SUBMITTED, SAVED);
+		return Arrays.asList(APPROVED, SUBMITTED);
 	}
 	
 	public static List<CategoryStatus> clonableStatus() {
-		return Arrays.asList(APPROVED, SUBMITTED, SAVED);
+		return Arrays.asList(APPROVED, SUBMITTED);
 	}
 	
 	public static boolean submissionAllowed(CategoryStatus categoryStatus) {
-		return categoryStatus == null || categoryStatus == DRAFT;
+		return categoryStatus == null || categoryStatus == DRAFT || categoryStatus == SAVED;
 	}
 }
