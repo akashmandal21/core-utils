@@ -128,7 +128,7 @@ public class LocationServiceClientApi {
 
             uriVariables.put("type", enclosedAreaType);
 
-            String path = UriComponentsBuilder.fromPath("/internal/residence/{type}/parents").buildAndExpand(uriVariables).toUriString();
+            String path = UriComponentsBuilder.fromPath("internal/location/{type}/enclose").buildAndExpand(uriVariables).toUriString();
 
             final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
