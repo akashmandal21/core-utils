@@ -13,7 +13,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 public class Geometry implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-
-    private GeoPoint geoPoint;
+//    private static final long serialVersionUID = 1L;
+//
+//    private GeoPoint geoPoint;
 }
