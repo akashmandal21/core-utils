@@ -1,6 +1,5 @@
 package com.stanzaliving.core.locationservice.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -22,7 +21,6 @@ public class LocationDto implements Serializable {
 
     private String type;
 
-    @JsonIgnore
     private Geometry geometry;
 
     private Properties properties;
