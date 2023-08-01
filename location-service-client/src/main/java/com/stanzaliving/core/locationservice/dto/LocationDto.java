@@ -22,7 +22,7 @@ public class LocationDto implements Serializable {
 
     private String type;
 
-//    @JsonIgnore
+    @JsonIgnore
     private Geometry geometry;
 
     private Properties properties;
