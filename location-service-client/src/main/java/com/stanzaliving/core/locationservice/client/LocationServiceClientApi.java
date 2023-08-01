@@ -119,7 +119,7 @@ public class LocationServiceClientApi {
         return null;
     }
 
-    public ResponseDto<LocationDto> getEnclosedAreaByTypeAndLatLong(double latitude, double longitude, String enclosedAreaType) {
+    public ResponseDto<LocationDetailsDto> getEnclosedAreaByTypeAndLatLong(double latitude, double longitude, String enclosedAreaType) {
 
         GeoPoint geoPointDto = GeoPoint.builder().latitude(latitude).longitude(longitude).build();
 
@@ -138,7 +138,7 @@ public class LocationServiceClientApi {
 
             final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-            ParameterizedTypeReference<ResponseDto<LocationDto>> returnType = new ParameterizedTypeReference<ResponseDto<LocationDto>>() {
+            ParameterizedTypeReference<ResponseDto<LocationDetailsDto>> returnType = new ParameterizedTypeReference<ResponseDto<LocationDetailsDto>>() {
             };
 
             return restClient.invokeAPI(path, HttpMethod.POST, queryParams, geoPointDto, headerParams, accept, returnType);
