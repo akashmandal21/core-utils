@@ -41,7 +41,7 @@ public class ExceptionInterceptor {
 	public <T> ResponseDto<T> handleMethodArgumentNotValidException(MethodArgumentNotValidException e) {
 
 		String exceptionId = getExceptionId();
-		log.error("Got MethodArgumentNotValidException for exceptionId: {} with Message: {}", exceptionId, e.getMessage());
+		log.error("Got MethodArgumentNotValidException for exceptionId: {} with Message: {}", exceptionId, e.getMessage(), e);
 
 		FieldError fieldError = e.getBindingResult().getFieldError();
 
@@ -89,7 +89,7 @@ public class ExceptionInterceptor {
 	public <T> ResponseDto<T> handleMethodArgumentTypeMismatchException(MethodArgumentTypeMismatchException e) {
 
 		String exceptionId = getExceptionId();
-		log.error("Got MethodArgumentTypeMismatchException for exceptionId: {} with Message: {}", exceptionId, e.getMessage());
+		log.error("Got MethodArgumentTypeMismatchException for exceptionId: {} with Message: {}", exceptionId, e.getMessage(), e);
 
 		String errorMessage = "Incorrect Type For Parameter: " + e.getName() + " in Request. Expected: " + e.getRequiredType() + ", Found: " + e.getValue();
 
@@ -212,7 +212,7 @@ public class ExceptionInterceptor {
 	public <T> ResponseDto<T> handleMappingNotFoundException(MappingNotFoundException e) {
 
 		String exceptionId = getExceptionId();
-		log.error("Got MappingNotFoundException for exceptionId: {} with Message: {}", exceptionId, e.getMessage());
+		log.error("Got MappingNotFoundException for exceptionId: {} with Message: {}", exceptionId, e.getMessage(), e);
 
 		return ResponseDto.failure(e.getMessage(), exceptionId);
 	}
@@ -222,7 +222,7 @@ public class ExceptionInterceptor {
 	public <T> ResponseDto<T> handleRecordExistsException(RecordExistsException e) {
 
 		String exceptionId = getExceptionId();
-		log.error("Got RecordExistsException for exceptionId: {} and message: {}", exceptionId, e.getMessage());
+		log.error("Got RecordExistsException for exceptionId: {} and message: {}", exceptionId, e.getMessage(), e);
 
 		return ResponseDto.failure(e.getMessage(), exceptionId);
 	}
@@ -232,7 +232,7 @@ public class ExceptionInterceptor {
 	public <T> ResponseDto<T> handlePreconditionFailedException(PreconditionFailedException e) {
 
 		String exceptionId = getExceptionId();
-		log.error("Got PreconditionFailedException for exceptionId: {} and message: {}", exceptionId, e.getMessage());
+		log.error("Got PreconditionFailedException for exceptionId: {} and message: {}", exceptionId, e.getMessage(), e);
 
 		return ResponseDto.failure(e.getMessage(), exceptionId);
 	}
@@ -242,7 +242,7 @@ public class ExceptionInterceptor {
 	public <T> ResponseDto<T> handleRequestAlreadyApprovedException(RequestAlreadyApprovedException e) {
 
 		String exceptionId = getExceptionId();
-		log.error("Got RequestAlreadyApprovedException for exceptionId: {} and message: {}", exceptionId, e.getMessage());
+		log.error("Got RequestAlreadyApprovedException for exceptionId: {} and message: {}", exceptionId, e.getMessage(), e);
 
 		return ResponseDto.failure(e.getMessage(), exceptionId);
 	}
@@ -252,7 +252,7 @@ public class ExceptionInterceptor {
 	public <T> ResponseDto<T> handleRequestAlreadyRejectedException(RequestAlreadyRejectedException e) {
 
 		String exceptionId = getExceptionId();
-		log.error("Got RequestAlreadyRejectedException for exceptionId: {} and message: {}", exceptionId, e.getMessage());
+		log.error("Got RequestAlreadyRejectedException for exceptionId: {} and message: {}", exceptionId, e.getMessage(), e);
 
 		return ResponseDto.failure(e.getMessage(), exceptionId);
 	}
@@ -262,7 +262,7 @@ public class ExceptionInterceptor {
 	public <T> ResponseDto<T> handleRequestInProgressException(RequestInProgressException e) {
 		String exceptionId = getExceptionId();
 
-		log.error("Got RequestInProgressException for exceptionId: {} with Message: {}", exceptionId, e.getMessage());
+		log.error("Got RequestInProgressException for exceptionId: {} with Message: {}", exceptionId, e.getMessage(), e);
 		return ResponseDto.failure(e.getMessage(), exceptionId);
 	}
 
@@ -271,7 +271,7 @@ public class ExceptionInterceptor {
 	public <T> ResponseDto<T> handleTransactionFailException(TransactionFailException e) {
 		String exceptionId = getExceptionId();
 
-		log.error("Got TransactionFailException for exceptionId: {} with Message: {}", exceptionId, e.getMessage());
+		log.error("Got TransactionFailException for exceptionId: {} with Message: {}", exceptionId, e.getMessage(), e);
 		return ResponseDto.failure(e.getMessage(), exceptionId);
 	}
 
@@ -280,7 +280,7 @@ public class ExceptionInterceptor {
 	public <T> ResponseDto<T> handleTransactionValidationException(TransactionValidationException e) {
 		String exceptionId = getExceptionId();
 
-		log.error("Got TransactionFailException for exceptionId: {} with Message: {}", exceptionId, e.getMessage());
+		log.error("Got TransactionFailException for exceptionId: {} with Message: {}", exceptionId, e.getMessage(), e);
 		return ResponseDto.failure(e.getMessage(), exceptionId);
 	}
 
@@ -322,7 +322,7 @@ public class ExceptionInterceptor {
 	public <T> ResponseDto<T> handleIllegalArgumentException(IllegalArgumentException e) {
 
 		String exceptionId = getExceptionId();
-		log.error("Got IllegalArgumentException for exceptionId: {} with Message {}", exceptionId, e.getMessage());
+		log.error("Got IllegalArgumentException for exceptionId: {} with Message {}", exceptionId, e.getMessage(), e);
 
 		return ResponseDto.failure(e.getMessage(), exceptionId);
 	}
@@ -333,7 +333,7 @@ public class ExceptionInterceptor {
 	public <T> ResponseDto<T> handleApiValidationException(ApiValidationException e) {
 
 		String exceptionId = getExceptionId();
-		log.error("Got ApiValidationException for exceptionId: {} With Message: {}", exceptionId, e.getMessage());
+		log.error("Got ApiValidationException for exceptionId: {} With Message: {}", exceptionId, e.getMessage(), e);
 
 		return ResponseDto.failure(e.getMessage(), exceptionId);
 	}
@@ -343,7 +343,7 @@ public class ExceptionInterceptor {
 	public <T> ResponseDto<T> handleUserValidationException(UserValidationException e) {
 
 		String exceptionId = getExceptionId();
-		log.error("Got UserValidationException for exceptionId: {} With Message: {}", exceptionId, e.getMessage());
+		log.error("Got UserValidationException for exceptionId: {} With Message: {}", exceptionId, e.getMessage(), e);
 
 		return ResponseDto.failure(e.getMessage(), exceptionId);
 	}
