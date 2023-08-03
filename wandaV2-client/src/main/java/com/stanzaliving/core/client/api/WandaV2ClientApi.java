@@ -130,4 +130,35 @@ public class WandaV2ClientApi {
 
     }
 
+    public ResponseDto<Boolean> isSpiltApplied(String bookingUuid){
+        try {
+            Object postBody = null;
+
+            log.info("get spli applied value by bookingUuid is {} ", bookingUuid);
+
+            final Map<String, Object> uriVariables = new HashMap<>();
+
+            String path = UriComponentsBuilder.fromPath("/internal/is/split/applied").buildAndExpand(uriVariables)
+                    .toUriString();
+
+            final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+            queryParams.put("bookingUuid", Collections.singletonList(bookingUuid));
+
+            HttpHeaders headerParams = new HttpHeaders();
+
+            final String[] accepts = {"*/*"};
+
+            final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+            ParameterizedTypeReference<ResponseDto<Boolean>> returnType = new ParameterizedTypeReference<ResponseDto<Boolean>>() {
+            };
+
+            return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error(BaseMarker.WANDA_API_ERROR, "error while fetching split applied value " + e);
+            return null;
+        }
+    }
+
 }
