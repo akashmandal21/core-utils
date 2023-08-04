@@ -1,5 +1,10 @@
 package com.stanzaliving.core.bundle.client.api;
 
+import java.time.LocalDate;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import com.stanzaliving.booking.dto.request.OptedPlansRequestDto;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
@@ -84,5 +89,17 @@ public class BundleDataControllerApi {
             log.error("Exception while fetching add-on details based on orderRequestDto {}", orderRequestDto);
             return new ArrayList<>();
         }
+    }
+
+    public Object getActiveBundle(String residenceId, String dealCategory, LocalDate fromDate) {
+        return null;
+    }
+
+    public Object getBundle(String uuid) {
+        return null;
+    }
+
+    public List<Object> getBundles(List<String> uuidList, String moveInDate) {
+        return null;
     }
 }
