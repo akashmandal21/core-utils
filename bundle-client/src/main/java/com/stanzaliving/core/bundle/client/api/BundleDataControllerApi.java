@@ -1,5 +1,6 @@
 package com.stanzaliving.core.bundle.client.api;
 
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -55,5 +56,17 @@ public class BundleDataControllerApi {
             log.error("Exception while fetching plan details based on optedPlansRequestDtoList {}", optedPlansRequestDtoList);
             return null;
         }
+    }
+
+    public Object getActiveBundle(String residenceId, String dealCategory, LocalDate fromDate) {
+        return null;
+    }
+
+    public Object getBundle(String uuid) {
+        return null;
+    }
+
+    public List<Object> getBundles(List<String> uuidList, String moveInDate) {
+        return null;
     }
 }
