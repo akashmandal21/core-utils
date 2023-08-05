@@ -1,6 +1,7 @@
 package com.stanzaliving.core.bundle.client.api;
 
 import java.time.LocalDate;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -92,14 +93,60 @@ public class BundleDataControllerApi {
     }
 
     public Object getActiveBundle(String residenceId, String dealCategory, LocalDate fromDate) {
+
         return null;
     }
 
     public Object getBundle(String uuid) {
-        return null;
+        log.info("Bundle-Data-Controller::Fetching bundles for bundleIds: {}", uuid);
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("bundleId", uuid);
+        String path = UriComponentsBuilder.fromPath("/service-mix/formatted/from/bundle/{bundleId}").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final org.springframework.http.HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<Object> returnType = new ParameterizedTypeReference<Object>() {
+        };
+
+        try {
+            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception while fetching bundle for bundleId: {}", uuid, e);
+            return null;
+        }
     }
 
     public List<Object> getBundles(List<String> uuidList, String moveInDate) {
-        return null;
+        log.info("Bundle-Data-Controller::Fetching bundles for uuids: {}, moveInDate: {}", uuidList, moveInDate);
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+        String path = UriComponentsBuilder.fromPath("/listing/by/uuids").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        queryParams.add("validFrom", moveInDate);
+        final org.springframework.http.HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<List<Object>> returnType = new ParameterizedTypeReference<List<Object>>() {
+        };
+
+        try {
+            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, uuidList, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception while fetching bundle for bundleIds: {}", uuidList, e);
+            return Collections.emptyList();
+        }
     }
 }
