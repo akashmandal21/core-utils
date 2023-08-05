@@ -746,6 +746,17 @@ public class DateUtil {
         return newdate;
     }
 
+    public Date addHoursToDate(Date d1, long hours) {
+        long ltime = d1.getTime() + hours * 60 * 60 * 1000;
+        Date newdate = new Date(ltime);
+        return newdate;
+    }
+
+    public Date addMinutesToDate(Date d1, long minutes) {
+        long ltime = d1.getTime() + minutes * 60 * 1000;
+        return new Date(ltime);
+    }
+
     public LocalDate addDaysToLocalDate(LocalDate d1, long days) {
         return d1.plusDays(days);
     }
