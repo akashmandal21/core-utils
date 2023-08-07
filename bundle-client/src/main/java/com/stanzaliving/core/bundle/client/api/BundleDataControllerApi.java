@@ -93,8 +93,32 @@ public class BundleDataControllerApi {
     }
 
     public Object getActiveBundle(String residenceId, String dealCategory, LocalDate fromDate) {
+        log.info("Bundle-Data-Controller::Fetching bundles for residenceId: {}, dealCategory: {}: fromDate: {}", residenceId, dealCategory, fromDate);
 
-        return null;
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("residenceUuid", residenceId);
+        uriVariables.put("dealCategory", dealCategory);
+        uriVariables.put("fromDate", fromDate);
+        String path = UriComponentsBuilder.fromPath("/find-first/{residenceUuid}/{dealCategory}/{validFrom}").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final org.springframework.http.HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<Object> returnType = new ParameterizedTypeReference<Object>() {
+        };
+
+        try {
+            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception while fetching bundle for residenceId: {}, dealCategory: {}: fromDate: {}", residenceId, dealCategory, fromDate, e);
+            return null;
+        }
     }
 
     public Object getBundle(String uuid) {
@@ -143,7 +167,7 @@ public class BundleDataControllerApi {
         };
 
         try {
-            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, uuidList, headerParams, accept, returnType);
+            return this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, uuidList, headerParams, accept, returnType);
         } catch (Exception e) {
             log.error("Exception while fetching bundle for bundleIds: {}", uuidList, e);
             return Collections.emptyList();
