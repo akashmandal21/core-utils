@@ -65,7 +65,7 @@ public class BundleDataControllerApi {
         uriVariables.put("residenceUuid", residenceId);
         uriVariables.put("dealCategory", dealCategory);
         uriVariables.put("fromDate", fromDate);
-        String path = UriComponentsBuilder.fromPath("/find-first/{residenceUuid}/{dealCategory}/{validFrom}").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/service-mix/find-first/{residenceUuid}/{dealCategory}/{validFrom}").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
