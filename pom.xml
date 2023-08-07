@@ -118,6 +118,8 @@
         <module>aws-lambda-client</module>
         <module>osm-service-client</module>
         <module>location-service-client</module>
+        <module>bundle-client</module>
+        <module>order-wizard-client</module>
     </modules>
 
 	<build>
