@@ -152,7 +152,7 @@ public class BundleDataControllerApi {
         log.info("Bundle-Data-Controller::Fetching bundles for uuids: {}, moveInDate: {}", uuidList, moveInDate);
 
         final Map<String, Object> uriVariables = new HashMap<>();
-        String path = UriComponentsBuilder.fromPath("/listing/by/uuids").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("service-mix/listing/by/uuids").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
         queryParams.add("validFrom", moveInDate);
