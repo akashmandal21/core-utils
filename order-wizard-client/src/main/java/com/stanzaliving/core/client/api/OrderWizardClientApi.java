@@ -5,7 +5,7 @@ import com.stanzaliving.booking.dto.request.OrderCreationDto;
 import com.stanzaliving.booking.dto.response.BookingOrderDto;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
-
+import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -14,18 +14,18 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.util.StringUtils;
 import org.springframework.web.util.UriComponentsBuilder;
-import lombok.extern.log4j.Log4j2;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 
 @Log4j2
 public class OrderWizardClientApi {
 
 
-    private StanzaRestClient restClient;
+    private final StanzaRestClient restClient;
 
     public OrderWizardClientApi(StanzaRestClient stanzaRestClient) {
         this.restClient = stanzaRestClient;
@@ -41,7 +41,7 @@ public class OrderWizardClientApi {
 
         MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-         orderStatus = !StringUtils.isEmpty(orderStatus) ? orderStatus : "ORDER_FULFILLED";
+        orderStatus = !StringUtils.isEmpty(orderStatus) ? orderStatus : "ORDER_FULFILLED";
 
         queryParams.put("orderStatus", Collections.singletonList(orderStatus));
 
