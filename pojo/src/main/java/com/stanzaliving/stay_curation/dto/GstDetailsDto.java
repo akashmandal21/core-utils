@@ -23,6 +23,10 @@ public class GstDetailsDto {
 
     private Double multiplierValue;
 
+    public Double getAmountWithGst(double amount){
+        return amount * this.multiplierValue;
+    }
+
     private static Double roundToTwoDecimalPlaces(Double multiplierValue) {
         multiplierValue = multiplierValue * 100;
         multiplierValue = (double) Math.round(multiplierValue);
@@ -31,7 +35,7 @@ public class GstDetailsDto {
     }
 
     public Double getMultiplierValue() {
-        Double multiplierValue = 1d;
+        double multiplierValue = 1d;
         if (Objects.nonNull(this.cGstPercentage)) {
             multiplierValue += this.cGstPercentage / 100;
         }
@@ -44,4 +48,21 @@ public class GstDetailsDto {
         return roundToTwoDecimalPlaces(multiplierValue);
     }
 
+    public Double getCgstAmount(Double basePrice) {
+
+        return (basePrice * this.cGstPercentage) / 100;
+
+    }
+
+    public Double getSgstAmount(Double basePrice) {
+
+        return (basePrice * this.sGstPercentage) / 100;
+
+    }
+
+    public Double getIgstAmount(Double basePrice) {
+
+        return (basePrice * this.iGstPercentage) / 100;
+
+    }
 }
