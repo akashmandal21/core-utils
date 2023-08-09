@@ -16,6 +16,9 @@ import java.io.Serializable;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ItemDetailDto implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+
 	private String itemName;
 	private Integer itemQty;
 	private String itemImg;
