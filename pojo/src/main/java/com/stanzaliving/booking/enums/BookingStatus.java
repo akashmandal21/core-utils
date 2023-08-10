@@ -478,6 +478,7 @@ public enum BookingStatus {
         List<BookingStatus> bookingStatus = new ArrayList<>();
         bookingStatus.add(BookingStatus.SHARED_WITH_RESIDENT);
         bookingStatus.add(BookingStatus.AGREEMENT_PENDING);
+        bookingStatus.add(BookingStatus.IN_PROGRESS);
         return bookingStatus;
     }
 
