@@ -6,6 +6,7 @@ import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.residenceservice.enums.VasCategory;
 import com.stanzaliving.stay_curation.dto.AddOnDetailsDto;
 import com.stanzaliving.stay_curation.dto.AlfredResidenceServiceDto;
+import com.stanzaliving.stay_curation.dto.BundleOrderRequestDto;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.core.ParameterizedTypeReference;
@@ -58,12 +59,12 @@ public class BundleDataControllerApi {
         }
     }
 
-    public List<AddOnDetailsDto> getAddOnListForPostpaidBillingIds(List<String> billingPreferenceIds) {
-        log.info("Bundle-Data-Controller::Processing to fetch add on details based on billingPreferenceIds {}", billingPreferenceIds);
+    public List<AddOnDetailsDto> getAddOnListForPostpaidBillingIds(BundleOrderRequestDto orderRequestDto) {
+        log.info("Bundle-Data-Controller::Processing to fetch add on details based on orderRequestDto {}", orderRequestDto);
 
         final Map<String, Object> uriVariables = new HashMap<>();
 
-        String path = UriComponentsBuilder.fromPath("/add-on/list/by/billing-ids").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/add-on/postpaid/list/by/billingPreferenceIds").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
@@ -78,9 +79,9 @@ public class BundleDataControllerApi {
         };
 
         try {
-            return this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, billingPreferenceIds, headerParams, accept, returnType);
+            return this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, orderRequestDto, headerParams, accept, returnType);
         } catch (Exception var13) {
-            log.error("Exception while fetching add-on details based on billingPreferenceIds {}", billingPreferenceIds);
+            log.error("Exception while fetching add-on details based on orderRequestDto {}", orderRequestDto);
             return new ArrayList<>();
         }
     }
