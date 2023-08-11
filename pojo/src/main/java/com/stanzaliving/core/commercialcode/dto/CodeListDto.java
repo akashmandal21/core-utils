@@ -67,4 +67,6 @@ public class CodeListDto {
     private AMCAmountType exitProcessingType;
 
     private Double exitProcessingCharges;
+
+    private boolean commandCenterFlag;
 }

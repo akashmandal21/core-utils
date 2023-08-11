@@ -44,4 +44,6 @@ public class DiscountSplitterRequestDto {
     private Boolean isPriceStrategy = false;
 
     private PaymentActionDto paymentActionDto;
+
+    private Double maxDiscountPercentageCap;
 }
