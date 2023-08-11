@@ -5,7 +5,7 @@ import com.stanzaliving.booking.dto.request.OrderCreationDto;
 import com.stanzaliving.booking.dto.response.BookingOrderDto;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
-
+import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -14,24 +14,24 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.util.StringUtils;
 import org.springframework.web.util.UriComponentsBuilder;
-import lombok.extern.log4j.Log4j2;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 
 @Log4j2
 public class OrderWizardClientApi {
 
 
-    private StanzaRestClient restClient;
+    private final StanzaRestClient restClient;
 
     public OrderWizardClientApi(StanzaRestClient stanzaRestClient) {
         this.restClient = stanzaRestClient;
     }
 
-    public List<BookingOrderDto> fetchOptedPlansByBookingId(String bookingUuid, String orderStatus) {
+    public List<BookingOrderDto> fetchOptedPlansByBookingId(String bookingUuid) {
         log.info("Order-Wizard-Client::fetchOptedPlansByBookingId {}", bookingUuid);
 
         final Map<String, Object> uriVariables = new HashMap<>();
@@ -40,10 +40,6 @@ public class OrderWizardClientApi {
         String path = UriComponentsBuilder.fromPath("/booking/order/{bookingUuid}/details").buildAndExpand(uriVariables).toUriString();
 
         MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-
-         orderStatus = !StringUtils.isEmpty(orderStatus) ? orderStatus : "ORDER_FULFILLED";
-
-        queryParams.put("orderStatus", Collections.singletonList(orderStatus));
 
         org.springframework.http.HttpHeaders headerParams = new org.springframework.http.HttpHeaders();
 
@@ -79,7 +75,7 @@ public class OrderWizardClientApi {
         try {
             return this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, orderCreationDto, headerParams, accept, returnType);
         } catch (Exception var13) {
-            log.error("Exception while fetching plan details based on optedPlansRequestDtoList {}", orderCreationDto);
+            log.error("Exception while fetching plan details based on optedPlansRequestDtoList {}", orderCreationDto, var13);
             return null;
         }
     }
