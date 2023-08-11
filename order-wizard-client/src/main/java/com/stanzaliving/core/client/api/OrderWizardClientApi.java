@@ -31,7 +31,7 @@ public class OrderWizardClientApi {
         this.restClient = stanzaRestClient;
     }
 
-    public List<BookingOrderDto> fetchOptedPlansByBookingId(String bookingUuid, String orderStatus) {
+    public List<BookingOrderDto> fetchOptedPlansByBookingId(String bookingUuid) {
         log.info("Order-Wizard-Client::fetchOptedPlansByBookingId {}", bookingUuid);
 
         final Map<String, Object> uriVariables = new HashMap<>();
@@ -40,10 +40,6 @@ public class OrderWizardClientApi {
         String path = UriComponentsBuilder.fromPath("/booking/order/{bookingUuid}/details").buildAndExpand(uriVariables).toUriString();
 
         MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-
-        orderStatus = !StringUtils.isEmpty(orderStatus) ? orderStatus : "ORDER_FULFILLED";
-
-        queryParams.put("orderStatus", Collections.singletonList(orderStatus));
 
         org.springframework.http.HttpHeaders headerParams = new org.springframework.http.HttpHeaders();
 
@@ -79,7 +75,7 @@ public class OrderWizardClientApi {
         try {
             return this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, orderCreationDto, headerParams, accept, returnType);
         } catch (Exception var13) {
-            log.error("Exception while fetching plan details based on optedPlansRequestDtoList {}", orderCreationDto);
+            log.error("Exception while fetching plan details based on optedPlansRequestDtoList {}", orderCreationDto, var13);
             return null;
         }
     }

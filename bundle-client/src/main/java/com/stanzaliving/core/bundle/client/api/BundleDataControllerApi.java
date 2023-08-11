@@ -1,11 +1,5 @@
 package com.stanzaliving.core.bundle.client.api;
 
-import java.time.LocalDate;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import com.stanzaliving.booking.dto.request.OptedPlansRequestDto;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
@@ -23,7 +17,9 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -59,8 +55,8 @@ public class BundleDataControllerApi {
 
         try {
             return this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, optedPlansRequestDtoList, headerParams, accept, returnType);
-        } catch (Exception var13) {
-            log.error("Exception while fetching plan details based on optedPlansRequestDtoList {}", optedPlansRequestDtoList);
+        } catch (Exception e) {
+            log.error("Exception while fetching plan details based on optedPlansRequestDtoList {}", optedPlansRequestDtoList, e);
             return null;
         }
     }
@@ -87,7 +83,7 @@ public class BundleDataControllerApi {
         try {
             return this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, orderRequestDto, headerParams, accept, returnType);
         } catch (Exception var13) {
-            log.error("Exception while fetching add-on details based on orderRequestDto {}", orderRequestDto);
+            log.error("Exception while fetching add-on details based on orderRequestDto {}", orderRequestDto, var13);
             return new ArrayList<>();
         }
     }
