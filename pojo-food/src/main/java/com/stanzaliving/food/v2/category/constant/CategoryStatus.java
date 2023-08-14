@@ -13,6 +13,7 @@ import java.util.List;
 @Getter
 public enum CategoryStatus {
 	DRAFT("In Draft"),
+	SAVED("Saved"),
 	SUBMITTED("Submitted"),
 	APPROVED("Approved");
 	private final String status;
@@ -55,6 +56,6 @@ public enum CategoryStatus {
 	}
 	
 	public static boolean submissionAllowed(CategoryStatus categoryStatus) {
-		return categoryStatus == null || categoryStatus == DRAFT;
+		return categoryStatus == null || categoryStatus == DRAFT || categoryStatus == SAVED;
 	}
 }

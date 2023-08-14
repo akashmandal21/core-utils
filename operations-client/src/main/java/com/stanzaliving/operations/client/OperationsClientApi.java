@@ -705,6 +705,30 @@ public class OperationsClientApi {
 		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : new ArrayList<>();
 	}
 	
+	public DealDto getB2CDealsByResidenceId(String residenceId){
+
+    	String path = UriComponentsBuilder.fromPath("/internal/deal/b2c").build().toUriString();
+
+		TypeReference<ResponseDto<DealDto>> returnType = new TypeReference<ResponseDto<DealDto>>() {};
+		
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		queryParams.add("residenceId", residenceId);
+		
+		ResponseDto<DealDto> responseDto = null;
+
+		try {
+
+			responseDto = restClient.post(path, queryParams, null, null, null, returnType, MediaType.APPLICATION_JSON);
+
+		} catch (Exception e) {
+
+			log.error("Error while getting deal detail", e);
+
+		}
+
+		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : null;
+	}
+	
 	public ServiceNameResponseDto getServiceMixNamesByResidenceIds(List<String> residenceIds) {
 
 		try {
