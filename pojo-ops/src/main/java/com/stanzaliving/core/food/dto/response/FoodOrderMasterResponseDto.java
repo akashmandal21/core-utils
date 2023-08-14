@@ -38,6 +38,8 @@ public class FoodOrderMasterResponseDto {
 
 	private String mealTypeName;
 
+	private String deliveryCode;
+
 	private String userId;
 
 	private LocalDate menuDate;
