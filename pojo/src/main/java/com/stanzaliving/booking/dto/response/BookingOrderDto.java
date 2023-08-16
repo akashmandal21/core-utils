@@ -43,4 +43,6 @@ public class BookingOrderDto {
 
     private String parentOrderId;
 
+    private int totalRenewal;
+
 }
