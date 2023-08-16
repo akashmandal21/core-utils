@@ -8,13 +8,17 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
+import java.io.Serializable;
+
 @Getter
 @Setter
 @ToString
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserBeveragePreferenceCountDto {
+public class UserBeveragePreferenceCountDto implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     @Builder.Default
     private Integer preferenceCount = 0;
