@@ -11,9 +11,15 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class LocationDetailsDto {
 
+	private String name;
+
+	private String type;
+
 	private String locationName;
 
 	private String locationId;
 
 	private String transformationLocationUuid;
+
+	private Properties properties;
 }
