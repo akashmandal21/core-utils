@@ -1251,6 +1251,11 @@ public class DateUtil {
         return date.with(TemporalAdjusters.previousOrSame(day));
     }
 
+    public static LocalDate getPrevDayOfTheWeek(LocalDate date, DayOfWeek day) {
+
+        return date.with(TemporalAdjusters.previous(day));
+    }
+
     public static LocalDate getNextOrSameDayOfTheWeek(LocalDate date, DayOfWeek day) {
 
         return date.with(TemporalAdjusters.nextOrSame(day));
