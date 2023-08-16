@@ -1,4 +1,4 @@
-package com.stanzaliving.stayCuration;
+package com.stanzaliving.stay_curation.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
