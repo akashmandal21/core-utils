@@ -1,8 +1,13 @@
 package com.stanzaliving.core.bundle.client.api;
 
+import java.time.LocalDate;
+import java.util.*;
+
 import com.stanzaliving.booking.dto.request.OptedPlansRequestDto;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
+import com.stanzaliving.core.base.enums.DateFormat;
 import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.core.base.utils.DateUtil;
 import com.stanzaliving.residenceservice.enums.VasCategory;
 import com.stanzaliving.stay_curation.dto.AddOnDetailsDto;
 import com.stanzaliving.stay_curation.dto.AlfredResidenceServiceDto;
@@ -15,6 +20,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
+import org.springframework.util.StringUtils;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.time.LocalDate;
@@ -167,6 +173,35 @@ public class BundleDataControllerApi {
         } catch (Exception e) {
             log.error("Exception while fetching bundle for bundleIds: {}", uuidList, e);
             return Collections.emptyList();
+        }
+    }
+
+    public ResponseDto<Map<VasCategory, List<AlfredResidenceServiceDto>>> fetchPlanListForBundle(String bundleId, String moveIn) {
+        log.info("Residence-Data-Controller::Processing to fetch plan details based on bundleId {}", bundleId);
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("bundleId", bundleId);
+        String path = UriComponentsBuilder.fromPath("/add-on/by/bundleId/{bundleId}").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        queryParams.add("planType", "POSTPAID");
+        if(!StringUtils.isEmpty(moveIn))
+            queryParams.add("moveIn", moveIn);
+        final org.springframework.http.HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<Map<VasCategory, List<AlfredResidenceServiceDto>>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<VasCategory, List<AlfredResidenceServiceDto>>>>() {
+        };
+
+        try {
+            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception var13) {
+            log.error("Exception while fetching plan details based on bundleId {}", bundleId);
+            return null;
         }
     }
 }
