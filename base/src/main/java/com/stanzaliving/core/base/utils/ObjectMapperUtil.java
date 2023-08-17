@@ -79,4 +79,12 @@ public class ObjectMapperUtil {
 		}
 		return t;
 	}
+
+	public <T> T getDtoFromObject(Object value, TypeReference<T> typeReference) {
+		T t = null;
+		if (Objects.nonNull(value)) {
+			t = mapper.convertValue(value, typeReference);
+		}
+		return t;
+	}
 }

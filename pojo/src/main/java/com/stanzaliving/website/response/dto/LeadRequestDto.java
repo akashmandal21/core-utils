@@ -173,6 +173,9 @@ public class LeadRequestDto implements Serializable {
 	private String seoUrlType;
 	private String url;
 
+	private String formSource;
+	private String locateMe;
+
 	public String getEmail() {
 		return Objects.nonNull(this.email) ? this.email.trim(): null;
 	}

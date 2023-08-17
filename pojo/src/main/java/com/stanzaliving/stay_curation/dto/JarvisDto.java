@@ -1,11 +1,10 @@
-package com.stanzaliving.stayCuration;
+package com.stanzaliving.stay_curation.dto;
 
 import lombok.*;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
-import java.util.HashMap;
 
 @Data
 @Getter

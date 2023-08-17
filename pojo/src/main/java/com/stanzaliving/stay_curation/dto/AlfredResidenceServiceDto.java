@@ -1,13 +1,10 @@
-package com.stanzaliving.stayCuration;
+package com.stanzaliving.stay_curation.dto;
 
 import com.stanzaliving.booking.enums.PaymentTerm;
-import com.stanzaliving.residenceservice.enums.PlanNature;
-import com.stanzaliving.residenceservice.enums.PlanTypeEnum;
 import lombok.*;
 
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 
 @AllArgsConstructor
