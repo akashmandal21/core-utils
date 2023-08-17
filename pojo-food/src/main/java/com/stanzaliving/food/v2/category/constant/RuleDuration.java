@@ -13,9 +13,10 @@ public enum RuleDuration {
     IN_WEEK("within the week"),
     IN_DAY("within a day"),
     CONSECUTIVE_MEALS("in consecutive meals"),
-    CONSECUTIVE_DAYS("in consecutive days")
+    CONSECUTIVE_DAYS("in consecutive days"),
+    IN_MEAL("within the Meal");
 //    IN_OPTIONS("within options")
-    ;
+
     private final String rule;
 
     private final static List<EnumListing<RuleDuration>> enumListings = new ArrayList<>();

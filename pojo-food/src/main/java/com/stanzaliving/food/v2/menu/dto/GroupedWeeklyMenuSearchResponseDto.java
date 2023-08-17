@@ -19,5 +19,7 @@ public class GroupedWeeklyMenuSearchResponseDto implements Serializable {
     private MenuSearchStatsRDto stats;
     private PageResponse<? extends GroupedWeeklyMenuResponseDto> menuData;
     private SelectedKitchenDto selectedKitchen;
+    private String categoryGroupId;
+    private String categoryGroupCode;
 
 }
