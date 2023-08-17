@@ -18,4 +18,5 @@ public class OrderCreationDto implements Serializable {
     private String bundleId;
     private List<String> postpaidAddOnBillingIds;
     private BookingDurationResponseDto bookingDurationResponseDto;
+    private String residenceUuid;
 }

@@ -70,12 +70,8 @@ public class OrderWizardClientApi {
         ParameterizedTypeReference<ResponseDto<List<BookingOrderDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<BookingOrderDto>>>() {
         };
 
-        try {
-            return this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, orderCreationDto, headerParams, accept, returnType);
-        } catch (Exception var13) {
-            log.error("Exception while fetching plan details based on optedPlansRequestDtoList {}", orderCreationDto, var13);
-            return null;
-        }
+        return this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, orderCreationDto, headerParams, accept, returnType);
+
     }
 
     public List<BookingOrderDto> dropAddPostpaidAddOns(String bookingUuid, List<String> planUuids, boolean removePaymentPlan) {
