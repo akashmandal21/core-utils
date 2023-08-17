@@ -5,6 +5,7 @@ import com.stanzaliving.booking.dto.request.OrderCreationDto;
 import com.stanzaliving.booking.dto.response.BookingOrderDto;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.core.enums.Source;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -52,7 +53,8 @@ public class OrderWizardClientApi {
     }
 
 
-    public ResponseDto<List<BookingOrderDto>> orderCreation(OrderCreationDto orderCreationDto, String bookingUuid) {
+    public ResponseDto<List<BookingOrderDto>> orderCreation(OrderCreationDto orderCreationDto, String bookingUuid,
+                                                            boolean createPaymentPlan, Source source) {
 
         log.info("Order-Wizard-Client::Processing to save plan details based  {} and booking {}", orderCreationDto, bookingUuid);
 
@@ -61,7 +63,8 @@ public class OrderWizardClientApi {
         String path = UriComponentsBuilder.fromPath("/create/order/bundle/for/booking/{bookingUuid}").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-
+        queryParams.add("createPaymentPlan", String.valueOf(createPaymentPlan));
+        queryParams.add("source", source.name());
         final org.springframework.http.HttpHeaders headerParams = new HttpHeaders();
 
         final String[] accepts = {
