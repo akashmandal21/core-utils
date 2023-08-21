@@ -24,6 +24,4 @@ public class OrderCreationDto implements Serializable {
 
     private String residenceUuid;
 
-    private BookingStatus bookingStatus;
-
 }
