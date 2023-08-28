@@ -13,12 +13,13 @@ import java.util.List;
 @Getter
 public enum CategoryStatus {
 	DRAFT("In Draft"),
+	SAVED("Saved"),
 	SUBMITTED("Submitted"),
 	APPROVED("Approved");
 	private final String status;
 	
 	public static boolean isEditable(CategoryStatus categoryStatus) {
-		return categoryStatus == DRAFT || categoryStatus == APPROVED;
+		return categoryStatus == DRAFT || categoryStatus == APPROVED || categoryStatus == SAVED;
 	}
 	
 	public static boolean showOnApprovalDashboard(CategoryStatus categoryStatus) {
@@ -30,7 +31,7 @@ public enum CategoryStatus {
 	}
 	
 	public static List<CategoryStatus> draftStatus() {
-		return Arrays.asList(DRAFT, SUBMITTED);
+		return Arrays.asList(DRAFT, SUBMITTED, SAVED);
 	}
 	
 	
@@ -55,6 +56,6 @@ public enum CategoryStatus {
 	}
 	
 	public static boolean submissionAllowed(CategoryStatus categoryStatus) {
-		return categoryStatus == null || categoryStatus == DRAFT;
+		return categoryStatus == null || categoryStatus == DRAFT || categoryStatus == SAVED;
 	}
 }

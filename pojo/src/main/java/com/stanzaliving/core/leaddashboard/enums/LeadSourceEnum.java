@@ -50,6 +50,7 @@ public enum LeadSourceEnum {
     DETAILS_WEB_CHATBOT("Details Web Chatbot", LeadSourceGroupEnum.DIGITAL),
     DIRECT_WALK_IN("Direct Walk-in", LeadSourceGroupEnum.SIGMA_APP),
     DU_BEAT("DU Beat", LeadSourceGroupEnum.SIGMA_APP),
+    DU_CLUB("Du Club", LeadSourceGroupEnum.AFFILIATE),
     DU_UPDATES("DU Updates", LeadSourceGroupEnum.DATABASE),
     EMPTY("Empty", LeadSourceGroupEnum.OTHERS),
     FACEBOOK("Facebook", LeadSourceGroupEnum.DIGITAL),
@@ -155,12 +156,10 @@ public enum LeadSourceEnum {
 
     WISHLIST_WEB_CHATBOT("Wishlist Web Chatbot", LeadSourceGroupEnum.DIGITAL),
     ZOHO("zoho", LeadSourceGroupEnum.OTHERS),
-
     UNLOCK_DISCOUNT_FORM("Website-Discount", LeadSourceGroupEnum.DIGITAL);
 
-
-    private static Map<LeadSourceEnum, String> leadSourceDescMap = new HashMap<>();
-    private static Map<String, LeadSourceEnum> leadNameSourceMap = new HashMap<>();
+    private static final Map<LeadSourceEnum, String> leadSourceDescMap = new HashMap<>();
+    private static final Map<String, LeadSourceEnum> leadNameSourceMap = new HashMap<>();
 
     static {
         for (LeadSourceEnum leadSource : LeadSourceEnum.values()) {
@@ -169,8 +168,8 @@ public enum LeadSourceEnum {
         }
     }
 
-    private String leadSourceName;
-    private LeadSourceGroupEnum leadSourceGroupEnum;
+    private final String leadSourceName;
+    private final LeadSourceGroupEnum leadSourceGroupEnum;
 
     public static Map<LeadSourceEnum, String> getLeadSources() {
         return leadSourceDescMap;
