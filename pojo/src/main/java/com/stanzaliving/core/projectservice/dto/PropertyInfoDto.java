@@ -59,4 +59,5 @@ public class PropertyInfoDto {
     private int floorCount;
     private String propertyImages;
     private String estateUuid;
+    private String leadershipUuid;
 }
