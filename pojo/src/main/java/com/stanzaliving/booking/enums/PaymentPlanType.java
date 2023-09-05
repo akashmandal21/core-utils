@@ -19,6 +19,8 @@ public enum PaymentPlanType {
 	VAS("VAS"),
 	BOOKING("Booking"),
 	ADVANCE_RENTAL("Advance Rental"),
+	ADVANCE_MAINTENANCE_FEE("Advance Maintenance Fee"),
+	ADVANCE_DISCOUNT("Advance Discount"),
 	INSTALLMENT("Instalment"),
 	DISCOUNT("Discount Adjusted"),
 	DAMAGE("Damage"),
