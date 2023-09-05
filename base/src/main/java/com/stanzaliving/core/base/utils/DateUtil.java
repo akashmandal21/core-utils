@@ -106,6 +106,10 @@ public class DateUtil {
         return Instant.ofEpochMilli(date.getTime()).atZone(StanzaConstants.IST_TIMEZONEID).format(DateTimeFormatter.ofPattern(format));
     }
 
+    public long getDaysBetweenDates(LocalDate fromDate, LocalDate toDate) {
+        return ChronoUnit.DAYS.between(fromDate, toDate);
+    }
+
     public long getDaysBetweenDates(Date fromDate, Date toDate) {
         return ChronoUnit.DAYS.between(fromDate.toInstant(), toDate.toInstant());
     }
@@ -742,6 +746,17 @@ public class DateUtil {
         return newdate;
     }
 
+    public Date addHoursToDate(Date d1, long hours) {
+        long ltime = d1.getTime() + hours * 60 * 60 * 1000;
+        Date newdate = new Date(ltime);
+        return newdate;
+    }
+
+    public Date addMinutesToDate(Date d1, long minutes) {
+        long ltime = d1.getTime() + minutes * 60 * 1000;
+        return new Date(ltime);
+    }
+
     public LocalDate addDaysToLocalDate(LocalDate d1, long days) {
         return d1.plusDays(days);
     }
@@ -1234,6 +1249,11 @@ public class DateUtil {
     public static LocalDate getPrevOrSameDayOfTheWeek(LocalDate date, DayOfWeek day) {
 
         return date.with(TemporalAdjusters.previousOrSame(day));
+    }
+
+    public static LocalDate getPrevDayOfTheWeek(LocalDate date, DayOfWeek day) {
+
+        return date.with(TemporalAdjusters.previous(day));
     }
 
     public static LocalDate getNextOrSameDayOfTheWeek(LocalDate date, DayOfWeek day) {

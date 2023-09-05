@@ -29,6 +29,8 @@ public class FoodMenuCategoryBasicDetailsDto {
 
 	private String categoryName;
 	
+	private String categoryCode;
+	
 	private String microMarketId;
 
 	private String microMarketName;

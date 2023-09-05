@@ -1,4 +1,4 @@
-package com.stanzaliving.stayCuration;
+package com.stanzaliving.stay_curation.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 @Getter
-public class GstDto {
-    private Double amount;
-    private Double percentage;
+public class LockInDto {
+    private Integer lockInMonth;
+    private Integer lockInDays;
 }
