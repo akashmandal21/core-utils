@@ -16,5 +16,9 @@ public class ResidenceListingPageResponse extends PageResponse<ResidenceListingP
 
 	private List<ResidenceListingCardDto> residenceResponseShortDTOs;
 
+	private Integer recommendationCardsSize;
+
+	private Integer insertRecommendationsSectionAfterCount;
+
 	private List<Integer> residenceIdsToShowMapPin;
 }
