@@ -69,20 +69,15 @@ public class ObjectMapperUtil {
 	}
 
 	public <T> T convertObjectByTypeReference(Object value, TypeReference<T> typeReference) {
-
-		String string = getString(value);
-
-		return getObjectFromStringByTypeReference(string, typeReference);
-
-//		T t = null;
-//		if (Objects.nonNull(value)) {
-//			try {
-//				t = mapper.convertValue(value, typeReference);
-//			} catch (Exception e) {
-//				log.error("Error while converting object to typeReference object type: {}, error: {}", e.getMessage(), e);
-//			}
-//		}
-//		return t;
+		T t = null;
+		if (Objects.nonNull(value)) {
+			try {
+				t = mapper.convertValue(value, typeReference);
+			} catch (Exception e) {
+				log.error("Error while converting object to typeReference object type: {}, error: {}", e.getMessage(), e);
+			}
+		}
+		return t;
 	}
 
 	public <T> T getDtoFromObject(Object value, TypeReference<T> typeReference) {
