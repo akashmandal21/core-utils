@@ -83,13 +83,12 @@ public class ObjectMapperUtil {
 		return t;
 	}
 
-	//pass the same type reference of object you need to clone
-	public <T> T deepCloneObject(T object, TypeReference<T> typeReference) {
+	public <T> T deepCloneObject(T object) {
 		T t = null;
 		if (Objects.nonNull(object)) {
 			try {
 				String objString = getString(object);
-				t = getObjectFromStringByTypeReference(objString, typeReference);
+				t = getObjectFromString(objString, (Class<T>) object.getClass());
 			} catch (Exception e) {
 				log.error("Error while deep cloning object, message: {}, error: {}", e.getMessage(), e);
 			}
