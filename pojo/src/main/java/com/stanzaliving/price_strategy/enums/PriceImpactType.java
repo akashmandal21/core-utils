@@ -7,5 +7,5 @@
 package com.stanzaliving.price_strategy.enums;
 
 public enum PriceImpactType {
-    FLAT, PERCENT;
+    FLAT, PERCENTAGE;
 }
