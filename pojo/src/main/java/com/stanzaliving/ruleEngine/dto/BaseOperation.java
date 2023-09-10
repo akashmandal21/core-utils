@@ -8,15 +8,16 @@ package com.stanzaliving.ruleEngine.dto;
 
 import com.stanzaliving.commercialcard.enums.CriteriaCondition;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import java.util.List;
 import java.util.Map;
 
-@Getter
-@NoArgsConstructor
+
+@Data
+@SuperBuilder
 @AllArgsConstructor
-@Builder
-@Setter
+@NoArgsConstructor
 public class BaseOperation {
 
     private String left;

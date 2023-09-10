@@ -11,11 +11,10 @@ import lombok.experimental.SuperBuilder;
 
 import java.util.List;
 
-@Getter
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
 @SuperBuilder
-@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Rule extends BaseOperation{
     private List<Rule> rules;
 
