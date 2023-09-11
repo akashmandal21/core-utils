@@ -79,4 +79,20 @@ public class ObjectMapperUtil {
 		}
 		return t;
 	}
+
+	public <T> T getDtoFromObject(Object value, Class<T> clazz) {
+		T t = null;
+		if (Objects.nonNull(value)) {
+			t = mapper.convertValue(value, clazz);
+		}
+		return t;
+	}
+
+	public <T> T getDtoFromObject(Object value, TypeReference<T> typeReference) {
+		T t = null;
+		if (Objects.nonNull(value)) {
+			t = mapper.convertValue(value, typeReference);
+		}
+		return t;
+	}
 }
