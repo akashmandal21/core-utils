@@ -9,6 +9,7 @@ import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.commercialcode.dto.*;
 import com.stanzaliving.price_strategy.request.CreationDto;
 import com.stanzaliving.price_strategy.request.PaymentActionDto;
+import com.stanzaliving.price_strategy.response.CommandCenterCodeListDto;
 import lombok.extern.log4j.Log4j2;
 
 import org.springframework.core.ParameterizedTypeReference;
@@ -76,6 +77,32 @@ public class CommercialDataControllerApi {
 
         ParameterizedTypeReference<ResponseDto<List<CodeListDto>>> returnType =
                 new ParameterizedTypeReference<ResponseDto<List<CodeListDto>>>() {};
+
+        return this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+    }
+
+    public ResponseDto<List<CommandCenterCodeListDto>> getAllPricingStrategyForCommandCenter(String token, CommercialCardDto commercialCardDto) {
+
+        log.info("Commercial-code-Data-Controller::Processing to get residence list for filter {}", commercialCardDto.toString());
+
+        Object postBody = commercialCardDto;
+
+        Map<String, Object> uriVariables = new HashMap();
+
+        String path = UriComponentsBuilder.fromPath("/api/v1/command-center/pricing-strategies").buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+
+        HttpHeaders headerParams = new HttpHeaders();
+
+        headerParams.add("Cookie", "token=" + token);
+
+        String[] accepts = new String[]{"*/*"};
+
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<List<CommandCenterCodeListDto>>> returnType =
+                new ParameterizedTypeReference<ResponseDto<List<CommandCenterCodeListDto>>>() {};
 
         return this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
     }

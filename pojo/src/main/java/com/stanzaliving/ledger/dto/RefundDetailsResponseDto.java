@@ -37,4 +37,5 @@ public class RefundDetailsResponseDto {
 
     private Date transactionProcessedDate;
 
+    private String refundFailureReason;
 }
