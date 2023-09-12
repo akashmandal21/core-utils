@@ -5,9 +5,13 @@ import java.util.List;
 
 import com.stanzaliving.core.base.common.dto.PageResponse;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Data
 @Builder
 public class ApartmentListingPageResponse extends PageResponse<ApartmentListingPageResponse> implements Serializable {
