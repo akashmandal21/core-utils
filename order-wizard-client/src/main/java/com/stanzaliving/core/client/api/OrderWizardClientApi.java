@@ -33,50 +33,56 @@ public class OrderWizardClientApi {
     }
 
     public List<BookingOrderDto> fetchOptedPlansByBookingId(String bookingUuid) {
-        log.info("Order-Wizard-Client::fetchOptedPlansByBookingId {}", bookingUuid);
+        try {
+            log.info("Order-Wizard-Client::fetchOptedPlansByBookingId {}", bookingUuid);
 
-        final Map<String, Object> uriVariables = new HashMap<>();
-        uriVariables.put("bookingUuid", bookingUuid);
+            final Map<String, Object> uriVariables = new HashMap<>();
+            uriVariables.put("bookingUuid", bookingUuid);
 
-        String path = UriComponentsBuilder.fromPath("/booking/order/{bookingUuid}/details").buildAndExpand(uriVariables).toUriString();
+            String path = UriComponentsBuilder.fromPath("/booking/order/{bookingUuid}/details").buildAndExpand(uriVariables).toUriString();
 
-        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+            MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-        org.springframework.http.HttpHeaders headerParams = new org.springframework.http.HttpHeaders();
+            org.springframework.http.HttpHeaders headerParams = new org.springframework.http.HttpHeaders();
 
-        final String[] accepts = {"*/*"};
-        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+            final String[] accepts = {"*/*"};
+            final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<List<BookingOrderDto>> returnType = new ParameterizedTypeReference<List<BookingOrderDto>>() {
-        };
-        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+            ParameterizedTypeReference<List<BookingOrderDto>> returnType = new ParameterizedTypeReference<List<BookingOrderDto>>() {
+            };
+            return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            return null;
+        }
     }
 
 
     public ResponseDto<List<BookingOrderDto>> orderCreation(OrderCreationDto orderCreationDto, String bookingUuid,
                                                             boolean createPaymentPlan, Source source) {
+        try {
+            log.info("Order-Wizard-Client::Processing to save plan details based  {} and booking {}", orderCreationDto, bookingUuid);
 
-        log.info("Order-Wizard-Client::Processing to save plan details based  {} and booking {}", orderCreationDto, bookingUuid);
+            final Map<String, Object> uriVariables = new HashMap<>();
+            uriVariables.put("bookingUuid", bookingUuid);
+            String path = UriComponentsBuilder.fromPath("/create/order/bundle/for/booking/{bookingUuid}").buildAndExpand(uriVariables).toUriString();
 
-        final Map<String, Object> uriVariables = new HashMap<>();
-        uriVariables.put("bookingUuid", bookingUuid);
-        String path = UriComponentsBuilder.fromPath("/create/order/bundle/for/booking/{bookingUuid}").buildAndExpand(uriVariables).toUriString();
+            final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+            queryParams.add("createPaymentPlan", String.valueOf(createPaymentPlan));
+            queryParams.add("source", source.name());
+            final org.springframework.http.HttpHeaders headerParams = new HttpHeaders();
 
-        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-        queryParams.add("createPaymentPlan", String.valueOf(createPaymentPlan));
-        queryParams.add("source", source.name());
-        final org.springframework.http.HttpHeaders headerParams = new HttpHeaders();
+            final String[] accepts = {
+                    "*/*"
+            };
+            final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        final String[] accepts = {
-                "*/*"
-        };
-        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+            ParameterizedTypeReference<ResponseDto<List<BookingOrderDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<BookingOrderDto>>>() {
+            };
 
-        ParameterizedTypeReference<ResponseDto<List<BookingOrderDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<BookingOrderDto>>>() {
-        };
-
-        return this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, orderCreationDto, headerParams, accept, returnType);
-
+            return this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, orderCreationDto, headerParams, accept, returnType);
+        } catch (Exception e) {
+            return null;
+        }
     }
 }
 

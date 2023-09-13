@@ -20,6 +20,7 @@ public enum VasCategory {
     SECURITY("Security", "Update", "SECURITY"),
     TRANSPORT("Transport", "Update", "TRANSPORT"),
     FITNESS("Fitness", "Update", "FITNESS"),
+    GYM("Gym", "Update", "GYM"),
     PARKING("Parking", "Update", "PARKING"),
     ROOM("Room", "Update", "ROOM"),
     TESTING("Testing", "Update", "TESTING"),
