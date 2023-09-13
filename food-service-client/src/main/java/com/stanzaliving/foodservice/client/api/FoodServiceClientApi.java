@@ -14,6 +14,7 @@ import java.util.Objects;
 import java.util.Set;
 
 import com.stanzaliving.core.food.dto.*;
+import com.stanzaliving.food.v2.staycuration.StayCurationLiveResidenceDto;
 import org.apache.commons.collections.MapUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
@@ -931,5 +932,27 @@ public class FoodServiceClientApi {
 			return null;
 		}
 	}
-	
+
+	public StayCurationLiveResidenceDto getStayCurationResidences(){
+
+		String path = UriComponentsBuilder.fromPath("/internal/staycuration/live/residences").build().toUriString();
+		TypeReference<ResponseDto<StayCurationLiveResidenceDto>> returnType = new TypeReference<ResponseDto<StayCurationLiveResidenceDto>>() {};
+
+		ResponseDto<StayCurationLiveResidenceDto> responseDto = null;
+
+		try {
+
+			responseDto = restClient.get(path, null, null, null, returnType, MediaType.APPLICATION_JSON);
+
+		} catch (Exception e) {
+
+			log.error("Error while getting residence ids", e);
+
+		}
+
+		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : StayCurationLiveResidenceDto.builder().residenceIds(null).build();
+
+	}
+
+
 }
