@@ -4,6 +4,7 @@ package com.stanzaliving.core.commercialcode.dto;
 import com.stanzaliving.booking.enums.BookingSubType;
 import com.stanzaliving.booking.enums.PaymentFrequency;
 import com.stanzaliving.commercialcard.enums.CommercialCardUserType;
+import com.stanzaliving.core.payment.enums.BookingMode;
 import lombok.*;
 
 import javax.validation.constraints.NotEmpty;
@@ -58,5 +59,7 @@ public class CommercialCardRequestDto {
     private String strategyUuid;
 
     private boolean alfredRequest;
+
+    private BookingMode bookingMode;
 
 }
