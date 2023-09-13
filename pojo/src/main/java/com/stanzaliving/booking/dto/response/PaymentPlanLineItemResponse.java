@@ -20,4 +20,6 @@ public class PaymentPlanLineItemResponse {
     private double amount;
 
     private String period;
+
+    private String executionDate;
 }
