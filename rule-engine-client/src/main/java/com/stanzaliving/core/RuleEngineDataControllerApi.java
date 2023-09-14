@@ -47,8 +47,36 @@ public class RuleEngineDataControllerApi {
 
         try {
             return (ResponseDto<SalesCommandResidenceViewDto>) this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, salesCommandResidenceViewReqDto, headerParams, accept, returnType);
-        } catch (Exception var13) {
+        } catch (Exception e) {
             log.error("Exception while fetching sales command center for request {}", salesCommandResidenceViewReqDto);
+            return null;
+        }
+    }
+
+    public ResponseDto<SalesCommandResidenceViewDto> fetchSalesCommandCenterInfoByUuid(String salesCommandCenterUuid){
+        log.info("RuleEngine-Data-Controller::Processing to get sales command center based on uuid {}", salesCommandCenterUuid);
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("id", salesCommandCenterUuid);
+
+        String path = UriComponentsBuilder.fromPath("/internal/rule/sales-command/{id}").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {
+                "*/*"
+        };
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<SalesCommandResidenceViewDto>> returnType = new ParameterizedTypeReference<ResponseDto<SalesCommandResidenceViewDto>>() {
+        };
+
+        try {
+            return (ResponseDto<SalesCommandResidenceViewDto>) this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception while fetching sales command center for uuid {}, error is : {}", salesCommandCenterUuid, e.getMessage(), e);
             return null;
         }
     }

@@ -274,4 +274,29 @@ public class CommercialDataControllerApi {
         return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
     }
 
+    public ResponseDto<List<PaymentActionDto>> getPaymentFrequenciesForCommandCenter(String currentUserToken, String strategyUuid, String commercialCardUuid) {
+        log.info("PriceStrategy-Controller::Processing to retrieve payment frequencies for {}, {}", strategyUuid, commercialCardUuid);
+
+        Map<String, Object> uriVariables = new HashMap();
+
+        uriVariables.put("uuid", strategyUuid);
+
+        String path = UriComponentsBuilder.fromPath("/api/v1/price-strategy/payment-frequencies/{uuid}").buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+
+        HttpHeaders headerParams = new HttpHeaders();
+
+        headerParams.add("Cookie", "token=" + currentUserToken);
+
+        String[] accepts = new String[]{"*/*"};
+
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<List<PaymentActionDto>>> returnType =
+                new ParameterizedTypeReference<ResponseDto<List<PaymentActionDto>>>() {};
+
+        return this.restClient.invokeAPI(path, HttpMethod.GET
+                , queryParams, null, headerParams, accept, returnType);
+    }
 }
