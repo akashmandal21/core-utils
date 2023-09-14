@@ -17,6 +17,7 @@ import java.util.Map;
 @Builder
 @Setter
 public class SalesCommandResidenceViewDto {
+    private String id;
     private LabelValueObject residence;
 
     private LabelValueObject micromarket;
