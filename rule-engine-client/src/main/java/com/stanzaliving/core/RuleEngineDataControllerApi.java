@@ -65,7 +65,7 @@ public class RuleEngineDataControllerApi {
 
     }
 
-    ResponseDto<List<ThenOutput>> outputForQuery(RuleQueryDto ruleQueryDto) {
+    public ResponseDto<List<ThenOutput>> outputForQuery(RuleQueryDto ruleQueryDto) {
 
         log.info("RuleEngine-Data-Controller::Processing to get output for query based on request {}", ruleQueryDto);
 
