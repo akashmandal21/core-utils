@@ -86,10 +86,6 @@ public class PropertyLocationListingCardDto extends AbstractDto implements Seria
 
     private Double distanceFromPlace;
 
-    private Double distanceFromFilteredMicromarket;
-
-    private String nearestMmNameForRecommendationsDistance;
-
     private String seoTitle;
 
     private String seoDescription;
