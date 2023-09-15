@@ -14,7 +14,7 @@ import java.util.Objects;
 import java.util.Set;
 
 import com.stanzaliving.core.food.dto.*;
-import com.stanzaliving.food.v2.staycuration.StayCurationLiveResidenceDto;
+import com.stanzaliving.foodservice.client.dto.StayCurationLiveResidenceDto;
 import org.apache.commons.collections.MapUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
