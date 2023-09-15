@@ -27,4 +27,6 @@ public class PaymentPlanLineItemResponse {
 
     private LocalDate toDate;
 
+
+    private String executionDate;
 }
