@@ -943,7 +943,7 @@ public class FoodServiceClientApi {
 		} catch (Exception e) {
 			log.error("Error while getting residence ids", e);
 		}
-		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : StayCurationLiveResidenceDto.builder().residenceIds(null).build();
+		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : StayCurationLiveResidenceDto.builder().residenceIds(new ArrayList<>()).build();
 	}
 
 }
