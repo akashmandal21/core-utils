@@ -62,4 +62,6 @@ public class CommercialCardRequestDto {
 
     private BookingMode bookingMode;
 
+    private String commandCenterUuid;
+
 }
