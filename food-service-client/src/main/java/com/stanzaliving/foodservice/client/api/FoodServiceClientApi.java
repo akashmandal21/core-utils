@@ -933,26 +933,17 @@ public class FoodServiceClientApi {
 		}
 	}
 
-	public StayCurationLiveResidenceDto getStayCurationResidences(){
-
+	public StayCurationLiveResidenceDto getStayCurationResidences() {
 		String path = UriComponentsBuilder.fromPath("/internal/staycuration/live/residences").build().toUriString();
-		TypeReference<ResponseDto<StayCurationLiveResidenceDto>> returnType = new TypeReference<ResponseDto<StayCurationLiveResidenceDto>>() {};
-
+		TypeReference<ResponseDto<StayCurationLiveResidenceDto>> returnType = new TypeReference<ResponseDto<StayCurationLiveResidenceDto>>() {
+		};
 		ResponseDto<StayCurationLiveResidenceDto> responseDto = null;
-
 		try {
-
 			responseDto = restClient.get(path, null, null, null, returnType, MediaType.APPLICATION_JSON);
-
 		} catch (Exception e) {
-
 			log.error("Error while getting residence ids", e);
-
 		}
-
 		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : StayCurationLiveResidenceDto.builder().residenceIds(null).build();
-
 	}
-
 
 }
