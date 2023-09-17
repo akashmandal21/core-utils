@@ -7,7 +7,9 @@ import lombok.Getter;
 @Getter
 public enum AMCAmountType {
     MONTHLY("Monthly"),
-    FIXED("Fixed");
+    FIXED("Fixed"),
+
+    PERCENTAGE_OF_RENT("Percentage of rent");
 
     private String name;
 }

@@ -299,4 +299,28 @@ public class CommercialDataControllerApi {
         return this.restClient.invokeAPI(path, HttpMethod.GET
                 , queryParams, null, headerParams, accept, returnType);
     }
+
+    public ResponseDto<CommercialCardListDto> getAllCommercialCardsForCommandCenter(CommercialCardDto commercialCardDto) {
+
+        log.info("Commercial-code-Data-Controller::Processing to get residence list for filter {}", commercialCardDto.toString());
+
+        Object postBody = commercialCardDto;
+
+        Map<String, Object> uriVariables = new HashMap();
+
+        String path = UriComponentsBuilder.fromPath("/api/v1/command-center/commercial-codes").buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+
+        HttpHeaders headerParams = new HttpHeaders();
+
+        String[] accepts = new String[]{"*/*"};
+
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<CommercialCardListDto>> returnType =
+                new ParameterizedTypeReference<ResponseDto<CommercialCardListDto>>() {};
+
+        return this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+    }
 }
