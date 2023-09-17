@@ -17,6 +17,7 @@ import java.util.Map;
 @Builder
 @Setter
 public class SalesCommandResidenceViewDto {
+    private String id;
     private LabelValueObject residence;
 
     private LabelValueObject micromarket;
@@ -27,7 +28,7 @@ public class SalesCommandResidenceViewDto {
 
     private List<RuleExpressionDto> scholarSessionDate;
 
-    private List<RuleExpressionDto> commercialCard;
+    private List<CommercialCardRuleEngineDto> commercialCard;
 
-    private Map<String, RuleExpressionDto> priceStrategy;
+    private Map<String, Map<String, List<RuleExpressionDto>>> priceStrategy;
 }

@@ -14,7 +14,8 @@ public enum DataType {
     BOOLEAN,
     FILE_UPLOAD,
     SECTION,
-    OBJECT;
+    OBJECT,
+    DATE_RANGE;
 
     private Object obj;
 }
