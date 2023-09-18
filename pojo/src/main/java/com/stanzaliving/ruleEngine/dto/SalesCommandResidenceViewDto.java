@@ -31,4 +31,7 @@ public class SalesCommandResidenceViewDto {
     private List<CommercialCardRuleEngineDto> commercialCard;
 
     private Map<String, Map<String, List<RuleExpressionDto>>> priceStrategy;
+
+    private String propertyType;
+
 }
