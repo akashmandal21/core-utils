@@ -28,7 +28,7 @@ public class SalesCommandResidenceViewDto {
 
     private List<RuleExpressionDto> scholarSessionDate;
 
-    private List<RuleExpressionDto> commercialCard;
+    private List<CommercialCardRuleEngineDto> commercialCard;
 
     private Map<String, Map<String, List<RuleExpressionDto>>> priceStrategy;
 
