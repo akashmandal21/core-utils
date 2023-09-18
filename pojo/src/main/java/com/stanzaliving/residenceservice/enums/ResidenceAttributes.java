@@ -98,4 +98,21 @@ public enum ResidenceAttributes {
         return residenceAttributes;
     }
 
+    public static List<ResidenceAttributes> salesCommandCenterAttributesList() {
+        List<ResidenceAttributes> residenceAttributes = new ArrayList<>();
+        residenceAttributes.add(SD_MULTIPLIER);
+        residenceAttributes.add(AMC_MULTIPLIER);
+        residenceAttributes.add(MONTHLY_MULTIPLIER);
+        residenceAttributes.add(BOOKING_EXPIRY_TIME);
+        residenceAttributes.add(BOOKING_EXIT_DELTA_DAYS);
+        residenceAttributes.add(BOOKING_EXIT_NOTICE_PERIOD);
+        residenceAttributes.add(ROOM_RECOMMENDATION_ENGINE);
+        residenceAttributes.add(FUTURE_BOOKING_ALLOWED_DAYS);
+        residenceAttributes.add(MODIFY_CONTRACT_CUT_OFF_DAYS);
+        residenceAttributes.add(RETENTION_BOOKING_EXPIRY_TIME);
+        residenceAttributes.add(CITY_HEAD_BUFFER_CONTRIBUTION);
+        residenceAttributes.add(BOOKING_AMOUNT_REALISATION_ENABLED);
+        return residenceAttributes;
+    }
+
 }
