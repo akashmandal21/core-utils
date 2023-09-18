@@ -24,4 +24,7 @@ public class BookingCommercialCardDto {
     private Boolean isPriceStrategy;
 
     private Double monthlyRent;
+
+    private String commandCenterUuid;
+
 }
