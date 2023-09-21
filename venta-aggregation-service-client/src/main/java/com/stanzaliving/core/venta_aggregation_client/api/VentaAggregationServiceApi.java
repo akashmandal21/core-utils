@@ -707,7 +707,7 @@ public class VentaAggregationServiceApi {
 
     public ResponseDto<List<String>> getActiveDealsForInvoicing(Date invoiceDate) {
         final Map<String, Object> uriVariables = new HashMap<>();
-        String path = UriComponentsBuilder.fromPath("/internal/api/v1/eligible-for-invoice-b2b")
+        String path = UriComponentsBuilder.fromPath("/internal/eligible-for-invoice-b2b")
                 .buildAndExpand(uriVariables).toUriString();
         SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd");
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
