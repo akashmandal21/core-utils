@@ -68,6 +68,9 @@ public class ObjectMapperUtil {
 		return t;
 	}
 
+	//can be used to convert one class type to another class type
+	// do not use this to deep clone as it returns same object reference if input & output type reference is same
+	// but this can be used to deep clone Lists as it generates new object reference and returns
 	public <T> T convertObjectByTypeReference(Object value, TypeReference<T> typeReference) {
 		T t = null;
 		if (Objects.nonNull(value)) {
@@ -75,6 +78,19 @@ public class ObjectMapperUtil {
 				t = mapper.convertValue(value, typeReference);
 			} catch (Exception e) {
 				log.error("Error while converting object to typeReference object type: {}, error: {}", e.getMessage(), e);
+			}
+		}
+		return t;
+	}
+
+	public <T> T deepCloneObject(T object) {
+		T t = null;
+		if (Objects.nonNull(object)) {
+			try {
+				String objString = getString(object);
+				t = getObjectFromString(objString, (Class<T>) object.getClass());
+			} catch (Exception e) {
+				log.error("Error while deep cloning object, message: {}, error: {}", e.getMessage(), e);
 			}
 		}
 		return t;
