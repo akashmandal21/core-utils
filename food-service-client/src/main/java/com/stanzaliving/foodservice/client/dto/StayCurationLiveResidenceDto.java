@@ -1,4 +1,4 @@
-package com.stanzaliving.food.v2.staycuration;
+package com.stanzaliving.foodservice.client.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -12,7 +12,5 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class StayCurationLiveResidenceDto {
-
     private List<String> residenceIds;
-
 }
