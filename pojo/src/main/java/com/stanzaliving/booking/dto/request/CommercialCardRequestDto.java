@@ -46,6 +46,8 @@ public class CommercialCardRequestDto implements Serializable {
 
 	private AMCAmountType maintenanceChargeAmountType;
 
+	private Double maxDiscountPercentageCap;
+
 	public CommercialCardRequestDto(CommercialCardRequestDto commercialCardRequestDto) {
 	}
 

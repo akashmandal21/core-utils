@@ -9,6 +9,7 @@ import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.commercialcode.dto.*;
 import com.stanzaliving.price_strategy.request.CreationDto;
 import com.stanzaliving.price_strategy.request.PaymentActionDto;
+import com.stanzaliving.price_strategy.response.CommandCenterCodeListDto;
 import lombok.extern.log4j.Log4j2;
 
 import org.springframework.core.ParameterizedTypeReference;
@@ -76,6 +77,32 @@ public class CommercialDataControllerApi {
 
         ParameterizedTypeReference<ResponseDto<List<CodeListDto>>> returnType =
                 new ParameterizedTypeReference<ResponseDto<List<CodeListDto>>>() {};
+
+        return this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+    }
+
+    public ResponseDto<List<CommandCenterCodeListDto>> getAllPricingStrategyForCommandCenter(String token, CommercialCardDto commercialCardDto) {
+
+        log.info("Commercial-code-Data-Controller::Processing to get residence list for filter {}", commercialCardDto.toString());
+
+        Object postBody = commercialCardDto;
+
+        Map<String, Object> uriVariables = new HashMap();
+
+        String path = UriComponentsBuilder.fromPath("/api/v1/command-center/pricing-strategies").buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+
+        HttpHeaders headerParams = new HttpHeaders();
+
+        headerParams.add("Cookie", "token=" + token);
+
+        String[] accepts = new String[]{"*/*"};
+
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<List<CommandCenterCodeListDto>>> returnType =
+                new ParameterizedTypeReference<ResponseDto<List<CommandCenterCodeListDto>>>() {};
 
         return this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
     }
@@ -247,4 +274,81 @@ public class CommercialDataControllerApi {
         return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
     }
 
+    public ResponseDto<List<PaymentActionDto>> getPaymentFrequenciesForCommandCenter(String currentUserToken, String commandCenterUuid, String commercialCardUuid) {
+        log.info("PriceStrategy-Controller::Processing to retrieve payment frequencies for {}, {}", commandCenterUuid, commercialCardUuid);
+
+        Map<String, Object> uriVariables = new HashMap();
+
+        uriVariables.put("commandCenterUuid", commandCenterUuid);
+        uriVariables.put("commercialCardUuid", commercialCardUuid);
+
+        String path = UriComponentsBuilder.fromPath("/api/v1/command-center/payment-frequencies/{commandCenterUuid}/{commercialCardUuid}").buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+
+        HttpHeaders headerParams = new HttpHeaders();
+
+        headerParams.add("Cookie", "token=" + currentUserToken);
+
+        String[] accepts = new String[]{"*/*"};
+
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<List<PaymentActionDto>>> returnType =
+                new ParameterizedTypeReference<ResponseDto<List<PaymentActionDto>>>() {};
+
+        return this.restClient.invokeAPI(path, HttpMethod.GET
+                , queryParams, null, headerParams, accept, returnType);
+    }
+
+    public ResponseDto<CommercialCardResponseDto> getCommercialCardsForCommandCenter(String currentUserToken, String commandCenterUuid, String commercialCardUuid) {
+        log.info("PriceStrategy-Controller::Processing to retrieve payment frequencies for {}, {}", commandCenterUuid, commercialCardUuid);
+
+        Map<String, Object> uriVariables = new HashMap();
+
+        uriVariables.put("commandCenterUuid", commandCenterUuid);
+        uriVariables.put("commercialCardUuid", commercialCardUuid);
+
+        String path = UriComponentsBuilder.fromPath("/api/v1/command-center/commercial-code/{commandCenterUuid}/{commercialCardUuid}").buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+
+        HttpHeaders headerParams = new HttpHeaders();
+
+        headerParams.add("Cookie", "token=" + currentUserToken);
+
+        String[] accepts = new String[]{"*/*"};
+
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<CommercialCardResponseDto>> returnType =
+                new ParameterizedTypeReference<ResponseDto<CommercialCardResponseDto>>() {};
+
+        return this.restClient.invokeAPI(path, HttpMethod.GET
+                , queryParams, null, headerParams, accept, returnType);
+    }
+
+    public ResponseDto<CommercialCardListDto> getAllCommercialCardsForCommandCenter(CommercialCardDto commercialCardDto) {
+
+        log.info("Commercial-code-Data-Controller::Processing to get residence list for filter {}", commercialCardDto.toString());
+
+        Object postBody = commercialCardDto;
+
+        Map<String, Object> uriVariables = new HashMap();
+
+        String path = UriComponentsBuilder.fromPath("/api/v1/command-center/commercial-codes").buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+
+        HttpHeaders headerParams = new HttpHeaders();
+
+        String[] accepts = new String[]{"*/*"};
+
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<CommercialCardListDto>> returnType =
+                new ParameterizedTypeReference<ResponseDto<CommercialCardListDto>>() {};
+
+        return this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+    }
 }

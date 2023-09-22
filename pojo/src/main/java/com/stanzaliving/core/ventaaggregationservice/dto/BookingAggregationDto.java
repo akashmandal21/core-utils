@@ -120,4 +120,6 @@ public class BookingAggregationDto {
     private BookingPreference bookingPreference;
     private BookingAggregationDto secondPreferenceBookingData; //applicable only if booking preference is PRIMARY
     private boolean addSecondPreference;
+    private boolean salesCommandCenter;
+    private String commandCenterUuid;
 }
