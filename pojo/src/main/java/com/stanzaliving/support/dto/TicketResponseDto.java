@@ -21,6 +21,8 @@ public class TicketResponseDto {
 
     private String subCategoryUuid;
 
+    private String ticketUuid;
+
     private String subCategory;
     private String subCategoryDisplayName;
 
@@ -78,5 +80,7 @@ public class TicketResponseDto {
     private Integer version;
 
     private Date alfredSlaTime;
+
+    private boolean itemOneToOneMapping;
 
 }
