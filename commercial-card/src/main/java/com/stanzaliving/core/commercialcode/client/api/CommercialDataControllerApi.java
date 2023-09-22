@@ -301,6 +301,33 @@ public class CommercialDataControllerApi {
                 , queryParams, null, headerParams, accept, returnType);
     }
 
+    public ResponseDto<CommercialCardResponseDto> getCommercialCardsForCommandCenter(String currentUserToken, String commandCenterUuid, String commercialCardUuid) {
+        log.info("PriceStrategy-Controller::Processing to retrieve payment frequencies for {}, {}", commandCenterUuid, commercialCardUuid);
+
+        Map<String, Object> uriVariables = new HashMap();
+
+        uriVariables.put("commandCenterUuid", commandCenterUuid);
+        uriVariables.put("commercialCardUuid", commercialCardUuid);
+
+        String path = UriComponentsBuilder.fromPath("/api/v1/command-center/commercial-code/{commandCenterUuid}/{commercialCardUuid}").buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+
+        HttpHeaders headerParams = new HttpHeaders();
+
+        headerParams.add("Cookie", "token=" + currentUserToken);
+
+        String[] accepts = new String[]{"*/*"};
+
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<CommercialCardResponseDto>> returnType =
+                new ParameterizedTypeReference<ResponseDto<CommercialCardResponseDto>>() {};
+
+        return this.restClient.invokeAPI(path, HttpMethod.GET
+                , queryParams, null, headerParams, accept, returnType);
+    }
+
     public ResponseDto<CommercialCardListDto> getAllCommercialCardsForCommandCenter(CommercialCardDto commercialCardDto) {
 
         log.info("Commercial-code-Data-Controller::Processing to get residence list for filter {}", commercialCardDto.toString());

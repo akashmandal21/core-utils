@@ -8,6 +8,7 @@ package com.stanzaliving.ruleEngine.dto;
 
 import lombok.*;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -16,7 +17,7 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 @Setter
-public class RuleExpressionDto {
+public class RuleExpressionDto implements Serializable {
 
     private String id;
 
