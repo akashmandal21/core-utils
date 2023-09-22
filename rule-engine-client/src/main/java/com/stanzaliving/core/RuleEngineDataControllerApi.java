@@ -14,6 +14,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
+import org.springframework.util.StringUtils;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.HashMap;
@@ -30,7 +31,7 @@ public class RuleEngineDataControllerApi {
         this.restClient = stanzaRestClient;
     }
 
-    public ResponseDto<SalesCommandResidenceViewDto> fetchSalesCommandCenterForResidence(SalesCommandResidenceViewReqDto salesCommandResidenceViewReqDto) {
+    public ResponseDto<SalesCommandResidenceViewDto> fetchSalesCommandCenterForResidence(SalesCommandResidenceViewReqDto salesCommandResidenceViewReqDto, String entityType) {
 
         log.info("RuleEngine-Data-Controller::Processing to get sales command center based on request {}", salesCommandResidenceViewReqDto);
 
@@ -39,6 +40,9 @@ public class RuleEngineDataControllerApi {
         String path = UriComponentsBuilder.fromPath("/internal/rule/sales-command/fetch-residence-view").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        if(!StringUtils.isEmpty(entityType))
+            queryParams.add("entityType", entityType);
 
         final HttpHeaders headerParams = new HttpHeaders();
 
