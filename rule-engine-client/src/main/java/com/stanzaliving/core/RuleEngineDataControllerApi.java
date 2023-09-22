@@ -104,7 +104,7 @@ public class RuleEngineDataControllerApi {
 
     }
 
-    public ResponseDto<SalesCommandResidenceViewDto> fetchSalesCommandCenterInfoByUuid(String salesCommandCenterUuid){
+    public ResponseDto<SalesCommandResidenceViewDto> fetchSalesCommandCenterInfoByUuid(String salesCommandCenterUuid, String entityType){
         log.info("RuleEngine-Data-Controller::Processing to get sales command center based on uuid {}", salesCommandCenterUuid);
 
         final Map<String, Object> uriVariables = new HashMap<>();
@@ -113,6 +113,9 @@ public class RuleEngineDataControllerApi {
         String path = UriComponentsBuilder.fromPath("/internal/rule/sales-command/{id}").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        if(!StringUtils.isEmpty(entityType))
+            queryParams.add("entityType", entityType);
 
         final HttpHeaders headerParams = new HttpHeaders();
 
