@@ -22,6 +22,7 @@ public class TicketResponseDto {
     private String subCategoryUuid;
 
     private String ticketUuid;
+    private String userUuid;
 
     private String subCategory;
     private String subCategoryDisplayName;

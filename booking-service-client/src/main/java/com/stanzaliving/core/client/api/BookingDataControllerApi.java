@@ -12,6 +12,7 @@ import java.util.Objects;
 import com.stanzaliving.booking.dto.*;
 import com.stanzaliving.core.base.enums.DateFormat;
 import com.stanzaliving.core.base.utils.DateUtil;
+import com.stanzaliving.core.bookingservice.dto.response.RoomMateListResponseDto;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -1349,6 +1350,28 @@ public class BookingDataControllerApi {
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
         ParameterizedTypeReference<ResponseDto<BookingAmountRealisationResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<BookingAmountRealisationResponseDto>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+    }
+
+    public ResponseDto<List<RoomMateListResponseDto>> getRoomMateList(String userUuid){
+        Object postBody = null;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("userUuid", userUuid);
+
+        String path = UriComponentsBuilder.fromPath("/bookingDetail/room-detail/get/roomMate/byUserUuid/{userUuid}").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<List<RoomMateListResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<RoomMateListResponseDto>>>() {
         };
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
     }
