@@ -9,15 +9,10 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.util.UriComponentsBuilder;
-import com.stanzaliving.ventaInvoice.enums.ReferenceType;
 
 
 import java.text.SimpleDateFormat;
@@ -58,6 +53,53 @@ public class InvoiceServiceApi {
             log.error("Exception while fetching invoice information based on referenceId {}, Exception is {}", referenceId, e);
         }
         return null;
+    }
+
+    public void recreateCreditNote(String bookingUuid, String invoiceUuid, String currentUserToken) {
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("bookingUuid", bookingUuid);
+        uriVariables.put("invoiceUuid", invoiceUuid);
+
+        String path = UriComponentsBuilder.fromPath("/api/v1/v1/create-credit-note-manually/{bookingUuid}/{invoiceUuid}").buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        HttpHeaders headerParams = new HttpHeaders();
+        headerParams.add("Cookie", "token=" + currentUserToken);
+        String[] accepts = new String[]{"*/*"};
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<DocumentResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<DocumentResponseDto>>() {
+        };
+        try {
+            log.info("Executing Api for getting invoice Info with Url {}", path);
+            this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception while fetching invoice information based on referenceId {}, Exception is {}", invoiceUuid, e);
+        }
+    }
+
+    public void enableDisableInvoice(String invoiceUuid, Boolean status) {
+        final Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("invoiceUuid", invoiceUuid);
+        uriVariables.put("status", status);
+
+        String path = UriComponentsBuilder.fromPath("/internal/v1/enable-disable/{invoiceUuid}/{status}").buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        HttpHeaders headerParams = new HttpHeaders();
+        String[] accepts = new String[]{"*/*"};
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
+        };
+        try {
+            log.info("Executing Api for getting invoice Info with Url {}", path);
+            this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception while fetching invoice information based on referenceId {}, Exception is {}", invoiceUuid, e);
+        }
     }
 
     public ResponseDto<List<DocumentResponseDto>> getARInvoice(Date fromDate) {
