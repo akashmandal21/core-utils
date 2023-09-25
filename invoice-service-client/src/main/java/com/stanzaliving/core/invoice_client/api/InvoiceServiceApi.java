@@ -206,7 +206,7 @@ public class InvoiceServiceApi {
                 .buildAndExpand(uriVariables).toUriString();
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-        String tokenCookie = SecurityConstants.TOKEN_HEADER_NAME + "=" + "94abaacb-3e3f-45fa-b14b-481cc09d7440";
+        String tokenCookie = SecurityConstants.TOKEN_HEADER_NAME + "=" + "1bd17334-f19b-4f8a-94b4-52a757ef4e1b";
 
         final HttpHeaders headerParams = new HttpHeaders();
         headerParams.add(SecurityConstants.COOKIE_HEADER_NAME, tokenCookie);
