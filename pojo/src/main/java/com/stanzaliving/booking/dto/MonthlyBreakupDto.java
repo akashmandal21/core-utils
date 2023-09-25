@@ -36,6 +36,7 @@ public class MonthlyBreakupDto implements Serializable {
     private Double priceBump;
 
     private ServicePriceDto packagedServicePriceDto;
+    private ServicePriceDto discountServicePriceDto;
 
     private ServicePriceDto foodServicePriceDto;
 
