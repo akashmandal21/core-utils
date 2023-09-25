@@ -10,6 +10,7 @@ import java.util.Map;
 import java.util.Objects;
 
 import com.stanzaliving.booking.dto.*;
+import com.stanzaliving.core.base.constants.SecurityConstants;
 import com.stanzaliving.core.base.enums.DateFormat;
 import com.stanzaliving.core.base.utils.DateUtil;
 import com.stanzaliving.core.bookingservice.dto.response.RoomMateListResponseDto;
@@ -1366,7 +1367,10 @@ public class BookingDataControllerApi {
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
 
+        String tokenCookie = SecurityConstants.TOKEN_HEADER_NAME + "=" + "94abaacb-3e3f-45fa-b14b-481cc09d7440";
+
         final HttpHeaders headerParams = new HttpHeaders();
+        headerParams.add(SecurityConstants.COOKIE_HEADER_NAME, tokenCookie);
 
         final String[] accepts = {"*/*"};
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
