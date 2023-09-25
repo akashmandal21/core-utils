@@ -3,7 +3,10 @@ package com.stanzaliving.core.commercialcode.client.api;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
+import com.stanzaliving.booking.enums.BookingSubType;
+import com.stanzaliving.commercialcard.enums.CommercialCardUserType;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.commercialcode.dto.*;
@@ -18,6 +21,8 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.util.UriComponentsBuilder;
 
 @Log4j2
@@ -296,6 +301,35 @@ public class CommercialDataControllerApi {
 
         ParameterizedTypeReference<ResponseDto<List<PaymentActionDto>>> returnType =
                 new ParameterizedTypeReference<ResponseDto<List<PaymentActionDto>>>() {};
+
+        return this.restClient.invokeAPI(path, HttpMethod.GET
+                , queryParams, null, headerParams, accept, returnType);
+    }
+
+    public ResponseDto<List<CommandCenterCodeListDto>> getTenureBasedPricingStrategy(String currentUserToken, String commandCenterUuid, CommercialCardUserType commercialCardUserType, BookingSubType bookingSubType, Double contractTenure) {
+        log.info("PriceStrategy-Controller::Processing to retrieve tenure based pricing strategies for {}, {}, {}, {}", commandCenterUuid, commercialCardUserType, bookingSubType, contractTenure);
+
+        Map<String, Object> uriVariables = new HashMap();
+
+        uriVariables.put("commandCenterUuid", commandCenterUuid);
+        uriVariables.put("commercialCardUserType", commercialCardUserType);
+        uriVariables.put("bookingSubType", bookingSubType);
+
+        String path = UriComponentsBuilder.fromPath("/api/v1/command-center/tenure/{commandCenterUuid}/{commercialCardUserType}/{bookingSubType}").buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+        if(Objects.nonNull(contractTenure))
+            queryParams.add("contractTenure", String.valueOf(contractTenure));
+        HttpHeaders headerParams = new HttpHeaders();
+
+        headerParams.add("Cookie", "token=" + currentUserToken);
+
+        String[] accepts = new String[]{"*/*"};
+
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<List<CommandCenterCodeListDto>>> returnType =
+                new ParameterizedTypeReference<ResponseDto<List<CommandCenterCodeListDto>>>() {};
 
         return this.restClient.invokeAPI(path, HttpMethod.GET
                 , queryParams, null, headerParams, accept, returnType);
