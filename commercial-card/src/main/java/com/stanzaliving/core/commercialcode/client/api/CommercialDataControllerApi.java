@@ -306,7 +306,7 @@ public class CommercialDataControllerApi {
                 , queryParams, null, headerParams, accept, returnType);
     }
 
-    public ResponseDto<List<CommandCenterCodeListDto>> getTenureBasedPricingStrategy(String currentUserToken, String commandCenterUuid, CommercialCardUserType commercialCardUserType, BookingSubType bookingSubType, Double contractTenure) {
+    public ResponseDto<List<CommandCenterCodeListDto>> getTenureBasedPricingStrategy(String currentUserToken, String commandCenterUuid, String commercialCardUserType, String bookingSubType, Double contractTenure) {
         log.info("PriceStrategy-Controller::Processing to retrieve tenure based pricing strategies for {}, {}, {}, {}", commandCenterUuid, commercialCardUserType, bookingSubType, contractTenure);
 
         Map<String, Object> uriVariables = new HashMap();
