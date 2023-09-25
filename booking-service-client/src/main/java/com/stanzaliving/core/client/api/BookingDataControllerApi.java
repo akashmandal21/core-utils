@@ -1367,10 +1367,8 @@ public class BookingDataControllerApi {
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
 
-        String tokenCookie = SecurityConstants.TOKEN_HEADER_NAME + "=" + "1bd17334-f19b-4f8a-94b4-52a757ef4e1b";
-
         final HttpHeaders headerParams = new HttpHeaders();
-        headerParams.add(SecurityConstants.COOKIE_HEADER_NAME, tokenCookie);
+
 
         final String[] accepts = {"*/*"};
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);

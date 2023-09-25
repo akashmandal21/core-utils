@@ -202,14 +202,12 @@ public class InvoiceServiceApi {
     public ResponseDto<DocumentResponseDto> createInvoce(DocumentRequestDto documentRequestDto) {
         final Map<String, Object> uriVariables = new HashMap<>();
         log.info("sending request for invoices {}", documentRequestDto);
-        String path = UriComponentsBuilder.fromPath("/api/v1/invoice/create")
+        String path = UriComponentsBuilder.fromPath("/internal/api/v1/invoice/create")
                 .buildAndExpand(uriVariables).toUriString();
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-        String tokenCookie = SecurityConstants.TOKEN_HEADER_NAME + "=" + "1bd17334-f19b-4f8a-94b4-52a757ef4e1b";
-
         final HttpHeaders headerParams = new HttpHeaders();
-        headerParams.add(SecurityConstants.COOKIE_HEADER_NAME, tokenCookie);
+
         final String[] accepts = {"*/*"};
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
         ParameterizedTypeReference<ResponseDto<DocumentResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<DocumentResponseDto>>() {
