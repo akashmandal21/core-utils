@@ -3,6 +3,7 @@ package com.stanzaliving.core.invoice_client.api;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.ventaInvoice.dto.DocumentRequestDto;
 import com.stanzaliving.ventaInvoice.dto.DocumentResponseDto;
 import com.stanzaliving.ventaInvoice.enums.ReferenceType;
 import lombok.extern.log4j.Log4j2;
@@ -196,6 +197,28 @@ public class InvoiceServiceApi {
             return null;
         }
     }
+
+    public ResponseDto<DocumentResponseDto> createInvoce(DocumentRequestDto documentRequestDto) {
+        final Map<String, Object> uriVariables = new HashMap<>();
+        log.info("sending request for invoices {}", documentRequestDto);
+        String path = UriComponentsBuilder.fromPath("/api/v1/invoice/create")
+                .buildAndExpand(uriVariables).toUriString();
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        HttpHeaders headerParams = new HttpHeaders();
+        final String[] accepts = {"*/*"};
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<DocumentResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<DocumentResponseDto>>() {
+        };
+        try {
+            return restClient.invokeAPI(path, HttpMethod.POST, queryParams,
+                    documentRequestDto, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("error in sending request for filix invoices {}", documentRequestDto, e);
+            return null;
+        }
+    }
+
 
     public ResponseDto<String> createAndSendPacketForFilixInvoice(DocumentResponseDto documentResponseDto) {
         final Map<String, Object> uriVariables = new HashMap<>();
