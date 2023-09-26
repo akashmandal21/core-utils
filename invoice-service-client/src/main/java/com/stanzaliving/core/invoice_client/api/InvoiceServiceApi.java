@@ -1,5 +1,6 @@
 package com.stanzaliving.core.invoice_client.api;
 
+import com.google.gson.Gson;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.constants.SecurityConstants;
 import com.stanzaliving.core.base.enums.Department;
@@ -208,6 +209,8 @@ public class InvoiceServiceApi {
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
         log.info("sending documentRequestDto for invoices {}", ObjectMapperUtil.getString(documentRequestDto));
+
+        log.info("sending documentRequestDto toJson for invoices {}" ,new Gson().toJson(documentRequestDto));
 
         final HttpHeaders headerParams = new HttpHeaders();
 
