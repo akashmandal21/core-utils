@@ -4,6 +4,7 @@ import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.constants.SecurityConstants;
 import com.stanzaliving.core.base.enums.Department;
 import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.core.base.utils.ObjectMapperUtil;
 import com.stanzaliving.ventaInvoice.dto.DocumentRequestDto;
 import com.stanzaliving.ventaInvoice.dto.DocumentResponseDto;
 import com.stanzaliving.ventaInvoice.enums.ReferenceType;
@@ -205,6 +206,8 @@ public class InvoiceServiceApi {
         String path = UriComponentsBuilder.fromPath("/internal/api/v1/invoice/create")
                 .buildAndExpand(uriVariables).toUriString();
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        log.info("sending documentRequestDto for invoices {}", ObjectMapperUtil.getString(documentRequestDto));
 
         final HttpHeaders headerParams = new HttpHeaders();
 
