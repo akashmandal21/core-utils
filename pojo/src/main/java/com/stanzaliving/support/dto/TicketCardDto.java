@@ -17,6 +17,8 @@ import java.util.Date;
 public class TicketCardDto {
 
     private String ticketId;
+
+    private boolean invoiceFlowPermitted;
     private String ticketUuid;
     private String statusName;
     private String statusUuid;
