@@ -203,15 +203,13 @@ public class InvoiceServiceApi {
 
     public ResponseDto<DocumentResponseDto> createInvoce(DocumentRequestDto documentRequestDto) {
         final Map<String, Object> uriVariables = new HashMap<>();
-        log.info("sending request for invoices {}", documentRequestDto);
+
         String path = UriComponentsBuilder.fromPath("/internal/api/v1/invoice/create")
                 .buildAndExpand(uriVariables).toUriString();
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
         log.info("sending documentRequestDto for invoices {}", ObjectMapperUtil.getString(documentRequestDto));
-
-        log.info("sending documentRequestDto toJson for invoices {}" ,new Gson().toJson(documentRequestDto));
-
+        
         final HttpHeaders headerParams = new HttpHeaders();
 
         final String[] accepts = {"*/*"};
