@@ -15,6 +15,7 @@ public enum EventDataType {
     LIST_INTEGER("List Of Integer"),
     DATE("Date"),
     TIME("Time"),
+    OBJECT("Object"),
     DATE_TIME("Date Time"),
     BOOLEAN("Boolean");
 
