@@ -1,3 +1,4 @@
+
 package com.stanzaliving.booking.dto;
 
 import com.stanzaliving.booking.enums.ContractStatus;
@@ -6,6 +7,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 @Data
@@ -13,8 +15,9 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ContractStatusDto {
-    @NotNull
+    @NotBlank(message = "contractUuid can not be blank")
     private String contractUuid;
     @NotNull
     private ContractStatus contractStatus;
 }
+
