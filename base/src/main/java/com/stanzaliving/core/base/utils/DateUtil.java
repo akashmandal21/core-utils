@@ -1272,6 +1272,7 @@ public class DateUtil {
 
     public static Date addMonthsToDate(Date date, int months){
         Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
         cal.add(Calendar.MONTH, months);
         return cal.getTime();
     }
