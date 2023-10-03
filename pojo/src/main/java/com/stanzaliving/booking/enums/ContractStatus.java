@@ -12,4 +12,3 @@ public enum ContractStatus {
 
     String statusMsg;
 }
-

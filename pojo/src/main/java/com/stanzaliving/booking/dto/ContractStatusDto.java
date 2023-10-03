@@ -1,4 +1,3 @@
-
 package com.stanzaliving.booking.dto;
 
 import com.stanzaliving.booking.enums.ContractStatus;
@@ -20,4 +19,3 @@ public class ContractStatusDto {
     @NotNull
     private ContractStatus contractStatus;
 }
-
