@@ -52,5 +52,6 @@ public class RoomNumberListingResponseDto implements Serializable {
 
     private List<String> inventoryUuidList;
     private List<AttributesResponseDto> attributesResponseDto;
+    private List<AttributesResponseDto> roomAttributesResponseDto;
 
 }
