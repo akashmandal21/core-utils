@@ -45,4 +45,6 @@ public class PaymentTransactionRequestDto {
     private String userType;
 
     private String createdBy;
+
+    private String cashDetails;
 }
