@@ -15,4 +15,5 @@ public class BifrostLogDto {
     private String tableName;
     private Map<String, Object> metaData;
     private long dateTime;
+
 }
