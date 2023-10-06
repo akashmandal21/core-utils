@@ -5,9 +5,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-import com.stanzaliving.booking.enums.BookingSubType;
-import com.stanzaliving.commercialcard.enums.CommercialCardUserType;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
+import com.stanzaliving.core.base.exception.StanzaException;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.commercialcode.dto.*;
 import com.stanzaliving.price_strategy.request.CreationDto;
@@ -21,8 +20,6 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.util.UriComponentsBuilder;
 
 @Log4j2
@@ -112,57 +109,63 @@ public class CommercialDataControllerApi {
         return this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
     }
 
-    public ResponseDto<CommercialCardUsageDto> updateCommercialCardUsage(String token, CommercialCardBookingDto commercialCardBookingDto) {
+    public void updateCommercialCardUsage(String token, CommercialCardBookingDto commercialCardBookingDto) {
+        try {
+            log.info("Commercial-code-Data-Controller::Processing to update commercial card usage {}", commercialCardBookingDto);
 
-        log.info("Commercial-code-Data-Controller::Processing to update commercial card usage", commercialCardBookingDto);
+            Map<String, Object> uriVariables = new HashMap<>();
 
-        Object postBody = commercialCardBookingDto;
+            String path = UriComponentsBuilder.fromPath("/api/v1/commercial-card/usage").buildAndExpand(uriVariables).toUriString();
 
-        Map<String, Object> uriVariables = new HashMap();
+            MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-        String path = UriComponentsBuilder.fromPath("/api/v1/commercial-card/usage").buildAndExpand(uriVariables).toUriString();
+            HttpHeaders headerParams = new HttpHeaders();
 
-        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+            headerParams.add("Cookie", "token=" + token);
 
-        HttpHeaders headerParams = new HttpHeaders();
+            String[] accepts = new String[]{"*/*"};
 
-        headerParams.add("Cookie", "token=" + token);
+            List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
 
-        String[] accepts = new String[]{"*/*"};
+            ParameterizedTypeReference<ResponseDto<CommercialCardUsageDto>> returnType =
+                    new ParameterizedTypeReference<ResponseDto<CommercialCardUsageDto>>() {
+                    };
 
-        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
-
-        ParameterizedTypeReference<ResponseDto<CommercialCardUsageDto>> returnType =
-                new ParameterizedTypeReference<ResponseDto<CommercialCardUsageDto>>() {};
-
-        return this.restClient.invokeAPI(path, HttpMethod.PUT, queryParams, postBody, headerParams, accept, returnType);
+            this.restClient.invokeAPI(path, HttpMethod.PUT, queryParams, commercialCardBookingDto, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Error while applying commercial card for bookingUuid : {}, error is : {}", commercialCardBookingDto.getBookingUuid(), e.getMessage(), e);
+            throw new StanzaException("The commercial code used is no longer available. Please select another commercial code to complete this booking");
+        }
     }
 
 
-    public ResponseDto<CommercialCardUsageDto> restoreCommercialCardUsage(String token, CommercialCardBookingDto commercialCardBookingDto) {
+    public void restoreCommercialCardUsage(String token, CommercialCardBookingDto commercialCardBookingDto) {
+        try {
+            log.info("Commercial-code-Data-Controller::Processing to restore commercial card usage {}", commercialCardBookingDto);
 
-        log.info("Commercial-code-Data-Controller::Processing to restore commercial card usage", commercialCardBookingDto);
+            Map<String, Object> uriVariables = new HashMap<>();
 
-        Object postBody = commercialCardBookingDto;
+            String path = UriComponentsBuilder.fromPath("/api/v1/commercial-card/restore").buildAndExpand(uriVariables).toUriString();
 
-        Map<String, Object> uriVariables = new HashMap();
+            MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-        String path = UriComponentsBuilder.fromPath("/api/v1/commercial-card/restore").buildAndExpand(uriVariables).toUriString();
+            HttpHeaders headerParams = new HttpHeaders();
 
-        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+            headerParams.add("Cookie", "token=" + token);
 
-        HttpHeaders headerParams = new HttpHeaders();
+            String[] accepts = new String[]{"*/*"};
 
-        headerParams.add("Cookie", "token=" + token);
+            List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
 
-        String[] accepts = new String[]{"*/*"};
+            ParameterizedTypeReference<ResponseDto<CommercialCardUsageDto>> returnType =
+                    new ParameterizedTypeReference<ResponseDto<CommercialCardUsageDto>>() {
+                    };
 
-        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
-
-        ParameterizedTypeReference<ResponseDto<CommercialCardUsageDto>> returnType =
-                new ParameterizedTypeReference<ResponseDto<CommercialCardUsageDto>>() {};
-
-        return this.restClient.invokeAPI(path, HttpMethod.PUT, queryParams, postBody, headerParams, accept, returnType);
+            this.restClient.invokeAPI(path, HttpMethod.PUT, queryParams, commercialCardBookingDto, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Error while applying commercial card for bookingUuid : {}, error is : {}", commercialCardBookingDto.getBookingUuid(), e.getMessage(), e);
+            throw new StanzaException("Error in restoring commercial card");
+        }
     }
     
 	public CommercialCardResponseDto getCommercialCardResponseDto(String commercialCardUuid) {
