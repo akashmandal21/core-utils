@@ -1,17 +1,30 @@
 package com.stanzaliving.core.client.api;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.stanzaliving.booking.SoldBookingDto;
 import com.stanzaliving.booking.dto.*;
+import com.stanzaliving.booking.dto.request.BookingRequestDto;
+import com.stanzaliving.booking.dto.request.CustomizeVasSyncResponse;
+import com.stanzaliving.booking.dto.response.*;
+import com.stanzaliving.booking.enums.ResidenceAgreementType;
+import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.enums.DateFormat;
+import com.stanzaliving.core.base.exception.ApiValidationException;
+import com.stanzaliving.core.base.exception.StanzaException;
+import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.base.utils.DateUtil;
+import com.stanzaliving.core.bookingservice.dto.request.GuestRequestPayloadDto;
+import com.stanzaliving.core.bookingservice.dto.request.ResidenceCardDto;
+import com.stanzaliving.core.bookingservice.dto.request.ResidentRequestDto;
+import com.stanzaliving.core.bookingservice.dto.response.BookedPackageServiceDto;
+import com.stanzaliving.core.bookingservice.dto.response.GstDto;
+import com.stanzaliving.core.bookingservice.dto.response.PackagedServiceResponseDto;
+import com.stanzaliving.core.client.dto.InventoryResponseOccupancyDto;
+import com.stanzaliving.core.client.dto.*;
+import com.stanzaliving.ledger.dto.UpcomingBookingsDto;
+import com.stanzaliving.wanda.venta.response.BookingStatusResponseDto;
+import com.stanzaliving.wanda.venta.response.PendingDuesDetailsResponseDtoV2;
+import lombok.extern.log4j.Log4j2;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -21,43 +34,8 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.stanzaliving.booking.SoldBookingDto;
-import com.stanzaliving.booking.dto.request.BookingRequestDto;
-import com.stanzaliving.booking.dto.request.CustomizeVasSyncResponse;
-import com.stanzaliving.booking.dto.response.BookingCommercialsCardResponseDto;
-import com.stanzaliving.booking.dto.response.BookingWaiveOffDetailsResponseDto;
-import com.stanzaliving.booking.dto.response.InventoryOccupancyResponseDto;
-import com.stanzaliving.booking.dto.response.LedgerResponseDto;
-import com.stanzaliving.booking.dto.response.NeedsAttentionBookingResponseDto;
-import com.stanzaliving.booking.dto.response.RefundResponseDto;
-import com.stanzaliving.booking.enums.ResidenceAgreementType;
-import com.stanzaliving.core.base.common.dto.ResponseDto;
-import com.stanzaliving.core.base.exception.ApiValidationException;
-import com.stanzaliving.core.base.exception.StanzaException;
-import com.stanzaliving.core.base.http.StanzaRestClient;
-import com.stanzaliving.core.bookingservice.dto.request.GuestRequestPayloadDto;
-import com.stanzaliving.core.bookingservice.dto.request.ResidenceCardDto;
-import com.stanzaliving.core.bookingservice.dto.request.ResidentRequestDto;
-import com.stanzaliving.core.bookingservice.dto.response.BookedPackageServiceDto;
-import com.stanzaliving.core.bookingservice.dto.response.GstDto;
-import com.stanzaliving.core.bookingservice.dto.response.PackagedServiceResponseDto;
-import com.stanzaliving.core.client.dto.BookingAmountRealisationResponseDto;
-import com.stanzaliving.core.client.dto.BookingDetailDto;
-import com.stanzaliving.core.client.dto.BookingInventoryDto;
-import com.stanzaliving.core.client.dto.BookingInventoryResponseDto;
-import com.stanzaliving.core.client.dto.CancelBookingDto;
-import com.stanzaliving.core.client.dto.ContractModificationDetailsDto;
-import com.stanzaliving.core.client.dto.ExceptionOnboardingDetailsDto;
-import com.stanzaliving.core.client.dto.InventoryResponseOccupancyDto;
-import com.stanzaliving.core.client.dto.PackageServicesResponseDto;
-import com.stanzaliving.core.client.dto.PlanMirResponseDto;
-import com.stanzaliving.core.client.dto.RequestDto;
-import com.stanzaliving.ledger.dto.UpcomingBookingsDto;
-import com.stanzaliving.wanda.venta.response.BookingStatusResponseDto;
-import com.stanzaliving.wanda.venta.response.PendingDuesDetailsResponseDtoV2;
-
-import lombok.extern.log4j.Log4j2;
+import java.time.LocalDate;
+import java.util.*;
 
 @Log4j2
 public class BookingDataControllerApi {
@@ -736,10 +714,10 @@ public class BookingDataControllerApi {
     }
 
 
-    public ResponseDto<PaymentPendingBookingResponseDto> getLatestActivePaymentPendingBookingEntity(String bookingUuid,Double amount) {
+    public ResponseDto<PaymentPendingBookingResponseDto> getLatestActivePaymentPendingBookingEntity(String bookingUuid, Double amount) {
         Map<String, Object> uriVariables = new HashMap<>();
         uriVariables.put("bookingUuid", bookingUuid);
-        uriVariables.put("amount",amount);
+        uriVariables.put("amount", amount);
 
         String path = UriComponentsBuilder.fromPath("/internal/latest/active/payment-pending-booking/{bookingUuid}/{amount}")
                 .buildAndExpand(uriVariables).toUriString();
@@ -751,12 +729,12 @@ public class BookingDataControllerApi {
         List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
         ParameterizedTypeReference<ResponseDto<PaymentPendingBookingResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<PaymentPendingBookingResponseDto>>() {
         };
-        ResponseDto<PaymentPendingBookingResponseDto> response  = null;
+        ResponseDto<PaymentPendingBookingResponseDto> response = null;
         try {
-            log.info("Executing Api for getting latest active payment pending booking entity for bookingUuid {} with Url {}",bookingUuid,path);
+            log.info("Executing Api for getting latest active payment pending booking entity for bookingUuid {} with Url {}", bookingUuid, path);
             response = this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
         } catch (Exception e) {
-            log.error("Exception while getting latest active payment pending booking entity for bookingUuid {} Exception is ",bookingUuid , e);
+            log.error("Exception while getting latest active payment pending booking entity for bookingUuid {} Exception is ", bookingUuid, e);
         }
         return response;
     }
@@ -883,12 +861,12 @@ public class BookingDataControllerApi {
         List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
         ParameterizedTypeReference<ResponseDto<BookingResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<BookingResponseDto>>() {
         };
-        ResponseDto<BookingResponseDto> response  = null;
+        ResponseDto<BookingResponseDto> response = null;
         try {
             log.info("Executing Api for getting booking inventory details with Url {}", path);
-            response =restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+            response = restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
         } catch (Exception e) {
-            log.error("Exception while fetching booking inventory details for resident {}, Exception is ",residentId , e);
+            log.error("Exception while fetching booking inventory details for resident {}, Exception is ", residentId, e);
         }
         return response;
 
@@ -993,6 +971,7 @@ public class BookingDataControllerApi {
         return null;
 
     }
+
     public ResponseDto<BookingResponseDto> getBookingDetailsForVirtualAccountMapping(String residentId) {
         Map<String, Object> uriVariables = new HashMap<>();
         uriVariables.put("residentId", residentId);
@@ -1006,12 +985,12 @@ public class BookingDataControllerApi {
         List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
         ParameterizedTypeReference<ResponseDto<BookingResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<BookingResponseDto>>() {
         };
-        ResponseDto<BookingResponseDto> response  = null;
+        ResponseDto<BookingResponseDto> response = null;
         try {
             log.info("Executing Api for getting booking inventory details with Url {}", path);
-            response =restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+            response = restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
         } catch (Exception e) {
-            log.error("Exception while fetching booking inventory details for resident {}, Exception is ",residentId , e);
+            log.error("Exception while fetching booking inventory details for resident {}, Exception is ", residentId, e);
         }
         return response;
     }
@@ -1042,12 +1021,12 @@ public class BookingDataControllerApi {
         List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
         ParameterizedTypeReference<ResponseDto<List<com.stanzaliving.booking.dto.response.InventoryResponseOccupancyDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<com.stanzaliving.booking.dto.response.InventoryResponseOccupancyDto>>>() {
         };
-        ResponseDto<List<com.stanzaliving.booking.dto.response.InventoryResponseOccupancyDto>> response  = null;
+        ResponseDto<List<com.stanzaliving.booking.dto.response.InventoryResponseOccupancyDto>> response = null;
         try {
             log.info("Executing Api for getting booking inventory details with Url {}", path);
-            response =restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+            response = restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
         } catch (Exception e) {
-            log.error("Exception while fetching booking inventory details for resident {}, Exception is " , e);
+            log.error("Exception while fetching booking inventory details for resident {}, Exception is ", e);
         }
         return response;
     }
@@ -1420,12 +1399,12 @@ public class BookingDataControllerApi {
         List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
         ParameterizedTypeReference<ResponseDto<InventoryOccupancyResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<InventoryOccupancyResponseDto>>() {
         };
-        ResponseDto<InventoryOccupancyResponseDto> response  = null;
+        ResponseDto<InventoryOccupancyResponseDto> response = null;
         try {
             log.info("Executing Api for getting booking inventory details with Url {}", path);
             response = this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
         } catch (Exception e) {
-            log.error("Exception while fetching booking inventory details for bookingUuid {}, Exception is ",bookingUuid , e);
+            log.error("Exception while fetching booking inventory details for bookingUuid {}, Exception is ", bookingUuid, e);
         }
         return response;
     }
@@ -1633,7 +1612,7 @@ public class BookingDataControllerApi {
 
         final HttpHeaders headerParams = new HttpHeaders();
 
-        final String[] accepts = { "*/*" };
+        final String[] accepts = {"*/*"};
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
         ParameterizedTypeReference<ResponseDto<List<PlanMirResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<PlanMirResponseDto>>>() {
@@ -1676,12 +1655,12 @@ public class BookingDataControllerApi {
         String path = UriComponentsBuilder.fromPath("/internal/v2/residence-stats").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-        if(Objects.nonNull(moveIn))
+        if (Objects.nonNull(moveIn))
             queryParams.add("moveIn", DateUtil.customDateFormatter(moveIn, DateFormat.YYYY_HIFEN_MM_HIFEN_DD));
 
         final HttpHeaders headerParams = new HttpHeaders();
 
-        final String[] accepts = { "*/*" };
+        final String[] accepts = {"*/*"};
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
         ParameterizedTypeReference<ResidenceCardDto> returnType = new ParameterizedTypeReference<ResidenceCardDto>() {
@@ -1737,7 +1716,7 @@ public class BookingDataControllerApi {
         return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
     }
 
-    public void updateONMCorrectionFailureLogs(String bookingUuid, String failureMessage){
+    public void updateONMCorrectionFailureLogs(String bookingUuid, String failureMessage) {
         String responseDto = null;
         final Map<String, Object> uriVariables = new HashMap<>();
         Object postBody = null;
@@ -1747,12 +1726,12 @@ public class BookingDataControllerApi {
         String path = UriComponentsBuilder.fromPath("/internal/v1/update/onm-failure-message/{bookingUuid}").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-        if(StringUtils.isNotBlank(failureMessage))
+        if (StringUtils.isNotBlank(failureMessage))
             queryParams.add("failureMessage", failureMessage);
 
         final HttpHeaders headerParams = new HttpHeaders();
 
-        final String[] accepts = { "*/*" };
+        final String[] accepts = {"*/*"};
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
         ParameterizedTypeReference<String> returnType = new ParameterizedTypeReference<String>() {
@@ -1768,21 +1747,20 @@ public class BookingDataControllerApi {
         String path = UriComponentsBuilder.fromPath("/internal/v1/save/onm-migration-logs/{bookingUuid}").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-        if(StringUtils.isNotBlank(message))
+        if (StringUtils.isNotBlank(message))
             queryParams.add("message", message);
-        if(StringUtils.isNotBlank(migrationStatus))
+        if (StringUtils.isNotBlank(migrationStatus))
             queryParams.add("migrationStatus", migrationStatus);
 
         final HttpHeaders headerParams = new HttpHeaders();
 
-        final String[] accepts = { "*/*" };
+        final String[] accepts = {"*/*"};
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
         ParameterizedTypeReference<String> returnType = new ParameterizedTypeReference<String>() {
         };
         restClient.invokeAPI(path, HttpMethod.POST, queryParams, null, headerParams, accept, returnType);
     }
-
 
     public void cancelPotentialDefaulterExits() {
         final Map<String, Object> uriVariables = new HashMap<>();
@@ -1793,11 +1771,33 @@ public class BookingDataControllerApi {
 
         final HttpHeaders headerParams = new HttpHeaders();
 
-        final String[] accepts = { "*/*" };
+        final String[] accepts = {"*/*"};
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
         ParameterizedTypeReference<String> returnType = new ParameterizedTypeReference<String>() {
         };
         restClient.invokeAPI(path, HttpMethod.DELETE, queryParams, null, headerParams, accept, returnType);
+    }
+
+    public Map<String, Double> getCommercialUsageCount(LocationDto locationDto) {
+        try {
+            final Map<String, Object> uriVariables = new HashMap<>();
+
+            String path = UriComponentsBuilder.fromPath("/internal/commercial-usage-count").buildAndExpand(uriVariables).toUriString();
+
+            final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+            final HttpHeaders headerParams = new HttpHeaders();
+
+            final String[] accepts = {"*/*"};
+            final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+            ParameterizedTypeReference<Map<String, Double>> returnType = new ParameterizedTypeReference<Map<String, Double>>() {
+            };
+            return restClient.invokeAPI(path, HttpMethod.POST, queryParams, locationDto, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception is {}", e.getMessage());
+            return new HashMap<>();
+        }
     }
 }
