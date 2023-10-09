@@ -35,6 +35,7 @@ public class TransformationCache {
 	private Map<String, ZoneMetadataDto> zoneByUuidMap;
 
 	private LoadingCache<String, List<CityMetadataDto>> allCityCache = CacheBuilder.newBuilder()
+			.maximumSize(10)
 			.expireAfterWrite(30, TimeUnit.MINUTES)
 			.build(
 					new CacheLoader<String, List<CityMetadataDto>>() {
@@ -49,6 +50,7 @@ public class TransformationCache {
 					});
 
 	private LoadingCache<String, List<ZoneMetadataDto>> allZoneCache = CacheBuilder.newBuilder()
+			.maximumSize(10)
 			.expireAfterWrite(30, TimeUnit.MINUTES)
 			.build(
 					new CacheLoader<String, List<ZoneMetadataDto>>() {
@@ -63,6 +65,7 @@ public class TransformationCache {
 					});
 
 	private LoadingCache<AccessLevel, List<LocationDto>> allLocationsCache = CacheBuilder.newBuilder()
+			.maximumSize(100)
 			.expireAfterWrite(5, TimeUnit.MINUTES)
 			.build(
 					new CacheLoader<AccessLevel, List<LocationDto>>() {
@@ -86,6 +89,7 @@ public class TransformationCache {
 	}
 
 	private LoadingCache<String, List<MicroMarketMetadataDto>> allMicroMarketCache = CacheBuilder.newBuilder()
+			.maximumSize(50)
 			.expireAfterWrite(30, TimeUnit.MINUTES)
 			.build(
 					new CacheLoader<String, List<MicroMarketMetadataDto>>() {
@@ -104,6 +108,7 @@ public class TransformationCache {
 	}
 
 	private LoadingCache<String, List<ResidenceMetadataDto>> allResidenceCache = CacheBuilder.newBuilder()
+			.maximumSize(200)
 			.expireAfterWrite(60, TimeUnit.MINUTES)
 			.build(
 					new CacheLoader<String, List<ResidenceMetadataDto>>() {
@@ -120,6 +125,7 @@ public class TransformationCache {
 
 
 	private LoadingCache<String, List<ResidenceUIDto>> allResidenceWithCoreCache = CacheBuilder.newBuilder()
+			.maximumSize(200)
 			.expireAfterWrite(30, TimeUnit.MINUTES)
 			.build(
 					new CacheLoader<String, List<ResidenceUIDto>>() {
@@ -135,6 +141,7 @@ public class TransformationCache {
 
 
 	private LoadingCache<String, Map<String,String>> allStatesNameCache = CacheBuilder.newBuilder()
+			.maximumSize(10)
 			.expireAfterWrite(30, TimeUnit.MINUTES)
 			.build(
 					new CacheLoader<String, Map<String,String>>() {
@@ -146,6 +153,7 @@ public class TransformationCache {
 					});
 
 	private LoadingCache<String, Map<String,String>> allCityNameCache = CacheBuilder.newBuilder()
+			.maximumSize(10)
 			.expireAfterWrite(30, TimeUnit.MINUTES)
 			.build(
 					new CacheLoader<String, Map<String,String>>() {
@@ -157,6 +165,7 @@ public class TransformationCache {
 					});
 
 	private LoadingCache<String, Map<String,String>> allMicromarketNameCache = CacheBuilder.newBuilder()
+			.maximumSize(50)
 			.expireAfterWrite(30, TimeUnit.MINUTES)
 			.build(
 					new CacheLoader<String, Map<String,String>>() {
@@ -169,6 +178,7 @@ public class TransformationCache {
 
 
 	private LoadingCache<String, Map<String,String>> allCountryNameCache = CacheBuilder.newBuilder()
+			.maximumSize(5)
 			.expireAfterWrite(30, TimeUnit.MINUTES)
 			.build(
 					new CacheLoader<String, Map<String,String>>() {
@@ -181,6 +191,7 @@ public class TransformationCache {
 
 
 	private LoadingCache<String, Map<String,String>> allStatesNameToIdCache = CacheBuilder.newBuilder()
+			.maximumSize(10)
 			.expireAfterWrite(30, TimeUnit.MINUTES)
 			.build(
 					new CacheLoader<String, Map<String,String>>() {
@@ -343,6 +354,7 @@ public class TransformationCache {
 	}
 
 	private LoadingCache<String, Map<String,String>> allStatesUuidCache = CacheBuilder.newBuilder()
+			.maximumSize(10)
 			.expireAfterWrite(30, TimeUnit.MINUTES)
 			.build(
 					new CacheLoader<String, Map<String,String>>() {
