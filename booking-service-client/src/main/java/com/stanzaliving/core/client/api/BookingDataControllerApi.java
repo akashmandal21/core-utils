@@ -1734,6 +1734,40 @@ public class BookingDataControllerApi {
         restClient.invokeAPI(path, HttpMethod.POST, queryParams, null, headerParams, accept, returnType);
     }
 
+
+    public List<DealBookingSummaryDto> getDealSummary(String dealUuid, String fromDate, String toDate) {
+
+        log.info("Booking-Data-Controller::Processing to get deal booking summary {}, {}, {}", dealUuid, fromDate, toDate);
+
+        Map<String, Object> uriVariables = new HashMap<>();
+        uriVariables.put("dealUuid", dealUuid);
+
+        String path = UriComponentsBuilder.fromPath("/internal/deal/{dealUuid}/summary").buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        queryParams.add("fromDate", fromDate);
+        queryParams.add("toDate", toDate);
+
+        HttpHeaders headerParams = new HttpHeaders();
+
+        String[] accepts = new String[]{"*/*"};
+
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<List<DealBookingSummaryDto>>> returnType =
+                new ParameterizedTypeReference<ResponseDto<List<DealBookingSummaryDto>>>() {
+                };
+
+        try {
+            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType).getData();
+
+        } catch (Exception ex) {
+            log.error("Exception while fetching deal booking summary: {}", ex.getMessage(), ex);
+            return new ArrayList<>();
+        }
+    }
+
     public void cancelPotentialDefaulterExits() {
         final Map<String, Object> uriVariables = new HashMap<>();
 
@@ -1770,6 +1804,7 @@ public class BookingDataControllerApi {
         } catch (Exception e) {
             log.error("Exception is {}", e.getMessage());
             return new HashMap<>();
+
         }
     }
 

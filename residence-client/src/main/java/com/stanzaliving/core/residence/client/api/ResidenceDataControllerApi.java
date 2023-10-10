@@ -247,9 +247,9 @@ public class ResidenceDataControllerApi {
 
         uriVariables.put("roomUUID", roomUuid);
 
-        if(Objects.isNull(serviceMixUuid)){
+        if (Objects.isNull(serviceMixUuid)) {
             uriVariables.put("serviceMixUUID", "null");
-        }else {
+        } else {
             uriVariables.put("serviceMixUUID", serviceMixUuid);
         }
 
@@ -1646,9 +1646,9 @@ public class ResidenceDataControllerApi {
 
         Map<String, Object> uriVariables = new HashMap();
 
-        if(Objects.isNull(serviceMixUuid)){
+        if (Objects.isNull(serviceMixUuid)) {
             uriVariables.put("serviceMixUUID", "null");
-        }else {
+        } else {
             uriVariables.put("serviceMixUUID", serviceMixUuid);
         }
 
@@ -1676,7 +1676,7 @@ public class ResidenceDataControllerApi {
         }
     }
 
-    public ResponseDto<PricingDetailsResponseDto> getPricingDetailsForMultipleRoomsInCaseOfContractModification(List<String> roomUuidList, String serviceMixUuid, String moveInDate,  boolean isNonRecommendedRoom) {
+    public ResponseDto<PricingDetailsResponseDto> getPricingDetailsForMultipleRoomsInCaseOfContractModification(List<String> roomUuidList, String serviceMixUuid, String moveInDate, boolean isNonRecommendedRoom) {
         log.info("Residence-Data-Controller::Processing to get pricing detail based on movein-in date {} , serviceMixUuid {}, roomUuidList {}", moveInDate, serviceMixUuid, roomUuidList);
 
         Map<String, Object> uriVariables = new HashMap();
@@ -2355,6 +2355,7 @@ public class ResidenceDataControllerApi {
         }
         return null;
     }
+
     public ResponseDto<?> sendIMSEmailDigest() {
         log.info("IMS Email Digest ");
         try {
@@ -2453,7 +2454,7 @@ public class ResidenceDataControllerApi {
 
         MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
-        String vasCategory = Objects.nonNull(category) ? category.toString(): null;
+        String vasCategory = Objects.nonNull(category) ? category.toString() : null;
 
         queryParams.put("vasCategory", Collections.singletonList(vasCategory));
 
@@ -2493,7 +2494,7 @@ public class ResidenceDataControllerApi {
         };
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<ResponseDto<Map<VasCategory, List<AlfredResidenceServiceDto>>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<VasCategory,List<AlfredResidenceServiceDto>>>>() {
+        ParameterizedTypeReference<ResponseDto<Map<VasCategory, List<AlfredResidenceServiceDto>>>> returnType = new ParameterizedTypeReference<ResponseDto<Map<VasCategory, List<AlfredResidenceServiceDto>>>>() {
         };
 
         try {
@@ -2517,7 +2518,7 @@ public class ResidenceDataControllerApi {
 
         final HttpHeaders headerParams = new HttpHeaders();
 
-        final String[] accepts = { "*/*" };
+        final String[] accepts = {"*/*"};
         final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
         ParameterizedTypeReference<ResponseDto<RoomCardDetailDto>> returnType = new ParameterizedTypeReference<ResponseDto<RoomCardDetailDto>>() {
@@ -2530,6 +2531,37 @@ public class ResidenceDataControllerApi {
         }
         return (Objects.nonNull(responseDto)) ? responseDto.getData() : null;
 
+    }
+
+    public Map<String, List<String>> getRoomAttributes(List<String> roomUuids) {
+
+        log.info("Residence-Data-Controller::Processing to get room attributes {}", roomUuids);
+
+        Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/internal/room-attributes").buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        queryParams.put("roomUuids", roomUuids);
+
+        HttpHeaders headerParams = new HttpHeaders();
+
+        String[] accepts = new String[]{"*/*"};
+
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<Map<String, List<String>>>> returnType =
+                new ParameterizedTypeReference<ResponseDto<Map<String, List<String>>>>() {
+                };
+
+        try {
+            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType).getData();
+
+        } catch (Exception ex) {
+            log.error("Exception while fetching room attributes: {}", ex.getMessage(), ex);
+            return new HashMap<>();
+        }
     }
 
 }
