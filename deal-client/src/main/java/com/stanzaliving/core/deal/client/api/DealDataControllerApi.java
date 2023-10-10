@@ -1,6 +1,8 @@
 package com.stanzaliving.core.deal.client.api;
 
+import com.stanzaliving.booking.dto.ContractStatusDto;
 import com.stanzaliving.booking.dto.RoomAndBedsResponseDto;
+import com.stanzaliving.booking.enums.ContractStatus;
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.deal.client.dto.*;
@@ -433,6 +435,31 @@ public class DealDataControllerApi {
                 };
 
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+    }
+
+    public ResponseDto markContractStatusExpired(String contractUuid) {
+
+        log.info("Booking-Data-Controller::Processing to mark Contract status expired for Contract uuid {}", contractUuid);
+        Map<String, Object> uriVariables = new HashMap<>();
+
+        uriVariables.put("contractUuid", contractUuid);
+
+        String path = UriComponentsBuilder.fromPath("/update/status").buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        HttpHeaders headerParams = new HttpHeaders();
+
+        String[] accepts = new String[]{"*/*"};
+
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto> returnType = new
+                ParameterizedTypeReference<ResponseDto>() {
+                };
+
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, new ContractStatusDto(contractUuid, ContractStatus.EXPIRED), headerParams, accept, returnType);
+
     }
 
 }

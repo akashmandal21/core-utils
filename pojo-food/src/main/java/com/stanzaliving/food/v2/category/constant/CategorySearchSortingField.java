@@ -6,7 +6,8 @@ import lombok.Getter;
 @AllArgsConstructor
 @Getter
 public enum CategorySearchSortingField {
-    CATEGORY_ID("Category Id"),
+	CATEGORY_GROUP_ID("Category Group Id"),
+	CATEGORY_ID("Category Id"),
     MEAL_WISE_NAME("Meal Wise Name"),
     MENU_TYPE("Menu Type"),
     FOOD_SERVE_TYPE("Food Serve Type"),

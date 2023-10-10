@@ -746,6 +746,17 @@ public class DateUtil {
         return newdate;
     }
 
+    public Date addHoursToDate(Date d1, long hours) {
+        long ltime = d1.getTime() + hours * 60 * 60 * 1000;
+        Date newdate = new Date(ltime);
+        return newdate;
+    }
+
+    public Date addMinutesToDate(Date d1, long minutes) {
+        long ltime = d1.getTime() + minutes * 60 * 1000;
+        return new Date(ltime);
+    }
+
     public LocalDate addDaysToLocalDate(LocalDate d1, long days) {
         return d1.plusDays(days);
     }
@@ -998,6 +1009,15 @@ public class DateUtil {
         return dateTwo;
     }
 
+    public LocalDate max(LocalDate dateOne, LocalDate dateTwo) {
+
+        if (dateOne.isAfter(dateTwo)) {
+            return dateOne;
+        }
+
+        return dateTwo;
+    }
+
     public static List<String> getListOfMonthYear(LocalDate fromDate, LocalDate toDate, DateFormat dateFormat) {
         LinkedHashSet<String> monthYear = new LinkedHashSet<>();
         if (toDate.isBefore(fromDate)) {// TODO add additional validation
@@ -1240,6 +1260,11 @@ public class DateUtil {
         return date.with(TemporalAdjusters.previousOrSame(day));
     }
 
+    public static LocalDate getPrevDayOfTheWeek(LocalDate date, DayOfWeek day) {
+
+        return date.with(TemporalAdjusters.previous(day));
+    }
+
     public static LocalDate getNextOrSameDayOfTheWeek(LocalDate date, DayOfWeek day) {
 
         return date.with(TemporalAdjusters.nextOrSame(day));
@@ -1247,6 +1272,7 @@ public class DateUtil {
 
     public static Date addMonthsToDate(Date date, int months){
         Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
         cal.add(Calendar.MONTH, months);
         return cal.getTime();
     }

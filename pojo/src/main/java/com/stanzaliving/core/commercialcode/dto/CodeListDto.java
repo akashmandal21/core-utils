@@ -62,9 +62,11 @@ public class CodeListDto {
 
     private CommercialCardUserType userType;
 
-    private AMCAmountType onBoardingChargeType;
+    private com.stanzaliving.commercialcard.enums.AMCAmountType onBoardingChargeType;
 
-    private AMCAmountType exitProcessingType;
+    private com.stanzaliving.commercialcard.enums.AMCAmountType exitProcessingType;
 
     private Double exitProcessingCharges;
+
+    private boolean commandCenterFlag;
 }

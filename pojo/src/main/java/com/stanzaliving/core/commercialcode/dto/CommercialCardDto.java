@@ -5,6 +5,7 @@ import com.stanzaliving.booking.enums.BookingSubType;
 import com.stanzaliving.booking.enums.PaymentFrequency;
 import com.stanzaliving.booking.enums.ResidenceAgreementType;
 import com.stanzaliving.commercialcard.enums.CommercialCardUserType;
+import com.stanzaliving.core.payment.enums.BookingMode;
 import lombok.*;
 
 import java.util.List;
@@ -39,5 +40,9 @@ public class CommercialCardDto {
     private PaymentFrequency paymentFrequency;
 
     private String moveInDate;
+
+    private boolean commandCenterFlow;
+
+    private BookingMode bookingMode;
 
 }

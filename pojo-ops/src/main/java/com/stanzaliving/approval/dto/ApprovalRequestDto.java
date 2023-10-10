@@ -1,23 +1,22 @@
 package com.stanzaliving.approval.dto;
 
+import java.io.Serializable;
+import java.util.Date;
+import java.util.HashMap;
+
 import com.stanzaliving.approval.enums.ApprovalEntityType;
 import com.stanzaliving.approval.enums.ApprovalStatus;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import java.util.Date;
-import java.util.HashMap;
-
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class ApprovalRequestDto {
+public class ApprovalRequestDto implements Serializable {
 
     private Date requestTime;
 

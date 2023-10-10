@@ -31,4 +31,6 @@ public class RoomMateDetailsResponseDto {
 	private String batch;
 	private Address address;
 	private ResidentType residentType;
+	private String residentId;
+	private String bookingType;
 }

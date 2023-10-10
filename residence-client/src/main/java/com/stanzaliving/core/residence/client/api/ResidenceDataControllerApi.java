@@ -20,7 +20,7 @@ import com.stanzaliving.residenceservice.BookingAttributesDto;
 import com.stanzaliving.residenceservice.Dto.*;
 import com.stanzaliving.residenceservice.enums.ResidenceAttributes;
 import com.stanzaliving.residenceservice.enums.VasCategory;
-import com.stanzaliving.stayCuration.AlfredResidenceServiceDto;
+import com.stanzaliving.stay_curation.dto.AlfredResidenceServiceDto;
 import com.stanzaliving.venta.RoomInfoDto;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -348,12 +348,17 @@ public class ResidenceDataControllerApi {
     }
 
     public List<BookingAttributesDto> getResidenceData(String residenceUuid) {
+        return this.getResidenceData(residenceUuid, null);
+    }
+
+    public List<BookingAttributesDto> getResidenceData(String residenceUuid, String bookingType) {
         Object postBody = null;
         // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<>();
         uriVariables.put("residenceUuid", residenceUuid);
         String path = UriComponentsBuilder.fromPath("/internal/booking-attributes/{residenceUuid}").buildAndExpand(uriVariables).toUriString();
         final MultiValueMap<String, String> queryParams = new HttpHeaders();
+        queryParams.add("bookingType", bookingType);
         final HttpHeaders headerParams = new HttpHeaders();
         final String[] accepts = {
                 "*/*"
@@ -977,14 +982,14 @@ public class ResidenceDataControllerApi {
 
     public ResponseDto<List<AttributesAndGlobalUuidDto>> getRoomConsumablesAndGlobalUUid(String roomUUID) {
 
-        log.info("Residence-Data-Controller::Processing to get room consumerable details based on roomUUID {}", roomUUID);
+        log.info("Residence-Data-Controller::Processing to get room consumable details based on roomUUID {}", roomUUID);
 
-        Map<String, Object> uriVariables = new HashMap();
+        Map<String, Object> uriVariables = new HashMap<>();
         uriVariables.put("roomUuid", roomUUID);
 
-        String path = UriComponentsBuilder.fromPath("/internal/roomconsumables/{roomUuid}").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/room-consumables/{roomUuid}").buildAndExpand(uriVariables).toUriString();
 
-        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
         HttpHeaders headerParams = new HttpHeaders();
 
@@ -1361,13 +1366,13 @@ public class ResidenceDataControllerApi {
 
         log.info("Residence-Data-Controller::Processing to get Room detail consumables response for room uuid {}", roomUuid);
 
-        Map<String, Object> uriVariables = new HashMap();
+        Map<String, Object> uriVariables = new HashMap<>();
 
         uriVariables.put("roomUuid", roomUuid);
 
-        String path = UriComponentsBuilder.fromPath("/internal/roomconsumables/{roomUuid}").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/internal/room-consumables/{roomUuid}").buildAndExpand(uriVariables).toUriString();
 
-        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap();
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
         HttpHeaders headerParams = new HttpHeaders();
 

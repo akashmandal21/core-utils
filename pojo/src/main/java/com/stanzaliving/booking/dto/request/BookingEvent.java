@@ -75,5 +75,6 @@ public class BookingEvent implements Serializable {
     private boolean contractStarted;
     private Map<ServiceMixServiceType, String> selectedPlans;
     private String serviceMixUuid;
+    private boolean autoAuditApprovalFlag;
 
 }

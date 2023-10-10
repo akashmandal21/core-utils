@@ -20,5 +20,6 @@ public class WeeklyMenuPDto implements Serializable {
 	private String menuId;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate startDate;
+	private String categoryGroupId;
 	private String categoryId;
 }

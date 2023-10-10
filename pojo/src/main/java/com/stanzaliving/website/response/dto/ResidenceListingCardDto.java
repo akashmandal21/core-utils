@@ -83,6 +83,10 @@ public class ResidenceListingCardDto implements Serializable {
 
 	private Double distanceFromPlace;
 
+	private Double distanceFromFilteredMicromarket;
+
+	private String nearestMmNameForRecommendationsDistance;
+
 	private String transformationUuid;
 
 	private String transformationId;

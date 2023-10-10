@@ -19,6 +19,7 @@ public class RoomMateListResponseDto {
 	private String profilePic;
 	private String roomNumber;
 	private String userUuid;
+	private String bookingUuid;
 	private Date contractStartDate;
 	private Date contractEndDate;
 	private String contractDuration;
