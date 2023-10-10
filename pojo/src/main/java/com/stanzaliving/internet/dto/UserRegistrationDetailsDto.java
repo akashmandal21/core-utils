@@ -1,5 +1,6 @@
 package com.stanzaliving.internet.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,6 +19,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class UserRegistrationDetailsDto {
 	
 	@NotBlank(message = "ResidenceId cannot be blank")
@@ -37,5 +39,12 @@ public class UserRegistrationDetailsDto {
 
 	@NotNull(message = "Check-In Date cannot be null")
 	private LocalDate checkInDate;
-	
+
+	private String source;
+
+	private String planId;
+
+	private String vendorId;
+
+	private String skuId;
 }

@@ -8,6 +8,8 @@ import lombok.Builder.Default;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 @Builder
 @Data
 @AllArgsConstructor
@@ -20,7 +22,7 @@ public class AgreementResponseDto {
     private String addendumUrl;
     private String message;
     private Boolean status;
-   
+    private String referenceID2;
     private String studentName; 
     @Builder.Default
     private ContractType contractType=ContractType.NONE;
@@ -29,4 +31,5 @@ public class AgreementResponseDto {
     private String secondSubContractAgreementSendDate;
     private String contractText;
     private String contract2Text;
+    private Date createdAt;
 }

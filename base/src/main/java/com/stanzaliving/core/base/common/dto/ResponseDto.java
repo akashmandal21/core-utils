@@ -3,6 +3,8 @@
  */
 package com.stanzaliving.core.base.common.dto;
 
+import java.io.Serializable;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -17,7 +19,12 @@ import lombok.ToString;
 @Setter
 @ToString
 @NoArgsConstructor
-public class ResponseDto<T> {
+public class ResponseDto<T> implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	private boolean status;
 

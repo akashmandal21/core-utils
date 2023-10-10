@@ -104,7 +104,7 @@ public class TransformationCache {
 	}
 
 	private LoadingCache<String, List<ResidenceMetadataDto>> allResidenceCache = CacheBuilder.newBuilder()
-			.expireAfterWrite(30, TimeUnit.MINUTES)
+			.expireAfterWrite(60, TimeUnit.MINUTES)
 			.build(
 					new CacheLoader<String, List<ResidenceMetadataDto>>() {
 
@@ -374,6 +374,22 @@ public class TransformationCache {
 		}
 		log.info("uuid {}", uuid);
 		return residenceByUuidMap.get(uuid);
+	}
+
+	public List<ResidenceUIDto> getResidencesByUuids(List<String> residenceUuids){
+		List<ResidenceUIDto> residenceUIDtoList = new ArrayList<>();
+		try {
+			allResidenceWithCoreCache.getUnchecked("residenceWithCore");
+		}
+		catch (Exception exception){
+			log.info("getResidencesByUuids :: Transformation Cache Exception {}",exception.getMessage(), exception);
+			return null;
+		}
+		log.info("residenceUuids {}", residenceUuids);
+		for(String residenceUuid : residenceUuids) {
+			residenceUIDtoList.add(residenceByUuidMap.get(residenceUuid));
+		}
+		return residenceUIDtoList;
 	}
 
 	public ZoneMetadataDto getZoneByUuid(String uuid){

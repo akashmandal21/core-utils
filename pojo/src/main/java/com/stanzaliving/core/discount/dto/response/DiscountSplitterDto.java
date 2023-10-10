@@ -21,4 +21,6 @@ public class DiscountSplitterDto {
     private Double discountApplied;
 
     private Double adjustedAmount;
+
+    private Double onmRentalAmount;
 }

@@ -33,5 +33,7 @@ public class AddressDetailsDto {
 
     private String stateName;
 
+    private String countryName;
+
     private Integer zipCode;
 }

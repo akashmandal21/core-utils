@@ -1,5 +1,7 @@
 package com.stanzaliving.core.ventaaggregationservice.dto;
 
+import com.stanzaliving.booking.enums.ResidenceAgreementType;
+import com.stanzaliving.core.enums.ResidenceType;
 import lombok.*;
 
 import javax.persistence.Column;
@@ -14,6 +16,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
+@Builder
 public class ResidenceAggregationEntityDto {
 
     private String residenceUuid;
@@ -69,6 +72,24 @@ public class ResidenceAggregationEntityDto {
     private String statusTextColor;
 
     private String statusBackgroundColor;
+
+    private String bhkType;
+
+    private ResidenceType residenceType;
+
+    private boolean testHouse;
+
+    @Builder.Default
+    private Double residenceFixedRent=0.0;
+
+    @Builder.Default
+    private Double residenceManagementFeePercentage=0.0;
+
+    @Builder.Default
+    private ResidenceAgreementType residenceAgreementType = ResidenceAgreementType.LEASE_DEED;
+
+    private boolean enableStayCuration;
+
 }
 
 

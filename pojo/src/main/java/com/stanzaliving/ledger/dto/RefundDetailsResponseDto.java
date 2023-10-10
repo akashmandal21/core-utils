@@ -7,6 +7,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -27,4 +29,13 @@ public class RefundDetailsResponseDto {
 
     private String rejectedReason;
 
+    private Date transactionDate;
+
+    private String createdBy;
+
+    private String utrNumber;
+
+    private Date transactionProcessedDate;
+
+    private String refundFailureReason;
 }

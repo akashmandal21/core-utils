@@ -14,6 +14,7 @@ public enum LeadSourceEnum {
     ADITYA_REFERRAL("Aditya Referral", LeadSourceGroupEnum.REFERRAL),
     ALFRED_TRUECALLER("Alfred-Truecaller", LeadSourceGroupEnum.RESIDENT_APP),
     AMC_BANNERGHATT("AMC Bannerghatt", LeadSourceGroupEnum.OTHERS),
+    ALFRED_TRUECALLER("Alfred-Truecaller", LeadSourceGroupEnum.RESIDENT_APP),
     APARTMENT_LEAD_LP_FORM("Apartment Lead LP Form", LeadSourceGroupEnum.DIGITAL),
     BETA_TEST_1("betatest1", LeadSourceGroupEnum.OTHERS),
     BLOG_PAGE("Blog Page", LeadSourceGroupEnum.DIGITAL),
@@ -50,6 +51,7 @@ public enum LeadSourceEnum {
     DETAILS_WEB_CHATBOT("Details Web Chatbot", LeadSourceGroupEnum.DIGITAL),
     DIRECT_WALK_IN("Direct Walk-in", LeadSourceGroupEnum.SIGMA_APP),
     DU_BEAT("DU Beat", LeadSourceGroupEnum.SIGMA_APP),
+    DU_CLUB("Du Club", LeadSourceGroupEnum.AFFILIATE),
     DU_UPDATES("DU Updates", LeadSourceGroupEnum.DATABASE),
     EMPTY("Empty", LeadSourceGroupEnum.OTHERS),
     FACEBOOK("Facebook", LeadSourceGroupEnum.DIGITAL),
@@ -134,6 +136,7 @@ public enum LeadSourceEnum {
     TEAMS_WEB_CHATBOT("Teams Web Chatbot", LeadSourceGroupEnum.DIGITAL),
     TERMS_CONDITION_PAGE("Terms Condition Page", LeadSourceGroupEnum.DIGITAL),
     TERMS_CONDITION_WEB_CHATBOT("Terms Condition Web Chatbot", LeadSourceGroupEnum.DIGITAL),
+    TENANTO("Tenanto", LeadSourceGroupEnum.AFFILIATE),
     UNATTRIBUTED("Unattributed", LeadSourceGroupEnum.OTHERS),
     UTM_SOURCE("utmSource", LeadSourceGroupEnum.OTHERS),
     VANTAGE_CIRCLE("Vantage Circle", LeadSourceGroupEnum.AFFILIATE),
@@ -150,10 +153,11 @@ public enum LeadSourceEnum {
     WHATSAPP_WEBSITE("Whatsapp-Website", LeadSourceGroupEnum.DIGITAL),
     WISHLIST_PAGE("Wishlist Page", LeadSourceGroupEnum.DIGITAL),
     WISHLIST_WEB_CHATBOT("Wishlist Web Chatbot", LeadSourceGroupEnum.DIGITAL),
-    ZOHO("zoho", LeadSourceGroupEnum.OTHERS);
+    ZOHO("zoho", LeadSourceGroupEnum.OTHERS),
+    UNLOCK_DISCOUNT_FORM("Website-Discount", LeadSourceGroupEnum.DIGITAL);
 
-    private static Map<LeadSourceEnum, String> leadSourceDescMap = new HashMap<>();
-    private static Map<String, LeadSourceEnum> leadNameSourceMap = new HashMap<>();
+    private static final Map<LeadSourceEnum, String> leadSourceDescMap = new HashMap<>();
+    private static final Map<String, LeadSourceEnum> leadNameSourceMap = new HashMap<>();
 
     static {
         for (LeadSourceEnum leadSource : LeadSourceEnum.values()) {
@@ -162,8 +166,8 @@ public enum LeadSourceEnum {
         }
     }
 
-    private String leadSourceName;
-    private LeadSourceGroupEnum leadSourceGroupEnum;
+    private final String leadSourceName;
+    private final LeadSourceGroupEnum leadSourceGroupEnum;
 
     public static Map<LeadSourceEnum, String> getLeadSources() {
         return leadSourceDescMap;

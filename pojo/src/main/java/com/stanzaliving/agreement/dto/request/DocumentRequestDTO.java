@@ -10,6 +10,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
+@Builder
 public class DocumentRequestDTO {
 
     private String actionType;
@@ -39,4 +40,6 @@ public class DocumentRequestDTO {
     private String expiryDate;
 
     private String parentDocumentId;
+
+
 }

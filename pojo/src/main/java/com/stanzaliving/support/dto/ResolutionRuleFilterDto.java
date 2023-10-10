@@ -24,7 +24,7 @@ public class ResolutionRuleFilterDto extends PageAndSortDto {
     private List<String> residence;
     private List<String> complaintGroup;
     private List<String> category;
-    private List<String> subcategory;
+    private List<String> subCategory;
     private List<String> subTicketTask;
     private String search;
 }

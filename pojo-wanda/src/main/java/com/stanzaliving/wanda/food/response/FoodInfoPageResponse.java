@@ -1,5 +1,6 @@
 package com.stanzaliving.wanda.food.response;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
 
@@ -27,6 +28,7 @@ public class FoodInfoPageResponse {
 	private FoodHomeScreenResponse homeScreenResponse;
 	
 	private Map<String, FoodOrderTiming> foodOrderTiming;
+	private Map<LocalDate, Boolean> dayWisePreferenceDetail;
 	
 	@Default
 	private Boolean isVegOnly=true;

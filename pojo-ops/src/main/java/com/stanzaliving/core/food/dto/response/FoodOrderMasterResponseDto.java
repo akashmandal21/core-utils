@@ -38,6 +38,8 @@ public class FoodOrderMasterResponseDto {
 
 	private String mealTypeName;
 
+	private String deliveryCode;
+
 	private String userId;
 
 	private LocalDate menuDate;
@@ -67,5 +69,13 @@ public class FoodOrderMasterResponseDto {
 	private List<ItemCostResponseDto> items;
 	
 	private boolean feedbackAllowed;
+
+	private String comboName;
+
+	private String mealCardName;
+
+	private List<String> mealImgUrls;
+
+	private FoodPreferenceComboResponseDto foodPreferenceComboResponseDto;
 
 }

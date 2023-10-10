@@ -1,9 +1,15 @@
 package com.stanzaliving.core.base.exception;
 
+import com.fasterxml.jackson.databind.exc.InvalidFormatException;
+import com.stanzaliving.core.base.StanzaConstants;
+import com.stanzaliving.core.base.annotation.SendExceptionToSlack;
+import com.stanzaliving.core.base.common.dto.ResponseDto;
+import com.stanzaliving.core.base.utils.StanzaUtils;
+import lombok.extern.log4j.Log4j2;
 import java.sql.SQLIntegrityConstraintViolationException;
 
 import javax.validation.ConstraintViolationException;
-
+import javax.validation.ValidationException;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.MDC;
 import org.springframework.beans.PropertyAccessException;
@@ -22,13 +28,8 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 import org.springframework.web.multipart.MultipartException;
 
-import com.fasterxml.jackson.databind.exc.InvalidFormatException;
-import com.stanzaliving.core.base.StanzaConstants;
-import com.stanzaliving.core.base.annotation.SendExceptionToSlack;
-import com.stanzaliving.core.base.common.dto.ResponseDto;
-import com.stanzaliving.core.base.utils.StanzaUtils;
-
-import lombok.extern.log4j.Log4j2;
+import javax.validation.ConstraintViolationException;
+import java.sql.SQLIntegrityConstraintViolationException;
 
 @Log4j2
 @RestControllerAdvice
@@ -190,7 +191,7 @@ public class ExceptionInterceptor {
 	public <T> ResponseDto<T> handleMultipartException(MultipartException e) {
 
 		String exceptionId = getExceptionId();
-		log.error("Got MultipartException for exceptionId: {} with Message:", exceptionId, e);
+		log.error("Got MultipartException for exceptionId: {} with Message: {}", exceptionId, e.getMessage());
 
 		return ResponseDto.failure(e.getMessage(), exceptionId);
 	}
@@ -284,6 +285,14 @@ public class ExceptionInterceptor {
 		return ResponseDto.failure(e.getMessage(), exceptionId);
 	}
 
+	@ExceptionHandler(ValidationException.class)
+	@ResponseStatus(code = HttpStatus.BAD_REQUEST)
+	public <T> ResponseDto<T> handleValidationException(ValidationException e) {
+		String exceptionId = getExceptionId();
+		log.error("Got ValidationException for exceptionId: {} with Message: {}", exceptionId, e.getMessage());
+		return ResponseDto.failure(e.getMessage(), exceptionId);
+	}
+
 	@ExceptionHandler(InvalidDataAccessApiUsageException.class)
 	@ResponseStatus(HttpStatus.FAILED_DEPENDENCY)
 	@SendExceptionToSlack
@@ -305,13 +314,23 @@ public class ExceptionInterceptor {
 		return ResponseDto.failure(e.getMessage(), exceptionId);
 	}
 
+	@ExceptionHandler(ResourceNotFoundException.class)
+	@ResponseStatus(code = HttpStatus.NOT_FOUND)
+	public <T> ResponseDto<T> handleAuthException(ResourceNotFoundException e) {
+
+		String exceptionId = getExceptionId();
+		log.error("Got ResourceNotFoundException for exceptionId: {}", exceptionId, e);
+
+		return ResponseDto.failure(e.getMessage(), exceptionId);
+	}
+
 	@ExceptionHandler(StanzaException.class)
 	@ResponseStatus(code = HttpStatus.BAD_REQUEST)
 	@SendExceptionToSlack
 	public <T> ResponseDto<T> handleStanzaException(StanzaException e) {
 
 		String exceptionId = getExceptionId();
-		log.error("Got StanzaException for exceptionId: {}", exceptionId, e);
+		log.error("Got StanzaException for exceptionId: {} with Message {}", exceptionId, e.getMessage());
 
 		return ResponseDto.failure(e.getMessage(), exceptionId);
 	}
@@ -322,7 +341,7 @@ public class ExceptionInterceptor {
 	public <T> ResponseDto<T> handleIllegalArgumentException(IllegalArgumentException e) {
 
 		String exceptionId = getExceptionId();
-		log.error("Got IllegalArgumentException for exceptionId: {} with Message {}", exceptionId, e.getMessage());
+		log.error("Got IllegalArgumentException for exceptionId: {} with Message {}", exceptionId, e.getMessage(), e);
 
 		return ResponseDto.failure(e.getMessage(), exceptionId);
 	}
@@ -333,6 +352,16 @@ public class ExceptionInterceptor {
 
 		String exceptionId = getExceptionId();
 		log.error("Got ApiValidationException for exceptionId: {} With Message: {}", exceptionId, e.getMessage());
+
+		return ResponseDto.failure(e.getMessage(), exceptionId);
+	}
+	
+	@ExceptionHandler(UserValidationException.class)
+	@ResponseStatus(value = HttpStatus.UNAUTHORIZED)
+	public <T> ResponseDto<T> handleUserValidationException(UserValidationException e) {
+
+		String exceptionId = getExceptionId();
+		log.error("Got UserValidationException for exceptionId: {} With Message: {}", exceptionId, e.getMessage());
 
 		return ResponseDto.failure(e.getMessage(), exceptionId);
 	}
@@ -367,6 +396,28 @@ public class ExceptionInterceptor {
 		}
 
 		return exceptionId;
+	}
+
+	/************************ Custom Exceptions ************************/
+	@ExceptionHandler(RequestBindingException.class)
+	@ResponseStatus(code = HttpStatus.BAD_REQUEST)
+	@SendExceptionToSlack
+	public <T> ResponseDto<T> handleRequestBindException(RequestBindingException e) {
+
+		String exceptionId = getExceptionId();
+		log.error("Got MissingServletRequestParameterException for exceptionId: " + exceptionId, e);
+
+		BindingResult bindingResult = e.getBindingResult();
+
+		StringBuilder fieldErrors = new StringBuilder();
+
+		for (FieldError fieldError : bindingResult.getFieldErrors()) {
+			fieldErrors = fieldErrors.append("{FieldName: ").append(fieldError.getField()).append(", ErrorMessage: ").append(fieldError.getDefaultMessage()).append(" } ");
+		}
+
+		String errorMessage = "Found: " + bindingResult.getErrorCount() + " Errors in Request. Fields With Error: [" + fieldErrors.toString() + "]";
+
+		return ResponseDto.failure(errorMessage, exceptionId);
 	}
 
 }

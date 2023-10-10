@@ -1,16 +1,15 @@
 package com.stanzaliving.website.response.dto;
 
-import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
-
+import com.stanzaliving.website.dto.WebsiteImageLibraryDto;
 import com.stanzaliving.website.enums.FomoTag;
 import com.stanzaliving.website.enums.Gender;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.io.Serializable;
+import java.util.List;
 
 @Data
 @Builder
@@ -63,11 +62,24 @@ public class ApartmentShortResponseDto implements Serializable {
 	private String pricingPlan;
 	
 	private Integer startingPrice;
+
+	private double discountPercentage;
+
+	private Integer discountedPrice;
 	
 	private String transformationUuid;
 	
 	private String transformationId;
 	
-	@Builder.Default
-	private Set<ImageResponseDTO> images = new HashSet<>();
+	private Double latitude;
+	
+	private Double longitude;
+	
+	private Double distanceFromPlace;
+	
+	private List<FeatureResponseDTO> features;
+
+	private AddressResponseDTO addressResponseDTO;
+
+	private List<WebsiteImageLibraryDto> images;
 }

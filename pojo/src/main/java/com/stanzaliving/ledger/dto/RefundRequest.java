@@ -1,6 +1,7 @@
 package com.stanzaliving.ledger.dto;
 
 
+import com.stanzaliving.ledger.enums.RefundMode;
 import com.stanzaliving.ledger.enums.SettleLedgerActionStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -37,5 +38,10 @@ public class RefundRequest {
     private String userUuid;
 
     private String uuid;
+
+    private RefundMode refundMode;
+
+    @Builder.Default
+    private boolean razorPayPayoutRefundFromSecondaryAccount = Boolean.FALSE;
 
 }

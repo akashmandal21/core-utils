@@ -7,6 +7,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -27,4 +29,6 @@ public class DocumentLineItemDto {
     private float sgstPercentage;
     private float igstPercentage;
     private String hsnCode;
+    private LocalDate fromDate;
+    private LocalDate toDate;
 }

@@ -24,4 +24,6 @@ public class OccupancyBlendedPriceDto implements Serializable {
 	private String occupancyName;
 	private Integer bedCount;
 	private double blendedPrice;
+	private double minimumPrice;
+	private double maximumPrice;
 }

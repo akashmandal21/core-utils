@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.stanzaliving.core.base.common.dto.AbstractDto;
 import com.stanzaliving.support.enums.ApprovalStatus;
 import com.stanzaliving.support.enums.FaqStatus;
+import com.stanzaliving.support.enums.ResidenceType;
 import lombok.*;
 
 import java.util.List;
@@ -25,5 +26,5 @@ public class FaqDto extends AbstractDto {
     private List<FaqDetailDto> faqDetail;
     private String complaintGroupName;
     private String categoryName;
-
+    private ResidenceType residenceType;
 }

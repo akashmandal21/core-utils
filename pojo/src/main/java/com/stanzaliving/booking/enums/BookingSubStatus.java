@@ -7,18 +7,18 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-
 @Getter
 @AllArgsConstructor
 public enum BookingSubStatus {
 
 
-	IN_PROGRESS("IN PROGRESS"),
+    IN_PROGRESS("IN PROGRESS"),
     NEEDS_ATTENTION("NEEDS ATTENTION"),
     COLLECT_PAYMENT_FROM_RESIDENT("COLLECT PAYMENT FROM RESIDENT"),
     PERSONAL_DETAILS_PENDING("PERSONAL DETAILS PENDING"),
     BOOKING_AMOUNT_PENDING("BOOKING AMOUNT PENDING"),
     PENDING_KYC_SUBMISSION("PENDING KYC SUBMISSION"),
+    GUEST_PENDING_KYC_SUBMISSION("GUEST PENDING KYC SUBMISSION"),
     PENDING_KYC_VERIFICATION("PENDING KYC VERIFICATION"),
     EXIT_INITIATED("EXIT INITIATED"),
     KYC_REJECTED("KYC REJECTED"),
@@ -30,7 +30,13 @@ public enum BookingSubStatus {
     AUDIT_REJECTED("AUDIT REJECTED"),
     PENDING_CH_APPROVAL("PENDING CH APPROVAL"),
     AUDIT_APPROVAL_PENDING("AUDIT APPROVAL PENDING"),
-    PENDING_ZH_APPROVAL("PENDING ZH APPROVAL");
+    PENDING_ZH_APPROVAL("PENDING ZH APPROVAL"),
+    USER_VALIDATION_FAILURE("USER VALIDATION FAILURE"),
+    PENDING_SELFIE_SUBMISSION("PENDING SELFIE SUBMISSION"),
+    PRIMARY_SIGNING_PENDING("PRIMARY SIGNING PENDING"),
+    SECONDARY_SIGNING_PENDING("SECONDARY SIGNING PENDING"),
+    COMMERCIAL_DETAILS_PENDING("COMMERCIAL DETAILS PENDING"),
+    PAYMENT_PENDING("PAYMENT PENDING");
 
     private String bookingSubStatus;
 
@@ -87,14 +93,23 @@ public enum BookingSubStatus {
         return bookingStatus;
     }
 
-    public static Set<String> exitProcessBookingSubStatuses(){
+    public static Set<String> exitProcessBookingSubStatuses() {
         Set<String> bookingStatus = new HashSet<>();
         bookingStatus.add(EXIT_INITIATED.getBookingSubStatus());
         bookingStatus.add(KEY_HANDOVER_PENDING.getBookingSubStatus());
+        bookingStatus.add(PENDING_CH_APPROVAL.getBookingSubStatus());
         return bookingStatus;
     }
 
+    public static Set<BookingSubStatus> cleverTapBookingSubStatus() {
+        Set<BookingSubStatus> bookingSubStatus = new HashSet<>();
+        bookingSubStatus.add(BookingSubStatus.EXIT_INITIATED);
+        bookingSubStatus.add(BookingSubStatus.PERSONAL_DETAILS_PENDING);
+        bookingSubStatus.add(BookingSubStatus.BOOKING_AMOUNT_PENDING);
+        bookingSubStatus.add(BookingSubStatus.PAYMENT_PENDING);
 
 
+        return bookingSubStatus;
+    }
 
 }

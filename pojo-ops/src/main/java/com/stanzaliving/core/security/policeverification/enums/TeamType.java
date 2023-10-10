@@ -9,7 +9,7 @@ public enum TeamType {
 
     S("S", "System"),
     N("N", "Nodal Team"),
-    RC("RC", "Residence Caption"),
+    RC("RC", "Residence Captain"),
     L("L","Legal Team");
 
     private final String key;

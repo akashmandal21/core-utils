@@ -13,6 +13,8 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
+import com.stanzaliving.core.food.dto.*;
+import com.stanzaliving.foodservice.client.dto.StayCurationLiveResidenceDto;
 import org.apache.commons.collections.MapUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.ParameterizedTypeReference;
@@ -32,15 +34,6 @@ import com.stanzaliving.core.base.exception.PreconditionFailedException;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.core.base.utils.DateUtil;
 import com.stanzaliving.core.cafe.order.dto.CafeOrderRDto;
-import com.stanzaliving.core.food.dto.FoodItemDto;
-import com.stanzaliving.core.food.dto.IngredientUsageDto;
-import com.stanzaliving.core.food.dto.ItemCategoryDto;
-import com.stanzaliving.core.food.dto.ItemSubCategoryDto;
-import com.stanzaliving.core.food.dto.LastQrScanResponseDto;
-import com.stanzaliving.core.food.dto.QrScanSummaryResponseDto;
-import com.stanzaliving.core.food.dto.ResidenceConfigDto;
-import com.stanzaliving.core.food.dto.ResidenceDayLevelMealDto;
-import com.stanzaliving.core.food.dto.ResidenceMealPlanDto;
 import com.stanzaliving.core.food.dto.request.FullCategoryDto;
 import com.stanzaliving.core.food.dto.response.FoodMenuCategoryBasicDetailsDto;
 import com.stanzaliving.core.food.dto.response.RecentMealDto;
@@ -917,5 +910,40 @@ public class FoodServiceClientApi {
 		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : new ArrayList<>();
 
 	}
-	
+
+	public ResponseDto<List<DateFoodMenuDto>> getFoodMenuByTransformationUuid(LocalDate startDate, LocalDate endDate, String transformationUuid){
+		try {
+			String path = UriComponentsBuilder.fromPath("/internal/residence/food/menu").build().toUriString();
+			final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+			if (StringUtils.isNotBlank(transformationUuid))
+				queryParams.add("residenceId", transformationUuid);
+			if (Objects.nonNull(startDate))
+				queryParams.add("startDate", String.valueOf(startDate));
+			if (Objects.nonNull(endDate))
+				queryParams.add("endDate", String.valueOf(endDate));
+			final HttpHeaders headerParams = new HttpHeaders();
+			final String[] accepts = { "*/*" };
+			final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+			ParameterizedTypeReference<ResponseDto<List<DateFoodMenuDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<DateFoodMenuDto>>>() {
+			};
+			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+		} catch (Exception e) {
+			log.error("Exception caught while fetching food menu.", e);
+			return null;
+		}
+	}
+
+	public StayCurationLiveResidenceDto getStayCurationResidences() {
+		String path = UriComponentsBuilder.fromPath("/internal/staycuration/live/residences").build().toUriString();
+		TypeReference<ResponseDto<StayCurationLiveResidenceDto>> returnType = new TypeReference<ResponseDto<StayCurationLiveResidenceDto>>() {
+		};
+		ResponseDto<StayCurationLiveResidenceDto> responseDto = null;
+		try {
+			responseDto = restClient.get(path, null, null, null, returnType, MediaType.APPLICATION_JSON);
+		} catch (Exception e) {
+			log.error("Error while getting residence ids", e);
+		}
+		return (Objects.nonNull(responseDto) && responseDto.isStatus() && Objects.nonNull(responseDto.getData())) ? responseDto.getData() : StayCurationLiveResidenceDto.builder().residenceIds(new ArrayList<>()).build();
+	}
+
 }

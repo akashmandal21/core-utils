@@ -17,6 +17,7 @@ public class AddressResponseDTO implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	private int addressId;
+	private Long propertyLocationId;
 	private String line1;
 	private String line2;
 	private String landmark;
@@ -27,4 +28,7 @@ public class AddressResponseDTO implements Serializable{
 	private double longitude;
 	private String phone;
 	private String mobile;
+	private String displayAddressLine1;
+	private String displayAddressLine2;
+	private String displayAddress;
 }

@@ -39,6 +39,13 @@ class AnalyticContextInterface
     public static final String REQ_UID = "reqUuid";
     public static final String REQ_MOBILE = "reqUserMobile";
 
+    // DEVICE INFO
+    public static final String APP_NAME = "appName";
+    public static final String APP_VERSION = "appVersion";
+    public static final String DEVICE = "device";
+    public static final String PLATFORM = "platform";
+    public static final String PLATFORM_VERSION = "platformVersion";
+
     public static void beginTransaction(String name)
     {
         AnalyticContext analyticContext = analyticContextValue.get();
@@ -154,6 +161,11 @@ class AnalyticContextInterface
         endpointConsumableMap.put("queryParams", MDC.get(QUERY_STRING));
         endpointConsumableMap.put(REQ_UID, MDC.get(REQ_UID));
         endpointConsumableMap.put(REQ_MOBILE, MDC.get(REQ_MOBILE));
+        endpointConsumableMap.put(APP_NAME, MDC.get(APP_NAME));
+        endpointConsumableMap.put(APP_VERSION, MDC.get(APP_VERSION));
+        endpointConsumableMap.put(PLATFORM, MDC.get(PLATFORM));
+        endpointConsumableMap.put(PLATFORM_VERSION, MDC.get(PLATFORM_VERSION));
+        endpointConsumableMap.put(DEVICE, MDC.get(DEVICE));
 
         if (th != null)
         {

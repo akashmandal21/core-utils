@@ -15,9 +15,17 @@ public enum CommercialCodeType {
     CITY( "City","CITY"),
     RESIDENCE("Residence","RESIDENCE"),
     MICROMARKET( "Micromarket","MICROMARKET"),
+    COUNTRY( "Country","COUNTRY"),
     CONTRACTTENURE("CONTRACT TENURE","CONTRACTTENURE"),
     LOCKIN( "LOCK IN","LOCKIN"),
-    PAYMENT( "PAYMENT","PAYMENT");;
+    PAYMENT( "PAYMENT","PAYMENT"),
+    TENURE("TENURE","Tenure"),
+    CSD_MONTH("CSD_MONTH","CSD month"),
+    OCCUPANCY("OCCUPANCY", "Occupancy"),
+    ROOM_OCCUPIED("ROOM_OCCUPIED","Rooms occupied"),
+    ROOM_CONVERSION_STATUS("ROOM_CONVERSION_STATUS", "Room conversion status"),
+    BOOKING_MODE("BOOKING_MODE","Booking mode"),
+    ATTRIBUTE("ATTRIBUTE", "Attribute");
 
     private String name;
     private String value;

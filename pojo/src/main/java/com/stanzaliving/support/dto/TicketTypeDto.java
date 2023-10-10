@@ -19,4 +19,6 @@ public class TicketTypeDto {
 
     private boolean isTicket;
 
+    private boolean isServiceTask;
+
 }

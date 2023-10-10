@@ -1,7 +1,9 @@
 package com.stanzaliving.website.response.dto;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import com.stanzaliving.website.enums.SeoUrlType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Builder.Default;
@@ -10,6 +12,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 @Getter
@@ -18,11 +21,17 @@ import java.util.Objects;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class LeadRequestDto {
+public class LeadRequestDto implements Serializable {
 
+	private static final long serialVersionUID = 1L;
+
+	//private Integer leadId;
 	private Long leadId;
 	private String leadUuid;
-	
+
+	private String redisUuidKey;
+	private String abVersion;
+
 	private String userIpAddress;
 	
 	private String firstName;
@@ -43,6 +52,9 @@ public class LeadRequestDto {
 	private String residenceNameUuid;
 
 	private String leadOwnerId;
+	
+	private String createdBy;
+	private String visitScheduledBy;
 
 	private Integer cityId;
 	private String cityName;
@@ -83,6 +95,8 @@ public class LeadRequestDto {
 	private String utmCampaign;
 	private String utmTerm;
 	private String utmAdgroup;
+
+	@JsonAlias("gclid")
 	private String gclId;
 	private String utmContent;
 	private String utmTarget;
@@ -99,6 +113,9 @@ public class LeadRequestDto {
 	private String leadSubMode;
 	private String moveInDate;
 	private Double reserveAmount;
+
+	private Integer preBookingAmount;
+	private Integer unlockDiscountAmount;
 
 	private String category;
 	private String fbclId;
@@ -145,9 +162,19 @@ public class LeadRequestDto {
 	
 	private Integer placeId;
 	private String placeName;
+
 	private String timeSlot;
 
 	private String budget;
+
+	private String platformOs;
+	private String preferredLanguage;
+
+	private String seoUrlType;
+	private String url;
+
+	private String formSource;
+	private String locateMe;
 
 	public String getEmail() {
 		return Objects.nonNull(this.email) ? this.email.trim(): null;
@@ -164,4 +191,5 @@ public class LeadRequestDto {
 	public void setPhone(String phone) {
 		this.phone = Objects.nonNull(phone) ? phone.trim(): null;
 	}
+	private String leadTag;
 }

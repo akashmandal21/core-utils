@@ -30,6 +30,7 @@ public enum TimelineStatusEnum {
     BOOKED("Booked"),
     DROPPED("Dropped"),
 
+
     PRE_VISIT_FOLLOW_UP("Pre Visit Follow-Up"),
     PRE_VISIT_DROP("Pre Visit Drop"),
 
@@ -71,7 +72,9 @@ public enum TimelineStatusEnum {
     ALL("ALL"),// new status only used for whatsapp template
 
 
-    VISIT_INTENT("Visit Intent Shown");
+    VISIT_INTENT("Visit Intent Shown"),
+    MOVED_OUT("Moved Out");
+
 
     private String statusName;
 

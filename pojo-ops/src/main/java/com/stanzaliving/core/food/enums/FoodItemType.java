@@ -3,16 +3,19 @@ package com.stanzaliving.core.food.enums;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
 @Getter
 @AllArgsConstructor
-public enum FoodItemType {
+public enum FoodItemType implements Serializable {
 
 	VEG("Veg"),
 	NON_VEG("Non-Veg"),
 	SPECIAL_VEG("Special-Veg");
+
+	private static final long serialVersionUID = 1L;
 
 	private String itemType;
 

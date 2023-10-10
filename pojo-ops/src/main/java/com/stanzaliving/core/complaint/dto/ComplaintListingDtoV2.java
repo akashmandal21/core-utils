@@ -27,8 +27,10 @@ public class ComplaintListingDtoV2 {
 	private String roomNo;
 	private String complaintUuid;
 	private String complaintCategory;
+	private String complaintCategoryDisplayName;
 	private String complaintStatus;
 	private String complaintSubCategoryName;
+	private String complaintSubCategoryDisplayName;
 	private Date created;
 	private Date closedAt;
 	@Builder.Default
@@ -36,7 +38,8 @@ public class ComplaintListingDtoV2 {
 	private String complaintTypeName;
 	private String complaintTypeImgUrl;
 	private String cmsId;
-
 	private String ticketStatus;
 	private Boolean isResolved;
+	private Date resolvedAt;
+	private Boolean removeSatisfied;
 }

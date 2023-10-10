@@ -7,6 +7,7 @@ public class CampaignAttributes {
 
 	public final String SERVICE_NAME = "Booking";
 	public final String INVOICE_EVENT_NAME = "Invoice Raised";
+	public final String TRANSACTION_EVENT_NAME = "Transaction";
 
 	public final String FROM_DATE = "FromDate";
 	public final String TO_DATE = "Todate";
@@ -28,6 +29,8 @@ public class CampaignAttributes {
 	public final String DUES = "dues";
 	public final String BOOKING_SUBSTATUS = "bookingSubStatus";
 	public final String MOVENIN ="moveIn";
-	public final String CATEGORY_NAME ="categoryName";
+	public final String PAYMENT_MODE ="paymentMode";
+	public final String TRANSACTION_UUID ="TransactionUuid";
 
+	public final String CATEGORY_NAME ="categoryName";
 }

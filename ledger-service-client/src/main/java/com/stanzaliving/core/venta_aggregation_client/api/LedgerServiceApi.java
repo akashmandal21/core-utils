@@ -1,6 +1,7 @@
 package com.stanzaliving.core.venta_aggregation_client.api;
 
 import com.stanzaliving.core.base.common.dto.ResponseDto;
+import com.stanzaliving.core.base.exception.ApiValidationException;
 import com.stanzaliving.core.base.http.StanzaRestClient;
 import com.stanzaliving.ledger.dto.*;
 import lombok.extern.log4j.Log4j2;
@@ -151,6 +152,28 @@ public class LedgerServiceApi {
         }
     }
 
+    public ResponseDto<List<RefundDetailsResponseDto>> getRefundApprovalStatus() {
+        Map<String, Object> uriVariables = new HashMap<>();
+        String path = UriComponentsBuilder.fromPath("/internal/api/v1/current-date/refund-approval-status")
+                .buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        HttpHeaders headerParams = new HttpHeaders();
+        String[] accepts = new String[]{"*/*"};
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<List<RefundDetailsResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<RefundDetailsResponseDto>>>() {
+        };
+        try {
+            log.info("Executing Api for getting current date rejected refunds with Url {}", path);
+            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception while getting current date rejected refunds, Exception is ", e);
+        }
+        return null;
+    }
+
     public ResponseDto<String> createLedgerEntry(List<TransactionsDTO> transactionsDTO) {
         Object postBody = transactionsDTO;
         Map<String, Object> uriVariables = new HashMap<>();
@@ -174,9 +197,9 @@ public class LedgerServiceApi {
         return null;
     }
 
-    public ResponseDto<List<RefundDetailsResponseDto>> getRefundApprovalStatus() {
+    public void processRefundStatusCheck() {
         Map<String, Object> uriVariables = new HashMap<>();
-        String path = UriComponentsBuilder.fromPath("/internal/api/v1/current-date/refund-approval-status")
+        String path = UriComponentsBuilder.fromPath("/internal/api/v1/processRefundStatusCheck")
                 .buildAndExpand(uriVariables).toUriString();
 
         MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
@@ -185,15 +208,19 @@ public class LedgerServiceApi {
         String[] accepts = new String[]{"*/*"};
         List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
 
-        ParameterizedTypeReference<ResponseDto<List<RefundDetailsResponseDto>>> returnType = new ParameterizedTypeReference<ResponseDto<List<RefundDetailsResponseDto>>>() {
+        ParameterizedTypeReference<ResponseDto<String>> returnType = new ParameterizedTypeReference<ResponseDto<String>>() {
         };
+
         try {
-            log.info("Executing Api for getting current date rejected refunds with Url {}", path);
-            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+            restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+
         } catch (Exception e) {
-            log.error("Exception while getting current date rejected refunds, Exception is ", e);
+
+            log.error("Error while processing refund status check", e);
+
+            throw new ApiValidationException("Some error occurred. Please try again after some time.");
         }
-        return null;
+
     }
 
     public ResponseDto<LedgerResponseDTO> getLedgers(String referenceId, String referenceType, String ledgerType) {
@@ -222,7 +249,7 @@ public class LedgerServiceApi {
 
     public ResponseDto<String> sendFilixCarryForwardPacketsForBookingUuid(String bookingUuid) {
         log.info("sending request for filix carry forward for bookingUuid{}", bookingUuid);
-        log.info("bookingUuid {}",bookingUuid);
+        log.info("bookingUuid {}", bookingUuid);
         Map<String, Object> uriVariables = new HashMap<>();
         String path = UriComponentsBuilder.fromPath("/internal/api/v1/filix/carry-forward")
                 .buildAndExpand(uriVariables).toUriString();
@@ -246,7 +273,7 @@ public class LedgerServiceApi {
 
     public ResponseDto<String> sendFilixRefundPacketsForBookingUuid(String bookingUuid) {
         log.info("sending request for filix refund  for bookingUuid{}", bookingUuid);
-        log.info("bookingUuid {}",bookingUuid);
+        log.info("bookingUuid {}", bookingUuid);
         Map<String, Object> uriVariables = new HashMap<>();
         String path = UriComponentsBuilder.fromPath("/internal/api/v1/filix/refund")
                 .buildAndExpand(uriVariables).toUriString();
@@ -275,8 +302,6 @@ public class LedgerServiceApi {
                 .buildAndExpand(uriVariables).toUriString();
         MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
         queryParams.add("bookingUuid", bookingUuid);
-
-
         HttpHeaders headerParams = new HttpHeaders();
         String[] accepts = new String[]{"*/*"};
         List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
@@ -291,4 +316,118 @@ public class LedgerServiceApi {
         return null;
     }
 
+
+    public void settleLedgerStatusMail() {
+        Map<String, Object> uriVariables = new HashMap<>();
+        String path = UriComponentsBuilder.fromPath("/internal/api/v1/mails/rejected-refunds")
+                .buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        HttpHeaders headerParams = new HttpHeaders();
+        String[] accepts = new String[]{"*/*"};
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<?>> returnType = new ParameterizedTypeReference<ResponseDto<?>>() {
+        };
+
+        try {
+            restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            throw new ApiValidationException("Error while sending settle-ledger status mail. Exception is " + e.getMessage());
+        }
+    }
+
+    public ResponseDto<RefundDetailsResponseDto> getRefundDetails(String referenceId) {
+        log.info("Reference id {}", referenceId);
+        Map<String, Object> uriVariables = new HashMap<>();
+        String path = UriComponentsBuilder.fromPath("/internal/api/v1/refundDetails")
+                .buildAndExpand(uriVariables).toUriString();
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        queryParams.add("referenceId", referenceId);
+        queryParams.add("bookingUuid", referenceId);
+
+        HttpHeaders headerParams = new HttpHeaders();
+        String[] accepts = new String[]{"*/*"};
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<ResponseDto<RefundDetailsResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<RefundDetailsResponseDto>>() {
+        };
+        try {
+            log.info("Executing Api for getting residence Info with Url {}", path);
+            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception while fetching ledger information based on referenceId {}, Exception is ", referenceId, e);
+        }
+        return null;
+    }
+
+
+    public ResponseDto<Boolean> getBankDetails(String userUuid) {
+        log.info("In getBankDetails for user {}", userUuid);
+        Map<String, Object> uriVariables = new HashMap<>();
+        ///internal/api/v1/refundAccountDetails/{userUUid}
+        //https://erp.stanzaliving.com/ledger_service/internal/api/v1/refundAccountDetails/b12529a8-8213-4bf4-aaf3-a8e336d0d7e6
+        uriVariables.put("userUUid", userUuid);
+        String path = UriComponentsBuilder.fromPath("/internal/api/v1/refundAccountDetails/{userUUid}")
+                .buildAndExpand(uriVariables).toUriString();
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        HttpHeaders headerParams = new HttpHeaders();
+        String[] accepts = new String[]{"*/*"};
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<Boolean>> returnType = new ParameterizedTypeReference<ResponseDto<Boolean>>() {
+        };
+
+        try {
+            return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Error while fetching refund details", e);
+            return null;
+        }
+    }
+    public ResponseDto<Boolean> sdAutoRefund(AutoRefundDto autoRefundDto) {
+        Object postBody = autoRefundDto;
+        Map<String, Object> uriVariables = new HashMap<>();
+        String path = UriComponentsBuilder.fromPath("/internal/api/v1/sdAutoRefund")
+                .buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        HttpHeaders headerParams = new HttpHeaders();
+        String[] accepts = new String[]{"*/*"};
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<Boolean>> returnType = new ParameterizedTypeReference<ResponseDto<Boolean>>() {
+        };
+        try {
+            log.info("Executing Api for Auto Refund {}", path);
+            return this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception while Auto Refund, Exception is ", e);
+        }
+        return null;
+    }
+
+    public ResponseDto<Boolean> sdAutoCarryForward(AutoRefundDto autoRefundDto) {
+        Object postBody = autoRefundDto;
+        Map<String, Object> uriVariables = new HashMap<>();
+        String path = UriComponentsBuilder.fromPath("/internal/api/v1/sdAutoCarryForward")
+                .buildAndExpand(uriVariables).toUriString();
+
+        MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        HttpHeaders headerParams = new HttpHeaders();
+        String[] accepts = new String[]{"*/*"};
+        List<MediaType> accept = this.restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<Boolean>> returnType = new ParameterizedTypeReference<ResponseDto<Boolean>>() {
+        };
+        try {
+            log.info("Executing Api for Auto Carryforward {}", path);
+            return this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+        } catch (Exception e) {
+            log.error("Exception while Auto Refund, Exception is ", e);
+        }
+        return null;
+    }
 }

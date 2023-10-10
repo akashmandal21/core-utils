@@ -25,6 +25,13 @@ public class BaseUIDInterceptor extends HandlerInterceptorAdapter {
 		MDC.put(StanzaConstants.REQUEST_PATH, request.getRequestURI());
 		MDC.put(StanzaConstants.QUERY_STRING, request.getQueryString());
 
+		// Add Device Info in MDC from request Headers
+		MDC.put(StanzaConstants.APP_NAME, request.getHeader("appName"));
+		MDC.put(StanzaConstants.APP_VERSION, request.getHeader("appVersion"));
+		MDC.put(StanzaConstants.DEVICE, request.getHeader("device"));
+		MDC.put(StanzaConstants.PLATFORM, request.getHeader("platform"));
+		MDC.put(StanzaConstants.PLATFORM_VERSION, request.getHeader("platformVersion"));
+
 		log.info("RequestReceived URI {} QueryString {} AppVersion {}", request.getRequestURI(), request.getQueryString(), request.getHeader("appversion"));
 
 		request.setAttribute(StanzaConstants.GUID, guid);
@@ -41,6 +48,13 @@ public class BaseUIDInterceptor extends HandlerInterceptorAdapter {
 		MDC.remove(StanzaConstants.QUERY_STRING);
 		MDC.remove(StanzaConstants.REQ_UID);
 		MDC.remove(StanzaConstants.REQ_MOBILE);
+
+		// Remove Device Info from MDC
+		MDC.remove(StanzaConstants.APP_NAME);
+		MDC.remove(StanzaConstants.APP_VERSION);
+		MDC.remove(StanzaConstants.DEVICE);
+		MDC.remove(StanzaConstants.PLATFORM);
+		MDC.remove(StanzaConstants.PLATFORM_VERSION);
 	}
 
 }

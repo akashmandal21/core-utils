@@ -6,16 +6,13 @@ package com.stanzaliving.wanda.dtos;
 
 import javax.validation.constraints.NotEmpty;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 /**
  * @author nipunaggarwal
  *
  */
-@Getter
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
@@ -34,4 +31,14 @@ public class UpiDetailsDto {
 	
 	@Builder.Default
 	private Boolean isPreferred = Boolean.FALSE;
+
+	private String razorpayId;
+
+	private String vpaId;
+
+	private String razorpayIdV2;
+
+	private String vpaIdV2;
+
+	private Boolean isActive = false;
 }

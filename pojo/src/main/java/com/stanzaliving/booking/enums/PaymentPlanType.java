@@ -55,7 +55,27 @@ public enum PaymentPlanType {
 	ADDITIONAL_INVOICE("Additional Invoice - License Fee"),
 	ADDITIONAL_INVOICE_SERVICE_FEE("Additional Invoice - Service Fee"),
 	ADDITIONAL_SECURITY_DEPOSIT("Additional Security Deposit"),
-	ADDITIONAL_INVOICE_ROOM_CHANGE("Additional Invoice - Room Change");
+	ADDITIONAL_INVOICE_ROOM_CHANGE("Additional Invoice - Room Change"),
+	ACCOMMODATION_CHARGES("Accommodation Charges"),
+	GST_WAIVE_OFF("Gst Waive Off"),
+	TRESPASSER_ACCOMMODATION_CHARGES("Accommodation Charges for Trespassing"),
+	CITY_HEAD_BUFFER("City Head Buffer"),
+	UPSELL("Upsell"),
+	BUMP_UP_PRICE("Bump Up Price"),
+	NO_SHOW_PENALTY("No Show Penalty"),
+    ONM_RENTAL("ONM Rental"),
+	ONM_SERVICE("ONM Service"),
+
+	ONM_MAINTENANCE_FEE("ONM Maintenance Fee"),
+
+	ONM_ONBOARDING_CHARGE("ONM OnBoarding Charge"),
+
+	ONM_PROCESSING_FEE("ONM Processing Fee"),
+	MANAGEMENT_FEE("Management Fee"),
+	PROCESSING_FEE("Processing Fee"),
+	SUBSCRIPTION_PLAN("Subscription Plan"),
+	EXIT_PROCESSING_FEE("Exit Processing Fee"),
+	BREAKAGE_FEE("Breakage Fee");
 
 	private String name;
 	

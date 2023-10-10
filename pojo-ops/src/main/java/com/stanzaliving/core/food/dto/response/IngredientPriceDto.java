@@ -3,6 +3,8 @@ package com.stanzaliving.core.food.dto.response;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import java.time.LocalDate;
+
 @Getter
 @Setter
 @ToString
@@ -24,4 +26,5 @@ public class IngredientPriceDto {
 	private double conversionFactor;
 	
 	private boolean priceMissing;
+	private LocalDate priceDate;
 }

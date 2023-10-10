@@ -5,12 +5,14 @@ import com.stanzaliving.core.food.dto.FoodMenuBudgetDto;
 import com.stanzaliving.core.food.dto.response.SpecialEventDto;
 import com.stanzaliving.core.food.enums.FoodServeType;
 import com.stanzaliving.core.food.enums.MenuType;
+import com.stanzaliving.food.v2.category.dto.BeverageRuleDto;
 import com.stanzaliving.food.v2.category.dto.CompositionRuleV2Dto;
 import com.stanzaliving.food.v2.category.dto.DayWiseCogsDto;
 import com.stanzaliving.food.v2.category.dto.MealWiseMenuDto;
 import com.stanzaliving.food.v2.category.dto.MenuCategoryResidenceRDto;
 import com.stanzaliving.food.v2.common.dto.MicromarketRDto;
 import com.stanzaliving.food.v2.menu.constants.MenuStatus;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -63,6 +65,8 @@ public class WeeklyMenuDto extends AbstractDto {
     private boolean compositionRulesSatisfied;
     private boolean comboRulesSatisfied;
     private boolean budgetUtilizationInLimit;
+    private boolean weeklyBudgetUtilizationInLimit;
+    private String weeklyBudgetUtilizationInMessage;
     private boolean hybridMealRuleSatisfied;
     private boolean mealOfDayDefined;
     private boolean menuDefined;
@@ -73,8 +77,13 @@ public class WeeklyMenuDto extends AbstractDto {
     private List<MealWiseMenuDto> mealWiseMenus;
     private List<DayWiseCogsDto> dayWiseCogs;
     private CompositionRuleV2Dto rules;
+    private BeverageRuleDto beverageRuleDto;
+    private BeverageRuleDto defaultBeverageRuleDto;
     private FoodMenuBudgetDto budgetRules;
     private List<MenuCategoryResidenceRDto> residences;
     private List<SpecialEventDto> events;
-
+    @Builder.Default
+    private boolean grammageRangeRuleApplied = true;
+    private Double minimumBy;
+    private Double maximumBy;
 }

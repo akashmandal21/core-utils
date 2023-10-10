@@ -1,5 +1,6 @@
 package com.stanzaliving.boq_service.dto;
 
+import com.stanzaliving.boq_service.enums.BoqLabel;
 import com.stanzaliving.core.boq_service.enums.BoqType;
 import com.stanzaliving.item_master.enums.ItemType;
 import com.stanzaliving.transformations.enums.BoqStatus;
@@ -32,6 +33,8 @@ public class GlobalBoqListingRequestFilterDto {
 
     private List<LabelValueDto<BoqStatus>> boqStatus;
 
+    private List<LabelValueDto<BoqLabel>> boqLabel;
+
     private List<LabelValueDto<ItemType>> boqCapexType;
 
     private List<LabelValueDto<String>> city;
@@ -47,6 +50,12 @@ public class GlobalBoqListingRequestFilterDto {
     private DateRangeDto createdDateRange;
 
     private DateRangeDto approvedDateRange;
+
+    private String itemFilter;
+
+    private List<String> itemUuids;
+
+    private BedRangeDto bedCountRange;
 
     private String propertyNameLike;
 

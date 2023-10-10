@@ -29,6 +29,7 @@ public class ResidenceDetailsRequestDTO {
 	private String mobileNo;
 	private String phoneNo;
 	private Integer preBookingAmount;
+	private Integer unlockDiscountAmount;
 	private Integer sortOrder;
 	private boolean virtualTour;
 	private Integer cardCTAId;
@@ -38,4 +39,5 @@ public class ResidenceDetailsRequestDTO {
 	private FomoTag fomoTag;
 	private String virtualTourImage;
 	private String videoLink;
+	private String videoLink2;
 }

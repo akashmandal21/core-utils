@@ -33,7 +33,7 @@
 		<!-- jsr250 Version -->
 		<jsr250.version>2.7.0</jsr250.version>
 
-		<lombok.version>1.18.10</lombok.version>
+		<lombok.version>1.18.22</lombok.version>
 		<!-- Apache Commons version -->
 		<commons-vfs2.version>2.0</commons-vfs2.version>
 		<commons.io.version>2.6</commons.io.version>
@@ -71,7 +71,8 @@
 		<quartz.version>2.2.3</quartz.version>
 
 		<!-- Hibernate Version -->
-		<hibernate.version>5.0.12.Final</hibernate.version>
+		 <hibernate.version>5.0.12.Final</hibernate.version>
+		<!--<hibernate.version>5.3.1.Final</hibernate.version>-->
 		<hibernate-validator.version>6.0.10.Final</hibernate-validator.version>
 		<c3p0.version>0.9.5.4</c3p0.version>
 

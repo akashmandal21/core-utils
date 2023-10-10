@@ -1,6 +1,7 @@
 package com.stanzaliving.wanda.response;
 
 import com.stanzaliving.booking.enums.BookingType;
+import com.stanzaliving.booking.enums.ResidenceAgreementType;
 import com.stanzaliving.wanda.dtos.MonthlyFee;
 
 import lombok.AllArgsConstructor;
@@ -87,5 +88,9 @@ public class CommercialDetailsResponseDto {
 	private String onboardingChargesText;
 
 	private String onboardingChargesDescription;
-	
+
+	@Builder.Default
+	private ResidenceAgreementType residenceAgreementType = ResidenceAgreementType.LEASE_DEED;
+
+	private Boolean priceStrategyEnabled;
 }

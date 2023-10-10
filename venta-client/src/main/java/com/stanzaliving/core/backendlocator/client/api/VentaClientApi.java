@@ -1,25 +1,9 @@
-/**
- *
- */
 package com.stanzaliving.core.backendlocator.client.api;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import com.stanzaliving.core.backendlocator.client.dto.*;
-import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
-import org.springframework.web.util.UriComponentsBuilder;
-
 import com.stanzaliving.core.base.common.dto.ResponseDto;
 import com.stanzaliving.core.base.http.StanzaRestClient;
+import com.stanzaliving.core.dto.TransactionMigrationForDate;
 import com.stanzaliving.core.leaddashboard.dto.LeadDetailsDto;
 import com.stanzaliving.core.payment.dto.PreBookingRefundDto;
 import com.stanzaliving.venta.BedCountDetailsDto;
@@ -28,15 +12,20 @@ import com.stanzaliving.venta.ResidenceRoomDetails;
 import com.stanzaliving.website.constants.WebsiteConstants;
 import com.stanzaliving.website.response.dto.LeadRequestDto;
 import com.stanzaliving.website.response.dto.VentaSyncDataResponseDTO;
-
 import lombok.extern.log4j.Log4j2;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
+import org.springframework.web.util.UriComponentsBuilder;
 
-/**
- * @author raj.kumar
- *
- * @date 12-May-2020
- *
- **/
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Log4j2
 public class VentaClientApi {
@@ -452,7 +441,7 @@ public class VentaClientApi {
 	}
 
 	public ResponseDto<LeadRequestDto> fetchPrebookedRefundEligibleLeads(String phone) {
-		
+
 		final Map<String, Object> uriVariables = new HashMap<>();
 
 		String path = UriComponentsBuilder.fromPath("prebooking/refund/fetch/eligible/leads").buildAndExpand(uriVariables).toUriString();
@@ -460,13 +449,13 @@ public class VentaClientApi {
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
 		queryParams.add("phone", phone);
-		
+
 		final HttpHeaders headerParams = new HttpHeaders();
-		
+
 		headerParams.add("Authorization", WebsiteConstants.IMS_DEFAULT_BEARER_TOKEN);
 
-		final String[] accepts = { "*/*" };
-		
+		final String[] accepts = {"*/*"};
+
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
 		ParameterizedTypeReference<ResponseDto<LeadRequestDto>> returnType = new ParameterizedTypeReference<ResponseDto<LeadRequestDto>>() {
@@ -480,19 +469,43 @@ public class VentaClientApi {
 		}
 	}
 
+	public String migrateTransactionForDate(String token, TransactionMigrationForDate requestDto) {
+
+		Object postBody = requestDto;
+
+		log.info("Migrate Transaction for date: {}", requestDto.getTransactionDate());
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+
+		String path = UriComponentsBuilder.fromPath("/migrate/transaction/date").build().toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+		HttpHeaders headerParams = new HttpHeaders();
+
+		headerParams.add("Cookie", "token=" + token);
+
+		final String[] accepts = {"*/*"};
+
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+		ParameterizedTypeReference<String> returnType = new ParameterizedTypeReference<String>() {
+		};
+
+		return this.restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+	}
+
 	public BrokerReferralCodeResponseDto getReferralDetails(String phone) {
 		Object postBody = null;
 
 		final Map<String, Object> uriVariables = new HashMap<>();
 		uriVariables.put("phone", phone);
-		String path = UriComponentsBuilder.fromPath("/broker/referral-details/{phone}").buildAndExpand(uriVariables)
-				.toUriString();
+		String path = UriComponentsBuilder.fromPath("/broker/referral-details/{phone}").buildAndExpand(uriVariables).toUriString();
 
 		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
 
 		final HttpHeaders headerParams = new HttpHeaders();
 
-		final String[] accepts = { "*/*" };
+		final String[] accepts = {"*/*"};
 		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
 
 		ParameterizedTypeReference<BrokerReferralCodeResponseDto> returnType = new ParameterizedTypeReference<BrokerReferralCodeResponseDto>() {
@@ -500,10 +513,34 @@ public class VentaClientApi {
 
 		try {
 			return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
-		}catch (Exception e){
+		} catch (Exception e) {
 			log.error("Error while fetching referral details: {}", e);
 			return null;
 		}
-
 	}
+
+
+	public Boolean verifyReferralCode(String referralCode) {
+
+		Object postBody = null;
+
+		final Map<String, Object> uriVariables = new HashMap<>();
+		// uriVariables.put("userUuid", userUuid);
+
+		String path = UriComponentsBuilder.fromPath("/referral/verify").buildAndExpand(uriVariables).toUriString();
+
+		final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+		queryParams.add("code", referralCode);
+		queryParams.add("requestFromLead", Boolean.TRUE.toString());
+
+		final HttpHeaders headerParams = new HttpHeaders();
+
+		final String[] accepts = { "*/*" };
+		final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+		ParameterizedTypeReference<Boolean> returnType = new ParameterizedTypeReference<Boolean>() {
+		};
+		return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+	}
+
 }

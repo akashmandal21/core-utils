@@ -26,6 +26,11 @@ public class FoodPreferenceComboResponseDto implements Serializable {
 	private boolean defaultMenu;
 	private boolean selected;
 	private String comboName;
+	private String mealCardName;
+	private Double mealCardRating;
+	private String mealCuisineL1;
+	private String mealCuisineL2;
+	private List<String> mealImgUrls;
 	private FoodItemBasePreference basePreference;
 	private String basePreferenceName;
 	private FoodRegion foodRegion;
@@ -33,6 +38,7 @@ public class FoodPreferenceComboResponseDto implements Serializable {
 	private FoodItemType foodPreference;
 	private String foodPreferenceName;
 	private List<FoodPreferenceComboItemDto> comboItemDtos;
+	private List<FoodPreferenceComboItemDto> beverageComboItemDtos;
 	private String slogan;
 	private String mealImg;
 	private RegionAndFoodItemBasePreference regionAndFoodItemBasePreference;
@@ -43,5 +49,9 @@ public class FoodPreferenceComboResponseDto implements Serializable {
 	private String mealId;
 	private String mealName;
 	private Integer thaliSequence;
+	private String defaultBeverage;
+	private String defaultBeverageName;
+	private String selectedBeverage;
+	private String selectedBeverageName;
 
 }

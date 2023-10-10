@@ -5,11 +5,13 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
+
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class SubTicketTaskDto {
+public class SubTicketTaskDto implements Serializable {
     private int position;
     private String uuid;
     private String name;

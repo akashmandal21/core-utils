@@ -18,4 +18,5 @@ public class UserRoleDataDto {
     private List<String> cityUuids;
     private List<String> micromarketUuids;
     private List<String> residenceUuids;
+    private String vendorRole;
 }

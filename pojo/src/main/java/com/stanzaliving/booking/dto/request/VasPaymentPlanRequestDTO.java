@@ -1,14 +1,14 @@
 package com.stanzaliving.booking.dto.request;
 
-import com.stanzaliving.booking.dto.request.ServicePriceDto;
-import com.stanzaliving.booking.dto.request.VasPriceDto;
 import com.stanzaliving.booking.enums.BookingType;
+import com.stanzaliving.booking.enums.PaymentPlanType;
 import com.stanzaliving.booking.enums.PaymentTerm;
 import com.stanzaliving.booking.enums.ReferenceType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -17,12 +17,11 @@ import java.util.Date;
 import java.util.List;
 
 
-@Builder
+@SuperBuilder
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class VasPaymentPlanRequestDTO implements Serializable {
-
     @NotEmpty(message = "referenceId cannot be null or blank")
     private String referenceId;
 
@@ -52,8 +51,19 @@ public class VasPaymentPlanRequestDTO implements Serializable {
     @Builder.Default
     private PaymentTerm paymentTerm = PaymentTerm.MONTHLY;
 
+    private Boolean isModifyContract = false;
+
     private Boolean savePaymentPlan = false;
 
-    private Boolean isModifyContract = false;
+    private Date modifiedContractStartDate;
+
+    private Boolean isGenerateInvoice =false;
+
+    private String residenceUuid;
+
+    private String residentUuid;
+
+    @Builder.Default
+    private PaymentPlanType paymentPlanType = PaymentPlanType.VAS;
 
 }

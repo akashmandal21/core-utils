@@ -1,5 +1,7 @@
 package com.stanzaliving.website.elasticsearch.index.dto;
 
+import java.io.Serializable;
+
 import com.stanzaliving.core.base.common.dto.AbstractSearchIndexDto;
 
 import lombok.AllArgsConstructor;
@@ -16,17 +18,21 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class WebsitePlaceIndexDto extends AbstractSearchIndexDto {
+public class WebsitePlaceIndexDto extends AbstractSearchIndexDto implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
 	private String place;
+
+	private String name;
 	
 	private Integer placeId;
 	
 	private String placeSlug;
 	
 	private String placeType;
+
+	private String osmPlaceType;
 	
 	private Integer placeTypeId;
 
@@ -62,4 +68,8 @@ public class WebsitePlaceIndexDto extends AbstractSearchIndexDto {
 	private Boolean isExactMatched = false;
 	
 	private float score;
+	
+	private String apartmentCitySlug;
+	
+	private String apartmentMMSlug;
 }

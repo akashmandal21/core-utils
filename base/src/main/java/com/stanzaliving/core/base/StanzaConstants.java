@@ -15,6 +15,8 @@ import lombok.experimental.UtilityClass;
 @UtilityClass
 public class StanzaConstants {
 
+	public static final Integer ZER0 = 0;
+
 	public static final String DATE_SEPARATOR = "-";
 	public static final String IST_TIMEZONE = "Asia/Kolkata";
 	public static final String UTC_TIMEZONE = "UTC";
@@ -44,5 +46,12 @@ public class StanzaConstants {
 	public static final String NO_KEY = "NO";
 	public static final String REQ_UID = "reqUuid";
 	public static final String REQ_MOBILE = "reqUserMobile";
+
+	// DEVICE INFO
+	public static final String APP_NAME = "appName";
+	public static final String APP_VERSION = "appVersion";
+	public static final String DEVICE = "device";
+	public static final String PLATFORM = "platform";
+	public static final String PLATFORM_VERSION = "platformVersion";
 
 }

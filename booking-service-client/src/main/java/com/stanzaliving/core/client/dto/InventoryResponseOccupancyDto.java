@@ -27,8 +27,10 @@ public class InventoryResponseOccupancyDto {
 
     private Date endDate;
 
-    private Integer beds;
+    private Double beds;
 
     private boolean selfConverted;
+
+    private Date availableFrom;
 }
 

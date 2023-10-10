@@ -24,6 +24,10 @@ public class TOTemplateDto {
 
     private UIKeyValue toType;
 
+    private UIKeyValue toExpenseType;
+
+    private UIKeyValue toBoqLabel;
+
     private UIKeyValue foodCostType;
 
     private DateRange toDuration;

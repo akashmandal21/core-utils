@@ -5,15 +5,13 @@ import com.stanzaliving.wanda.dtos.ResidentEmergencyContactDto;
 import com.stanzaliving.wanda.dtos.ResidentProfessionalDetailsDto;
 import com.stanzaliving.wanda.dtos.ResidentRelationDto;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @NoArgsConstructor
 @Builder
 @Getter
 @AllArgsConstructor
+@Setter
 public class OnBoardingGetResponse {
 
 	private UserProfileDto userProfileDto;

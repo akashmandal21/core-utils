@@ -26,6 +26,7 @@ public class PoDetailsResponse {
     private String poUuid;
     private String poNumber;
     private String poExpenseType;
+    private String poBoqLabel;
 
     private GenericPOType potype;
     private GenericPOTOStatus postatus;

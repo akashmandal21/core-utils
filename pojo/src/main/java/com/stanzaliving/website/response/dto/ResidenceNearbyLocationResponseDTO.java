@@ -16,6 +16,7 @@ import lombok.Setter;
 public class ResidenceNearbyLocationResponseDTO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+	
 	private int residenceNearbyLocationId;
 	private int nearbyLocationId;
 	private String nearbyLocationName;

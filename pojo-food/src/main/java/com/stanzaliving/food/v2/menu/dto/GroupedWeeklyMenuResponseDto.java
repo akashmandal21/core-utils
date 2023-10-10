@@ -11,6 +11,7 @@ import com.stanzaliving.food.v2.category.dto.MenuCategoryResidenceRDto;
 import com.stanzaliving.food.v2.common.dto.MicromarketRDto;
 import com.stanzaliving.food.v2.menu.constants.MenuStatus;
 import com.stanzaliving.food.v2.monthlybudgetplanner.dto.SpecialDayMealDto;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -57,6 +58,10 @@ public class GroupedWeeklyMenuResponseDto extends AbstractDto {
     private boolean mealOfDayDefined;
     private Double ratings;
     private boolean comboRulesSatisfied;
+    @Builder.Default
+    private boolean beverageRuleSatisfied = true;
+    @Builder.Default
+    private boolean defaultBeverageRuleSatisfied = true;
     private boolean menuDefined;
     private ApprovalStatus approvalStatus;
     private List<String> pendingApprovers;
@@ -79,5 +84,7 @@ public class GroupedWeeklyMenuResponseDto extends AbstractDto {
     private Boolean canSubmit;
     private Date approvedAt;
     private String approvedBy;
-
+    private Boolean isDebarDishExist;
+    private SelectedKitchenDto selectedKitchen;
+    private boolean beverageRuleApplicable;
 }

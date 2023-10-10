@@ -72,4 +72,8 @@ public class UserProfileDto extends UserDto {
 	private int ageLimit;
 
 	private boolean status;
+
+	private boolean isMigrated;
+
+	private String companyName;
 }

@@ -53,6 +53,7 @@ public class BoqLineItemDto implements Comparable<BoqLineItemDto>{
     private LineItemStatus lineItemStatus;
     private boolean itemApproved;
     private BigDecimal maxQuantity;
+    private String boqLabel;
 
     @Override
     public int compareTo(BoqLineItemDto o) {

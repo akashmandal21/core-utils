@@ -3,6 +3,7 @@ package com.stanzaliving.booking.dto;
 import com.stanzaliving.booking.dto.response.BookingCommercialCardDto;
 import com.stanzaliving.booking.dto.response.BookingPackageServiceDto;
 import com.stanzaliving.booking.dto.response.InventoryResponseOccupancyDto;
+import com.stanzaliving.booking.dto.response.PricingStrategyRulesResponseDto;
 import com.stanzaliving.booking.enums.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -55,6 +56,8 @@ public class BookingResponseDto {
 
     private BookingCommercialCardDto bookingCommercialCard;
 
+    private PricingStrategyRulesResponseDto pricingStrategyRulesResponseDto;
+
     private BookingPackageServiceDto bookingPackageService;
 
     private Double pendingAmount;
@@ -63,4 +66,23 @@ public class BookingResponseDto {
 
     private Boolean exceptionalOnboarded;
 
+    private String parentBookingId;
+
+    private String bookingTag;
+
+    private BookingSubType bookingSubType;
+
+    private Date createdAt;
+
+    private String residenceUuid;
+
+    private String residenceName;
+
+    private boolean priceStrategy;
+
+    private Boolean moveIn;
+
+    private ResidenceAgreementType residenceAgreementType;
+
+    private double exitProcessingFee;
 }

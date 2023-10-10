@@ -1,5 +1,9 @@
 package com.stanzaliving.core.commercialcode.dto;
-
+import com.stanzaliving.booking.enums.AMCAmountType;
+import com.stanzaliving.booking.enums.BookingSubType;
+import com.stanzaliving.booking.enums.PaymentFrequency;
+import com.stanzaliving.commercialcard.enums.CommercialCardStatus;
+import com.stanzaliving.commercialcard.enums.CommercialCardUserType;
 import lombok.*;
 
 import java.util.List;
@@ -20,10 +24,13 @@ public class CodeListDto {
 
     private Integer advanceRentalLastMonths;
 
+    private Integer lastAdvanceRentalDays;
+
     private Double annualMaintenanceFee;
 
     private Double monthlyMaintenanceFee;
 
+    // ----> Monthly / upfront
     private String maintenanceFeeCollection;
 
     private boolean isAutoApplicable;
@@ -32,5 +39,34 @@ public class CodeListDto {
 
     private Double monthlyFeesMultiplier;
 
+    private Double onBoardingCharges;
+
+    private Double onBoardingChargesPercentage;
+
+    private Boolean onboardingChargesApplicableOnRetention;
+
     private List<CommercialCardApplicabilityDto> applicabilityDtoList;
+
+    // ----> Monthly / Fixed
+    private AMCAmountType maintenanceChargeAmountType;
+
+    private CommercialCardStatus cardStatus;
+
+    private BookingSubType bookingSubType;
+
+    private PlatformType platform;
+
+    private PaymentFrequency paymentFrequency;
+
+    private String priceImpact;
+
+    private CommercialCardUserType userType;
+
+    private com.stanzaliving.commercialcard.enums.AMCAmountType onBoardingChargeType;
+
+    private com.stanzaliving.commercialcard.enums.AMCAmountType exitProcessingType;
+
+    private Double exitProcessingCharges;
+
+    private boolean commandCenterFlag;
 }

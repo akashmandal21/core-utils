@@ -1,10 +1,12 @@
 package com.stanzaliving.ventaInvoice.dto;
 
 import com.stanzaliving.booking.enums.PaymentPlanType;
+import com.stanzaliving.booking.enums.ResidenceAgreementType;
 import com.stanzaliving.ventaInvoice.enums.InvoiceType;
 import com.stanzaliving.ventaInvoice.enums.ReferenceType;
 
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
@@ -16,7 +18,7 @@ import java.util.Map;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
+@SuperBuilder
 @ToString
 public class DocumentRequestDto {
 
@@ -43,6 +45,13 @@ public class DocumentRequestDto {
 
     private LocalDate toDate;
 
+    private LocalDate executionDate;
+
+    @Builder.Default
+    private boolean ignoreRefundCheck = false;
+
+    private LocalDate moveOutDate;
+
     private PaymentPlanType callerServiceCategory;
 
     private String categoryUuid;
@@ -64,4 +73,11 @@ public class DocumentRequestDto {
 
     private Map<String, Object> callerServiceMetaData;
 
+    @Builder.Default
+    private ResidenceAgreementType residenceAgreementType = ResidenceAgreementType.LEASE_DEED;
+
+    @Builder.Default
+    private boolean fixSeries = false;
+
+    private boolean splitToggleEnabled;
 }

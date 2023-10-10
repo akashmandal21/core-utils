@@ -5,11 +5,16 @@ import java.util.Date;
 import com.stanzaliving.booking.enums.BookingEventEnum;
 import com.stanzaliving.booking.enums.BookingStatus;
 import com.stanzaliving.booking.enums.BookingType;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import com.stanzaliving.booking.enums.BookingEventEnum;
+import com.stanzaliving.booking.enums.BookingStatus;
+import com.stanzaliving.booking.enums.BookingType;
+import lombok.*;
+
+import java.util.Date;
 
 @Builder
 @Data

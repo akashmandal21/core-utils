@@ -21,4 +21,5 @@ public class CivilChangesAttributes {
 	private boolean civilStatus;
 	private boolean designTeamStatus;
 	private Date updatedAt;
+	private String updatedBy;
 }

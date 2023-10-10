@@ -16,6 +16,7 @@ public class AttributeNames {
 		public static final String FLOOR_COUNT = "floorCount";
 		public static final String POC_NUMBER = "pocNumber";
 		public static final String POC_NAME = "pocName";
+		public static final String BD_USER_UUID="bdUserUuid";
 
 		public static final String TYPE_OF_BRAND = "typeOfBrand";
 
@@ -23,6 +24,8 @@ public class AttributeNames {
 
 		public static final String ROOM_TYPE = "roomType";
 		public static final String ROOM_COUNT = "roomCount";
+
+		public static final String BUILDING_HANDOVER_DATE = "buildingHandoverDate";
 
 		public static final String TERRACE_ACCESSIBLE = "terraceAreaCoverage";
 

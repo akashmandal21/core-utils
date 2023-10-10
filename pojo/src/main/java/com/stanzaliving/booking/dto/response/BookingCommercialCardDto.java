@@ -20,4 +20,11 @@ public class BookingCommercialCardDto {
     private String commercialCardUuid;
 
     private String bookingUuid;
+
+    private Boolean isPriceStrategy;
+
+    private Double monthlyRent;
+
+    private String commandCenterUuid;
+
 }
