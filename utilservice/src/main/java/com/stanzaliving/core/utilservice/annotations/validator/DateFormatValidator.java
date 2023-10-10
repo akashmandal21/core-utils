@@ -21,7 +21,9 @@ public class DateFormatValidator implements
     @Override
     public boolean isValid(String value, ConstraintValidatorContext context) {
         try {
-            new SimpleDateFormat(this.pattern).parse(value);
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat(this.pattern);
+            simpleDateFormat.setLenient(false);
+            simpleDateFormat.parse(value);
             return true;
         } catch (DateTimeParseException | ParseException e) {
             return false;
