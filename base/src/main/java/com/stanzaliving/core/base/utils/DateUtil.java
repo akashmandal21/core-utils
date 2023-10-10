@@ -1,46 +1,24 @@
 package com.stanzaliving.core.base.utils;
 
-import static com.google.common.base.Preconditions.checkArgument;
+import com.stanzaliving.core.base.StanzaConstants;
+import com.stanzaliving.core.base.enums.DateFormat;
+import com.stanzaliving.core.base.enums.DatePart;
+import lombok.experimental.UtilityClass;
+import lombok.extern.log4j.Log4j2;
+import org.apache.commons.text.CaseUtils;
 
 import java.sql.Time;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.DayOfWeek;
-import java.time.Duration;
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.Month;
-import java.time.Period;
-import java.time.YearMonth;
-import java.time.ZoneId;
-import java.time.ZoneOffset;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.time.format.FormatStyle;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalAdjusters;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
-import org.apache.commons.text.CaseUtils;
-
-import com.stanzaliving.core.base.StanzaConstants;
-import com.stanzaliving.core.base.enums.DateFormat;
-import com.stanzaliving.core.base.enums.DatePart;
-
-import lombok.experimental.UtilityClass;
-import lombok.extern.log4j.Log4j2;
+import static com.google.common.base.Preconditions.checkArgument;
 
 @Log4j2
 @UtilityClass
@@ -71,18 +49,17 @@ public class DateUtil {
     }
 
     public Date normalizeDate(Date date, Boolean normalize) {
-        if(Objects.isNull(date)){
+        if (Objects.isNull(date)) {
             return null;
         }
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
-        if(normalize) {
+        if (normalize) {
             cal.set(Calendar.HOUR_OF_DAY, 0);
             cal.set(Calendar.MINUTE, 0);
             cal.set(Calendar.SECOND, 0);
             cal.set(Calendar.MILLISECOND, 0);
-        }
-        else {
+        } else {
             cal.set(Calendar.HOUR_OF_DAY, 23);
             cal.set(Calendar.MINUTE, 59);
             cal.set(Calendar.SECOND, 59);
@@ -113,12 +90,15 @@ public class DateUtil {
     public long getDaysBetweenDates(Date fromDate, Date toDate) {
         return ChronoUnit.DAYS.between(fromDate.toInstant(), toDate.toInstant());
     }
+
     public long getHoursBetweenDates(Date fromDate, Date toDate) {
         return ChronoUnit.HOURS.between(fromDate.toInstant(), toDate.toInstant());
     }
+
     public long getMinutesBetweenDates(Date fromDate, Date toDate) {
         return ChronoUnit.MINUTES.between(fromDate.toInstant(), toDate.toInstant());
     }
+
     public boolean isMidMonth(Date date) {
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
@@ -133,13 +113,15 @@ public class DateUtil {
     }
 
     public String customDateFormatter(Date dateInput, DateFormat dateFormat) {
+        return Objects.nonNull(dateInput) ?
+                getSimpleDateFormat(dateFormat).format(dateInput) :
+                null;
+    }
 
-        if (dateInput != null) {
-            SimpleDateFormat formatterOutput = new SimpleDateFormat(dateFormat.getValue());
-            return formatterOutput.format(dateInput);
-        }
-
-        return null;
+    private static SimpleDateFormat getSimpleDateFormat(DateFormat dateFormat) {
+        SimpleDateFormat formatterOutput = new SimpleDateFormat(dateFormat.getValue());
+        formatterOutput.setLenient(false);
+        return formatterOutput;
     }
 
     public String customDateFormatter(LocalDate dateInput, DateFormat dateFormat) {
@@ -187,30 +169,19 @@ public class DateUtil {
     }
 
     public Date customDateParser(String dateInput, DateFormat dateFormat) {
-
-        if (dateInput != null) {
-            SimpleDateFormat formatterOutput = new SimpleDateFormat(dateFormat.getValue());
+        if (Objects.nonNull(dateInput)) {
             try {
-                return formatterOutput.parse(dateInput);
+                return getSimpleDateFormat(dateFormat).parse(dateInput);
             } catch (ParseException e) {
                 // Ignore
             }
         }
-
         return null;
     }
 
     public String changeDateFormat(String dateInput, DateFormat inputDateFormat, DateFormat outputDateFormat) {
-
-        if (dateInput != null) {
-            SimpleDateFormat formatterOutput = new SimpleDateFormat(inputDateFormat.getValue());
-            try {
-                return customDateFormatter(formatterOutput.parse(dateInput), outputDateFormat);
-            } catch (ParseException e) {
-                // Ignore
-            }
-        }
-
+        if (Objects.nonNull(dateInput))
+            return customDateFormatter(customDateParser(dateInput, inputDateFormat), outputDateFormat);
         return null;
     }
 
@@ -1139,7 +1110,7 @@ public class DateUtil {
         calendarInstance.set(Calendar.MINUTE, 00);
         calendarInstance.set(Calendar.HOUR_OF_DAY, 00);
         calendarInstance.set(Calendar.SECOND, 00);
-        calendarInstance.set(Calendar.MILLISECOND,0);
+        calendarInstance.set(Calendar.MILLISECOND, 0);
         Date currentDate = calendarInstance.getTime();
         return currentDate;
     }
@@ -1232,23 +1203,23 @@ public class DateUtil {
         return (fromDate.isBefore(localDate) || fromDate.equals(localDate)) && (toDate.isAfter(localDate) || toDate.equals(localDate));
     }
 
-    public static List<LocalDate> getCalendarMonthOfYear(Integer month,Integer year) {
+    public static List<LocalDate> getCalendarMonthOfYear(Integer month, Integer year) {
 
         LocalDate startDate = getMonthStartBeginningDate(month, year);
         LocalDate endDate = getMonthEndBeginningDate(month, year);
 
         DayOfWeek startDayOfMonth = startDate.getDayOfWeek();
-        startDate = startDayOfMonth==DayOfWeek.MONDAY?startDate:startDate.minusDays(startDayOfMonth.getValue()-1);
+        startDate = startDayOfMonth == DayOfWeek.MONDAY ? startDate : startDate.minusDays(startDayOfMonth.getValue() - 1);
 
         DayOfWeek endDayOfMonth = endDate.getDayOfWeek();
-        endDate = endDate.plusDays(7-endDayOfMonth.getValue());
+        endDate = endDate.plusDays(7 - endDayOfMonth.getValue());
 
-        return getAllLocalDatesForRange(startDate,endDate);
+        return getAllLocalDatesForRange(startDate, endDate);
 
     }
 
     public static boolean isWeekDay(LocalDate date) {
-        return date.getDayOfWeek()!=DayOfWeek.SATURDAY&&date.getDayOfWeek()!=DayOfWeek.SUNDAY;
+        return date.getDayOfWeek() != DayOfWeek.SATURDAY && date.getDayOfWeek() != DayOfWeek.SUNDAY;
     }
 
     public static Long convertToEpochInMiliSeconds(LocalDate localDate) {
@@ -1270,14 +1241,14 @@ public class DateUtil {
         return date.with(TemporalAdjusters.nextOrSame(day));
     }
 
-    public static Date addMonthsToDate(Date date, int months){
+    public static Date addMonthsToDate(Date date, int months) {
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
         cal.add(Calendar.MONTH, months);
         return cal.getTime();
     }
 
-    public static boolean isSameDay(Date d1, Date d2){
+    public static boolean isSameDay(Date d1, Date d2) {
         return normalizeDate(d1).equals(normalizeDate(d2));
     }
 
@@ -1286,7 +1257,7 @@ public class DateUtil {
     //                   endDate = 2022-11-01
     //          Output -> 11.5
     public double getTenureDurationInDouble(String duration, Date endDate) {
-        if(Objects.isNull(endDate)){
+        if (Objects.isNull(endDate)) {
             endDate = new Date();
         }
         Calendar cal = Calendar.getInstance();
@@ -1313,8 +1284,8 @@ public class DateUtil {
             if (b > 0)
                 second = Integer.parseInt(duration.substring(count, b).trim());
         }
-        second = second/ cal.getActualMaximum(Calendar.DATE);
-        ans = first  + second;
+        second = second / cal.getActualMaximum(Calendar.DATE);
+        ans = first + second;
         return ans;
     }
 
@@ -1323,7 +1294,7 @@ public class DateUtil {
     //                   endDate = 2022-11-07
     //          Output -> 11 months 7 days
     public static String getContractDuration(Date startDate, Date endDate) {
-        Period contractPeriod = DateUtil.findDifference(startDate, DateUtil.addDaysToDate(endDate,1));
+        Period contractPeriod = DateUtil.findDifference(startDate, DateUtil.addDaysToDate(endDate, 1));
         return DateUtil.dateDifferenceInString(contractPeriod);
     }
 
