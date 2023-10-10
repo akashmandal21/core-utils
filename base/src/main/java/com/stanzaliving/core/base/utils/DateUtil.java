@@ -1009,6 +1009,15 @@ public class DateUtil {
         return dateTwo;
     }
 
+    public LocalDate max(LocalDate dateOne, LocalDate dateTwo) {
+
+        if (dateOne.isAfter(dateTwo)) {
+            return dateOne;
+        }
+
+        return dateTwo;
+    }
+
     public static List<String> getListOfMonthYear(LocalDate fromDate, LocalDate toDate, DateFormat dateFormat) {
         LinkedHashSet<String> monthYear = new LinkedHashSet<>();
         if (toDate.isBefore(fromDate)) {// TODO add additional validation
@@ -1263,6 +1272,7 @@ public class DateUtil {
 
     public static Date addMonthsToDate(Date date, int months){
         Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
         cal.add(Calendar.MONTH, months);
         return cal.getTime();
     }

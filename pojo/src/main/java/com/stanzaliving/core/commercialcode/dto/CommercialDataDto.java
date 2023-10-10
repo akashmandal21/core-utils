@@ -9,6 +9,7 @@ import java.util.List;
 @Data
 public class CommercialDataDto {
    private String commercialId;
+   private String commandCenterUuid;
    private String commercialName;
    private List<CommercialMetaDataDto> commercialData;
    private boolean disabled;
@@ -25,5 +26,6 @@ public class CommercialDataDto {
    private Double gstWithPriceImpact;
    private Double gstPercentageLabel;
    private Double monthlyRentWithoutGstLabel;
+   private Double tenureBasedDiscountAmount;
 
 }

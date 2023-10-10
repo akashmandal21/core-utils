@@ -34,6 +34,7 @@ public class AdvanceRoomSearchDto {
     private String moveInDate;
     private String roomNumber;
     private String moveOutDate;
+    private String bookingType;
     private String residenceUuid;
     private String microMarketId;
     private String residenceName;

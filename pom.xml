@@ -120,6 +120,7 @@
         <module>location-service-client</module>
         <module>bundle-client</module>
         <module>order-wizard-client</module>
+        <module>rule-engine-client</module>
     </modules>
 
 	<build>

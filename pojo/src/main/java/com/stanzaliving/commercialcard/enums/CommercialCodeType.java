@@ -24,7 +24,8 @@ public enum CommercialCodeType {
     OCCUPANCY("OCCUPANCY", "Occupancy"),
     ROOM_OCCUPIED("ROOM_OCCUPIED","Rooms occupied"),
     ROOM_CONVERSION_STATUS("ROOM_CONVERSION_STATUS", "Room conversion status"),
-    BOOKING_MODE("BOOKING_MODE","Booking mode");
+    BOOKING_MODE("BOOKING_MODE","Booking mode"),
+    ATTRIBUTE("ATTRIBUTE", "Attribute");
 
     private String name;
     private String value;

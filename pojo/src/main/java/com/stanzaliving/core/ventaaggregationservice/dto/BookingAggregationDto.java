@@ -116,4 +116,6 @@ public class BookingAggregationDto {
     private String bookingMode;
     private boolean billToResident;
     private boolean isPriceStrategy;
+    private boolean salesCommandCenter;
+    private String commandCenterUuid;
 }

@@ -51,9 +51,13 @@ public class CommercialCardResponseDto {
 
     private Double onBoardingCharges;
 
+    private Double exitProcessingCharges;
+
     private Double onBoardingChargesPercentage;
 
     private Boolean onboardingChargesApplicableOnRetention;
+
+    private Double discountCapPercentage;
 
     private Integer advanceRentalFirstMonths;
 
@@ -61,11 +65,18 @@ public class CommercialCardResponseDto {
 
     private Integer lastAdvancedRentalDays;
 
+    private Double newClosureMinTokenAmount;
+
+    private Double retentionMinTokenAmount;
+
+    private Double repeatMinTokenAmount;
+
     @Min(value = 1, message = "Minimum Closure Applicable value must be 1")
     @Max(value = 1000000, message = "Maximum Closure Applicable value is 1000000")
     private Integer availableCount;
     
     private MaintenanceFeeCollectionType collectionStrategy;
+    private MaintenanceFeeCollectionType maintenanceFeeCollection;
 
     private Boolean isSecurityDepositManualInput;
 
@@ -79,4 +90,5 @@ public class CommercialCardResponseDto {
 
     private com.stanzaliving.commercialcard.enums.AMCAmountType onBoardingChargeType;
 
+    private com.stanzaliving.commercialcard.enums.AMCAmountType exitProcessingType;
 }

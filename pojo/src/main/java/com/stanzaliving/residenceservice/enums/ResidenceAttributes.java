@@ -3,10 +3,7 @@ package com.stanzaliving.residenceservice.enums;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Getter
 @AllArgsConstructor
@@ -36,6 +33,7 @@ public enum ResidenceAttributes {
     PRICE_ESCALATION_ENABLE("Price Escalation Enabled", "Boolean"),
     NO_LOCK_IN_SUITS_BOOKING("No Lock In Suits Booking", "Boolean"),
     CONTRACT_END_DATE_CHANGE("Contract End Date Change", "Integer"),
+    ROOM_RECOMMENDATION_ENGINE("Room Recommended Engine", "Boolean"),
     FOREIGN_RESIDENTS_ALLOWED("Foreign Residents Allowed", "Boolean"),
     RETENTION_MIN_TOKEN_AMOUNT("Retention Min Token Amount", "String"),
     NEEDS_ATTENTION_EXPIRY_TIME("Needs Attention Expiry Time", "String"),
@@ -43,6 +41,7 @@ public enum ResidenceAttributes {
     NEW_CLOSURE_MIN_TOKEN_AMOUNT("New Closure Min Token Amount", "String"),
     MAXIMUM_WAIVE_OFF_PERCENTAGE("Maximum Waive off Percentage", "Double"),
     CITY_HEAD_BUFFER_CONTRIBUTION("City Head Buffer Contribution", "String"),
+    RETENTION_BOOKING_EXPIRY_TIME("Retention Booking Expiry Time", "String"),
     FUTURE_BOOKING_ALLOWED_DAYS("Future Booking Allowed Duration", "Integer"),
     BOOKING_EXIT_DELTA_DAYS("Buffer days for contract completion", "String"),
     AUTO_BOOKING_CANCELLATION_TIME("Auto Booking Cancellation Time", "String"),
@@ -54,7 +53,6 @@ public enum ResidenceAttributes {
     BOOKING_AUTO_FORFEITURE_DURATION_IN_DAYS("Booking Auto Forfeiture Duration in Days", "Integer"),
     MAX_ALLOWED_DAYS_AFTER_BOOKING_FORFEITURE("Max Allowed Days After Booking Forfeiture", "Integer"),
     ;
-
 
     private static final Map<ResidenceAttributes, String> getType = new HashMap<>();
     private static final Map<ResidenceAttributes, String> getLabel = new HashMap<>();
@@ -93,6 +91,23 @@ public enum ResidenceAttributes {
         residenceAttributes.add(EXIT_PROCESSING_FEE);
         residenceAttributes.add(BOOKING_AMOUNT_REALISATION_ENABLED);
         residenceAttributes.add(FUTURE_BOOKING_ALLOWED_DAYS);
+        return residenceAttributes;
+    }
+
+    public static Set<ResidenceAttributes> salesCommandCenterAttributesList() {
+        Set<ResidenceAttributes> residenceAttributes = new HashSet<>();
+        residenceAttributes.add(SD_MULTIPLIER);
+        residenceAttributes.add(AMC_MULTIPLIER);
+        residenceAttributes.add(MONTHLY_MULTIPLIER);
+        residenceAttributes.add(BOOKING_EXPIRY_TIME);
+        residenceAttributes.add(BOOKING_EXIT_DELTA_DAYS);
+        residenceAttributes.add(BOOKING_EXIT_NOTICE_PERIOD);
+        residenceAttributes.add(ROOM_RECOMMENDATION_ENGINE);
+        residenceAttributes.add(FUTURE_BOOKING_ALLOWED_DAYS);
+        residenceAttributes.add(MODIFY_CONTRACT_CUT_OFF_DAYS);
+        residenceAttributes.add(RETENTION_BOOKING_EXPIRY_TIME);
+        residenceAttributes.add(CITY_HEAD_BUFFER_CONTRIBUTION);
+        residenceAttributes.add(BOOKING_AMOUNT_REALISATION_ENABLED);
         return residenceAttributes;
     }
 

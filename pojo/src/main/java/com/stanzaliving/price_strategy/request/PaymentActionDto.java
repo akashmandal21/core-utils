@@ -1,6 +1,8 @@
 package com.stanzaliving.price_strategy.request;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
 import com.stanzaliving.booking.enums.PaymentTerm;
+import com.stanzaliving.price_strategy.enums.PriceImpactType;
 import lombok.*;
 
 import java.util.List;
@@ -12,6 +14,7 @@ import java.util.List;
 @Setter
 public class PaymentActionDto {
 
+    @JsonAlias({"paymentTerm"})
     private PaymentTerm name;
     private Boolean status;
     private Boolean byDefault;
@@ -27,4 +30,7 @@ public class PaymentActionDto {
     private Double priceImpact;
     private Double monthlyRent;
     private Double discountAmount;
+
+    private PriceImpactType discountImpactType;
+    private Double discountImpactValue;
 }
