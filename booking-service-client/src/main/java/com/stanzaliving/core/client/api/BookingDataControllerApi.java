@@ -1368,6 +1368,19 @@ public class BookingDataControllerApi {
 
     }
 
+    public void sendingResponseToSlack(String message) {
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+        String path = UriComponentsBuilder.fromPath("/internal/utility/sending-response-to-slack").buildAndExpand(uriVariables).toUriString();
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        final HttpHeaders headerParams = new HttpHeaders();
+        final String[] accepts = {"*/*"};
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+        ParameterizedTypeReference<Void> returnType = new ParameterizedTypeReference<Void>() {
+        };
+        restClient.invokeAPI(path, HttpMethod.POST, queryParams, message, headerParams, accept, returnType);
+    }
+
     public PendingDuesDetailsResponseDtoV2 getPendingDuesForBooking(String bookingUuid) {
         final Map<String, Object> uriVariables = new HashMap<String, Object>();
         uriVariables.put("bookingUuid", bookingUuid);
