@@ -27,6 +27,7 @@ public class ResidenceGstCache {
 	
 	// load residence gst details in cache
 	   private LoadingCache<String,Map<String,ResidenceGstDto>> allResdiencesGstDetails = CacheBuilder.newBuilder()
+			   .maximumSize(200)
 			   .expireAfterWrite(3, TimeUnit.HOURS) 
 			   .build(
 	                    new CacheLoader<String, Map<String,ResidenceGstDto>>() {

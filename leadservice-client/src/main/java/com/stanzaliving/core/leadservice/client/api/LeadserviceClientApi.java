@@ -345,6 +345,31 @@ public class LeadserviceClientApi {
         return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
     }
 
+    public ResponseDto<Boolean> checkTempLeadByPhone(String phone) {
+        Object postBody = null;
+
+        log.info("Request received for checkTempLeadByPhone " + phone);
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+
+        String path = UriComponentsBuilder.fromPath("/lead/internal/check/temp/phone")
+                .buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        queryParams.add("phone", phone);
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<Boolean>> returnType = new ParameterizedTypeReference<ResponseDto<Boolean>>() {
+        };
+
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+    }
+
     public ResponseDto<LeadDetailEntity> search(String phoneNumber, String leadUuid) {
 
         log.debug("Lead client received phone number {}", phoneNumber);
