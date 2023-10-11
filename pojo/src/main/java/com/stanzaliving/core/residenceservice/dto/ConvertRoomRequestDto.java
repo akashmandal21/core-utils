@@ -22,11 +22,9 @@ public class ConvertRoomRequestDto {
     private String roomNumberUUID;
 
     @NotBlank(message = "from date field cannot be empty")
-    @DateFormat(message = "from date is invalid | Expected format 'yyyy-dd-MM'", pattern = "yyyy-MM-dd")
+    @DateFormat(message = "date is invalid | Expected format 'yyyy-MM-dd'", pattern = "yyyy-MM-dd")
     private String fromDate;
 
-//    @NotBlank(message = "to date field cannot be empty")
-//    @DateFormat(message = "to date is invalid | Expected format 'yyyy-dd-MM'")
     private String toDate;
 
     @Min(value = 1, message = "current occupancy must be greater than zero")
@@ -37,8 +35,6 @@ public class ConvertRoomRequestDto {
     @NotNull(message = "new occupancy cannot be empty")
     private Integer newOccupancy;
 
-//    @NotBlank(message = "room number uuid field cannot be empty")
-//    @NotNull(message = "room number uuid field cannot be null") //todo: check it
     private String bookingInventoryUUID;
 
     private Boolean isAlreadyConverted;

@@ -24,11 +24,11 @@ import lombok.ToString;
 public class ResidenceLockInDto {
 	private String uuid;
 
-	@DateFormat(message = "Move-in date is invalid | Expected format 'yyyy-dd-MM'")
+	@DateFormat(message = "date is invalid | Expected format 'yyyy-MM-dd'", pattern = "yyyy-MM-dd")
 	@NotBlank(message = "Start date cannot be empty or null")
 	private String start;
 
-	@DateFormat(message = "Move-in date is invalid | Expected format 'yyyy-dd-MM'")
+	@DateFormat(message = "date is invalid | Expected format 'yyyy-MM-dd'", pattern = "yyyy-MM-dd")
 	@NotBlank(message = "End date cannot be empty or null")
 	private String end;
 
