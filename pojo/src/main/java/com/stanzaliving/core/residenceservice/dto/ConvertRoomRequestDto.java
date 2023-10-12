@@ -25,8 +25,6 @@ public class ConvertRoomRequestDto {
     @DateFormat(message = "from date is invalid | Expected format 'yyyy-dd-MM'", pattern = "yyyy-MM-dd")
     private String fromDate;
 
-//    @NotBlank(message = "to date field cannot be empty")
-//    @DateFormat(message = "to date is invalid | Expected format 'yyyy-dd-MM'")
     private String toDate;
 
     @Min(value = 1, message = "current occupancy must be greater than zero")
