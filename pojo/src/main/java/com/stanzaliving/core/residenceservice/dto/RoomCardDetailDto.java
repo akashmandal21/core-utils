@@ -11,22 +11,27 @@ import java.util.List;
 
 @Data
 @Builder
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class RoomCardDetailDto implements Serializable {
 
-    Double blendedPrice;
-    Integer totalRooms;
-    Float totalBeds;
-    Integer liveRooms;
     Float liveBeds;
-    Integer deadRooms;
     Float deadBeds;
-    Integer occupiedRooms;
-    Float occupiedBeds;
-    Integer blockedRoom;
+    Float totalBeds;
     Float blockedBeds;
-    List<OccupancyBlendedPriceDto> blendedPriceByOccupancy;
+    Float occupiedBeds;
+
+    Integer liveRooms;
+    Integer deadRooms;
+    Integer totalRooms;
+    Integer blockedRoom;
+    Integer occupiedRooms;
+
+    Double blendedPrice;
     Double minimumPrice;
     Double maximumPrice;
+    Double blendedCityHeadBufferPrice;
+
+    List<OccupancyBlendedPriceDto> blendedPriceByOccupancy;
+
 }
