@@ -23,6 +23,7 @@ public class UserCache {
 	}
 
 	private LoadingCache<String, Map<String, UserProfileDto>> allUserCache = CacheBuilder.newBuilder()
+			.maximumSize(200)
 			.expireAfterWrite(30, TimeUnit.MINUTES)
 			.build(
 					new CacheLoader<String, Map<String, UserProfileDto>>() {
@@ -49,6 +50,7 @@ public class UserCache {
 	}
 
 	private LoadingCache<String, Optional<UserProfileDto>> userProfileCache = CacheBuilder.newBuilder()
+			.maximumSize(200)
 			.expireAfterWrite(30, TimeUnit.MINUTES)
 			.build(
 					new CacheLoader<String, Optional<UserProfileDto>>() {

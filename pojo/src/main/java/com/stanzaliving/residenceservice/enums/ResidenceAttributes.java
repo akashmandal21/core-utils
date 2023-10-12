@@ -3,10 +3,7 @@ package com.stanzaliving.residenceservice.enums;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Getter
 @AllArgsConstructor
@@ -100,8 +97,8 @@ public enum ResidenceAttributes {
         return residenceAttributes;
     }
 
-    public static List<ResidenceAttributes> salesCommandCenterAttributesList() {
-        List<ResidenceAttributes> residenceAttributes = new ArrayList<>();
+    public static Set<ResidenceAttributes> salesCommandCenterAttributesList() {
+        Set<ResidenceAttributes> residenceAttributes = new HashSet<>();
         residenceAttributes.add(SD_MULTIPLIER);
         residenceAttributes.add(AMC_MULTIPLIER);
         residenceAttributes.add(MONTHLY_MULTIPLIER);

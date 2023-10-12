@@ -6,16 +6,21 @@ import lombok.*;
 
 @Getter
 @Setter
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 public class CommercialCardBookingDto {
+
+    private Double usageCount;
+
     private String bookingUuid;
 
-    private CommercialCardBooking bookingStatus;
+    private String commandCenterUuid;
 
     private String commercialCardUuid;
 
     private CommercialCardStatus cardStatus;
+
+    private CommercialCardBooking bookingStatus;
 
 }

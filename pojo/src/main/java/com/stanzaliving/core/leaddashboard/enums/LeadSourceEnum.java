@@ -134,10 +134,8 @@ public enum LeadSourceEnum {
     TEAMS_PAGE("Teams page", LeadSourceGroupEnum.DIGITAL),
     TEAMS_WEB_CHATBOT("Teams Web Chatbot", LeadSourceGroupEnum.DIGITAL),
     TERMS_CONDITION_PAGE("Terms Condition Page", LeadSourceGroupEnum.DIGITAL),
-
     TERMS_CONDITION_WEB_CHATBOT("Terms Condition Web Chatbot", LeadSourceGroupEnum.DIGITAL),
     TENANTO("Tenanto", LeadSourceGroupEnum.AFFILIATE),
-
     UNATTRIBUTED("Unattributed", LeadSourceGroupEnum.OTHERS),
     UTM_SOURCE("utmSource", LeadSourceGroupEnum.OTHERS),
     VANTAGE_CIRCLE("Vantage Circle", LeadSourceGroupEnum.AFFILIATE),
@@ -153,7 +151,6 @@ public enum LeadSourceEnum {
     WHATSAPP("Whatsapp", LeadSourceGroupEnum.DIGITAL),
     WHATSAPP_WEBSITE("Whatsapp-Website", LeadSourceGroupEnum.DIGITAL),
     WISHLIST_PAGE("Wishlist Page", LeadSourceGroupEnum.DIGITAL),
-
     WISHLIST_WEB_CHATBOT("Wishlist Web Chatbot", LeadSourceGroupEnum.DIGITAL),
     ZOHO("zoho", LeadSourceGroupEnum.OTHERS),
     UNLOCK_DISCOUNT_FORM("Website-Discount", LeadSourceGroupEnum.DIGITAL);
