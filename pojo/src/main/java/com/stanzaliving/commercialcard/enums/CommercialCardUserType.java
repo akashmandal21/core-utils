@@ -13,7 +13,7 @@ import java.util.Map;
 @ToString
 public enum CommercialCardUserType {
     SCHOLAR("SCHOLAR"), SUITES("SUITES"), MANAGED_APARTMENT("MANAGED_APARTMENT"), MANAGED_APARTMENTS("MANAGED_APARTMENTS"),
-    ALL("ALL"), PROFESSIONAL("PROFESSIONAL");
+    ALL("ALL"), PROFESSIONAL("PROFESSIONAL"),SHORT_STAY("SHORT_STAY");
 
     private final String commercialCardUserType;
 
