@@ -396,4 +396,12 @@ public class StanzaUtils {
 	public String getTimeStampConcatenatedFileName(MultipartFile multipartFile) {
 		return getTimeStampConcatenatedFileName(multipartFile.getOriginalFilename());
 	}
+
+	public String performReplacement(String original, String search, String replace) {
+		try {
+			return original.replaceAll(search, replace);
+		} catch (Exception e) {
+			return original;
+		}
+	}
 }
