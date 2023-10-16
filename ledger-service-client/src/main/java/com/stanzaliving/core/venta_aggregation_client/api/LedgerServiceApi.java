@@ -53,7 +53,7 @@ public class LedgerServiceApi {
             log.info("Executing Api for getting residence Info with Url {}", path);
             return this.restClient.invokeAPI(path, HttpMethod.GET, queryParams, null, headerParams, accept, returnType);
         } catch (Exception e) {
-            log.error("Exception while fetching ledger information based on referenceId {}, Exception is ", e);
+            log.error("Exception while fetching ledger information based on referenceId {}, Exception is {}", referenceId, e.getMessage(), e);
         }
         return null;
     }

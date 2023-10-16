@@ -456,7 +456,7 @@ public class PaymentPlanClientApi {
 
     }
 
-    public void raiseCreditOrDebitNoteForModifyContract(String referenceId, List<PaymentPlan> oldPaymentPlan,  LocalDate modificationDate) {
+    public void raiseCreditOrDebitNoteForModifyContract(String referenceId, List<PaymentPlan> oldPaymentPlan, LocalDate modificationDate) {
         try {
             Object postBody = oldPaymentPlan;
 
@@ -472,7 +472,6 @@ public class PaymentPlanClientApi {
 
             final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
             queryParams.add("modificationDate", modificationDate.toString());
-
             HttpHeaders headerParams = new HttpHeaders();
 
             final String[] accepts = {"*/*"};

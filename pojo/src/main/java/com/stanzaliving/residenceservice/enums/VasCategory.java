@@ -1,11 +1,18 @@
 package com.stanzaliving.residenceservice.enums;
 
 import com.stanzaliving.operations.enums.ServiceMixServiceType;
+
+import com.stanzaliving.operations.enums.ServiceMixServiceType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import static com.stanzaliving.residenceservice.enums.VasCategory.getServiceMixType;
 
 @Getter
 @AllArgsConstructor

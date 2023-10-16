@@ -1688,6 +1688,47 @@ public class BookingDataControllerApi {
 
     }
 
+    public ResponseDto<BookingConfirmationDto> getBookingsEligibleForConfirmation() {
+
+        Object postBody = null;
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/internal/v1/booking/eligible-for-confirmation").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<BookingConfirmationDto>> returnType = new ParameterizedTypeReference<ResponseDto<BookingConfirmationDto>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, accept, returnType);
+    }
+
+    public ResponseDto<BookingConfirmationResponseDto> confirmRofrBookings(BookingConfirmationDto bookingConfirmationDto) {
+
+        Object postBody = bookingConfirmationDto;
+
+        final Map<String, Object> uriVariables = new HashMap<>();
+
+        String path = UriComponentsBuilder.fromPath("/booking/v1/confirm-rofr-bookings").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+
+        HttpHeaders headerParams = new HttpHeaders();
+
+        final String[] accepts = {"*/*"};
+        final List<MediaType> accept = restClient.selectHeaderAccept(accepts);
+
+        ParameterizedTypeReference<ResponseDto<BookingConfirmationResponseDto>> returnType = new ParameterizedTypeReference<ResponseDto<BookingConfirmationResponseDto>>() {
+        };
+        return restClient.invokeAPI(path, HttpMethod.POST, queryParams, postBody, headerParams, accept, returnType);
+    }
+
     public void updateONMCorrectionFailureLogs(String bookingUuid, String failureMessage) {
         String responseDto = null;
         final Map<String, Object> uriVariables = new HashMap<>();
@@ -1807,5 +1848,4 @@ public class BookingDataControllerApi {
 
         }
     }
-
 }

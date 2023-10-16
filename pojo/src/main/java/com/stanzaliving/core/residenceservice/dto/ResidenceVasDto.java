@@ -38,4 +38,5 @@ public class ResidenceVasDto {
 
 	private VasCategory vasCategory;
 
+	private String planUuid;
 }

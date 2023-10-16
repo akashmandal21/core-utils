@@ -52,7 +52,7 @@ public enum ResidenceAttributes {
     BOOKING_AMOUNT_REALISATION_ENABLED("Booking Amount Realisation Enabled", "Boolean"),
     BOOKING_AUTO_FORFEITURE_DURATION_IN_DAYS("Booking Auto Forfeiture Duration in Days", "Integer"),
     MAX_ALLOWED_DAYS_AFTER_BOOKING_FORFEITURE("Max Allowed Days After Booking Forfeiture", "Integer"),
-    ;
+    ONE_MONTH_BOOKING_ENABLED("One Month Booking Enabled", "Boolean");
 
     private static final Map<ResidenceAttributes, String> getType = new HashMap<>();
     private static final Map<ResidenceAttributes, String> getLabel = new HashMap<>();
@@ -89,6 +89,7 @@ public enum ResidenceAttributes {
         residenceAttributes.add(PRE_BOOKING_START_DATE);
         residenceAttributes.add(RETENTION_MIN_TOKEN_AMOUNT);
         residenceAttributes.add(EXIT_PROCESSING_FEE);
+        residenceAttributes.add(BOOKING_RENEWAL_COUNTDOWN_HOURS);
         residenceAttributes.add(BOOKING_AMOUNT_REALISATION_ENABLED);
         residenceAttributes.add(FUTURE_BOOKING_ALLOWED_DAYS);
         return residenceAttributes;
