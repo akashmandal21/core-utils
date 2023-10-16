@@ -9,7 +9,8 @@ import lombok.Getter;
 public enum BookingType {
 
     PROFESSIONAL("Working Professional"),
-    SCHOLAR("Student");
+    SCHOLAR("Student"),
+    SHORT_STAY("SHORT_STAY");
 
     private String type;
 }

@@ -20,7 +20,8 @@ public enum BookingType {
     B2C_RETENTION("B2C-Retention" , 3),
     MANAGED_APARTMENT("Managed Apartment",6),
     SUITS("Suits", 7),
-    EMPTY("Empty", 8);
+    EMPTY("Empty", 8),
+    SHORT_STAY("SHORT_STAY", 9);
 
     private String type;
     int value;
